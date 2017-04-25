@@ -5,12 +5,7 @@ body{font-size:14px; font-family:"微软雅黑" !important;background-color: #f7
 button {outline: none !important;}
 html,body,div,ul,ol,li,dl,dt,dd,p,span,em,strong,b,i,h1,h2,h3,h4,form,input,button,textarea,select,option,img,a{ margin:0; padding:0}
 ul,ol,dl,dt,dd,p,img{ display:block; border:0}
-a{ text-decoration:none; outline:none !important; color:#4d96ce;}
-a a:link { text-decoration:none; color:#4d96ce;}
-a a:visited { text-decoration:none; color:#4d96ce;}
-a a:hover { text-decoration:none; color:#4d96ce;}
-a a:active { text-decoration:none; color:#4d96ce;}
-a{ blr:expression(this.onFocus=this.blur()); /* IE Opera */ outline:none; /* FF Opera */ } 
+
 a:focus{ -moz-outline-style: none; /* FF */ } 
 li{ display:block; list-style:none}
 textarea{resize: none;outline: none}
@@ -51,3 +46,17 @@ input{outline: none;}
 .brain_ico_seek{ background-position:0px -21px; width:17px; height:16px; display:block; float:right; margin-right:12px; margin-top:5px; cursor:pointer;}
 .table_seek input{ width:255px; height:28px; margin-left:10px; border:0; text-indent:5px;}
 .bj_fff{ background-color:#fff;}
+.block .table_style > thead > tr > th { text-align:center; font-weight: 100;border-bottom: 1px solid #f0f0f0; padding-top:16px; padding-bottom:16px;}
+.block .table_style > tbody  > tr > td { text-align:center; font-weight: 100;border-bottom: 1px solid #f0f0f0;}
+.border_l{border-left:1px solid #f0f0f0;}
+.block .table_style th, .block .table_style td {
+    vertical-align: middle; text-align:center;
+    box-sizing: border-box;
+}
+.line_h{ line-height:28px;}
+.list_table_td{text-align:left;}
+.list_table_td img,.list_table_td ul{ float:left;}
+.list_table_td ul{ float:left; margin-left:10px;}
+.list_table_td a{ color:#333;}
+.list_table_td a:hover{ color:#1ed2ff; text-decoration:none;}
+.boder_all table{ border:1px solid #f0f0f0;}
