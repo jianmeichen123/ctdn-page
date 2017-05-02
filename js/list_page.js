@@ -101,7 +101,7 @@ $('body').delegate('.industry_list ul li','click',function(){
 			$('#click_list').append('<li class="pick_on industry_'+i+j+' self_'+i+j+k+' three_'+i+'" industry="3" clock_name = "self_'+i+j+k+'">'+click_name+'<span class="brain_ico brain_ico_close"></span></li>');
 		}
 	}
-		
+	$('#industry_one').removeClass('pick_on');	
 	
 });
 
@@ -109,15 +109,38 @@ $('body').delegate('.industry_list ul li','click',function(){
 $('body').delegate('#click_list li .brain_ico_close','click',function(){
 	var industry = $(this).parent().attr('industry');
 	var clock_name = $(this).parent().attr('clock_name');
+	var pick_on_length = $('#click_list li').length;
 	$(this).parent().remove();
-	if(industry == 1){
-		$('#one_industry .'+clock_name+'').removeClass('click_class');
-	}else if(industry == 2){
-		$('#two_industry .'+clock_name+'').removeClass('click_class');
-	
+	if(pick_on_length == 1){
+		if(industry == 1){
+			$('#one_industry .'+clock_name+'').removeClass('click_class');
+		}else if(industry == 2){
+			$('#two_industry .'+clock_name+'').removeClass('click_class');
+		
+		}else{
+			$('.'+clock_name+'').removeClass('click_class');
+		}
+		$('#industry_one').addClass('pick_on');
 	}else{
-		$('.'+clock_name+'').removeClass('click_class');
+		if(industry == 1){
+			$('#one_industry .'+clock_name+'').removeClass('click_class');
+		}else if(industry == 2){
+			$('#two_industry .'+clock_name+'').removeClass('click_class');
+		
+		}else{
+			$('.'+clock_name+'').removeClass('click_class');
+		}
 	}
+	
+})
+//所属行业  选择全部
+$('body').delegate('#industry_one','click', function(event){
+	event.stopPropagation();
+	$('#click_list').html('');
+	$(this).addClass('pick_on');
+	$('#one_industry li').removeClass('click_class');
+	$('#two_industry li').removeClass('click_class');
+	$('#three_industry li').removeClass('click_class')
 })
 //点击选择行业
 /*$('.click_industry_show').delegate('.click_industry_show','mouseenter',function(){
@@ -149,3 +172,67 @@ $("ul[data-query]").each(function(i,e){
         })
     }
 });
+
+
+//公用选择事件、不包含所属行业
+$('body').delegate('.block .condition_all_ul li','click', function(event){
+	event.stopPropagation();	
+	var click_this =$(this).index();
+	if(click_this == 0){
+		$(this).parent().children('li').removeClass('pick_on');
+		$(this).parent().children('li').first().addClass('pick_on');
+	}else{
+		$(this).parent().children('li').first().removeClass('pick_on');
+		$(this).addClass('pick_on');
+	}	
+})
+//公用点击删除
+$('body').delegate('.block .condition_all_ul li .brain_ico_bj','click', function(event){	
+	event.stopPropagation(); 
+	$(this).parent().removeClass('pick_on');
+	var pick_on_length = $(this).parent().parent().children('.pick_on').length;
+	if(pick_on_length == 0){
+		$(this).parent().parent().children('li').first().addClass('pick_on');
+	}
+})
+
+//地区选择
+sendGetRequest(
+	'http://10.9.130.143:8081/api/common/district', 
+	null,
+	function(data) {
+		if (data.status == '10000') {
+			var global_all = '<li class="pick_on">全部</li>';
+			var global_overseas ='<li class="pick_on">全部</li>';
+			var global_inland ='<li class="pick_on">全部</li>';
+			var list = data.data;
+			for(var i = 0; i< list.length; i++){
+				global_all +='<li global-id="'+list[i].id+'" class="global_mousemove ">'+list[i].name+'<span class="brain_ico brain_ico_bj"></span></li>';				
+			}
+			for(var j = 0; j< list[0].children.length; j++){
+				global_overseas +='<li global-id="'+list[0].children[j].id+'">'+list[0].children[j].name+'<span class="brain_ico brain_ico_bj"></span></li>';
+			}
+			for(var k = 0; k< list[1].children.length; k++){
+				global_inland +='<li global-id="'+list[1].children[k].id+'">'+list[1].children[k].name+'<span class="brain_ico brain_ico_bj"></span></li>';
+			}
+			$('#global_all').html(global_all);
+			$('#global_overseas').html(global_overseas)
+			$('#global_inland').html(global_inland)
+			console.log(data)
+		} else {
+			
+		}
+		
+})
+//地区选择事件
+$('body').delegate('.global_mousemove','mousemove', function(event){	
+	event.stopPropagation(); 
+	var global_id = $(this).attr('global-id');
+	if(global_id =='35'){
+		$('#global_overseas').show();	
+		$('#global_inland').hide();
+	}else if(global_id =='45057'){
+		$('#global_inland').show();	
+		$('#global_overseas').hide();
+	}
+})
