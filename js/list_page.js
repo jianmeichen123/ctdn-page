@@ -6,7 +6,7 @@ var data={
 
 */
 
-sendGetRequest("http://10.9.130.143/common/comQuery.json",function(cData){
+sendGetRequest("http://10.9.130.143:8081/api/common/comQuery",function(cData){
     data = cData
 })
 console.log(data)
@@ -18,16 +18,19 @@ for(var i=0; i<d_list.length; i++){
 	one_li +='<li data-val="'+d_list[i].id +' " class="one_'+i+' industry_'+i+'" industry="1" data_name="name_'+i+'" data_i="'+i+'" >'+d_list[i].name+'</li>';
 	var child_two = d_list[i].children;
 	
-	//所有的二级行业
-	for(var j=0; j<child_two.length; j++){
-		two_ul +='<li data-val="'+child_two[j].id +' " class="two_'+i+' name_'+i+' none industry_'+i+j+'" data_name="name_'+i+j+'" industry="2" data_i="'+i+'" data_j="'+j+'">'+child_two[j].name+'</li>';
-/*		var child_three = child_two[j].child;
+    if(child_two){
+    	//所有的二级行业
+    	for(var j=0; j<child_two.length; j++){
+    		two_ul +='<li data-val="'+child_two[j].id +' " class="two_'+i+' name_'+i+' none industry_'+i+j+'" data_name="name_'+i+j+'" industry="2" data_i="'+i+'" data_j="'+j+'">'+child_two[j].name+'</li>';
+    /*		var child_three = child_two[j].child;
 
-		//所有的三级行业
-		for(var k=0; k<child_three.length; k++){
-			three_ul +='<li class="three_'+i+' self_'+i+j+k+' name_'+i+j+' none industry_'+i+j+'" data_name="name_'+i+j+'" industry="3" data_i="'+i+'" data_j="'+j+'" data_k="'+k+'">'+child_three[k].title+'</li>';
-		}*/
-	}
+    		//所有的三级行业
+    		for(var k=0; k<child_three.length; k++){
+    			three_ul +='<li class="three_'+i+' self_'+i+j+k+' name_'+i+j+' none industry_'+i+j+'" data_name="name_'+i+j+'" industry="3" data_i="'+i+'" data_j="'+j+'" data_k="'+k+'">'+child_three[k].title+'</li>';
+    		}*/
+    	}
+
+    }
 
 }
 $('#one_industry').html(one_li);
@@ -132,4 +135,17 @@ $(".click_industry_show").mouseenter(function(){
 });
 $(".click_industry_show").mouseleave(function(){
 	$('.industry_list').hide();
+});
+//普通展示
+$("ul[data-query]").each(function(i,e){
+    var o  = $(e)
+    var arr = o.attr("data-query")
+    var name = arr.split(":")[0]
+    var type = arr.split(":")[1]
+    if (type == "normal"){
+        $(data["data"][name]).each(function(i,e){
+            o.append('<li class="pick_on" data-id="'+e.id+'">'+e.name+'<span class="brain_ico brain_ico_bj"></span></li>')
+
+        })
+    }
 });
