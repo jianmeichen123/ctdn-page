@@ -1,90 +1,32 @@
 var data={
 
-    "data":[
-        {
-            "id":"163",
-            "title":"电脑数码",
-            "parent_id":"0",
-            "child":[
-                {
-                    "id":"165",
-                    "title":"手机通讯",
-                    "parent_id":"163",
-                    "child":[
-                        {
-                            "id":"389",
-                            "title":"智能手机",
-                            "parent_id":"165"
-                        },
-                        {
-                            "id":"5322",
-                            "title":"合约机",
-                            "parent_id":"165"
-                        }
-                    ]
-                },
-                {
-                    "id":"169",
-                    "title":"摄影摄像",
-                    "parent_id":"163",
-                    "child":[
-                        {
-                            "id":"403",
-                            "title":"相机",
-                            "parent_id":"169"
-                        },
-                        {
-                            "id":"416",
-                            "title":"镜头",
-                            "parent_id":"169"
-                        }
-                    ]
-                }
-            ]
-        },
-        {
-            "id":"27",
-            "title":"家用电器",
-            "parent_id":"0",
-            "child":[
-                {
-                    "id":"29",
-                    "title":"大家电",
-                    "parent_id":"27",
-                    "child":[
-                        {
-                            "id":"1225",
-                            "title":"电视",
-                            "parent_id":"29"
-                        }
-                    ]
-                }
-            ]
-        }
-    ]
-
 }
 /**
 根据数据循环出说有的分类 分别放入到3个ul里面 隐藏二级 三级行业
 
 */
-var d_list =data.data;
+
+sendGetRequest("http://10.9.130.143/common/comQuery.json",function(cData){
+    data = cData
+})
+console.log(data)
+var d_list = data.data.industry;
 var one_li = ''
 var two_ul = ''
 var three_ul = ''
 for(var i=0; i<d_list.length; i++){
-	one_li +='<li class="one_'+i+' industry_'+i+'" industry="1" data_name="name_'+i+'" data_i="'+i+'" >'+d_list[i].title+'</li>';
-	var child_two = d_list[i].child;
+	one_li +='<li data-val="'+d_list[i].id +' " class="one_'+i+' industry_'+i+'" industry="1" data_name="name_'+i+'" data_i="'+i+'" >'+d_list[i].name+'</li>';
+	var child_two = d_list[i].children;
 	
 	//所有的二级行业
 	for(var j=0; j<child_two.length; j++){
-		two_ul +='<li class="two_'+i+' name_'+i+' none industry_'+i+j+'" data_name="name_'+i+j+'" industry="2" data_i="'+i+'" data_j="'+j+'">'+child_two[j].title+'</li>';
-		var child_three = child_two[j].child;
-		
+		two_ul +='<li data-val="'+child_two[j].id +' " class="two_'+i+' name_'+i+' none industry_'+i+j+'" data_name="name_'+i+j+'" industry="2" data_i="'+i+'" data_j="'+j+'">'+child_two[j].name+'</li>';
+/*		var child_three = child_two[j].child;
+
 		//所有的三级行业
 		for(var k=0; k<child_three.length; k++){
 			three_ul +='<li class="three_'+i+' self_'+i+j+k+' name_'+i+j+' none industry_'+i+j+'" data_name="name_'+i+j+'" industry="3" data_i="'+i+'" data_j="'+j+'" data_k="'+k+'">'+child_three[k].title+'</li>';
-		}
+		}*/
 	}
 
 }
