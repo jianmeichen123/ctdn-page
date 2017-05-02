@@ -144,7 +144,7 @@ $("ul[data-query]").each(function(i,e){
     var type = arr.split(":")[1]
     if (type == "normal"){
         $(data["data"][name]).each(function(i,e){
-            o.append('<li class="pick_on" data-id="'+e.id+'">'+e.name+'<span class="brain_ico brain_ico_bj"></span></li>')
+            o.append('<li  data-id="'+e.id+'">'+e.name+'<span class="brain_ico brain_ico_bj"></span></li>')
 
         })
     }
