@@ -202,7 +202,6 @@ sendGetRequest("http://10.9.130.143:8081/api/common/district",function(data){
 	var global_overseas ='<li class="pick_on">全部</li>';
 	var global_inland ='<li class="pick_on">全部</li>';
 	var list = data.data;
-	console.log(list)
 	for(var i = 0; i< list.length; i++){
 		global_all +='<li global-id="'+list[i].id+'" class="global_mousemove ">'+list[i].name+'<span class="brain_ico brain_ico_bj"></span></li>';				
 	}
