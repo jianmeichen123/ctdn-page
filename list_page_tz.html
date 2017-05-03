@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="utf-8">
-<title>投资事件</title>
+<title>投资机构</title>
 <!--basis-->
 <link rel="stylesheet" type="text/css" href="css/basis.css">
 <link rel="stylesheet" type="text/css" href="bootstrap-3.3.7/dist/css/bootstrap.css">
@@ -81,13 +81,7 @@
 			
 		
 			<!--行业选择end-->
-			<ul class="column_ul">
-				<li class="column_ul_on">投资事件</li>
-				<li>并购事件</li>
-				<li>上市挂牌</li>
-				<li>退出事件</li>
-			</ul>
-			<div class="condition_all">
+			<div class="condition_all_no">
 				<div class="block_industry">
 					<span class="classify">所属行业</span>
 					<ul class="condition_all_ul">
@@ -113,9 +107,22 @@
 				</div>
 				
 				<div class="block">
-					<span class="classify">投资轮次</span>
+					<span class="classify">投资阶段</span>
 					<ul class="condition_all_ul" data-query="investRound:normal">
 						<li class="pick_on">全部</li>
+					</ul>
+				</div>
+				<div class="block">
+					<span class="classify">机构类型</span>
+					<ul class="condition_all_ul">
+						<li class="pick_on">全部</li>
+						<li>PE<span class="brain_ico brain_ico_bj"></span></li>
+						<li>券商直投<span class="brain_ico brain_ico_bj"></span></li>
+						<li>战略投资者<span class="brain_ico brain_ico_bj"></span></li>
+						<li>VC<span class="brain_ico brain_ico_bj"></span></li>
+						<li>天使投资 <span class="brain_ico brain_ico_bj"></span></li>
+						<li>FOFs<span class="brain_ico brain_ico_bj"></span></li>
+						<li>其他<span class="brain_ico brain_ico_bj"></span></li>
 					</ul>
 				</div>
 				
@@ -141,7 +148,7 @@
 				</div>
 				
 				<div class="block switch_condition">
-					<span class="classify">投资币种</span>
+					<span class="classify">资本币种</span>
 					<ul class="condition_all_ul" data-query="currencyType:normal">
 						<li class="pick_on">全部</li>
 					</ul>
@@ -168,29 +175,28 @@
 				<table class="table bj_fff table_style">
 				   <thead>
 					  <tr>
-						 <th><div>时间</div></th>
-						 <th><div class="border_l">融资公司</div></th>
-						 <th><div class="border_l">轮次</div></th>
-						 <th><div class="border_l">融资额</div></th>
-						 <th><div class="border_l">投资方</div></th>
-						 <th><div class="border_l">详情</div></th>
+						 <th><div>投资机构</div></th>
+						 <th><div class="border_l">机构类型</div></th>
+						 <th><div class="border_l">总投资笔数</div></th>
+						 <th><div class="border_l"><ul><li>投资笔数</li><li>上月环比</li></ul></div></th>
+						 <th><div class="border_l">投资总额</div></th>
+						 <th><div class="border_l"><ul><li>投资额度</li><li>上月环比</li></ul></div></th>							
+						 <th><div class="border_l">最近投资项目</div></th>
 					  </tr>
 				   </thead>
 				   <tbody>
 					  <tr>
-						 <td>2017-1-21</td>
 						 <td>
 						 	<div class="list_table_td">
 								<img src="img/log.png">
-								<ul class="col_999">
-									<li><a href="#">大象洗鞋馆</a></li>
-									<li>北京    电子商务 > 综合电商</li>
-									
-								</ul>
+								<span class="col_999"><a href="#">大象洗鞋馆</a></span>	
 							</div>
 						 </td>
-						 <td>Pre-A轮</td>
+						 <td>VC</td>
+						 <td>10</td>
+						 <td><span class="brain_ico brain_ico_up_arrows"></span>+10%</td>
 						 <td>亿元及以上人民币</td>
+						 <td><span class="brain_ico brain_ico_down_arrows"></span>-12%</td>
 						 <td>
 						 	<ul>
 								<li>电量兴业</li>
@@ -198,76 +204,6 @@
 								<li>电量兴业</li>
 							</ul>
 						 </td>
-						 <td>详情</td>
-					  </tr>
-					  <tr>
-						 <td>2017-1-21</td>
-						 <td>
-						 	<div class="list_table_td">
-								<img src="img/log.png">
-								<ul class="col_999">
-									<li><a href="#">大象洗鞋馆</a></li>
-									<li>北京    电子商务 > 综合电商</li>
-									
-								</ul>
-							</div>
-						 </td>
-						 <td>Pre-A轮</td>
-						 <td>亿元及以上人民币</td>
-						 <td>
-						 	<ul>
-								<li>电量兴业</li>
-								<li>电量兴业</li>
-								<li>电量兴业</li>
-							</ul>
-						 </td>
-						 <td>详情</td>
-					  </tr>
-					  <tr>
-						 <td>2017-1-21</td>
-						 <td>
-						 	<div class="list_table_td">
-								<img src="img/log.png">
-								<ul class="col_999">
-									<li><a href="#">大象洗鞋馆</a></li>
-									<li>北京    电子商务 > 综合电商</li>
-									
-								</ul>
-							</div>
-						 </td>
-						 <td>Pre-A轮</td>
-						 <td>亿元及以上人民币</td>
-						 <td>
-						 	<ul>
-								<li>电量兴业</li>
-								<li>电量兴业</li>
-								<li>电量兴业</li>
-							</ul>
-						 </td>
-						 <td>详情</td>
-					  </tr>
-					  <tr>
-						 <td>2017-1-21</td>
-						 <td>
-						 	<div class="list_table_td">
-								<img src="img/log.png">
-								<ul class="col_999">
-									<li><a href="#">大象洗鞋馆</a></li>
-									<li>北京    电子商务 > 综合电商</li>
-									
-								</ul>
-							</div>
-						 </td>
-						 <td>Pre-A轮</td>
-						 <td>亿元及以上人民币</td>
-						 <td>
-						 	<ul>
-								<li>电量兴业</li>
-								<li>电量兴业</li>
-								<li>电量兴业</li>
-							</ul>
-						 </td>
-						 <td>详情</td>
 					  </tr>
 				   </tbody>
 				</table>
