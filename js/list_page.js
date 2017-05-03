@@ -9,7 +9,6 @@ var data={
 sendGetRequest("http://10.9.130.143:8081/api/common/comQuery",function(cData){
     data = cData
 })
-console.log(data)
 var d_list = data.data.industry;
 var one_li = ''
 var two_ul = ''
@@ -57,7 +56,8 @@ $('body').delegate('.industry_list ul li','click',function(){
 	var data_name = $(this).attr('data_name');
 	var i = $(this).attr('data_i');
 	var j = $(this).attr('data_j');
-	var k = $(this).attr('data_k')
+	var k = $(this).attr('data_k');
+	var id =$(this).attr('data-val');
 	var click_name = $(this).text();
 	
 	/***
@@ -74,7 +74,7 @@ $('body').delegate('.industry_list ul li','click',function(){
 			$('.two_'+i+'').removeClass('click_class');
 			$('.three_'+i+'').removeClass('click_class');
 			$(this).addClass('click_class');
-			$('#click_list').append('<li class="pick_on one_'+i+'" industry="1" clock_name = "one_'+i+'">'+click_name+'<span class="brain_ico brain_ico_close"></span></li>');
+			$('#click_list').append('<li class="pick_on one_'+i+'" data-id="'+id+'" industry="1" clock_name = "one_'+i+'">'+click_name+'<span class="brain_ico brain_ico_close"></span></li>');
 		}
 		
 	}else if(industry == 2){
@@ -86,7 +86,7 @@ $('body').delegate('.industry_list ul li','click',function(){
 			$('#one_industry .industry_'+i+'').removeClass('click_class');
 			$('#three_industry .industry_'+i+j+'').removeClass('click_class');
 			$(this).addClass('click_class');
-			$('#click_list').append('<li class="pick_on industry_'+i+j+' two_'+i+'" industry="2" clock_name = "industry_'+i+j+'">'+click_name+'<span class="brain_ico brain_ico_close"></span></li>');
+			$('#click_list').append('<li class="pick_on industry_'+i+j+' two_'+i+'" data-id="'+id+'" industry="2" clock_name = "industry_'+i+j+'">'+click_name+'<span class="brain_ico brain_ico_close"></span></li>');
 		}
 	}else{
 		$('#click_list .one_'+i+'').remove()
@@ -98,7 +98,7 @@ $('body').delegate('.industry_list ul li','click',function(){
 			$('#one_industry .industry_'+i+'').removeClass('click_class');
 			$('#two_industry .industry_'+i+j+'').removeClass('click_class');
 			$(this).addClass('click_class');
-			$('#click_list').append('<li class="pick_on industry_'+i+j+' self_'+i+j+k+' three_'+i+'" industry="3" clock_name = "self_'+i+j+k+'">'+click_name+'<span class="brain_ico brain_ico_close"></span></li>');
+			$('#click_list').append('<li class="pick_on industry_'+i+j+' data-id="'+id+'" self_'+i+j+k+' three_'+i+'" industry="3" clock_name = "self_'+i+j+k+'">'+click_name+'<span class="brain_ico brain_ico_close"></span></li>');
 		}
 	}
 	$('#industry_one').removeClass('pick_on');	
@@ -197,25 +197,22 @@ $('body').delegate('.block .condition_all_ul li .brain_ico_bj','click', function
 })
 
 //地区选择
-sendGetRequest("http://10.9.130.143:8081/api/common/district",function(data){
-	var global_all = '<li class="pick_on">全部</li>';
-	var global_overseas ='<li class="pick_on">全部</li>';
-	var global_inland ='<li class="pick_on">全部</li>';
-	var list = data.data;
-	for(var i = 0; i< list.length; i++){
-		global_all +='<li global-id="'+list[i].id+'" class="global_mousemove ">'+list[i].name+'<span class="brain_ico brain_ico_bj"></span></li>';				
-	}
-	for(var j = 0; j< list[0].children.length; j++){
-		global_overseas +='<li global-id="'+list[0].children[j].id+'">'+list[0].children[j].name+'<span class="brain_ico brain_ico_bj"></span></li>';
-	}
-	for(var k = 0; k< list[1].children.length; k++){
-		global_inland +='<li global-id="'+list[1].children[k].id+'">'+list[1].children[k].name+'<span class="brain_ico brain_ico_bj"></span></li>';
-	}
-	$('#global_all').html(global_all);
-	$('#global_overseas').html(global_overseas)
-	$('#global_inland').html(global_inland)
-	console.log(data)
-})
+var global_all = '<li class="pick_on">全部</li>';
+var global_overseas ='<li class="pick_on">全部</li>';
+var global_inland ='<li class="pick_on">全部</li>';
+var list = data.data.district;
+for(var i = 0; i< list.length; i++){
+    global_all +='<li global-id="'+list[i].id+'" data-id="'+list[i].id+'" class="global_mousemove ">'+list[i].name+'<span class="brain_ico brain_ico_bj"></span></li>';
+}
+for(var j = 0; j< list[0].children.length; j++){
+    global_overseas +='<li global-id="'+list[0].children[j].id+'" data-id="'+list[0].children[j].id+'">'+list[0].children[j].name+'<span class="brain_ico brain_ico_bj"></span></li>';
+}
+for(var k = 0; k< list[1].children.length; k++){
+    global_inland +='<li global-id="'+list[1].children[k].id+'" data-id="'+list[1].children[k].id+'">'+list[1].children[k].name+'<span class="brain_ico brain_ico_bj"></span></li>';
+}
+$('#global_all').html(global_all);
+$('#global_overseas').html(global_overseas)
+$('#global_inland').html(global_inland)
 
 //地区选择事件
 $('body').delegate('.global_mousemove','mousemove', function(event){	
