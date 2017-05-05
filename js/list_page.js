@@ -223,7 +223,6 @@ $('#global_list').html(global_list)
 //国内切换点击事件
 $('body').delegate('#global_all li','click', function(event){	
 	event.stopPropagation(); 
-	$('#global_all li').removeClass('pick_on');
 	var click_this =$(this).index();
 	var click_id = $(this).attr('global-id')
 	$("[global-id='"+click_id+"']").removeClass('pick_on');
@@ -232,11 +231,14 @@ $('body').delegate('#global_all li','click', function(event){
 	console.log(click_id)
 	//$('[global-id="'+click_id+'"]').removeClass('pick_on');
 	if(click_this == 0){
+		$('#global_all li').removeClass('pick_on');
 		$(".block_list .condition_all_ul li").removeClass('pick_on');
 		$(".block_list .condition_all_ul").each(function(i){
 			$(this).children('li').first().addClass('pick_on');
 		});
 		$(".block_list").hide();
+	}else{
+		$("#global_all li").first().removeClass('pick_on');
 	}
 	_query();
 })
