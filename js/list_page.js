@@ -203,33 +203,96 @@ $('body').delegate('.block .condition_all_ul li .brain_ico_bj','click', function
 
 //地区选择
 var global_all = '<li class="pick_on">全部</li>';
-var global_overseas ='<li class="pick_on">全部</li>';
-var global_inland ='<li class="pick_on">全部</li>';
+var global_list = '';
 var list = data.data.district;
 for(var i = 0; i< list.length; i++){
     global_all +='<li global-id="'+list[i].id+'" data-id="'+list[i].id+'" class="global_mousemove ">'+list[i].name+'<span class="brain_ico brain_ico_bj"></span></li>';
-}
-for(var j = 0; j< list[0].children.length; j++){
-    global_overseas +='<li global-id="'+list[0].children[j].id+'" data-id="'+list[0].children[j].id+'">'+list[0].children[j].name+'<span class="brain_ico brain_ico_bj"></span></li>';
-}
-for(var k = 0; k< list[1].children.length; k++){
-    global_inland +='<li global-id="'+list[1].children[k].id+'" data-id="'+list[1].children[k].id+'">'+list[1].children[k].name+'<span class="brain_ico brain_ico_bj"></span></li>';
+    global_list +='<div class="block_list" global-list="'+list[i].id+'">';
+    global_list +='<ul class="condition_all_ul">';
+    global_list +='<li class="pick_on" global-id="'+list[i].id+'">全部</li>';
+    for(var j = 0; j< list[i].children.length; j++){
+    	global_list +='<li global-id="'+list[i].id+'" data-id="'+list[i].children[j].id+'">'+list[i].children[j].name+'<span class="brain_ico brain_ico_bj"></span></li>';
+    }
+    global_list +='</ul>';
+    global_list +='</div>';
 }
 $('#global_all').html(global_all);
-$('#global_overseas').html(global_overseas)
-$('#global_inland').html(global_inland)
+$('#global_list').html(global_list)
 
-//地区选择事件
+
+//国内切换点击事件
+$('body').delegate('#global_all li','click', function(event){	
+	event.stopPropagation(); 
+	$('#global_all li').removeClass('pick_on');
+	var click_this =$(this).index();
+	var click_id = $(this).attr('global-id')
+	$("[global-id='"+click_id+"']").removeClass('pick_on');
+	$(this).addClass('pick_on');
+	$("[global-list='"+click_id+"'] li").first().addClass('pick_on');
+	console.log(click_id)
+	//$('[global-id="'+click_id+'"]').removeClass('pick_on');
+	if(click_this == 0){
+		$(".block_list .condition_all_ul li").removeClass('pick_on');
+		$(".block_list .condition_all_ul").each(function(i){
+			$(this).children('li').first().addClass('pick_on');
+		});
+		$(".block_list").hide();
+	}
+	_query();
+})
+//地区选择list事件
+$('body').delegate('.block_list .condition_all_ul li','click', function(event){
+	event.stopPropagation();	
+	var click_this =$(this).index();
+	var global_id = $(this).attr('global-id');
+	$("#global_all [global-id='"+global_id+"']").removeClass('pick_on');
+	if(click_this == 0){
+		$(this).parent().children('li').removeClass('pick_on');
+		$(this).parent().children('li').first().addClass('pick_on');
+	}else{
+		$(this).parent().children('li').first().removeClass('pick_on');
+		$(this).addClass('pick_on');
+		$('#global_all').children('li').first().removeClass('pick_on');
+		
+	}
+	_query();
+})
+//地区选择list删除
+$('body').delegate('.block_list .condition_all_ul li .brain_ico_bj','click', function(event){	
+	event.stopPropagation(); 
+	$(this).parent().removeClass('pick_on');
+	var pick_on_length = $(this).parent().parent().children('.pick_on').length;
+	if(pick_on_length == 0){
+		$(this).parent().parent().children('li').first().addClass('pick_on');
+	}
+	_query();
+})
+//地区选择list删除
+$('body').delegate('.block_list .condition_all_ul li .brain_ico_bj','click', function(event){	
+	event.stopPropagation(); 
+	$(this).parent().removeClass('pick_on');
+	var pick_on_length = $(this).parent().parent().children('.pick_on').length;
+	if(pick_on_length == 0){
+		$(this).parent().parent().children('li').first().addClass('pick_on');
+	}
+	_query();
+})
+//global_all删除
+$('body').delegate('#global_all li .brain_ico_bj','click', function(event){	
+	event.stopPropagation(); 
+	$(this).parent().removeClass('pick_on');
+	var pick_on_length = $(this).parent().parent().children('.pick_on').length;
+	if(pick_on_length == 0){
+		$(this).parent().parent().children('li').first().addClass('pick_on');
+	}
+	_query();
+})
+//global_all选择事件
 $('body').delegate('.global_mousemove','mousemove', function(event){	
 	event.stopPropagation(); 
 	var global_id = $(this).attr('global-id');
-	if(global_id =='35'){
-		$('#global_overseas').show();	
-		$('#global_inland').hide();
-	}else if(global_id =='45057'){
-		$('#global_inland').show();	
-		$('#global_overseas').hide();
-	}
+	$('#global_list .block_list').hide();
+	$("[global-list='"+global_id+"']").show();
 })
 //条件折叠
 $('body').delegate('.click_show','click', function(event){	
