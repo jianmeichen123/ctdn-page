@@ -6,7 +6,7 @@ var data={
 
 */
 
-sendGetRequest("http://127.0.0.1:8081/api/common/comQuery",function(cData){
+sendGetRequest("http://10.9.130.143:8081/api/common/comQuery",function(cData){
     data = cData
 })
 var d_list = data.data.industry;
