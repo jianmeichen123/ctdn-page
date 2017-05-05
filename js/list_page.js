@@ -236,6 +236,7 @@ $('body').delegate('#global_all li','click', function(event){
 		$(".block_list .condition_all_ul").each(function(i){
 			$(this).children('li').first().addClass('pick_on');
 		});
+		$(this).addClass('pick_on');
 		$(".block_list").hide();
 	}else{
 		$("#global_all li").first().removeClass('pick_on');
