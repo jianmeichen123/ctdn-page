@@ -17,17 +17,12 @@ function _query(){
             var name = o.attr("data-query").split(":")[0]
                 if (!querydata[name]){
                     querydata[name] = []
-                    querydata[name+"Sub"] = []
+                   // querydata[name+"Sub"] = []
                 }
 
             o.find(".pick_on").each(function(j,f){
                 if($(f).attr("data-id")){
-                    if(f.hasClass("global_mousemove")){
-                        querydata[name].push($(f).attr("data-id"))
-                    }else{
-                        querydata[name+"Sub"].push($(f).attr("data-id"))
-                    }
-
+                   querydata[name].push($(f).attr("data-id"))
                 }
             })
 
@@ -35,10 +30,7 @@ function _query(){
 
     })
 
-    var projTitle = $("input#projTitle").val();
-    var title = "projTitle";
-    querydata[title] = []
-    querydata[title].push(projTitle)
+    querydata["projTitle"] = $("#projTitle").val();
     console.log(querydata)
     /*sendPostRequestByJsonObj("http://10.9.130.143:8081/api/search/project", querydata, function(cData){console.log(data)})*/
 }

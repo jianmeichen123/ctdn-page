@@ -114,7 +114,7 @@
 				
 				<div class="block">
 					<span class="classify">投资轮次</span>
-					<ul class="condition_all_ul" data-query="investRound:normal">
+					<ul class="condition_all_ul" data-query="roundList:normal">
 						<li class="pick_on">全部</li>
 					</ul>
 				</div>
@@ -122,14 +122,14 @@
 				
 				<div class="global_block">
 					<span class="classify">投资地区</span>
-					<ul class="condition_all_ul" id="global_all" data-query="district:district">
+					<ul class="condition_all_ul" id="global_all" data-query="districtIds:district">
 						<li class="pick_on">全部</li>
 						<li>国内<span class="brain_ico brain_ico_bj"></span></li>
 						<li>国外<span class="brain_ico brain_ico_bj"></span></li>				
 					</ul>
 				</div>
 				
-				<div id="global_list">
+				<div id="global_list" data-query="districtSubIds:district">
 				
 				</div>
 				
@@ -155,7 +155,7 @@
 			
 			<div class="block m_t_20 line_h">
 				<span class="col_999">共<span>1283</span>个结果</span>
-				<div class="table_seek"><input type="text" placeholder="结果中搜索"/><span class="brain_ico brain_ico_seek"></span></div>
+				<div class="table_seek"><input id = "projTitle" type="text" placeholder="结果中搜索"/><span class="brain_ico brain_ico_seek"></span></div>
 			</div>
 			<div class="block m_t_10 boder_all">
 				<table class="table bj_fff table_style">
