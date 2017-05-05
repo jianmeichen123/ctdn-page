@@ -231,3 +231,41 @@ $('body').delegate('.global_mousemove','mousemove', function(event){
 		$('#global_overseas').hide();
 	}
 })
+//条件折叠
+$('body').delegate('.click_show','click', function(event){	
+	event.stopPropagation(); 
+	if($(this).hasClass('click_show_on')){
+		$('.switch_condition').hide();
+		$(this).removeClass('click_show_on');
+	}else{
+		$('.switch_condition').show();
+		$(this).addClass('click_show_on')
+	}
+})
+//日期显示
+$("#begin").datetimepicker({
+	language:  'zh',  
+    weekStart: 1,  
+    todayBtn:  1,  
+    autoclose: 1,  
+    todayHighlight: 1,  
+    startView: 2,  
+    forceParse: 0,  
+    showMeridian: 1  
+}).on('changeDate', function (ev) {  
+    $(this).datetimepicker('hide');  
+});  
+
+$("#end").datetimepicker({
+	language:  'zh',  
+    weekStart: 1,  
+    todayBtn:  1,  
+    autoclose: 1,  
+    todayHighlight: 1,  
+    startView: 2,  
+    forceParse: 0,  
+    showMeridian: 1  
+}).on('changeDate', function (ev) {  
+    $(this).datetimepicker('hide');  
+});  
+console.log(data)
