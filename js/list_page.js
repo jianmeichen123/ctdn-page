@@ -101,7 +101,8 @@ $('body').delegate('.industry_list ul li','click',function(){
 			$('#click_list').append('<li class="pick_on industry_'+i+j+' data-id="'+id+'" self_'+i+j+k+' three_'+i+'" industry="3" clock_name = "self_'+i+j+k+'">'+click_name+'<span class="brain_ico brain_ico_close"></span></li>');
 		}
 	}
-	$('#industry_one').removeClass('pick_on');	
+	$('#industry_one').removeClass('pick_on');
+	_query();
 	
 });
 
@@ -131,6 +132,7 @@ $('body').delegate('#click_list li .brain_ico_close','click',function(){
 			$('.'+clock_name+'').removeClass('click_class');
 		}
 	}
+	_query();
 	
 })
 //所属行业  选择全部
@@ -140,7 +142,8 @@ $('body').delegate('#industry_one','click', function(event){
 	$(this).addClass('pick_on');
 	$('#one_industry li').removeClass('click_class');
 	$('#two_industry li').removeClass('click_class');
-	$('#three_industry li').removeClass('click_class')
+	$('#three_industry li').removeClass('click_class');
+	_query();
 })
 //点击选择行业
 /*$('.click_industry_show').delegate('.click_industry_show','mouseenter',function(){
@@ -184,6 +187,7 @@ $('body').delegate('.block .condition_all_ul li','click', function(event){
 	}else{
 		$(this).parent().children('li').first().removeClass('pick_on');
 		$(this).addClass('pick_on');
+		_query();
 	}	
 })
 //公用点击删除
@@ -194,6 +198,7 @@ $('body').delegate('.block .condition_all_ul li .brain_ico_bj','click', function
 	if(pick_on_length == 0){
 		$(this).parent().parent().children('li').first().addClass('pick_on');
 	}
+	_query();
 })
 
 //地区选择

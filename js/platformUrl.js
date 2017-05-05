@@ -1,5 +1,5 @@
 var Constants = {
-	platformContentURL: "http://ctdn.galaxyinternet.com/api/",
+	platformContentURL: "http://10.9.130.143/api/",
 	userContentURL: "http://ctdn.galaxyinternet.com/user/",
 	docContentURL: "http://ctdn.galaxyinternet.com/doc/",
 	searchContentURL: "http://ctdn.galaxyinternet.com/search/",

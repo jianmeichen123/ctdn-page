@@ -107,14 +107,14 @@
 								</ul>-->
 							</div>
 						</li>
-						<div id="click_list">
+						<div id="click_list" data-query="industryIds:tree">
 						</div>
 					</ul>
 				</div>
 				
 				<div class="block">
 					<span class="classify">投资轮次</span>
-					<ul class="condition_all_ul" data-query="investRound:normal">
+					<ul class="condition_all_ul" data-query="roundList:normal">
 						<li class="pick_on">全部</li>
 					</ul>
 				</div>
@@ -130,12 +130,12 @@
 				</div>
 				
 				<div class="block">
-					<ul class="condition_all_ul"  id="global_overseas">
+					<ul class="condition_all_ul"  id="global_overseas"  data-query="oversea:tree">
 						<li class="pick_on">全部</li>
 					</ul>
 				</div>
 				<div class="block" >
-					<ul class="condition_all_ul" id="global_inland">
+					<ul class="condition_all_ul" id="global_inland" data-query="inland:tree">
 						<li class="pick_on">全部</li>
 					</ul>
 				</div>
@@ -285,5 +285,7 @@
     </div>
 
 <script src="js/list_page.js"></script>
+<script src="js/project_query.js"></script>
+<!--<script src="js/project_query.js"></script>-->
 </body>
 </html>
