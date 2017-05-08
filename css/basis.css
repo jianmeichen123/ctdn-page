@@ -74,6 +74,7 @@ input{outline: none;}
 .industry_list{ display:none;}
 .block_industry{ width:100%;}
 .switch_condition{ display:none;}
+.type_name{ float:left;margin-left: 88px; line-height:26px; margin-top: 10px;}
 /*导航*/
 .nav_bj{ background-color:#212a35; height:57px;   border-bottom:3px solid #f7f7f7; }
 .logo{display:block; float:left; width:122px; height:36px; margin-top:5px;}
@@ -93,5 +94,6 @@ input{outline: none;}
 .nav_nav ul{ margin-left:140px;}
 .block_list{display:none;}
 #global_list .condition_all_ul{ margin-left:134px; width:1000px; }
+.type_name_all .condition_all_ul{ margin-left:10px !important; float: left;  width: 935px !important; }
 .brain_ico_up_arrows{background-position: -44px -21px; width: 17px; height: 16px;  display: inline-block;}
 .brain_ico_down_arrows{background-position: -69px -20px; width: 17px; height: 16px;  display: inline-block;}
