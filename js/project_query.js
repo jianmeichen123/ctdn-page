@@ -47,6 +47,7 @@ function _query(){
         d2 = edate[0]+edate[1]+edate[2];
         if(parseInt(d1) > parseInt(d2)) {
             alert("日期开始时间大于结束时间");
+            return false;
         }  else {
             d1 = sdate[0]+'-'+sdate[1]+'-'+sdate[2];
             d2 = edate[0]+'-'+edate[1]+'-'+edate[2];
