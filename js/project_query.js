@@ -8,11 +8,20 @@ function _query(){
             querydata[name] = []
             o.find(".pick_on").each(function(j,f){
                 if($(f).attr("data-id")){
+                    querydata[name].push($(f).text())
+                }
+            })
+
+        }else if(type=="nor"){
+            var name = o.attr("data-query").split(":")[0]
+            querydata[name] = []
+            o.find(".pick_on").each(function(j,f){
+                if($(f).attr("data-id")){
                     querydata[name].push($(f).attr("data-id"))
                 }
             })
 
-        }else if(type=="district"){
+        } else if(type=="district"){
 
             var name = o.attr("data-query").split(":")[0]
                 if (!querydata[name]){
