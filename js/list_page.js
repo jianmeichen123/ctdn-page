@@ -6,7 +6,7 @@ var data={
 
 */
 
-sendGetRequest("http://10.9.130.143:8081/api/common/comQuery",function(cData){
+sendGetRequest("http://10.9.130.143:8081/api/common/allQuery",function(cData){
     data = cData
 })
 var d_list = data.data.industry;
@@ -236,6 +236,7 @@ $('body').delegate('#global_all li','click', function(event){
 		$(".block_list .condition_all_ul").each(function(i){
 			$(this).children('li').first().addClass('pick_on');
 		});
+		$(this).addClass('pick_on');
 		$(".block_list").hide();
 	}else{
 		$("#global_all li").first().removeClass('pick_on');
@@ -309,26 +310,28 @@ $('body').delegate('.click_show','click', function(event){
 })
 //日期显示
 $("#begin").datetimepicker({
-	language:  'zh',  
+	language:  'zh-CN',
+	 minView: "day",//设置只显示到月份
+	format : "yyyy-mm-dd",//日期格式
     weekStart: 1,  
     todayBtn:  1,  
     autoclose: 1,  
     todayHighlight: 1,  
-    startView: 2,  
-    forceParse: 0,  
+    forceParse: 0,
     showMeridian: 1  
 }).on('changeDate', function (ev) {  
     $(this).datetimepicker('hide');  
 });  
 
 $("#end").datetimepicker({
-	language:  'zh',  
-    weekStart: 1,  
+	language:  'zh-CN',
+	format : "yyyy-mm-dd",//日期格式
+	 minView: "day",//设置只显示到月份
+    weekStart: 1,
     todayBtn:  1,  
     autoclose: 1,  
     todayHighlight: 1,  
-    startView: 2,  
-    forceParse: 0,  
+    forceParse: 0,
     showMeridian: 1  
 }).on('changeDate', function (ev) {  
     $(this).datetimepicker('hide');

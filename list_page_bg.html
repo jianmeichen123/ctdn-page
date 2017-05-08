@@ -11,12 +11,9 @@
 
 <!--bootstrap-datetimepicker-->
 <link rel="stylesheet" type="text/css" href="bootstrap-datetimepicker/bootstrap-datetimepicker.css">
-<script src="bootstrap-datetimepicker/bootstrap-datetimepicker.min.js"></script>
-<script src="bootstrap-datetimepicker/bootstrap-datetimepicker.zh-CN.js"></script>
+
 <!--bootstrap-table-->
 <link rel="stylesheet" type="text/css" href="bootstrap-table-develop/dist/bootstrap-table.css">
-<script src="bootstrap-table-develop/dist/bootstrap-table.js"></script>
-<script src="bootstrap-table-develop/dist/bootstrap-table-locale-all.js"></script>
 
 
 <script src="js/common.js"></script>
@@ -133,7 +130,14 @@
 						<li>失败<span class="brain_ico brain_ico_bj"></span></li>				
 					</ul>
 				</div>
-				
+
+				<div class="block  switch_condition">
+					<span class="classify">股权比例</span>
+					<ul class="condition_all_ul" data-query="equityRate:normal">
+						<li class="pick_on">全部</li>
+					</ul>
+				</div>
+
 				<div class="block switch_condition">
 					<span class="classify">　　币种</span>
 					<ul class="condition_all_ul" data-query="currencyType:normal">
@@ -141,7 +145,7 @@
 					</ul>
 				</div>
 				<div class="block switch_condition">
-					<span class="classify">投资时间</span>
+					<span class="classify">并购结束时间</span>
 					<ul class="time_ul">
 						<li><input type="text" id="begin"/></li>
 						<li>至</li>
@@ -149,7 +153,7 @@
 					</ul>
 				</div>
 				
-				<div class="block click_show">更多选择（货币、时间）等<span class="brain_ico brain_ico_arrowup"></span></div>
+				<div class="block click_show">更多选择（股权比例、货币）等<span class="brain_ico brain_ico_arrowup"></span></div>
 				
 			</div>
 
@@ -215,7 +219,13 @@
 		
     </div>
 
+<script src="bootstrap-datetimepicker/bootstrap-datetimepicker.min.js"></script>
+<script src="bootstrap-datetimepicker/bootstrap-datetimepicker.zh-CN.js"></script>
+<script src="bootstrap-table-develop/dist/bootstrap-table.js"></script>
+<script src="bootstrap-table-develop/dist/bootstrap-table-locale-all.js"></script>
+
 <script src="js/list_page.js"></script>
 <script src="js/project_query.js"></script>
+
 </body>
 </html>

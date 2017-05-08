@@ -91,6 +91,7 @@ input{outline: none;}
 .nav_all_name{ float:right; color:#fff; font-size:12px; margin-top:18px;}
 .brain_ico_name{background-position:-28px -14px; width:16px; height:16px; display:inline-block; }
 .nav_nav ul{ margin-left:140px;}
-#global_list .block_list{ margin-left:134px; width:1000px; display:none;}
+.block_list{display:none;}
+#global_list .condition_all_ul{ margin-left:134px; width:1000px; }
 .brain_ico_up_arrows{background-position: -44px -21px; width: 17px; height: 16px;  display: inline-block;}
 .brain_ico_down_arrows{background-position: -69px -20px; width: 17px; height: 16px;  display: inline-block;}
