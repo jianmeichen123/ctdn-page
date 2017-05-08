@@ -204,20 +204,72 @@ $('body').delegate('.block .condition_all_ul li .brain_ico_bj','click', function
 //地区选择
 var global_all = '<li class="pick_on">全部</li>';
 var global_list = '';
-var list = data.data.district;
-for(var i = 0; i< list.length; i++){
-    global_all +='<li global-id="'+list[i].id+'" data-id="'+list[i].id+'" class="global_mousemove ">'+list[i].name+'<span class="brain_ico brain_ico_bj"></span></li>';
-    global_list +='<div class="block_list" global-list="'+list[i].id+'">';
-    global_list +='<ul class="condition_all_ul">';
-    global_list +='<li class="pick_on" global-id="'+list[i].id+'">全部</li>';
-    for(var j = 0; j< list[i].children.length; j++){
-    	global_list +='<li global-id="'+list[i].id+'" data-id="'+list[i].children[j].id+'">'+list[i].children[j].name+'<span class="brain_ico brain_ico_bj"></span></li>';
-    }
-    global_list +='</ul>';
-    global_list +='</div>';
+if($("#global_all").attr('data-query') =="listingTypeIds:nor"){
+	
+	var list = data.data.listingType;
+	for(var i = 0; i< list.length; i++){
+	    global_all +='<li global-id="'+list[i].id+'" data-id="'+list[i].id+'" class="global_mousemove ">'+list[i].name+'<span class="brain_ico brain_ico_bj"></span></li>';
+	   if(i ==1){
+		   	global_list +='<div class="block_list" global-list="'+list[i].id+'">';		   	
+		    global_list +='<ul class="condition_all_ul">';
+		    global_list +='<span class="classify">投资时间</span>';
+		    global_list +='<li class="pick_on" global-id="'+list[i].id+'">全部</li>';
+		    for(var j = 0; j< list[i].children.length; j++){
+		    	global_list +='<li global-id="'+list[i].id+'" data-id="'+list[i].children[j].id+'">'+list[i].children[j].name+'<span class="brain_ico brain_ico_bj"></span></li>';
+		    }
+	   }else{
+		   	global_list +='<div class="block_list" global-list="'+list[i].id+'">';
+		    global_list +='<ul class="condition_all_ul">';
+		    global_list +='<li class="pick_on" global-id="'+list[i].id+'">全部</li>';
+		    for(var j = 0; j< list[i].children.length; j++){
+		    	global_list +='<li global-id="'+list[i].id+'" data-id="'+list[i].children[j].id+'">'+list[i].children[j].name+'<span class="brain_ico brain_ico_bj"></span></li>';
+		    }
+	   }
+	   
+	    global_list +='</ul>';
+	    global_list +='</div>';
+	}
+}else{
+	var list = data.data.district;
+	for(var i = 0; i< list.length; i++){
+	    global_all +='<li global-id="'+list[i].id+'" data-id="'+list[i].id+'" class="global_mousemove ">'+list[i].name+'<span class="brain_ico brain_ico_bj"></span></li>';
+	    global_list +='<div class="block_list" global-list="'+list[i].id+'">';
+	    global_list +='<ul class="condition_all_ul">';
+	    global_list +='<li class="pick_on" global-id="'+list[i].id+'">全部</li>';
+	    for(var j = 0; j< list[i].children.length; j++){
+	    	global_list +='<li global-id="'+list[i].id+'" data-id="'+list[i].children[j].id+'">'+list[i].children[j].name+'<span class="brain_ico brain_ico_bj"></span></li>';
+	    }
+	    global_list +='</ul>';
+	    global_list +='</div>';
+	}
 }
+
 $('#global_all').html(global_all);
 $('#global_list').html(global_list)
+
+//类型事件点击事件
+$('body').delegate('[show_list ="type_market"] li','click', function(event){	
+	event.stopPropagation(); 
+	var click_this =$(this).index();
+	var click_id = $(this).attr('global-id')
+	$("[global-id='"+click_id+"']").removeClass('pick_on');
+	$("[global-list='"+click_id+"'] li").first().addClass('pick_on');
+	console.log(click_id)
+	//$('[global-id="'+click_id+'"]').removeClass('pick_on');
+	if(click_this == 0){
+		$('#global_all li').removeClass('pick_on');
+		$(".block_list .condition_all_ul li").removeClass('pick_on');
+		$(".block_list .condition_all_ul").each(function(i){
+			$(this).children('li').first().addClass('pick_on');
+		});
+		$(this).addClass('pick_on');
+		$(".block_list").hide();
+	}else{
+		$('[show_list ="type_market"] li').removeClass('pick_on');
+		$(this).addClass('pick_on');
+	}
+	_query();
+})
 
 
 //国内切换点击事件
