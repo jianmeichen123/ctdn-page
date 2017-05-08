@@ -331,6 +331,7 @@ $("#end").datetimepicker({
     forceParse: 0,  
     showMeridian: 1  
 }).on('changeDate', function (ev) {  
-    $(this).datetimepicker('hide');  
+    $(this).datetimepicker('hide');
+    _query();
 });  
 console.log(data)
