@@ -248,7 +248,7 @@ $('#global_all').html(global_all);
 $('#global_list').html(global_list)
 
 //类型事件点击事件
-$('body').delegate('[show_list ="type_market"] li','click', function(event){	
+$('body').delegate('[data-query="listingTypeIds:nor"] li','click', function(event){	
 	event.stopPropagation(); 
 	var click_this =$(this).index();
 	var click_id = $(this).attr('global-id')
@@ -265,7 +265,7 @@ $('body').delegate('[show_list ="type_market"] li','click', function(event){
 		$(this).addClass('pick_on');
 		$(".block_list").hide();
 	}else{
-		$('[show_list ="type_market"] li').removeClass('pick_on');
+		$('[data-query="listingTypeIds:nor"] li').removeClass('pick_on');
 		$(this).addClass('pick_on');
 	}
 	_query();
