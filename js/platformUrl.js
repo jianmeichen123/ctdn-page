@@ -21,7 +21,7 @@ var docUrl = {
 
 }
 var searchUrl = {
-    com:"project"
+    com:Constants.searchContentURL+"project"
 }
 var dataUrl = {
 }
