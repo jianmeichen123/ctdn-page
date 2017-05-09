@@ -388,5 +388,6 @@ $("#end").datetimepicker({
 }).on('changeDate', function (ev) {  
     $(this).datetimepicker('hide');
     _query();
-});  
+});
+
 console.log(data)
