@@ -66,6 +66,7 @@ function _query(){
     }else{
         querydata["beginDate"] = d1;
         querydata["endDate"] = d2;
+        return false;
     }
 
     querydata["projTitle"] = $("#projTitle").val();
