@@ -6,7 +6,7 @@ var data={
 
 */
 
-sendGetRequest("http://10.9.130.143:8081/api/common/allQuery",function(cData){
+sendGetRequest("http://127.0.0.1:8081/api/common/allQuery",function(cData){
     data = cData
 })
 var d_list = data.data.industry;
@@ -298,7 +298,7 @@ $('body').delegate('[data-query="districtIds:district"] li','click', function(ev
 	$("[global-id='"+click_id+"']").removeClass('pick_on');
 	$(this).addClass('pick_on');
 	$("[global-list='"+click_id+"'] li").first().addClass('pick_on');
-	console.log(click_id)
+	//console.log(click_id)
 	//$('[global-id="'+click_id+'"]').removeClass('pick_on');
 	if(click_this == 0){
 		$('#global_all li').removeClass('pick_on');
@@ -407,5 +407,3 @@ $("#end").datetimepicker({
     $(this).datetimepicker('hide');
     _query();
 });
-
-console.log(data)
