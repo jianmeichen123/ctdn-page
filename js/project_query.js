@@ -70,7 +70,8 @@ function _query(){
 
     querydata["projTitle"] = $("#projTitle").val();
     console.log(querydata)
-    /*sendPostRequestByJsonObj("http://10.9.130.143:8081/api/search/project", querydata, function(cData){console.log(data)})*/
+
+    sendPostRequestByJsonObj(searchUrl[$("table").attr("data-list")], querydata, function(cData){console.log(data)})
 }
 
 
