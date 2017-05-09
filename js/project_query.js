@@ -41,18 +41,12 @@ function _query(){
     var endDate=$("#end").val();
     var sdate = [];
     var edate = [];
-    var arys1= [];
-    var arys2= [];
     var d1 = "";
     var d2 = "";
     if(beginDate != '' && endDate != '') {
-        arys1=beginDate.split(' ');
-        d1 = arys1[0];
-        sdate = d1.split('-');
+        sdate = beginDate.split('-');
         d1 = sdate[0]+sdate[1]+sdate[2];
-        arys2=endDate.split(' ');
-        d2=arys2[0];
-        edate = d2.split('-');
+        edate = endDate.split('-');
         d2 = edate[0]+edate[1]+edate[2];
         if(parseInt(d1) > parseInt(d2)) {
             alert("日期开始时间大于结束时间");
