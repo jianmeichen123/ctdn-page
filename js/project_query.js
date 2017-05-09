@@ -72,7 +72,7 @@ function _query(){
 $('table[data-url]').bootstrapTable({
     url: searchUrl[$('table').attr("data-url")],         //请求后台的URL（*）
     method: 'post',                      //请求方式（*）
-    //toolbar: '#toolbar',                //工具按钮用哪个容器
+    queryParamsType: 'size|page', // undefined
     striped: true,                      //是否显示行间隔色
     cache: false,                       //是否使用缓存，默认为true，所以一般情况下需要设置一下这个属性（*）
     pagination: true,                   //是否显示分页（*）
@@ -82,6 +82,9 @@ $('table[data-url]').bootstrapTable({
     pageNumber: 1,                       //初始化加载第一页，默认第一页
     pageSize: 15,                       //每页的记录行数（*）
     pageList: [15, 25, 30],        //可供选择的每页的行数（*）
+    onLoadSuccess: function (data) {
+        $(".page_all .col_999 span").text(data.data.totalhit)
+    }
 });
 var tableFormate ={
     industryStr:function(value, row, index){
