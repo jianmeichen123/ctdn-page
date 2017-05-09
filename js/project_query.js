@@ -63,9 +63,34 @@ function _query(){
     }
 
     querydata["projTitle"] = $("#projTitle").val();
-    console.log(querydata)
-
-    sendPostRequestByJsonObj(searchUrl[$("table").attr("data-list")], querydata, function(cData){console.log(data)})
+    $('table[data-url]').bootstrapTable('refresh', {
+        query:querydata
+       });
 }
 
 
+$('table[data-url]').bootstrapTable({
+    url: searchUrl[$('table').attr("data-url")],         //请求后台的URL（*）
+    method: 'post',                      //请求方式（*）
+    //toolbar: '#toolbar',                //工具按钮用哪个容器
+    striped: true,                      //是否显示行间隔色
+    cache: false,                       //是否使用缓存，默认为true，所以一般情况下需要设置一下这个属性（*）
+    pagination: true,                   //是否显示分页（*）
+    sortable: false,                     //是否启用排序
+    sortOrder: "asc",                   //排序方式
+    sidePagination: "server",           //分页方式：client客户端分页，server服务端分页（*）
+    pageNumber: 1,                       //初始化加载第一页，默认第一页
+    pageSize: 15,                       //每页的记录行数（*）
+    pageList: [15, 25, 30],        //可供选择的每页的行数（*）
+});
+var tableFormate ={
+    industryStr:function(value, row, index){
+    if (!row.industryName)return table.empty
+    if (row.industryName&&!row.industrySubName)return row.industryName
+    return row.industryName +">" +row.industrySubName
+    },
+    projectName:function(value, row, index){
+        return "<img src='img/logo.png'  height='37' width='37' >"+row.projTitle
+
+    }
+}
