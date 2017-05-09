@@ -88,9 +88,9 @@ $('table[data-url]').bootstrapTable({
 });
 var tableFormate ={
     industryStr:function(value, row, index){
-    if (!row.industryName)return table.empty
-    if (row.industryName&&!row.industrySubName)return row.industryName
-    return row.industryName +">" +row.industrySubName
+        if (!row.industryName)return table.empty
+        if (row.industryName&&!row.industrySubName)return row.industryName
+        return row.industryName +">" +row.industrySubName
     },
     projectName:function(value, row, index){
         return "<img src='img/logo.png'  height='37' width='37' >"+row.projTitle
