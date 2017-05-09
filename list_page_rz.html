@@ -1,0 +1,284 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>投资事件</title>
+<!--basis-->
+<link rel="stylesheet" type="text/css" href="css/basis.css">
+<link rel="stylesheet" type="text/css" href="bootstrap-3.3.7/dist/css/bootstrap.css">
+<script src="js/jquery-1.12.3.min.js"></script>
+<script src="bootstrap-3.3.7/dist/js/bootstrap.js"></script>
+
+<!--bootstrap-datetimepicker-->
+<link rel="stylesheet" type="text/css" href="bootstrap-datetimepicker/bootstrap-datetimepicker.css">
+<script src="bootstrap-datetimepicker/bootstrap-datetimepicker.min.js"></script>
+<script src="bootstrap-datetimepicker/bootstrap-datetimepicker.zh-CN.js"></script>
+<!--bootstrap-table-->
+<link rel="stylesheet" type="text/css" href="bootstrap-table-develop/dist/bootstrap-table.css">
+<script src="bootstrap-table-develop/dist/bootstrap-table.js"></script>
+<script src="bootstrap-table-develop/dist/bootstrap-table-locale-all.js"></script>
+
+
+<script src="js/common.js"></script>
+<script src="js/platformUrl.js"></script>
+</head>
+
+<body>
+	<div class="block nav_bj">
+		<div class="container nav_all">
+			<span class="logo"><img src="img/logo.png"></span>
+			<ul>
+				<li>首页</li>
+				<li class="nav_all_on">创投数据</li>
+				<li>商业洞察</li>
+			</ul>
+			<div class="nav_all_input">
+				<input type="text" class=""/> 
+				<span class="brain_ico brain_ico_seek"></span>
+			</div>
+			<div class="nav_all_name">
+				你好，张一红
+				<span class="brain_ico brain_ico_name"></span>
+			</div>
+		</div>
+	</div>
+	<div class="block nav_nav">
+		<div class="container">
+			<ul>
+				<li>
+					<div class="nav_nav_name">企业项目</div>
+					<div class="nav_nav_name_x">532123</div>
+				</li>
+				<li class="nav_nav_on">
+					<div class="nav_nav_name">投融动态</div>
+					<div class="nav_nav_name_x">532123</div>
+				</li>
+				<li>
+					<div class="nav_nav_name">投资机构</div>
+					<div class="nav_nav_name_x">532123</div>
+				</li>
+				<li>
+					<div class="nav_nav_name">基金</div>
+					<div class="nav_nav_name_x">532123</div>
+				</li>
+				<li>
+					<div class="nav_nav_name">创投人物</div>
+					<div class="nav_nav_name_x">532123</div>
+				</li>
+				<li>
+					<div class="nav_nav_name">人才库</div>
+					<div class="nav_nav_name_x">532123</div>
+				</li>
+			</ul>
+		</div>
+	</div>
+	<div class="container">
+		<div class="page_title">
+			<span class="col_999">创投数据　&gt;　</span><span class="col_999">投融动态　&gt;　</span><span class="col_666">投资事件</span>
+		</div>
+		
+        <div class="page_all">
+			
+		
+			<!--行业选择end-->
+			<ul class="column_ul">
+				<li class="column_ul_on">投资事件</li>
+				<li>并购事件</li>
+				<li>上市挂牌</li>
+				<li>退出事件</li>
+			</ul>
+			<div class="condition_all">
+				<div class="block_industry">
+					<span class="classify">所属行业</span>
+					<ul class="condition_all_ul">
+						<li class="pick_on" id="industry_one">全部</li>
+						<li class="click_industry_show">选择行业 <span class="brain_ico brain_ico_arrow"></span>
+							<!--行业选择-->
+							<div class="industry_list">
+								<ul id="one_industry">
+								</ul>
+								<ul id="two_industry">
+								</ul>
+<!--								<ul id="three_industry">
+									<li>教育</li>
+									<li>教育</li>
+									<li>教育</li>
+									<li>教育</li>
+								</ul>-->
+							</div>
+						</li>
+						<div id="click_list" data-query="industryIds:nor">
+						</div>
+					</ul>
+				</div>
+				
+				<div class="block">
+					<span class="classify">投资轮次</span>
+					<ul class="condition_all_ul" data-query="roundList:normal">
+						<li class="pick_on">全部</li>
+					</ul>
+				</div>
+				
+				
+				<div class="global_block">
+					<span class="classify">投资地区</span>
+					<ul class="condition_all_ul" id="global_all" data-query="districtIds:district">
+						<li class="pick_on">全部</li>
+						<li>国内<span class="brain_ico brain_ico_bj"></span></li>
+						<li>国外<span class="brain_ico brain_ico_bj"></span></li>				
+					</ul>
+				</div>
+				
+				<div id="global_list" data-query="districtSubIds:district">
+				
+				</div>
+				
+				<div class="block switch_condition">
+					<span class="classify">投资币种</span>
+					<ul class="condition_all_ul" data-query="currencyType:normal">
+						<li class="pick_on">全部</li>
+					</ul>
+				</div>
+				<div class="block switch_condition">
+					<span class="classify">投资时间</span>
+					<ul class="time_ul">
+						<li><input type="text" id="begin"/></li>
+						<li>至</li>
+						<li><input type="text" id="end"/></li>				
+					</ul>
+				</div>
+				
+				<div class="block click_show">更多选择（货币、时间）等<span class="brain_ico brain_ico_arrowup"></span></div>
+				
+			</div>
+
+			
+			<div class="block m_t_20 line_h">
+				<span class="col_999">共<span>1283</span>个结果</span>
+				<div class="table_seek"><input id = "projTitle" type="text" placeholder="结果中搜索"/><span class="brain_ico brain_ico_seek" onclick="_query()"></span></div>
+			</div>
+			<div class="block m_t_10 boder_all">
+				<table class="table bj_fff table_style">
+				   <thead>
+					  <tr>
+						 <th><div>时间</div></th>
+						 <th><div class="border_l">融资公司</div></th>
+						 <th><div class="border_l">轮次</div></th>
+						 <th><div class="border_l">融资额</div></th>
+						 <th><div class="border_l">投资方</div></th>
+						 <th><div class="border_l">详情</div></th>
+					  </tr>
+				   </thead>
+				   <tbody>
+					  <tr>
+						 <td>2017-1-21</td>
+						 <td>
+						 	<div class="list_table_td">
+								<img src="img/log.png">
+								<ul class="col_999">
+									<li><a href="#">大象洗鞋馆</a></li>
+									<li>北京    电子商务 > 综合电商</li>
+									
+								</ul>
+							</div>
+						 </td>
+						 <td>Pre-A轮</td>
+						 <td>亿元及以上人民币</td>
+						 <td>
+						 	<ul>
+								<li>电量兴业</li>
+								<li>电量兴业</li>
+								<li>电量兴业</li>
+							</ul>
+						 </td>
+						 <td>详情</td>
+					  </tr>
+					  <tr>
+						 <td>2017-1-21</td>
+						 <td>
+						 	<div class="list_table_td">
+								<img src="img/log.png">
+								<ul class="col_999">
+									<li><a href="#">大象洗鞋馆</a></li>
+									<li>北京    电子商务 > 综合电商</li>
+									
+								</ul>
+							</div>
+						 </td>
+						 <td>Pre-A轮</td>
+						 <td>亿元及以上人民币</td>
+						 <td>
+						 	<ul>
+								<li>电量兴业</li>
+								<li>电量兴业</li>
+								<li>电量兴业</li>
+							</ul>
+						 </td>
+						 <td>详情</td>
+					  </tr>
+					  <tr>
+						 <td>2017-1-21</td>
+						 <td>
+						 	<div class="list_table_td">
+								<img src="img/log.png">
+								<ul class="col_999">
+									<li><a href="#">大象洗鞋馆</a></li>
+									<li>北京    电子商务 > 综合电商</li>
+									
+								</ul>
+							</div>
+						 </td>
+						 <td>Pre-A轮</td>
+						 <td>亿元及以上人民币</td>
+						 <td>
+						 	<ul>
+								<li>电量兴业</li>
+								<li>电量兴业</li>
+								<li>电量兴业</li>
+							</ul>
+						 </td>
+						 <td>详情</td>
+					  </tr>
+					  <tr>
+						 <td>2017-1-21</td>
+						 <td>
+						 	<div class="list_table_td">
+								<img src="img/log.png">
+								<ul class="col_999">
+									<li><a href="#">大象洗鞋馆</a></li>
+									<li>北京    电子商务 > 综合电商</li>
+									
+								</ul>
+							</div>
+						 </td>
+						 <td>Pre-A轮</td>
+						 <td>亿元及以上人民币</td>
+						 <td>
+						 	<ul>
+								<li>电量兴业</li>
+								<li>电量兴业</li>
+								<li>电量兴业</li>
+							</ul>
+						 </td>
+						 <td>详情</td>
+					  </tr>
+				   </tbody>
+				</table>
+				
+				
+				
+			</div>
+			
+						
+		</div>
+		
+		
+		
+		
+    </div>
+
+<script src="js/list_page.js"></script>
+<script src="js/project_query.js"></script>
+<!--<script src="js/project_query.js"></script>-->
+</body>
+</html>
