@@ -204,15 +204,14 @@ $('body').delegate('.block .condition_all_ul li .brain_ico_bj','click', function
 //地区选择
 var global_all = '<li class="pick_on">全部</li>';
 var global_list = '';
-if($("#global_all").attr('data-query') =="listingTypeIds:nor"){
-	
+if($("#global_all").attr('data-query') =="listingTypeIds:normal"){
 	var list = data.data.listingType;
 	for(var i = 0; i< list.length; i++){
 		global_all +='<li global-id="'+list[i].id+'" data-id="'+list[i].id+'" class="global_mousemove ">'+list[i].name+'<span class="brain_ico brain_ico_bj"></span></li>';
 		for(var j= 0; j<list[i].children.length; j++){
 			global_list +='<div class="block_list" global-list="'+list[i].id+'">';	
 			global_list +='<div class="type_name" global-list="'+list[i].id+'">'+list[i].children[j].name+'</div>';
-		    global_list +='<ul class="condition_all_ul">';
+		    global_list +='<ul class="condition_all_ul" data-query="'+list[i].children[j].typeName+':normal">';
 		    global_list +='<li class="pick_on aa_'+list[i].id+'" global-list="'+list[i].id+'" global-id="'+list[i].id+'">全部</li>';
 		    for(var k= 0; k<list[i].children[j].children.length; k++){
 		    	global_list +='<li global-id="'+list[i].id+'" data-id="'+list[i].children[j].id+'">'+list[i].children[j].children[k].name+'<span class="brain_ico brain_ico_bj"></span></li>';
@@ -221,15 +220,15 @@ if($("#global_all").attr('data-query') =="listingTypeIds:nor"){
 		    global_list +='</ul>';
 		    global_list +='</div>';
 		}
-	    
+
 	}
-}else{
+}else if($("#global_all").attr('data-query') =="districtIds:district"){
 	var list = data.data.district;
 	for(var i = 0; i< list.length; i++){
 	    global_all +='<li global-id="'+list[i].id+'" data-id="'+list[i].id+'" class="global_mousemove ">'+list[i].name+'<span class="brain_ico brain_ico_bj"></span></li>';
 	    global_list +='<div class="block_list" global-list="'+list[i].id+'">';
 	    global_list +='<ul class="condition_all_ul">';
-	    global_list +='<li class="pick_on" global-id="'+list[i].id+'">全部</li>';
+	    global_list +='<li class="pick_on" p global-id="'+list[i].id+'">全部</li>';
 	    for(var j = 0; j< list[i].children.length; j++){
 	    	global_list +='<li global-id="'+list[i].id+'" data-id="'+list[i].children[j].id+'">'+list[i].children[j].name+'<span class="brain_ico brain_ico_bj"></span></li>';
 	    }
@@ -242,7 +241,7 @@ $('#global_all').html(global_all);
 $('#global_list').html(global_list)
 
 //类型事件点击事件
-$('body').delegate('[data-query="listingTypeIds:nor"] li','click', function(event){	
+$('body').delegate('[data-query="listingTypeIds:normal"] li','click', function(event){
 	event.stopPropagation(); 
 	var click_this =$(this).index();
 	var click_id = $(this).attr('global-id')
@@ -257,7 +256,7 @@ $('body').delegate('[data-query="listingTypeIds:nor"] li','click', function(even
 		$(this).addClass('pick_on');
 		$(".block_list").hide();
 	}else{
-		$('[data-query="listingTypeIds:nor"] li').removeClass('pick_on');
+		$('[data-query="listingTypeIds:normal"] li').removeClass('pick_on');
 		$(".aa_"+click_id).addClass('pick_on');
 		$(this).addClass('pick_on');
 	}

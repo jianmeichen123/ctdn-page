@@ -3,7 +3,7 @@ function _query(){
     $("[data-query]").each(function(i,e){
         var o = $(e)
         var type = o.attr("data-query").split(":")[1]
-        if(type=="normal"||type=="nor"){
+        if(type=="normal"){
             var name = o.attr("data-query").split(":")[0]
             querydata[name] = []
             o.find(".pick_on").each(function(j,f){
