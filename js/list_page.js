@@ -209,7 +209,7 @@ if($("#global_all").attr('data-query') =="listingTypeIds:normal"){
 	for(var i = 0; i< list.length; i++){
 		global_all +='<li global-id="'+list[i].id+'" data-id="'+list[i].id+'" class="global_mousemove ">'+list[i].name+'<span class="brain_ico brain_ico_bj"></span></li>';
 		for(var j= 0; j<list[i].children.length; j++){
-			global_list +='<div class="block_list" global-list="'+list[i].id+'">';	
+			global_list +='<div class="block_list type_name_all" global-list="'+list[i].id+'">';	
 			global_list +='<div class="type_name" global-list="'+list[i].id+'">'+list[i].children[j].name+'</div>';
 		    global_list +='<ul class="condition_all_ul" data-query="'+list[i].children[j].typeName+':normal">';
 		    global_list +='<li class="pick_on aa_'+list[i].id+'" global-list="'+list[i].id+'" global-id="'+list[i].id+'">全部</li>';
@@ -257,12 +257,38 @@ $('body').delegate('[data-query="listingTypeIds:normal"] li','click', function(e
 		$(".block_list").hide();
 	}else{
 		$('[data-query="listingTypeIds:normal"] li').removeClass('pick_on');
-		$(".aa_"+click_id).addClass('pick_on');
+		//$(".aa_"+click_id).addClass('pick_on');
+		$('[data-query="listingTypeSubIds:nor"] li').removeClass('pick_on');
 		$(this).addClass('pick_on');
+		$(".block_list .condition_all_ul").each(function(i){
+			$(this).children('li').first().addClass('pick_on');
+		});
 	}
 	_query();
 })
-
+//类型list事件
+$('body').delegate('[data-query="listingTypeSubIds:nor"] .condition_all_ul li','click', function(event){
+	event.stopPropagation();	
+	var click_this =$(this).index();
+	var global_id = $(this).attr('global-id');
+	if(click_this == 0){
+		$(this).parent().children('li').removeClass('pick_on');
+		$(this).addClass('pick_on');
+	}else{
+		$('[data-query="listingTypeIds:normal"] li').removeClass('pick_on');
+		$(this).addClass('pick_on');
+		$(this).parent().children('li').first().removeClass('pick_on');
+		$('[data-query="listingTypeSubIds:nor"] .type_name_all').each(function(i){
+			var display =$(this).css('display');
+			if(display =='none'){
+				$(this).children().children('li').removeClass('pick_on');
+				$(this).children().children('li').first().addClass('pick_on');
+			}
+		})
+		
+	}
+	_query();
+})
 
 //国内切换点击事件
 $('body').delegate('[data-query="districtIds:district"] li','click', function(event){
@@ -288,7 +314,7 @@ $('body').delegate('[data-query="districtIds:district"] li','click', function(ev
 	_query();
 })
 //地区选择list事件
-$('body').delegate('.block_list .condition_all_ul li','click', function(event){
+$('body').delegate('[data-query="districtSubIds:district"] .condition_all_ul li','click', function(event){
 	event.stopPropagation();	
 	var click_this =$(this).index();
 	var global_id = $(this).attr('global-id');
