@@ -2,7 +2,7 @@ var Constants = {
 	platformContentURL: "http://10.9.130.143:8081/api/",
 	userContentURL: "http://ctdn.galaxyinternet.com/user/",
 	docContentURL: "http://ctdn.galaxyinternet.com/doc/",
-	searchContentURL: "http://127.0.0.1:8089/search/",
+	searchContentURL: "http://10.9.130.135:8089/search/",
 	dataContentURL: "http://ctdn.galaxyinternet.com/data/",
 }
 var home = {
