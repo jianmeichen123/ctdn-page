@@ -22,6 +22,9 @@ function query_data (){
         var type = o.attr("data-query").split(":")[1]
         if(type=="normal"){
             var name = o.attr("data-query").split(":")[0]
+            if(!name.endWith("s")){
+                name = name +"s"
+            }
             querydata[name] = []
             o.find(".pick_on").each(function(j,f){
                 if($(f).attr("data-id")){
@@ -31,6 +34,9 @@ function query_data (){
 
         }else if(type=="nor"){
             var name = o.attr("data-query").split(":")[0]
+            if(!name.endWith("s")){
+                name = name +"s"
+            }
             querydata[name] = []
             o.find(".pick_on").each(function(j,f){
                 if($(f).attr("data-id")){
