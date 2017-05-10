@@ -64,6 +64,7 @@ function _query(){
 
     querydata["projTitle"] = $("#projTitle").val();
     $('table[data-url]').bootstrapTable('refresh', {
+        "pageNumber" :1,
         query:querydata
        });
 }
@@ -78,10 +79,19 @@ $('table[data-url]').bootstrapTable({
     pagination: true,                   //是否显示分页（*）
     sortable: false,                     //是否启用排序
     sortOrder: "asc",                   //排序方式
+    tableDataName:'data',
+    tableDataListName:'records',
+    tableDataTotalName:'total',
     sidePagination: "server",           //分页方式：client客户端分页，server服务端分页（*）
     pageNumber: 1,                       //初始化加载第一页，默认第一页
     pageSize: 15,                       //每页的记录行数（*）
     pageList: [15, 25, 30],        //可供选择的每页的行数（*）
+    formatLoadingMessage: function () {
+        return "请稍等，正在加载中...";
+    },
+    formatNoMatches: function () {  //没有匹配的结果
+        return '无符合条件的记录';
+    },
     onLoadSuccess: function (data) {
         $(".page_all .col_999 span").text(data.data.totalhit)
     }

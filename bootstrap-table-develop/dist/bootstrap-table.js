@@ -2384,14 +2384,16 @@
 
         // #431: support pagination
         if (this.options.sidePagination === 'server') {
-            this.options.totalRows = data[this.options.totalField];
+        	//修改
+            this.options.totalRows = data[this.options.tableDataName][this.options.tableDataTotalName];
             fixedScroll = data.fixedScroll;
-            data = data[this.options.dataField];
-        } else if (!$.isArray(data)) { // support fixedScroll
+            //修改
+            data = data[this.options.tableDataName][this.options.tableDataListName];
+        } else if (!$.isArray(data[this.options.tableDataName][this.options.tableDataListName])) { // support fixedScroll
+            //修改 9月20
             fixedScroll = data.fixedScroll;
-            data = data.data;
+            data = data[this.options.tableDataName][this.options.tableDataListName];
         }
-
         this.initData(data);
         this.initSearch();
         this.initPagination();
@@ -2786,6 +2788,7 @@
     };
 
     BootstrapTable.prototype.refresh = function (params) {
+        console.log(params)
         if (params && params.url) {
             this.options.url = params.url;
         }
