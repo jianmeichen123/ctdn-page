@@ -1,4 +1,21 @@
 function _query(){
+    var data = query_data()
+
+    $('table[data-url]').bootstrapTable('refresh', {
+        "pageNumber" :1,
+        query:data
+     });
+}
+function queryParams(params) {
+    console.log(params)
+    return {
+        pageSize: params.limit,
+        pageNumber: params.pageNumber,
+        UserName: 4
+    };
+
+}
+function query_data (){
     var querydata = {}
     $("[data-query]").each(function(i,e){
         var o = $(e)
@@ -63,13 +80,17 @@ function _query(){
     }
 
     querydata["projTitle"] = $("#projTitle").val();
-    $('table[data-url]').bootstrapTable('refresh', {
-        "pageNumber" :1,
-        query:querydata
-       });
+    return querydata
 }
-
-
+function queryParams(params) {  //配置参数
+    console.log(params)
+    var data = query_data()
+      data["pageSize"]=params.pageSize,   //页面大小
+      data["pageNo"]=params.pageNumber,  //页码
+      data["orderBy"]=params.sortName,  //排序列名
+      data["order"]=params.sortOrder//排位命令（desc，asc）
+    return data;
+  }
 $('table[data-url]').bootstrapTable({
     url: searchUrl[$('table').attr("data-url")],         //请求后台的URL（*）
     method: 'post',                      //请求方式（*）
@@ -77,9 +98,10 @@ $('table[data-url]').bootstrapTable({
     striped: true,                      //是否显示行间隔色
     cache: false,                       //是否使用缓存，默认为true，所以一般情况下需要设置一下这个属性（*）
     pagination: true,                   //是否显示分页（*）
-    sortable: false,                     //是否启用排序
+    sortable: true,                     //是否启用排序
     sortOrder: "asc",                   //排序方式
     tableDataName:'data',
+    queryParams: queryParams, //参数
     tableDataListName:'records',
     tableDataTotalName:'total',
     sidePagination: "server",           //分页方式：client客户端分页，server服务端分页（*）
