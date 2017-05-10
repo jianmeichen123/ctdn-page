@@ -16,7 +16,7 @@
 <!--bootstrap-table-->
 <link rel="stylesheet" type="text/css" href="bootstrap-table-develop/dist/bootstrap-table.css">
 <script src="bootstrap-table-develop/dist/bootstrap-table.js"></script>
-<script src="bootstrap-table-develop/dist/bootstrap-table-locale-all.js"></script>
+<script src="bootstrap-table-develop/dist/locale/bootstrap-table-zh-CN.js"></script>
 
 
 <script src="js/common.js"></script>
@@ -146,39 +146,24 @@
 
 			
 			<div class="block m_t_20 line_h">
-				<span class="col_999">共<span>1283</span>个结果</span>
+				<span class="col_999">共<span></span>个结果</span>
 				<div class="table_seek"><input id="projTitle" type="text" placeholder="结果中搜索"/><span class="brain_ico brain_ico_seek" onclick="_query()"></span></div>
 			</div>
 			<div class="block m_t_10 boder_all">
-				<table class="table bj_fff table_style">
+				<table class="table bj_fff table_style" >
 				   <thead>
 					  <tr>
-						 <th><div>项目名称</div></th>
-						 <th><div class="border_l">所属行业</div></th>
-						 <th><div class="border_l">地点</div></th>
-						 <th><div class="border_l">成立时间</div></th>
-						 <th><div class="border_l">最新融资时间</div></th>
-						 <th><div class="border_l">最新融资轮次</div></th>							
-						 <th><div class="border_l">最新融资金额</div></th>							
-						 <th><div class="border_l">详情</div></th>
+						  <th data-formatter="tableFormate.projectName" ><div>项目名称</div></th>
+						  <th data-formatter="tableFormate.industryStr"><div  class="border_l">所属行业</div></th>
+						  <th data-field="addr"><div  class="border_l">地点</div></th>
+						  <th data-sortable="true" data-field="setupDT"><div  class="border_l">成立时间</div></th>
+						  <th data-sortable="true" data-field="latestFinanceDT"><div  class="border_l">最新融资时间</div></th>
+						  <th data-field="latestFinanceRound"><div class="border_l">最新融资轮次</div></th>
+						  <th data-field="latestFinanceAmountStr"><div  class="border_l">最新融金额</div></th>
+						  <th><div class="border_l">详情</div></th>
 					  </tr>
 				   </thead>
 				   <tbody>
-					  <tr>
-						 <td>
-						 	<div class="list_table_td">
-								<img src="img/log.png">
-								<span class="col_999"><a href="#">大象洗鞋馆</a></span>	
-							</div>
-						 </td>
-						 <td>金融</td>
-						 <td>深圳市</td>
-						 <td>2000-12-04</td>
-						 <td>2000-12-04</td>
-						 <td>A轮</td>
-						 <td>RMB 300万</td>
-						 <td>详情</td>
-					  </tr>
 				   </tbody>
 				</table>
 				

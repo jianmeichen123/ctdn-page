@@ -21,7 +21,12 @@ var docUrl = {
 
 }
 var searchUrl = {
-    com:Constants.searchContentURL+"project"
+    com:Constants.searchContentURL+"project",
+    investEvent:Constants.searchContentURL+"investEvent",
+    org:Constants.searchContentURL+"investfirms",
+    quitEvent:Constants.searchContentURL+"quitEvent",
+    mergeEvent:Constants.searchContentURL+"mergeEvent",
+    launchEvent:Constants.searchContentURL+"launchEvent"
 }
 var dataUrl = {
 }

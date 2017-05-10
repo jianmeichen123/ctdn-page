@@ -16,7 +16,7 @@
 <!--bootstrap-table-->
 <link rel="stylesheet" type="text/css" href="bootstrap-table-develop/dist/bootstrap-table.css">
 <script src="bootstrap-table-develop/dist/bootstrap-table.js"></script>
-<script src="bootstrap-table-develop/dist/bootstrap-table-locale-all.js"></script>
+<script src="bootstrap-table-develop/dist/locale/bootstrap-table-zh-CN.js"></script>
 
 
 <script src="js/common.js"></script>
@@ -154,131 +154,29 @@
 
 			
 			<div class="block m_t_20 line_h">
-				<span class="col_999">共<span>1283</span>个结果</span>
+				<span class="col_999">共<span></span>个结果</span>
 				<div class="table_seek"><input id = "projTitle" type="text" placeholder="结果中搜索"/><span class="brain_ico brain_ico_seek" onclick="_query()"></span></div>
 			</div>
 			<div class="block m_t_10 boder_all">
 				<table class="table bj_fff table_style">
 				   <thead>
 					  <tr>
-						 <th><div>时间</div></th>
-						 <th><div class="border_l">融资公司</div></th>
-						 <th><div class="border_l">轮次</div></th>
-						 <th><div class="border_l">融资额</div></th>
-						 <th><div class="border_l">投资方</div></th>
+						 <th data-field="financeDT"><div>时间</div></th>
+						 <th data-field="projTitle"><div class="border_l">融资公司</div></th>
+						 <th data-field="round"><div class="border_l">轮次</div></th>
+						 <th data-field="financeAmount"><div class="border_l">融资额</div></th>
+						 <th data-field="investOrg"><div class="border_l">投资方</div></th>
 						 <th><div class="border_l">详情</div></th>
 					  </tr>
 				   </thead>
 				   <tbody>
-					  <tr>
-						 <td>2017-1-21</td>
-						 <td>
-						 	<div class="list_table_td">
-								<img src="img/log.png">
-								<ul class="col_999">
-									<li><a href="#">大象洗鞋馆</a></li>
-									<li>北京    电子商务 > 综合电商</li>
-									
-								</ul>
-							</div>
-						 </td>
-						 <td>Pre-A轮</td>
-						 <td>亿元及以上人民币</td>
-						 <td>
-						 	<ul>
-								<li>电量兴业</li>
-								<li>电量兴业</li>
-								<li>电量兴业</li>
-							</ul>
-						 </td>
-						 <td>详情</td>
-					  </tr>
-					  <tr>
-						 <td>2017-1-21</td>
-						 <td>
-						 	<div class="list_table_td">
-								<img src="img/log.png">
-								<ul class="col_999">
-									<li><a href="#">大象洗鞋馆</a></li>
-									<li>北京    电子商务 > 综合电商</li>
-									
-								</ul>
-							</div>
-						 </td>
-						 <td>Pre-A轮</td>
-						 <td>亿元及以上人民币</td>
-						 <td>
-						 	<ul>
-								<li>电量兴业</li>
-								<li>电量兴业</li>
-								<li>电量兴业</li>
-							</ul>
-						 </td>
-						 <td>详情</td>
-					  </tr>
-					  <tr>
-						 <td>2017-1-21</td>
-						 <td>
-						 	<div class="list_table_td">
-								<img src="img/log.png">
-								<ul class="col_999">
-									<li><a href="#">大象洗鞋馆</a></li>
-									<li>北京    电子商务 > 综合电商</li>
-									
-								</ul>
-							</div>
-						 </td>
-						 <td>Pre-A轮</td>
-						 <td>亿元及以上人民币</td>
-						 <td>
-						 	<ul>
-								<li>电量兴业</li>
-								<li>电量兴业</li>
-								<li>电量兴业</li>
-							</ul>
-						 </td>
-						 <td>详情</td>
-					  </tr>
-					  <tr>
-						 <td>2017-1-21</td>
-						 <td>
-						 	<div class="list_table_td">
-								<img src="img/log.png">
-								<ul class="col_999">
-									<li><a href="#">大象洗鞋馆</a></li>
-									<li>北京    电子商务 > 综合电商</li>
-									
-								</ul>
-							</div>
-						 </td>
-						 <td>Pre-A轮</td>
-						 <td>亿元及以上人民币</td>
-						 <td>
-						 	<ul>
-								<li>电量兴业</li>
-								<li>电量兴业</li>
-								<li>电量兴业</li>
-							</ul>
-						 </td>
-						 <td>详情</td>
-					  </tr>
+
 				   </tbody>
 				</table>
-				
-				
-				
 			</div>
-			
-						
 		</div>
-		
-		
-		
-		
     </div>
-
 <script src="js/list_page.js"></script>
 <script src="js/project_query.js"></script>
-<!--<script src="js/project_query.js"></script>-->
 </body>
 </html>
