@@ -81,8 +81,8 @@ function query_data (){
             querydata["endDate"] = d2;
         }
     }else{
-        querydata["beginDate"] = d1;
-        querydata["endDate"] = d2;
+        querydata["beginDate"] = beginDate;
+        querydata["endDate"] = endDate;
     }
 
     querydata["projTitle"] = $("#projTitle").val();
@@ -132,6 +132,5 @@ var tableFormate ={
     },
     projectName:function(value, row, index){
         return "<img src='img/logo.png'  height='37' width='37' >"+row.projTitle
-
     }
 }
