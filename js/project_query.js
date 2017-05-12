@@ -132,7 +132,7 @@ var tableFormate ={
     },
     projectName:function(value, row, index){
         var img = ""
-        if (row.logoSmall!="'"){
+        if (row.logoSmall&&row.logoSmall!=""){
             img = row.logoSmall.split("/")[1]
         }
         return "<img src='http:///10.10.0.147/'"+img+"  height='37' width='37' >"+row.projTitle
