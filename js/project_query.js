@@ -132,5 +132,19 @@ var tableFormate ={
     },
     projectName:function(value, row, index){
         return "<img src='img/logo.png'  height='37' width='37' >"+row.projTitle
+    },
+    investSide:function(value, row, index){
+         var investSideJson = row.investSideJson
+         var jsonObjArr = eval('(' + investSideJson + ')');
+         for(i in jsonObjArr){
+            var i = jsonObjArr[i]
+            for(j in i){
+                var json = i[j]
+                if(json.title!=''){
+                    return json.title
+                }
+            }
+
+         }
     }
 }
