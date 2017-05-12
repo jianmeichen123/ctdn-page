@@ -391,9 +391,9 @@ $(function(){
     	 
     	 
      });
-    var u = $("ul[parent_tab]").attr("parent_tab");
+    var u = $("body[data-page-parent]").attr("data-page-parent");
     if(u){
-    	$('ul[tab="header"] li[tab="'+u+'"]').addClass("active")
+    	$('ul[tab="header"] li[tab="'+u+'"]').addClass("nav_nav_on")
     }
 
 })
@@ -497,3 +497,4 @@ $.extend($,{
      return String.fromCharCode(parseInt($2,16));
  });
  }
+//
