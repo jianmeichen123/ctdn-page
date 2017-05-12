@@ -497,3 +497,19 @@ $.extend($,{
      return String.fromCharCode(parseInt($2,16));
  });
  }
+function me(){
+      $.ajax({
+          url : platformUrl.me,
+          type : "GET",
+          cache : false,
+          contentType : "application/json; charset=UTF-8",
+          async : false,
+          error : function(request) {
+              location.href = home.index
+          },
+          success : function(data) {
+              setName(decodeURIComponent(data))
+          }
+      });
+  }
+me()
