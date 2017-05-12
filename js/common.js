@@ -376,7 +376,7 @@ $(function(){
             }
         });
     }
-     me()
+     //me()
      $("ul[tab='header']").on("click","li",function(){
     	 
     	 var o = $(this)
