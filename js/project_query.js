@@ -131,7 +131,11 @@ var tableFormate ={
         return row.industryName +">" +row.industrySubName
     },
     projectName:function(value, row, index){
-        return "<img src='img/logo.png'  height='37' width='37' >"+row.projTitle
+        var img = ""
+        if (row.logoSmall!="'"){
+            img = row.logoSmall.split("/")[1]
+        }
+        return "<img src='http:///10.10.0.147/'"+img+"  height='37' width='37' >"+row.projTitle
     },
     investSide:function(value, row, index){
          var investSideJson = row.investSideJson
