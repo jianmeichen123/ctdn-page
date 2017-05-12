@@ -356,7 +356,7 @@ $(function(){
 	    }else{
 	        var obj = JSON.parse(data)
             var name = obj['realName']
-            $("#myinfo").html(name)
+            $(".nav_all_name").html("你好，"+name)
 	    }
 
 	}
@@ -376,7 +376,7 @@ $(function(){
             }
         });
     }
-     //me()
+     me()
      $("ul[tab='header']").on("click","li",function(){
     	 
     	 var o = $(this)
@@ -497,19 +497,3 @@ $.extend($,{
      return String.fromCharCode(parseInt($2,16));
  });
  }
-function me(){
-      $.ajax({
-          url : platformUrl.me,
-          type : "GET",
-          cache : false,
-          contentType : "application/json; charset=UTF-8",
-          async : false,
-          error : function(request) {
-              location.href = home.index
-          },
-          success : function(data) {
-              setName(decodeURIComponent(data))
-          }
-      });
-  }
-me()
