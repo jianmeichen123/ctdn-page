@@ -36,6 +36,7 @@ var ctdnUrl = {
 }
 var platformUrl = {
 	me:Constants.userContentURL+"userlogin/me",
+	allQuery:Constants.platformContentURL+"common/allQuery",
 }
 var table ={
    empty: "-"
