@@ -146,12 +146,31 @@ var tableFormate ={
             for(j in i){
                 var json = i[j]
                 if(json.title!=null){
-                    investTitle+=json.title+" "
+                    investTitle+=json.title+"<br>"
                 }
             }
             if(investTitle!=''){
                 return investTitle
             }
          }
+    },
+    financeCompany:function(value,row,index){
+        var company = row.company
+        var industrict = ""
+        var img = ""
+        if (row.logo&&row.logo!=""){
+            var imgArr = row.logo.split("/")
+            if(imgArr[1]!=null){
+                img = imgArr[1]
+            }else{
+                img = imgArr[0]
+            }
+        }
+        if (row.districtSubName) industrict+=row.districtSubName
+        if (!row.industryName) industrict+=' '+table.empty
+        if (row.industryName&&!row.industrySubName) industrict+=' '+row.industryName
+        if (row.industryName&&row.industrySubName) industrict+=' '+row.industryName +">" +row.industrySubName
+        company+='<br>'+industrict
+        return "<img src='http:///10.10.0.147/"+img+"'  height='37' width='37' >"+company
     }
 }
