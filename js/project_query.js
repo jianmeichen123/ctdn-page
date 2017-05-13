@@ -53,7 +53,11 @@ function query_data (){
             o.find(".pick_on").each(function(j,f){
                 if($(f).attr("data-id")){
                    querydata[name].push($(f).attr("data-id"))
+                }else if($(f).attr("global-id")!=null&&$(f).attr("global-id")!="null"){
+                    var g_id = $(f).attr("global-id")
+                    querydata["districtIds"].push(g_id)
                 }
+
             })
 
         }
@@ -86,6 +90,9 @@ function query_data (){
     }
 
     querydata["projTitle"] = $("#projTitle").val();
+    if (querydata["districtIds"]&&querydata["districtIds"].length >=2){
+        querydata["districtIds"] = []
+    }
     return querydata
 }
 function queryParams(params) {  //配置参数
@@ -146,12 +153,31 @@ var tableFormate ={
             for(j in i){
                 var json = i[j]
                 if(json.title!=null){
-                    investTitle+=json.title+" "
+                    investTitle+=json.title+"<br>"
                 }
             }
             if(investTitle!=''){
                 return investTitle
             }
          }
+    },
+    financeCompany:function(value,row,index){
+        var company = row.company
+        var industrict = ""
+        var img = ""
+        if (row.logo&&row.logo!=""){
+            var imgArr = row.logo.split("/")
+            if(imgArr[1]!=null){
+                img = imgArr[1]
+            }else{
+                img = imgArr[0]
+            }
+        }
+        if (row.districtSubName) industrict+=row.districtSubName
+        if (!row.industryName) industrict+=' '+table.empty
+        if (row.industryName&&!row.industrySubName) industrict+=' '+row.industryName
+        if (row.industryName&&row.industrySubName) industrict+=' '+row.industryName +">" +row.industrySubName
+        company+='<br>'+industrict
+        return "<img src='http:///10.10.0.147/"+img+"'  height='37' width='37' >"+company
     }
 }
