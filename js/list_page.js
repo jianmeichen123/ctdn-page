@@ -187,8 +187,8 @@ $('body').delegate('.block .condition_all_ul li','click', function(event){
 	}else{
 		$(this).parent().children('li').first().removeClass('pick_on');
 		$(this).addClass('pick_on');
-		_query();
-	}	
+	}
+	_query()
 })
 //公用点击删除
 $('body').delegate('.block .condition_all_ul li .brain_ico_bj','click', function(event){	
