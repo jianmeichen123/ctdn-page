@@ -90,7 +90,7 @@ function query_data (){
     }
 
     querydata["projTitle"] = $("#projTitle").val();
-    if (querydata["districtIds"]&&querydata["districtIds"].length ==2){
+    if (querydata["districtIds"]&&querydata["districtIds"].length >=2){
         querydata["districtIds"] = []
     }
     return querydata
