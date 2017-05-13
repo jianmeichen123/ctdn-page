@@ -145,7 +145,7 @@ var tableFormate ={
             var investTitle = ''
             for(j in i){
                 var json = i[j]
-                if(json.title!=''){
+                if(json.title!=null){
                     investTitle+=json.title+" "
                 }
             }
