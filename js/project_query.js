@@ -138,13 +138,16 @@ var tableFormate ={
          var jsonObjArr = eval('(' + investSideJson + ')');
          for(i in jsonObjArr){
             var i = jsonObjArr[i]
+            var investTitle = ''
             for(j in i){
                 var json = i[j]
                 if(json.title!=''){
-                    return json.title
+                    investTitle+=json.title+" "
                 }
             }
-
+            if(investTitle!=''){
+                return investTitle
+            }
          }
     }
 }
