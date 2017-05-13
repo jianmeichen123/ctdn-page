@@ -53,7 +53,7 @@ function query_data (){
             o.find(".pick_on").each(function(j,f){
                 if($(f).attr("data-id")){
                    querydata[name].push($(f).attr("data-id"))
-                }else if(!$(f).hasClass("global_mousemove")){
+                }else if($(f).attr("global-id"))!=null&&$(f).attr("global-id"))!="null"){
                     var g_id = $(f).attr("global-id")
                     querydata["districtIds"].push(g_id)
                 }
