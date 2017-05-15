@@ -227,7 +227,6 @@ var tableFormate ={
          if (!row.mergeSideJson||row.mergeSideJson==null) return table.empty
          var mergeSideJson = row.mergeSideJson.substring(0,row.mergeSideJson.length-1)
          var jsonObjArr =  JSON.parse(mergeSideJson);
-         console.log(jsonObjArr)
          for(i in jsonObjArr){
             var i = jsonObjArr[i]
             var mergeSideTitle = ''
