@@ -380,30 +380,22 @@ $('body').delegate('.click_show','click', function(event){
 })
 //日期显示
 $("#begin").datetimepicker({
-	language:  'zh-CN',
-	 minView: "day",//设置只显示到月份
-	format : "yyyy-mm-dd",//日期格式
-    weekStart: 1,  
-    todayBtn:  1,  
-    autoclose: 1,  
-    todayHighlight: 1,  
-    forceParse: 0,
-    showMeridian: 1  
+	minView: "month", //选择日期后，不会再跳转去选择时分秒
+	format: "yyyy-mm-dd", //选择日期后，文本框显示的日期格式
+　　	language: 'zh-CN', //汉化
+　　	todayBtn:  1,  
+　　	autoclose:true //选择日期后自动关闭 
 }).on('changeDate', function (ev) {  
     $(this).datetimepicker('hide');
       _query();
 });  
 
 $("#end").datetimepicker({
-	language:  'zh-CN',
-	format : "yyyy-mm-dd",//日期格式
-	 minView: "day",//设置只显示到月份
-    weekStart: 1,
-    todayBtn:  1,  
-    autoclose: 1,  
-    todayHighlight: 1,  
-    forceParse: 0,
-    showMeridian: 1  
+	minView: "month", //选择日期后，不会再跳转去选择时分秒
+	format: "yyyy-mm-dd", //选择日期后，文本框显示的日期格式
+　　	language: 'zh-CN', //汉化
+　　	todayBtn:  1,  
+　　	autoclose:true //选择日期后自动关闭 
 }).on('changeDate', function (ev) {  
     $(this).datetimepicker('hide');
     _query();

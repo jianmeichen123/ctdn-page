@@ -89,7 +89,7 @@ function query_data (){
         querydata["endDate"] = endDate;
     }
 
-    querydata["company"] = $("#projTitle").val();
+    querydata[$("#projTitle").attr("data-field")] = $("#projTitle").val();
     if (querydata["districtIds"]&&querydata["districtIds"].length >=2){
         querydata["districtIds"] = []
     }
