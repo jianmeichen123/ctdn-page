@@ -89,7 +89,7 @@ function query_data (){
         querydata["endDate"] = endDate;
     }
 
-    querydata["projTitle"] = $("#projTitle").val();
+    querydata[$("#projTitle").attr("data-field")] = $("#projTitle").val();
     if (querydata["districtIds"]&&querydata["districtIds"].length >=2){
         querydata["districtIds"] = []
     }
@@ -144,7 +144,7 @@ var tableFormate ={
         }else if (row.logoSmall&&row.logoSmall!=""){
             img = row.logoSmall
         }
-        return "<img src='http:///10.10.0.147/"+img+"'  height='37' width='37' >"+row.projTitle
+        return '<div class="list_table_td"> <img height="37" width="37" src="http:///10.10.0.147/'+img+'"> <span class="col_999"><a href="#">'+row.projTitle+'</a></span> </div>'
     },
     investSide:function(value, row, index){
          var investSideJson = row.investSideJson
@@ -179,8 +179,7 @@ var tableFormate ={
         if (!row.industryName) industrict+=' '+table.empty
         if (row.industryName&&!row.industrySubName) industrict+=' '+row.industryName
         if (row.industryName&&row.industrySubName) industrict+=' '+row.industryName +">" +row.industrySubName
-        company+='<br>'+industrict
-        return "<img src='http:///10.10.0.147/"+img+"'  height='37' width='37' >"+company
+        return '<div class="list_table_td"> <img height="37" width="37" src="http:///10.10.0.147/'+img+'"> <ul class="col_999"> <li><a href="#">'+company+'</a></li> <li>'+industrict+'</li> </ul> </div>'
     },
     beenMergered:function(value,row,index){
         var mergered = row.mergered
@@ -198,8 +197,7 @@ var tableFormate ={
         if (!row.industryName) industrict+=' '+table.empty
         if (row.industryName&&!row.industrySubName) industrict+=' '+row.industryName
         if (row.industryName&&row.industrySubName) industrict+=' '+row.industryName +">" +row.industrySubName
-        mergered+='<br>'+industrict
-        return "<img src='http:///10.10.0.147/"+img+"'  height='37' width='37' >"+mergered
+        return '<div class="list_table_td"> <img height="37" width="37" src="http:///10.10.0.147/'+img+'"> <ul class="col_999"> <li><a href="#">'+mergered+'</a></li> <li>'+industrict+'</li> </ul> </div>'
     },
     org:function(value,row,index){
         var investOrg = row.investOrg
@@ -212,7 +210,7 @@ var tableFormate ={
                 img = imgArr[0]
             }
         }
-        return "<img src='http:///10.10.0.147/"+img+"'  height='37' width='37' >"+investOrg
+        return '<div class="list_table_td"> <img height="37" width="37" src="http:///10.10.0.147/'+img+'"> <ul class="col_999"> <li><a href="#">'+investOrg+'</a></li> </ul> </div>'
     },
     investProject:function(value, row, index){
          var investProJson = row.investProjJson

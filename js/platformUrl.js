@@ -5,7 +5,7 @@ var Constants = {
 	dataContentURL: "http://ctdnqa.gi.com/data/",
 }
 var home = {
-    index : "http://ctdn.galaxyinternet.com"
+    //;index : "http://ctdn.galaxyinternet.com"
 }
 var docUrl = {
 
