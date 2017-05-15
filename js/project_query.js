@@ -172,7 +172,7 @@ var tableFormate ={
         return '<div class="list_table_td"> <img height="37" width="37" src="http:///10.10.0.147/'+img+'"> <ul class="col_999"> <li><a href="#">'+company+'</a></li> <li>'+industrict+'</li> </ul> </div>'
     },
     beenMergered:function(value,row,index){
-        var mergered = row.mergered
+        var mergered = row.projTitle
         var industrict = ""
         var img = ""
         if (row.logo&&row.logo!=""){
@@ -216,6 +216,28 @@ var tableFormate ={
             }
             if(investProj!=''){
                 return investProj
+            }
+         }
+    },
+    equityRate:function(value, row, index){
+        if (!row.equityRate) return table.empty
+        return row.equityRate+"%"
+    },
+    mergeSideJson:function(value, row, index){
+         if (!row.mergeSideJson||row.mergeSideJson==null) return table.empty
+         var mergeSideJson = row.mergeSideJson.substring(0,row.mergeSideJson.length-1)
+         var jsonObjArr =  JSON.parse(mergeSideJson);
+         for(i in jsonObjArr){
+            var i = jsonObjArr[i]
+            var mergeSideTitle = ''
+            for(j in i){
+                var json = i[j]
+                if(json.title!=null){
+                    mergeSideTitle+=json.title+"<br>"
+                }
+            }
+            if(mergeSideTitle!=''){
+                return mergeSideTitle
             }
          }
     }
