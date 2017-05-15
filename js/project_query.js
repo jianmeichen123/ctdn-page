@@ -64,14 +64,14 @@ function query_data (){
 
     })
 
-    var beginDate=$("#begin").val();
+    var startDate=$("#begin").val();
     var endDate=$("#end").val();
     var sdate = [];
     var edate = [];
     var d1 = "";
     var d2 = "";
-    if(beginDate != '' && endDate != '') {
-        sdate = beginDate.split('-');
+    if(startDate != '' && endDate != '') {
+        sdate = startDate.split('-');
         d1 = sdate[0]+sdate[1]+sdate[2];
         edate = endDate.split('-');
         d2 = edate[0]+edate[1]+edate[2];
@@ -81,11 +81,11 @@ function query_data (){
         }else{
             d1 = sdate[0]+'-'+sdate[1]+'-'+sdate[2];
             d2 = edate[0]+'-'+edate[1]+'-'+edate[2];
-            querydata["beginDate"] = d1;
+            querydata["startDate"] = d1;
             querydata["endDate"] = d2;
         }
     }else{
-        querydata["beginDate"] = beginDate;
+        querydata["startDate"] = startDate;
         querydata["endDate"] = endDate;
     }
 
@@ -139,8 +139,10 @@ var tableFormate ={
     },
     projectName:function(value, row, index){
         var img = ""
-        if (row.logoSmall&&row.logoSmall!=""){
+        if (row.logoSmall&&row.logoSmall.indexOf("/")!=-1){
             img = row.logoSmall.split("/")[1]
+        }else if (row.logoSmall&&row.logoSmall!=""){
+            img = row.logoSmall
         }
         return "<img src='http:///10.10.0.147/"+img+"'  height='37' width='37' >"+row.projTitle
     },
@@ -179,5 +181,54 @@ var tableFormate ={
         if (row.industryName&&row.industrySubName) industrict+=' '+row.industryName +">" +row.industrySubName
         company+='<br>'+industrict
         return "<img src='http:///10.10.0.147/"+img+"'  height='37' width='37' >"+company
+    },
+    beenMergered:function(value,row,index){
+        var mergered = row.mergered
+        var industrict = ""
+        var img = ""
+        if (row.logo&&row.logo!=""){
+            var imgArr = row.logo.split("/")
+            if(imgArr[1]!=null){
+                img = imgArr[1]
+            }else{
+                img = imgArr[0]
+            }
+        }
+        if(row.district) industrict+=row.district
+        if (!row.industryName) industrict+=' '+table.empty
+        if (row.industryName&&!row.industrySubName) industrict+=' '+row.industryName
+        if (row.industryName&&row.industrySubName) industrict+=' '+row.industryName +">" +row.industrySubName
+        mergered+='<br>'+industrict
+        return "<img src='http:///10.10.0.147/"+img+"'  height='37' width='37' >"+mergered
+    },
+    org:function(value,row,index){
+        var investOrg = row.investOrg
+        var img = ""
+        if (row.logo&&row.logo!=""){
+            var imgArr = row.logo.split("/")
+            if(imgArr[1]!=null){
+                img = imgArr[1]
+            }else{
+                img = imgArr[0]
+            }
+        }
+        return "<img src='http:///10.10.0.147/"+img+"'  height='37' width='37' >"+investOrg
+    },
+    investProject:function(value, row, index){
+         var investProJson = row.investProjJson
+         var jsonObjArr = eval('(' + investProJson + ')');
+         for(i in jsonObjArr){
+            var i = jsonObjArr[i]
+            var investProj = ''
+            for(j in i){
+                var json = i[j]
+                if(json.title!=null){
+                    investProj+=json.title+"<br>"
+                }
+            }
+            if(investProj!=''){
+                return investProj
+            }
+         }
     }
 }
