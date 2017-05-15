@@ -1,5 +1,5 @@
 var Constants = {
-	platformContentURL: "http://ctdndev.gi.com/1/api/",
+	platformContentURL: "http://ctdndev.gi.com/api/",
 	userContentURL: "http://ctdndev.gi.com/user/",
 	searchContentURL: "http://ctdndev.gi.com/search/",
 	dataContentURL: "http://ctdndev.gi.com/data/",
