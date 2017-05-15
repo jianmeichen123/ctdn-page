@@ -224,7 +224,7 @@ var tableFormate ={
         return row.equityRate+"%"
     },
     mergeSideJson:function(value, row, index){
-         if (!row.mergeSideJson||row.mergeSideJson==null) return table
+         if (!row.mergeSideJson||row.mergeSideJson==null) return table.empty
          var mergeSideJson = row.mergeSideJson.substring(0,row.mergeSideJson.length-1)
          var jsonObjArr =  JSON.parse(mergeSideJson);
          console.log(jsonObjArr)
