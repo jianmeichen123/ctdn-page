@@ -2,18 +2,9 @@ function _query(){
     var data = query_data()
 
     $('table[data-url]').bootstrapTable('refresh', {
-        "pageNumber" :1,
+        "pageNo" :0,
         query:data
      });
-}
-function queryParams(params) {
-    console.log(params)
-    return {
-        pageSize: params.limit,
-        pageNumber: params.pageNumber,
-        UserName: 4
-    };
-
 }
 function query_data (){
     var querydata = {}
@@ -96,10 +87,9 @@ function query_data (){
     return querydata
 }
 function queryParams(params) {  //配置参数
-    console.log(params)
     var data = query_data()
       data["pageSize"]=params.pageSize,   //页面大小
-      data["pageNo"]=params.pageNumber,  //页码
+      data["pageNo"]=params.pageNumber -1,  //页码
       data["orderBy"]=params.sortName,  //排序列名
       data["order"]=params.sortOrder//排位命令（desc，asc）
     return data;
