@@ -172,7 +172,7 @@ var tableFormate ={
         return '<div class="list_table_td"> <img height="37" width="37" src="http:///10.10.0.147/'+img+'"> <ul class="col_999"> <li><a href="#">'+company+'</a></li> <li>'+industrict+'</li> </ul> </div>'
     },
     beenMergered:function(value,row,index){
-        var mergered = row.mergered
+        var mergered = row.projTitle
         var industrict = ""
         var img = ""
         if (row.logo&&row.logo!=""){
