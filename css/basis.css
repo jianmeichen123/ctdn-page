@@ -65,7 +65,7 @@ input{outline: none;}
     text-overflow: ellipsis;
     white-space: nowrap;
 }
-.border_l{border-left:1px solid #f0f0f0;}
+.border_l{border-left:1px solid #f0f0f0; height: 28px;}
 .block .table_style th, .block .table_style td {
     vertical-align: middle; text-align:center;
     box-sizing: border-box;
@@ -87,7 +87,7 @@ input{outline: none;}
     -moz-border-radius: 0px;
 }
 /*行业选择*/
-.industry_list{ position:absolute; overflow:hidden; top:26px; width:395px; background-color:#fff; border:1px solid #e7e7e7; height:465px; z-index:98; left:0px;}
+.industry_list{ position:absolute; overflow:hidden; top:26px; width:305px; background-color:#fff; border:1px solid #e7e7e7; height:465px; z-index:98; left:0px;}
 .industry_list ul{ float:left;  border-left:1px solid #f0f0f0; height:465px;    width: 130px; padding-top:10px;}
 .industry_list ul li{ height:27px; line-height:27px; text-indent:20px; width:100%; overflow:hidden; cursor:pointer; padding: 0; margin: 0;}
 .industry_list #three_industry{ width:157px;}
@@ -123,3 +123,6 @@ input{outline: none;}
 .type_name_all .condition_all_ul{ margin-left:10px !important; float: left;  width: 935px !important; }
 .brain_ico_up_arrows{background-position: -44px -21px; width: 17px; height: 16px;  display: inline-block;}
 .brain_ico_down_arrows{background-position: -69px -20px; width: 17px; height: 16px;  display: inline-block;}
+.table_style  comp{color:#1ed2ff; font-weight: bold;}
+.th_li{ height:28px; overflow:hidden; margin-bottom:0;}
+.th_li li{line-height:15px;}
