@@ -180,6 +180,7 @@ var tableFormate ={
         if (row.industryName&&!row.industrySubName) industrict+=' '+row.industryName
         if (row.industryName&&row.industrySubName) industrict+=' '+row.industryName +">" +row.industrySubName
         company+='<br>'+industrict
+        return '<div class="list_table_td"> <img src="img/log.png"> <ul class="col_999"> <li><a href="#">大象洗鞋馆</a></li> <li>北京 电子商务 > 综合电商</li> </ul> </div>'
         return "<img src='http:///10.10.0.147/"+img+"'  height='37' width='37' >"+company
     },
     beenMergered:function(value,row,index){
