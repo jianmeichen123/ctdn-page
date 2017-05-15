@@ -220,11 +220,11 @@ var tableFormate ={
          }
     },
     equityRate:function(value, row, index){
-        if (!row.equityRate) return table.empty
+        if (!row.equityRate&) return table.empty
         return row.equityRate+"%"
     },
     mergeSideJson:function(value, row, index){
-         if (!row.mergeSideJson) return table.empty
+         if (!row.mergeSideJson&&mergeSideJson==null) return table.empty
          var mergeSideJson = row.mergeSideJson
          var jsonObjArr =  JSON.parse(mergeSideJson);
          for(i in jsonObjArr){
