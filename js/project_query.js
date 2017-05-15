@@ -7,11 +7,9 @@ function _query(){
      });
 }
 function queryParams(params) {
-    console.log(params)
     return {
         pageSize: params.limit,
-        pageNumber: params.pageNumber,
-        UserName: 4
+        pageNumber: params.pageNumber-1,
     };
 
 }
