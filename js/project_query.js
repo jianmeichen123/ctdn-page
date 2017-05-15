@@ -64,14 +64,14 @@ function query_data (){
 
     })
 
-    var beginDate=$("#begin").val();
+    var startDate=$("#begin").val();
     var endDate=$("#end").val();
     var sdate = [];
     var edate = [];
     var d1 = "";
     var d2 = "";
-    if(beginDate != '' && endDate != '') {
-        sdate = beginDate.split('-');
+    if(startDate != '' && endDate != '') {
+        sdate = startDate.split('-');
         d1 = sdate[0]+sdate[1]+sdate[2];
         edate = endDate.split('-');
         d2 = edate[0]+edate[1]+edate[2];
@@ -81,11 +81,11 @@ function query_data (){
         }else{
             d1 = sdate[0]+'-'+sdate[1]+'-'+sdate[2];
             d2 = edate[0]+'-'+edate[1]+'-'+edate[2];
-            querydata["beginDate"] = d1;
+            querydata["startDate"] = d1;
             querydata["endDate"] = d2;
         }
     }else{
-        querydata["beginDate"] = beginDate;
+        querydata["startDate"] = startDate;
         querydata["endDate"] = endDate;
     }
 
