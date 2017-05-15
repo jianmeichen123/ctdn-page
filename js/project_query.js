@@ -144,7 +144,7 @@ var tableFormate ={
         }else if (row.logoSmall&&row.logoSmall!=""){
             img = row.logoSmall
         }
-        return "<img src='http:///10.10.0.147/"+img+"'  height='37' width='37' >"+row.projTitle
+        return '<div class="list_table_td"> <img src="http:///10.10.0.147/'+img+'"> <span class="col_999"><a href="#">'+row.projTitle+'</a></span> </div>'
     },
     investSide:function(value, row, index){
          var investSideJson = row.investSideJson
