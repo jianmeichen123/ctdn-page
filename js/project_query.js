@@ -179,8 +179,7 @@ var tableFormate ={
         if (!row.industryName) industrict+=' '+table.empty
         if (row.industryName&&!row.industrySubName) industrict+=' '+row.industryName
         if (row.industryName&&row.industrySubName) industrict+=' '+row.industryName +">" +row.industrySubName
-        company+='<br>'+industrict
-        return '<div class="list_table_td"> <img height="60" width="60" src="http:///10.10.0.147/'+img+'"> <span class="col_999"><a href="#">'+company+'</a></span> </div>'
+        return '<div class="list_table_td"> <img height="37" width="37" src="http:///10.10.0.147/'+img+'"> <ul class="col_999"> <li><a href="#">'+company+'</a></li> <li>'+industrict+'</li> </ul> </div>'
     },
     beenMergered:function(value,row,index){
         var mergered = row.mergered
@@ -198,9 +197,7 @@ var tableFormate ={
         if (!row.industryName) industrict+=' '+table.empty
         if (row.industryName&&!row.industrySubName) industrict+=' '+row.industryName
         if (row.industryName&&row.industrySubName) industrict+=' '+row.industryName +">" +row.industrySubName
-        mergered+='<br>'+industrict
-        return '<div class="list_table_td"> <img height="60" width="60" src="http:///10.10.0.147/'+img+'"> <span class="col_999"><a href="#">'+mergered+'</a></span> </div>'
-        return "<img src='http:///10.10.0.147/"+img+"'  height='37' width='37' >"+mergered
+        return '<div class="list_table_td"> <img height="37" width="37" src="http:///10.10.0.147/'+img+'"> <ul class="col_999"> <li><a href="#">'+mergered+'</a></li> <li>'+industrict+'</li> </ul> </div>'
     },
     org:function(value,row,index){
         var investOrg = row.investOrg
@@ -213,8 +210,7 @@ var tableFormate ={
                 img = imgArr[0]
             }
         }
-        return '<div class="list_table_td"> <img height="60" width="60" src="http:///10.10.0.147/'+img+'"> <span class="col_999"><a href="#">'+investOrg+'</a></span> </div>'
-        return "<img src='http:///10.10.0.147/"+img+"'  height='37' width='37' >"+investOrg
+        return '<div class="list_table_td"> <img height="37" width="37" src="http:///10.10.0.147/'+img+'"> <ul class="col_999"> <li><a href="#">'+investOrg+'</a></li> </ul> </div>'
     },
     investProject:function(value, row, index){
          var investProJson = row.investProjJson
