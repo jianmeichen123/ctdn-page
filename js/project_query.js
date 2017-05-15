@@ -139,8 +139,11 @@ var tableFormate ={
     },
     projectName:function(value, row, index){
         var img = ""
-        if (row.logoSmall&&row.logoSmall!=""){
+        if (row.logoSmall&&row.indexOf("/")!=-1){
             img = row.logoSmall.split("/")[1]
+        }
+        if (row.logoSmall&&row.logoSmall!=""){
+            img = row.logoSmall
         }
         return "<img src='http:///10.10.0.147/"+img+"'  height='37' width='37' >"+row.projTitle
     },
