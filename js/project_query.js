@@ -218,5 +218,10 @@ var tableFormate ={
                 return investProj
             }
          }
+    },
+    equityRate:function(value, row, index){
+        if (!row.equityRate) return table.empty
+        return row.equityRate*100+"%"
+
     }
 }
