@@ -6,13 +6,6 @@ function _query(){
         query:data
      });
 }
-function queryParams(params) {
-    return {
-        pageSize: params.limit,
-        pageNumber: params.pageNumber-1,
-    };
-
-}
 function query_data (){
     var querydata = {}
     $("[data-query]").each(function(i,e){
@@ -94,10 +87,9 @@ function query_data (){
     return querydata
 }
 function queryParams(params) {  //配置参数
-    console.log(params)
     var data = query_data()
       data["pageSize"]=params.pageSize,   //页面大小
-      data["pageNo"]=params.pageNumber,  //页码
+      data["pageNo"]=params.pageNumber -1,  //页码
       data["orderBy"]=params.sortName,  //排序列名
       data["order"]=params.sortOrder//排位命令（desc，asc）
     return data;
