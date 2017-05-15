@@ -225,7 +225,7 @@ var tableFormate ={
     },
     mergeSideJson:function(value, row, index){
          var mergeSideJson = row.mergeSideJson
-         var jsonObjArr = eval('(' + mergeSideJson + ')');
+         var jsonObjArr =  JSON.parse(mergeSideJson);
          for(i in jsonObjArr){
             var i = jsonObjArr[i]
             var mergeSideTitle = ''
