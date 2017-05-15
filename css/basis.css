@@ -17,6 +17,7 @@ input{outline: none;}
 .page_title{ width:100%; margin-top:15px;}
 .page_all{ width:100%; overflow:hidden; margin-top:20px; position:relative;}
 .column_ul{ position:absolute; top:0px; height:42px;}
+.column_ul li a{color:#333;     text-decoration: none;}
 .column_ul_on{border:1px solid #f0f0f0; border-bottom:0; background-color:#fff; color:#1ed2ff;}
 .column_ul li{ float:left; line-height:42px; width:88px;  text-align:center; font-size:14px; margin-right:40px; border-top-left-radius:10px; border-top-right-radius:10px; cursor:pointer; }
 .condition_all{border:1px solid #f0f0f0; background-color:#fff; margin-top:42px; padding-top:10px; ;}
@@ -48,8 +49,22 @@ input{outline: none;}
 .brain_ico_seek{ background-position:0px -21px; width:17px; height:16px; display:block; float:right; margin-right:12px; margin-top:5px; cursor:pointer;}
 .table_seek input{ width:255px; height:28px; margin-left:10px; border:0; text-indent:5px;}
 .bj_fff{ background-color:#fff;}
-.block .table_style > thead > tr > th { text-align:center; font-weight: 100;border-bottom: 1px solid #f0f0f0; padding-top:16px; padding-bottom:16px;}
-.block .table_style > tbody  > tr > td { text-align:center; font-weight: 100;border-bottom: 1px solid #f0f0f0;}
+.block .table_style > thead > tr > th { text-align:center; font-weight: 100;border-bottom: 1px solid #f0f0f0 !important;;border-left:0px solid #f0f0f0; padding-top:16px; padding-bottom:16px;}
+.block .table_style > tbody  > tr > td { text-align:center; font-weight: 100;border-bottom: 1px solid #f0f0f0;border-left:0px solid #f0f0f0; }
+.block .table_style > tbody > tr:nth-of-type(odd) {
+     background-color: #fff;
+}
+.block .table_style > tbody > tr:nth-of-type(odd):hover {
+     background-color: #f9f9f9;
+}
+.table_style  thead th .th-inner, .table_style  tbody td .th-inner {
+    padding: 15px 0 !important;
+    line-height: 24px;
+    vertical-align: top;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
 .border_l{border-left:1px solid #f0f0f0;}
 .block .table_style th, .block .table_style td {
     vertical-align: middle; text-align:center;
@@ -63,11 +78,21 @@ input{outline: none;}
 .list_table_td a{ color:#333;}
 .list_table_td a:hover{ color:#1ed2ff; text-decoration:none;}
 .boder_all table{ border:1px solid #f0f0f0;}
+.block .fixed-table-container {
+    position: relative;
+    clear: both;
+    border: 0px solid #dddddd;
+    border-radius: 0px;
+    -webkit-border-radius: 0px;
+    -moz-border-radius: 0px;
+}
 /*行业选择*/
-.industry_list{ position:absolute; top:26px; width:395px; background-color:#fff; border:1px solid #e7e7e7; height:465px; z-index:98; left:0px;}
-.industry_list ul{ float:left; border-left:1px solid #f0f0f0; height:465px;    width: 110px; padding-top:10px;}
+.industry_list{ position:absolute; overflow:hidden; top:26px; width:395px; background-color:#fff; border:1px solid #e7e7e7; height:465px; z-index:98; left:0px;}
+.industry_list ul{ float:left;  border-left:1px solid #f0f0f0; height:465px;    width: 130px; padding-top:10px;}
 .industry_list ul li{ height:27px; line-height:27px; text-indent:20px; width:100%; overflow:hidden; cursor:pointer; padding: 0; margin: 0;}
 .industry_list #three_industry{ width:157px;}
+#one_industry li{ min-width:105px;}
+#one_industry{overflow-y: auto;}
 .none{ display:none;}
 .click_class{ color:#1ed2ff;}
 #one_industry li:hover ,#two_industry li:hover ,#three_industry li:hover{ background-color:#1ed2ff; color:#fff;}
@@ -92,6 +117,7 @@ input{outline: none;}
 .nav_all_name{ float:right; color:#fff; font-size:12px; margin-top:18px;}
 .brain_ico_name{background-position:-28px -14px; width:16px; height:16px; display:inline-block; }
 .nav_nav ul{ margin-left:140px;}
+.nav_nav ul li a{color:#333;     text-decoration: none;}
 .block_list{display:none;}
 #global_list .condition_all_ul{ margin-left:134px; width:1000px; }
 .type_name_all .condition_all_ul{ margin-left:10px !important; float: left;  width: 935px !important; }
