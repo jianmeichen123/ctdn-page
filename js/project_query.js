@@ -221,7 +221,23 @@ var tableFormate ={
     },
     equityRate:function(value, row, index){
         if (!row.equityRate) return table.empty
-        return row.equityRate*100+"%"
-
+        return row.equityRate+"%"
+    },
+    mergeSideJson:function(value, row, index){
+         var mergeSideJson = row.mergeSideJson
+         var jsonObjArr = eval('(' + mergeSideJson + ')');
+         for(i in jsonObjArr){
+            var i = jsonObjArr[i]
+            var mergeSideTitle = ''
+            for(j in i){
+                var json = i[j]
+                if(json.title!=null){
+                    mergeSideTitle+=json.title+"<br>"
+                }
+            }
+            if(mergeSideTitle!=''){
+                return mergeSideTitle
+            }
+         }
     }
 }
