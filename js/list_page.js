@@ -63,6 +63,10 @@ $('body').delegate('.industry_list ul li','click',function(){
 	/***
 		判断选择的是第几行业   根据行业取消和选中   
 		*/
+	if($("#click_list li").length == '10'){
+		alert('最多选择10个')
+		return;
+	}
 	var industry = $(this).attr('industry');
 	if(industry == 1){
 		$('#click_list .one_'+i+'').remove()
@@ -228,7 +232,7 @@ if($("#global_all").attr('data-query') =="listingTypeIds:normal"){
 	    global_all +='<li global-id="'+list[i].id+'" data-id="'+list[i].id+'" class="global_mousemove ">'+list[i].name+'<span class="brain_ico brain_ico_bj"></span></li>';
 	    global_list +='<div class="block_list" global-list="'+list[i].id+'">';
 	    global_list +='<ul class="condition_all_ul">';
-	    global_list +='<li class="pick_on" p global-id="'+list[i].id+'">全部</li>';
+	    global_list +='<li p global-id="'+list[i].id+'">全部</li>';
 	    for(var j = 0; j< list[i].children.length; j++){
 	    	global_list +='<li global-id="'+list[i].id+'" data-id="'+list[i].children[j].id+'">'+list[i].children[j].name+'<span class="brain_ico brain_ico_bj"></span></li>';
 	    }
@@ -387,8 +391,12 @@ $("#begin").datetimepicker({
 	format: "yyyy-mm-dd", //选择日期后，文本框显示的日期格式
 　　	language: 'zh-CN', //汉化
 　　	todayBtn:  1,  
+　　	endDate:new Date(),
 　　	autoclose:true //选择日期后自动关闭 
 }).on('changeDate', function (ev) {  
+	var starttime=$("#begin").val();
+	$("#end").datetimepicker('setStartDate',starttime);
+	$("#begin").datetimepicker('hide');
     $(this).datetimepicker('hide');
       _query();
 });  
@@ -398,8 +406,24 @@ $("#end").datetimepicker({
 	format: "yyyy-mm-dd", //选择日期后，文本框显示的日期格式
 　　	language: 'zh-CN', //汉化
 　　	todayBtn:  1,  
+　　	endDate:new Date(),
 　　	autoclose:true //选择日期后自动关闭 
 }).on('changeDate', function (ev) {  
+	var starttime=$("#starttime").val();
+	var endtime=$("#end").val();
+	$("#begin").datetimepicker('setEndDate',endtime);
+	$("#end").datetimepicker('hide');
     $(this).datetimepicker('hide');
     _query();
 });
+//名字事件
+$('body').delegate('.nav_all_name','click', function(event){	
+	event.stopPropagation(); 
+	$(this).children('.brain_ico_name').toggleClass("brain_ico_name_on");
+	if($(this).children('.brain_ico_name').hasClass('brain_ico_name_on')){
+		$('.list_click_ul').show();
+	}else{
+		$('.list_click_ul').hide();
+	}
+	
+})

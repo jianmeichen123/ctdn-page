@@ -9,126 +9,124 @@
 
 <body data-page-parent="trdt">
 {(header.html)}
-	<div class="container">
-		<div class="page_title">
-			<span class="col_999">创投数据　&gt;　</span><span class="col_999">投融动态　&gt;　</span><span class="col_666">并购事件</span>
-		</div>
+<div class="container">
+	<div class="page_title">
+		<span class="col_999">创投数据　&gt;　</span><span class="col_999">投融动态　&gt;　</span><span class="col_666">并购事件</span>
+	</div>
 
-        <div class="page_all">
+	<div class="page_all">
 
 
-			<!--行业选择end-->
-			<ul class="column_ul">
-				<li><a href="list_page_rz.html" ctdnqa>投资事件</a></li>
-				<li class="column_ul_on">并购事件</li>
-				<li><a href="list_page_ss.html" ctdnqa>上市挂牌</a></li>
-				<li><a href="list_page_tc.html" ctdnqa>退出事件</a></li>
-			</ul>
-			<div class="condition_all">
-				<div class="block_industry">
-					<span class="classify">所属行业</span>
-					<ul class="condition_all_ul">
-						<li class="pick_on" id="industry_one">全部</li>
-						<li class="click_industry_show">选择行业 <span class="brain_ico brain_ico_arrow"></span>
-							<!--行业选择-->
-							<div class="industry_list">
-								<ul id="one_industry">
-								</ul>
-								<ul id="two_industry">
-								</ul>
-							</div>
-						</li>
-						<div id="click_list" data-query="industryIds:nor">
+		<!--行业选择end-->
+		<ul class="column_ul">
+			<li><a href="list_page_rz.html" ctdnqa>投资事件</a></li>
+			<li class="column_ul_on">并购事件</li>
+		</ul>
+		<div class="condition_all">
+			<div class="block_industry">
+				<span class="classify">所属行业</span>
+				<ul class="condition_all_ul">
+					<li class="pick_on" id="industry_one">全部</li>
+					<li class="click_industry_show">选择行业 <span class="brain_ico brain_ico_arrow"></span>
+						<!--行业选择-->
+						<div class="industry_list">
+							<ul id="one_industry">
+							</ul>
+							<ul id="two_industry">
+							</ul>
 						</div>
-					</ul>
-				</div>
-<!--
-				<div class="block">
-					<span class="classify">并购类型</span>
-					<ul class="condition_all_ul" data-query="mergeType:normal">
-						<li class="pick_on">全部</li>
-					</ul>
-				</div>-->
+					</li>
+					<div id="click_list" data-query="industryIds:nor">
+					</div>
+				</ul>
+			</div>
+			<!--
+                            <div class="block">
+                                <span class="classify">并购类型</span>
+                                <ul class="condition_all_ul" data-query="mergeType:normal">
+                                    <li class="pick_on">全部</li>
+                                </ul>
+                            </div>-->
 
-<!--
+			<!--
 
-				<div class="block">
-					<span class="classify">并购状态</span>
-					<ul class="condition_all_ul" data-query="mergeStatus:normal">
-						<li class="pick_on">全部</li>
-					</ul>
-				</div>
--->
+                            <div class="block">
+                                <span class="classify">并购状态</span>
+                                <ul class="condition_all_ul" data-query="mergeStatus:normal">
+                                    <li class="pick_on">全部</li>
+                                </ul>
+                            </div>
+            -->
 
-				<div class="block  switch_condition">
-					<span class="classify">股权比例</span>
-					<ul class="condition_all_ul" data-query="equityRate:normal">
-						<li class="pick_on">全部</li>
-					</ul>
-				</div>
-
-				<div class="block switch_condition">
-					<span class="classify">　　币种</span>
-					<ul class="condition_all_ul" data-query="currencyType:normal">
-						<li class="pick_on">全部</li>
-					</ul>
-				</div>
-				<div class="block">
-					<span class="classify">时间</span>
-					<ul class="time_ul">
-						<li><input type="text" id="begin"/></li>
-						<li>至</li>
-						<li><input type="text" id="end"/></li>
-					</ul>
-				</div>
-
-				<div class="block click_show">更多选择（股权比例、货币）等<span class="brain_ico brain_ico_arrowup"></span></div>
-
+			<div class="block">
+				<span class="classify">股权比例</span>
+				<ul class="condition_all_ul" data-query="equityRate:normal">
+					<li class="pick_on">全部</li>
+				</ul>
 			</div>
 
-
-			<div class="block m_t_20 line_h">
-				<span class="col_999">共<span></span>个结果</span>
-				<div class="table_seek"><input data-field="projTitle" id = "projTitle" type="text" placeholder="结果中搜索"/><span class="brain_ico brain_ico_seek" onclick="_query()"></span></div>
+			<div class="block">
+				<span class="classify">　　币种</span>
+				<ul class="condition_all_ul" data-query="currencyType:normal">
+					<li class="pick_on">全部</li>
+				</ul>
 			</div>
-			<div class="block m_t_10 boder_all">
-
-				<table class="table bj_fff table_style" data-url="mergeEvent">
-				   <thead>
-					  <tr>
-						 <th data-formatter="tableFormate.beenMergered"><div>被并购方</div></th>
-						 <th data-sortable="true" data-formatter="tableFormate.equityRate" ><div class="border_l">股权比例</div></th>
-						 <th data-field="amountStr"><div class="border_l">金额</div></th>
-						  <th data-sortable="true"  data-field="mergeDate"><div class="border_l">时间</div></th>
-						  <th data-formatter="tableFormate.mergeSideJson"><div class="border_l">并购方</div></th>
-<!--
-
-
-						 <th data-field="mergerStatus"><div class="border_l">并购状态</div></th>
-						 <th data-sortable="true" data-field="startDate"><div class="border_l">并购开始时间</div></th>
-						 <th data-sortable="true" data-field="endDate"><div class="border_l">并购结束时间</div></th>
--->
-
-						 <th><div class="border_l">详情</div></th>
-					  </tr>
-				   </thead>
-				   <tbody>
-
-
-				   </tbody>
-				</table>
-
-
-
+			<div class="block">
+				<span class="classify">时间</span>
+				<ul class="time_ul">
+					<li><input type="text" id="begin"/></li>
+					<li>至</li>
+					<li><input type="text" id="end"/></li>
+				</ul>
 			</div>
+
+		<!--	<div class="block click_show">更多选择（股权比例、货币）等<span class="brain_ico brain_ico_arrowup"></span></div>-->
+
+		</div>
+
+
+		<div class="block m_t_20 line_h">
+			<span class="col_999">共<span></span>个结果</span>
+			<div class="table_seek"><input data-field="projTitle" id = "projTitle" type="text" onkeydown="entersearch()" placeholder="结果中搜索"/><span class="brain_ico brain_ico_seek" onclick="_query()"></span></div>
+		</div>
+		<div class="block m_t_10 boder_all">
+
+			<table class="table bj_fff table_style" data-url="mergeEvent">
+				<thead>
+				<tr>
+					<th data-formatter="tableFormate.beenMergered"><div>被并购方</div></th>
+					<th data-sortable="true" data-formatter="tableFormate.equityRate" data-field="equityRate"><div class="border_l">股权比例</div></th>
+					<th data-field="amountStr"><div class="border_l">金额</div></th>
+					<th data-sortable="true"  data-field="mergeDate"><div class="border_l">时间</div></th>
+					<th data-formatter="tableFormate.mergeSideJson"><div class="border_l">并购方</div></th>
+					<!--
+
+
+                                             <th data-field="mergerStatus"><div class="border_l">并购状态</div></th>
+                                             <th data-sortable="true" data-field="startDate"><div class="border_l">并购开始时间</div></th>
+                                             <th data-sortable="true" data-field="endDate"><div class="border_l">并购结束时间</div></th>
+                    -->
+
+					<th><div class="border_l">详情</div></th>
+				</tr>
+				</thead>
+				<tbody>
+
+
+				</tbody>
+			</table>
+
 
 
 		</div>
 
 
+	</div>
 
 
-    </div>
+
+
+</div>
 
 {(footer.html)}
 

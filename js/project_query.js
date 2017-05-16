@@ -189,6 +189,23 @@ var tableFormate ={
         if (row.industryName&&row.industrySubName) industrict+=' '+row.industryName +">" +row.industrySubName
         return '<div class="list_table_td"> <img height="37" width="37" src="http:///10.10.0.147/'+img+'"> <ul class="col_999"> <li><a href="#">'+mergered+'</a></li> <li>'+industrict+'</li> </ul> </div>'
     },
+    mergerSide:function(value,row,index){
+        var mergerSideJson = row.mergeSideJson
+        var mergerSideArr = eval('('+mergerSideJson+')')
+        for(i in mergerSideArr){
+            var mergerSides = mergerSideArr[i]
+            var mergerSideTitle = ''
+            for(j in mergerSides){
+                var json = mergerSides[j]
+                if(json.title != null){
+                    mergerSideTitle+='<br>'+json.title
+                }
+            }
+            if(mergerSideTitle!=''){
+                return mergerSideTitle
+            }
+        }
+    },
     org:function(value,row,index){
         var investOrg = row.investOrg
         var img = ""
@@ -220,7 +237,7 @@ var tableFormate ={
          }
     },
     equityRate:function(value, row, index){
-        if (!row.equityRate) return table.empty
+        if (row.equityRate==null) return table.empty
         return row.equityRate+"%"
     },
     mergeSideJson:function(value, row, index){
@@ -242,3 +259,10 @@ var tableFormate ={
          }
     }
 }
+ function entersearch(){
+    var event = window.event || arguments.callee.caller.arguments[0];
+    if (event.keyCode == 13)
+    {
+        _query();
+    }
+ }
