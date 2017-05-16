@@ -220,7 +220,7 @@ var tableFormate ={
          }
     },
     equityRate:function(value, row, index){
-        if (!row.equityRate) return table.empty
+        if (row.equityRate==null) return table.empty
         return row.equityRate+"%"
     },
     mergeSideJson:function(value, row, index){
