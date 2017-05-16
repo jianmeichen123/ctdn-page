@@ -63,6 +63,10 @@ $('body').delegate('.industry_list ul li','click',function(){
 	/***
 		判断选择的是第几行业   根据行业取消和选中   
 		*/
+	if($("#click_list li").length == '10'){
+		alert('最多选择10个')
+		return;
+	}
 	var industry = $(this).attr('industry');
 	if(industry == 1){
 		$('#click_list .one_'+i+'').remove()
@@ -387,8 +391,12 @@ $("#begin").datetimepicker({
 	format: "yyyy-mm-dd", //选择日期后，文本框显示的日期格式
 　　	language: 'zh-CN', //汉化
 　　	todayBtn:  1,  
+　　	endDate:new Date(),
 　　	autoclose:true //选择日期后自动关闭 
 }).on('changeDate', function (ev) {  
+	var starttime=$("#begin").val();
+	$("#end").datetimepicker('setStartDate',starttime);
+	$("#begin").datetimepicker('hide');
     $(this).datetimepicker('hide');
       _query();
 });  
@@ -398,8 +406,13 @@ $("#end").datetimepicker({
 	format: "yyyy-mm-dd", //选择日期后，文本框显示的日期格式
 　　	language: 'zh-CN', //汉化
 　　	todayBtn:  1,  
+　　	endDate:new Date(),
 　　	autoclose:true //选择日期后自动关闭 
 }).on('changeDate', function (ev) {  
+	var starttime=$("#starttime").val();
+	var endtime=$("#end").val();
+	$("#begin").datetimepicker('setEndDate',endtime);
+	$("#end").datetimepicker('hide');
     $(this).datetimepicker('hide');
     _query();
 });
