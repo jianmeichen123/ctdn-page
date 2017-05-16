@@ -73,8 +73,8 @@
 						<li class="pick_on">全部</li>
 					</ul>
 				</div>
-				<div class="block switch_condition">
-					<span class="classify">并购结束时间</span>
+				<div class="block">
+					<span class="classify">时间</span>
 					<ul class="time_ul">
 						<li><input type="text" id="begin"/></li>
 						<li>至</li>
@@ -93,16 +93,22 @@
 			</div>
 			<div class="block m_t_10 boder_all">
 
-				<table class="table bj_fff table_style" data-url="merge">
+				<table class="table bj_fff table_style" data-url="mergeEvent">
 				   <thead>
 					  <tr>
 						 <th data-formatter="tableFormate.beenMergered"><div>被并购方</div></th>
-						 <th data-field="stockRange"><div class="border_l">股权比例</div></th>
-						 <th data-field="amount"><div class="border_l">金额</div></th>
-						 <th data-field="acquirer"><div class="border_l">并购方</div></th>
+						 <th data-sortable="true" data-formatter="tableFormate.equityRate" ><div class="border_l">股权比例</div></th>
+						 <th data-field="amountStr"><div class="border_l">金额</div></th>
+						  <th data-sortable="true"  data-field="mergeDate"><div class="border_l">时间</div></th>
+						  <th data-formatter="tableFormate.mergeSideJson"><div class="border_l">并购方</div></th>
+<!--
+
+
 						 <th data-field="mergerStatus"><div class="border_l">并购状态</div></th>
 						 <th data-sortable="true" data-field="startDate"><div class="border_l">并购开始时间</div></th>
 						 <th data-sortable="true" data-field="endDate"><div class="border_l">并购结束时间</div></th>
+-->
+
 						 <th><div class="border_l">详情</div></th>
 					  </tr>
 				   </thead>

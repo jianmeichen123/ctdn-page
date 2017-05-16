@@ -2,18 +2,9 @@ function _query(){
     var data = query_data()
 
     $('table[data-url]').bootstrapTable('refresh', {
-        "pageNumber" :1,
+        "pageNo" :0,
         query:data
      });
-}
-function queryParams(params) {
-    console.log(params)
-    return {
-        pageSize: params.limit,
-        pageNumber: params.pageNumber,
-        UserName: 4
-    };
-
 }
 function query_data (){
     var querydata = {}
@@ -96,10 +87,9 @@ function query_data (){
     return querydata
 }
 function queryParams(params) {  //配置参数
-    console.log(params)
     var data = query_data()
       data["pageSize"]=params.pageSize,   //页面大小
-      data["pageNo"]=params.pageNumber,  //页码
+      data["pageNo"]=params.pageNumber -1,  //页码
       data["orderBy"]=params.sortName,  //排序列名
       data["order"]=params.sortOrder//排位命令（desc，asc）
     return data;
@@ -182,7 +172,7 @@ var tableFormate ={
         return '<div class="list_table_td"> <img height="37" width="37" src="http:///10.10.0.147/'+img+'"> <ul class="col_999"> <li><a href="#">'+company+'</a></li> <li>'+industrict+'</li> </ul> </div>'
     },
     beenMergered:function(value,row,index){
-        var mergered = row.mergered
+        var mergered = row.projTitle
         var industrict = ""
         var img = ""
         if (row.logo&&row.logo!=""){
@@ -193,7 +183,7 @@ var tableFormate ={
                 img = imgArr[0]
             }
         }
-        if(row.district) industrict+=row.district
+        if(row.districtSubName) industrict+=row.districtSubName
         if (!row.industryName) industrict+=' '+table.empty
         if (row.industryName&&!row.industrySubName) industrict+=' '+row.industryName
         if (row.industryName&&row.industrySubName) industrict+=' '+row.industryName +">" +row.industrySubName
@@ -243,6 +233,28 @@ var tableFormate ={
             }
             if(investProj!=''){
                 return investProj
+            }
+         }
+    },
+    equityRate:function(value, row, index){
+        if (!row.equityRate) return table.empty
+        return row.equityRate+"%"
+    },
+    mergeSideJson:function(value, row, index){
+         if (!row.mergeSideJson||row.mergeSideJson==null) return table.empty
+         var mergeSideJson = row.mergeSideJson
+         var jsonObjArr =  JSON.parse(mergeSideJson);
+         for(i in jsonObjArr){
+            var i = jsonObjArr[i]
+            var mergeSideTitle = ''
+            for(j in i){
+                var json = i[j]
+                if(json.title!=null){
+                    mergeSideTitle+=json.title+"<br>"
+                }
+            }
+            if(mergeSideTitle!=''){
+                return mergeSideTitle
             }
          }
     }

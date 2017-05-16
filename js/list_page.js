@@ -320,8 +320,11 @@ $('body').delegate('[data-query="districtSubIds:district"] .condition_all_ul li'
 	var global_id = $(this).attr('global-id');
 	$("#global_all [global-id='"+global_id+"']").removeClass('pick_on');
 	if(click_this == 0){
+		var panter = $(this).attr('global-id');
 		$(this).parent().children('li').removeClass('pick_on');
 		$(this).parent().children('li').first().addClass('pick_on');
+		$('#global_all').children('li').first().removeClass('pick_on');
+		$('#global_all [global-id = "'+panter+'"]').addClass('pick_on');
 	}else{
 		$(this).parent().children('li').first().removeClass('pick_on');
 		$(this).addClass('pick_on');
