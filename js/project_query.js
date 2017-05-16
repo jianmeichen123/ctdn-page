@@ -211,8 +211,8 @@ var tableFormate ={
         var orgArr = investOrg.split("|")
         investOrg = orgArr[0]
         var img = ""
-        if (row.logosmall&&row.logosmall!=""){
-            var imgArr = row.logosmall.split("/")
+        if (row.logoSmall&&row.logoSmall!=""){
+            var imgArr = row.logoSmall.split("/")
             if(imgArr[1]!=null){
                 img = imgArr[1]
             }else{
