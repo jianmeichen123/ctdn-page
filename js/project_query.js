@@ -259,7 +259,27 @@ var tableFormate ={
                 return mergeSideTitle
             }
          }
-    }
+    },
+    totalRatio:function(value,row,index){
+        var totalRatio = row.totalRatio
+        var totalRatioStr = ''
+        if(totalRatio>0){
+            totalRatioStr+='+'+totalRatio
+        }else{
+            totalRatioStr+=totalRatio
+        }
+        return totalRatioStr
+    },
+    amountRatio:function(value,row,index){
+            var amountRatio = row.amountRatio
+            var amountRatioStr = ''
+            if(amountRatio>0){
+                amountRatioStr+='+'+amountRatio
+            }else{
+                amountRatioStr+=amountRatio
+            }
+            return amountRatioStr
+        }
 }
  function entersearch(){
     var event = window.event || arguments.callee.caller.arguments[0];
