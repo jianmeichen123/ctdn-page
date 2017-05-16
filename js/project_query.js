@@ -207,10 +207,12 @@ var tableFormate ={
         }
     },
     org:function(value,row,index){
-        var investOrg = row.investOrg
+        var investOrg = row.orgName
+        var orgArr = investOrg.split("|")
+        investOrg = orgArr[0]
         var img = ""
-        if (row.logo&&row.logo!=""){
-            var imgArr = row.logo.split("/")
+        if (row.logosmall&&row.logosmall!=""){
+            var imgArr = row.logosmall.split("/")
             if(imgArr[1]!=null){
                 img = imgArr[1]
             }else{
