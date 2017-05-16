@@ -183,7 +183,7 @@ var tableFormate ={
                 img = imgArr[0]
             }
         }
-        if(row.district) industrict+=row.district
+        if(row.districtSubName) industrict+=row.districtSubName
         if (!row.industryName) industrict+=' '+table.empty
         if (row.industryName&&!row.industrySubName) industrict+=' '+row.industryName
         if (row.industryName&&row.industrySubName) industrict+=' '+row.industryName +">" +row.industrySubName
