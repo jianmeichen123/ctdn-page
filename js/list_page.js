@@ -229,10 +229,10 @@ if($("#global_all").attr('data-query') =="listingTypeIds:normal"){
 }else if($("#global_all").attr('data-query') =="districtIds:district"){
 	var list = data.data.district;
 	for(var i = 0; i< list.length; i++){
-	    global_all +='<li global-id="'+list[i].id+'" data-id="'+list[i].id+'" class="global_mousemove ">'+list[i].name+'<span class="brain_ico brain_ico_bj"></span></li>';
+	    global_all +='<li global-id="'+list[i].id+'" data-id="'+list[i].id+'" class="global_mousemove ">'+list[i].name+'</li>';
 	    global_list +='<div class="block_list" global-list="'+list[i].id+'">';
 	    global_list +='<ul class="condition_all_ul">';
-	    global_list +='<li p global-id="'+list[i].id+'">全部</li>';
+	    global_list +='<li p global-id="'+list[i].id+'">全部<span class="brain_ico brain_ico_bj"></span></li>';
 	    for(var j = 0; j< list[i].children.length; j++){
 	    	global_list +='<li global-id="'+list[i].id+'" data-id="'+list[i].children[j].id+'">'+list[i].children[j].name+'<span class="brain_ico brain_ico_bj"></span></li>';
 	    }
@@ -300,20 +300,21 @@ $('body').delegate('[data-query="districtIds:district"] li','click', function(ev
 	var click_this =$(this).index();
 	var click_id = $(this).attr('global-id')
 	$("[global-id='"+click_id+"']").removeClass('pick_on');
-	$(this).addClass('pick_on');
-	$("[global-list='"+click_id+"'] li").first().addClass('pick_on');
+	
 	//console.log(click_id)
 	//$('[global-id="'+click_id+'"]').removeClass('pick_on');
 	if(click_this == 0){
-		$('#global_all li').removeClass('pick_on');
+		$(this).addClass('pick_on');
+		$("[global-list='"+click_id+"'] li").first().addClass('pick_on');
+		$('#global_all li').removeClass('pick_on_color');
 		$(".block_list .condition_all_ul li").removeClass('pick_on');
-		$(".block_list .condition_all_ul").each(function(i){
+		/*$(".block_list .condition_all_ul").each(function(i){
 			$(this).children('li').first().addClass('pick_on');
-		});
+		});*/
 		$(this).addClass('pick_on');
 		$(".block_list").hide();
 	}else{
-		$("#global_all li").first().removeClass('pick_on');
+		//$("#global_all li").first().removeClass('pick_on');
 	}
 	_query();
 })
@@ -323,18 +324,19 @@ $('body').delegate('[data-query="districtSubIds:district"] .condition_all_ul li'
 	var click_this =$(this).index();
 	var global_id = $(this).attr('global-id');
 	$("#global_all [global-id='"+global_id+"']").removeClass('pick_on');
-	if(click_this == 0){
-		var panter = $(this).attr('global-id');
+	var panter = $(this).attr('global-id');
+	if(click_this == 0){		
 		$(this).parent().children('li').removeClass('pick_on');
-		$(this).parent().children('li').first().addClass('pick_on');
+		$(this).parent().children('li').first().addClass('pick_on');		
 		$('#global_all').children('li').first().removeClass('pick_on');
-		$('#global_all [global-id = "'+panter+'"]').addClass('pick_on');
+		
 	}else{
 		$(this).parent().children('li').first().removeClass('pick_on');
 		$(this).addClass('pick_on');
 		$('#global_all').children('li').first().removeClass('pick_on');
 		
 	}
+	$('#global_all [global-id = "'+panter+'"]').addClass('pick_on_color');
 	_query();
 })
 //地区选择list删除
@@ -342,13 +344,19 @@ $('body').delegate('.block_list .condition_all_ul li .brain_ico_bj','click', fun
 	event.stopPropagation(); 
 	$(this).parent().removeClass('pick_on');
 	var pick_on_length = $(this).parent().parent().children('.pick_on').length;
+	var global_id = $(this).parent().attr('global-id')
 	if(pick_on_length == 0){
-		$(this).parent().parent().children('li').first().addClass('pick_on');
+		$('#global_all [global-id="'+global_id+'"] ').removeClass('pick_on_color');
+		//$(this).parent().parent().children('li').first().addClass('pick_on');
+		var pick_on_color = $('#global_all').children('.pick_on_color').length;
+		if(pick_on_color == 0){
+			$('#global_all').children('li').first().addClass('pick_on');
+		}
 	}
 	_query();
 })
 //地区选择list删除
-$('body').delegate('.block_list .condition_all_ul li .brain_ico_bj','click', function(event){	
+/*$('body').delegate('.block_list .condition_all_ul li .brain_ico_bj','click', function(event){	
 	event.stopPropagation(); 
 	$(this).parent().removeClass('pick_on');
 	var pick_on_length = $(this).parent().parent().children('.pick_on').length;
@@ -356,7 +364,7 @@ $('body').delegate('.block_list .condition_all_ul li .brain_ico_bj','click', fun
 		$(this).parent().parent().children('li').first().addClass('pick_on');
 	}
 	_query();
-})
+})*/
 //global_all删除
 $('body').delegate('#global_all li .brain_ico_bj','click', function(event){	
 	event.stopPropagation(); 
