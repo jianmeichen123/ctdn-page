@@ -114,7 +114,7 @@ input{outline: none;}
 .nav_nav_on{ border-bottom:4px solid #1ed2ff;}
 .nav_all_input{ width:370px; height:32px; background-color:#a6aaae; border-radius:15px; float:left; margin-top:10px; margin-left:100px;}
 .nav_all_input input{ width:330px; margin-left:8px; text-indent:5px; float:left; height:30px; margin-top:1px; background-color:#a6aaae; border:0;border-radius:5px;}
-.nav_all_name{ float:right; color:#fff; font-size:12px; margin-top:18px;}
+.nav_all_name{ float:right; color:#fff; font-size:12px; margin-top:18px;height: 36px; cursor:pointer;}
 .brain_ico_name{background-position:-28px -14px; width:16px; height:16px; display:inline-block; }
 .nav_nav ul{ margin-left:140px;}
 .nav_nav ul li a{color:#333;     text-decoration: none;}
@@ -126,3 +126,6 @@ input{outline: none;}
 .table_style  comp{color:#1ed2ff; font-weight: bold;}
 .th_li{ height:28px; overflow:hidden; margin-bottom:0;}
 .th_li li{line-height:15px;}
+.list_click_ul{ display:none;   position: absolute; top:54px; background-color:#202934; right:50%; margin-right:-575px  }
+.list_click_ul li{ line-height:36px; height:36px; width:112px; color:#fff; text-align: center; border-top:1px solid #ccc; cursor:pointer;}
+.brain_ico_name_on{background-position: 14px -14px;}

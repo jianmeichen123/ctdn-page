@@ -403,3 +403,14 @@ $("#end").datetimepicker({
     $(this).datetimepicker('hide');
     _query();
 });
+//名字事件
+$('body').delegate('.nav_all_name','click', function(event){	
+	event.stopPropagation(); 
+	$(this).children('.brain_ico_name').toggleClass("brain_ico_name_on");
+	if($(this).children('.brain_ico_name').hasClass('brain_ico_name_on')){
+		$('.list_click_ul').show();
+	}else{
+		$('.list_click_ul').hide();
+	}
+	
+})
