@@ -228,7 +228,7 @@ if($("#global_all").attr('data-query') =="listingTypeIds:normal"){
 	    global_all +='<li global-id="'+list[i].id+'" data-id="'+list[i].id+'" class="global_mousemove ">'+list[i].name+'<span class="brain_ico brain_ico_bj"></span></li>';
 	    global_list +='<div class="block_list" global-list="'+list[i].id+'">';
 	    global_list +='<ul class="condition_all_ul">';
-	    global_list +='<li class="pick_on" p global-id="'+list[i].id+'">全部</li>';
+	    global_list +='<li p global-id="'+list[i].id+'">全部</li>';
 	    for(var j = 0; j< list[i].children.length; j++){
 	    	global_list +='<li global-id="'+list[i].id+'" data-id="'+list[i].children[j].id+'">'+list[i].children[j].name+'<span class="brain_ico brain_ico_bj"></span></li>';
 	    }
