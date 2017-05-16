@@ -81,9 +81,6 @@ function query_data (){
     }
 
     querydata[$("#projTitle").attr("data-field")] = $("#projTitle").val();
-    if (querydata["districtIds"]&&querydata["districtIds"].length >=2){
-        querydata["districtIds"] = []
-    }
     return querydata
 }
 function queryParams(params) {  //配置参数
