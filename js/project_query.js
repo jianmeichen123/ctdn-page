@@ -81,9 +81,6 @@ function query_data (){
     }
 
     querydata[$("#projTitle").attr("data-field")] = $("#projTitle").val();
-    if (querydata["districtIds"]&&querydata["districtIds"].length >=2){
-        querydata["districtIds"] = []
-    }
     return querydata
 }
 function queryParams(params) {  //配置参数
@@ -207,10 +204,12 @@ var tableFormate ={
         }
     },
     org:function(value,row,index){
-        var investOrg = row.investOrg
+        var investOrg = row.orgName
+        var orgArr = investOrg.split("|")
+        investOrg = orgArr[0]
         var img = ""
-        if (row.logo&&row.logo!=""){
-            var imgArr = row.logo.split("/")
+        if (row.logoSmall&&row.logoSmall!=""){
+            var imgArr = row.logoSmall.split("/")
             if(imgArr[1]!=null){
                 img = imgArr[1]
             }else{
