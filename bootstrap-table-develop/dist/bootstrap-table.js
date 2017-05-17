@@ -851,7 +851,7 @@
                 var offset = $(this).offset();
                 var relativeY = (event.pageY - offset.top);
                 var top = $(this).height()
-                if (relativeY*2-top < 0){
+                if (relativeY*2-top +10< 0){
                     myOrder  = "asc"
                     that.options.sortOrder = "asc"
                     $(event.currentTarget).parent().data("order","desc")
