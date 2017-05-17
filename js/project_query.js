@@ -174,6 +174,9 @@ var tableFormate ={
     beenMergered:function(value,row,index){
         var mergered = row.projTitle
         var industrict = ""
+        if(!mergered){
+            mergered='名称未知'
+        }
         var img = ""
         if (row.logo&&row.logo!=""){
             var imgArr = row.logo.split("/")
@@ -208,8 +211,14 @@ var tableFormate ={
     },
     org:function(value,row,index){
         var investOrg = row.orgName
-        var orgArr = investOrg.split("|")
-        investOrg = orgArr[0]
+        var orgArr = []
+        if(investOrg){
+            orgArr = investOrg.split("|")
+            investOrg = orgArr[0]
+         }else{
+            investOrg = '名称未知'
+         }
+
         var img = ""
         if (row.logoSmall&&row.logoSmall!=""){
             var imgArr = row.logoSmall.split("/")
@@ -243,21 +252,22 @@ var tableFormate ={
         return row.equityRate+"%"
     },
     mergeSideJson:function(value, row, index){
-         if (!row.mergeSideJson||row.mergeSideJson==null) return table.empty
          var mergeSideJson = row.mergeSideJson
+         var mergeSideTitle = ''
+         if (!mergeSideJson||mergeSideJson==null){
+            mergeSideTitle = '未透露'
+            return mergeSideTitle
+         }
          var jsonObjArr =  JSON.parse(mergeSideJson);
          for(i in jsonObjArr){
             var i = jsonObjArr[i]
-            var mergeSideTitle = ''
             for(j in i){
                 var json = i[j]
                 if(json.title!=null){
                     mergeSideTitle+=json.title+"<br>"
                 }
             }
-            if(mergeSideTitle!=''){
-                return mergeSideTitle
-            }
+            return mergeSideTitle
          }
     },
     totalRatio:function(value,row,index){
