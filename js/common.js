@@ -356,7 +356,7 @@ $(function(){
 	    }else{
 	        var obj = JSON.parse(data)
             var name = obj['realName']
-            $(".nav_all_name").html("你好，"+name)
+            $("#id_name").html("你好，"+name)
 	    }
 
 	}
@@ -376,7 +376,7 @@ $(function(){
             }
         });
     }
-     //me()
+     me()
      $("ul[tab='header']").on("click","li",function(){
     	 
     	 var o = $(this)

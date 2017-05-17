@@ -121,6 +121,7 @@ input{outline: none;}
 .nav_nav ul{ margin-left:140px;}
 .nav_nav ul li a{color:#333;     text-decoration: none;}
 .block_list{display:none;}
+#id_name{display: block; text-align: right;  padding-right: 5px; width: 130px;  overflow: hidden;  height: 15px; float: left;  text-overflow: ellipsis; white-space: nowrap;}
 #global_list .condition_all_ul{ margin-left:134px; width:1000px; }
 .type_name_all .condition_all_ul{ margin-left:10px !important; float: left;  width: 935px !important; }
 .brain_ico_up_arrows{background-position: -44px -21px; width: 17px; height: 16px;  display: inline-block;}
@@ -130,4 +131,6 @@ input{outline: none;}
 .th_li li{line-height:15px;}
 .list_click_ul{ display:none;   position: absolute; top:54px; background-color:#202934; right:50%; margin-right:-575px  }
 .list_click_ul li{ line-height:36px; height:36px; width:112px; color:#fff; text-align: center; border-top:1px solid #ccc; cursor:pointer;}
+.list_click_ul a{display: block; color: #fff; text-decoration: none;}
+.list_click_ul a:hover{color: #fff; }
 .brain_ico_name_on{background-position: 14px -14px;}
