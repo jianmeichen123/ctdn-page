@@ -262,8 +262,12 @@ var tableFormate ={
         var totalRatioStr = ''
         if(totalRatio>0){
             totalRatioStr+='+'+totalRatio
+            totalRatioStr='<div class="list_table_td">     <span class="brain_ico brain_ico_up_arrows"></span>'+totalRatioStr+' </div>'
+           // totalRatioStr='<td><span class="brain_ico brain_ico_up_arrows"></span>'+totalRatioStr+''+%+'</td>'
         }else{
             totalRatioStr+=totalRatio
+            totalRatioStr='<div class="list_table_td">     <span class="brain_ico brain_ico_down_arrows"></span>'+totalRatioStr+' </div>'
+            //totalRatioStr='<td><span class="brain_ico brain_ico_up_arrows"></span>'+totalRatioStr+''+%+'</td>'
         }
         return totalRatioStr
     },
