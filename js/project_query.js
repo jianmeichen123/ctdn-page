@@ -113,7 +113,7 @@ $('table[data-url]').bootstrapTable({
         return "请稍等，正在加载中...";
     },
     formatNoMatches: function () {  //没有匹配的结果
-        return '无符合条件的记录';
+        return '抱歉，没有相关的结果”';
     },
     onLoadSuccess: function (data) {
         $(".page_all .col_999 span").text(data.data.totalhit)
