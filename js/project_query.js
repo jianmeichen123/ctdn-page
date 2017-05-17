@@ -216,7 +216,7 @@ var tableFormate ={
                 img = imgArr[0]
             }
         }
-        return '<div class="list_table_td"> <img height="37" width="37" src="http:///10.10.0.147/'+img+'"> <ul class="col_999"> <li><a href="#">'+investOrg+'</a></li> </ul> </div>'
+        return '<div class="list_table_td"> <img height="37" width="37" src="http:///10.10.0.147/org/'+img+'"> <ul class="col_999"> <li><a href="#">'+investOrg+'</a></li> </ul> </div>'
     },
     investProject:function(value, row, index){
          var investProJson = row.investProjJson
@@ -256,7 +256,27 @@ var tableFormate ={
                 return mergeSideTitle
             }
          }
-    }
+    },
+    totalRatio:function(value,row,index){
+        var totalRatio = row.totalRatio
+        var totalRatioStr = ''
+        if(totalRatio>0){
+            totalRatioStr+='+'+totalRatio
+        }else{
+            totalRatioStr+=totalRatio
+        }
+        return totalRatioStr
+    },
+    amountRatio:function(value,row,index){
+            var amountRatio = row.amountRatio
+            var amountRatioStr = ''
+            if(amountRatio>0){
+                amountRatioStr+='+'+amountRatio
+            }else{
+                amountRatioStr+=amountRatio
+            }
+            return amountRatioStr
+        }
 }
  function entersearch(){
     var event = window.event || arguments.callee.caller.arguments[0];

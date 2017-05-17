@@ -11,7 +11,7 @@
 {(header.html)}
 	<div class="container">
 		<div class="page_title">
-			<span class="col_999">创投数据　&gt;　</span><span class="col_999">投资机构　</span>
+			<span class="col_999"><a href="list_page_com.html">创投数据　&gt;　</a></span><span class="col_999">投资机构　</span>
 		</div>
 		
         <div class="page_all">
@@ -49,12 +49,12 @@
 						<li class="pick_on">全部</li>
 					</ul>
 				</div>
-				<div class="block">
+<!--				<div class="block">
 					<span class="classify">机构类型</span>
 					<ul class="condition_all_ul" data-query="orgType:normal">
 						<li class="pick_on">全部</li>
 					</ul>
-				</div>
+				</div>-->
 <!--
 
                 <div class="block">
@@ -77,6 +77,7 @@
 				<div id="global_list" data-query="districtSubIds:district">
 				
 				</div>
+<!--
 
 				<div class="block switch_condition">
 					<span class="classify">资本类型</span>
@@ -85,16 +86,19 @@
 					</ul>
 				</div>
 
+-->
+<!--
 				<div class="block switch_condition">
 					<span class="classify">　　币种</span>
 					<ul class="condition_all_ul" data-query="currencyType:normal">
 						<li class="pick_on">全部</li>
 					</ul>
 				</div>
+-->
 
 
 				<div class="block">&nbsp;</div>
-				<div class="block click_show">更多选择（资本类型,币种）等<span class="brain_ico brain_ico_arrowup"></span></div>
+				<!--<div class="block click_show">更多选择（资本类型,币种）等<span class="brain_ico brain_ico_arrowup"></span></div>-->
 				<input type="hidden" id="begin"/>
 				<input type="hidden" id="end"/>
 			</div>
@@ -111,9 +115,9 @@
 						  <th data-formatter="tableFormate.org"><div>投资机构</div></th>
 						  <!--<th data-field="orgType"><div class="border_l">机构类型</div></th>-->
 						  <th data-sortable="true" data-field="investTotal"><div class="border_l">总投资笔数</div></th>
-						  <th data-sortable="true" data-field="totalRatio"><div class="border_l"><ul class="th_li"><li>投资笔数</li><li>上月环比</li></ul></div></th>
+						  <th data-sortable="true" data-formatter="tableFormate.totalRatio"><div class="border_l"><ul class="th_li"><li>投资笔数</li><li>上月环比</li></ul></div></th>
 						  <th data-field="investAmountNum"><div class="border_l">投资总额</div></th>
-						  <th data-sortable="true" data-field="amountRatio"><div class="border_l"><ul class="th_li"><li>投资额度</li><li>上月环比</li></ul></div></th>
+						  <th data-sortable="true" data-formatter="tableFormate.amountRatio"><div class="border_l"><ul class="th_li"><li>投资额度</li><li>上月环比</li></ul></div></th>
 						  <th data-formatter="tableFormate.investProject"><div class="border_l">最近投资项目</div></th>
 					  </tr>
 				   </thead>
