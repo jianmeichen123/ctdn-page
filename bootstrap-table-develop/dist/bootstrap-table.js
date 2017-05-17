@@ -845,7 +845,19 @@
         });
         this.$container.off('click', '.th-inner').on('click', '.th-inner', function (event) {
             var target = $(this);
+            var myOrder = ""
 
+            if(target.attr("class").split(" ").length == 3){
+                var offset = $(this).offset();
+                var relativeY = (event.pageY - offset.top);
+                var top = $(this).height()
+                if (relativeY*2-top < 0){
+                    myOrder  = "asc"
+                    that.options.sortOrder = "asc"
+                    $(event.currentTarget).parent().data("order","desc")
+                }
+                //console.log($(event.currentTarget).parent().data)
+            }
             if (that.options.detailView) {
                 if (target.closest('.bootstrap-table')[0] !== that.$container[0])
                     return false;
