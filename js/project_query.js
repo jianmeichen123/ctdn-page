@@ -119,6 +119,7 @@ $('table[data-url]').bootstrapTable({
         $(".page_all .col_999 span").text(data.data.totalhit)
     }
 });
+
 var tableFormate ={
     industryStr:function(value, row, index){
         if (!row.industryName)return "行业未知"
