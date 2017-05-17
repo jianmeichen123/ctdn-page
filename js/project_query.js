@@ -5,6 +5,9 @@ function _query(){
         query:data
      });
 }
+function _cleanTitle(){
+    $("#projTitle").val("");
+}
 function query_data (){
     var querydata = {}
     $("[data-query]").each(function(i,e){
@@ -78,7 +81,6 @@ function query_data (){
         querydata["startDate"] = startDate;
         querydata["endDate"] = endDate;
     }
-
     querydata[$("#projTitle").attr("data-field")] = $("#projTitle").val();
     return querydata
 }
