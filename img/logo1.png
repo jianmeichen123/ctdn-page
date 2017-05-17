@@ -1,0 +1,11 @@
+--2017-05-17 11:01:38--  http://ctdn.galaxyinternet.com/img/logo.png
+正在解析主机 ctdn.galaxyinternet.com (ctdn.galaxyinternet.com)... 10.9.130.144
+正在连接 ctdn.galaxyinternet.com (ctdn.galaxyinternet.com)|10.9.130.144|:80... 已连接。
+已发出 HTTP 请求，正在等待回应... 200 OK
+长度：6457 (6.3K) [image/png]
+正在保存至: “logo.png”
+
+     0K ......                                                100%  986M=0s
+
+2017-05-17 11:01:39 (986 MB/s) - 已保存 “logo.png” [6457/6457])
+
