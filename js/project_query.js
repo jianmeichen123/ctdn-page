@@ -2,9 +2,11 @@ function _query(){
     var data = query_data()
 
     $('table[data-url]').bootstrapTable('refresh', {
-        "pageNo" :0,
         query:data
      });
+}
+function _cleanTitle(){
+    $("#projTitle").val("");
 }
 function query_data (){
     var querydata = {}
@@ -79,7 +81,6 @@ function query_data (){
         querydata["startDate"] = startDate;
         querydata["endDate"] = endDate;
     }
-
     querydata[$("#projTitle").attr("data-field")] = $("#projTitle").val();
     return querydata
 }
@@ -107,12 +108,12 @@ $('table[data-url]').bootstrapTable({
     sidePagination: "server",           //分页方式：client客户端分页，server服务端分页（*）
     pageNumber: 1,                       //初始化加载第一页，默认第一页
     pageSize: 15,                       //每页的记录行数（*）
-    pageList: [15, 25, 30],        //可供选择的每页的行数（*）
+    pageList: [10, 15, 20],        //可供选择的每页的行数（*）
     formatLoadingMessage: function () {
         return "请稍等，正在加载中...";
     },
     formatNoMatches: function () {  //没有匹配的结果
-        return '无符合条件的记录';
+        return '抱歉，没有相关的结果';
     },
     onLoadSuccess: function (data) {
         $(".page_all .col_999 span").text(data.data.totalhit)

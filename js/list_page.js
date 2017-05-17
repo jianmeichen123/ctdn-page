@@ -106,6 +106,7 @@ $('body').delegate('.industry_list ul li','click',function(){
 		}
 	}
 	$('#industry_one').removeClass('pick_on');
+	_cleanTitle()
 	_query();
 	
 });
@@ -136,6 +137,7 @@ $('body').delegate('#click_list li .brain_ico_close','click',function(){
 			$('.'+clock_name+'').removeClass('click_class');
 		}
 	}
+	_cleanTitle()
 	_query();
 	
 })
@@ -147,6 +149,7 @@ $('body').delegate('#industry_one','click', function(event){
 	$('#one_industry li').removeClass('click_class');
 	$('#two_industry li').removeClass('click_class');
 	$('#three_industry li').removeClass('click_class');
+	_cleanTitle()
 	_query();
 })
 //点击选择行业
@@ -192,6 +195,7 @@ $('body').delegate('.block .condition_all_ul li','click', function(event){
 		$(this).parent().children('li').first().removeClass('pick_on');
 		$(this).addClass('pick_on');
 	}
+	_cleanTitle()
 	_query()
 })
 //公用点击删除
@@ -202,6 +206,7 @@ $('body').delegate('.block .condition_all_ul li .brain_ico_bj','click', function
 	if(pick_on_length == 0){
 		$(this).parent().parent().children('li').first().addClass('pick_on');
 	}
+	_cleanTitle()
 	_query();
 })
 
@@ -268,6 +273,7 @@ $('body').delegate('[data-query="listingTypeIds:normal"] li','click', function(e
 			$(this).children('li').first().addClass('pick_on');
 		});
 	}
+	_cleanTitle()
 	_query();
 })
 //类型list事件
@@ -291,11 +297,12 @@ $('body').delegate('[data-query="listingTypeSubIds:nor"] .condition_all_ul li','
 		})
 		
 	}
+	_cleanTitle()
 	_query();
 })
 
 //国内切换点击事件
-$('body').delegate('[data-query="districtIds:district"] li','click', function(event){
+/*$('body').delegate('[data-query="districtIds:district"] li','click', function(event){
 	event.stopPropagation(); 
 	var click_this =$(this).index();
 	var click_id = $(this).attr('global-id')
@@ -308,16 +315,17 @@ $('body').delegate('[data-query="districtIds:district"] li','click', function(ev
 		$("[global-list='"+click_id+"'] li").first().addClass('pick_on');
 		$('#global_all li').removeClass('pick_on_color');
 		$(".block_list .condition_all_ul li").removeClass('pick_on');
-		/*$(".block_list .condition_all_ul").each(function(i){
+		*//*$(".block_list .condition_all_ul").each(function(i){
 			$(this).children('li').first().addClass('pick_on');
-		});*/
+		});*//*
 		$(this).addClass('pick_on');
 		$(".block_list").hide();
 	}else{
 		//$("#global_all li").first().removeClass('pick_on');
 	}
+	_cleanTitle()
 	_query();
-})
+})*/
 //地区选择list事件
 $('body').delegate('[data-query="districtSubIds:district"] .condition_all_ul li','click', function(event){
 	event.stopPropagation();	
@@ -337,6 +345,7 @@ $('body').delegate('[data-query="districtSubIds:district"] .condition_all_ul li'
 		
 	}
 	$('#global_all [global-id = "'+panter+'"]').addClass('pick_on_color');
+	_cleanTitle()
 	_query();
 })
 //地区选择list删除
@@ -353,6 +362,7 @@ $('body').delegate('.block_list .condition_all_ul li .brain_ico_bj','click', fun
 			$('#global_all').children('li').first().addClass('pick_on');
 		}
 	}
+	_cleanTitle()
 	_query();
 })
 //地区选择list删除
@@ -373,6 +383,7 @@ $('body').delegate('#global_all li .brain_ico_bj','click', function(event){
 	if(pick_on_length == 0){
 		$(this).parent().parent().children('li').first().addClass('pick_on');
 	}
+	_cleanTitle()
 	_query();
 })
 //global_all选择事件
@@ -406,6 +417,7 @@ $("#begin").datetimepicker({
 	$("#end").datetimepicker('setStartDate',starttime);
 	$("#begin").datetimepicker('hide');
     $(this).datetimepicker('hide');
+      _cleanTitle()
       _query();
 });  
 
@@ -422,6 +434,7 @@ $("#end").datetimepicker({
 	$("#begin").datetimepicker('setEndDate',endtime);
 	$("#end").datetimepicker('hide');
     $(this).datetimepicker('hide');
+    _cleanTitle()
     _query();
 });
 //名字事件
