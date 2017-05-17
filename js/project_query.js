@@ -215,7 +215,17 @@ var tableFormate ={
         var orgArr = []
         if(investOrg){
             orgArr = investOrg.split("|")
-            investOrg = orgArr[0]
+            if($("#projTitle").val()){
+                for(i in orgArr){
+                    var investOrgStr = orgArr[i]
+                    if(investOrgStr.indexOf($("#projTitle").val())>=0){
+                        investOrg = investOrgStr
+                        break;
+                    }
+                }
+            }else{
+                investOrg = orgArr[0]
+            }
          }else{
             investOrg = '名称未知'
          }
