@@ -2,9 +2,11 @@ function _query(){
     var data = query_data()
 
     $('table[data-url]').bootstrapTable('refresh', {
-        "pageNo" :0,
         query:data
      });
+}
+function _cleanTitle(){
+    $("#projTitle").val("");
 }
 function query_data (){
     var querydata = {}
@@ -79,7 +81,6 @@ function query_data (){
         querydata["startDate"] = startDate;
         querydata["endDate"] = endDate;
     }
-
     querydata[$("#projTitle").attr("data-field")] = $("#projTitle").val();
     return querydata
 }
