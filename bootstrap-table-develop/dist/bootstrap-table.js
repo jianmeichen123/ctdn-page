@@ -853,8 +853,8 @@
                 var top = target.innerHeight()
                 var num =  relativeY*2-top
                 if (num < 0){
-                    myOrder  = "asc"
-                    that.options.sortOrder = "asc"
+                    $(event.currentTarget).parent().data("order","asc")
+                }else{
                     $(event.currentTarget).parent().data("order","desc")
                 }
                 //console.log($(event.currentTarget).parent().data)
