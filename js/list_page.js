@@ -306,11 +306,11 @@ $('body').delegate('[data-query="districtIds:district"] li','click', function(ev
 	event.stopPropagation(); 
 	var click_this =$(this).index();
 	var click_id = $(this).attr('global-id')
-	$("[global-id='"+click_id+"']").removeClass('pick_on');
 	
 	//console.log(click_id)
 	//$('[global-id="'+click_id+'"]').removeClass('pick_on');
 	if(click_this == 0){
+		$("[global-id='"+click_id+"']").removeClass('pick_on');
 		$(this).addClass('pick_on');
 		$("[global-list='"+click_id+"'] li").first().addClass('pick_on');
 		$('#global_all li').removeClass('pick_on_color');
