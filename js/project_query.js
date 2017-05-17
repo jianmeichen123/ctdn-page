@@ -219,7 +219,17 @@ var tableFormate ={
                 for(i in orgArr){
                     var investOrgStr = orgArr[i]
                     if(investOrgStr.indexOf($("#projTitle").val())>=0){
-                        investOrg = investOrgStr
+                        if(investOrgStr.indexOf(';')>=0){
+                            var arr = investOrgStr.split(";")
+                            for(j in arr){
+                                if(arr[j].indexOf($("#projTitle").val())>=0){
+                                    investOrg = arr[j]
+                                    break
+                                }
+                            }
+                        }else{
+                            investOrg = investOrgStr
+                        }
                         break;
                     }
                 }
