@@ -384,7 +384,7 @@ $(function(){
     		 if(o.attr("tab")=="hyfx"){
     			 location.href =  "zhyjbg.html" 
     		 }else{
-    			 location.href = o.attr("tab") +".html"
+    			 //location.href = o.attr("tab") +".html"
     		 }
     		 
     	 }
