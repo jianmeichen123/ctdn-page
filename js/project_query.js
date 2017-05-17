@@ -121,7 +121,7 @@ $('table[data-url]').bootstrapTable({
 });
 var tableFormate ={
     industryStr:function(value, row, index){
-        if (!row.industryName)return table.empty
+        if (!row.industryName)return "行业未知"
         if (row.industryName&&!row.industrySubName)return row.industryName
         return row.industryName +">" +row.industrySubName
     },
@@ -132,7 +132,7 @@ var tableFormate ={
         }else if (row.logoSmall&&row.logoSmall!=""){
             img = row.logoSmall
         }
-        return '<div class="list_table_td"> <img height="37" width="37" src="http:///10.10.0.147/'+img+'"> <span class="col_999"><a href="#">'+row.projTitle+'</a></span> </div>'
+        return '<div class="list_table_td"> <img height="37" width="37" src="'+Constants.logoPath+img+'"> <span class="col_999"><a href="#">'+row.projTitle+'</a></span> </div>'
     },
     investSide:function(value, row, index){
          var investSideJson = row.investSideJson
@@ -170,7 +170,7 @@ var tableFormate ={
         if (!row.industryName) industrict+=' '+table.empty
         if (row.industryName&&!row.industrySubName) industrict+=' '+row.industryName
         if (row.industryName&&row.industrySubName) industrict+=' '+row.industryName +">" +row.industrySubName
-        return '<div class="list_table_td"> <img height="37" width="37" src="http:///10.10.0.147/'+img+'"> <ul class="col_999"> <li><a href="#">'+company+'</a></li> <li>'+industrict+'</li> </ul> </div>'
+        return '<div class="list_table_td"> <img height="37" width="37" src="'+Constants.logoPath+img+'"> <ul class="col_999"> <li><a href="#">'+company+'</a></li> <li>'+industrict+'</li> </ul> </div>'
     },
     beenMergered:function(value,row,index){
         var mergered = row.projTitle
@@ -188,10 +188,11 @@ var tableFormate ={
             }
         }
         if(row.districtSubName) industrict+=row.districtSubName
-        if (!row.industryName) industrict+=' '+table.empty
+        if(!row.districtSubName) industrict+= "地区未知"
+        if (!row.industryName) industrict+=' '+"行业未知"
         if (row.industryName&&!row.industrySubName) industrict+=' '+row.industryName
         if (row.industryName&&row.industrySubName) industrict+=' '+row.industryName +">" +row.industrySubName
-        return '<div class="list_table_td"> <img height="37" width="37" src="http:///10.10.0.147/'+img+'"> <ul class="col_999"> <li><a href="#">'+mergered+'</a></li> <li>'+industrict+'</li> </ul> </div>'
+        return '<div class="list_table_td"> <img height="37" width="37" src="'+Constants.logoPath+img+'"> <ul class="col_999"> <li><a href="#">'+mergered+'</a></li> <li>'+industrict+'</li> </ul> </div>'
     },
     mergerSide:function(value,row,index){
         var mergerSideJson = row.mergeSideJson
@@ -229,7 +230,7 @@ var tableFormate ={
                 img = imgArr[0]
             }
         }
-        return '<div class="list_table_td"> <img height="37" width="37" src="http:///10.10.0.147/org/'+img+'"> <ul class="col_999"> <li><a href="#">'+investOrg+'</a></li> </ul> </div>'
+        return '<div class="list_table_td"> <img height="37" width="37" src="'+Constants.logoPath+'/org/'+img+'"> <ul class="col_999"> <li><a href="#">'+investOrg+'</a></li> </ul> </div>'
     },
     investProject:function(value, row, index){
          var investProJson = row.investProjJson
