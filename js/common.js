@@ -356,7 +356,7 @@ $(function(){
 	    }else{
 	        var obj = JSON.parse(data)
             var name = obj['realName']
-            $(".nav_all_name").html("你好，"+name)
+            $("#id_name").html("你好，"+name)
 	    }
 
 	}
@@ -384,7 +384,7 @@ $(function(){
     		 if(o.attr("tab")=="hyfx"){
     			 location.href =  "zhyjbg.html" 
     		 }else{
-    			 location.href = o.attr("tab") +".html"
+    			 //location.href = o.attr("tab") +".html"
     		 }
     		 
     	 }

@@ -18,7 +18,7 @@
 			
 		
 			<!--行业选择end-->
-			<div class="condition_all">
+			<div class="condition_all_no">
 				<div class="block_industry">
 					<span class="classify">关注领域</span>
 					<ul class="condition_all_ul">
@@ -55,16 +55,7 @@
 						<li class="pick_on">全部</li>
 					</ul>
 				</div>-->
-<!--
 
-                <div class="block">
-                    <span class="classify">机构类型</span>
-                    <ul class="condition_all_ul" data-query="orgType:normal">
-                        <li class="pick_on">全部</li>
-                    </ul>
-                </div>
-				
--->
 				<div class="global_block">
 					<span class="classify">总部地区</span>
 					<ul class="condition_all_ul" id="global_all" data-query="districtIds:district">
@@ -77,24 +68,20 @@
 				<div id="global_list" data-query="districtSubIds:district">
 				
 				</div>
-<!--
 
-				<div class="block switch_condition">
-					<span class="classify">资本类型</span>
-					<ul class="condition_all_ul" data-query="capitalType:normal">
-						<li class="pick_on">全部</li>
-					</ul>
-				</div>
+				<!--<div class="block switch_condition">-->
+					<!--<span class="classify">资本类型</span>-->
+					<!--<ul class="condition_all_ul" data-query="capitalType:normal">-->
+						<!--<li class="pick_on">全部</li>-->
+					<!--</ul>-->
+				<!--</div>-->
 
--->
-<!--
-				<div class="block switch_condition">
-					<span class="classify">　　币种</span>
-					<ul class="condition_all_ul" data-query="currencyType:normal">
-						<li class="pick_on">全部</li>
-					</ul>
-				</div>
--->
+				<!--<div class="block switch_condition">-->
+					<!--<span class="classify">　　币种</span>-->
+					<!--<ul class="condition_all_ul" data-query="currencyType:normal">-->
+						<!--<li class="pick_on">全部</li>-->
+					<!--</ul>-->
+				<!--</div>-->
 
 
 				<div class="block">&nbsp;</div>
@@ -115,17 +102,21 @@
 						  <th data-formatter="tableFormate.org"><div>投资机构</div></th>
 						  <!--<th data-field="orgType"><div class="border_l">机构类型</div></th>-->
 						  <th data-sortable="true" data-field="investTotal"><div class="border_l">总投资笔数</div></th>
-						  <th data-sortable="true" data-formatter="tableFormate.totalRatio"><div class="border_l"><ul class="th_li"><li>投资笔数</li><li>上月环比</li></ul></div></th>
-						  <th data-field="investAmountNum"><div class="border_l">投资总额</div></th>
-						  <th data-sortable="true" data-formatter="tableFormate.amountRatio"><div class="border_l"><ul class="th_li"><li>投资额度</li><li>上月环比</li></ul></div></th>
+						  <th data-sortable="true" data-field="totalRatio" data-formatter="tableFormate.totalRatio"><div class="border_l"><ul class="th_li"><li>投资笔数</li><li>上月环比</li></ul></div></th>
+						  <th data-field="investAmountStr"><div class="border_l">投资总额</div></th>
+						  <th data-sortable="true" data-field="amountRatio" data-formatter="tableFormate.amountRatio"><div class="border_l"><ul class="th_li"><li>投资额度</li><li>上月环比</li></ul></div></th>
 						  <th data-formatter="tableFormate.investProject"><div class="border_l">最近投资项目</div></th>
 					  </tr>
 				   </thead>
 				   <tbody>
+
+				   <!--<td><span class="brain_ico brain_ico_up_arrows"></span>+10%</td>-->
+				   <!--<td>亿元及以上人民币</td>-->
+				   <!--<td><span class="brain_ico brain_ico_down_arrows"></span>-12%</td>-->
 				   </tbody>
 				</table>
-				
-				
+
+
 				
 			</div>
 			

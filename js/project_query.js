@@ -147,6 +147,9 @@ var tableFormate ={
             }
             if(investTitle!=''){
                 return investTitle
+            }else{
+                investTitle='未透露'
+                return investTitle
             }
          }
     },
@@ -262,8 +265,13 @@ var tableFormate ={
         var totalRatioStr = ''
         if(totalRatio>0){
             totalRatioStr+='+'+totalRatio
+            totalRatioStr='<div class="list_table_td"><span class="brain_ico brain_ico_up_arrows"></span>'+totalRatioStr+'%'+'</div>'
+        }else if(totalRatio<0){
+            totalRatioStr+=totalRatio
+            totalRatioStr='<div class="list_table_td"><span class="brain_ico brain_ico_down_arrows"></span>'+totalRatioStr+'%'+'</div>'
         }else{
             totalRatioStr+=totalRatio
+            totalRatioStr='<div class="list_table_td">'+'　　'+totalRatioStr+'</div>'
         }
         return totalRatioStr
     },
@@ -272,8 +280,13 @@ var tableFormate ={
             var amountRatioStr = ''
             if(amountRatio>0){
                 amountRatioStr+='+'+amountRatio
+                amountRatioStr='<div class="list_table_td"><span class="brain_ico brain_ico_up_arrows"></span>'+amountRatioStr+'%'+'</div>'
+            }else if(amountRatio<0){
+                amountRatioStr+=amountRatio
+                amountRatioStr='<div class="list_table_td"><span class="brain_ico brain_ico_down_arrows"></span>'+amountRatioStr+'%'+'</div>'
             }else{
                 amountRatioStr+=amountRatio
+                amountRatioStr='<div class="list_table_td">'+'　　'+amountRatioStr+'</div>'
             }
             return amountRatioStr
         }
