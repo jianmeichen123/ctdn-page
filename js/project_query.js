@@ -281,7 +281,7 @@ var tableFormate ={
             totalRatioStr='<div class="list_table_td"><span class="brain_ico brain_ico_down_arrows"></span>'+totalRatioStr+'%'+'</div>'
         }else{
             totalRatioStr+=totalRatio
-            totalRatioStr='<div class="list_table_td">'+'　　'+totalRatioStr+'</div>'
+            totalRatioStr='<div class="list_table_td">'+'　　'+totalRatioStr+'%'+'</div>'
         }
         return totalRatioStr
     },
@@ -296,7 +296,7 @@ var tableFormate ={
                 amountRatioStr='<div class="list_table_td"><span class="brain_ico brain_ico_down_arrows"></span>'+amountRatioStr+'%'+'</div>'
             }else{
                 amountRatioStr+=amountRatio
-                amountRatioStr='<div class="list_table_td">'+'　　'+amountRatioStr+'</div>'
+                amountRatioStr='<div class="list_table_td">'+'　　'+amountRatioStr+'%'+'</div>'
             }
             return amountRatioStr
         }
