@@ -848,10 +848,11 @@
             var myOrder = ""
 
             if(target.attr("class").split(" ").length == 3){
-                var offset = $(this).offset();
+                var offset = target.offset();
                 var relativeY = (event.pageY - offset.top);
-                var top = $(this).height()
-                if (relativeY*2-top +10< 0){
+                var top = target.innerHeight()
+                var num =  relativeY*2-top
+                if (num < 0){
                     myOrder  = "asc"
                     that.options.sortOrder = "asc"
                     $(event.currentTarget).parent().data("order","desc")
