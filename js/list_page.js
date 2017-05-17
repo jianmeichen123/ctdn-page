@@ -302,7 +302,7 @@ $('body').delegate('[data-query="listingTypeSubIds:nor"] .condition_all_ul li','
 })
 
 //国内切换点击事件
-$('body').delegate('[data-query="districtIds:district"] li','click', function(event){
+/*$('body').delegate('[data-query="districtIds:district"] li','click', function(event){
 	event.stopPropagation(); 
 	var click_this =$(this).index();
 	var click_id = $(this).attr('global-id')
@@ -315,9 +315,9 @@ $('body').delegate('[data-query="districtIds:district"] li','click', function(ev
 		$("[global-list='"+click_id+"'] li").first().addClass('pick_on');
 		$('#global_all li').removeClass('pick_on_color');
 		$(".block_list .condition_all_ul li").removeClass('pick_on');
-		/*$(".block_list .condition_all_ul").each(function(i){
+		*//*$(".block_list .condition_all_ul").each(function(i){
 			$(this).children('li').first().addClass('pick_on');
-		});*/
+		});*//*
 		$(this).addClass('pick_on');
 		$(".block_list").hide();
 	}else{
@@ -325,7 +325,7 @@ $('body').delegate('[data-query="districtIds:district"] li','click', function(ev
 	}
 	_cleanTitle()
 	_query();
-})
+})*/
 //地区选择list事件
 $('body').delegate('[data-query="districtSubIds:district"] .condition_all_ul li','click', function(event){
 	event.stopPropagation();	
