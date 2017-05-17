@@ -108,7 +108,7 @@ $('table[data-url]').bootstrapTable({
     sidePagination: "server",           //分页方式：client客户端分页，server服务端分页（*）
     pageNumber: 1,                       //初始化加载第一页，默认第一页
     pageSize: 15,                       //每页的记录行数（*）
-    pageList: [15, 25, 30],        //可供选择的每页的行数（*）
+    pageList: [10, 15, 20],        //可供选择的每页的行数（*）
     formatLoadingMessage: function () {
         return "请稍等，正在加载中...";
     },
