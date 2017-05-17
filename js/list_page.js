@@ -317,7 +317,7 @@ $('body').delegate('[data-query="districtIds:district"] li','click', function(ev
 		$(".block_list .condition_all_ul li").removeClass('pick_on');
 		/*$(".block_list .condition_all_ul").each(function(i){
 			$(this).children('li').first().addClass('pick_on');
-		});*//*
+		});*/
 		$(this).addClass('pick_on');
 		$(".block_list").hide();
 	}else{
@@ -325,7 +325,7 @@ $('body').delegate('[data-query="districtIds:district"] li','click', function(ev
 	}
 	_cleanTitle()
 	_query();
-})*/
+})
 //地区选择list事件
 $('body').delegate('[data-query="districtSubIds:district"] .condition_all_ul li','click', function(event){
 	event.stopPropagation();	
