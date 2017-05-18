@@ -1,4 +1,5 @@
 //本地
+/*
 var Constants = {
 	platformContentURL: "http://10.9.130.143:8081/api/",
 	userContentURL: "http://ctdndev.gi.com/user/",
@@ -9,8 +10,10 @@ var Constants = {
 var home = {
 	    //;index : "http://ctdn.galaxyinternet.com"
 	}
+
+*/
 //线上
-/*var Constants = {
+var Constants = {
 	platformContentURL: "http://ctdndev.gi.com/api/",
 	userContentURL: "http://ctdndev.gi.com/user/",
 	searchContentURL: "http://ctdndev.gi.com/search/",
@@ -19,7 +22,7 @@ var home = {
 }
 var home = {
 	    index : "http://ctdn.galaxyinternet.com"
-	}*/
+	}
 var docUrl = {
 
       /**
