@@ -88,12 +88,12 @@ input{outline: none;}
     -moz-border-radius: 0px;
 }
 /*行业选择*/
-.industry_list{ position:absolute; overflow:hidden; top:26px; width:305px; background-color:#fff; border:1px solid #e7e7e7; height:315px; z-index:98; left:0px;}
+.industry_list{ position:absolute; overflow:hidden; top:26px; width:305px; background-color:#fff; border:1px solid #e7e7e7; height:290px; z-index:98; left:0px;}
 .industry_list ul{ float:left;  border-left:1px solid #f0f0f0; height:305px;   width: 130px; padding-top:10px;}
 .industry_list ul li{ height:27px; line-height:27px; text-indent:20px; width:100%; overflow:hidden; cursor:pointer; padding: 0; margin: 0;}
 .industry_list #three_industry{ width:157px;}
 #one_industry li{ min-width:105px;}
-#one_industry,#two_industry{overflow-y: auto; height:315px;}
+#one_industry,#two_industry{overflow-y: auto; height:290px;}
 .industry_list #two_industry{width:173px;}
 .none{ display:none;}
 .click_class{ color:#1ed2ff;}
