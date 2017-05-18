@@ -15,6 +15,7 @@ input{outline: none;}
 .m_t_10{ margin-top:10px;}
 .m_t_20{ margin-top:20px;}
 .page_title{ width:100%; margin-top:15px;}
+.page_title a:hover{    text-decoration: none;}
 .page_all{ width:100%; overflow:hidden; margin-top:20px; position:relative;}
 .column_ul{ position:absolute; top:0px; height:42px;}
 .column_ul li a{color:#333;     text-decoration: none;}
@@ -87,12 +88,13 @@ input{outline: none;}
     -moz-border-radius: 0px;
 }
 /*行业选择*/
-.industry_list{ position:absolute; overflow:hidden; top:26px; width:305px; background-color:#fff; border:1px solid #e7e7e7; height:465px; z-index:98; left:0px;}
-.industry_list ul{ float:left;  border-left:1px solid #f0f0f0; height:465px;    width: 130px; padding-top:10px;}
+.industry_list{ position:absolute; overflow:hidden; top:26px; width:305px; background-color:#fff; border:1px solid #e7e7e7; height:315px; z-index:98; left:0px;}
+.industry_list ul{ float:left;  border-left:1px solid #f0f0f0; height:305px;   width: 130px; padding-top:10px;}
 .industry_list ul li{ height:27px; line-height:27px; text-indent:20px; width:100%; overflow:hidden; cursor:pointer; padding: 0; margin: 0;}
 .industry_list #three_industry{ width:157px;}
 #one_industry li{ min-width:105px;}
-#one_industry{overflow-y: auto;}
+#one_industry,#two_industry{overflow-y: auto; height:315px;}
+.industry_list #two_industry{width:173px;}
 .none{ display:none;}
 .click_class{ color:#1ed2ff;}
 #one_industry li:hover ,#two_industry li:hover ,#three_industry li:hover{ background-color:#1ed2ff; color:#fff;}
@@ -101,6 +103,7 @@ input{outline: none;}
 .switch_condition{ display:none;}
 .type_name{ float:left;margin-left: 88px; line-height:26px; margin-top: 10px;}
 .pick_on_color{ color:#1ed2ff}
+.industry_li_on{background-color:#1ed2ff; color:#fff;}
 /*导航*/
 .nav_bj{ background-color:#212a35; height:57px;   border-bottom:3px solid #f7f7f7; }
 .logo{display:block; float:left; width:122px; height:36px; margin-top:5px;}

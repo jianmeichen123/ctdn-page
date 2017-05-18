@@ -39,6 +39,8 @@ $('#three_industry').html(three_ul);
 $('body').delegate('#one_industry li','mouseover',function(){
 	var data_name = $(this).attr('data_name');
 	//console.log(class_a)
+	$('#one_industry li').removeClass('industry_li_on');
+	$(this).addClass('industry_li_on');
 	$('#two_industry li').hide();
 	$('#three_industry li').hide();
 	$('#two_industry .'+data_name+'').show();
