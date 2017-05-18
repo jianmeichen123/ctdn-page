@@ -400,12 +400,12 @@ $('body').delegate('.click_show','click', function(event){
 	event.stopPropagation();
 	if($(this).hasClass('click_show_on')){
 		$('.switch_condition').hide();
-		$(this).text($(this).attr("original-text"))
+		$(this).html($(this).attr("original-text"))
 		$(this).removeClass('click_show_on');
 	}else{
 		$('.switch_condition').show();
 		$(this).attr("original-text",$(this).html())
-		$(this).text('收起<span class="brain_ico brain_ico_arrowup">')
+		$(this).html('收起<span class="brain_ico brain_ico_arrowup"></span>')
 		$(this).addClass('click_show_on')
 	}
 })
