@@ -2,7 +2,7 @@ function _query(){
     var data = query_data()
 
     $('table[data-url]').bootstrapTable('refresh', {
-        'pageNo':0,
+        'pageNumber':0,
         query:data
      });
 }
