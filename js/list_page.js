@@ -404,8 +404,8 @@ $('body').delegate('.click_show','click', function(event){
 		$(this).removeClass('click_show_on');
 	}else{
 		$('.switch_condition').show();
-		$(this).attr("original-text",$(this).text())
-		$(this).text("收起")
+		$(this).attr("original-text",$(this).html())
+		$(this).text('收起<span class="brain_ico brain_ico_arrowup">')
 		$(this).addClass('click_show_on')
 	}
 })
