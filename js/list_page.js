@@ -322,11 +322,11 @@ $('body').delegate('[data-query="districtIds:district"] li','click', function(ev
 		});*/
 		$(this).addClass('pick_on');
 		$(".block_list").hide();
+		_cleanTitle()
+		_query();
 	}else{
 		//$("#global_all li").first().removeClass('pick_on');
 	}
-	_cleanTitle()
-	_query();
 })
 //地区选择list事件
 $('body').delegate('[data-query="districtSubIds:district"] .condition_all_ul li','click', function(event){
