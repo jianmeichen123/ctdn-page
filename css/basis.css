@@ -15,7 +15,8 @@ input{outline: none;}
 .m_t_10{ margin-top:10px;}
 .m_t_20{ margin-top:20px;}
 .page_title{ width:100%; margin-top:15px;}
-.page_title a:hover{    text-decoration: none;}
+.page_title a{color:#999999;}
+.page_title a:hover{  color:#1ed2ff;  text-decoration: none;}
 .page_all{ width:100%; overflow:hidden; margin-top:20px; position:relative;}
 .column_ul{ position:absolute; top:0px; height:42px;}
 .column_ul li a{color:#333;     text-decoration: none;}
@@ -27,6 +28,7 @@ input{outline: none;}
 .condition_all,.condition_all_no{ line-height:26px; width:100%;}
 .condition_all_ul{ float:left; margin-left:22px; width:1040px; margin-bottom: 0px}
 .condition_all_ul li{ float:left; padding-left:10px; padding-right:10px; margin-top:10px; margin-right:5px; position:relative;}
+.condition_all_ul .click_industry_show{padding-right:4px;}
 .block .classify,.block_industry .classify,.global_block .classify{ float:left;  margin-top:10px; padding-left:15px; display:block; width:63px;}
 .pick_on{ background-color:#1ed2ff; color:#fff; border-radius:4px;}
 .block{ clear:both; width:100%; overflow:hidden;}
@@ -50,7 +52,7 @@ input{outline: none;}
 .brain_ico_seek{ background-position:0px -21px; width:17px; height:16px; display:block; float:right; margin-right:12px; margin-top:5px; cursor:pointer;}
 .table_seek input{ width:255px; height:28px; margin-left:10px; border:0; text-indent:5px;}
 .bj_fff{ background-color:#fff;}
-.block .table_style > thead > tr > th { text-align:center; font-weight: 100;border-bottom: 1px solid #f0f0f0 !important;;border-left:0px solid #f0f0f0; padding-top:16px; padding-bottom:16px;}
+.block .table_style > thead > tr > th { text-align:center; font-weight: 100;border-bottom: 1px solid #f0f0f0 !important;;border-left:0px solid #f0f0f0; padding-top:16px; color:#666; padding-bottom:16px;}
 .block .table_style > tbody  > tr > td { text-align:center; font-weight: 100;border-bottom: 1px solid #f0f0f0;border-left:0px solid #f0f0f0; }
 .block .table_style > tbody > tr:nth-of-type(odd) {
      background-color: #fff;
@@ -74,7 +76,7 @@ input{outline: none;}
 .line_h{ line-height:28px;}
 .list_table_td{text-align:left;}
 .list_table_td span{ line-height:35px; text-indent: 5px; display: inline-block;}
-.list_table_td img,.list_table_td ul{ float:left;}
+.list_table_td img,.list_table_td ul{ float:left; margin-left:8px;}
 .list_table_td ul{ float:left; margin-left:10px;}
 .list_table_td a{ color:#333;}
 .list_table_td a:hover{ color:#1ed2ff; text-decoration:none;}
@@ -92,7 +94,8 @@ input{outline: none;}
 .industry_list ul{ float:left;  border-left:1px solid #f0f0f0; height:305px;   width: 130px; padding-top:10px;}
 .industry_list ul li{ height:27px; line-height:27px; text-indent:20px; width:100%; overflow:hidden; cursor:pointer; padding: 0; margin: 0;}
 .industry_list #three_industry{ width:157px;}
-#one_industry li{ min-width:105px;}
+#one_industry li{ min-width:105px; color:#333;}
+#two_industry li,#three_industry li{color:#666;}
 #one_industry,#two_industry{overflow-y: auto; height:290px;}
 .industry_list #two_industry{width:173px;}
 .none{ display:none;}
@@ -140,3 +143,6 @@ input{outline: none;}
 .list_click_ul a:hover{color: #fff; }
 .brain_ico_name_on{background-position: 14px -14px;}
 .number_th{width:99px;}
+.number_th_20{width:200px;}
+.number_th_12{width:120px;}
+.number_th_15{width:150px;}
