@@ -66,7 +66,8 @@ $('body').delegate('.industry_list ul li','click',function(){
 		判断选择的是第几行业   根据行业取消和选中   
 		*/
 	if($("#click_list li").length == '10'){
-		alert('最多选择10个')
+//		alert('最多选择10个')
+	    layer.msg('最多选择10个',{time:1000})
 		return;
 	}
 	var industry = $(this).attr('industry');
