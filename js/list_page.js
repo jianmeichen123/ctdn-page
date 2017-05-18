@@ -400,11 +400,12 @@ $('body').delegate('.click_show','click', function(event){
 	event.stopPropagation();
 	if($(this).hasClass('click_show_on')){
 		$('.switch_condition').hide();
-		$(this).text("收起")
+		$(this).text($(this).attr("original-text"))
 		$(this).removeClass('click_show_on');
 	}else{
 		$('.switch_condition').show();
 		$(this).attr("original-text",$(this).text())
+		$(this).text("收起")
 		$(this).addClass('click_show_on')
 	}
 })
