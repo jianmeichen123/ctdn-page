@@ -2801,7 +2801,6 @@
     };
 
     BootstrapTable.prototype.refresh = function (params) {
-        console.log(params)
         if (params && params.url) {
             this.options.url = params.url;
         }
