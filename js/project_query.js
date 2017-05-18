@@ -2,6 +2,7 @@ function _query(){
     var data = query_data()
 
     $('table[data-url]').bootstrapTable('refresh', {
+       'pageNo':0,
         query:data
      });
 }
@@ -298,13 +299,13 @@ var tableFormate ={
         var totalRatioStr = ''
         if(totalRatio>0){
             totalRatioStr+='+'+totalRatio
-            totalRatioStr='<div class="list_table_td"><span class="brain_ico brain_ico_up_arrows"></span>'+totalRatioStr+'%'+'</div>'
+            totalRatioStr='<div align="center" class="list_table_td"><center><span class="brain_ico brain_ico_up_arrows"></span>'+totalRatioStr+'%'+'</center></div>'
         }else if(totalRatio<0){
             totalRatioStr+=totalRatio
-            totalRatioStr='<div class="list_table_td"><span class="brain_ico brain_ico_down_arrows"></span>'+totalRatioStr+'%'+'</div>'
+            totalRatioStr='<div align="center" class="list_table_td"><center><span class="brain_ico brain_ico_down_arrows"></span>'+totalRatioStr+'%'+'</center></div>'
         }else{
             totalRatioStr+=totalRatio
-            totalRatioStr='<div class="list_table_td">'+'　　'+totalRatioStr+'%'+'</div>'
+            totalRatioStr='<div align="center" class="list_table_td"><center>'+totalRatioStr+'%'+'</center></div>'
         }
         return totalRatioStr
     },
@@ -313,13 +314,13 @@ var tableFormate ={
             var amountRatioStr = ''
             if(amountRatio>0){
                 amountRatioStr+='+'+amountRatio
-                amountRatioStr='<div class="list_table_td"><span class="brain_ico brain_ico_up_arrows"></span>'+amountRatioStr+'%'+'</div>'
+                amountRatioStr='<div align="center" class="list_table_td"><center><span class="brain_ico brain_ico_up_arrows"></span>'+amountRatioStr+'%'+'</center></div>'
             }else if(amountRatio<0){
                 amountRatioStr+=amountRatio
-                amountRatioStr='<div class="list_table_td"><span class="brain_ico brain_ico_down_arrows"></span>'+amountRatioStr+'%'+'</div>'
+                amountRatioStr='<div align="center" class="list_table_td"><center><span class="brain_ico brain_ico_down_arrows"></span>'+amountRatioStr+'%'+'</center></div>'
             }else{
                 amountRatioStr+=amountRatio
-                amountRatioStr='<div class="list_table_td">'+'　　'+amountRatioStr+'%'+'</div>'
+                amountRatioStr='<div align="center" class="list_table_td"><center>'+amountRatioStr+'%'+'</center></div>'
             }
             return amountRatioStr
         }
