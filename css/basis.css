@@ -99,14 +99,15 @@ input{outline: none;}
 #one_industry,#two_industry{overflow-y: auto; height:290px;}
 .industry_list #two_industry{width:173px;}
 .none{ display:none;}
-.click_class{ color:#1ed2ff;}
+#two_industry .click_class ,#one_industry .click_class,#three_industry .click_class{ color:#1ed2ff;}
 #one_industry li:hover ,#two_industry li:hover ,#three_industry li:hover{ background-color:#1ed2ff; color:#fff;}
 .industry_list{ display:none;}
 .block_industry{ width:100%;}
 .switch_condition{ display:none;}
 .type_name{ float:left;margin-left: 88px; line-height:26px; margin-top: 10px;}
 .pick_on_color{ color:#1ed2ff}
-.industry_li_on{background-color:#1ed2ff; color:#fff;}
+.industry_li_on{background-color:#1ed2ff; color:#fff !important;}
+.no_two_industry .industry_list{width:125px;}
 /*导航*/
 .nav_bj{ background-color:#212a35; height:57px;   border-bottom:3px solid #f7f7f7; }
 .logo{display:block; float:left; width:122px; height:36px; margin-top:5px;}
@@ -141,6 +142,8 @@ input{outline: none;}
 .list_click_ul li{ line-height:36px; height:36px; width:112px; color:#fff; text-align: center; border-top:1px solid #ccc; cursor:pointer;}
 .list_click_ul a{display: block; color: #fff; text-decoration: none;}
 .list_click_ul a:hover{color: #fff; }
+.condition_all_ul li:hover{ color:#1ed2ff}
+.condition_all_ul .pick_on:hover{ color:#fff}
 .brain_ico_name_on{background-position: 14px -14px;}
 .number_th{width:99px;}
 .number_th_20{width:200px;}
