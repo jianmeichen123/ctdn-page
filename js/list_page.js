@@ -9,7 +9,7 @@ var data={
 sendGetRequest(platformUrl.allQuery,function(cData){
     data = cData
 })
-var d_list = data.data.industry;
+var d_list = data.data[$("[data-industry-name]").attr("data-industry-name")];
 var one_li = ''
 var two_ul = ''
 var three_ul = ''
