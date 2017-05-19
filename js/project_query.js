@@ -160,10 +160,6 @@ var tableFormate ={
         var company = row.company
         var industrict = ""
         var img = ""
-        if(!company){
-            company='名称未知'
-            industrict='地区未知'+ ' '+'行业未知'
-        }
         if (row.logo&&row.logo!=""){
             var imgArr = row.logo.split("/")
             if(imgArr[1]!=null){
@@ -172,8 +168,13 @@ var tableFormate ={
                 img = imgArr[0]
             }
         }
+        if(!company){
+            company='名称未知'
+            industrict='地区未知'+ ' '+'行业未知'
+        }else{
+            if (!row.industryName) industrict+=' '+table.empty
+        }
         if (row.districtSubName) industrict+=row.districtSubName
-        if (!row.industryName) industrict+=' '+table.empty
         if (row.industryName&&!row.industrySubName) industrict+=' '+row.industryName
         if (row.industryName&&row.industrySubName) industrict+=' '+row.industryName +">" +row.industrySubName
         return '<div class="list_table_td"> <img height="37" width="37" src="'+Constants.logoPath+img+'"> <ul class="col_999"> <li><a href="#">'+company+'</a></li> <li>'+industrict+'</li> </ul> </div>'
