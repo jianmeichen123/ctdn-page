@@ -160,6 +160,10 @@ var tableFormate ={
         var company = row.company
         var industrict = ""
         var img = ""
+        if(!company){
+            company='名称未知'
+            industrict='地区未知'+ ' '+'行业未知'
+        }
         if (row.logo&&row.logo!=""){
             var imgArr = row.logo.split("/")
             if(imgArr[1]!=null){
