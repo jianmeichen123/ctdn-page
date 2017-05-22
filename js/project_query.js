@@ -223,7 +223,7 @@ var tableFormate ={
         }
     },
     org:function(value,row,index){
-        var investOrg = row.orgName
+        var investOrg = row.investOrg
         var orgArr = []
         if(investOrg){
             orgArr = investOrg.split("|")
