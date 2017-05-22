@@ -128,13 +128,17 @@ var tableFormate ={
         return row.industryName +">" +row.industrySubName
     },
     projectName:function(value, row, index){
+        var projectName = row.projTitle
         var img = ""
+        if(projectName==null){
+            projectName='名称未知'
+        }
         if (row.logoSmall&&row.logoSmall.indexOf("/")!=-1){
             img = row.logoSmall.split("/")[1]
         }else if (row.logoSmall&&row.logoSmall!=""){
             img = row.logoSmall
         }
-        return '<div class="list_table_td"> <img height="37" width="37" src="'+Constants.logoPath+img+'"> <span class="col_999"><a href="#">'+row.projTitle+'</a></span> </div>'
+        return '<div class="list_table_td"> <img height="37" width="37" src="'+Constants.logoPath+img+'"> <span class="col_999"><a href="#">'+projectName+'</a></span> </div>'
     },
     investSide:function(value, row, index){
          var investSideJson = row.investSideJson
