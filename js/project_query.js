@@ -148,7 +148,7 @@ var tableFormate ={
             var investTitle = ''
             for(j in i){
                 var json = i[j]
-                if(json.title!=null){
+                if(json.title!=null&&j<3){
                     investTitle+=json.title+"<br>"
                 }
             }
@@ -270,8 +270,9 @@ var tableFormate ={
             var i = jsonObjArr[i]
             var investProj = ''
             for(j in i){
+
                 var json = i[j]
-                if(json.title!=null){
+                if(json.title!=null&&j<3){
                     investProj+=json.title+"<br>"
                 }
             }
@@ -296,7 +297,7 @@ var tableFormate ={
             var i = jsonObjArr[i]
             for(j in i){
                 var json = i[j]
-                if(json.title!=null){
+                if(json.title!=null&&j<3){
                     mergeSideTitle+=json.title+"<br>"
                 }
             }
