@@ -130,7 +130,7 @@ var tableFormate ={
     projectName:function(value, row, index){
         var projectName = row.projTitle
         var img = ""
-        if(!projectName){
+        if(projectName==null){
             projectName='名称未知'
         }
         if (row.logoSmall&&row.logoSmall.indexOf("/")!=-1){
