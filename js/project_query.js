@@ -205,6 +205,13 @@ var tableFormate ={
         if (row.industryName&&row.industrySubName) industrict+=' '+row.industryName +">" +row.industrySubName
         return '<div class="list_table_td"> <img height="37" width="37" src="'+Constants.logoPath+img+'"> <ul class="col_999"> <li><a href="#">'+mergered+'</a></li> <li>'+industrict+'</li> </ul> </div>'
     },
+    amountStr:function(value,row,index){
+        var amountStr = row.amountStr
+        if(amountStr==null){
+            amountStr = '未透露'
+        }
+        return amountStr
+    },
     mergerSide:function(value,row,index){
         var mergerSideJson = row.mergeSideJson
         var mergerSideArr = eval('('+mergerSideJson+')')
