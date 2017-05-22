@@ -148,7 +148,7 @@ var tableFormate ={
             var investTitle = ''
             for(j in i){
                 var json = i[j]
-                if(json.title!=null){
+                if(json.title!=null&&j<3){
                     investTitle+=json.title+"<br>"
                 }
             }
@@ -223,7 +223,7 @@ var tableFormate ={
         }
     },
     org:function(value,row,index){
-        var investOrg = row.orgName
+        var investOrg = row.investOrg
         var orgArr = []
         if(investOrg){
             orgArr = investOrg.split("|")
@@ -270,8 +270,9 @@ var tableFormate ={
             var i = jsonObjArr[i]
             var investProj = ''
             for(j in i){
+
                 var json = i[j]
-                if(json.title!=null){
+                if(json.title!=null&&j<3){
                     investProj+=json.title+"<br>"
                 }
             }
@@ -296,7 +297,7 @@ var tableFormate ={
             var i = jsonObjArr[i]
             for(j in i){
                 var json = i[j]
-                if(json.title!=null){
+                if(json.title!=null&&j<3){
                     mergeSideTitle+=json.title+"<br>"
                 }
             }
