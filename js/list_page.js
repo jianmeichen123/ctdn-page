@@ -441,6 +441,7 @@ $("#end").datetimepicker({
 	format: "yyyy-mm-dd", //选择日期后，文本框显示的日期格式
 　　	language: 'zh-CN', //汉化
 　　	todayBtn:  1,  
+　　	bootcssVer:3,
 　　	autoclose:true //选择日期后自动关闭
 }).on('changeDate', function (ev) {  
 	var starttime=$("#starttime").val();
