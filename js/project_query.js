@@ -178,9 +178,17 @@ var tableFormate ={
         }else{
             if (!row.industryName) industrict+=' '+table.empty
         }
-        if (row.districtSubName) industrict+=row.districtSubName
+        if (row.districtSubName){
+            industrict+=row.districtSubName
+        }else{
+            industrict+='地区未知'
+        }
         if (row.industryName&&!row.industrySubName) industrict+=' '+row.industryName
-        if (row.industryName&&row.industrySubName) industrict+=' '+row.industryName +">" +row.industrySubName
+        if (row.industryName&&row.industrySubName){
+            industrict+=' '+row.industryName +">" +row.industrySubName
+        }else{
+            industrict+=' '+'行业未知'
+        }
         return '<div class="list_table_td"> <img height="37" width="37" src="'+Constants.logoPath+img+'"> <ul class="col_999"> <li><a href="#">'+company+'</a></li> <li>'+industrict+'</li> </ul> </div>'
     },
     beenMergered:function(value,row,index){
