@@ -22,7 +22,7 @@ input{outline: none;}
 .page_title a:hover{  color:#1ed2ff;  text-decoration: none;}
 .page_all{ width:100%; overflow:hidden; margin-top:20px; position:relative;}
 .column_ul{ position:absolute; top:0px; height:42px;}
-.column_ul li a{color:#333;     text-decoration: none;}
+.column_ul li a{color:#333; display:block;  text-decoration: none;}
 .column_ul_on{border:1px solid #f0f0f0; border-bottom:0; background-color:#fff; color:#1ed2ff;}
 .column_ul li{ float:left; line-height:42px; width:88px;  text-align:center; font-size:14px; margin-right:40px; border-top-left-radius:10px; border-top-right-radius:10px; cursor:pointer; }
 .condition_all{border:1px solid #f0f0f0; background-color:#fff; margin-top:42px; padding-top:10px; ;}
