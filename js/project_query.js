@@ -321,10 +321,10 @@ var tableFormate ={
         var totalRatio = row.totalRatio
         var totalRatioStr = ''
         if(totalRatio>0){
-            totalRatioStr+='+'+totalRatio
+            totalRatioStr+='+'+totalRatio*100
             totalRatioStr='<div align="center" class="list_table_td"><center><span class="brain_ico brain_ico_up_arrows"></span>'+totalRatioStr+'%'+'</center></div>'
         }else if(totalRatio<0){
-            totalRatioStr+=totalRatio
+            totalRatioStr+=totalRatio*100
             totalRatioStr='<div align="center" class="list_table_td"><center><span class="brain_ico brain_ico_down_arrows"></span>'+totalRatioStr+'%'+'</center></div>'
         }else{
             totalRatioStr+=totalRatio
@@ -336,10 +336,10 @@ var tableFormate ={
             var amountRatio = row.amountRatio
             var amountRatioStr = ''
             if(amountRatio>0){
-                amountRatioStr+='+'+amountRatio
+                amountRatioStr+='+'+amountRatio*100
                 amountRatioStr='<div align="center" class="list_table_td"><center><span class="brain_ico brain_ico_up_arrows"></span>'+amountRatioStr+'%'+'</center></div>'
             }else if(amountRatio<0){
-                amountRatioStr+=amountRatio
+                amountRatioStr+=amountRatio*100
                 amountRatioStr='<div align="center" class="list_table_td"><center><span class="brain_ico brain_ico_down_arrows"></span>'+amountRatioStr+'%'+'</center></div>'
             }else{
                 amountRatioStr+=amountRatio
