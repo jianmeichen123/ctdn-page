@@ -5,7 +5,10 @@ body{font-size:14px; font-family:"微软雅黑" !important;background-color: #f7
 button {outline: none !important;}
 html,body,div,ul,ol,li,dl,dt,dd,p,span,em,strong,b,i,h1,h2,h3,h4,form,input,button,textarea,select,option,img,a{ margin:0; padding:0}
 ul,ol,dl,dt,dd,p,img{ display:block; border:0}
-
+::-webkit-input-placeholder { color:#ccc;}
+:-moz-placeholder { /* Mozilla Firefox 4 to 18 */　color:#ccc;　}
+::-moz-placeholder { /* Mozilla Firefox 19+ */color:#ccc;}
+:-ms-input-placeholder { /* Internet Explorer 10+ */color:#ccc;}
 a:focus{ -moz-outline-style: none; /* FF */ } 
 li{ display:block; list-style:none}
 textarea{resize: none;outline: none}
