@@ -14,13 +14,23 @@ var one_li = ''
 var two_ul = ''
 var three_ul = ''
 for(var i=0; i<d_list.length; i++){
-	one_li +='<li data-val="'+d_list[i].id +'" class="one_'+i+' industry_'+i+'" industry="1" data_name="name_'+i+'" data_i="'+i+'" >'+d_list[i].name+'</li>';
+	if(i == 0){
+		one_li +='<li data-val="'+d_list[i].id +'" class="industry_li_on one_'+i+' industry_'+i+'" industry="1" data_name="name_'+i+'" data_i="'+i+'" >'+d_list[i].name+'</li>';
+	}else{
+		one_li +='<li data-val="'+d_list[i].id +'" class="one_'+i+' industry_'+i+'" industry="1" data_name="name_'+i+'" data_i="'+i+'" >'+d_list[i].name+'</li>';
+	}
+	
 	var child_two = d_list[i].children;
 	
     if(child_two){
     	//所有的二级行业
     	for(var j=0; j<child_two.length; j++){
-    		two_ul +='<li data-val="'+child_two[j].id +'" class="two_'+i+' name_'+i+' none industry_'+i+j+'" data_name="name_'+i+j+'" industry="2" data_i="'+i+'" data_j="'+j+'">'+child_two[j].name+'</li>';
+    		if(j == 0){
+    			two_ul +='<li data-val="'+child_two[j].id +'" class="two_'+i+' name_'+i+' none industry_'+i+j+'" data_name="name_'+i+j+'" industry="2" data_i="'+i+'" data_j="'+j+'" style="display: block;">'+child_two[j].name+'</li>';
+    		}else{
+    			two_ul +='<li data-val="'+child_two[j].id +'" class="two_'+i+' name_'+i+' none industry_'+i+j+'" data_name="name_'+i+j+'" industry="2" data_i="'+i+'" data_j="'+j+'">'+child_two[j].name+'</li>';
+    		}
+    		
     /*		var child_three = child_two[j].child;
 
     		//所有的三级行业
@@ -431,6 +441,7 @@ $("#end").datetimepicker({
 	format: "yyyy-mm-dd", //选择日期后，文本框显示的日期格式
 　　	language: 'zh-CN', //汉化
 　　	todayBtn:  1,  
+　　	bootcssVer:3,
 　　	autoclose:true //选择日期后自动关闭
 }).on('changeDate', function (ev) {  
 	var starttime=$("#starttime").val();
