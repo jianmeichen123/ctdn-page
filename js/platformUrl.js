@@ -2,23 +2,23 @@
 
 /*var Constants = {
 	platformContentURL: "http://10.9.130.143:8081/api/",
-	userContentURL: "http://ctdndev.gi.com/user/",
+	userContentURL: "http://ctdnqa.gi.com/user/",
 	searchContentURL: "http://127.0.0.1:8089/search/",
-	dataContentURL: "http://ctdndev.gi.com/data/",
+	dataContentURL: "http://ctdnqa.gi.com/data/",
 	logoPath: "http:///10.10.0.147/"
 }*/
 
 
 //线上
 var Constants = {
-	platformContentURL: "http://ctdndev.gi.com/api/",
-	userContentURL: "http://ctdndev.gi.com/user/",
-	searchContentURL: "http://ctdndev.gi.com/search/",
-	dataContentURL: "http://ctdndev.gi.com/data/",
+	platformContentURL: "http://ctdnqa.gi.com/api/",
+	userContentURL: "http://ctdnqa.gi.com/user/",
+	searchContentURL: "http://ctdnqa.gi.com/search/",
+	dataContentURL: "http://ctdnqa.gi.com/data/",
     logoPath: "http:///10.10.0.147/"
 }
 var home = {
-	    index : "http://ctdndev.gi.com"
+	    index : "http://ctdnqa.gi.com"
 	}
 var docUrl = {
 
