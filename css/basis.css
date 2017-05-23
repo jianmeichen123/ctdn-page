@@ -193,3 +193,4 @@ input{outline: none;}
 .particulars_table_list{ width:100%; overflow:hidden; border:1px solid #f0f0f0;}
 .particulars_table_list th{background-color:#f2fcff;  padding:10px 0;    line-height: 28px;text-align:center;}
 .particulars_table_list td{border-bottom:1px solid #f0f0f0; padding:10px 0;    line-height: 28px;text-align:center;}
+#begin_on,#end_on{widh:100px; height:28px; border: 1px solid #cccccc;  border-radius: 4px;  height: 28px;  width: 100px;  text-indent: 5px;  font-size: 12px;}
