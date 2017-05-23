@@ -175,8 +175,6 @@ var tableFormate ={
         if(!company){
             company='名称未知'
             industrict='地区未知'+ ' '+'行业未知'
-        }else{
-            if (!row.industryName) industrict+=' '+table.empty
         }
         if (row.districtSubName){
             industrict+=row.districtSubName
