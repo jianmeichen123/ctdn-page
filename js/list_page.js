@@ -421,7 +421,7 @@ $('body').delegate('.click_show','click', function(event){
 	}
 })
 //日期显示
-$("#begin").datetimepicker({
+$("#begin_on").datetimepicker({
 	minView: "month", //选择日期后，不会再跳转去选择时分秒
 	format: "yyyy-mm-dd", //选择日期后，文本框显示的日期格式
 　　	language: 'zh-CN', //汉化
@@ -429,14 +429,13 @@ $("#begin").datetimepicker({
 　　	autoclose:true //选择日期后自动关闭
 }).on('changeDate', function (ev) {  
 	var starttime=$("#begin").val();
-	$("#end").datetimepicker('setStartDate',starttime);
-	$("#begin").datetimepicker('hide');
-    $(this).datetimepicker('hide');
+	$("#begin_on span").html(starttime);
+	$("#end_on").datetimepicker('setStartDate',starttime);
       _cleanTitle()
       _query();
 });  
 
-$("#end").datetimepicker({
+$("#end_on").datetimepicker({
 	minView: "month", //选择日期后，不会再跳转去选择时分秒
 	format: "yyyy-mm-dd", //选择日期后，文本框显示的日期格式
 　　	language: 'zh-CN', //汉化
@@ -444,11 +443,9 @@ $("#end").datetimepicker({
 　　	bootcssVer:3,
 　　	autoclose:true //选择日期后自动关闭
 }).on('changeDate', function (ev) {  
-	var starttime=$("#starttime").val();
 	var endtime=$("#end").val();
-	$("#begin").datetimepicker('setEndDate',endtime);
-	$("#end").datetimepicker('hide');
-    $(this).datetimepicker('hide');
+	$("#end_on span").html(endtime);
+	$("#begin_on").datetimepicker('setEndDate',endtime);
     _cleanTitle()
     _query();
 });
