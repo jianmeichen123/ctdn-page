@@ -226,11 +226,14 @@ var tableFormate ={
             var mergerSideTitle = ''
             for(j in mergerSides){
                 var json = mergerSides[j]
-                if(json.title != null){
+                if(json.title != ''){
                     mergerSideTitle+='<br>'+json.title
                 }
             }
             if(mergerSideTitle!=''){
+                return mergerSideTitle
+            }else{
+                mergerSideTitle = '未透露'
                 return mergerSideTitle
             }
         }
@@ -295,27 +298,27 @@ var tableFormate ={
          }
     },
     equityRate:function(value, row, index){
-        if (row.equityRate==null) return table.empty
+        if (row.equityRate==null) return '未透露'
         return row.equityRate+"%"
     },
     mergeSideJson:function(value, row, index){
-         var mergeSideJson = row.mergeSideJson
-         var mergeSideTitle = ''
-         if (!mergeSideJson||mergeSideJson==null){
-            mergeSideTitle = '未透露'
+        var mergeSideJson = row.mergeSideJson
+        var mergeSideTitle = ''
+        if(mergeSideJson==null){
+             mergeSideTitle='未透露'
             return mergeSideTitle
-         }
-         var jsonObjArr =  JSON.parse(mergeSideJson);
-         for(i in jsonObjArr){
+        }
+        var jsonObjArr =  JSON.parse(mergeSideJson);
+        for(i in jsonObjArr){
             var i = jsonObjArr[i]
             for(j in i){
                 var json = i[j]
-                if(json.title!=null&&j<3){
+                if(json.title!=''&&j<3){
                     mergeSideTitle+=json.title+"<br>"
                 }
             }
             return mergeSideTitle
-         }
+        }
     },
     totalRatio:function(value,row,index){
         var totalRatio = row.totalRatio
