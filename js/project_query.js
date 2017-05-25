@@ -301,20 +301,21 @@ var tableFormate ={
     mergeSideJson:function(value, row, index){
          var mergeSideJson = row.mergeSideJson
          var mergeSideTitle = ''
-         if (!mergeSideJson||mergeSideJson==null){
+         if (mergeSideJson==null){
             mergeSideTitle = '未透露'
             return mergeSideTitle
-         }
-         var jsonObjArr =  JSON.parse(mergeSideJson);
-         for(i in jsonObjArr){
-            var i = jsonObjArr[i]
-            for(j in i){
-                var json = i[j]
-                if(json.title!=null&&j<3){
-                    mergeSideTitle+=json.title+"<br>"
+         }else{
+            var jsonObjArr =  JSON.parse(mergeSideJson);
+            for(i in jsonObjArr){
+                var i = jsonObjArr[i]
+                for(j in i){
+                    var json = i[j]
+                    if(json.title!=null&&j<3){
+                        mergeSideTitle+=json.title+"<br>"
+                    }
                 }
-            }
-            return mergeSideTitle
+                return mergeSideTitle
+             }
          }
     },
     totalRatio:function(value,row,index){
