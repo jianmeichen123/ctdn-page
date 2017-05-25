@@ -138,6 +138,9 @@ var tableFormate ={
         }else if (row.logoSmall&&row.logoSmall!=""){
             img = row.logoSmall
         }
+        if(img.indexOf(".") == -1){
+            img = ""
+        }
         return '<div class="list_table_td"> <img height="37" width="37" src="'+Constants.logoPath+img+'"> <span class="col_999"><a href="#">'+projectName+'</a></span> </div>'
     },
     investSide:function(value, row, index){
@@ -187,6 +190,9 @@ var tableFormate ={
         }else{
             industrict+=' '+'行业未知'
         }
+        if(img.indexOf(".") == -1){
+            img = ""
+        }
         return '<div class="list_table_td"> <img height="37" width="37" src="'+Constants.logoPath+img+'"> <ul class="col_999"> <li><a href="#">'+company+'</a></li> <li>'+industrict+'</li> </ul> </div>'
     },
     beenMergered:function(value,row,index){
@@ -209,6 +215,10 @@ var tableFormate ={
         if (!row.industryName) industrict+=' '+"行业未知"
         if (row.industryName&&!row.industrySubName) industrict+=' '+row.industryName
         if (row.industryName&&row.industrySubName) industrict+=' '+row.industryName +">" +row.industrySubName
+        
+        if(img.indexOf(".") == -1){
+            img = ""
+        }
         return '<div class="list_table_td"> <img height="37" width="37" src="'+Constants.logoPath+img+'"> <ul class="col_999"> <li><a href="#">'+mergered+'</a></li> <li>'+industrict+'</li> </ul> </div>'
     },
     amountStr:function(value,row,index){
@@ -276,6 +286,9 @@ var tableFormate ={
             }else{
                 img = imgArr[0]
             }
+        }
+        if(img.indexOf(".") == -1){
+            img = ""
         }
         return '<div class="list_table_td"> <img height="37" width="37" src="'+Constants.logoPath+'/org/'+img+'"> <ul class="col_999"> <li><a href="#">'+investOrg+'</a></li> </ul> </div>'
     },

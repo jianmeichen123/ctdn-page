@@ -1412,7 +1412,6 @@ a.bg-danger:focus {
 ul,
 ol {
   margin-top: 0;
-  margin-bottom: 10px;
 }
 ul ul,
 ol ul,
@@ -1583,8 +1582,9 @@ pre code {
   padding-left: 15px;
   margin-right: auto;
   margin-left: auto;
+  width: 1170px;
 }
-@media (min-width: 768px) {
+/* @media (min-width: 768px) {
   .container {
     width: 750px;
   }
@@ -1593,12 +1593,12 @@ pre code {
   .container {
     width: 970px;
   }
-}
+} 
 @media (min-width: 1200px) {
   .container {
     width: 1170px;
   }
-}
+}*/
 .container-fluid {
   padding-right: 15px;
   padding-left: 15px;
