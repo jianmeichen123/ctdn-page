@@ -328,7 +328,8 @@ var tableFormate ={
             for(j in i){
                 var json = i[j]
                 if(json.title!=''&&j<3){
-                    mergeSideTitle+=json.title+"<br>"
+                    mergeSideTitle+='<div class="w_200_spot">'+json.title+'</div>'
+                   /* mergeSideTitle+=json.title+"<br>"*/
                 }
             }
             return mergeSideTitle
