@@ -200,6 +200,7 @@ var tableFormate ={
         var industrict = ""
         if(!mergered){
             mergered='名称未知'
+            industrict='地区未知'+ ' '+'行业未知'
         }
         var img = ""
         if (row.logo&&row.logo!=""){
