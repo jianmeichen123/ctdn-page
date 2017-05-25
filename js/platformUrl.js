@@ -15,7 +15,7 @@ var Constants = {
 	userContentURL: "http://ctdnqa.gi.com/user/",
 	searchContentURL: "http://ctdnqa.gi.com/search/",
 	dataContentURL: "http://ctdnqa.gi.com/data/",
-    logoPath: "http:///10.10.0.147/"
+    logoPath: "http://static.galaxyinternet.com/"
 }
 var home = {
 	    index : "http://ctdnqa.gi.com"
