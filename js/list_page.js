@@ -450,13 +450,13 @@ $("#end_on").datetimepicker({
     _query();
 });
 //名字事件
-$('body').delegate('.nav_all_name','click', function(event){	
+$('body').delegate('.nav_all_name','mouseenter', function(event){	
 	event.stopPropagation(); 
-	$(this).children('.brain_ico_name').toggleClass("brain_ico_name_on");
-	if($(this).children('.brain_ico_name').hasClass('brain_ico_name_on')){
-		$('.list_click_ul').show();
-	}else{
-		$('.list_click_ul').hide();
-	}
+	$('.nav_all_name .brain_ico_name').addClass("brain_ico_name_on");
+	$('.list_click_ul').show();
 	
 })
+$('body').delegate('.nav_all_name','mouseleave', function(event){
+	$('.nav_all_name .brain_ico_name').removeClass("brain_ico_name_on");
+	$('.list_click_ul').hide();
+});
