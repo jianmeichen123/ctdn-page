@@ -82,7 +82,7 @@ function query_data (){
         querydata["startDate"] = startDate;
         querydata["endDate"] = endDate;
     }
-    querydata[$("#projTitle").attr("data-field")] = $("#projTitle").val();
+    querydata[$("#projTitle").attr("data-field")] = escape($("#projTitle").val());
     return querydata
 }
 function queryParams(params) {  //配置参数
