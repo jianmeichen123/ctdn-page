@@ -83,7 +83,7 @@ function query_data (){
         querydata["endDate"] = endDate;
     }
     if($("#projTitle").val()&&$("#projTitle").val().trim()!=""){
-        querydata[$("#projTitle").attr("data-field")] = "\\"+$("#projTitle").val().trim()+"\\";
+        querydata[$("#projTitle").attr("data-field")] = "\\"+$("#projTitle").val().trim();
     }
 
     return querydata
