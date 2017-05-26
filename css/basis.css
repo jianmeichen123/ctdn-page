@@ -237,3 +237,5 @@ input{outline: none;}
 .project_line_x{margin-top:20px; padding-top:20px;border-top: 1px solid #e6e6e6;}
 .project_bj_org{display:inline-block; background-color:#fb7f1c;padding: 0 10px; border-radius:4px; margin-left:10px; color:#fff;}
 .project_bj_div{line-height:20px;    margin-bottom: 2px;}
+.product_list{margin-right:-20px; overflow:hidden; margin-bottom:-26px;}
+.product_list li{width:300px; float:left; border:1px solid #e6e6e6; height:115px; margin-bottom:26px; margin-right:26px;}
