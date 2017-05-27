@@ -241,7 +241,7 @@ var tableFormate ={
             for(j in mergerSides){
                 var json = mergerSides[j]
                 if(json.title != ''){
-                    mergerSideTitle+='<br>'+json.title
+                    mergerSideTitle+='<div class="w_200_spot">'+json.title+'</div>';
                 }
             }
             if(mergerSideTitle!=''){
