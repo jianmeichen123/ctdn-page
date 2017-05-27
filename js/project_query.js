@@ -184,11 +184,14 @@ var tableFormate ={
         }else{
             industrict+='地区未知'
         }
-        if (row.industryName&&!row.industrySubName) industrict+=' '+row.industryName
+        if(!row.industryName){
+            industrict+='行业未知'
+        }
+        if (row.industryName&&!row.industrySubName){
+            industrict+=' '+row.industryName
+        }
         if (row.industryName&&row.industrySubName){
             industrict+=' '+row.industryName +">" +row.industrySubName
-        }else{
-            industrict+=' '+'行业未知'
         }
         if(img.indexOf(".") == -1){
             img = ""
