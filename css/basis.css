@@ -240,10 +240,21 @@ input{outline: none;}
 .project_bj_div{line-height:20px;    margin-bottom: 2px;}
 .product_list{margin-right:-20px; overflow:hidden; margin-bottom:-26px;}
 .product_list>li{width:300px; float:left; border:1px solid #e6e6e6; height:115px; margin-bottom:26px; margin-right:26px;}
+.product_list>li:before {
+  content: '';
+  display: inline-block;
+  vertical-align: middle ;
+  height: 100%;
+}
+.wrapper {
+  display: inline-block;
+  vertical-align: middle;
+  width: 200px;
+  height: auto;
+}
 .product_list>li>img{width:90px; height:115px; float:left;}
-.product_list_ul{color:#666; display:block; margin-left:10px; float:left; margin-top:15px;}
+.product_list_ul{color:#666; display:block; margin-left:10px; float:left; }
 .product_list_ul li{display:block; width:190px; overflow:hidden; text-overflow:ellipsis; white-space:normal; line-height:20px;}
-.product_list_ul_top{margin-top:33px}
 .product_list_team,.product_list_company,.project_new{margin-bottom:-15px; overflow:hidden;}
 .product_list_team>li{width:50%; float:left; overflow:hidden; margin-bottom:15px;}
 .product_list_team>li>img{width:64px; height:64px; float:left; border-radius:32px; }
