@@ -246,7 +246,7 @@ input{outline: none;}
   vertical-align: middle ;
   height: 100%;
 }
-.wrapper {
+.product_list>li .wrapper {
   display: inline-block;
   vertical-align: middle;
   width: 200px;
