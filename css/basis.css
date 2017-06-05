@@ -183,6 +183,7 @@ input{outline: none;}
 .particulars_bottom_b{border-bottom:1px solid #f0f0f0;}
 .particulars_black p{ line-height:24px; margin:0}
 .blue_l_b{ border-left:1px solid #63a9ff; margin-left:4px; padding:5px 0; margin-top:5px}
+.blue_l_b_three{display:none;}
 .circle_b{display:block; width:10px; height:10px; border:1px solid #61abff; border-radius:5px; background-color:#fff; position:absolute; left:-6px; top:4px;}
 .relative{position:relative; padding-left:10px; line-height:20px; }
 .ul_display{margin-bottom:0;}
@@ -233,10 +234,12 @@ input{outline: none;}
 .project_all{width:100%; overflow:hidden; position:relative;}
 .project_all_l{width:1000px; float:left;}
 .project_all_r{width:120px; background-color:#fff; border:1px solid #f0f0f0; float:right;margin-top: 40px;}
-.project_all_r ul li{ line-height:38px; text-align:center; height:38px; position:relative;}
+.project_all_r_top{position:fixed;  top:0; right:50%; margin-right:-567px;    margin-top:0px;}
+.project_all_r ul li{ line-height:38px; text-align:center; height:38px; position:relative; cursor: pointer;}
 .brain_ico_project_circle{background-position:0 -65px;display: none; top:11px;left: 17px; position:absolute; width:15px;  height:15px;}
 .project_all_r_on .brain_ico_project_circle{display:block;}
 .project_all_l_ul li{ overflow:hidden;}
+.project_all_l_ul li .color_666{height:72px; text-overflow:ellipsis; word-wrap: normal;  overflow:hidden;}
 .project_line_x{margin-top:20px; padding-top:20px;border-top: 1px solid #e6e6e6;}
 .project_bj_org{display:inline-block; background-color:#fb7f1c;padding: 0 10px; border-radius:4px; margin-left:10px; color:#fff;}
 .project_bj_div{line-height:20px;    margin-bottom: 2px;}
