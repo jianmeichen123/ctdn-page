@@ -84,39 +84,29 @@
 				<!-- 融资信息 -->
 				<div class="project_t" location_l="location_rz"><span class="brain_ico brain_ico_project_crumbs"></span>融资信息</div>
 				<div class="particulars_black m_t5" >
-					<table class=" particulars_table_list" data-url="queryProjectInvestEvent" date-query="queryProjectInvestEvent" data-formatter="formatInvestEvent">
+					<table class=" particulars_table_list"  date-query="list" data-formatter="eventInfoList">
 							<thead>
 								<tr>
 									<th data-field="investDate"><div class="border_l" >融资时间</div></th>
-									<th data-field="round"><div class="border_l">轮次</div></th>
-									<th data-field="amountStr"><div class="border_l" >融资金额</div></th>
-									<th data-field="valuation"><div class="border_l" >企业估值</div></th>
+									<th ><div class="border_l">轮次</div></th>
+									<th ><div class="border_l" >融资金额</div></th>
+									<th ><div class="border_l" >企业估值</div></th>
 									<th data-field=""><div class="border_l" >出让股份</div></th>
 									<th data-field="investSideJson"><div class="border_l" >投资机构</div></th>
 									<th data-field="eventId"><div class="border_l" >详情</div></th>
 								</tr>
 							</thead>
-							<!--<tbody data-query="investList">-->
-								<!--<tr>-->
-									<!--<td>结果</td>-->
-									<!--<td>结果</td>-->
-									<!--<td>结果</td>-->
-									<!--<td data-field="valuation">结果</td>-->
-									<!--<td data-field="">结果</td>-->
-									<!--<td data-field="investSideJson" data-formatter="investSideFormatter">结果</td>-->
-									<!--&lt;!&ndash;<td>&ndash;&gt;-->
-										<!--&lt;!&ndash;<div class="project_bj_div">万启明创投<span class="project_bj_org">领投</span></div>&ndash;&gt;-->
-										<!--&lt;!&ndash;<div class="project_bj_div">万启明创投<span class="project_bj_org">领投</span></div>&ndash;&gt;-->
-									<!--&lt;!&ndash;</td>&ndash;&gt;-->
-									<!--<td data-field="eventId" data-formatter="investTitle">详情</td>-->
-								<!--</tr>-->
-							<!--</tbody>-->
+							<!--<td>-->
+								<!--<div class="project_bj_div">万启明创投<span class="project_bj_org">领投</span></div>-->
+								<!--<div class="project_bj_div">万启明创投<span class="project_bj_org">领投</span></div>-->
+							<!--</td>-->
+
 						</table>
 				</div>
 				<!-- 产品信息 -->
 				<div class="project_t" location_l="location_cp"><span class="brain_ico brain_ico_project_crumbs"></span>产品信息<div class="fr">共<span>5</span>个产品</div></div>
-				<div class="particulars_black m_t5">
-					<ul class="product_list">
+				<div class="particulars_black m_t5" >
+					<ul class="product_list" >
 						<li>
 							<img src="img/a1.jpg">
 							<div class="wrapper">
@@ -171,50 +161,18 @@
 				<!-- 团队信息 -->
 				<div class="project_t" location_l="location_td"><span class="brain_ico brain_ico_project_crumbs"></span>团队信息</div>
 				<div class="particulars_black m_t5" >
-					<ul class="product_list_team">
-						<li>
-							<img src="img/aa.png"/>
-							<ul class="product_list_team_ul">
-								<li class="font_14" data-field="name">马可波罗<span data-field="job">CEO</span></li>
-								<li class="color_666 font_12" data-field="college">清华大学<span data-field="edu">本科</span></li>
-								<li class="color_999 font_12" data-field="introduction">易改衣创始人，曾在网易担任产品主管，生命健康等新兴产业，目前共决策投资100多个早期项目。</li>
-							</ul>
-						</li>
-						<li>
-							<img src="http:///10.10.0.147/55d28247110599ef68b5499115868bec.png"/>
-							<ul class="product_list_team_ul">
-								<li class="font_14">马可波罗<span>CEO</span></li>
-								<li class="color_666 font_12">清华大学<span>本科</span></li>
-								<li class="color_999 font_12">易改衣创始人，曾在网易担任产品主管，生命健康等新兴产业，目前共决策投资100多个早期项目。</li>
-							</ul>
-						</li>
-						<li>
-							<img src="http:///10.10.0.147/55d28247110599ef68b5499115868bec.png"/>
-							<ul class="product_list_team_ul">
-								<li class="font_14">马可波罗<span>CEO</span></li>
-								<li class="color_666 font_12">清华大学<span>本科</span></li>
-								<li class="color_999 font_12">易改衣创始人，曾在网易担任产品主管，生命健康等新兴产业，目前共决策投资100多个早期项目。</li>
-							</ul>
-						</li>
-						<li>
-							<img src="http:///10.10.0.147/55d28247110599ef68b5499115868bec.png"/>
-							<ul class="product_list_team_ul">
-								<li class="font_14">马可波罗<span>CEO</span></li>
-								<li class="color_666 font_12">清华大学<span>本科</span></li>
-								<li class="color_999 font_12">易改衣创始人，曾在网易担任产品主管，生命健康等新兴产业，目前共决策投资100多个早期项目。</li>
-							</ul>
-						</li>
+					<ul class="product_list_team" date-query="list" data-formatter="projectTeamList">
 					</ul>
 				</div>
 				<!-- 发展历史 -->
 				<div class="project_t" location_l="location_fz"><span class="brain_ico brain_ico_project_crumbs"></span>发展历史</div>
 				<div class="particulars_black m_t5">
 					<div class="blue_l_b">
-						<ul>
-							<li>
-								<div class="relative m_t5"><span class="circle_b"></span><span data-field="content">星河互联连续3年盈利，2013年-2015年净利润分别为1.54亿，4.87亿，5.13亿</span></div>
-								<div class="color_999 relative" data-field="date">2016.01</div>
-							</li>
+						<ul date-query="list" data-formatter="historyList">
+							<!--<li>-->
+								<!--<div class="relative m_t5"><span class="circle_b"></span><span data-field="content">星河互联连续3年盈利，2013年-2015年净利润分别为1.54亿，4.87亿，5.13亿</span></div>-->
+								<!--<div class="color_999 relative" data-field="date">2016.01</div>-->
+							<!--</li>-->
 							<!--<li>-->
 								<!--<div class="relative m_t5"><span class="circle_b"></span>星河互联连续3年盈利，2013年-2015年净利润分别为1.54亿，4.87亿，5.13亿</div>-->
 								<!--<div class="color_999 relative">2016.01</div>-->
@@ -426,6 +384,7 @@
 </div>
 <script src="js/platformUrl.js"></script>
 <script src="js/common.js"></script>
+<script src="js/fillData_common.js"></script>
 <script src="js/fillData.js"></script>
 <script>
 /* 菜单悬浮 */
