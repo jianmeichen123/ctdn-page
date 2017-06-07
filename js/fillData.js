@@ -39,34 +39,18 @@ function eventInfoListFormatter(data,div){
 }
 function projectTeamListFormatter(data,div){
      var staticTemplate = '<li> <img src="${logo}"/> <ul class="product_list_team_ul"> <li class="font_14">${name}<span >${job}</span></li> <li class="color_666 font_12" >${college}<span>${edu}</span></li> <li class="color_999 font_12">${introduction}</li> </ul> </li>'
-     var temp = staticTemplate;
-     var html =""
-     $(data).each(function(i,row){
-         $.each(row,function(k,v){
-             while(temp.indexOf("${"+k+"}") > 1){
-                 temp =temp.replace("${"+k+"}",v)
-             }
-         })
-         html += temp;
-         temp = staticTemplate
-    })
-    div.append(html)
+     commonFormatter(staticTemplate,data,div)
 }
 function historyListFormatter(data,div){
      var staticTemplate = '<li> <div class="relative m_t5"><span class="circle_b"></span><span>${content}</span></div> <div class="color_999 relative">${date}</div> </li>'
-     var temp = staticTemplate;
-     var html =""
-     $(data).each(function(i,row){
-         $.each(row,function(k,v){
-             while(temp.indexOf("${"+k+"}") > 1){
-                 temp =temp.replace("${"+k+"}",v)
-             }
-         })
-         html += temp;
-         temp = staticTemplate
-    })
-    div.append(html)
+     commonFormatter(staticTemplate,data,div)
 }
+
+function projectContactList(data,div){
+     var staticTemplate ='<tr> <td>${city}</td> <td>${addr}</td> <td>${zipCode}</td> <td>${tel}</td> <td>${mail}</td> <td>${fax}</td> </tr>'
+     commonFormatter(staticTemplate,data,div)
+}
+
 function labelFormat(val,o){
    if(val){
        var str = "";
