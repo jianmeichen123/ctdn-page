@@ -11,21 +11,22 @@
 {(header.html)}
 <div class="container">
 	<div class="particulars_all">
-		<div class="particulars_black">
+		<div class="particulars_black" data-query = "projectBase">
 			<div class="project_tit">
-				<ul class="project_absolute"><li class="project_absolute_blue">B轮</li><li class="project_absolute_green">运营中</li><li class="project_absolute_lan">不需要融资</li></ul>
-				<img src="">
+				<ul class="project_absolute"><li class="project_absolute_blue" data-field="latestFinanceRound"></li><li class="project_absolute_green" data-field="runState"></li><li class="project_absolute_lan" data-field="needFinance"></li></ul>
+				<img src="" data-field="logoBig">
 				<ul>
-					<li class="font_24">奇瑞动力</li>
-					<li class="color_999 font_14">zhongguo Petroleum&Chemical Sales Co</li>
-					<li class="color_666 font_14 ">一个云服务平台</li>
-					<li class="color_666 font_12">亚洲  印度　　金融 > 互联网保险 > 保险理赔</li>
-					<li class="color_666 font_12"><span class="project_lable">金融</span><span class="project_lable">金融</span><span class="project_lable">金融</span></li>
+					<li class="font_24" data-field="projTitle"></li>
+					<!--<li class="color_999 font_14" data-field="">zhongguo Petroleum&Chemical Sales Co</li>-->
+					<li class="color_666 font_14 " data-field="introduce"></li>
+					<li class="color_666 font_12"><span data-field="districtName"></span>  <span data-field="districtSubName"></span>　　 <span data-field="industryName"></span> > <span data-field="industrySubName"></span> </li>
+					<li class="color_666 font_12"><span class="project_lable"></span><span class="project_lable"></span><span class="project_lable"></span></li>
+					<li class="color_666 font_12" data-field="labels" data-formatter="labelFormat"></li>
 				</ul>
 			</div>
 			<div class="project_tit_r">
 				<ul>
-					<li>商业计划书：<span class="pick_on_color">下载</span></li>
+					<li >商业计划书：<span class="pick_on_color">下载</span></li>
 					<li>企业邮箱：<span class="pick_on_color">xiangmeimeng@cdhfund.com</span></li>
 					<li>联系电话：<span>13812345680</span></li>
 				</ul>
@@ -50,11 +51,11 @@
 				<!-- zhuo -->
 				<!-- 基本信息-->
 				<div class="project_t" location_l="location_jb"><span class="brain_ico brain_ico_project_crumbs"></span>基本信息</div>
-				<div class="particulars_black m_t5">
+				<div class="particulars_black m_t5" data-query = "projectBase">
 					<ul class="project_all_l_ul">
 						<li>
 							<div class="font_14">公司描述</div>
-							<p  class="color_666">小米公司是是专注于新一代智能手机软件开发与热点移动互联网业小米公司是是专注于新一代智能手机软件开发与热点移动互联网业小米公司是是专注于新一代智能手机软件开发与热点移动互联网业小米公司是是专注于新一代智能手机软件开发与热点移动互联网业小米公司是是专注于新一代智能手机软件开发与热点移动互联网业小米公司是是专注于新一代智能手机软件开发与热点移动互联网业小米公司是是专注于新一代智能手机软件开发与热点移动互联网业小米公司是是专注于新一代智能手机软件开发与热点移动互联网业小米公司是是专注于新一代智能手机软件开发与热点移动互联网业小米公司是是专注于新一代智能手机软件开发与热点移动互联网业小米公司是是专注于新一代智能手机软件开发与热点移动互联网业务运营的公司，产品有小米手机、小米盒子、米聊、MIUI等。该公司已经获得知名天使投资人及风险投资Morningside、启明的巨额投资。 2010年底推出手机实名社区米聊，在推出半年内注册用户突破300万。小米公司还推出基于CM定制的手机操作系统MIUI，Android双核手机小米手机等。 米聊、MIUI、小米手机是小米科技的三大核心产品。</p>
+							<p  class="color_666" data-field="firmDesc">小米公司是是专注于新一代智能手机软件开发与热点移动互联网业小米公司是是专注于新一代智能手机软件开发与热点移动互联网业小米公司是是专注于新一代智能手机软件开发与热点移动互联网业小米公司是是专注于新一代智能手机软件开发与热点移动互联网业小米公司是是专注于新一代智能手机软件开发与热点移动互联网业小米公司是是专注于新一代智能手机软件开发与热点移动互联网业小米公司是是专注于新一代智能手机软件开发与热点移动互联网业小米公司是是专注于新一代智能手机软件开发与热点移动互联网业小米公司是是专注于新一代智能手机软件开发与热点移动互联网业小米公司是是专注于新一代智能手机软件开发与热点移动互联网业小米公司是是专注于新一代智能手机软件开发与热点移动互联网业务运营的公司，产品有小米手机、小米盒子、米聊、MIUI等。该公司已经获得知名天使投资人及风险投资Morningside、启明的巨额投资。 2010年底推出手机实名社区米聊，在推出半年内注册用户突破300万。小米公司还推出基于CM定制的手机操作系统MIUI，Android双核手机小米手机等。 米聊、MIUI、小米手机是小米科技的三大核心产品。</p>
 							<div class="project_more">更多<span class="brain_ico brain_ico_project_more"></span></div>
 						</li>
 						<li class="project_line_x">
@@ -82,33 +83,34 @@
 				</div>
 				<!-- 融资信息 -->
 				<div class="project_t" location_l="location_rz"><span class="brain_ico brain_ico_project_crumbs"></span>融资信息</div>
-				<div class="particulars_black m_t5">
-					<table class=" particulars_table_list">
+				<div class="particulars_black m_t5" >
+					<table class=" particulars_table_list" data-url="queryProjectInvestEvent" date-query="queryProjectInvestEvent" data-formatter="formatInvestEvent">
 							<thead>
 								<tr>
-									<th ><div>融资时间</div></th>
-									<th><div class="border_l">轮次</div></th>
-									<th><div class="border_l">融资金额</div></th>
-									<th><div class="border_l">企业估值</div></th>
-									<th><div class="border_l">出让股份</div></th>
-									<th><div class="border_l">投资机构</div></th>
-									<th><div class="border_l">详情</div></th>
+									<th data-field="investDate"><div class="border_l" >融资时间</div></th>
+									<th data-field="round"><div class="border_l">轮次</div></th>
+									<th data-field="amountStr"><div class="border_l" >融资金额</div></th>
+									<th data-field="valuation"><div class="border_l" >企业估值</div></th>
+									<th data-field=""><div class="border_l" >出让股份</div></th>
+									<th data-field="investSideJson"><div class="border_l" >投资机构</div></th>
+									<th data-field="eventId"><div class="border_l" >详情</div></th>
 								</tr>
 							</thead>
-							<tbody>
-								<tr>
-									<td>结果</td>
-									<td>结果</td>
-									<td>结果</td>
-									<td>结果</td>
-									<td>结果</td>
-									<td>
-										<div class="project_bj_div">万启明创投<span class="project_bj_org">领投</span></div>
-										<div class="project_bj_div">万启明创投<span class="project_bj_org">领投</span></div>
-									</td>
-									<td>结果</td>
-								</tr>
-							</tbody>
+							<!--<tbody data-query="investList">-->
+								<!--<tr>-->
+									<!--<td>结果</td>-->
+									<!--<td>结果</td>-->
+									<!--<td>结果</td>-->
+									<!--<td data-field="valuation">结果</td>-->
+									<!--<td data-field="">结果</td>-->
+									<!--<td data-field="investSideJson" data-formatter="investSideFormatter">结果</td>-->
+									<!--&lt;!&ndash;<td>&ndash;&gt;-->
+										<!--&lt;!&ndash;<div class="project_bj_div">万启明创投<span class="project_bj_org">领投</span></div>&ndash;&gt;-->
+										<!--&lt;!&ndash;<div class="project_bj_div">万启明创投<span class="project_bj_org">领投</span></div>&ndash;&gt;-->
+									<!--&lt;!&ndash;</td>&ndash;&gt;-->
+									<!--<td data-field="eventId" data-formatter="investTitle">详情</td>-->
+								<!--</tr>-->
+							<!--</tbody>-->
 						</table>
 				</div>
 				<!-- 产品信息 -->
@@ -168,14 +170,14 @@
 				</div>
 				<!-- 团队信息 -->
 				<div class="project_t" location_l="location_td"><span class="brain_ico brain_ico_project_crumbs"></span>团队信息</div>
-				<div class="particulars_black m_t5">
+				<div class="particulars_black m_t5" >
 					<ul class="product_list_team">
 						<li>
 							<img src="img/aa.png"/>
 							<ul class="product_list_team_ul">
-								<li class="font_14">马可波罗<span>CEO</span></li>
-								<li class="color_666 font_12">清华大学<span>本科</span></li>
-								<li class="color_999 font_12">易改衣创始人，曾在网易担任产品主管，生命健康等新兴产业，目前共决策投资100多个早期项目。</li>
+								<li class="font_14" data-field="name">马可波罗<span data-field="job">CEO</span></li>
+								<li class="color_666 font_12" data-field="college">清华大学<span data-field="edu">本科</span></li>
+								<li class="color_999 font_12" data-field="introduction">易改衣创始人，曾在网易担任产品主管，生命健康等新兴产业，目前共决策投资100多个早期项目。</li>
 							</ul>
 						</li>
 						<li>
@@ -210,32 +212,32 @@
 					<div class="blue_l_b">
 						<ul>
 							<li>
-								<div class="relative m_t5"><span class="circle_b"></span>星河互联连续3年盈利，2013年-2015年净利润分别为1.54亿，4.87亿，5.13亿</div>
-								<div class="color_999 relative">2016.01</div>
+								<div class="relative m_t5"><span class="circle_b"></span><span data-field="content">星河互联连续3年盈利，2013年-2015年净利润分别为1.54亿，4.87亿，5.13亿</span></div>
+								<div class="color_999 relative" data-field="date">2016.01</div>
 							</li>
-							<li>
-								<div class="relative m_t5"><span class="circle_b"></span>星河互联连续3年盈利，2013年-2015年净利润分别为1.54亿，4.87亿，5.13亿</div>
-								<div class="color_999 relative">2016.01</div>
-							</li>
-							<li>
-								<div class="relative m_t5"><span class="circle_b"></span>星河互联连续3年盈利，2013年-2015年净利润分别为1.54亿，4.87亿，5.13亿</div>
-								<div class="color_999 relative">2016.01</div>
-							</li>
-							<li class="blue_l_b_three">
-								<div class="relative m_t5"><span class="circle_b"></span>星河互联连续3年盈利，2013年-2015年净利润分别为1.54亿，4.87亿，5.13亿</div>
-								<div class="color_999 relative">2016.01</div>
-							</li>
-							<li class="blue_l_b_three">
-								<div class="relative m_t5"><span class="circle_b"></span>星河互联连续3年盈利，2013年-2015年净利润分别为1.54亿，4.87亿，5.13亿</div>
-								<div class="color_999 relative">2016.01</div>
-							</li>
-							<li class="blue_l_b_three">
-								<div class="relative m_t5"><span class="circle_b"></span>星河互联连续3年盈利，2013年-2015年净利润分别为1.54亿，4.87亿，5.13亿</div>
-								<div class="color_999 relative">2016.01</div>
-							</li>
+							<!--<li>-->
+								<!--<div class="relative m_t5"><span class="circle_b"></span>星河互联连续3年盈利，2013年-2015年净利润分别为1.54亿，4.87亿，5.13亿</div>-->
+								<!--<div class="color_999 relative">2016.01</div>-->
+							<!--</li>-->
+							<!--<li>-->
+								<!--<div class="relative m_t5"><span class="circle_b"></span>星河互联连续3年盈利，2013年-2015年净利润分别为1.54亿，4.87亿，5.13亿</div>-->
+								<!--<div class="color_999 relative">2016.01</div>-->
+							<!--</li>-->
+							<!--<li class="blue_l_b_three">-->
+								<!--<div class="relative m_t5"><span class="circle_b"></span>星河互联连续3年盈利，2013年-2015年净利润分别为1.54亿，4.87亿，5.13亿</div>-->
+								<!--<div class="color_999 relative">2016.01</div>-->
+							<!--</li>-->
+							<!--<li class="blue_l_b_three">-->
+								<!--<div class="relative m_t5"><span class="circle_b"></span>星河互联连续3年盈利，2013年-2015年净利润分别为1.54亿，4.87亿，5.13亿</div>-->
+								<!--<div class="color_999 relative">2016.01</div>-->
+							<!--</li>-->
+							<!--<li class="blue_l_b_three">-->
+								<!--<div class="relative m_t5"><span class="circle_b"></span>星河互联连续3年盈利，2013年-2015年净利润分别为1.54亿，4.87亿，5.13亿</div>-->
+								<!--<div class="color_999 relative">2016.01</div>-->
+							<!--</li>-->
 						</ul>
 					</div>
-					<div class="block project_click_show color_666" >展开全部<span>22</span>条<span class="brain_ico brain_ico_project_more"></span></div>
+					<div class="block project_click_show color_666" >展开全部<span data-field="length">22</span>条<span class="brain_ico brain_ico_project_more"></span></div>
 				</div>
 				
 				<!-- 上市挂牌 -->
@@ -297,10 +299,8 @@
 									<td>结果</td>
 									<td>结果</td>
 								</tr>
-								
 							</tbody>
 						</table>
-					
 				</div>
 				<!-- 退出事件 -->
 				<!-- <div class="project_t" location_l="location_tc"><span class="brain_ico brain_ico_project_crumbs"></span>退出事件</div>
@@ -378,7 +378,7 @@
 					</table>
 					
 				</div>
-					<!-- 相关新闻 -->
+				<!-- 相关新闻 -->
 				<div class="project_t" location_l="location_xw"><span class="brain_ico brain_ico_project_crumbs"></span>相关新闻</div>
 				<div class="particulars_black m_t5">
 					<ul class="project_new">
@@ -422,17 +422,11 @@
 				</ul>
 			</div>
 		</div>
-		
-
-		
-
-
-
-
-
 	</div>
 </div>
-
+<script src="js/platformUrl.js"></script>
+<script src="js/common.js"></script>
+<script src="js/fillData.js"></script>
 <script>
 /* 菜单悬浮 */
 var location_array = new Array()
@@ -494,6 +488,6 @@ $('body').delegate('.project_click_show','click',function(event){
 	$('.blue_l_b .blue_l_b_three').show();
 })
 </script>
-
+<!--{(footer.html)}-->
 </body>
 </html>

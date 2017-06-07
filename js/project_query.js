@@ -141,7 +141,7 @@ var tableFormate ={
         if(img.indexOf(".") == -1){
             img = ""
         }
-        return '<div class="list_table_td"> <img height="37" width="37" src="'+Constants.logoPath+img+'"> <span class="col_999"><a href="#">'+projectName+'</a></span> </div>'
+        return '<div class="list_table_td"> <img height="37" width="37" src="'+Constants.logoPath+img+'"> <span class="col_999"><a href="/project_qy.html?code="'+row.code+'>'+projectName+'</a></span> </div>'
     },
     investSide:function(value, row, index){
          var investSideJson = row.investSideJson
