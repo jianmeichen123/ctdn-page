@@ -21,7 +21,7 @@ function fillOne(data,divList){
 }
 
 function fillList(dataList,divList){
-    var dl = $("*[date-query='list']")
+    var dl = $("*[data-query='list']")
     $(dl).each(function(){
         var div = $(this);
         var entityList = dataList[div.attr("data-formatter")];
@@ -47,3 +47,4 @@ function commonFormatter(staticTemplate,data,div){
      })
      div.append(html)
 }
+
