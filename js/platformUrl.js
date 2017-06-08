@@ -21,7 +21,6 @@ var home = {
 	    index : "http://ctdndev.gi.com"
 	}
 var docUrl = {
-
       /**
         * 文档
       */
@@ -29,8 +28,6 @@ var docUrl = {
        shareDocList:Constants.docContentURL+"share/query",
 
        getShareDoc:Constants.docContentURL+"share/get/"
-
-
 }
 var searchUrl = {
     com:Constants.searchContentURL+"project",
@@ -55,7 +52,7 @@ var table ={
 }
 var detail = {
     queryProject:Constants.platformContentURL+"/projectList/queryProjectByCode/",
-    queryProjectInvestEvent:Constants.platformContentURL+"/eventInfo/getListBySourceCode/",
+    queryCompetationlist:Constants.platformContentURL+"/projectList/queryCompetationlist/"
 }
 /**
  * how to use? location.href = platformUrl.login
