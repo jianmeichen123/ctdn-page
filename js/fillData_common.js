@@ -21,7 +21,7 @@ function fillOne(data,divList){
 }
 
 function fillList(dataList,divList){
-    var dl = $("*[date-query='list']")
+    var dl = $("*[data-query='list']")
     $(dl).each(function(){
         var div = $(this);
         var entityList = dataList[div.attr("data-formatter")];
@@ -31,3 +31,20 @@ function fillList(dataList,divList){
         }
     })
 }
+
+function commonFormatter(staticTemplate,data,div){
+     var temp = staticTemplate;
+     var html =""
+     $(data).each(function(i,row){
+          $.each(row,function(k,v){
+              while(temp.indexOf("${"+k+"}") > 1){
+                  if(!v){ v = "-"}
+                  temp = temp.replace("${"+k+"}",v)
+              }
+          })
+          html += temp;
+          temp = staticTemplate
+     })
+     div.append(html)
+}
+

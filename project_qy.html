@@ -84,7 +84,7 @@
 				<!-- 融资信息 -->
 				<div class="project_t" location_l="location_rz"><span class="brain_ico brain_ico_project_crumbs"></span>融资信息</div>
 				<div class="particulars_black m_t5" >
-					<table class=" particulars_table_list"  date-query="list" data-formatter="eventInfoList">
+					<table class=" particulars_table_list"  >
 							<thead>
 								<tr>
 									<th data-field="investDate"><div class="border_l" >融资时间</div></th>
@@ -96,6 +96,7 @@
 									<th data-field="eventId"><div class="border_l" >详情</div></th>
 								</tr>
 							</thead>
+						    <tbody data-query="list" data-formatter="eventInfoList"></tbody>
 							<!--<td>-->
 								<!--<div class="project_bj_div">万启明创投<span class="project_bj_org">领投</span></div>-->
 								<!--<div class="project_bj_div">万启明创投<span class="project_bj_org">领投</span></div>-->
@@ -161,14 +162,14 @@
 				<!-- 团队信息 -->
 				<div class="project_t" location_l="location_td"><span class="brain_ico brain_ico_project_crumbs"></span>团队信息</div>
 				<div class="particulars_black m_t5" >
-					<ul class="product_list_team" date-query="list" data-formatter="projectTeamList">
+					<ul class="product_list_team" data-query="list" data-formatter="projectTeamList">
 					</ul>
 				</div>
 				<!-- 发展历史 -->
 				<div class="project_t" location_l="location_fz"><span class="brain_ico brain_ico_project_crumbs"></span>发展历史</div>
 				<div class="particulars_black m_t5">
 					<div class="blue_l_b">
-						<ul date-query="list" data-formatter="historyList">
+						<ul data-query="list" data-formatter="historyList">
 							<!--<li>-->
 								<!--<div class="relative m_t5"><span class="circle_b"></span><span data-field="content">星河互联连续3年盈利，2013年-2015年净利润分别为1.54亿，4.87亿，5.13亿</span></div>-->
 								<!--<div class="color_999 relative" data-field="date">2016.01</div>-->
@@ -212,21 +213,7 @@
 									<th><div class="border_l">详情</div></th>
 								</tr>
 							</thead>
-							<tbody>
-								<tr>
-									<td style="">
-										<div class="list_table_td"> 
-											<img height="37" width="37" src="http:///10.10.0.147/6668112c3243f8e18a89e4cc07e338e7.png"> <ul class="col_999"> <li><a href="#">Peloton Technology</a></li> <li>北美洲 企业服务&gt;行业信息化及解决方案</li> </ul> 
-										</div>
-									</td>
-									<td>结果</td>
-									<td>结果</td>
-									<td>结果</td>
-									<td>结果</td>
-									<td>结果</td>
-								</tr>
-								
-							</tbody>
+							<tbody data-query="list" data-formatter="eventListedInfoList"></tbody>
 						</table>
 					
 				</div>
@@ -236,27 +223,30 @@
 					<table class=" particulars_table_list m_t5">
 							<thead>
 								<tr>
-									<th ><div>公司</div></th>
-									<th><div class="border_l">类型</div></th>
-									<th><div class="border_l">交易所</div></th>
-									<th><div class="border_l">股票代码</div></th>
-									<th><div class="border_l">上市/挂牌时间</div></th>
+									<th ><div>被并购方</div></th>
+									<th><div class="border_l">股权比例</div></th>
+									<th><div class="border_l">金额</div></th>
+									<th><div class="border_l">并购方</div></th>
+									<th><div class="border_l">并购状态</div></th>
+									<th><div class="border_l">并购时间</div></th>
 									<th><div class="border_l">详情</div></th>
 								</tr>
 							</thead>
-							<tbody>
-								<tr>
-									<td style="">
-										<div class="list_table_td"> 
-											<img height="37" width="37" src="http:///10.10.0.147/6668112c3243f8e18a89e4cc07e338e7.png"> <ul class="col_999"> <li><a href="#">Peloton Technology</a></li> <li>北美洲 企业服务&gt;行业信息化及解决方案</li> </ul> 
-										</div>
-									</td>
-									<td>结果</td>
-									<td>结果</td>
-									<td>结果</td>
-									<td>结果</td>
-									<td>结果</td>
-								</tr>
+							<tbody  data-query="list" data-formatter="eventMergerInfoList">
+								<!--<tr>-->
+									<!--<td style="">-->
+										<!--<div class="list_table_td"> -->
+											<!--<img height="37" width="37" src="${logo}"> <ul class="col_999"> <li><a href="#">Peloton Technology</a></li> <li><span>${districtSubName}</span></li> </ul>-->
+										<!--</div>-->
+									<!--</td>-->
+									<!--<td>${projTitle}</td>-->
+									<!--<td>${equityRate}</td>-->
+									<!--<td>${amountStr}</td>-->
+									<!--<td>${mergeSideJson}</td>-->
+									<!--<td>${mergeState}</td>-->
+									<!--<td>${mergeDate}</td>-->
+									<!--<td>${eventId}</td>-->
+								<!--</tr>-->
 							</tbody>
 						</table>
 				</div>
@@ -314,9 +304,10 @@
 					<!-- 联系方式 -->
 				<div class="project_t" location_l="location_lx"><span class="brain_ico brain_ico_project_crumbs"></span>联系方式</div>
 				<div class="particulars_black m_t5">
-					<table class=" particulars_table_list m_t5">
+					<table class=" particulars_table_list m_t5" data-query="list" data-formatter="projectContactList">
 						<thead>
 							<tr>
+								<th ><div></div></th>
 								<th ><div>地址</div></th>
 								<th><div class="border_l">邮编</div></th>
 								<th><div class="border_l">公司电话</div></th>
@@ -324,14 +315,14 @@
 								<th><div class="border_l">传真</div></th>
 							</tr>
 						</thead>
-						<tbody>
-							<tr>
-								<td>香港    香港九龙柯十甸道西1号环球贸易广场15层1503</td>
-								<td>234533</td>
-								<td>222</td>
-								<td>dh@cdhfund.c</td>
-								<td>传真</td>
-							</tr>
+						<tbody  data-query="list" data-formatter="projectContactList" >
+							<!--<tr>-->
+								<!--<td>香港    香港九龙柯十甸道西1号环球贸易广场15层1503</td>-->
+								<!--<td>234533</td>-->
+								<!--<td>222</td>-->
+								<!--<td>dh@cdhfund.c</td>-->
+								<!--<td>传真</td>-->
+							<!--</tr>-->
 						</tbody>
 					</table>
 					
@@ -339,28 +330,13 @@
 				<!-- 相关新闻 -->
 				<div class="project_t" location_l="location_xw"><span class="brain_ico brain_ico_project_crumbs"></span>相关新闻</div>
 				<div class="particulars_black m_t5">
-					<ul class="project_new">
-						<li>
-							<span class="one">红杉资本郑庆生：创业的思维模式，不妨把眼光放长远【创新中国2015秋季峰会】</span>
-							<span class="two">投资界</span>
-							<span class="three">2016-08-19</span>
-						</li>
-						<li>
-							<span class="one">红杉资本郑庆生：创业的思维模式，不妨把眼光放长远【创新中国2015秋季峰会】</span>
-							<span class="two">投资界</span>
-							<span class="three">2016-08-19</span>
-						</li>
-						<li>
-							<span class="one">红杉资本郑庆生：创业的思维模式，不妨把眼光放长远【创新中国2015秋季峰会】</span>
-							<span class="two">投资界</span>
-							<span class="three">2016-08-19</span>
-						</li>
-						<li>
-							<span class="one">红杉资本郑庆生：创业的思维模式，不妨把眼光放长远【创新中国2015秋季峰会】</span>
-							<span class="two">投资界</span>
-							<span class="three">2016-08-19</span>
-						</li>
-					</ul>					
+					<ul class="project_new" data-query="list" data-formatter="newsList">
+						<!--<li>-->
+							<!--<span class="one">${content}</span>-->
+							<!--<span class="two">${source}</span>-->
+							<!--<span class="three">${date}</span>-->
+						<!--</li>-->
+					</ul>
 				</div>
 				<!-- z end -->
 			</div>
@@ -385,7 +361,7 @@
 <script src="js/platformUrl.js"></script>
 <script src="js/common.js"></script>
 <script src="js/fillData_common.js"></script>
-<script src="js/fillData.js"></script>
+<script src="js/fillData_project.js"></script>
 <script>
 /* 菜单悬浮 */
 var location_array = new Array()
