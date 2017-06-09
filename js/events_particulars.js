@@ -115,4 +115,4 @@ function sellSideListFormatter(data,div){
    })
    div.append(html)
 }
-sendGetRequest(detail.queryMergeEventInfo+"12345",function(data){fillOne(data.data,$("div[data-query='mergeEventInfo']")); fillList(data.data,$("*[data-query='list']"))})
+sendGetRequest(detail.queryMergeEventInfo+"1",function(data){fillOne(data.data,$("div[data-query='mergeEventInfo']")); fillList(data.data,$("*[data-query='list']"))})
