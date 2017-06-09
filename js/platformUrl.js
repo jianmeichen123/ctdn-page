@@ -56,7 +56,6 @@ var table ={
 var detail = {
     queryProject:Constants.platformContentURL+"/projectList/queryProjectByCode/",
     queryProjectInvestEvent:Constants.platformContentURL+"/eventInfo/getListBySourceCode/",
-    queryMergeEventInfo:Constants.platformContentURL+"/eventMergerInfo/getListByEventId/"
 }
 /**
  * how to use? location.href = platformUrl.login
