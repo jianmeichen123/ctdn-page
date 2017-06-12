@@ -114,12 +114,11 @@ function labelFormatFormatter(val,o){
 }
  //产品弹出
 $("#product-ul").on("click","li[op-data-type]",function(){
-var $self = $(this);
-var _url = "opdatahtml/"+$self.attr("op-data-type")+".html";
-var _name= $self.attr("data-name");
-var id = $self.attr("id").split(":")[0];
-var id_type = $self.attr("id").split(":")[1];
-$("#popup_name").attr("data-id",id);
+    var $self = $(this);
+    var _url = "opdatahtml/"+$self.attr("op-data-type")+".html";
+    var _name= $self.attr("data-name");
+    var id = $self.attr("id").split(":")[0];
+    var id_type = $self.attr("id").split(":")[1];
     //自定页
 	layer.open({
         type: 2,
@@ -128,17 +127,10 @@ $("#popup_name").attr("data-id",id);
         maxmin: true, //开启最大化最小化按钮
         area: ['900px', '435px'],
         content: _url,
-        end: function () {
-                       alert('1112qqq')
-                    }
-
-       /* success: function(layero, index){
-            var aa = $(layero).find("iframe")[0].$("#id").val('666').contentWindow;
-                        alert(aa)
-           $("#id").val('666')
-           alert($("#id").val()+":11")
-             //sendPostRequest(dataUrl[$self.attr("op-data-type")]+id,opCallBack[$self.attr("op-data-type")]);
-        }*/
+        success: function(layero, index){
+            $("#popup_name").html(_name);
+            sendPostRequest(dataUrl[$self.attr("op-data-type")]+id,$(layero).find("iframe")[0].contentWindow.opCallBack[$self.attr("op-data-type")]);
+        }
     });
 //    $.getHtml({
 //        url:_url,//模版请求地址
@@ -156,8 +148,8 @@ var callBack = {
         productData:function(data){
                    if(data.success){
                         var p_html = {
-                            "domain":'<li id="{appname}:str" op-data-type="pvuv" data-name="趋势分析图"> <img src="img/a1.jpg"> <div class="wrapper"> <ul class="product_list_ul"> <li>{appname}</li> <li>alexa排名：{index2}</li> </ul> </div> </li>',
-                            "android":'<li id="{appid}:long" op-data-type="ios" data-name="趋势分析图"> <img src="img/a2.jpg"> <div class="wrapper"> <ul class="product_list_ul"> <li>下载总量：<span>{index1}</span></li> <li>每日下载量：<span>{index2}</span></li> <li>更新时间：<span>{updateDate}</span></li> <li>评分：<span>{avgScore}</span></li> </ul> </div> </li>',
+                            "domain":'<li id="{code}:str" op-data-type="pvuv" data-name="趋势分析图"> <img src="img/a1.jpg"> <div class="wrapper"> <ul class="product_list_ul"> <li>{appname}</li> <li>alexa排名：{index2}</li> </ul> </div> </li>',
+                            "android":'<li id="{appid}:long" op-data-type="android" data-name="趋势分析图"> <img src="img/a2.jpg"> <div class="wrapper"> <ul class="product_list_ul"> <li>下载总量：<span>{index1}</span></li> <li>每日下载量：<span>{index2}</span></li> <li>更新时间：<span>{updateDate}</span></li> <li>评分：<span>{avgScore}</span></li> </ul> </div> </li>',
                             "ios":'<li id="{appid}:long" op-data-type="ios" data-name="趋势分析图"> <img src="img/a3.jpg"> <div class="wrapper"> <ul class="product_list_ul"> <li>下载总量：<span>{index1}</span></li> <li>每日下载量：<span>{index2}</span></li> <li>更新时间：<span>{updateDate}</span></li> <li>评分：<span>{avgScore}</span></li> </ul> </div> </li>',
                             "weibo":'<li id="{appid}:str" op-data-type="weibo" data-name="趋势分析图"> <img src="img/a4.jpg"> <div class="wrapper"> <ul class="product_list_ul"> <li>平均阅读量：<span>{index1}</span></li> <li> 粉丝数：<span>{index2}</span></li> </ul> </div> </li>',
                             "weixin":'<li id="{appid}:str" op-data-type="weixin" data-name="趋势分析图"> <img src="img/a5.jpg"> <div class="wrapper"> <ul class="product_list_ul"> <li>平均阅读量：<span>{index1}</span></li> <li> 粉丝数：<span>{index2}</span></li> </ul> </div> </li>',
@@ -165,7 +157,7 @@ var callBack = {
                         $(data.data).each(function(i,e){
                             var html = p_html[e.type]
                             $.each(e,function(k,v){
-                                if (k=="avgScore" && v){v = v.toString();v = v.charAt(0)+"."+v.charAt(1)}
+                                if (k=="avgScore"){v = v.toString();v = v.charAt(0)+"."+v.charAt(1)}
                                  html = html.replace(new RegExp("{"+k+"}","gm"),v)
                             })
                             $("#product-ul").append(html)
