@@ -1,6 +1,9 @@
-<link rel="stylesheet" type="text/css" href="css/revision.css">
-<link rel="stylesheet" type="text/css" href="css/basis.css">
-<script src="js/echarts_3.2.3.js"></script>
+<link rel="stylesheet" type="text/css" href="../css/revision.css">
+<link rel="stylesheet" type="text/css" href="../css/basis.css">
+<script src="../js/jquery-1.12.3.min.js"></script>
+<script src="../js/echarts_3.2.3.js"></script>
+<script src="../js/platformUrl.js"></script>
+<script src="../js/common.js"></script>
 <div class="popup_project">
 	<div class="popup_project_title"><span class="popup_ico"></span><span id="popup_name"></span></div>
 	<div class="project_popup_all">
@@ -18,7 +21,9 @@
 		</div>
 	</div>
 </div>
+<input type="hidden" id="id" />
 <script>
+sendPostRequest(dataUrl["weixin"]+$("#id").val(),opCallBack["weixin"]);
 //切换
 $('.popup_classify li').click(function (){
 	$('.popup_classify li').removeClass('popup_classify_on');
