@@ -128,10 +128,17 @@ $("#popup_name").attr("data-id",id);
         maxmin: true, //开启最大化最小化按钮
         area: ['900px', '435px'],
         content: _url,
-        success: function(layero, index){
-             sendPostRequest(dataUrl[$self.attr("op-data-type")]+$("#popup_name").attr("data-id"),opCallBack[$self.attr("op-data-type")]);
-        }
+        end: function () {
+                       alert('1112qqq')
+                    }
 
+       /* success: function(layero, index){
+            var aa = $(layero).find("iframe")[0].$("#id").val('666').contentWindow;
+                        alert(aa)
+           $("#id").val('666')
+           alert($("#id").val()+":11")
+             //sendPostRequest(dataUrl[$self.attr("op-data-type")]+id,opCallBack[$self.attr("op-data-type")]);
+        }*/
     });
 //    $.getHtml({
 //        url:_url,//模版请求地址
@@ -144,6 +151,7 @@ $("#popup_name").attr("data-id",id);
 //    });
     return false;
 });
+
 var callBack = {
         productData:function(data){
                    if(data.success){
