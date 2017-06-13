@@ -101,7 +101,6 @@
 		</div>
 	</div>
 </div>
-<input type="hidden" id="id" />
 <script>
 var opCallBack = {
 	 ios :function(data){
@@ -170,7 +169,6 @@ var opCallBack = {
                 }
             }
 }
-sendPostRequest(dataUrl["ios"]+$("#id").val(),opCallBack["ios"]);
 //切换
 $('.popup_classify li').click(function (){
 	$('.popup_classify li').removeClass('popup_classify_on');
