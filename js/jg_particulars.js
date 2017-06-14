@@ -1,4 +1,27 @@
 
+// 基本信息
+function fillBaseInfo(data,divList){
+    $(divList).each(function(){
+        var div = $(this);
+        var ls = div.find("*[data-field]")
+        $(ls).each(function(){
+           var o = $(this);
+           if(typeof(o.attr("data-formatter")) != "undefined"){
+                var func = o.attr("data-formatter");
+                if(func && func in window){
+                    window[func](data[o.attr("data-field")],o)
+                }
+           }else{
+                if(data[o.attr("data-field")]){
+                    o.html(data[o.attr("data-field")])
+                }else{
+                    o.html("-")
+                }
+           }
+        })
+    })
+}
+
 //投资事件
 function eventInfoListFormatter(data,div){
      var staticTemplate =  "<tr><td>${investSideJson}</td><td>${company}</td><td>${investDate}</td><td>${round}</td><td> ${amountStr}</td><td>${eventId}</td></tr>";
@@ -86,4 +109,4 @@ function orgMemberInfoListFormatter(data,div){
     })
     div.append(html)
 }
-sendGetRequest(detail.queryInvestOrgInfo+"1",function(data){fillOne(data.data,$("div[data-query='baseOrgInfo']")); fillList(data.data,$("*[data-query='list']"))})
+sendGetRequest(detail.queryInvestOrgInfo+"1",function(data){fillBaseInfo(data.data,$("div[data-query='baseOrgInfo']")); fillList(data.data,$("*[data-query='list']"))})
