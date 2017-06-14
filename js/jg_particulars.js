@@ -63,4 +63,27 @@ function orgMediaInfoListFormatter(data,div){
     })
     div.append(html)
 }
+//机构成员
+function orgMemberInfoListFormatter(data,div){
+   var staticTemplate = '<tr> <td>${fund}</td> <td>${investOrg}</td> <td>${foundDate}</td><td>${fundType}</td> <td>${investDate}</td><td>${commitAmount}</td></tr>'
+   var temp = staticTemplate;
+    var html =""
+    $(data).each(function(i,row){
+         $.each(row,function(k,v){
+             while(temp.indexOf("${"+k+"}") > 1){
+                if(k =="investDate"){
+                    v = formatDate(v, "yyyy-MM-dd")
+                }
+                if(k =="foundDate"){
+                    v = formatDate(v, "yyyy-MM-dd")
+                }
+                if(!v){ v = "-"}
+                temp = temp.replace("${"+k+"}",v)
+             }
+         })
+         html += temp;
+         temp = staticTemplate
+    })
+    div.append(html)
+}
 sendGetRequest(detail.queryInvestOrgInfo+"1",function(data){fillOne(data.data,$("div[data-query='baseOrgInfo']")); fillList(data.data,$("*[data-query='list']"))})
