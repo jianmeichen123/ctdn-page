@@ -379,7 +379,7 @@ $(function(){
         });
     }
      me()
-     $("ul[tab='header']").on("click","li",function(){
+    /* $("ul[tab='header']").on("click","li",function(){
     	 
     	 var o = $(this)
     	 if(o.attr("tab")!=""){
@@ -392,7 +392,7 @@ $(function(){
     	 }
     	 
     	 
-     });
+     });*/
     /*var u = $("body[data-page-parent]").attr("data-page-parent");
     if(u){
     	$('ul[tab="header"] li[tab="'+u+'"]').addClass("nav_on")
