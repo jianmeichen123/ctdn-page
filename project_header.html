@@ -24,7 +24,7 @@
 </div>
 <div class="project_nav">
     <ul>
-        <li><span class="project_nav_on">企业信息</span></li>
+        <li><span  class="project_nav_on">企业信息</span></li>
         <li><span>工商信息</span></li>
         <li><span>企业财报</span></li>
         <li><span>竞争对手</span></li>
@@ -37,5 +37,13 @@
 <script src="js/common.js"></script>
 <script src="js/fillData_common.js"></script>
 <script>
-    sendGetRequest(detail.queryProject+"12345",function(data){fillOne(data.data,$("div[data-query='projectBase']")); fillList(data.data,$("*[data-query='list']"))})
+    //var code = getHrefParamter("code");
+    var code = "12345"
+    var name = "";
+    sendGetRequest(detail.queryProject+code,function(data){name =  data.data.projTitle;fillOne(data.data,$("div[data-query='projectBase']")); fillList(data.data,$("*[data-query='list']"))})
+</script>
+<script>
+    <!--$("ul li span").onclick(function(){-->
+        <!--$(this).addAttribute("class","project_nav_on");-->
+    <!--})-->
 </script>

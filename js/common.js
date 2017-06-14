@@ -218,7 +218,9 @@ return true;
 }
 
 function formatDate(date, format) {   
-    if (!date) date = new Date();   
+    if (!date) {
+        return "-"
+    }
     if (!format) format = "yyyy-MM-dd";   
     switch(typeof date) {   
         case "string":   
@@ -376,7 +378,7 @@ $(function(){
             }
         });
     }
-     //me()
+     me()
      $("ul[tab='header']").on("click","li",function(){
     	 
     	 var o = $(this)
