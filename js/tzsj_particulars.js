@@ -19,6 +19,18 @@ function fillBaseEventInfo(data,divList){
             if(k=='investevent'){
                 v = '未透露'
             }
+            if(k=='investSideJson'){
+                var json = eval("(" + v + ")");
+                var ls = json["investSideJson"];
+                var firms = "";
+                for(i in ls){
+                    var json = ls[i]
+                    if(i<3){
+                        firms += "<a href = '#?id="+json.id+"'>"+json.invstor+"</a><br>";
+                    }
+                }
+                v = firms
+            }
             if(v){
                 o.html(v)
             }else{
