@@ -19,6 +19,56 @@ function fillOne(data,divList){
         })
     })
 }
+function fillOne2(data,divList){
+    $(divList).each(function(){
+        var div = $(this);
+        var ls = div.find("*[data-field]")
+        $(ls).each(function(){
+           var o = $(this);
+           var v = data[o.attr("data-field")]
+           var formatter = o.attr("data-formatter");
+           if(formatter){
+               //v有值,formatter为格式化函数
+               if(formatter in window){
+                   v = window[formatter](v,o,data)
+               }else if(!v && !(formatter in window)) {
+                   //v无值,formatter为替代值
+                   v = formatter;
+               }
+           }
+           o.html(v)
+        })
+    })
+
+    var entityList = data;
+    var str = $("tbody").html();
+    var $h2 =$(str);
+    if(entityList){
+        $(entityList).each(function(i,row){
+            var ls = $h2.find("[data-field]");
+            $(ls).each(function(i,e){
+                var v = row[$(e).attr("data-field")]
+                var formatter = $(e).attr("data-formatter");
+                if(formatter){
+                    //v有值,formatter为格式化函数
+                    if(v && formatter in window){
+                        v = window[formatter](v)
+                    }else if(!v ){
+                        //v无值,formatter为替代值
+                        v =formatter;
+                    }
+                }
+                //没有formatter就取v
+                $(e).html(v);
+            })
+            $h2.removeAttr("style");
+            $("tbody").append($h2)
+            $h2 = $(str)
+     })
+    }else{
+        $("tbody").append("暂无数据")
+    }
+}
 
 function fillList(dataList,divList){
     var dl = $("*[data-query='list']")
