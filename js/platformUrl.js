@@ -45,7 +45,7 @@ var searchUrl = {
 var dataUrl = {
     newsQuery:Constants.dataContentURL+"news/query",
     products:Constants.dataContentURL+"op/is/",
-    pvuv:Constants.dataContentURL+"op/pvuv",
+    pvuv:Constants.dataContentURL+"op/pvuv/",
     weixin:Constants.dataContentURL+"op/weixinindice/",
     weibo:Constants.dataContentURL+"op/weiboIndice/",
     android:Constants.dataContentURL+"op/android/",
@@ -64,7 +64,8 @@ var table ={
 var detail = {
     queryProject:Constants.platformContentURL+"/projectList/queryProjectByCode/",
     queryProjectInvestEvent:Constants.platformContentURL+"/eventInfo/getListBySourceCode/",
-    queryMergeEventInfo:Constants.platformContentURL+"/eventMergerInfo/getListByEventId/"
+    queryMergeEventInfo:Constants.platformContentURL+"/eventMergerInfo/getListByEventId/",
+    queryEventByName:Constants.platformContentURL+"/eventInfo/getListByName/"
 }
 /**
  * how to use? location.href = platformUrl.login
