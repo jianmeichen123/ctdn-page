@@ -100,18 +100,7 @@ function newsListFormatter(data,div){
    var staticTemplate = '<li> <span class="one">${content}</span> <span class="two">${source}</span> <span class="three">${date}</span> </li>'
    commonFormatter(staticTemplate,data,div)
 }
-//标签
-function labelFormatFormatter(val,o){
-   if(val){
-       var str = "";
-       $(val.split(","),function(i,e){
-           str.append("<span class='project_lable'>");
-           str.append(e);
-           str.append("</span>");
-       })
-       o.append(str)
-   }
-}
+
  //产品弹出
 $("#product-ul").on("click","li[op-data-type]",function(){
     var $self = $(this);
@@ -168,4 +157,4 @@ var callBack = {
         }
 }
 sendPostRequest(dataUrl.products+"bshf7r",callBack.productData);
-sendGetRequest(detail.queryProject+"12345",function(data){fillOne(data.data,$("div[data-query='projectBase']")); fillList(data.data,$("*[data-query='list']"))})
+//sendGetRequest(detail.queryProject+"12345",function(data){fillOne(data.data,$("div[data-query='projectBase']")); fillList(data.data,$("*[data-query='list']"))})

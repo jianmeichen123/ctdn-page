@@ -1,25 +1,20 @@
 <div class="particulars_black" data-query = "projectBase">
     <div class="project_tit">
-        <ul class="project_absolute"><li class="project_absolute_blue" data-field="latestFinanceRound"></li><li class="project_absolute_green" data-field="runState"></li><li class="project_absolute_lan" data-field="needFinance"></li></ul>
-        <img src="" data-field="logoBig">
+        <ul class="project_absolute"><li class="project_absolute_blue" data-field="latestFinanceRound" data-formatter="latestFinanceRoundFormat"></li><li class="project_absolute_green" data-field="runState" data-formatter="runStateFormat"></li><li class="project_absolute_lan" data-field="needFinance" data-formatter="needFinanceFormat"></li></ul>
+        <img src="" data-field="logoBig" data-formatter="logoFormat">
         <ul>
-            <li class="font_24" data-field="projTitle"></li>
-            <!--<li class="color_999 font_14" data-field="">zhongguo Petroleum&Chemical Sales Co</li>-->
-            <li class="color_666 font_14 " data-field="introduce"></li>
-            <li class="color_666 font_12"><span data-field="districtName"></span>  <span data-field="districtSubName"></span>　　 <span data-field="industryName"></span> > <span data-field="industrySubName"></span> </li>
-            <li class="color_666 font_12"><span class="project_lable"></span><span class="project_lable"></span><span class="project_lable"></span></li>
+            <li class="font_24" data-field="projTitle" data-formatter="名称未知"></li>
+            <li class="color_666 font_14 " data-field="introduce" ></li>
+            <li class="color_666 font_12">  <span data-field="districtSubName" data-formatter="地区未知"></span>　 <span data-field="industryName" data-formatter="industryNameFormat"></span></li>
             <li class="color_666 font_12" data-field="labels" data-formatter="labelFormat"></li>
         </ul>
     </div>
     <div class="project_tit_r">
         <ul>
-            <li >商业计划书：<span class="pick_on_color">下载</span></li>
-            <li>企业邮箱：<span class="pick_on_color">xiangmeimeng@cdhfund.com</span></li>
-            <li>联系电话：<span>13812345680</span></li>
+            <li >商业计划书：<span  data-field="bp" data-formatter="-"></span></li>
+            <li>企业邮箱：<span data-field="hqEmail" data-formatter="-"></span></li>
+            <li>联系电话：<span data-field="hqTel"  data-formatter="-"></span></li>
         </ul>
-        <span class="brain_ico brain_ico_project_3"></span>
-        <span class="brain_ico brain_ico_project_2" title="232323"></span>
-        <span class="brain_ico brain_ico_project_1"></span>
     </div>
 </div>
 <div class="project_nav">
@@ -40,7 +35,61 @@
     //var code = getHrefParamter("code");
     var code = "12345"
     var name = "";
-    sendGetRequest(detail.queryProject+code,function(data){name =  data.data.projTitle;fillOne(data.data,$("div[data-query='projectBase']")); fillList(data.data,$("*[data-query='list']"))})
+    sendGetRequest(detail.queryProject+code,function(data){name =  data.data.projTitle;fillOne2(data.data,$("div[data-query='projectBase']")); })
+     //标签
+     function labelFormat(val){
+       if(val){
+           var str = "";
+           $(val.split(","),function(i,e){
+               str.append("<span class='project_lable'>");
+               str.append(e);
+               str.append("</span>");
+           })
+           val = str
+       }
+       return val;
+     }
+     function latestFinanceRoundFormat(v,o){
+        if(v){
+            return v;
+        }else{
+            o.removeClass("project_absolute_blue")
+        }
+        return v
+     }
+     function runStateFormat(v,o){
+        if(v){
+            return v;
+        }else{
+            o.removeClass("project_absolute_green")
+        }
+        return v
+     }
+     function needFinanceFormat(v,o){
+        if(v){
+            return v;
+        }else{
+            o.removeClass("project_absolute_lan")
+        }
+        return v
+     }
+     function industryNameFormat(v,o,data){
+        var str = "";
+        if(v !=""){
+            str += v;
+        }
+        if(data["industrySubName"]){
+            str += ">" + data["industrySubName"]
+        }
+        return str;
+     }
+     function logoFormat(v,o,data){
+        if(!v){
+             o.attr("src","img/default2.gif")
+        }else{
+             o.attr("src",v)
+        }
+     }
 </script>
 <script>
     <!--$("ul li span").onclick(function(){-->
