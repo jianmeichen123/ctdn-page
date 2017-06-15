@@ -229,6 +229,7 @@ input{outline: none;}
 .project_nav ul {margin-left:1%}
 .project_nav ul li{float:left; font-size:14px; width:14%; text-align:center; height:41px; line-height:41px;}
 .project_nav ul li span{display: inline-block;  cursor:pointer}
+.project_nav ul li a{color: #333;}
 .project_nav .nav_on{border-bottom:2px solid #1ed2ff;}
 .project_t{color:#666; margin-top:20px;}
 .project_more{float:right; cursor:pointer;}
