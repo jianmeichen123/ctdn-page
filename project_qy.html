@@ -307,21 +307,22 @@
 				</div>
 				<!-- z end -->
 			</div>
-			<div class="project_all_r">
-				<ul>
-					<li class="project_all_r_on" location_r="location_jb"><span class="brain_ico brain_ico_project_circle"></span>基本信息</li>
-					<li location_r="location_rz"><span class="brain_ico brain_ico_project_circle"></span>融资信息</li>
-					<li location_r="location_cp"><span class="brain_ico brain_ico_project_circle"></span>产品信息 </li>
-					<li location_r="location_td"><span class="brain_ico brain_ico_project_circle"></span>团队信息 </li>
-					<li location_r="location_fz"><span class="brain_ico brain_ico_project_circle"></span>发展历史</li>
-					<li location_r="location_ss"><span class="brain_ico brain_ico_project_circle"></span>上市挂牌</li>
-					<li location_r="location_bg"><span class="brain_ico brain_ico_project_circle"></span>并购事件</li>
-				<!--<li location_r="location_tc"><span class="brain_ico brain_ico_project_circle"></span>退出事件</li>
-					<li location_r="location_zgs"><span class="brain_ico brain_ico_project_circle"></span>分支机构</li> -->
-					<li location_r="location_lx"><span class="brain_ico brain_ico_project_circle"></span>联系方式</li>
-					<li location_r="location_xw"><span class="brain_ico brain_ico_project_circle"></span>相关新闻</li>
-				</ul>
-			</div>
+			
+		</div>
+		<div class="project_all_r">
+			<ul>
+				<li class="project_all_r_on" location_r="location_jb"><span class="brain_ico brain_ico_project_circle"></span>基本信息</li>
+				<li location_r="location_rz"><span class="brain_ico brain_ico_project_circle"></span>融资信息</li>
+				<li location_r="location_cp"><span class="brain_ico brain_ico_project_circle"></span>产品信息 </li>
+				<li location_r="location_td"><span class="brain_ico brain_ico_project_circle"></span>团队信息 </li>
+				<li location_r="location_fz"><span class="brain_ico brain_ico_project_circle"></span>发展历史</li>
+				<li location_r="location_ss"><span class="brain_ico brain_ico_project_circle"></span>上市挂牌</li>
+				<li location_r="location_bg"><span class="brain_ico brain_ico_project_circle"></span>并购事件</li>
+			<!--<li location_r="location_tc"><span class="brain_ico brain_ico_project_circle"></span>退出事件</li>
+				<li location_r="location_zgs"><span class="brain_ico brain_ico_project_circle"></span>分支机构</li> -->
+				<li location_r="location_lx"><span class="brain_ico brain_ico_project_circle"></span>联系方式</li>
+				<li location_r="location_xw"><span class="brain_ico brain_ico_project_circle"></span>相关新闻</li>
+			</ul>
 		</div>
 	</div>
 </div>
@@ -339,7 +340,7 @@ $(window).scroll(function(){
 		var obj = {};
 		var name = location_array[i];
 		obj.name = name;
-		obj.value= parseInt($('[location_l="'+location_array[i]+'"]').offset().top-10);
+		obj.value= parseInt($('[location_l="'+location_array[i]+'"]').offset().top -50);
 		myArray.push(obj);
 	}
 	var scrollTop=$(window).scrollTop();
@@ -372,7 +373,7 @@ function location_on(obj,scrollTop){
 $('body').delegate('.project_all_r li','click',function(event){
 	event.stopPropagation();
 	var location_r = $(this).attr('location_r');
-	var location_value = $('[location_l="'+location_r+'"]').offset().top-10;
+	var location_value = $('[location_l="'+location_r+'"]').offset().top-50;
 	$("html,body").animate({scrollTop:location_value},1000);
 })
 //更多
@@ -387,7 +388,7 @@ $('body').delegate('.project_click_show','click',function(event){
 	$(this).hide();
 	$('.blue_l_b .blue_l_b_three').show();
 })
+nav_locaton('ctsj','qyxm','','qyxx')
 </script>
-<!--{(footer.html)}-->
 </body>
 </html>
