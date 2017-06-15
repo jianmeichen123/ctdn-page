@@ -375,6 +375,10 @@ var tableFormate ={
                 amountRatioStr='<div align="center" class="list_table_td"><center>'+amountRatioStr+'%'+'</center></div>'
             }
             return amountRatioStr
+        },
+        launchDetail:function(value,row,index){
+                return "<a href ='#?eventId='"+value+">详情</a>"
+
         }
 }
  function entersearch(){
