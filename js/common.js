@@ -510,3 +510,14 @@ $.extend($,{
 		 $('.project_nav [page_tab='+four_level+']').addClass("nav_on");
 	 }
  }
+//名字事件
+ $('body').delegate('.nav_all_name','mouseenter mouseleave', function(event){
+ 	event.stopPropagation();
+ 	if(event.type == "mouseenter"){
+ 		$('.nav_all_name .brain_ico_name').addClass("brain_ico_name_on");
+ 		$('.list_click_ul').show();		
+ 	}else if(event.type == "mouseleave" ){
+ 		$('.nav_all_name .brain_ico_name').removeClass("brain_ico_name_on");
+ 		$('.list_click_ul').hide();
+ 	}
+ })
