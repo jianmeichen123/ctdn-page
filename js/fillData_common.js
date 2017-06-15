@@ -90,16 +90,21 @@ function fillList(dataList,divList){
 function commonFormatter(staticTemplate,data,div){
      var temp = staticTemplate;
      var html =""
-     $(data).each(function(i,row){
-          $.each(row,function(k,v){
-              while(temp.indexOf("${"+k+"}") > 1){
-                  if(!v){ v = "-"}
-                  temp = temp.replace("${"+k+"}",v)
-              }
-          })
-          html += temp;
-          temp = staticTemplate
-     })
+     if(data.length>0){
+        $(data).each(function(i,row){
+                  $.each(row,function(k,v){
+                      while(temp.indexOf("${"+k+"}") > 1){
+                          if(!v){ v = "-"}
+                          temp = temp.replace("${"+k+"}",v)
+                      }
+                  })
+                  html += temp;
+                  temp = staticTemplate
+             })
+     }else{
+        html="<span>暂无数据</span>"
+     }
+
      div.append(html)
 }
 
