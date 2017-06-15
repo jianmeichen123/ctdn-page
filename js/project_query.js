@@ -223,7 +223,7 @@ var tableFormate ={
         if(img.indexOf(".") == -1){
             img = ""
         }
-        return '<div class="list_table_td"> <img height="37" width="37" src="'+Constants.logoPath+img+'"> <ul class="col_999"> <li><a href="#">'+mergered+'</a></li> <li>'+industrict+'</li> </ul> </div>'
+        return '<div class="list_table_td"> <img height="37" width="37" src="'+Constants.logoPath+img+'"> <ul class="col_999"> <li><a href="/project_qy.html?">'+mergered+'</a></li> <li>'+industrict+'</li> </ul> </div>'
     },
     amountStr:function(value,row,index){
         var amountStr = row.amountStr
