@@ -22,7 +22,7 @@ function fillBgBaseInfo(data,divList){
                 if(v){
                     o.html(v)
                 }else{
-                    o.html("未知")
+                    o.html("-")
                 }
            }
         })
