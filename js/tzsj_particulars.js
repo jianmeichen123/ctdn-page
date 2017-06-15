@@ -39,19 +39,25 @@ function fillBaseEventInfo(data,divList){
         })
     })
 }
-var baseEventInfoFormate ={
-    eventInfoIndustry:function(value,row,index){
-        var industry = ''
-        if(!row.districtName){
-            industry+='-'
-        }
-        if(row.districtName&&!row.districtSubName){
-            industry+=row.districtName
-        }
-        if(row.districtName&&row.districtSubName){
-            industry+=row.districtName+'>'+row.districtSubName
-        }
-    }
+//投资方信息
+function eventDetailListFormatter(data,div){
+   var staticTemplate = '<tr> <td>${org}</td> <td>${fund}</td> <td>${investor}</td><td>${role}</td> <td>${amount}</td><td>${stock}</td><td>${stock}</td><td>${orgType}</td><td>${quitTime}</td><td>${quitType}</td><td>${returnAmount}</td><td>${returnMulti}</td></tr>'
+   var temp = staticTemplate;
+    var html =""
+    $(data).each(function(i,row){
+         $.each(row,function(k,v){
+             while(temp.indexOf("${"+k+"}") > 1){
+                if(k =="quitTime"){
+                    v = formatDate(v, "yyyy-MM-dd")
+                }
+                if(!v){ v = "-"}
+                temp = temp.replace("${"+k+"}",v)
+             }
+         })
+         html += temp;
+         temp = staticTemplate
+    })
+    div.append(html)
 }
 
 sendGetRequest(detail.queryEventInfo+"2",function(data){fillBaseEventInfo(data.data,$("div[data-query='eventInfo']")); fillList(data.data,$("*[data-query='list']"))})
