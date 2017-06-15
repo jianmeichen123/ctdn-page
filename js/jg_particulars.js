@@ -109,4 +109,25 @@ function orgMemberInfoListFormatter(data,div){
     })
     div.append(html)
 }
+//联系方式
+function projectContactListFormatter(data,div){
+    var staticTemplate ='<tr> <td>${city}</td> <td>${addr}</td> <td>${zipCode}</td> <td>${tel}</td> <td>${mail}</td> <td>${fax}</td> </tr>'
+    var temp = staticTemplate;
+    var html = "";
+    $(data).each(function(i,row){
+     $.each(row,function(k,v){
+         while(temp.indexOf("${"+k+"}") > 1){
+             if(k =="date"){
+                 if(!v){
+                     v= "-"
+                 }
+             }
+             temp =temp.replace("${"+k+"}",v)
+         }
+     })
+     html += temp;
+     temp = staticTemplate
+    })
+    div.append(html)
+}
 sendGetRequest(detail.queryInvestOrgInfo+"1",function(data){fillBaseInfo(data.data,$("div[data-query='baseOrgInfo']")); fillList(data.data,$("*[data-query='list']"))})
