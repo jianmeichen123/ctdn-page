@@ -23,7 +23,8 @@ input{outline: none;}
 .page_all{ width:100%; overflow:hidden; margin-top:20px; position:relative;}
 .column_ul{ position:absolute; top:0px; height:42px;}
 .column_ul li a{color:#333; display:block;  text-decoration: none;}
-.column_ul_on{border:1px solid #f0f0f0; border-bottom:0; background-color:#fff; color:#1ed2ff;}
+.column_ul .nav_on{border:1px solid #f0f0f0; border-bottom:0; background-color:#fff; }
+.column_ul .nav_on a{color:#1ed2ff;}
 .column_ul li{ float:left; line-height:42px; width:88px;  text-align:center; font-size:14px; margin-right:40px; border-top-left-radius:10px; border-top-right-radius:10px; cursor:pointer; }
 .condition_all{border:1px solid #f0f0f0; background-color:#fff; margin-top:42px; padding-top:10px; ;}
 .condition_all_no{border:1px solid #f0f0f0; background-color:#fff;  padding-top:10px; ;}
@@ -117,13 +118,14 @@ input{outline: none;}
 .nav_all{ height:57px; position:relative; background-image:url(../img/nav_d.jpg); background-repeat:no-repeat;}
 .nav_all>ul{ margin-left:40px; float:left; overflow:hidden; margin-top: 2px;}
 .nav_all>ul li{ float:left; font-size:16px; color:#fff; margin-top: 14px; margin-left:60px;}
-.nav_all>ul .nav_all_on a{ color:#1fc1eb}
+.nav_all>ul .nav_on a{ color:#1fc1eb}
+.nav_all ul a{color:#fff;}o
 .nav_all ul a:hover{ text-decoration:none}
 .nav_nav ul li{ float:left; height:65px; text-align:center; width:75px; margin-left:60px;}
 .nav_nav{border-bottom:1px solid #d9d9d9; height:66px; background-color:#ffffff;}
 .nav_nav_name{ font-size:16px; color:#333333; margin-top:15px;}
 .nav_nav_name_x{ font-size:12px; color:#999;}
-.nav_nav_on{ border-bottom:4px solid #1ed2ff;}
+.nav_two .nav_on{ border-bottom:4px solid #1ed2ff;}
 .nav_all_input{ width:370px; height:32px; background-color:#a6aaae; border-radius:15px; float:left; margin-top:10px; margin-left:100px;}
 .nav_all_input input{ width:330px; margin-left:8px; text-indent:5px; float:left; height:30px; margin-top:1px; background-color:#a6aaae; border:0;border-radius:5px;}
 .nav_all_input .brain_ico_seek{    margin-top: 7px;}
@@ -226,7 +228,7 @@ input{outline: none;}
 .project_nav ul {margin-left:1%}
 .project_nav ul li{float:left; font-size:14px; width:14%; text-align:center; height:41px; line-height:41px;}
 .project_nav ul li span{display: inline-block;  cursor:pointer}
-.project_nav_on{border-bottom:2px solid #1ed2ff;}
+.project_nav .nav_on{border-bottom:2px solid #1ed2ff;}
 .project_t{color:#666; margin-top:20px;}
 .project_more{float:right; cursor:pointer;}
 .brain_ico_project_crumbs{background-position:-78px -41px;margin-left:2px; width:3px; margin-right:10px; height:16px; display:block; float:left;}
