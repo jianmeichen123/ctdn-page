@@ -378,7 +378,7 @@ var tableFormate ={
             return amountRatioStr
         },
         launchDetail:function(value,row,index){
-                return "<a href ='#?eventId='"+value+">详情</a>"
+                return "<a href ='/ss_particulars.html?eventId='"+value+">详情</a>"
 
         }
 }
