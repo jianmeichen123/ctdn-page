@@ -84,8 +84,15 @@
 <script src="js/fillData_common.js"></script>
 <script src="js/fillData_project.js"></script>
 <script>
-	<!--sendPostRequestByJsonObj(detail.queryEventByName,{"company":name},function(data){-->
-	sendPostRequestByJsonObj(detail.queryEventByName,{"company":"挚信资本"},function(data){
+	//给tab页a赋参数
+	$(function(){
+	   $(".project_nav a").each(function(){
+		if($(this).attr("href") != "####"){
+			$(this).attr("href",$(this).attr("href")+"?code="+code)
+		}
+	   })
+	})
+	sendPostRequestByJsonObj(detail.queryEventByName,{"company":name},function(data){
 		var entityList = data.data;
 		var str = $("tbody").html();
 		var $h2 =$(str);

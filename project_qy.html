@@ -163,7 +163,6 @@
 							<!--</li>-->
 						</ul>
 					</div>
-					<div class="block project_click_show color_666" >展开全部<span data-field="length">22</span>条<span class="brain_ico brain_ico_project_more"></span></div>
 				</div>
 				
 				<!-- 上市挂牌 -->
@@ -329,6 +328,14 @@
 <script src="js/fillData_common.js"></script>
 <script src="js/fillData_project.js"></script>
 <script>
+//给tab页a赋参数
+$(function(){
+   $(".project_nav a").each(function(){
+    if($(this).attr("href") != "####"){
+    	$(this).attr("href",$(this).attr("href")+"?code="+code)
+    }
+   })
+})
 /* 菜单悬浮 */
 var location_array = new Array()
 for(var i=0; i<$('.project_t').length; i++){
