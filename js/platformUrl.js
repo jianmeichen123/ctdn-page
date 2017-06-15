@@ -1,5 +1,5 @@
 //本地
-
+//
 //var Constants = {
 //	platformContentURL: "http://127.0.0.1:8081/api/",
 //	userContentURL: "http://ctdndev.gi.com/user/",
@@ -65,7 +65,8 @@ var detail = {
     queryProject:Constants.platformContentURL+"/projectList/queryProjectByCode/",
     queryProjectInvestEvent:Constants.platformContentURL+"/eventInfo/getListBySourceCode/",
     queryMergeEventInfo:Constants.platformContentURL+"/eventMergerInfo/getListByEventId/",
-    queryEventByName:Constants.platformContentURL+"/eventInfo/getListByName/"
+    queryEventByName:Constants.platformContentURL+"/eventInfo/getListByName/",
+    queryCompetationlist:Constants.platformContentURL+"/projectList/queryCompetationlist/"
 }
 /**
  * how to use? location.href = platformUrl.login
