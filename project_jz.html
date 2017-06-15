@@ -90,7 +90,14 @@
 <script src="js/fillData_common.js"></script>
 <script src="js/fillData_project.js"></script>
 <script>
-
+	//给tab页a赋参数
+	$(function(){
+	   $(".project_nav a").each(function(){
+		if($(this).attr("href") != "####"){
+			$(this).attr("href",$(this).attr("href")+"?code="+code)
+		}
+	   })
+	})
 	function directCompetationlistFormatter(data,div){
 		aa(data,div)
 	}

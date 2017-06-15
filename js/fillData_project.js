@@ -95,6 +95,9 @@ function historyListFormatter(data,div){
                     temp =temp.replace("${"+k+"}",v)
                 }
             })
+            if(i>2){
+                html+= '<div class="block project_click_show color_666" >展开全部<span data-field="length">'+data.length+'</span>条<span class="brain_ico brain_ico_project_more"></span></div>'
+            }
             html += temp;
             temp = staticTemplate
          })
