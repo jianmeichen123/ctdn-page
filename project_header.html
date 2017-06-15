@@ -1,19 +1,19 @@
 <div class="particulars_black" data-query = "projectBase">
     <div class="project_tit">
-        <ul class="project_absolute"><li class="project_absolute_blue" data-field="latestFinanceRound" data-formatter="latestFinanceRoundFormat"></li><li class="project_absolute_green" data-field="runState" data-formatter="runStateFormat"></li><li class="project_absolute_lan" data-field="needFinance" data-formatter="needFinanceFormat"></li></ul>
-        <img src="" data-field="logoBig" data-formatter="logoFormat">
+        <ul class="project_absolute"><li class="project_absolute_blue" data-field="latestFinanceRound" ></li><li class="project_absolute_green" data-field="runState" ></li><li class="project_absolute_lan" data-field="needFinance" ></li></ul>
+        <img src="" data-field="logoBig" >
         <ul>
-            <li class="font_24" data-field="projTitle" data-formatter="名称未知"></li>
+            <li class="font_24" data-field="projTitle" ></li>
             <li class="color_666 font_14 " data-field="introduce" ></li>
-            <li class="color_666 font_12">  <span data-field="districtSubName" data-formatter="地区未知"></span>　 <span data-field="industryName" data-formatter="industryNameFormat"></span></li>
-            <li class="color_666 font_12" data-field="labels" data-formatter="labelFormat"></li>
+            <li class="color_666 font_12">  <span data-field="districtSubName" ></span>　 <span data-field="industryName"></span></li>
+            <li class="color_666 font_12" data-field="labels"></li>
         </ul>
     </div>
     <div class="project_tit_r">
         <ul>
-            <li >商业计划书：<span  data-field="bp" data-formatter="-"></span></li>
-            <li>企业邮箱：<span data-field="hqEmail" data-formatter="-"></span></li>
-            <li>联系电话：<span data-field="hqTel"  data-formatter="-"></span></li>
+            <li >商业计划书：<span  data-field="bp" ></span></li>
+            <li>企业邮箱：<span data-field="hqEmail"></span></li>
+            <li>联系电话：<span data-field="hqTel"></span></li>
         </ul>
     </div>
 </div>
@@ -30,69 +30,3 @@
 </div>
 <script src="js/platformUrl.js"></script>
 <script src="js/common.js"></script>
-<script src="js/fillData_common.js"></script>
-<script>
-    //var code = getHrefParamter("code");
-    var code = "12345"
-    var name = "";
-    sendGetRequest(detail.queryProject+code,function(data){name =  data.data.projTitle;fillOne2(data.data,$("div[data-query='projectBase']")); })
-     //标签
-     function labelFormat(val){
-       if(val){
-           var str = "";
-           $(val.split(","),function(i,e){
-               str.append("<span class='project_lable'>");
-               str.append(e);
-               str.append("</span>");
-           })
-           val = str
-       }
-       return val;
-     }
-     function latestFinanceRoundFormat(v,o){
-        if(v){
-            return v;
-        }else{
-            o.removeClass("project_absolute_blue")
-        }
-        return v
-     }
-     function runStateFormat(v,o){
-        if(v){
-            return v;
-        }else{
-            o.removeClass("project_absolute_green")
-        }
-        return v
-     }
-     function needFinanceFormat(v,o){
-        if(v){
-            return v;
-        }else{
-            o.removeClass("project_absolute_lan")
-        }
-        return v
-     }
-     function industryNameFormat(v,o,data){
-        var str = "";
-        if(v !=""){
-            str += v;
-        }
-        if(data["industrySubName"]){
-            str += ">" + data["industrySubName"]
-        }
-        return str;
-     }
-     function logoFormat(v,o,data){
-        if(!v){
-             o.attr("src","img/default2.gif")
-        }else{
-             o.attr("src",v)
-        }
-     }
-</script>
-<script>
-    <!--$("ul li span").onclick(function(){-->
-        <!--$(this).addAttribute("class","project_nav_on");-->
-    <!--})-->
-</script>
