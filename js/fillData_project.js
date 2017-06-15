@@ -1,3 +1,15 @@
+//企业信息、工商信息  导航浮动
+$(window).scroll(function(){
+	var scrollTop=$(window).scrollTop();
+	if(scrollTop>305){
+		$('.project_nav').addClass('project_nav_top');
+		$('.project_nav_top_none').show();
+	}else{
+		$(".project_nav").removeClass("project_nav_top");
+		$('.project_nav_top_none').hide();
+	}
+});
+
 //var code = getHrefParamter("code");
 //企业基本信息
 

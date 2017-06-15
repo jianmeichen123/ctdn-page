@@ -225,9 +225,11 @@ input{outline: none;}
 .brain_ico_project_2:hover{    background-position:-27px -41px; width: 23px;  height: 20px; display: inline-block; margin-right:30px; float:right;}
 .brain_ico_project_3:hover{    background-position:-87px -65px; width: 23px;  height: 20px; display: inline-block; float:right;}
 .project_nav{width:100%; background-color:#ecf3ff; height:44px;}
+.project_nav_top{position:fixed; top:0; width:1140px;left:50%; margin-left:-570px; z-index:999;}
 .project_nav ul {margin-left:1%}
 .project_nav ul li{float:left; font-size:14px; width:14%; text-align:center; height:41px; line-height:41px;}
 .project_nav ul li span{display: inline-block;  cursor:pointer}
+.project_nav ul li a{color: #333;}
 .project_nav .nav_on{border-bottom:2px solid #1ed2ff;}
 .project_t{color:#666; margin-top:20px;}
 .project_more{float:right; cursor:pointer;}
@@ -238,7 +240,7 @@ input{outline: none;}
 .project_all{width:100%; overflow:hidden; position:relative;}
 .project_all_l{width:1000px; float:left;}
 .project_all_r{width:120px; background-color:#fff; border:1px solid #f0f0f0; float:right;margin-top: 40px;}
-.project_all_r_top{position:fixed;  top:0; right:50%; margin-right:-567px;    margin-top:0px;}
+.project_all_r_top{position:fixed;  top:65px; right:50%; margin-right:-570px;    margin-top:0px;}
 .project_all_r ul li{ line-height:38px; text-align:center; height:38px; position:relative; cursor: pointer;}
 .brain_ico_project_circle{background-position:0 -65px;display: none; top:11px;left: 17px; position:absolute; width:15px;  height:15px;}
 .project_all_r_on .brain_ico_project_circle{display:block;}
