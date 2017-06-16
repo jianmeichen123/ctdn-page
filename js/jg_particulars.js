@@ -6,14 +6,19 @@ function fillBaseInfo(data,divList){
         var ls = div.find("*[data-field]")
         $(ls).each(function(){
            var o = $(this);
+           var k = o.attr("data-field")
+           var v = data[o.attr("data-field")]
            if(typeof(o.attr("data-formatter")) != "undefined"){
                 var func = o.attr("data-formatter");
                 if(func && func in window){
-                    window[func](data[o.attr("data-field")],o)
+                    window[func](v,o)
                 }
            }else{
-                if(data[o.attr("data-field")]){
-                    o.html(data[o.attr("data-field")])
+                if(k=="foundDate"){
+                    v = formatDate(v,"yyyy-MM-dd")
+                }
+                if(v){
+                    o.html(v)
                 }else{
                     o.html("-")
                 }
@@ -130,4 +135,5 @@ function projectContactListFormatter(data,div){
     })
     div.append(html)
 }
-sendGetRequest(detail.queryInvestOrgInfo+"1",function(data){fillBaseInfo(data.data,$("div[data-query='baseOrgInfo']")); fillList(data.data,$("*[data-query='list']"))})
+var orgId = getHrefParamter("orgId")
+sendGetRequest(detail.queryInvestOrgInfo+orgId,function(data){fillBaseInfo(data.data,$("div[data-query='baseOrgInfo']")); fillList(data.data,$("*[data-query='list']"))})
