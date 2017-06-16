@@ -43,6 +43,11 @@ function fillBaseEventInfo(data,divList){
                         name = investevent.substring(start,end)
                         other = investevent.substring(end+1,totalLength)
                         v ='<span class="color_set">'+name+'</span><span>'+other+'</span>'
+                        if(start!=0){
+                            name = investevent.substring(start,totalLength)
+                            other = investevent.substring(0,start)
+                            v ='<span>'+other+'</span><span class="color_set">'+name+'</span>'
+                        }
                     }else{
                         if(companyName.indexOf("(")!=-1){
                             var nameArr = companyName.split('(')
