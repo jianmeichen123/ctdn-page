@@ -294,7 +294,7 @@ var tableFormate ={
         if(img.indexOf(".") == -1){
             img = ""
         }
-        return '<div class="list_table_td"> <img height="37" width="37" src="'+Constants.logoPath+'/org/'+img+'"> <ul class="col_999"> <li><a href="/jg_particulars.html?eventId">'+investOrg+'</a></li> </ul> </div>'
+        return '<div class="list_table_td"> <img height="37" width="37" src="'+Constants.logoPath+'/org/'+img+'"> <ul class="col_999"> <li><a href="/jg_particulars.html?orgId='+row.orgId+'">'+investOrg+'</a></li> </ul> </div>'
     },
     investProject:function(value, row, index){
          var investProJson = row.investProjJson
