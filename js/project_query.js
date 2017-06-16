@@ -152,7 +152,7 @@ var tableFormate ={
             for(j in i){
                 var json = i[j]
                 if(json.title!=null&&j<3){
-                	investTitle+='<div class="w_200_spot">'+json.title+'</div>';
+                	investTitle+='<div class="w_200_spot">'+json.invstor+'</div>';
                 }
             }
             if(investTitle!=''){
