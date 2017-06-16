@@ -196,7 +196,7 @@ var tableFormate ={
         if(img.indexOf(".") == -1){
             img = ""
         }
-        return '<div class="list_table_td"> <img height="37" width="37" src="'+Constants.logoPath+img+'"> <ul class="col_999"> <li><a href="/project_qy.html?code=">'+company+'</a></li> <li>'+industrict+'</li> </ul> </div>'
+        return '<div class="list_table_td"> <img height="37" width="37" src="'+Constants.logoPath+img+'"> <ul class="col_999"> <li><a href="/project_qy.html?code="'+row.code+'>'+company+'</a></li> <li>'+industrict+'</li> </ul> </div>'
     },
     beenMergered:function(value,row,index){
         var mergered = row.projTitle
@@ -341,11 +341,13 @@ var tableFormate ={
     //并购详情
     paticulars:function(value, row, index){
         var projTitle = row.projTitle
+        var eventId = row.eventId
         return '<div align="center" class="list_table_td"> <center><span class="col_999"><a href="/bg_particulars.html?eventId=">'+"详情"+'</a></span></center> </div>'
     },
     eventInfoPaticulars:function(value, row, index){
         var projTitle = row.projTitle
-        return '<div align="center" class="list_table_td"> <center><span class="col_999"><a href="/tzsj_particulars.html">'+"详情"+'</a></span></center> </div>'
+        var eventId = row.eventId
+        return '<div align="center" class="list_table_td"> <center><span class="col_999"><a href="/tzsj_particulars.html?eventId='+eventId+'">'+"详情"+'</a></span></center> </div>'
     },
     totalRatio:function(value,row,index){
         var totalRatio = row.totalRatio
