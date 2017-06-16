@@ -16,7 +16,7 @@ function fillBaseEventInfo(data,divList){
             if(k=='industrySubName'&&v){
                 v = '>'+v
             }
-            if(k=='investevent'){
+            if(k=='investevent'&&!v){
                 v = '未透露'
             }
             if(k=='investSideJson'){
@@ -60,4 +60,5 @@ function eventDetailListFormatter(data,div){
     div.append(html)
 }
 
-sendGetRequest(detail.queryEventInfo+"16458",function(data){fillBaseEventInfo(data.data,$("div[data-query='eventInfo']")); fillList(data.data,$("*[data-query='list']"))})
+var eventId = getHrefParamter("eventId");
+sendGetRequest(detail.queryEventInfo+eventId,function(data){fillBaseEventInfo(data.data,$("div[data-query='eventInfo']")); fillList(data.data,$("*[data-query='list']"))})
