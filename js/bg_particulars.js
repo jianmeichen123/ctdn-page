@@ -65,4 +65,5 @@ function beenMergeSideListFormatter(data,div){
     })
     div.append(html)
 }
-sendGetRequest(detail.queryMergeEventInfo+"2",function(data){fillBgBaseInfo(data.data,$("div[data-query='mergeEventInfo']")); fillList(data.data,$("*[data-query='list']"))})
+var eventId = getHrefParamter("eventId");
+sendGetRequest(detail.queryMergeEventInfo+eventId,function(data){fillBgBaseInfo(data.data,$("div[data-query='mergeEventInfo']")); fillList(data.data,$("*[data-query='list']"))})
