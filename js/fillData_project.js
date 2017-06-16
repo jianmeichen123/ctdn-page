@@ -292,15 +292,19 @@ var callBack = {
                             "weibo":'<li id="{appid}:str" op-data-type="weibo" data-name="趋势分析图"> <img src="img/a4.jpg"> <div class="wrapper"> <ul class="product_list_ul"> <li>平均阅读量：<span>{index1}</span></li> <li> 粉丝数：<span>{index2}</span></li> </ul> </div> </li>',
                             "weixin":'<li id="{appid}:str" op-data-type="weixin" data-name="趋势分析图"> <img src="img/a5.jpg"> <div class="wrapper"> <ul class="product_list_ul"> <li>平均阅读量：<span>{index1}</span></li> <li> 粉丝数：<span>{index2}</span></li> </ul> </div> </li>',
                         }
-                        $(data.data).each(function(i,e){
-                            var html = p_html[e.type]
-                            $.each(e,function(k,v){
-                                if (k=="avgScore"){v = v.toString();v = v.charAt(0)+"."+v.charAt(1)}
-                                 html = html.replace(new RegExp("{"+k+"}","gm"),v)
-                            })
-                            $("#product-ul").append(html)
-                        })
+                        if(data.data.length>0){
+                              $(data.data).each(function(i,e){
+                                                        var html = p_html[e.type]
+                                                        $.each(e,function(k,v){
+                                                            if (k=="avgScore"){v = v.toString();v = v.charAt(0)+"."+v.charAt(1)}
+                                                             html = html.replace(new RegExp("{"+k+"}","gm"),v)
+                                                        })
+                                                        $("#product-ul").append(html)
+                                                    })
+                        }else{
 
+                             $("#product-ul").append("暂无数据")
+                        }
                         $("#pro_num").html("共 "+data.data.length+" 个产品")
                    }
         }
