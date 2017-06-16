@@ -151,7 +151,7 @@ var tableFormate ={
             var investTitle = ''
             for(j in i){
                 var json = i[j]
-                if(json.title!=null&&j<3){
+                if(json.invstor!=null&&j<3){
                 	investTitle+='<div class="w_200_spot">'+json.invstor+'</div>';
                 }
             }
