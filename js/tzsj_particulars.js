@@ -3,6 +3,17 @@ function fillBaseEventInfo(data,divList){
     $(divList).each(function(){
         var div = $(this);
         var ls = div.find("*[data-field]")
+        var companyName;
+        var investevent;
+        $(ls).each(function(){
+            var o = $(this);
+            var k = o.attr("data-field")
+            var v = data[o.attr("data-field")]
+            if(k=="company"){
+                companyName = v
+            }
+        })
+
         $(ls).each(function(){
             var o = $(this);
             var k = o.attr("data-field")
@@ -18,9 +29,19 @@ function fillBaseEventInfo(data,divList){
             }
             if(k=='investevent'&&!v){
                 v = '未透露'
-            }else{
-                var investevent = v
-
+            }
+            if(k=='investevent'&&v){
+                investevent = v
+                if(companyName){
+                    var start = investevent.indexOf(companyName)
+                    if(start!=-1){
+                        var end = start+companyName.length
+                        var totalLength = investevent.length
+                        var name = investevent.substring(start,end)
+                        var other = investevent.substring(end+1,totalLength)
+                        v ='<span class="color_set">'+name+'</span><span>'+other+'</span>'
+                    }
+                }
             }
             if(k=='investSideJson'){
                 var json = eval("(" + v + ")");
@@ -44,7 +65,7 @@ function fillBaseEventInfo(data,divList){
 }
 //投资方信息
 function eventDetailListFormatter(data,div){
-   var staticTemplate = '<tr> <td>${org}</td> <td>${fund}</td> <td>${investor}</td><td>${role}</td> <td>${amount}</td><td>${stock}</td><td>${stock}</td><td>${orgType}</td><td>${quitTime}</td><td>${quitType}</td><td>${returnAmount}</td><td>${returnMulti}</td></tr>'
+   var staticTemplate = '<tr> <td>${org}</td> <td>${fund}</td> <td>${investor}</td><td>${role}</td> <td>${amount}</td><td>${stock}</td><td>${orgType}</td><td>${quitTime}</td><td>${quitType}</td><td>${returnAmount}</td><td>${returnMulti}</td></tr>'
    var temp = staticTemplate;
     var html =""
     $(data).each(function(i,row){
