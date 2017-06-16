@@ -338,6 +338,7 @@ var tableFormate ={
             return mergeSideTitle
         }
     },
+    //并购详情
     paticulars:function(value, row, index){
         var projTitle = row.projTitle
         return '<div align="center" class="list_table_td"> <center><span class="col_999"><a href="/bg_particulars.html?eventId=">'+"详情"+'</a></span></center> </div>'
@@ -377,7 +378,7 @@ var tableFormate ={
             return amountRatioStr
         },
         launchDetail:function(value,row,index){
-                return "<a href ='#?eventId='"+value+">详情</a>"
+                return "<a href ='/ss_particulars.html?eventId='"+value+">详情</a>"
 
         }
 }
