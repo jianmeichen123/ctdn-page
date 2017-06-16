@@ -25,5 +25,5 @@ function fillSsBaseInfo(data,divList){
         })
     })
 }
-
-sendGetRequest(detail.queryListedInfo+"49301",function(data){fillSsBaseInfo(data.data,$("div[data-query='eventListedInfo']")); fillList(data.data,$("*[data-query='list']"))})
+var eventId = getHrefParamter("eventId");
+sendGetRequest(detail.queryListedInfo+eventId,function(data){fillSsBaseInfo(data.data,$("div[data-query='eventListedInfo']")); fillList(data.data,$("*[data-query='list']"))})
