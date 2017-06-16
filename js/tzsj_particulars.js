@@ -44,15 +44,23 @@ function fillBaseEventInfo(data,divList){
                         other = investevent.substring(end+1,totalLength)
                         v ='<span class="color_set">'+name+'</span><span>'+other+'</span>'
                     }else{
-                        var nameArr = companyName.split('(')
-                        name = nameArr[0]
-                        start = investevent.indexOf(name)
-                        end = start+name.length
-                        other = investevent.substring(end+1,totalLength)
-                        v ='<span class="color_set">'+name+'</span><span>'+other+'</span>'
-                        if(start==-1){
-                            name = nameArr[1]
-                            name = name.substring(0,name.length-1)
+                        if(companyName.indexOf("(")!=-1){
+                            var nameArr = companyName.split('(')
+                            name = nameArr[0]
+                            start = investevent.indexOf(name)
+                            end = start+name.length
+                            other = investevent.substring(end+1,totalLength)
+                            v ='<span class="color_set">'+name+'</span><span>'+other+'</span>'
+                            if(start==-1){
+                                name = nameArr[1]
+                                name = name.substring(0,name.length-1)
+                                start = investevent.indexOf(name)
+                                end = start+name.length
+                                other = investevent.substring(end+1,totalLength)
+                                v ='<span class="color_set">'+name+'</span><span>'+other+'</span>'
+                            }
+                        }else{
+                            name = companyName.substring(0,companyName.length-2)
                             start = investevent.indexOf(name)
                             end = start+name.length
                             other = investevent.substring(end+1,totalLength)
