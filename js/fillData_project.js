@@ -52,7 +52,7 @@ function eventInfoListFormatter(data,div){
              })
 
      }else{
-        html="<span>暂无数据</span>"
+        html="<tr> <td colspan='7'><span>暂无数据</span></th></tr>"
      }
       div.append(html)
 
@@ -102,7 +102,7 @@ function historyListFormatter(data,div){
             temp = staticTemplate
          })
      }else{
-       html="<span>暂无数据</span>"
+       html="<li><span>　暂无数据</span></li>"
     }
     div.append(html)
 }
@@ -127,7 +127,7 @@ function projectContactListFormatter(data,div){
          temp = staticTemplate
         })
     }else{
-         html="<span>暂无数据</span>"
+         html="<tr> <td colspan='7'><span>暂无数据</span></th></tr>"
     }
     div.append(html)
 }
@@ -179,7 +179,7 @@ function eventListedInfoListFormatter(data,div){
                temp = staticTemplate
             })
     }else{
-        html="<span>暂无数据</span>"
+        html="<tr> <td colspan='6'><span>暂无数据</span></th></tr>"
     }
 
     div.append(html)
@@ -249,7 +249,7 @@ function eventMergerInfoListFormatter(data,div){
           temp = staticTemplate
        })
     }else{
-           html="<span>暂无数据</span>"
+           html="<tr> <td colspan='7'><span>暂无数据</span></th></tr>"
        }
    div.append(html)
 }
@@ -369,6 +369,15 @@ var callBack = {
            }else if(k=="firmDesc"){
                 if(!v){
                     v ="<span>暂无数据</span>"
+                	 o.css('height','auto')
+                	 o.parent().children('.project_more').hide()
+                }else{
+                	if(v.length <250){
+	            		 o.css('height','auto')
+	                	 o.parent().children('.project_more').hide()
+                	}else {
+						
+					}
                 }
            }
            o.html(v)
