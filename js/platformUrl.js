@@ -43,6 +43,12 @@ var searchUrl = {
     investOrg:Constants.searchContentURL+"investfirms"
 }
 var dataUrl = {
+    products:Constants.dataContentURL+"op/is/",
+    pvuv:Constants.dataContentURL+"op/pvuv/",
+    weixin:Constants.dataContentURL+"op/weixinindice/",
+    weibo:Constants.dataContentURL+"op/weiboIndice/",
+    android:Constants.dataContentURL+"op/android/",
+    ios:Constants.dataContentURL+"op/ios/",
 }
 var ctdnUrl = {
 
