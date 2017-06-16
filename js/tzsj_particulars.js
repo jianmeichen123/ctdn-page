@@ -60,4 +60,4 @@ function eventDetailListFormatter(data,div){
     div.append(html)
 }
 
-sendGetRequest(detail.queryEventInfo+"2",function(data){fillBaseEventInfo(data.data,$("div[data-query='eventInfo']")); fillList(data.data,$("*[data-query='list']"))})
+sendGetRequest(detail.queryEventInfo+"16458",function(data){fillBaseEventInfo(data.data,$("div[data-query='eventInfo']")); fillList(data.data,$("*[data-query='list']"))})
