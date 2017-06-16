@@ -18,6 +18,9 @@ function fillBaseEventInfo(data,divList){
             }
             if(k=='investevent'&&!v){
                 v = '未透露'
+            }else{
+                var investevent = v
+
             }
             if(k=='investSideJson'){
                 var json = eval("(" + v + ")");
