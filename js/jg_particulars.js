@@ -14,6 +14,9 @@ function fillBaseInfo(data,divList){
                     window[func](v,o)
                 }
            }else{
+                if(k=='logo'){
+                   o.attr('src','http:///10.10.0.147/org/'+v)
+                }
                 if(k=="foundDate"){
                     v = formatDate(v,"yyyy-MM-dd")
                 }
@@ -122,10 +125,8 @@ function projectContactListFormatter(data,div){
     $(data).each(function(i,row){
      $.each(row,function(k,v){
          while(temp.indexOf("${"+k+"}") > 1){
-             if(k =="date"){
-                 if(!v){
-                     v= "-"
-                 }
+             if(!v){
+                 v= "-"
              }
              temp =temp.replace("${"+k+"}",v)
          }
