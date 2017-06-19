@@ -168,7 +168,7 @@ var tableFormate ={
             for(j in i){
                 var json = i[j]
                 if(json.invstor!=null&&j<3){
-                	investTitle+='<div class="w_200_spot">'+json.invstor+'</div>';
+                	investTitle+='<div class="list_table_td"><center><span class="col_999"><a href="/jg_particulars.html?orgId='+json.id+'">'+json.invstor+'</a></span></center></div>';
                 }
             }
             if(investTitle!=''){
