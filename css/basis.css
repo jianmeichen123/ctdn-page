@@ -141,6 +141,7 @@ input{outline: none;}
 .brain_ico_down_arrows{background-position: -69px -20px; width: 17px; height: 16px;  display: inline-block;}
 .table_style  comp{color:#1ed2ff; font-weight: bold;}
 .table_style  firm{color:#1ed2ff; font-weight: bold;}
+com{color:#1ed2ff;}
 .th_li{ height:28px; overflow:hidden; margin-bottom:0;}
 .th_li li{line-height:15px;}
 .list_click_ul{ position: absolute; display:none;padding-top: 3px; top:54px; background-color:#202934; right:0; }
@@ -174,7 +175,7 @@ input{outline: none;}
 .w_50{width:50%; overflow:hidden;}
 .fl{ float:left;}
 .fr{ float:right;}
-.width_97{width:97px; display:block; text-align:right;}
+.width_97{width:110px; display:block; text-align:right;}
 .particulars_all{    width: 100%; overflow: hidden;  margin-top: 28px; position: relative;}
 .particulars_black{width:100%; overflow:hidden; border:1px solid #f0f0f0; background-color:#fff; padding:20px 20px;}
 .particulars_k{width:100%; overflow:hidden;}
