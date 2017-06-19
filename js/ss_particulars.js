@@ -16,6 +16,12 @@ function fillSsBaseInfo(data,divList){
                 if(k=='desc'&&!v){
                     v = '暂无描述'
                 }
+                if(k=='listedDate'){
+                    v = formatDate(v,'yyyy-MM-dd')
+                }
+                if(k=='listedEvent'&&!v){
+                    v='暂未披露'
+                }
                 if(v){
                     o.html(v)
                 }else{
