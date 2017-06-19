@@ -30,13 +30,13 @@ function eventInfoListFormatter(data,div){
                                 var firms = "";
                                 $(ls).each(function(){
                                    //待修改 没加领投
-                                   firms += "<a href = 'jg_particulars.html?id="+$(this)[0].id+"'>"+$(this)[0].invstor+"</a>";
+                                   firms += "<a href = 'jg_particulars.html?orgId="+$(this)[0].id+"'>"+$(this)[0].invstor+"</a>";
                                 })
                                 v = firms
                             }
                             if(k == "eventId"){
                                  //待修改 跳转事件详情
-                                 v = "<a href='#?id="+row.eventId+"'>详情</a>"
+                                 v = "<a href='tzsj_particulars.html?eventId="+row.eventId+"'>详情</a>"
                             }
                             if(k =="investDate"){
                                 v = formatDate(v, "yyyy-MM-dd")
