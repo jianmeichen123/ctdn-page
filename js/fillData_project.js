@@ -30,7 +30,7 @@ function eventInfoListFormatter(data,div){
                                 var firms = "";
                                 $(ls).each(function(){
                                    //待修改 没加领投
-                                   firms += "<a href = 'jg_particulars.html?orgId="+$(this)[0].id+"'>"+$(this)[0].invstor+"</a>";
+                                   firms += "<div><a href = 'jg_particulars.html?orgId="+$(this)[0].id+"'>"+$(this)[0].invstor+"</a></div>";
                                 })
                                 v = firms
                             }
@@ -262,8 +262,24 @@ function eventMergerInfoListFormatter(data,div){
 }
 //相关新闻
 function newsListFormatter(data,div){
-   var staticTemplate = '<li> <span class="one">${content}</span> <span class="two">${source}</span> <span class="three">${date}</span> </li>'
-   commonFormatter(staticTemplate,data,div)
+    var staticTemplate = '<li> <span class="one">${content}</span> <span class="two">${source}</span> <span class="three">${date}</span> </li>';
+    var temp = staticTemplate;
+    var html = "";
+    if(data.length>0){
+         $(data).each(function(i,row){
+           $.each(row,function(k,v){
+               while(temp.indexOf("${"+k+"}") > 1){
+                   temp =temp.replace("${"+k+"}",v)
+               }
+           })
+           html += temp;
+           temp = staticTemplate
+
+        })
+    }else{
+      html="<li><span>　暂无数据</span></li>"
+    }
+    div.append(html)
 }
 
  //产品弹出
