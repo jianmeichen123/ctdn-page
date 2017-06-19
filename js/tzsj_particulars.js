@@ -30,50 +30,50 @@ function fillBaseEventInfo(data,divList){
             if(k=='investevent'&&!v){
                 v = '未透露'
             }
-            if(k=='investevent'&&v){
-                investevent = v
-                if(companyName){
-                    var start = investevent.indexOf(companyName)
-                    var totalLength = investevent.length;
-                    var end;
-                    var name;
-                    var other;
-                    if(start!=-1){
-                        end = start+companyName.length
-                        name = investevent.substring(start,end)
-                        other = investevent.substring(end+1,totalLength)
-                        v ='<span class="color_set">'+name+'</span><span>'+other+'</span>'
-                        if(start!=0){
-                            name = investevent.substring(start,totalLength)
-                            other = investevent.substring(0,start)
-                            v ='<span>'+other+'</span><span class="color_set">'+name+'</span>'
-                        }
-                    }else{
-                        if(companyName.indexOf("(")!=-1){
-                            var nameArr = companyName.split('(')
-                            name = nameArr[0]
-                            start = investevent.indexOf(name)
-                            end = start+name.length
-                            other = investevent.substring(end+1,totalLength)
-                            v ='<span class="color_set">'+name+'</span><span>'+other+'</span>'
-                            if(start==-1){
-                                name = nameArr[1]
-                                name = name.substring(0,name.length-1)
-                                start = investevent.indexOf(name)
-                                end = start+name.length
-                                other = investevent.substring(end+1,totalLength)
-                                v ='<span class="color_set">'+name+'</span><span>'+other+'</span>'
-                            }
-                        }else{
-                            name = companyName.substring(0,companyName.length-2)
-                            start = investevent.indexOf(name)
-                            end = start+name.length
-                            other = investevent.substring(end+1,totalLength)
-                            v ='<span class="color_set">'+name+'</span><span>'+other+'</span>'
-                        }
-                    }
-                }
-            }
+//            if(k=='investevent'&&v){
+//                investevent = v
+//                if(companyName){
+//                    var start = investevent.indexOf(companyName)
+//                    var totalLength = investevent.length;
+//                    var end;
+//                    var name;
+//                    var other;
+//                    if(start!=-1){
+//                        end = start+companyName.length
+//                        name = investevent.substring(start,end)
+//                        other = investevent.substring(end+1,totalLength)
+//                        v ='<span class="color_set">'+name+'</span><span>'+other+'</span>'
+//                        if(start!=0){
+//                            name = investevent.substring(start,totalLength)
+//                            other = investevent.substring(0,start)
+//                            v ='<span>'+other+'</span><span class="color_set">'+name+'</span>'
+//                        }
+//                    }else{
+//                        if(companyName.indexOf("(")!=-1){
+//                            var nameArr = companyName.split('(')
+//                            name = nameArr[0]
+//                            start = investevent.indexOf(name)
+//                            end = start+name.length
+//                            other = investevent.substring(end+1,totalLength)
+//                            v ='<span class="color_set">'+name+'</span><span>'+other+'</span>'
+//                            if(start==-1){
+//                                name = nameArr[1]
+//                                name = name.substring(0,name.length-1)
+//                                start = investevent.indexOf(name)
+//                                end = start+name.length
+//                                other = investevent.substring(end+1,totalLength)
+//                                v ='<span class="color_set">'+name+'</span><span>'+other+'</span>'
+//                            }
+//                        }else{
+//                            name = companyName.substring(0,companyName.length-2)
+//                            start = investevent.indexOf(name)
+//                            end = start+name.length
+//                            other = investevent.substring(end+1,totalLength)
+//                            v ='<span class="color_set">'+name+'</span><span>'+other+'</span>'
+//                        }
+//                    }
+//                }
+//            }
             if(k=='investSideJson'){
                 var json = eval("(" + v + ")");
                 var ls = json["investSideJson"];
