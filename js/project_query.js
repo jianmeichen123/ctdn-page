@@ -143,6 +143,22 @@ var tableFormate ={
         }
         return '<div class="list_table_td"> <img height="37" width="37" src="'+Constants.logoPath+img+'"> <span class="col_999"><a href="/project_qy.html?code='+row.code+'">'+projectName+'</a></span> </div>'
     },
+    listedProjectName:function(value, row, index){
+            var projectName = row.projTitle
+            var img = ""
+            if(projectName==null){
+                projectName='名称未知'
+            }
+            if (row.logoSmall&&row.logoSmall.indexOf("/")!=-1){
+                img = row.logoSmall.split("/")[1]
+            }else if (row.logoSmall&&row.logoSmall!=""){
+                img = row.logoSmall
+            }
+            if(img.indexOf(".") == -1){
+                img = ""
+            }
+            return '<div class="list_table_td"> <img height="37" width="37" src="'+Constants.logoPath+img+'"> <span class="col_999"><a href="/project_qy.html?code='+row.sourceCode+'">'+projectName+'</a></span> </div>'
+        },
     investSide:function(value, row, index){
          var investSideJson = row.investSideJson
          var jsonObjArr = eval('(' + investSideJson + ')');
@@ -196,7 +212,7 @@ var tableFormate ={
         if(img.indexOf(".") == -1){
             img = ""
         }
-        return '<div class="list_table_td"> <img height="37" width="37" src="'+Constants.logoPath+img+'"> <ul class="col_999"> <li><a href="/project_qy.html?code="'+row.code+'>'+company+'</a></li> <li>'+industrict+'</li> </ul> </div>'
+        return '<div class="list_table_td"> <img height="37" width="37" src="'+Constants.logoPath+img+'"> <ul class="col_999"> <li><a href="/project_qy.html?code='+row.sourceCode+'">'+company+'</a></li> <li>'+industrict+'</li> </ul> </div>'
     },
     beenMergered:function(value,row,index){
         var mergered = row.projTitle
