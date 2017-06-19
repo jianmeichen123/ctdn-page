@@ -122,10 +122,8 @@ function projectContactListFormatter(data,div){
         $(data).each(function(i,row){
          $.each(row,function(k,v){
              while(temp.indexOf("${"+k+"}") > 1){
-                 if(k =="date"){
-                     if(!v){
-                         v= "-"
-                     }
+                 if(!v){
+                     v= "-"
                  }
                  temp =temp.replace("${"+k+"}",v)
              }
@@ -215,7 +213,7 @@ function eventMergerInfoListFormatter(data,div){
                           var firms = "";
                           $(ls).each(function(){
                              //待修改 没加领投
-                             firms += "<a href = '#?id="+$(this)[0].id+"'>"+$(this)[0].title+"</a>";
+                             firms += "<a href = 'jg_particulars.html?orgId="+$(this)[0].id+"'>"+$(this)[0].title+"</a>";
                           })
                           v = firms
                       }
@@ -240,7 +238,7 @@ function eventMergerInfoListFormatter(data,div){
                       }
                   }else if(k == "eventId"){
                       //待修改 跳转事件详情
-                      v = "<a href='#?id="+row.eventId+"'>详情</a>"
+                      v = "<a href='bg_particulars.html?eventId="+row.eventId+"'>详情</a>"
                   }else if(k=="equityRate"){
                      if(!v){
                         v= "未透露"
