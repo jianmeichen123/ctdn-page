@@ -58,7 +58,7 @@ function eventInfoListFormatter(data,div){
                     }
                     if(k == "eventId"){
                          //待修改 跳转事件详情
-                         v = "<a href='#?id="+row.eventId+"'>详情</a>"
+                         v = "<a href='/tzsj_particulars.html?eventId="+v+"'>详情</a>"
                     }
                     if(k =="investDate"){
                         v = formatDate(v, "yyyy-MM-dd")
