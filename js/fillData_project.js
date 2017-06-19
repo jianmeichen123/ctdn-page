@@ -81,6 +81,7 @@ function projectTeamListFormatter(data,div){
 //发展历史
 function historyListFormatter(data,div){
      var staticTemplate = '<li> <div class="relative m_t5"><span class="circle_b"></span><span>${content}</span></div> <div class="color_999 relative">${date}</div> </li>'
+     var staticTemplateHide = '<li class="blue_l_b_three"> <div class="relative m_t5"><span class="circle_b"></span><span>${content}</span></div> <div class="color_999 relative">${date}</div> </li>'
      var temp = staticTemplate;
      var html = "";
      if(data.length>0){
@@ -96,15 +97,21 @@ function historyListFormatter(data,div){
                 }
             })
             if(i>2){
-                html+= '<div class="block project_click_show color_666" >展开全部<span data-field="length">'+data.length+'</span>条<span class="brain_ico brain_ico_project_more"></span></div>'
+                html += temp;
+                temp = staticTemplateHide
+            }else{
+                html += temp;
+                temp = staticTemplate
             }
-            html += temp;
-            temp = staticTemplate
+
          })
      }else{
        html="<li><span>　暂无数据</span></li>"
     }
     div.append(html)
+    if(data.length>2){
+        div.parent().append('<div class="block project_click_show color_666" >展开全部<span data-field="length">'+data.length+'</span>条<span class="brain_ico brain_ico_project_more"></span></div>')
+    }
 }
 //联系方式
 function projectContactListFormatter(data,div){
