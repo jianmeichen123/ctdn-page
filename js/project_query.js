@@ -380,7 +380,7 @@ var tableFormate ={
             return amountRatioStr
         },
         launchDetail:function(value,row,index){
-                return "<a href ='/ss_particulars.html?eventId="+row.eventId+"'"+value+">详情</a>"
+                return '<div align="center" class="list_table_td"> <center><span class="col_999"><a href ="/ss_particulars.html?eventId="'+row.eventId+''+value+'>详情</a></span></center> </div>'
 
         }
 }
