@@ -312,8 +312,8 @@ var callBack = {
                             "domain":'<li id="{code}:str" op-data-type="pvuv" data-name="趋势分析图"> <img src="img/a1.jpg"> <div class="wrapper"> <ul class="product_list_ul"> <li>{appname}</li> <li>alexa排名：{index2}</li> </ul> </div> </li>',
                             "android":'<li id="{appid}:long" op-data-type="android" data-name="趋势分析图"> <img src="img/a2.jpg"> <div class="wrapper"> <ul class="product_list_ul"> <li>下载总量：<span>{index1}</span></li> <li>每日下载量：<span>{index2}</span></li> <li>更新时间：<span>{updateDate}</span></li> <li>评分：<span>{avgScore}</span></li> </ul> </div> </li>',
                             "ios":'<li id="{appid}:long" op-data-type="ios" data-name="趋势分析图"> <img src="img/a3.jpg"> <div class="wrapper"> <ul class="product_list_ul"> <li>下载总量：<span>{index1}</span></li> <li>每日下载量：<span>{index2}</span></li> <li>更新时间：<span>{updateDate}</span></li> <li>评分：<span>{avgScore}</span></li> </ul> </div> </li>',
-                            "weibo":'<li id="{appid}:str" op-data-type="weibo" data-name="趋势分析图"> <img src="img/a4.jpg"> <div class="wrapper"> <ul class="product_list_ul"> <li>平均阅读量：<span>{index1}</span></li> <li> 粉丝数：<span>{index2}</span></li> </ul> </div> </li>',
-                            "weixin":'<li id="{appid}:str" op-data-type="weixin" data-name="趋势分析图"> <img src="img/a5.jpg"> <div class="wrapper"> <ul class="product_list_ul"> <li>平均阅读量：<span>{index1}</span></li> <li> 粉丝数：<span>{index2}</span></li> </ul> </div> </li>',
+                            "weibo":'<li id="{appid}:str" op-data-type="weibo" data-name="趋势分析图"> <img src="img/a4.jpg"> <div class="wrapper"> <ul class="product_list_ul"> <li>微博数：<span>{index1}</span></li> <li> 粉丝数：<span>{index2}</span></li> </ul> </div> </li>',
+                            "weixin":'<li id="{appid}:str" op-data-type="weixin" data-name="趋势分析图"> <img src="img/a5.jpg"> <div class="wrapper"> <ul class="product_list_ul"> <li>平均阅读量：<span>{index1}</span></li> <li> 点赞量：<span>{index2}</span></li> </ul> </div> </li>',
                         }
                         if(data.data.length>0){
                               $(data.data).each(function(i,e){
