@@ -96,7 +96,7 @@
 		var entityList = data.data;
 		var str = $("tbody").html();
 		var $h2 =$(str);
-		if(entityList){
+		if(entityList.length>0){
 			$(entityList).each(function(i,row){
 				var ls = $h2.find("[data-field]");
 				$(ls).each(function(i,e){
