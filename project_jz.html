@@ -108,6 +108,7 @@
 	   var staticTemplate= '<li> <div class="project_jz_l"> <ul> <li><img alt="" src="${logoSmall}"></li> <li> <ul class="project_jz_l_n_ul"> <li class="font_16">${projTitle}</li> <li class="color_666 ">${firmDesc}</li> <li class="color_666 "><span>${industryName}</span><span>${industrySubName}</span></li> <li class="project_jz_span">${labels}</li> </ul> </li> <li class="project_jz_l_n_3"><div class="project_absolute_blue">${latestFinanceRound}</div></li> <li class="project_jz_l_n_2">${setupDT}</li> <li class="project_jz_l_n_2">${districtSubName}</li> </ul> </div> <div class="project_jz_r"> <div class="project_jz_r_l"> <div class="project_jz_r_l_tit">融资信息</div> <ul> <li> <span class="brain_ico brain_ico_project_time"></span> <span>${latestFinanceDT}</span> </li> <li> <span class="brain_ico brain_ico_project_money"></span> <span>${latestFinanceAmountStr}</span> </li> <li> <span class="brain_ico brain_ico_project_site"></span> <span>${investSideJson}</span> </li> </ul> </div> <div class="project_jz_r_r"> <ul class="on_project_jz_r_r"> <li><span class="font_30">${similarity}</span><span>%</span></li> <li>相似度</li> </ul> <ul class="ul"> </ul> </div> </div> </li>';
 	   var temp = staticTemplate;
 	   var html = "";
+	   if(data.length>0){
 	   //遍历数组
 	   $(data).each(function(i,row){
 		  $.each(row,function(k,v){
@@ -182,6 +183,9 @@
 		  temp = staticTemplate
 	   })
 	   div.append(html)
+	}
+	}else{
+		div.append("<tr> <td colspan='6'><span>暂无数据</span></th></tr>")
 	}
 	sendGetRequest(detail.queryCompetationlist+code,function(data){fillList(data.data,$("*[data-query='list']"))})
 
