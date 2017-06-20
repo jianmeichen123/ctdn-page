@@ -47,7 +47,7 @@ function eventInfoListFormatter(data,div){
                         for(i in ls){
                             var json = ls[i]
                             if(i<3){
-                                firms += "<a href = '#?id="+json.id+"'>"+json.invstor+"</a><br>";
+                                firms += json.invstor+"<br>";
                             }
                         }
 //                        $(ls).each(function(){
@@ -57,7 +57,7 @@ function eventInfoListFormatter(data,div){
                         v = firms
                     }
                     if(k == "eventId"){
-                         //待修改 跳转事件详情
+                         // 跳转事件详情
                          v = "<a href='/tzsj_particulars.html?eventId="+v+"'>详情</a>"
                     }
                     if(k =="investDate"){
