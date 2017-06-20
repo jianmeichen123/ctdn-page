@@ -382,11 +382,23 @@ var callBack = {
                     v= "-"
                 }
            }else if(k=="weibo"){
-
+                if(v){
+                    v='<a href ="'+v+'"><span class="brain_ico brain_ico_project_1_on"></span></a>'
+                }else{
+                    v='<span class="brain_ico brain_ico_project_1"></span>'
+                }
            }else if(k=="weixin"){
-
+               if(v){
+                v='<span class="brain_ico brain_ico_project_2_on"  title="'+v+'" ></span>'
+               }else{
+                v='<span class="brain_ico brain_ico_project_2"  title="" ></span>'
+               }
            }else if(k=="webUrl"){
-
+                if(v){
+                    v ='<a href ="'+v+'"><span class="brain_ico brain_ico_project_3_on"></span></a>'
+                }else{
+                    v = '<span class="brain_ico brain_ico_project_3"></span>'
+                }
            }else if(k=="firmDesc"){
                 if(!v){
                     v ="<span>暂无数据</span>"

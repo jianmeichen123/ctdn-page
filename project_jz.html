@@ -183,8 +183,10 @@
 		  temp = staticTemplate
 	   })
 	   div.append(html)
-	}else{
+	}
+	else{
 		div.append("<tr> <td colspan='6'><span>暂无数据</span></th></tr>")
+	}
 	}
 	sendGetRequest(detail.queryCompetationlist+code,function(data){fillList(data.data,$("*[data-query='list']"))})
 
