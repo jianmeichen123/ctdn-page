@@ -10,7 +10,7 @@
 
 
 
-线上
+//线上
 var Constants = {
 	platformContentURL: "http://ctdndev.gi.com/api/",
 	userContentURL: "http://ctdndev.gi.com/user/",
