@@ -365,16 +365,12 @@ var tableFormate ={
                             mergeSideTitle+='<div class="list_table_td"><center><span class="col_999"><a href="/jg_particulars.html?orgId='+json.id+'">'+json.title+'</a></span></center></div>';
                         }
                         if(json.type=='com'){
-//                            mergeSideTitle+='<div class="list_table_td"><center><span class="col_999"><a href="/project_qy.html?code='+json.code+'">'+json.title+'</a></span></center></div>';
-                            mergeSideTitle+='<div class="list_table_td"><center><span class="black">'+json.title+'</span></center></div>';
+                            mergeSideTitle+='<div class="list_table_td"><center><span class="col_999"><a href="/project_qy.html?code='+json.code+'">'+json.title+'</a></span></center></div>';
 
                         }
                     }else{
                         mergeSideTitle+='<div class="list_table_td"><center><span class="black">'+json.title+'</span></center></div>';
                     }
-//                    mergeSideTitle+='<div class="w_200_spot"><center><span class="col_999"><a href="/jg_particulars.html?orgId='+json.id+'">'+json.title+'</a></span></center></div>'
-//                    mergeSideTitle+='<div class="w_200_spot">'+json.title+'</div>'
-                   /* mergeSideTitle+=json.title+"<br>"*/
                 }
             }
             return mergeSideTitle
