@@ -67,7 +67,7 @@ var detail = {
     queryEventInfo:Constants.platformContentURL+"/eventInfo/getById/",
     queryInvestOrgInfo:Constants.platformContentURL+"/orgInfo/getListByOrgId/",
     queryListedInfo:Constants.platformContentURL+"/eventListedInfo/getListByEventId/",
-    queryEventByName:Constants.platformContentURL+"/eventInfo/getListByName",
+    queryEventByName:Constants.platformContentURL+"/eventInfo/getListByName/",
     queryCompetationlist:Constants.platformContentURL+"/projectList/queryCompetationlist/"
 }
 /**
