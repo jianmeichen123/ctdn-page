@@ -40,7 +40,7 @@ var searchUrl = {
     quitEvent:Constants.searchContentURL+"quitEvent",
     mergeEvent:Constants.searchContentURL+"mergeEvent",
     launchEvent:Constants.searchContentURL+"launchEvent",
-    investOrg:Constants.searchContentURL+"investfirms"
+    investOrg:Constants.searchContentURL+"investfirms",
 }
 var dataUrl = {
     products:Constants.dataContentURL+"op/is/",
@@ -67,6 +67,7 @@ var detail = {
     queryEventInfo:Constants.platformContentURL+"/eventInfo/getById/",
     queryInvestOrgInfo:Constants.platformContentURL+"/orgInfo/getListByOrgId/",
     queryListedInfo:Constants.platformContentURL+"/eventListedInfo/getListByEventId/",
+    queryEventByName:Constants.platformContentURL+"/eventInfo/getListByName"
 }
 /**
  * how to use? location.href = platformUrl.login
