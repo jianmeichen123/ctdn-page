@@ -10,7 +10,7 @@
 
 
 
-//线上
+线上
 var Constants = {
 	platformContentURL: "http://ctdndev.gi.com/api/",
 	userContentURL: "http://ctdndev.gi.com/user/",
@@ -67,7 +67,8 @@ var detail = {
     queryEventInfo:Constants.platformContentURL+"/eventInfo/getById/",
     queryInvestOrgInfo:Constants.platformContentURL+"/orgInfo/getListByOrgId/",
     queryListedInfo:Constants.platformContentURL+"/eventListedInfo/getListByEventId/",
-    queryEventByName:Constants.platformContentURL+"/eventInfo/getListByName"
+    queryEventByName:Constants.platformContentURL+"/eventInfo/getListByName",
+    queryCompetationlist:Constants.platformContentURL+"/projectList/queryCompetationlist/"
 }
 /**
  * how to use? location.href = platformUrl.login
