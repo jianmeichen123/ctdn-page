@@ -275,7 +275,7 @@ com{color:#1ed2ff;}
 .product_list_company>li{widht:50%; float:left; margin-bottom:15px;}
 .product_list_company>li>img{width:33px; height:33px; float:left;}
 .product_list_company div{float:left; overflow:hidden; margin-left:10px; width:395px; line-height:33px;}
-.project_new{width:100%; overflow:hidden; height: 300px; overflow-y: auto;}
+.project_new{width:100%; overflow:hidden; max-height: 300px; overflow-y: auto;}
 .project_new li{margin-bottom:15px;}
 .project_new .one{width:660px; display:block; float:left;}
 .project_new .two{width:200px; display:block; float:left;}
