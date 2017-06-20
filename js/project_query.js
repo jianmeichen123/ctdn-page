@@ -169,7 +169,15 @@ var tableFormate ={
                 var json = i[j]
                 if(json.invstor!=null&&j<3){
                     if(json.id){
-                	    investTitle+='<div class="list_table_td"><center><span class="col_999"><a href="/jg_particulars.html?orgId='+json.id+'">'+json.invstor+'</a></span></center></div>';
+                        if(json.type=='invst'){
+                	        investTitle+='<div class="list_table_td"><center><span class="col_999"><a href="/jg_particulars.html?orgId='+json.id+'">'+json.invstor+'</a></span></center></div>';
+                        }
+                        if(json.type=='com'){
+                 	        investTitle+='<div class="list_table_td"><center><span class="col_999"><a href="/project_qy.html?code='+json.code+'">'+json.invstor+'</a></span></center></div>';
+                        }
+                        if(json.type!='invst'&&json.type!='com'){
+                            investTitle+='<div class="list_table_td"><center><span class="black">'+json.invstor+'</span></center></div>';
+                        }
                     }else{
                         investTitle+='<div class="list_table_td"><center><span class="black">'+json.invstor+'</span></center></div>';
                     }
