@@ -168,7 +168,11 @@ var tableFormate ={
             for(j in i){
                 var json = i[j]
                 if(json.invstor!=null&&j<3){
-                	investTitle+='<div class="list_table_td"><center><span class="col_999"><a href="/jg_particulars.html?orgId='+json.id+'">'+json.invstor+'</a></span></center></div>';
+                    if(json.id){
+                	    investTitle+='<div class="list_table_td"><center><span class="col_999"><a href="/jg_particulars.html?orgId='+json.id+'">'+json.invstor+'</a></span></center></div>';
+                    }else{
+                        investTitle+='<div class="list_table_td"><center><span class="black">'+json.invstor+'</span></center></div>';
+                    }
                 }
             }
             if(investTitle!=''){
@@ -257,7 +261,8 @@ var tableFormate ={
             for(j in mergerSides){
                 var json = mergerSides[j]
                 if(json.title != ''){
-                    mergerSideTitle+='<div class="w_200_spot">'+json.title+'</div>';
+//                    mergerSideTitle+='<div class="w_200_spot">'+json.title+'</div>';
+                    mergerSideTitle+='<div class="list_table_td"><center><span class="col_999"><a href="/jg_particulars.html?orgId='+json.id+'">'+json.title+'</a></span></center></div>';
                 }
             }
             if(mergerSideTitle!=''){
@@ -347,7 +352,13 @@ var tableFormate ={
             for(j in i){
                 var json = i[j]
                 if(json.title!=''&&j<3){
-                    mergeSideTitle+='<div class="w_200_spot">'+json.title+'</div>'
+                    if(json.id!=0){
+                        mergeSideTitle+='<div class="list_table_td"><center><span class="col_999"><a href="/jg_particulars.html?orgId='+json.id+'">'+json.title+'</a></span></center></div>';
+                    }else{
+                        mergeSideTitle+='<div class="list_table_td"><center><span class="black">'+json.title+'</span></center></div>';
+                    }
+//                    mergeSideTitle+='<div class="w_200_spot"><center><span class="col_999"><a href="/jg_particulars.html?orgId='+json.id+'">'+json.title+'</a></span></center></div>'
+//                    mergeSideTitle+='<div class="w_200_spot">'+json.title+'</div>'
                    /* mergeSideTitle+=json.title+"<br>"*/
                 }
             }
