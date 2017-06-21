@@ -173,16 +173,16 @@ var tableFormate ={
                 if(json.invstor!=null&&j<3){
                     if(json.id){
                         if(json.type=='invst'){
-                	        investTitle+='<div class="list_table_td"><center><span class="col_999"><a href="/jg_particulars.html?orgId='+json.id+'">'+json.invstor+'</a></span></center></div>';
+                	        investTitle+='<center><span class="list_table_td"><a href="/jg_particulars.html?orgId='+json.id+'">'+json.invstor+'</a></span></center>';
                         }
                         if(json.type=='com'){
-                 	        investTitle+='<div class="list_table_td"><center><span class="col_999"><a href="/project_qy.html?code='+json.code+'">'+json.invstor+'</a></span></center></div>';
+                 	        investTitle+='<center><span class="list_table_td"><a href="/project_qy.html?code='+json.code+'">'+json.invstor+'</a></span></center>';
                         }
                         if(json.type!='invst'&&json.type!='com'){
-                            investTitle+='<div class="list_table_td"><center><span class="black">'+json.invstor+'</span></center></div>';
+                            investTitle+='<center><span class="list_table_td">'+json.invstor+'</span></center>';
                         }
                     }else{
-                        investTitle+='<div class="list_table_td"><center><span class="black">'+json.invstor+'</span></center></div>';
+                        investTitle+='<center><span class="list_table_td">'+json.invstor+'</span></center>';
                     }
                 }
             }
@@ -371,14 +371,14 @@ var tableFormate ={
                 if(json.title!=''&&j<3){
                     if(json.id!=0){
                         if(json.type=='invse'){
-                            mergeSideTitle+='<div class="list_table_td"><center><span class="col_999"><a href="/jg_particulars.html?orgId='+json.id+'">'+json.title+'</a></span></center></div>';
+                            mergeSideTitle+='<center><span class="list_table_td"><a href="/jg_particulars.html?orgId='+json.id+'">'+json.title+'</a></span></center>';
                         }
                         if(json.type=='com'){
-                            mergeSideTitle+='<div class="list_table_td"><center><span class="col_999"><a href="/project_qy.html?code='+json.code+'">'+json.title+'</a></span></center></div>';
+                            mergeSideTitle+='<center><span class="list_table_td"><a href="/project_qy.html?code='+json.code+'">'+json.title+'</a></span></center>';
 
                         }
                     }else{
-                        mergeSideTitle+='<div class="list_table_td"><center><span class="black">'+json.title+'</span></center></div>';
+                        mergeSideTitle+='<center><span class="list_table_td">'+json.title+'</span></center>';
                     }
                 }
             }
@@ -389,13 +389,13 @@ var tableFormate ={
     paticulars:function(value, row, index){
         var projTitle = row.projTitle
         var eventId = row.eventId
-        return '<div align="center" class="list_table_td"> <center><span class="col_999"><a href="/bg_particulars.html?eventId='+row.eventId+'">'+"详情"+'</a></span></center> </div>'
+        return '<center><span class="list_table_td"><a href="/bg_particulars.html?eventId='+row.eventId+'">'+"详情"+'</a></span></center>'
     },
     //投资事件详情
     eventInfoPaticulars:function(value, row, index){
         var projTitle = row.projTitle
         var eventId = row.eventId
-        return '<div align="center" class="list_table_td"> <center><span class="col_999"><a href="/tzsj_particulars.html?eventId='+eventId+'">'+"详情"+'</a></span></center> </div>'
+        return '<center><span class="list_table_td"><a href="/tzsj_particulars.html?eventId='+eventId+'">'+"详情"+'</a></span></center>'
     },
     totalRatio:function(value,row,index){
         var totalRatio = row.totalRatio
@@ -429,7 +429,7 @@ var tableFormate ={
         },
         //上市事件详情
         launchDetail:function(value,row,index){
-                return "<div align='center' class='list_table_td'> <center><span class='col_999'><a href ='/ss_particulars.html?eventId="+row.eventId+"'"+value+">详情</a></span></center> </div>"
+                return "<center><span class='list_table_td'><a href ='/ss_particulars.html?eventId="+row.eventId+"'"+value+">详情</a></span></center>"
 
         }
 }
