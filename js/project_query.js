@@ -343,7 +343,7 @@ var tableFormate ={
 
                 var json = i[j]
                 if(json.title!=null&&j<3){
-                    investProj+=json.title+"<br>"
+                    investProj+='<span class="list_table_td"><a href="/project_qy.html?code='+json.code+'">'+json.title+"</a></span><br>"
                 }
             }
             if(investProj!=''){
