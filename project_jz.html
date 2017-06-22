@@ -118,9 +118,11 @@
 				  			var json = eval("(" + v + ")");
 							var ls = json["investSideJson"];
 							var firms = "";
-							$(ls).each(function(){
+							$(ls).each(function(i){
 							   //待修改 没加领投
-							   firms += "<a href = '#?id="+$(this)[0].code+"'>"+$(this)[0].title+"</a>";
+							   if(i<3){
+							   firms += "<div><a href = 'jg_particulars.html?orgId="+$(this)[0].id+"'>"+$(this)[0].invstor+"</a></div>";
+								}
 							})
 							v = firms
 				  		}else{
@@ -181,8 +183,9 @@
 			     }
 
 			     if(k=="latestFinanceAmountStr" && !v){v="融资金额未知"}
-			     if(k=="latestFinanceDT" && !v){v="融资日期未知"}
-			     if(k=="investSideJson" && !v){v= "投资方未知"}
+			     if(k=="latestFinanceDT"){
+			     	if(!v){v="融资日期未知"}else{v =formatDate(v)}
+			     }
 			  	 temp =temp.replace("${"+k+"}",v)
 			  }
 		  })
