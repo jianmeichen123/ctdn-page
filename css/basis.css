@@ -56,8 +56,8 @@ input{outline: none;}
 .brain_ico_seek{ background-position:0px -21px; width:17px; height:16px; display:block; float:right; margin-right:12px; margin-top:5px; cursor:pointer;}
 .table_seek input{ width:255px; height:28px; margin-left:10px; border:0; text-indent:5px;}
 .bj_fff{ background-color:#fff;}
-.block .table_style > thead > tr > th { text-align:center; font-weight: 100;border-bottom: 1px solid #f0f0f0 !important;;border-left:0px solid #f0f0f0; padding-top:16px; color:#666; padding-bottom:16px;}
-.block .table_style > tbody  > tr > td { text-align:center; font-weight: 100;border-bottom: 1px solid #f0f0f0;border-left:0px solid #f0f0f0; }
+.block .table_style > thead > tr > th { text-align:center; font-weight: normal;border-bottom: 1px solid #f0f0f0 !important;;border-left:0px solid #f0f0f0; padding-top:16px; color:#666; padding-bottom:16px;}
+.block .table_style > tbody  > tr > td { text-align:center; font-weight: normal;border-bottom: 1px solid #f0f0f0;border-left:0px solid #f0f0f0; }
 .block .table_style > tbody > tr:nth-of-type(odd) {
      background-color: #fff;
 }
@@ -291,15 +291,16 @@ com{color:#1ed2ff;}
 .particulars_table_list_project .c_left{text-align:left;}
 /*竞争*/
 .ul_all{width:100%; overflow:hidden;}
-.ul_all>li{overflow:hidden; }
+.ul_all>li{overflow:hidden;     margin-bottom: 10px;}
 .xian_t{border-top:1px solid #f0f0f0; margin-top:10px; padding-top:10px;}
+.project_jz_l{width:780px; float:left;}
 .project_jz_l>ul>li{ float:left;}
 .project_jz_l .project_absolute_blue{ padding:5px 10px; border-radius:15px; display: inline;}
 .project_jz_span span{background-color:#f2f2f2; padding:5px 10px; border-radius:15px; display:block; float:left; margin-right:15px; color:#999;}
-.project_jz_l img{ border:1px solid #e6e6e6; width:78px; height:78px; float:left; margin-top:10px; margin-right:10px;}
-.project_jz_l_n_3{margin-top:27px; margin-left:20px; width:60px;}
+.project_jz_l img{ border:1px solid #e6e6e6; width:78px; height:78px; float:left; margin-right:10px;}
+.project_jz_l_n_3{margin-top:27px; margin-left:20px; width:100px;}
 .project_jz_l_n_2{margin-top:27px; margin-left:20px;}
-.project_jz_l_n_ul li{margin-bottom:5px; width:460px; overflow:hidden; white-space:nowrap; text-overflow:ellipsis;}
+.project_jz_l_n_ul li{margin-bottom:5px; width:435px; overflow:hidden; white-space:nowrap; text-overflow:ellipsis;}
 .project_jz_r{border-left:1px solid #e6e6e6; overflow:hidden; float:right; padding:5px 0 5px 0; text-indent:10px; width:300px;}
 .project_jz_r_r{width:106px; float:right; height:106px;}
 .project_jz_r_l{width:190px; float:left;}

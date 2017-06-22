@@ -28,9 +28,15 @@ function eventInfoListFormatter(data,div){
                                 var json = eval("(" + v + ")");
                                 var ls = json["investSideJson"];
                                 var firms = "";
-                                $(ls).each(function(){
+                                $(ls).each(function(i){
                                    //待修改 没加领投
-                                   firms += "<div><a href = 'jg_particulars.html?orgId="+$(this)[0].id+"'>"+$(this)[0].invstor+"</a></div>";
+                                   if(i<3){
+                                        if($(this)[0].isClick=="1"){
+                                            firms += "<div><a href = 'jg_particulars.html?orgId="+$(this)[0].id+"'>"+$(this)[0].invstor+"</a><div>";
+                                        }else{
+                                            firms += "<div>"+$(this)[0].invstor+"</div>";
+                                        }
+                                   }
                                 })
                                 v = firms
                             }
@@ -211,9 +217,15 @@ function eventMergerInfoListFormatter(data,div){
                           var json = eval("(" + v + ")");
                           var ls = json["mergeSideJson"];
                           var firms = "";
-                          $(ls).each(function(){
+                          $(ls).each(function(i){
                              //待修改 没加领投
-                             firms += "<a href = 'jg_particulars.html?orgId="+$(this)[0].id+"'>"+$(this)[0].title+"</a>";
+                             if(i<3){
+                                if($(this)[0].isClick=="1"){
+                                    firms += "<div><a href = 'jg_particulars.html?orgId="+$(this)[0].id+"'>"+$(this)[0].invstor+"</a><div>";
+                                }else{
+                                    firms += "<div>"+$(this)[0].invstor+"</div>";
+                                }
+                             }
                           })
                           v = firms
                       }

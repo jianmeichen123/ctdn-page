@@ -105,7 +105,7 @@
 		aa(data,div)
 	}
 	function aa(data,div){
-	   var staticTemplate= '<li> <div class="project_jz_l"> <ul> <li><img alt="" src="${logoSmall}"></li> <li> <ul class="project_jz_l_n_ul"> <li class="font_16">${projTitle}</li> <li class="color_666 ">${firmDesc}</li> <li class="color_666 "><span>${industryName}</span><span>${industrySubName}</span></li> <li class="project_jz_span">${labels}</li> </ul> </li> <li class="project_jz_l_n_3"><div class="project_absolute_blue">${latestFinanceRound}</div></li> <li class="project_jz_l_n_2">${setupDT}</li> <li class="project_jz_l_n_2">${districtSubName}</li> </ul> </div> <div class="project_jz_r"> <div class="project_jz_r_l"> <div class="project_jz_r_l_tit">融资信息</div> <ul> <li> <span class="brain_ico brain_ico_project_time"></span> <span>${latestFinanceDT}</span> </li> <li> <span class="brain_ico brain_ico_project_money"></span> <span>${latestFinanceAmountStr}</span> </li> <li> <span class="brain_ico brain_ico_project_site"></span> <span>${investSideJson}</span> </li> </ul> </div> <div class="project_jz_r_r"> <ul class="on_project_jz_r_r"> <li><span class="font_30">${similarity}</span><span>%</span></li> <li>相似度</li> </ul> <ul class="ul"> </ul> </div> </div> </li>';
+	   var staticTemplate= '<li> <div class="project_jz_l"> <ul> <li><img alt="" src="${logoSmall}"></li> <li> <ul class="project_jz_l_n_ul"> <li class="font_16">${projTitle}</li> <li class="color_666 ">${firmDesc}</li> <li class="color_666 "><span>${industryName}</span><span>${industrySubName}</span></li> <li class="project_jz_span">${labels}</li> </ul> </li> <li class="project_jz_l_n_3"><div class="project_absolute_blue">${latestFinanceRound}</div></li> <li class="project_jz_l_n_2">${setupDT}</li> <li class="project_jz_l_n_2">${districtSubName}</li> </ul> </div> <div class="project_jz_r"> <div class="project_jz_r_l"> <div class="project_jz_r_l_tit">融资信息</div> <ul> <li> <span class="brain_ico brain_ico_project_time"></span> <span>${latestFinanceDT}</span> </li> <li> <span class="brain_ico brain_ico_project_money"></span> <span>${latestFinanceAmountStr}</span> </li> <li> <span class="brain_ico brain_ico_project_site"></span> <span>${investSideJson}</span> </li> </ul> </div> <div class="project_jz_r_r"> <ul class="on_project_jz_r_r"> <li><span class="font_30">${similarity}</span><span>%</span></li> <li>相似度</li> </ul> <ul class="ul">${li} </ul> </div> </div> </li>';
 	   var temp = staticTemplate;
 	   var html = "";
 	   if(data.length>0){
@@ -118,13 +118,19 @@
 				  			var json = eval("(" + v + ")");
 							var ls = json["investSideJson"];
 							var firms = "";
-							$(ls).each(function(){
+							$(ls).each(function(i,e){
 							   //待修改 没加领投
-							   firms += "<a href = '#?id="+$(this)[0].code+"'>"+$(this)[0].title+"</a>";
+							   if(i<3){
+							   	if($(this)[0].isClick=="1"){
+							   		firms += "<div><a href = 'jg_particulars.html?orgId="+$(this)[0].id+"'>"+$(this)[0].invstor+"</a><div>";
+							   	}else{
+							   		firms += "<div>"+$(this)[0].invstor+"</div>";
+							   	}
+							   }
 							})
 							v = firms
 				  		}else{
-				  		v="投资方未知"
+				  			v="投资方未知"
 				  		}
 				  }
 				  if(k=="industryName"){
@@ -150,7 +156,7 @@
                	 if(k=="labels"){
                	 	if(v){
                	 		var str = "";
-						$(val.split(","),function(i,e){
+						$(v.split(","),function(i,e){
 						   str.append("<span class='project_lable'>");
 						   str.append(e);
 						   str.append("</span>");
@@ -166,16 +172,24 @@
                	 if(k=="districtSubName" && !v){v="地点未知"}
 
                	 if(k=="similarity"){
+
                	 	 if(v){
-               	 	 	 v = parseInt(row.similarity*100)+'%'
+						 var tmp = "";
+						 for(var i = 0; i< parseInt(v*100); i++){
+							tmp += "<li></li>"
+						 }
+               	 	 	 temp =temp.replace("${li}",tmp)
+               	 	 	 v = parseInt(v*100)+'%'
+
                	 	 }else{
 			     	  	 v ="相似度未知"
 			     	 }
 			     }
 
 			     if(k=="latestFinanceAmountStr" && !v){v="融资金额未知"}
-			     if(k=="latestFinanceDT" && !v){v="融资日期未知"}
-			     if(k=="investSideJson" && !v){v= "投资方未知"}
+			     if(k=="latestFinanceDT"){
+			     	if(!v){v="融资日期未知"}else{v =formatDate(v)}
+			     }
 			  	 temp =temp.replace("${"+k+"}",v)
 			  }
 		  })
