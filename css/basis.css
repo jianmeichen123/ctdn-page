@@ -56,8 +56,8 @@ input{outline: none;}
 .brain_ico_seek{ background-position:0px -21px; width:17px; height:16px; display:block; float:right; margin-right:12px; margin-top:5px; cursor:pointer;}
 .table_seek input{ width:255px; height:28px; margin-left:10px; border:0; text-indent:5px;}
 .bj_fff{ background-color:#fff;}
-.block .table_style > thead > tr > th { text-align:center; font-weight: 100;border-bottom: 1px solid #f0f0f0 !important;;border-left:0px solid #f0f0f0; padding-top:16px; color:#666; padding-bottom:16px;}
-.block .table_style > tbody  > tr > td { text-align:center; font-weight: 100;border-bottom: 1px solid #f0f0f0;border-left:0px solid #f0f0f0; }
+.block .table_style > thead > tr > th { text-align:center; font-weight: normal;border-bottom: 1px solid #f0f0f0 !important;;border-left:0px solid #f0f0f0; padding-top:16px; color:#666; padding-bottom:16px;}
+.block .table_style > tbody  > tr > td { text-align:center; font-weight: normal;border-bottom: 1px solid #f0f0f0;border-left:0px solid #f0f0f0; }
 .block .table_style > tbody > tr:nth-of-type(odd) {
      background-color: #fff;
 }
