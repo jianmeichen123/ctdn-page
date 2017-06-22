@@ -168,11 +168,11 @@
                	 if(k=="similarity"){
                	 	 if(v){
 						 var tmp = "";
-						 for(var i = 0;i< v; i++){
+						 for(var i = 0;i< parseInt(v*100); i++){
 							tmp += "<li><li>"
 						 }
                	 	 	 $(".ul").append(tmp)
-               	 	 	 v = parseInt(row.similarity*100)+'%'
+               	 	 	 v = parseInt(v*100)+'%'
 
                	 	 }else{
 			     	  	 v ="相似度未知"
