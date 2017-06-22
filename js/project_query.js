@@ -127,6 +127,7 @@ var tableFormate ={
         if (row.industryName&&!row.industrySubName)return row.industryName
         return row.industryName +">" +row.industrySubName
     },
+    //企业项目
     projectName:function(value, row, index){
         var projectName = row.projTitle
         var img = ""
@@ -143,6 +144,7 @@ var tableFormate ={
         }
         return '<div class="list_table_td"> <img height="37" width="37" src="'+Constants.logoPath+img+'"> <span class="col_999"><a href="/project_qy.html?code='+row.code+'">'+projectName+'</a></span> </div>'
     },
+    //上市列表
     listedProjectName:function(value, row, index){
             var projectName = row.projTitle
             var img = ""
@@ -159,6 +161,7 @@ var tableFormate ={
             }
             return '<div class="list_table_td"> <img height="37" width="37" src="'+Constants.logoPath+img+'"> <span class="col_999"><a href="/project_qy.html?code='+row.sourceCode+'">'+projectName+'</a></span> </div>'
         },
+        //投资方
     investSide:function(value, row, index){
          var investSideJson = row.investSideJson
          var jsonObjArr = eval('(' + investSideJson + ')');
@@ -170,16 +173,16 @@ var tableFormate ={
                 if(json.invstor!=null&&j<3){
                     if(json.id){
                         if(json.type=='invst'){
-                	        investTitle+='<div class="list_table_td"><center><span class="col_999"><a href="/jg_particulars.html?orgId='+json.id+'">'+json.invstor+'</a></span></center></div>';
+                	        investTitle+='<center><span class="list_table_td"><a href="/jg_particulars.html?orgId='+json.id+'">'+json.invstor+'</a></span></center>';
                         }
                         if(json.type=='com'){
-                 	        investTitle+='<div class="list_table_td"><center><span class="col_999"><a href="/project_qy.html?code='+json.code+'">'+json.invstor+'</a></span></center></div>';
+                 	        investTitle+='<center><span class="list_table_td"><a href="/project_qy.html?code='+json.code+'">'+json.invstor+'</a></span></center>';
                         }
                         if(json.type!='invst'&&json.type!='com'){
-                            investTitle+='<div class="list_table_td"><center><span class="black">'+json.invstor+'</span></center></div>';
+                            investTitle+='<center><span class="list_table_td">'+json.invstor+'</span></center>';
                         }
                     }else{
-                        investTitle+='<div class="list_table_td"><center><span class="black">'+json.invstor+'</span></center></div>';
+                        investTitle+='<center><span class="list_table_td">'+json.invstor+'</span></center>';
                     }
                 }
             }
@@ -191,6 +194,7 @@ var tableFormate ={
             }
          }
     },
+    //融资公司/投资列表
     financeCompany:function(value,row,index){
         var company = row.company
         var industrict = ""
@@ -226,6 +230,7 @@ var tableFormate ={
         }
         return '<div class="list_table_td"> <img height="37" width="37" src="'+Constants.logoPath+img+'"> <ul class="col_999"> <li><a href="/project_qy.html?code='+row.sourceCode+'">'+company+'</a></li> <li>'+industrict+'</li> </ul> </div>'
     },
+    //被并购方-并购列表
     beenMergered:function(value,row,index){
         var mergered = row.projTitle
         var industrict = ""
@@ -260,6 +265,7 @@ var tableFormate ={
         }
         return amountStr
     },
+    //并购方-并购列表（未用）
     mergerSide:function(value,row,index){
         var mergerSideJson = row.mergeSideJson
         var mergerSideArr = eval('('+mergerSideJson+')')
@@ -281,6 +287,7 @@ var tableFormate ={
             }
         }
     },
+    //投资机构-投资机构列表
     org:function(value,row,index){
         var investOrg = row.investOrg
         var orgArr = []
@@ -325,6 +332,7 @@ var tableFormate ={
         }
         return '<div class="list_table_td"> <img height="37" width="37" src="'+Constants.logoPath+'/org/'+img+'"> <ul class="col_999"> <li><a href="/jg_particulars.html?orgId='+row.orgId+'">'+investOrg+'</a></li> </ul> </div>'
     },
+    //投资项目-投资机构列表
     investProject:function(value, row, index){
          var investProJson = row.investProjJson
          var jsonObjArr = eval('(' + investProJson + ')');
@@ -347,6 +355,7 @@ var tableFormate ={
         if (row.equityRate==null) return '未透露'
         return row.equityRate+"%"
     },
+    //并购方-并购列表
     mergeSideJson:function(value, row, index){
         var mergeSideJson = row.mergeSideJson
         var mergeSideTitle = ''
@@ -362,14 +371,14 @@ var tableFormate ={
                 if(json.title!=''&&j<3){
                     if(json.id!=0){
                         if(json.type=='invse'){
-                            mergeSideTitle+='<div class="list_table_td"><center><span class="col_999"><a href="/jg_particulars.html?orgId='+json.id+'">'+json.title+'</a></span></center></div>';
+                            mergeSideTitle+='<center><span class="list_table_td"><a href="/jg_particulars.html?orgId='+json.id+'">'+json.title+'</a></span></center>';
                         }
                         if(json.type=='com'){
-                            mergeSideTitle+='<div class="list_table_td"><center><span class="col_999"><a href="/project_qy.html?code='+json.code+'">'+json.title+'</a></span></center></div>';
+                            mergeSideTitle+='<center><span class="list_table_td"><a href="/project_qy.html?code='+json.code+'">'+json.title+'</a></span></center>';
 
                         }
                     }else{
-                        mergeSideTitle+='<div class="list_table_td"><center><span class="black">'+json.title+'</span></center></div>';
+                        mergeSideTitle+='<center><span class="list_table_td">'+json.title+'</span></center>';
                     }
                 }
             }
@@ -380,12 +389,13 @@ var tableFormate ={
     paticulars:function(value, row, index){
         var projTitle = row.projTitle
         var eventId = row.eventId
-        return '<div align="center" class="list_table_td"> <center><span class="col_999"><a href="/bg_particulars.html?eventId='+row.eventId+'">'+"详情"+'</a></span></center> </div>'
+        return '<center><span class="list_table_td"><a href="/bg_particulars.html?eventId='+row.eventId+'">'+"详情"+'</a></span></center>'
     },
+    //投资事件详情
     eventInfoPaticulars:function(value, row, index){
         var projTitle = row.projTitle
         var eventId = row.eventId
-        return '<div align="center" class="list_table_td"> <center><span class="col_999"><a href="/tzsj_particulars.html?eventId='+eventId+'">'+"详情"+'</a></span></center> </div>'
+        return '<center><span class="list_table_td"><a href="/tzsj_particulars.html?eventId='+eventId+'">'+"详情"+'</a></span></center>'
     },
     totalRatio:function(value,row,index){
         var totalRatio = row.totalRatio
@@ -417,8 +427,9 @@ var tableFormate ={
             }
             return amountRatioStr
         },
+        //上市事件详情
         launchDetail:function(value,row,index){
-                return "<div align='center' class='list_table_td'> <center><span class='col_999'><a href ='/ss_particulars.html?eventId="+row.eventId+"'"+value+">详情</a></span></center> </div>"
+                return "<center><span class='list_table_td'><a href ='/ss_particulars.html?eventId="+row.eventId+"'"+value+">详情</a></span></center>"
 
         }
 }

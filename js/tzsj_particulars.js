@@ -49,11 +49,16 @@ function fillBaseEventInfo(data,divList){
 }
 //投资方信息
 function eventDetailListFormatter(data,div){
-   var staticTemplate = '<tr> <td>${org}</td> <td>${fund}</td> <td>${investor}</td><td>${role}</td> <td>${amount}</td><td>${stock}</td><td>${orgType}</td><td>${quitTime}</td><td>${quitType}</td><td>${returnAmount}</td><td>${returnMulti}</td></tr>'
+   var staticTemplate = '<tr> <td>${investor}</td> <td>${fund}</td> <td>${org}</td><td>${role}</td> <td>${amount}</td><td>${stock}</td><td>${orgType}</td><td>${quitTime}</td><td>${quitType}</td><td>${returnAmount}</td><td>${returnMulti}</td></tr>'
    var temp = staticTemplate;
     var html =""
     $(data).each(function(i,row){
+        var eventId = 0;
+
          $.each(row,function(k,v){
+            if(k=="eventId"){
+                 eventId = v
+             }
              while(temp.indexOf("${"+k+"}") > 1){
                 if(k=="quitTime"){
                     v = formatDate(v, "yyyy-MM-dd")
@@ -64,8 +69,23 @@ function eventDetailListFormatter(data,div){
                 if(k=="stock"&&!v){
                     v="未透露"
                 }
-                if(k=="stock"&&!v){
-                    v="amount"
+
+                if(k=="investor"&&v){
+                    var json = eval("(" + v + ")");
+                    if(json.type=='invst'){
+                        v= "<span class='list_table_td'><a href = 'jg_particulars.html?orgId="+json.id+"'>"+json.invstor+"</a></span>";
+                    }
+                    if(json.type=='com'){
+                        v= "<span class='list_table_td'><a href = '/project_qy.html?code="+json.code+"'>"+json.invstor+"</a></span>";
+                    }
+                    if(json.type=='person'){
+                        v = json.invstor
+                    }
+                    if(json.type=='unknown'){
+                        v = '<div class="list_table_td"><span class="black">'+json.invstor+'</span></div>'
+                    }
+//                    v='<div class="list_table_td"><center><span class="col_999"><a href="/jg_particulars.html?orgId='+eventId+'">'+v+'</a></span></center></div>'
+//                    v='<a href="#">'+v+'</a>'
                 }
                 if(!v){ v = "-"}
                 temp = temp.replace("${"+k+"}",v)

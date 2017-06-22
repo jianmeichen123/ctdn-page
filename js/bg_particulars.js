@@ -36,7 +36,20 @@ function mergeSideListFormatter(data,div){
     $(data).each(function(i,row){
          $.each(row,function(k,v){
              while(temp.indexOf("${"+k+"}") > 1){
-
+                if(k=='partyName'){
+                    var json = eval("("+v+")")
+                    var ls = json["mergeSideJson"]
+                    var mergeSideJson = ''
+                    for(i in ls){
+                        mergeSideJson = ls[i]
+                        if(mergeSideJson.type=='com'){
+                            v= "<span class='list_table_td'><a href = '/project_qy.html?code="+mergeSideJson.code+"'>"+mergeSideJson.title+"</a></span>";
+                        }
+                        if(mergeSideJson.type=='invse'){
+                            v= "<span class='list_table_td'><a href = 'jg_particulars.html?orgId="+mergeSideJson.id+"'>"+mergeSideJson.title+"</a></span>";
+                        }
+                    }
+                }
                 if(!v){ v = "-"}
                 temp = temp.replace("${"+k+"}",v)
              }
@@ -55,7 +68,20 @@ function beenMergeSideListFormatter(data,div){
     $(data).each(function(i,row){
          $.each(row,function(k,v){
              while(temp.indexOf("${"+k+"}") > 1){
-
+                if(k=='partyName'){
+                    var json = eval("("+v+")")
+                    var ls = json["mergeSideJson"]
+                    var mergeSideJson = ''
+                    for(i in ls){
+                        mergeSideJson = ls[i]
+                        if(mergeSideJson.type=='com'){
+                            v= "<span class='list_table_td'><a href = '/project_qy.html?code="+mergeSideJson.code+"'>"+mergeSideJson.title+"</a></span>";
+                        }
+                        if(mergeSideJson.type=='invse'){
+                            v= "<span class='list_table_td'><a href = 'jg_particulars.html?orgId="+mergeSideJson.id+"'>"+mergeSideJson.title+"</a></span>";
+                        }
+                    }
+                }
                 if(!v){ v = "-"}
                 temp = temp.replace("${"+k+"}",v)
              }
