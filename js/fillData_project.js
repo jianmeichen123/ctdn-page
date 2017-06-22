@@ -102,7 +102,7 @@ function historyListFormatter(data,div){
                     temp =temp.replace("${"+k+"}",v)
                 }
             })
-            if(i>2){
+            if(i>3){
                 html += temp;
                 temp = staticTemplateHide
             }else{
@@ -115,7 +115,7 @@ function historyListFormatter(data,div){
        html="<li><span>　暂无数据</span></li>"
     }
     div.append(html)
-    if(data.length>2){
+    if(data.length>3){
         div.parent().append('<div class="block project_click_show color_666" >展开全部<span data-field="length">'+data.length+'</span>条<span class="brain_ico brain_ico_project_more"></span></div>')
     }
 }
@@ -336,7 +336,7 @@ var callBack = {
                                                     })
                         }else{
 
-                             $("#product-ul").append("暂无数据")
+                             $("#product-ul").append("<span class='product_eeu'>暂无数据</span>")
                         }
                         $("#pro_num").html("共 "+data.data.length+" 个产品")
                    }
