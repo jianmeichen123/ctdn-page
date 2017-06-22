@@ -12,7 +12,7 @@
 
 //线上
 var Constants = {
-	platformContentURL: "http://ctdndev.gi.com/api/",
+	platformContentURL: "http://ctdnqa.gi.com/api/",
 	userContentURL: "http://ctdndev.gi.com/user/",
 	searchContentURL: "http://ctdndev.gi.com/search/",
 	dataContentURL: "http://ctdndev.gi.com/data/",
