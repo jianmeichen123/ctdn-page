@@ -1,0 +1,151 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>企业详情-对外投资</title>
+	<!--basis-->
+	{(basis.html)}
+</head>
+
+<body>
+{(header.html)}
+<div class="container">
+	<div class="particulars_all">
+		{(project_header.html)}
+		<!--<div class="particulars_black">-->
+			<!--<div class="project_tit">-->
+				<!--<ul class="project_absolute"><li class="project_absolute_blue">B轮</li><li class="project_absolute_green">运营中</li><li class="project_absolute_lan">不需要融资</li></ul>-->
+				<!--<img src="">-->
+				<!--<ul>-->
+					<!--<li class="font_24">奇瑞动力</li>-->
+					<!--<li class="color_999 font_14">zhongguo Petroleum&Chemical Sales Co</li>-->
+					<!--<li class="color_666 font_14 ">一个云服务平台</li>-->
+					<!--<li class="color_666 font_12">亚洲  印度　　金融 > 互联网保险 > 保险理赔</li>-->
+					<!--<li class="color_666 font_12"><span class="project_lable">金融</span><span class="project_lable">金融</span><span class="project_lable">金融</span></li>-->
+				<!--</ul>-->
+			<!--</div>-->
+			<!--<div class="project_tit_r">-->
+				<!--<ul>-->
+					<!--<li>商业计划书：<span class="pick_on_color">下载</span></li>-->
+					<!--<li>企业邮箱：<span class="pick_on_color">xiangmeimeng@cdhfund.com</span></li>-->
+					<!--<li>联系电话：<span>13812345680</span></li>-->
+				<!--</ul>-->
+				<!--<span class="brain_ico brain_ico_project_3"></span>-->
+				<!--<span class="brain_ico brain_ico_project_2" title="232323"></span>-->
+				<!--<span class="brain_ico brain_ico_project_1"></span>-->
+			<!--</div>-->
+		<!--</div>	-->
+		<!--<div class="project_nav">-->
+			<!--<ul>-->
+				<!--<li><span>企业信息</span></li>-->
+				<!--<li><span>工商信息</span></li>-->
+				<!--<li><span>企业财报</span></li>-->
+				<!--<li><span>竞争对手</span></li>-->
+				<!--<li><span class="project_nav_on">对外投资</span></li>-->
+				<!--<li><span>知识产权</span></li>-->
+				<!--<li><span>风险信息</span></li>				-->
+			<!--</ul>-->
+		<!--</div>-->
+		<div class="project_all">
+			<!-- 工商信息-->
+			<div class="project_t"><span class="brain_ico brain_ico_project_crumbs"></span>工商信息</div>
+			<div class="particulars_black m_t5">
+				<table class=" particulars_table_list m_t5">
+					<thead>
+						<tr>
+							<th ><div>时间</div></th>
+							<th><div class="border_l">融资公司</div></th>
+							<th><div class="border_l">轮次</div></th>
+							<th><div class="border_l">融资额</div></th>
+							<th><div class="border_l">投资方</div></th>
+							<th><div class="border_l">详情</div></th>
+						</tr>
+					</thead>
+					<tbody >
+						<tr style ="display:none">
+							<td data-field="investDate" data-formatter="formatDate"></td>
+							<td >
+								<div class="list_table_td">
+									<img data-field="logo"  height="37" width="37" src="http:///10.10.0.147/6668112c3243f8e18a89e4cc07e338e7.png"> <ul class="col_999"> <li data-field="company" data-formatter="名称未知"></li> <li><span data-field="districtSubName" data-formatter="地区未知"></span> <span data-field="industryName" data-formatter="行业未知"></span></li> </ul>
+								</div>
+							</td>
+							<td data-field="round" data-formatter="-"></td>
+							<td data-field="amountStr" data-formatter="未透露"></td>
+							<td class="number_th_20" data-field="investSideJson" data-formatter="investSideFormatter">
+							</td>
+							<td data-field="eventId" data-formatter="detailFormatter"></td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+</div>
+<script src="js/fillData_common.js"></script>
+<script src="js/fillData_project.js"></script>
+<script>
+	//给tab页a赋参数
+	$(function(){
+	   $(".project_nav a").each(function(){
+		if($(this).attr("href") != "####"){
+			$(this).attr("href",$(this).attr("href")+"?code="+code)
+		}
+	   })
+	})
+	sendPostRequestByJsonObj(detail.queryEventByName,{"company":name},function(data){
+		var entityList = data.data;
+		var str = $("tbody").html();
+		var $h2 =$(str);
+		if(entityList.length>0){
+			$(entityList).each(function(i,row){
+				var ls = $h2.find("[data-field]");
+				$(ls).each(function(i,e){
+					var v = row[$(e).attr("data-field")]
+					var formatter = $(e).attr("data-formatter");
+					if(formatter){
+						//v有值,formatter为格式化函数
+						if(v && formatter in window){
+							v = window[formatter](v)
+						}else if(!v ){
+							//v无值,formatter为替代值
+							v =formatter;
+						}
+					}
+					//没有formatter就取v
+					$(e).html(v);
+				})
+				$h2.removeAttr("style");
+				$("tbody").append($h2)
+				$h2 = $(str)
+		 })
+		}else{
+			$("tbody").append("<tr> <td colspan='6'><span>暂无数据</span></th></tr>")
+		}
+
+     })
+     function investSideFormatter(v){
+     	  var json = eval("(" + v + ")");
+		  var ls = json["investSideJson"];
+		  var firms = "";
+		  $(ls).each(function(i){
+			if(li<3){
+				if($(this)[0].isClick=="1"){
+					firms += "<div><a href = 'jg_particulars.html?orgId="+$(this)[0].id+"'>"+$(this)[0].invstor+"</a><div>";
+				}else{
+					firms += "<div>"+$(this)[0].invstor+"</div>";
+				}
+			}
+		  })
+		  v = firms
+		  return v;
+     }
+     function detailFormatter(v){
+     	if(v){
+     		return "<a href='#?eventId='"+v+">详情</a>"
+     	}
+     }
+     nav_locaton('ctsj','qyxm','','dwtz')
+</script>
+
+</body>
+</html>

@@ -218,7 +218,9 @@ return true;
 }
 
 function formatDate(date, format) {   
-    if (!date) date = new Date();   
+    if (!date) {
+        return "-"
+    }
     if (!format) format = "yyyy-MM-dd";   
     switch(typeof date) {   
         case "string":   
@@ -377,7 +379,7 @@ $(function(){
         });
     }
      me()
-     $("ul[tab='header']").on("click","li",function(){
+    /* $("ul[tab='header']").on("click","li",function(){
     	 
     	 var o = $(this)
     	 if(o.attr("tab")!=""){
@@ -390,11 +392,11 @@ $(function(){
     	 }
     	 
     	 
-     });
-    var u = $("body[data-page-parent]").attr("data-page-parent");
+     });*/
+    /*var u = $("body[data-page-parent]").attr("data-page-parent");
     if(u){
-    	$('ul[tab="header"] li[tab="'+u+'"]').addClass("nav_nav_on")
-    }
+    	$('ul[tab="header"] li[tab="'+u+'"]').addClass("nav_on")
+    }*/
 
 })
 
@@ -497,4 +499,25 @@ $.extend($,{
      return String.fromCharCode(parseInt($2,16));
  });
  }
-//
+//导航位置定位
+ function nav_locaton(first_level,second_level,three_level,four_level){
+	 $('.nav_all [page_tab='+first_level+']').addClass("nav_on");
+	 $('.nav_two [page_tab='+second_level+']').addClass("nav_on");	 
+	 if(three_level !=''){
+		 $('.column_ul [page_tab='+three_level+']').addClass("nav_on");
+	 }
+	 if(four_level !=''){
+		 $('.project_nav [page_tab='+four_level+']').addClass("nav_on");
+	 }
+ }
+//名字事件
+ $('body').delegate('.nav_all_name','mouseenter mouseleave', function(event){
+ 	event.stopPropagation();
+ 	if(event.type == "mouseenter"){
+ 		$('.nav_all_name .brain_ico_name').addClass("brain_ico_name_on");
+ 		$('.list_click_ul').show();		
+ 	}else if(event.type == "mouseleave" ){
+ 		$('.nav_all_name .brain_ico_name').removeClass("brain_ico_name_on");
+ 		$('.list_click_ul').hide();
+ 	}
+ })

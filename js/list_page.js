@@ -199,7 +199,7 @@ $("ul[data-query]").each(function(i,e){
 
 //公用选择事件、不包含所属行业
 $('body').delegate('.block .condition_all_ul li','click', function(event){
-	event.stopPropagation();	
+	event.stopPropagation();
 	var click_this =$(this).index();
 	if(click_this == 0){
 		$(this).parent().children('li').removeClass('pick_on');
@@ -212,8 +212,8 @@ $('body').delegate('.block .condition_all_ul li','click', function(event){
 	_query()
 })
 //公用点击删除
-$('body').delegate('.block .condition_all_ul li .brain_ico_bj','click', function(event){	
-	event.stopPropagation(); 
+$('body').delegate('.block .condition_all_ul li .brain_ico_bj','click', function(event){
+	event.stopPropagation();
 	$(this).parent().removeClass('pick_on');
 	var pick_on_length = $(this).parent().parent().children('.pick_on').length;
 	if(pick_on_length == 0){
@@ -226,25 +226,27 @@ $('body').delegate('.block .condition_all_ul li .brain_ico_bj','click', function
 //地区选择
 var global_all = '<li class="pick_on">全部</li>';
 var global_list = '';
-if($("#global_all").attr('data-query') =="listingTypeIds:normal"){
-	var list = data.data.listingType;
-	for(var i = 0; i< list.length; i++){
-		global_all +='<li global-id="'+list[i].id+'" data-id="'+list[i].id+'" class="global_mousemove ">'+list[i].name+'<span class="brain_ico brain_ico_bj"></span></li>';
-		for(var j= 0; j<list[i].children.length; j++){
-			global_list +='<div class="block_list type_name_all" global-list="'+list[i].id+'">';	
-			global_list +='<div class="type_name" global-list="'+list[i].id+'">'+list[i].children[j].name+'</div>';
-		    global_list +='<ul class="condition_all_ul" data-query="'+list[i].children[j].typeName+':normal">';
-		    global_list +='<li class="pick_on aa_'+list[i].id+'" global-list="'+list[i].id+'" global-id="'+list[i].id+'">全部</li>';
-		    for(var k= 0; k<list[i].children[j].children.length; k++){
-		    	global_list +='<li global-id="'+list[i].id+'" data-id="'+list[i].children[j].id+'">'+list[i].children[j].children[k].name+'<span class="brain_ico brain_ico_bj"></span></li>';
-		    	
-		    }
-		    global_list +='</ul>';
-		    global_list +='</div>';
-		}
-
-	}
-}else if($("#global_all").attr('data-query') =="districtIds:district"){
+//if($("#global_all").attr('data-query') =="type:normal"){
+//	var list = data.data.type;
+//	for(var i = 0; i< list.length; i++){
+//		global_all +='<li global-id="'+list[i].id+'" data-id="'+list[i].id+'" class="global_mousemove ">'+list[i].name+'<span class="brain_ico brain_ico_bj"></span></li>';
+////		for(var j= 0; j<list[i].children.length; j++){
+////			global_list +='<div class="block_list type_name_all" global-list="'+list[i].id+'">';
+////			global_list +='<div class="type_name" global-list="'+list[i].id+'">'+list[i].children[j].name+'</div>';
+////		    global_list +='<ul class="condition_all_ul" >';
+////		    global_list +='<li class="pick_on aa_'+list[i].id+'" global-list="'+list[i].id+'" global-id="'+list[i].id+'">全部</li>';
+////		    for(var k= 0; k<list[i].children[j].children.length; k++){
+////		    	global_list +='<li global-id="'+list[i].id+'" data-id="'+list[i].children[j].id+'">'+list[i].children[j].children[k].name+'<span class="brain_ico brain_ico_bj"></span></li>';
+////
+////		    }
+////		    global_list +='</ul>';
+////		    global_list +='</div>';
+////		}
+//
+//	}
+//}
+//else
+if($("#global_all").attr('data-query') =="districtIds:district"){
 	var list = data.data.district;
 	for(var i = 0; i< list.length; i++){
 	    global_all +='<li global-id="'+list[i].id+'" data-id="'+list[i].id+'" class="global_mousemove ">'+list[i].name+'</li>';
@@ -263,60 +265,62 @@ $('#global_all').html(global_all);
 $('#global_list').html(global_list)
 
 //类型事件点击事件
-$('body').delegate('[data-query="listingTypeIds:normal"] li','click', function(event){
-	event.stopPropagation(); 
-	var click_this =$(this).index();
-	var click_id = $(this).attr('global-id')
-	$("[global-id='"+click_id+"']").removeClass('pick_on');
-	$("[global-list='"+click_id+"'] li").first().addClass('pick_on');
-	if(click_this == 0){
-		$('#global_all li').removeClass('pick_on');
-		$(".block_list .condition_all_ul li").removeClass('pick_on');
-		$(".block_list .condition_all_ul").each(function(i){
-			$(this).children('li').first().addClass('pick_on');
-		});
-		$(this).addClass('pick_on');
-		$(".block_list").hide();
-	}else{
-		$('[data-query="listingTypeIds:normal"] li').removeClass('pick_on');
-		//$(".aa_"+click_id).addClass('pick_on');
-		$('[data-query="listingTypeSubIds:nor"] li').removeClass('pick_on');
-		$(this).addClass('pick_on');
-		$(".block_list .condition_all_ul").each(function(i){
-			$(this).children('li').first().addClass('pick_on');
-		});
-	}
-	_cleanTitle()
-	_query();
-})
+//$('body').delegate('[data-query="type:normal"] li','click', function(event){
+//	event.stopPropagation();
+//	var click_this =$(this).index();
+//	var click_id = $(this).attr('global-id')
+//	$("[global-id='"+click_id+"']").removeClass('pick_on');
+//	$("[global-list='"+click_id+"'] li").first().addClass('pick_on');
+//	if(click_this == 0){
+//	    alert("click_this == 0")
+//		$('#global_all li').removeClass('pick_on');
+//		$(".block_list .condition_all_ul li").removeClass('pick_on');
+//		$(".block_list .condition_all_ul").each(function(i){
+//			$(this).children('li').first().addClass('pick_on');
+//		});
+//		$(this).addClass('pick_on');
+//		$(".block_list").hide();
+//	}else{
+//	    alert("click_this != 0")
+//		$('[data-query="type:normal"] li').removeClass('pick_on');
+//		//$(".aa_"+click_id).addClass('pick_on');
+//		//$('[data-query="listingTypeSubIds:normal"] li').removeClass('pick_on');
+//		$(this).addClass('pick_on');
+////		$(".block_list .condition_all_ul").each(function(i){
+////			$(this).children('li').first().addClass('pick_on');
+////		});
+//	}
+//	_cleanTitle()
+//	_query();
+//})
 //类型list事件
-$('body').delegate('[data-query="listingTypeSubIds:nor"] .condition_all_ul li','click', function(event){
-	event.stopPropagation();	
-	var click_this =$(this).index();
-	var global_id = $(this).attr('global-id');
-	if(click_this == 0){
-		$(this).parent().children('li').removeClass('pick_on');
-		$(this).addClass('pick_on');
-	}else{
-		$('[data-query="listingTypeIds:normal"] li').removeClass('pick_on');
-		$(this).addClass('pick_on');
-		$(this).parent().children('li').first().removeClass('pick_on');
-		$('[data-query="listingTypeSubIds:nor"] .type_name_all').each(function(i){
-			var display =$(this).css('display');
-			if(display =='none'){
-				$(this).children().children('li').removeClass('pick_on');
-				$(this).children().children('li').first().addClass('pick_on');
-			}
-		})
-		
-	}
-	_cleanTitle()
-	_query();
-})
+//$('body').delegate('[data-query="listingTypeSubIds:normal"] .condition_all_ul li','click', function(event){
+//	event.stopPropagation();
+//	var click_this =$(this).index();
+//	var global_id = $(this).attr('global-id');
+//	if(click_this == 0){
+//		$(this).parent().children('li').removeClass('pick_on');
+//		$(this).addClass('pick_on');
+//	}else{
+//		$('[data-query="type:normal"] li').removeClass('pick_on');
+//		$(this).addClass('pick_on');
+//		$(this).parent().children('li').first().removeClass('pick_on');
+//		$('[data-query="listingTypeSubIds:normal"] .type_name_all').each(function(i){
+//			var display =$(this).css('display');
+//			if(display =='none'){
+//				$(this).children().children('li').removeClass('pick_on');
+//				$(this).children().children('li').first().addClass('pick_on');
+//			}
+//		})
+//
+//	}
+//	_cleanTitle()
+//	_query();
+//})
 
 //国内切换点击事件
 $('body').delegate('[data-query="districtIds:district"] li','click', function(event){
-	event.stopPropagation(); 
+	event.stopPropagation();
 	var click_this =$(this).index();
 	var click_id = $(this).attr('global-id')
 	
@@ -341,7 +345,7 @@ $('body').delegate('[data-query="districtIds:district"] li','click', function(ev
 })
 //地区选择list事件
 $('body').delegate('[data-query="districtSubIds:district"] .condition_all_ul li','click', function(event){
-	event.stopPropagation();	
+	event.stopPropagation();
 	var click_this =$(this).index();
 	var global_id = $(this).attr('global-id');
 	$("#global_all [global-id='"+global_id+"']").removeClass('pick_on');
@@ -362,8 +366,8 @@ $('body').delegate('[data-query="districtSubIds:district"] .condition_all_ul li'
 	_query();
 })
 //地区选择list删除
-$('body').delegate('.block_list .condition_all_ul li .brain_ico_bj','click', function(event){	
-	event.stopPropagation(); 
+$('body').delegate('.block_list .condition_all_ul li .brain_ico_bj','click', function(event){
+	event.stopPropagation();
 	$(this).parent().removeClass('pick_on');
 	var pick_on_length = $(this).parent().parent().children('.pick_on').length;
 	var global_id = $(this).parent().attr('global-id')
@@ -389,8 +393,8 @@ $('body').delegate('.block_list .condition_all_ul li .brain_ico_bj','click', fun
 	_query();
 })*/
 //global_all删除
-$('body').delegate('#global_all li .brain_ico_bj','click', function(event){	
-	event.stopPropagation(); 
+$('body').delegate('#global_all li .brain_ico_bj','click', function(event){
+	event.stopPropagation();
 	$(this).parent().removeClass('pick_on');
 	var pick_on_length = $(this).parent().parent().children('.pick_on').length;
 	if(pick_on_length == 0){
@@ -400,14 +404,14 @@ $('body').delegate('#global_all li .brain_ico_bj','click', function(event){
 	_query();
 })
 //global_all选择事件
-$('body').delegate('.global_mousemove','mousemove', function(event){	
-	event.stopPropagation(); 
+$('body').delegate('.global_mousemove','mousemove', function(event){
+	event.stopPropagation();
 	var global_id = $(this).attr('global-id');
 	$('#global_list .block_list').hide();
 	$("[global-list='"+global_id+"']").show();
 })
 //条件折叠
-$('body').delegate('.click_show','click', function(event){	
+$('body').delegate('.click_show','click', function(event){
 	event.stopPropagation();
 	if($(this).hasClass('click_show_on')){
 		$('.switch_condition').hide();
@@ -449,14 +453,3 @@ $("#end_on").datetimepicker({
     _cleanTitle()
     _query();
 });
-//名字事件
-$('body').delegate('.nav_all_name','mouseenter mouseleave', function(event){ 
-	event.stopPropagation(); 
-	if(event.type == "mouseenter"){
-		$('.nav_all_name .brain_ico_name').addClass("brain_ico_name_on");
-		$('.list_click_ul').show();		
-	}else if(event.type == "mouseleave" ){
-		$('.nav_all_name .brain_ico_name').removeClass("brain_ico_name_on");
-		$('.list_click_ul').hide();
-	}
-})

@@ -18,10 +18,7 @@
 			
 		
 			<!--行业选择end-->
-			<ul class="column_ul">
-				<li class="column_ul_on">投资事件</li>
-				<li><a href="list_page_bg.html" ctdnqa>并购事件</a></li>
-			</ul>
+			{(invest_tab.html)}
 			<div class="condition_all">
 				<div class="block_industry">
 					<span class="classify">所属行业</span>
@@ -101,7 +98,7 @@
 						 <th data-field="round" class="number_th_20"><div class="border_l" >轮次</div></th>
 						 <th data-field="amountStr" class="number_th_20"><div class="border_l">融资额</div></th>
 						 <th data-formatter="tableFormate.investSide" class="number_th_20"><div class="border_l">投资方</div></th>
-						 <th data-formatter="详情" class="number_th"><div class="border_l">详情</div></th>
+						 <th data-formatter="tableFormate.eventInfoPaticulars" class="number_th"><div class="border_l">详情</div></th>
 					  </tr>
 				   </thead>
 				   <tbody>
@@ -112,5 +109,8 @@
 		</div>
     </div>
 {(footer.html)}
+<script>
+nav_locaton('ctsj','rzdt','tzsj','')
+</script>
 </body>
 </html>
