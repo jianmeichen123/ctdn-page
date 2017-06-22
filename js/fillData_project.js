@@ -216,18 +216,27 @@ function eventMergerInfoListFormatter(data,div){
                       if(v){
                           var json = eval("(" + v + ")");
                           var ls = json["mergeSideJson"];
-                          var firms = "";
+                          var mergeSideTitle = "";
                           $(ls).each(function(i){
+                          var json =$(this)[0]
                              //待修改 没加领投
-                             if(i<3){
-                                if($(this)[0].isClick=="1"){
-                                    firms += "<div><a href = 'jg_particulars.html?orgId="+$(this)[0].id+"'>"+$(this)[0].invstor+"</a><div>";
-                                }else{
-                                    firms += "<div>"+$(this)[0].invstor+"</div>";
-                                }
-                             }
+                             if(this.title &&i<3){
+                                   if(this.id){
+                                       if($(this).type=='invse'){
+                                           mergeSideTitle+='<center><span class="list_table_td"><a href="/jg_particulars.html?orgId='+json.id+'">'+json.title+'</a></span></center>';
+                                       }
+                                       if(json.type=='com'){
+                                           mergeSideTitle+='<center><span class="list_table_td"><a href="/project_qy.html?code='+json.code+'">'+json.title+'</a></span></center>';
+
+                                       }
+                                   }else{
+                                       mergeSideTitle+='<center><span class="list_table_td">'+json.title+'</span></center>';
+                                   }
+                               }
                           })
-                          v = firms
+                          v = mergeSideTitle
+                      }else{
+                          v="-"
                       }
                   }else if(k =="mergeDate"){
                        if(v){
