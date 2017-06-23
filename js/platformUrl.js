@@ -62,6 +62,7 @@ var table ={
 }
 var detail = {
     queryProject:Constants.platformContentURL+"/projectList/queryProjectByCode/",
+    queryRelativeListByCode:Constants.platformContentURL+"/projectList/queryRelativeListByCode/",
     queryProjectInvestEvent:Constants.platformContentURL+"/eventInfo/getListBySourceCode/",
     queryMergeEventInfo:Constants.platformContentURL+"/eventMergerInfo/getListByEventId/",
     queryEventInfo:Constants.platformContentURL+"/eventInfo/getById/",
