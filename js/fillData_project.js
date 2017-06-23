@@ -389,7 +389,7 @@ var callBack = {
                if(!v){
                    v="地区未知"
                }else{
-                   v = v+'<span>'+row.districtGrandsonName+'</span>'
+                   v = v+'<span>'+data.districtGrandsonName+'</span>'
                }
            }else if(k=="industryName"){
                 var str = "";
