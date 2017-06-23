@@ -281,13 +281,20 @@ function eventMergerInfoListFormatter(data,div){
 }
 //相关新闻
 function newsListFormatter(data,div){
-    var staticTemplate = '<li> <span class="one">${content}</span> <span class="two">${source}</span> <span class="three">${date}</span> </li>';
+    var staticTemplate = '<li> <span>${link}</span> <span class="two">${source}</span> <span class="three">${date}</span> </li>';
     var temp = staticTemplate;
     var html = "";
     if(data.length>0){
          $(data).each(function(i,row){
            $.each(row,function(k,v){
                while(temp.indexOf("${"+k+"}") > 1){
+                   if(k=="link"){
+                    if(v){
+                        v ='<a href="'+v+'"><span class="one">'+row.content+'</span></a>';
+                    }else{
+                        v = '<span class="one">'+row.content+'</span>'
+                    }
+                   }
                    temp =temp.replace("${"+k+"}",v)
                }
            })
