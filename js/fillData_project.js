@@ -373,9 +373,9 @@ var callBack = {
                if(!v) o.removeClass(o.attr("class"));
            }else if(k == "logoBig"){
                 if(!v){
-                     o.attr("src","img/default2.gif")
+                     v = '<img src="img/default2.gif" >';
                 }else{
-                     o.attr("src",Constants.logoPath+v)
+                     v = '<img src="'+Constants.logoPath+v+'" >';
                 }
            }else if(k=="projTitle"){
                 if(!v){
