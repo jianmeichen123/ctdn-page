@@ -292,11 +292,7 @@ function newsListFormatter(data,div){
            $.each(row,function(k,v){
                while(temp.indexOf("${"+k+"}") > 1){
                    if(k=="link"){
-                    if(v){
                         v ='<a href="'+v+'"><span class="one">'+row.content+'</span></a>';
-                    }else{
-                        v = '<span class="one">'+row.content+'</span>'
-                    }
                    }
                    temp =temp.replace("${"+k+"}",v)
                }
