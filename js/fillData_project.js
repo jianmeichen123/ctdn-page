@@ -372,11 +372,15 @@ var callBack = {
            if(k == "latestFinanceRound" || k=="runState" || k=="needFinance"){
                if(!v) o.removeClass(o.attr("class"));
            }else if(k == "logoSmall"){
-                if(!v){
-                     v = '<img src="img/default2.gif" >';
-                }else{
-                     v = '<img src="'+Constants.logoPath+v+'" >';
+                if (row.logoSmall&&row.logoSmall.indexOf("/")!=-1){
+                    img = row.logoSmall.split("/")[1]
+                }else if (row.logoSmall&&row.logoSmall!=""){
+                    img = row.logoSmall
                 }
+                if(img.indexOf(".") == -1){
+                    img = ""
+                }
+                v= Constants.logoPath+img
            }else if(k=="projTitle"){
                 if(!v){
                     v = "名称未知"
