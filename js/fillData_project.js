@@ -175,6 +175,8 @@ function eventListedInfoListFormatter(data,div){
                        }else if(k=="districtSubName"){
                            if(!v){
                                 v="地区未知"
+                           }else{
+                                v = v+'<span>'+row.districtGrandsonName+'</span>'
                            }
                        }else if(k =="listedDate"){
                            if(v){
@@ -448,3 +450,4 @@ var name;
 var code = getHrefParamter("code");
 sendPostRequest(dataUrl.products+code,callBack.productData);
 sendGetRequest(detail.queryProject+"/"+code,function(data){name =  data.data.projTitle;formatProjectInfo(data.data,$("div[data-query='projectBase']"));fillList(data.data,$("div[data-query='list']")) })
+sendGetRequest(detail.queryProject+"/"+code,function(data){fillList(data.data,$("div[data-query='list']")) })
