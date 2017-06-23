@@ -92,6 +92,7 @@ function orgMediaInfoListFormatter(data,div){
                 }
 
                 if(k=='title'){
+                    if(row.link)
                     v='<span class="list_table_td"><a href="'+row.link+'">'+v+'</a></span>'
                 }
 
