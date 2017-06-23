@@ -73,6 +73,9 @@ function projectTeamListFormatter(data,div){
           $(data).each(function(i,row){
              $.each(row,function(k,v){
                  while(temp.indexOf("${"+k+"}") > 1){
+                     if(!v){
+                        v =""
+                     }
                      temp =temp.replace("${"+k+"}",v)
                  }
              })
