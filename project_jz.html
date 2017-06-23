@@ -122,7 +122,7 @@
 							   //待修改 没加领投
 							   if(i<3){
 							   	if($(this)[0].isClick=="1"){
-							   		firms += "<span><a href = 'jg_particulars.html?orgId="+$(this)[0].id+"'>"+$(this)[0].invstor+"</span>";
+							   		firms += "<span><a href = 'jg_particulars.html?orgId="+$(this)[0].id+"'>"+$(this)[0].invstor+"</a></span>";
 							   	}else{
 							   		firms += "<span>"+$(this)[0].invstor+"</span>";
 							   	}
@@ -152,7 +152,11 @@
                	 		v = "img/default.gif"
 				 	}
 				 }
-
+				 if(k=="projTitle"){
+				 	if(v){
+				 		v ='<a href="project_qy.html?code="'+row["code"]+'>'+v+'</a>'
+				 	}
+				 }
                	 if(k=="labels"){
                	 	if(v){
                	 		var str = "";
@@ -185,7 +189,6 @@
 			     	  	 v ="相似度未知"
 			     	 }
 			     }
-
 			     if(k=="latestFinanceAmountStr" && !v){v="融资金额未知"}
 			     if(k=="latestFinanceDT"){
 			     	if(!v){v="融资日期未知"}else{v =formatDate(v)}
