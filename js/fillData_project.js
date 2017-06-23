@@ -83,7 +83,7 @@ function projectTeamListFormatter(data,div){
              temp = staticTemplate
           })
      }else{
-         html="<span>暂无数据</span>"
+         html="<span class='product_eeu'>暂无数据</span>"
      }
      div.append(html)
 }
