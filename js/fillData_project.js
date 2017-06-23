@@ -372,10 +372,10 @@ var callBack = {
            if(k == "latestFinanceRound" || k=="runState" || k=="needFinance"){
                if(!v) o.removeClass(o.attr("class"));
            }else if(k == "logoSmall"){
-                if (row.logoSmall&&row.logoSmall.indexOf("/")!=-1){
-                    img = row.logoSmall.split("/")[1]
-                }else if (row.logoSmall&&row.logoSmall!=""){
-                    img = row.logoSmall
+                if (v && v.indexOf("/")!=-1){
+                    img = v.split("/")[1]
+                }else if (v && v!=""){
+                    img = v
                 }
                 if(img.indexOf(".") == -1){
                     img = ""
