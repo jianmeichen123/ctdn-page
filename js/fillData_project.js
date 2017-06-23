@@ -371,7 +371,7 @@ var callBack = {
            var v =data[k];
            if(k == "latestFinanceRound" || k=="runState" || k=="needFinance"){
                if(!v) o.removeClass(o.attr("class"));
-           }else if(k == "logoBig"){
+           }else if(k == "logoSmall"){
                 if(!v){
                      v = '<img src="img/default2.gif" >';
                 }else{
