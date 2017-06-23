@@ -380,7 +380,7 @@ var callBack = {
                 if(img.indexOf(".") == -1){
                     img = ""
                 }
-                v= Constants.logoPath+img
+                v= '<img src="'+Constants.logoPath+img+'">'
            }else if(k=="projTitle"){
                 if(!v){
                     v = "名称未知"
