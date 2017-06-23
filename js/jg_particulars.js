@@ -15,7 +15,12 @@ function fillBaseInfo(data,divList){
                 }
            }else{
                 if(k=='logo'){
-                   o.attr('src','http:///10.10.0.147/org/'+v)
+                   if(!v){
+                        v='0783e0de6ce367754ebbefb7ed3ae4bb.jpg'
+                        o.attr('src','http:///10.10.0.147/org/'+v)
+                   }else{
+                        o.attr('src','http:///10.10.0.147/org/'+v)
+                   }
                 }
                 if(k=="foundDate"){
                     v = formatDate(v,"yyyy-MM-dd")
@@ -76,7 +81,7 @@ function eventInfoListFormatter(data,div){
 }
 //相关新闻
 function orgMediaInfoListFormatter(data,div){
-   var staticTemplate = '<tr> <td class="one">${title}</td> <td class="two">${content}</td> <td class="three">${eventDate}</td> </tr>'
+   var staticTemplate = '<tr> <td class="one">${title}</td> <td class="two">${content}</td> <td class="three">${eventDate}</td></tr>'
    var temp = staticTemplate;
     var html =""
     $(data).each(function(i,row){
@@ -85,6 +90,11 @@ function orgMediaInfoListFormatter(data,div){
                 if(k =="eventDate"){
                     v = formatDate(v, "yyyy-MM-dd")
                 }
+
+                if(k=='title'){
+                    v='<span class="list_table_td"><a href="'+row.link+'">'+v+'</a></span>'
+                }
+
                 if(!v){ v = "-"}
                 temp = temp.replace("${"+k+"}",v)
              }
