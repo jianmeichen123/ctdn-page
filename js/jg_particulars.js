@@ -34,7 +34,7 @@ function fillBaseInfo(data,divList){
         })
     })
 }
-
+var orgId = getHrefParamter("orgId")
 //投资事件
 function eventInfoListFormatter(data,div){
      var staticTemplate =  "<tr><td>${investSideJson}</td><td>${company}</td><td>${investDate}</td><td>${round}</td><td> ${amountStr}</td><td>${eventId}</td></tr>";
@@ -52,7 +52,11 @@ function eventInfoListFormatter(data,div){
                         for(i in ls){
                             var json = ls[i]
                             if(i<3){
-                                firms += json.invstor+"<br>";
+                                if(json.id==orgId){
+                                    firms += json.invstor+"<br>";
+                                }else{
+                                    firms +='<span class="list_table_td"><a href="jg_particulars.html?orgId='+json.id+'">'+json.invstor+'</a></span><br>'
+                                }
                             }
                         }
 //                        $(ls).each(function(){
@@ -147,5 +151,5 @@ function projectContactListFormatter(data,div){
     })
     div.append(html)
 }
-var orgId = getHrefParamter("orgId")
+
 sendGetRequest(detail.queryInvestOrgInfo+orgId,function(data){fillBaseInfo(data.data,$("div[data-query='baseOrgInfo']")); fillList(data.data,$("*[data-query='list']"))})
