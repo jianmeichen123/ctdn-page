@@ -48,7 +48,7 @@
 		<!--</div>-->
 		<div class="project_all">
 			<!-- 工商信息-->
-			<div class="project_t"><span class="brain_ico brain_ico_project_crumbs"></span>工商信息</div>
+			<div class="project_t"><span class="brain_ico brain_ico_project_crumbs"></span>对外投资</div>
 			<div class="particulars_black m_t5">
 				<table class=" particulars_table_list m_t5">
 					<thead>
@@ -128,7 +128,7 @@
 		  var ls = json["investSideJson"];
 		  var firms = "";
 		  $(ls).each(function(i){
-			if(li<3){
+			if(i<3){
 				if($(this)[0].isClick=="1"){
 					firms += "<div><a href = 'jg_particulars.html?orgId="+$(this)[0].id+"'>"+$(this)[0].invstor+"</a><div>";
 				}else{

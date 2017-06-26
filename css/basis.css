@@ -242,9 +242,10 @@ com{color:#1ed2ff;}
 .project_all_l{width:1000px; float:left;}
 .project_all_r{width:120px; background-color:#fff; border:1px solid #f0f0f0; float:right;margin-top: 40px;}
 .project_all_r_top{position:fixed;  top:65px; right:50%; margin-right:-570px;    margin-top:0px;}
-.project_all_r ul li{ line-height:38px; text-align:center; height:38px; position:relative; cursor: pointer;}
-.brain_ico_project_circle{background-position:0 -65px;display: none; top:11px;left: 17px; position:absolute; width:15px;  height:15px;}
+.project_all_r ul li{ line-height:38px;  text-align:center; height:38px; position:relative; cursor: pointer;}
+.brain_ico_project_circle{background-position:0 -65px;display: none; top:11px;left: 10px; position:absolute; width:15px;  height:15px;}
 .project_all_r_on .brain_ico_project_circle{display:block;}
+.project_all_r_on,.project_all_r ul li:hover{font-size:14px;}
 .project_all_l_ul li{ overflow:hidden;}
 .project_all_l_ul li .color_666{height:72px; text-overflow:ellipsis; word-wrap: normal;  overflow:hidden;}
 .project_line_x{margin-top:20px; padding-top:20px;border-top: 1px solid #e6e6e6;}
@@ -252,6 +253,8 @@ com{color:#1ed2ff;}
 .project_bj_div{line-height:20px;    margin-bottom: 2px;}
 .product_list{margin-right:-20px; overflow:hidden; margin-bottom:-26px;}
 .product_list>li{width:300px; float:left; border:1px solid #e6e6e6; height:115px; margin-bottom:26px; margin-right:26px;}
+.product_eeu{margin-bottom: 24px; overflow: hidden; display: block;}
+.product_list_team .product_eeu{margin-bottom: 15px; overflow: hidden; display: block;}
 .product_list>li:before {
   content: '';
   display: inline-block;
@@ -390,4 +393,5 @@ com{color:#1ed2ff;}
 /*详情table 滚动条*/
 .particulars_table_list tbody { display:block; max-height:195px; overflow-y:auto; }
 .particulars_table_list thead, .particulars_table_list tbody tr {display:table;  width:100%; table-layout:fixed;}
-
+.particulars_table_list a,.project_new a{    color: #666666;     }
+.particulars_table_list a:hover ,.project_new a:hover{text-decoration: none;}
