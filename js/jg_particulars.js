@@ -54,8 +54,10 @@ function eventInfoListFormatter(data,div){
                             if(i<3){
                                 if(json.id==orgId){
                                     firms += json.invstor+"<br>";
-                                }else{
+                                }else if(json.id!=orgId&&json.type=='invst'){
                                     firms +='<span class="list_table_td"><a href="jg_particulars.html?orgId='+json.id+'">'+json.invstor+'</a></span><br>'
+                                }else{
+                                    firms += json.invstor+"<br>";
                                 }
                             }
                         }
