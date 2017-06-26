@@ -147,7 +147,7 @@ function projectContactListFormatter(data,div){
 }
 //上市挂牌
 function eventListedInfoListFormatter(data,div){
-   var staticTemplate = '<tr> <td style=""> <div class="list_table_td"> <img height="37" width="37" src="${logo}"> <ul class="col_999"> <li><a href="#">${projTitle}</a></li> <li><span>${districtSubName}</span><span>${industryName}</span></li> </ul> </div> </td> <td>${type}</td> <td>${stockExchange}</td> <td>${stockCode}</td> <td>${listedDate}</td> <td>${eventId}</td> </tr>'
+   var staticTemplate = '<tr> <td style=""> <div class="list_table_td"><span>${logo}</span> <ul class="col_999"> <li><a href="#">${projTitle}</a></li> <li><span>${districtSubName}</span><span>${industryName}</span></li> </ul> </div> </td> <td>${type}</td> <td>${stockExchange}</td> <td>${stockCode}</td> <td>${listedDate}</td> <td>${eventId}</td> </tr>'
    var temp = staticTemplate;
    var html = "";
     //遍历数组
@@ -157,9 +157,9 @@ function eventListedInfoListFormatter(data,div){
                    while(temp.indexOf("${"+k+"}") > 1){
                        if(k =="logo"){
                            if(!v){
-                               v= "img/default.gif"
+                               v= '<img height="37" width="37" src="img/default.gif">'
                            }else{
-                               v = Constants.logoPath+v
+                               v ='<img height="37" width="37" src="'+Constants.logoPath+v+'">'
                            }
                        }else if(k=="industryName"){
                             var str = "";

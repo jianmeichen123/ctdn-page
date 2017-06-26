@@ -62,19 +62,19 @@
 						</tr>
 					</thead>
 					<tbody >
-						<tr style ="display:none">
-							<td data-field="investDate" data-formatter="formatDate"></td>
-							<td >
-								<div class="list_table_td">
-									<img data-field="logo"  height="37" width="37" src="http:///10.10.0.147/6668112c3243f8e18a89e4cc07e338e7.png"> <ul class="col_999"> <li data-field="company" data-formatter="companyFormatter"></li> <li><span data-field="districtSubName" data-formatter="地区未知"></span> <span data-field="industryName" data-formatter="行业未知"></span></li> </ul>
-								</div>
-							</td>
-							<td data-field="round" data-formatter="-"></td>
-							<td data-field="amountStr" data-formatter="未透露"></td>
-							<td class="number_th_20" data-field="investSideJson" data-formatter="investSideFormatter">
-							</td>
-							<td data-field="eventId" data-formatter="detailFormatter"></td>
-						</tr>
+						<!--<tr style ="display:none">-->
+							<!--<td data-field="investDate"></td>-->
+							<!--<td >-->
+								<!--<div class="list_table_td">-->
+									<!--<img data-field="logo"  height="37" width="37" src="http:///10.10.0.147/6668112c3243f8e18a89e4cc07e338e7.png"> <ul class="col_999"> <li data-field="company" ></li> <li><span data-field="districtSubName" ></span> <span data-field="industryName" ></span></li> </ul>-->
+								<!--</div>-->
+							<!--</td>-->
+							<!--<td data-field="round" ></td>-->
+							<!--<td data-field="amountStr" ></td>-->
+							<!--<td class="number_th_20" data-field="investSideJson">-->
+							<!--</td>-->
+							<!--<td data-field="eventId" ></td>-->
+						<!--</tr>-->
 					</tbody>
 				</table>
 			</div>
@@ -92,67 +92,83 @@
 		//}
 	   })
 	})
-	sendPostRequestByJsonObj(detail.queryEventByName,{"company":name},function(data){
-		var entityList = data.data;
-		var str = $("tbody").html();
-		var $h2 =$(str);
-		if(entityList.length>0){
-			$(entityList).each(function(i,row){
-				var ls = $h2.find("[data-field]");
-				$(ls).each(function(i,e){
-					var v = row[$(e).attr("data-field")]
-					var formatter = $(e).attr("data-formatter");
-					if(formatter){
-						//v有值,formatter为格式化函数
-						if(v && formatter in window){
-							v = window[formatter](v,row)
-						}else if(!v ){
-							//v无值,formatter为替代值
-							v =formatter;
-						}
-					}
-					//没有formatter就取v
-					$(e).html(v);
-				})
-				$h2.removeAttr("style");
-				$("tbody").append($h2)
-				$h2 = $(str)
-		 })
-		}else{
-			$("tbody").append("<tr> <td colspan='6'><span>暂无数据</span></th></tr>")
-		}
-
-     })
-     function investSideFormatter(v){
-     	  var json = eval("(" + v + ")");
-		  var ls = json["investSideJson"];
-		  var firms = "";
-		  $(ls).each(function(i){
-			if(i<3){
-				if($(this)[0].isClick=="1"){
-					firms += "<div><a href = 'jg_particulars.html?orgId="+$(this)[0].id+"'>"+$(this)[0].invstor+"</a><div>";
-				}else{
-					firms += "<div>"+$(this)[0].invstor+"</div>";
-				}
-			}
-		  })
-		  v = firms
-		  return v;
-     }
-     function detailFormatter(v){
-     	if(v){
-     		return "<a href='tzsj_particulars.html?eventId='"+v+">详情</a>"
-     	}
-     }
-     function companyFormatter(v,row){
-     	if(v){
-     		return "<a href ='project_qy.html?code='"+row.sourceCode+">"+v+"</a>"
-     	}else{
-     		return "名称未知"
-     	}
-     }
      nav_locaton('ctsj','qyxm','','dwtz')
 </script>
-
+<script>
+    var staticTemplate = '<tr> <td>${investDate}</td> <td > <div class="list_table_td"><span>${logo}</span><ul class="col_999"> <li >${company}</li> <li><span>${districtSubName}</span> <span >${industryName}</span></li> </ul> </div> </td> <td  >${round}</td> <td >${amountStr}</td> <td class="number_th_20">${investSideJson} </td> <td >${eventId}</td> </tr>'
+	 var temp = staticTemplate;
+	 var html = "";
+	 sendPostRequestByJsonObj(detail.queryEventByName,{"company":name},function(data){
+		var entityList = data.data;
+		if(entityList.length>0){
+			$(entityList).each(function(i,row){
+				 $.each(row,function(k,v){
+					   while(temp.indexOf("${"+k+"}") > 1){
+						   if(k=="investDate"){
+								if(v){v=formatDate(v)}else{v = "-"}
+						   }
+						   if(k=="company"){
+						   		v = "<a href='project_qy.html?code="+row.sourceCode+"'>"+v+"</a>"
+						   }
+						   if(k=="districtSubName"){
+						   		if(v){
+						   			v = "<span class='zz'>"+v+"</span>"
+						   		}
+						   }
+						   if(k=="logo"){
+							   if(!v){
+								   v= '<img height="37" width="37" src="img/default.gif">'
+							   }else{
+								   v ='<img height="37" width="37" src="'+Constants.logoPath+v+'">'
+							   }
+						   }
+						   if(k=="industryName"){
+								if(!v){v="行业未知"}
+						   }
+						   if(k=="round"){
+						   		if(!v){v="-"}
+						   }
+						   if(k=="amountStr"){
+						   		if(!v){v="未透露"}
+						   }
+						   if(k=="investSideJson"){
+						   	  var json = eval("(" + v + ")");
+							  var ls = json["investSideJson"];
+							  var firms = "";
+							  $(ls).each(function(i){
+								if(i<3){
+									if($(this)[0].isClick=="1"){
+										firms += "<div><a href = 'jg_particulars.html?orgId="+$(this)[0].id+"'>"+$(this)[0].invstor+"</a><div>";
+									}else{
+										firms += "<div>"+$(this)[0].invstor+"</div>";
+									}
+								}
+							  })
+							  v = firms
+						   }
+						   if(k=="company"){
+						   		if(v){
+									v= "<a href ='project_qy.html?code='"+row.sourceCode+">"+v+"</a>"
+								}else{
+									v= "名称未知"
+								}
+						   }
+						   if(k=="eventId"){
+						   		if(v){
+									v= "<a href='tzsj_particulars.html?eventId="+v+"'>详情</a>"
+								}
+						   }
+						   temp =temp.replace("${"+k+"}",v)
+					   }
+				 })
+			     html += temp;
+			     temp = staticTemplate
+		 	})
+		}else{
+			html  = "<tr> <td colspan='6'><span>暂无数据</span></th></tr>"
+		}
+		$("tbody").append(html)
+     })
+</script>
 </body>
 </html>
