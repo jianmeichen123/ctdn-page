@@ -66,7 +66,7 @@
 							<td data-field="investDate" data-formatter="formatDate"></td>
 							<td >
 								<div class="list_table_td">
-									<img data-field="logo"  height="37" width="37" src="http:///10.10.0.147/6668112c3243f8e18a89e4cc07e338e7.png"> <ul class="col_999"> <li data-field="company" data-formatter="名称未知"></li> <li><span data-field="districtSubName" data-formatter="地区未知"></span> <span data-field="industryName" data-formatter="行业未知"></span></li> </ul>
+									<img data-field="logo"  height="37" width="37" src="http:///10.10.0.147/6668112c3243f8e18a89e4cc07e338e7.png"> <ul class="col_999"> <li data-field="company" data-formatter="companyFormatter"></li> <li><span data-field="districtSubName" data-formatter="地区未知"></span> <span data-field="industryName" data-formatter="行业未知"></span></li> </ul>
 								</div>
 							</td>
 							<td data-field="round" data-formatter="-"></td>
@@ -105,7 +105,7 @@
 					if(formatter){
 						//v有值,formatter为格式化函数
 						if(v && formatter in window){
-							v = window[formatter](v)
+							v = window[formatter](v,row)
 						}else if(!v ){
 							//v无值,formatter为替代值
 							v =formatter;
@@ -141,7 +141,14 @@
      }
      function detailFormatter(v){
      	if(v){
-     		return "<a href='#?eventId='"+v+">详情</a>"
+     		return "<a href='tzsj_particulars.html?eventId='"+v+">详情</a>"
+     	}
+     }
+     function companyFormatter(v,row){
+     	if(v){
+     		return "<a href ='project_qy.html?code='"+row.sourceCode+">"+v+"</a>"
+     	}else{
+     		return "名称未知"
      	}
      }
      nav_locaton('ctsj','qyxm','','dwtz')
