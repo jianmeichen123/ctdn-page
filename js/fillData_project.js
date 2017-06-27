@@ -418,17 +418,16 @@ var callBack = {
                 }
            }else if(k=="weibo"){
                 if(v){
-                    v='<a href ="'+v+'"><span class="brain_ico brain_ico_project_1_on"></span></a>'
+                    v='<a href ="'+v+'" target="_blank"><span class="brain_ico brain_ico_project_1_on"></span></a>'
                 }else{
                     v='<span class="brain_ico brain_ico_project_1"></span>'
                 }
            }else if(k=="weixin"){
                if(v){
-               o.parent().append('<ul class="weixin_ewm"><li class="wx_img"><img src="https://open.weixin.qq.com/qr/code/?username='+v+'"><span>'+v+'</span>	</li> </ul>')
-                v='<span class="brain_ico brain_ico_project_2_on"  ></span>'
-
+                    o.parent().append('<ul class="weixin_ewm"><li class="wx_img"><img src="https://open.weixin.qq.com/qr/code/?username='+v+'"><span>'+v+'</span>	</li> </ul>')
+                    v='<span class="brain_ico brain_ico_project_2_on"  ></span>'
                }else{
-                v='<span class="brain_ico brain_ico_project_2"  title="" ></span>'
+                    v='<span class="brain_ico brain_ico_project_2"  title="" ></span>'
                }
            }else if(k=="webUrl"){
                 if(v){
