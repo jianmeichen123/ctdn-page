@@ -52,6 +52,9 @@ function eventDetailListFormatter(data,div){
    var staticTemplate = '<tr> <td>${investor}</td> <td>${fund}</td> <td>${org}</td><td>${role}</td> <td>${amount}</td><td>${stock}</td><td>${orgType}</td><td>${quitTime}</td><td>${quitType}</td><td>${returnAmount}</td><td>${returnMulti}</td></tr>'
    var temp = staticTemplate;
     var html =""
+    if(!data.length>0){
+                 html="<tr> <td colspan='6'><span>暂无数据</span></th></tr>"
+     }
     $(data).each(function(i,row){
         var eventId = 0;
 
