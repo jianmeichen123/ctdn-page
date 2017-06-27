@@ -177,7 +177,7 @@ com{color:#1ed2ff;}
 .fr{ float:right;}
 .width_97{width:110px; display:block; text-align:right;}
 .particulars_all{    width: 100%; overflow: hidden;  margin-top: 28px; position: relative;}
-.particulars_black{width:100%; height:160px;border:1px solid #f0f0f0; background-color:#fff; padding:20px 20px;}
+.particulars_black{width:100%; height:auto;overflow:hidden;border:1px solid #f0f0f0; background-color:#fff; padding:20px 20px;}
 .particulars_k{width:100%; overflow:hidden;}
 .particulars_tit img{ float:left; width:70px; height:70px; border:1px solid #e6e6e6; border-radius:4px; overflow:hidden;}
 .particulars_tit ul{ float:left; margin-left:10px; margin-bottom: 0px;}
@@ -216,15 +216,16 @@ com{color:#1ed2ff;}
 .project_absolute_green{ color:#3eb51a; border:1px solid #3eb51a;}
 .project_absolute_lan{ color:#a987ff; border:1px solid #a987ff;}
 .project_lable{background-color:#f2f2f2; color:#999999; display:block; padding-left:13px; padding-right:13px; float:left; border-radius:13px; margin-right:10px; margin-top:5px; height:26px; line-height:26px;}
-.project_tit_r{position:relative;width:375px; float:right; border-left:1px solid #e6e6e6;    padding-top: 10px; padding-bottom: 10px;}
+.project_tit_r{width:375px; float:right; border-left:1px solid #e6e6e6;    padding-top: 10px; padding-bottom: 10px;}
 .project_tit_r ul{margin-left:30px;}
 .project_tit_r ul li{ line-height:26px;}
-.brain_ico_project_1{ background-position:0 -41px; width: 23px;  height: 20px; display: inline-block; margin-right:30px; float:right;}
-.brain_ico_project_2{ background-position:-59px -65px; width: 23px;  height: 20px; display: inline-block; margin-right:30px; float:right;}
+.brain_ico_project_1{ background-position:0 -41px; width: 23px;  height: 20px; display: inline-block; float:right;}
+.brain_ico_project_2{ background-position:-59px -65px; width: 23px;  height: 20px; display: inline-block; float:right;}
 .brain_ico_project_3{ background-position:-54px -41px; width: 23px;  height: 20px; display: inline-block; float:right;}
-.brain_ico_project_1_on{  cursor:pointer;  background-position:-28px -65px; width: 23px;  height: 20px; display: inline-block; margin-right:30px; float:right;}
-.brain_ico_project_2_on{ cursor:pointer;  background-position:-27px -41px; width: 23px;  height: 20px; display: inline-block; margin-right:30px; float:right;}
+.brain_ico_project_1_on{  cursor:pointer;  background-position:-28px -65px; width: 23px;  height: 20px; display: inline-block; float:right;}
+.brain_ico_project_2_on{ cursor:pointer;  background-position:-27px -41px; width: 23px;  height: 20px; display: inline-block; float:right;}
 .brain_ico_project_3_on{ cursor:pointer;  background-position:-87px -65px; width: 23px;  height: 20px; display: inline-block; float:right;}
+.brain_ico_project_span{width: 23px;  height: 20px; display: inline-block; margin-left:30px; float:right;}
 .project_nav{width:100%; background-color:#ecf3ff; height:44px;}
 .project_nav_top{position:fixed; top:0; width:1140px;left:50%; margin-left:-570px; z-index:999;}
 .project_nav ul {margin-left:1%}
