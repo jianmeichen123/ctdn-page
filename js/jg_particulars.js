@@ -22,6 +22,9 @@ function fillBaseInfo(data,divList){
                         o.attr('src','http:///10.10.0.147/org/'+v)
                    }
                 }
+                if(k=='webUrl'){
+                    v='<span class="list_table_td"><a target=_blank href="'+v+'">'+v+'</a></span>'
+                }
                 if(k=="foundDate"){
                     v = formatDate(v,"yyyy-MM-dd")
                 }
@@ -105,7 +108,7 @@ function orgMediaInfoListFormatter(data,div){
 
                 if(k=='title'){
                     if(row.link)
-                    v='<span class="list_table_td"><a href="'+row.link+'">'+v+'</a></span>'
+                    v='<span class="list_table_td"><a target=_blank href="'+row.link+'">'+v+'</a></span>'
                 }
 
                 if(!v){ v = "-"}
