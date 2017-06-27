@@ -176,7 +176,7 @@ function eventListedInfoListFormatter(data,div){
                            if(!v){
                                 v="地区未知"
                            }else{
-                                v = v+'<span>'+row.districtGrandsonName+'</span>'
+                                v ='<span>'+v+'</span>'
                            }
                        }else if(k =="listedDate"){
                            if(v){
