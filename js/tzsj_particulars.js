@@ -34,7 +34,7 @@ function fillBaseEventInfo(data,divList){
                 for(i in ls){
                     var json = ls[i]
                     if(i<3){
-                        firms += "<a href = '#?id="+json.id+"'>"+json.invstor+"</a><br>";
+                        firms += "<a target=_blank href = '#?id="+json.id+"'>"+json.invstor+"</a><br>";
                     }
                 }
                 v = firms
@@ -76,10 +76,10 @@ function eventDetailListFormatter(data,div){
                 if(k=="investor"&&v){
                     var json = eval("(" + v + ")");
                     if(json.type=='invst'){
-                        v= "<span class='list_table_td'><a href = 'jg_particulars.html?orgId="+json.id+"'>"+json.invstor+"</a></span>";
+                        v= "<span class='list_table_td'><a target=_blank href = 'jg_particulars.html?orgId="+json.id+"'>"+json.invstor+"</a></span>";
                     }
                     if(json.type=='com'){
-                        v= "<span class='list_table_td'><a href = '/project_qy.html?code="+json.code+"'>"+json.invstor+"</a></span>";
+                        v= "<span class='list_table_td'><a target=_blank href = '/project_qy.html?code="+json.code+"'>"+json.invstor+"</a></span>";
                     }
                     if(json.type=='person'){
                         v = json.invstor

@@ -46,10 +46,10 @@ function mergeSideListFormatter(data,div){
                     for(i in ls){
                         mergeSideJson = ls[i]
                         if(mergeSideJson.type=='com'){
-                            v= "<span class='list_table_td'><a href = '/project_qy.html?code="+mergeSideJson.code+"'>"+mergeSideJson.title+"</a></span>";
+                            v= "<span class='list_table_td'><a target=_blank href = '/project_qy.html?code="+mergeSideJson.code+"'>"+mergeSideJson.title+"</a></span>";
                         }
                         if(mergeSideJson.type=='invse'){
-                            v= "<span class='list_table_td'><a href = 'jg_particulars.html?orgId="+mergeSideJson.id+"'>"+mergeSideJson.title+"</a></span>";
+                            v= "<span class='list_table_td'><a target=_blank href = 'jg_particulars.html?orgId="+mergeSideJson.id+"'>"+mergeSideJson.title+"</a></span>";
                         }
                     }
                 }
@@ -81,10 +81,10 @@ function beenMergeSideListFormatter(data,div){
                     for(i in ls){
                         mergeSideJson = ls[i]
                         if(mergeSideJson.type=='com'){
-                            v= "<span class='list_table_td'><a href = '/project_qy.html?code="+mergeSideJson.code+"'>"+mergeSideJson.title+"</a></span>";
+                            v= "<span class='list_table_td'><a target=_blank href = '/project_qy.html?code="+mergeSideJson.code+"'>"+mergeSideJson.title+"</a></span>";
                         }
                         if(mergeSideJson.type=='invse'){
-                            v= "<span class='list_table_td'><a href = 'jg_particulars.html?orgId="+mergeSideJson.id+"'>"+mergeSideJson.title+"</a></span>";
+                            v= "<span class='list_table_td'><a target=_blank href = 'jg_particulars.html?orgId="+mergeSideJson.id+"'>"+mergeSideJson.title+"</a></span>";
                         }
                     }
                 }

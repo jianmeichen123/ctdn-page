@@ -61,7 +61,7 @@ function eventInfoListFormatter(data,div){
                                 if(json.id==orgId){
                                     firms += json.invstor+"<br>";
                                 }else if(json.id!=orgId&&json.type=='invst'){
-                                    firms +='<span class="list_table_td"><a href="jg_particulars.html?orgId='+json.id+'">'+json.invstor+'</a></span><br>'
+                                    firms +='<span class="list_table_td"><a target=_blank href="jg_particulars.html?orgId='+json.id+'">'+json.invstor+'</a></span><br>'
                                 }else{
                                     firms += json.invstor+"<br>";
                                 }
@@ -74,11 +74,11 @@ function eventInfoListFormatter(data,div){
                         v = firms
                     }
                     if(k=="company"){
-                        v='<span class="list_table_td"><a href="project_qy.html?code='+row.sourceCode+'">'+v+'</a></span>'
+                        v='<span class="list_table_td"><a target=_blank href="project_qy.html?code='+row.sourceCode+'">'+v+'</a></span>'
                     }
                     if(k == "eventId"){
                          // 跳转事件详情
-                         v = "<center><span class='list_table_td'><a href='/tzsj_particulars.html?eventId="+v+"'>详情</a><span><center>"
+                         v = "<center><span class='list_table_td'><a target=_blank href='/tzsj_particulars.html?eventId="+v+"'>详情</a><span><center>"
                     }
                     if(k =="investDate"){
                         v = formatDate(v, "yyyy-MM-dd")
