@@ -294,7 +294,7 @@ function newsListFormatter(data,div){
            $.each(row,function(k,v){
                while(temp.indexOf("${"+k+"}") > 1){
                    if(k=="link"){
-                        v ='<a href="'+v+'"><span class="one">'+row.content+'</span></a>';
+                        v ='<a href="'+v+'" target="_blank"><span class="one">'+row.content+'</span></a>';
                    }
                    temp =temp.replace("${"+k+"}",v)
                }
@@ -389,7 +389,7 @@ var callBack = {
                if(!v){
                    v="地区未知"
                }else{
-                   v = v+'<span>'+data.districtGrandsonName+'</span>'
+                   v = '<span>'+v+'</span>'+'<span>'+data.districtGrandsonName+'</span>'
                }
            }else if(k=="industryName"){
                 var str = "";
@@ -430,7 +430,7 @@ var callBack = {
                }
            }else if(k=="webUrl"){
                 if(v){
-                    v ='<a href ="'+v+'"><span class="brain_ico brain_ico_project_3_on"></span></a>'
+                    v ='<a href ="'+v+'" target="_blank"><span class="brain_ico brain_ico_project_3_on"></span></a>'
                 }else{
                     v = '<span class="brain_ico brain_ico_project_3"></span>'
                 }
@@ -444,7 +444,7 @@ var callBack = {
 	            		 o.css('height','auto')
 	                	 o.parent().children('.project_more').hide()
                 	}else {
-						
+
 					}
                 }
            }
