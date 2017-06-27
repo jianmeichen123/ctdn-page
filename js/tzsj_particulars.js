@@ -34,7 +34,7 @@ function fillBaseEventInfo(data,divList){
                 for(i in ls){
                     var json = ls[i]
                     if(i<3){
-                        firms += "<a target=_blank href = '#?id="+json.id+"'>"+json.invstor+"</a><br>";
+                        firms += "<a target='_blank' href = '#?id="+json.id+"'>"+json.invstor+"</a><br>";
                     }
                 }
                 v = firms
@@ -52,51 +52,51 @@ function eventDetailListFormatter(data,div){
    var staticTemplate = '<tr> <td>${investor}</td> <td>${fund}</td> <td>${org}</td><td>${role}</td> <td>${amount}</td><td>${stock}</td><td>${orgType}</td><td>${quitTime}</td><td>${quitType}</td><td>${returnAmount}</td><td>${returnMulti}</td></tr>'
    var temp = staticTemplate;
     var html =""
-    if(!data.length>0){
-                 html="<tr> <td colspan='6'><span>暂无数据</span></th></tr>"
-     }
-    $(data).each(function(i,row){
-        var eventId = 0;
 
-         $.each(row,function(k,v){
-            if(k=="eventId"){
-                 eventId = v
-             }
-             while(temp.indexOf("${"+k+"}") > 1){
-                if(k=="quitTime"){
-                    v = formatDate(v, "yyyy-MM-dd")
-                }
-                if(k=="role"&&!v){
-                    v="未透露"
-                }
-                if(k=="stock"&&!v){
-                    v="未透露"
-                }
-
-                if(k=="investor"&&v){
-                    var json = eval("(" + v + ")");
-                    if(json.type=='invst'){
-                        v= "<span class='list_table_td'><a target=_blank href = 'jg_particulars.html?orgId="+json.id+"'>"+json.invstor+"</a></span>";
+    if(data.length>0){
+        $(data).each(function(i,row){
+            var eventId = 0;
+             $.each(row,function(k,v){
+                if(k=="eventId"){
+                     eventId = v
+                 }
+                 while(temp.indexOf("${"+k+"}") > 1){
+                    if(k=="quitTime"){
+                        v = formatDate(v, "yyyy-MM-dd")
                     }
-                    if(json.type=='com'){
-                        v= "<span class='list_table_td'><a target=_blank href = '/project_qy.html?code="+json.code+"'>"+json.invstor+"</a></span>";
+                    if(k=="role"&&!v){
+                        v="未透露"
                     }
-                    if(json.type=='person'){
-                        v = json.invstor
+                    if(k=="stock"&&!v){
+                        v="未透露"
                     }
-                    if(json.type=='unknown'){
-                        v = '<div class="list_table_td"><span class="black">'+json.invstor+'</span></div>'
+                    if(k=="investor"&&v){
+                        var json = eval("(" + v + ")");
+                        if(json.type=='invst'){
+                            v= "<span class='list_table_td'><a target='_blank' href = 'jg_particulars.html?orgId="+json.id+"'>"+json.invstor+"</a></span>";
+                        }
+                        if(json.type=='com'){
+                            v= "<span class='list_table_td'><a target='_blank' href = '/project_qy.html?code="+json.code+"'>"+json.invstor+"</a></span>";
+                        }
+                        if(json.type=='person'){
+                            v = json.invstor
+                        }
+                        if(json.type=='unknown'){
+                            v = '<div class="list_table_td"><span class="black">'+json.invstor+'</span></div>'
+                        }
+    //                    v='<div class="list_table_td"><center><span class="col_999"><a href="/jg_particulars.html?orgId='+eventId+'">'+v+'</a></span></center></div>'
+    //                    v='<a href="#">'+v+'</a>'
                     }
-//                    v='<div class="list_table_td"><center><span class="col_999"><a href="/jg_particulars.html?orgId='+eventId+'">'+v+'</a></span></center></div>'
-//                    v='<a href="#">'+v+'</a>'
-                }
-                if(!v){ v = "-"}
-                temp = temp.replace("${"+k+"}",v)
-             }
-         })
-         html += temp;
-         temp = staticTemplate
-    })
+                    if(!v){ v = "-"}
+                    temp = temp.replace("${"+k+"}",v)
+                 }
+             })
+             html += temp;
+             temp = staticTemplate
+        })
+    }else{
+         html="<tr> <td colspan='6'><span>暂无数据</span></th></tr>"
+    }
     div.append(html)
 }
 
