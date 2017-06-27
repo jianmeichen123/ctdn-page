@@ -73,6 +73,9 @@ function eventInfoListFormatter(data,div){
 //                        })
                         v = firms
                     }
+                    if(k=="company"){
+                        v='<span class="list_table_td"><a href="project_qy.html?code='+row.sourceCode+'">'+v+'</a></span>'
+                    }
                     if(k == "eventId"){
                          // 跳转事件详情
                          v = "<center><span class='list_table_td'><a href='/tzsj_particulars.html?eventId="+v+"'>详情</a><span><center>"
