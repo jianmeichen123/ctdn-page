@@ -40,6 +40,9 @@ function eventInfoListFormatter(data,div){
      var staticTemplate =  "<tr><td>${investSideJson}</td><td>${company}</td><td>${investDate}</td><td>${round}</td><td> ${amountStr}</td><td>${eventId}</td></tr>";
      var temp = staticTemplate;
      var html = "";
+     if(!data.length>0){
+             html="<tr> <td colspan='6'><span>暂无数据</span></th></tr>"
+     }
      //遍历数组
      $(data).each(function(i,row){
         $.each(row,function(k,v){
@@ -90,6 +93,9 @@ function orgMediaInfoListFormatter(data,div){
    var staticTemplate = '<tr> <td class="one">${title}</td> <td class="two">${content}</td> <td class="three">${eventDate}</td></tr>'
    var temp = staticTemplate;
     var html =""
+    if(!data.length>0){
+        html="<tr> <td colspan='6'><span>暂无数据</span></th></tr>"
+    }
     $(data).each(function(i,row){
          $.each(row,function(k,v){
              while(temp.indexOf("${"+k+"}") > 1){
@@ -116,6 +122,9 @@ function orgMemberInfoListFormatter(data,div){
    var staticTemplate = '<tr> <td>${fund}</td> <td>${investOrg}</td> <td>${foundDate}</td><td>${fundType}</td> <td>${investDate}</td><td>${commitAmount}</td></tr>'
    var temp = staticTemplate;
     var html =""
+    if(!data.length>0){
+            html="<tr> <td colspan='6'><span>暂无数据</span></th></tr>"
+    }
     $(data).each(function(i,row){
          $.each(row,function(k,v){
              while(temp.indexOf("${"+k+"}") > 1){
@@ -139,6 +148,9 @@ function projectContactListFormatter(data,div){
     var staticTemplate ='<tr> <td>${city}</td> <td>${addr}</td> <td>${zipCode}</td> <td>${tel}</td> <td>${mail}</td> <td>${fax}</td> </tr>'
     var temp = staticTemplate;
     var html = "";
+    if(!data.length>0){
+            html="<tr> <td colspan='6'><span>暂无数据</span></th></tr>"
+    }
     $(data).each(function(i,row){
      $.each(row,function(k,v){
          while(temp.indexOf("${"+k+"}") > 1){
