@@ -33,6 +33,9 @@ function mergeSideListFormatter(data,div){
    var staticTemplate = '<tr> <td>${partyName}</td> <td>${industry}</td> <td>${district}</td><td>${isVcFe}</td> <td>${isStock}</td><td>${isNation}</td><td>${lawFirms}</td><td>${accountFirms}</td><td>${financeConsult}</td></tr>'
    var temp = staticTemplate;
     var html =""
+    if(!data.length>0){
+                 html="<tr> <td colspan='6'><span>暂无数据</span></th></tr>"
+     }
     $(data).each(function(i,row){
          $.each(row,function(k,v){
              while(temp.indexOf("${"+k+"}") > 1){
@@ -65,6 +68,9 @@ function beenMergeSideListFormatter(data,div){
    var staticTemplate = '<tr> <td>${partyName}</td> <td>${industry}</td> <td>${district}</td><td>${isVcFe}</td> <td>${isStock}</td><td>${isNation}</td><td>${lawFirms}</td><td>${accountFirms}</td><td>${financeConsult}</td></tr>'
    var temp = staticTemplate;
     var html =""
+    if(!data.length>0){
+                 html="<tr> <td colspan='6'><span>暂无数据</span></th></tr>"
+     }
     $(data).each(function(i,row){
          $.each(row,function(k,v){
              while(temp.indexOf("${"+k+"}") > 1){
