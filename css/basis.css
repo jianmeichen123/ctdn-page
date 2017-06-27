@@ -177,7 +177,7 @@ com{color:#1ed2ff;}
 .fr{ float:right;}
 .width_97{width:110px; display:block; text-align:right;}
 .particulars_all{    width: 100%; overflow: hidden;  margin-top: 28px; position: relative;}
-.particulars_black{width:100%; overflow:hidden; border:1px solid #f0f0f0; background-color:#fff; padding:20px 20px;}
+.particulars_black{width:100%; height:160px;border:1px solid #f0f0f0; background-color:#fff; padding:20px 20px;}
 .particulars_k{width:100%; overflow:hidden;}
 .particulars_tit img{ float:left; width:70px; height:70px; border:1px solid #e6e6e6; border-radius:4px; overflow:hidden;}
 .particulars_tit ul{ float:left; margin-left:10px; margin-bottom: 0px;}
@@ -216,7 +216,7 @@ com{color:#1ed2ff;}
 .project_absolute_green{ color:#3eb51a; border:1px solid #3eb51a;}
 .project_absolute_lan{ color:#a987ff; border:1px solid #a987ff;}
 .project_lable{background-color:#f2f2f2; color:#999999; display:block; padding-left:13px; padding-right:13px; float:left; border-radius:13px; margin-right:10px; margin-top:5px; height:26px; line-height:26px;}
-.project_tit_r{width:375px; float:right; border-left:1px solid #e6e6e6;    padding-top: 10px; padding-bottom: 10px;}
+.project_tit_r{position:relative;width:375px; float:right; border-left:1px solid #e6e6e6;    padding-top: 10px; padding-bottom: 10px;}
 .project_tit_r ul{margin-left:30px;}
 .project_tit_r ul li{ line-height:26px;}
 .brain_ico_project_1{ background-position:0 -41px; width: 23px;  height: 20px; display: inline-block; margin-right:30px; float:right;}
@@ -395,3 +395,12 @@ com{color:#1ed2ff;}
 .particulars_table_list thead, .particulars_table_list tbody tr {display:table;  width:100%; table-layout:fixed;}
 .particulars_table_list a,.project_new a{    color: #666666;     }
 .particulars_table_list a:hover ,.project_new a:hover{text-decoration: none;}
+/* 微信二维码 */
+.weixin{position:relative;}
+.project_tit_r .weixin_ewm{display:none;position:absolute;z-index:9;width:140px;padding:10px 20px 4px;background-color:rgba(0,0,0,.8);border-top:15px solid #fff;color:#fff;}
+.project_tit_r .wx_img{width:100px;display:block;}
+.project_tit_r .wx_img img{width:100%}
+.project_tit_r .wx_img span{;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;padding:5px 0 0;text-align:center;}
+.project_tit_r .weixin_ewm:after{content:"";display:block;width:0;height:0;border-left:10px solid transparent;border-right:10px solid transparent;border-bottom:10px solid rgba(0,0,0,.8);position:absolute;top:-10px;left:60px;}
+
+
