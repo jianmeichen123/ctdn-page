@@ -385,11 +385,17 @@ var callBack = {
                 if(!v){
                     v = "名称未知"
                 }
+           }else if(k=="introduce"){
+                if(!v) v = "暂无描述"
+
            }else if(k=="districtSubName"){
                if(!v){
                    v="地区未知"
                }else{
-                   v = '<span>'+v+'</span>'+'<span>'+data.districtGrandsonName+'</span>'
+                   v = '<span>'+v+'</span>'
+                   if(data.districtGrandsonName){
+                     v +='<span>'+data.districtGrandsonName+'</span>'
+                   }
                }
            }else if(k=="industryName"){
                 var str = "";
@@ -405,10 +411,8 @@ var callBack = {
            }else if(k=="labels"){
                 if(v){
                     var str = "";
-                    $(v.split(","),function(i,e){
-                       str.append("<span class='project_lable'>");
-                       str.append(e);
-                       str.append("</span>");
+                    $(v.split(",")).each(function(i,e){
+                         str+= "<span class='project_lable'>"+e+"</span>";
                     })
                     v = str
                 }

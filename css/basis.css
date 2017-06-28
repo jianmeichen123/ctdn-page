@@ -206,6 +206,8 @@ com{color:#1ed2ff;}
 #begin_on,#end_on{widh:100px; height:28px; border: 1px solid #cccccc;  border-radius: 4px;  height: 28px;  width: 100px;  text-indent: 5px;  font-size: 12px;}
 .particulars_table_list td .list_table_td li{line-height:20px;}
 span[data-field="districtSubName"] span{margin-right:5px;}
+.particulars_table_list tbody .list_table_td span{float:left}
+.particulars_table_list tbody .list_table_td span.zz{text-indent:0;}
 /*企业详情*/
 .project_tit{float:left; width:720px; position:relative; overflow:hidden;}
 .project_tit img { float: left;   width: 90px;   height: 90px;   border: 1px solid #e6e6e6;   border-radius: 4px;  overflow: hidden; }
@@ -273,7 +275,7 @@ span[data-field="districtSubName"] span{margin-right:5px;}
 .product_list_ul{color:#666; display:block; margin-left:10px; float:left; }
 .product_list_ul li{display:block; width:190px; overflow:hidden; text-overflow:ellipsis; white-space:normal; line-height:20px;}
 .product_list_team,.product_list_company,.project_new{margin-bottom:-15px; overflow:hidden;}
-.product_list_team>li{width:50%; float:left; overflow:hidden; margin-bottom:15px;}
+.product_list_team>li{width:50%; float:left; overflow:hidden; margin-bottom:15px;height:64px;}
 .product_list_team>li>img{width:64px; height:64px; float:left; border-radius:32px; }
 .product_list_team_ul{float:left; overflow:hidden; margin-left:10px; width:395px;}
 .product_list_team_ul>li{margin-bottom:5px;}
@@ -393,7 +395,7 @@ span[data-field="districtSubName"] span{margin-right:5px;}
 .index_banner{background:url(../img/banner.jpg)  no-repeat center top; height:290px; position:relative;}
 .index_ico_close{background-position:-375px -55px; height:25px; width:25px; position:absolute; right:0; top:0; cursor:pointer;}
 /*详情table 滚动条*/
-.particulars_table_list tbody { display:block; max-height:195px; overflow-y:auto; }
+.particulars_table_list tbody { display:block; overflow-y:auto; }
 .particulars_table_list thead, .particulars_table_list tbody tr {display:table;  width:100%; table-layout:fixed;}
 .particulars_table_list a,.project_new a{    color: #666666;     }
 .particulars_table_list a:hover ,.project_new a:hover{text-decoration: none;}
