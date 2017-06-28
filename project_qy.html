@@ -335,6 +335,16 @@ $(function(){
     	$(this).attr("href",$(this).attr("href")+"?code="+code)
    // }
    })
+ //团队信息两行显示
+ $(".product_list_team_ul").each(function(){
+	 var con=$(this).find("li:last").text();
+	 var len=con.length;
+	 if(len>60){
+		 $(this).find("li:last").text(con.substring(0,60)+"...")
+	 }else{
+		 $(this).find("li:last").text(con)
+	 }
+ })
 })
 /* 菜单悬浮 */
 var location_array = new Array()
