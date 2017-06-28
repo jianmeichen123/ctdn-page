@@ -281,6 +281,7 @@ span[data-field="districtSubName"] span{margin-right:5px;}
 .product_list_team_ul>li{margin-bottom:5px;}
 .product_list_company>li{widht:50%; float:left; margin-bottom:15px;}
 .product_list_company>li>img{width:33px; height:33px; float:left;}
+.product_list_team_ul li .zw{margin-left:5px;}
 .product_list_company div{float:left; overflow:hidden; margin-left:10px; width:395px; line-height:33px;}
 .project_new{width:100%; overflow:hidden; max-height: 300px; overflow-y: auto;}
 .project_new li{margin-bottom:15px;}
