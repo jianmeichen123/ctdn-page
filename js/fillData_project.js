@@ -385,11 +385,17 @@ var callBack = {
                 if(!v){
                     v = "名称未知"
                 }
+           }else if(k=="introduce"){
+                if(!v) v = "暂无描述"
+
            }else if(k=="districtSubName"){
                if(!v){
                    v="地区未知"
                }else{
-                   v = '<span>'+v+'</span>'+'<span>'+data.districtGrandsonName+'</span>'
+                   v = '<span>'+v+'</span>'
+                   if(data.districtGrandsonName){
+                     v +='<span>'+data.districtGrandsonName+'</span>'
+                   }
                }
            }else if(k=="industryName"){
                 var str = "";
