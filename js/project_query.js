@@ -148,6 +148,7 @@ var tableFormate ={
     listedProjectName:function(value, row, index){
             var projectName = row.projTitle
             var img = ""
+            var industrict = ""
             if(projectName==null){
                 projectName='名称未知'
             }
