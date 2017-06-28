@@ -283,6 +283,12 @@ span[data-field="districtSubName"] span{margin-right:5px;}
 .product_list_company>li>img{width:33px; height:33px; float:left;}
 .product_list_team_ul li .zw{margin-left:5px;}
 .product_list_company div{float:left; overflow:hidden; margin-left:10px; width:395px; line-height:33px;}
+.product_list .a{width:90px;height:115px;float:left;text-align:center;padding-top:80px;color:#fff;font-size:14px;font-family:"微软雅黑"}
+.product_list .a1{background:#6a8df1 url(../img/01.png) center 30px no-repeat;}
+.product_list .a2{background:#5b5b5b url(../img/02.png) center 30px no-repeat;}
+.product_list .a3{background:#8dce10 url(../img/03.png) center 30px no-repeat;}
+.product_list .a4{background:#d8211b url(../img/04.png) center 30px no-repeat;}
+.product_list .a5{background:#13a749 url(../img/05.png) center 30px no-repeat;}
 .project_new{width:100%; overflow:hidden; max-height: 300px; overflow-y: auto;}
 .project_new li{margin-bottom:15px;}
 .project_new .one{width:660px; display:block; float:left;}
