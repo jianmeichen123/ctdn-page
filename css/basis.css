@@ -274,7 +274,7 @@ span[data-field="districtSubName"] span{margin-right:5px;}
 .product_list>li>img{width:90px; height:115px; float:left;}
 .product_list_ul{color:#666; display:block; margin-left:10px; float:left; }
 .product_list_ul li{display:block; width:190px; overflow:hidden; text-overflow:ellipsis; white-space:normal; line-height:20px;}
-.product_list_team,.product_list_company,.project_new{margin-bottom:-15px; overflow:hidden;}
+.product_list_team,.product_list_company,.project_new{margin-bottom:-15px; overflow:hidden;height:64px;}
 .product_list_team>li{width:50%; float:left; overflow:hidden; margin-bottom:15px;}
 .product_list_team>li>img{width:64px; height:64px; float:left; border-radius:32px; }
 .product_list_team_ul{float:left; overflow:hidden; margin-left:10px; width:395px;}
