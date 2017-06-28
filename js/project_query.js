@@ -160,8 +160,8 @@ var tableFormate ={
             if(img.indexOf(".") == -1){
                 img = ""
             }
-            if (row.districtSubName){
-                industrict+=row.districtSubName
+            if (row.district){
+                industrict+=row.district
             }else{
                 industrict+='地区未知'
             }
