@@ -65,7 +65,7 @@ function eventInfoListFormatter(data,div){
 }
 //团队成员
 function projectTeamListFormatter(data,div){
-     var staticTemplate = '<li> <img src="img/default3.gif"/> <ul class="product_list_team_ul"> <li class="font_14">${name}<span >${job}</span></li> <li class="color_666 font_12" >${college}<span>${edu}</span></li> <li class="color_999 font_12">${introduction}</li> </ul> </li>'
+     var staticTemplate = '<li> <img src="img/default3.gif"/> <ul class="product_list_team_ul"> <li class="font_14">${name}<span class="zw">${job}</span></li> <li class="color_666 font_12" >${college}<span>${edu}</span></li> <li class="color_999 font_12" title="${introduction}">${introduction}</li> </ul> </li>'
      var temp = staticTemplate;
      var html = "";
      //遍历数组
@@ -202,7 +202,7 @@ function eventListedInfoListFormatter(data,div){
 }
 //并购事件
 function eventMergerInfoListFormatter(data,div){
-   var staticTemplate='<tr> <td style=""> <div class="list_table_td"> <img height="37" width="37" src="${logo}"> <ul class="col_999"> <li><a href="#">${projTitle}</a></li> <li><span>${districtSubName}</span><span>${industryName}</span></li> </ul> </div> </td><td>${equityRate}</td> <td>${amountStr}</td> <td>${mergeSideJson}</td> <td>${mergeState}</td> <td>${mergeDate}</td> <td>${eventId}</td> </tr>'
+   var staticTemplate='<tr> <td style="width:20%"> <div class="list_table_td"> <span><img height="37" width="37" src="${logo}"></span> <ul class="col_999"> <li><a href="#">${projTitle}</a></li> <li><span>${districtSubName}</span><span>${industryName}</span></li> </ul> </div> </td><td>${equityRate}</td> <td>${amountStr}</td> <td>${mergeSideJson}</td> <td>${mergeDate}</td> <td>${eventId}</td> </tr>'
    var temp = staticTemplate;
    var html = "";
    //遍历数组
@@ -247,7 +247,9 @@ function eventMergerInfoListFormatter(data,div){
                        if(v){
                           v = formatDate(v, "yyyy-MM-dd")
                        }
-                  }else if(k=="industryName"){
+                  }else if(k=="equityRate"){
+                       if(v){v += "%"}
+                 }else if(k=="industryName"){
                        var str = "";
                        if(v){
                            str += v;
@@ -336,11 +338,11 @@ var callBack = {
         productData:function(data){
                    if(data.success){
                         var p_html = {
-                            "domain":'<li id="{code}:str" op-data-type="pvuv" data-name="趋势分析图"> <img src="img/a1.jpg"> <div class="wrapper"> <ul class="product_list_ul"> <li>{appname}</li> <li>alexa排名：{index2}</li> </ul> </div> </li>',
-                            "android":'<li id="{appid}:long" op-data-type="android" data-name="趋势分析图"> <img src="img/a2.jpg"> <div class="wrapper"> <ul class="product_list_ul"> <li>下载总量：<span>{index1}</span></li> <li>每日下载量：<span>{index2}</span></li> <li>更新时间：<span>{updateDate}</span></li> <li>评分：<span>{avgScore}</span></li> </ul> </div> </li>',
-                            "ios":'<li id="{appid}:long" op-data-type="ios" data-name="趋势分析图"> <img src="img/a3.jpg"> <div class="wrapper"> <ul class="product_list_ul"> <li>下载总量：<span>{index1}</span></li> <li>每日下载量：<span>{index2}</span></li> <li>更新时间：<span>{updateDate}</span></li> <li>评分：<span>{avgScore}</span></li> </ul> </div> </li>',
-                            "weibo":'<li id="{appid}:str" op-data-type="weibo" data-name="趋势分析图"> <img src="img/a4.jpg"> <div class="wrapper"> <ul class="product_list_ul"> <li>微博数：<span>{index1}</span></li> <li> 粉丝数：<span>{index2}</span></li> </ul> </div> </li>',
-                            "weixin":'<li id="{appid}:str" op-data-type="weixin" data-name="趋势分析图"> <img src="img/a5.jpg"> <div class="wrapper"> <ul class="product_list_ul"> <li>平均阅读量：<span>{index1}</span></li> <li> 点赞量：<span>{index2}</span></li> </ul> </div> </li>',
+                            "domain":'<li id="{code}:str" op-data-type="pvuv" data-name="趋势分析图"><div class="a a1">PC</div> <div class="wrapper"> <ul class="product_list_ul"> <li>{appname}</li> <li>alexa排名：{index2}</li> </ul> </div> </li>',
+                            "android":'<li id="{appid}:long" op-data-type="android" data-name="趋势分析图"><div class="a a2">南方智投</div>  <div class="wrapper"> <ul class="product_list_ul"> <li>下载总量：<span>{index1}</span></li> <li>每日下载量：<span>{index2}</span></li> <li>更新时间：<span>{updateDate}</span></li> <li>评分：<span>{avgScore}</span></li> </ul> </div> </li>',
+                            "ios":'<li id="{appid}:long" op-data-type="ios" data-name="趋势分析图"><div class="a a3">南方智投</div> <div class="wrapper"> <ul class="product_list_ul"> <li>下载总量：<span>{index1}</span></li> <li>每日下载量：<span>{index2}</span></li> <li>更新时间：<span>{updateDate}</span></li> <li>评分：<span>{avgScore}</span></li> </ul> </div> </li>',
+                            "weibo":'<li id="{appid}:str" op-data-type="weibo" data-name="趋势分析图"> <div class="a a4">微博</div> <div class="wrapper"> <ul class="product_list_ul"> <li>微博数：<span>{index1}</span></li> <li> 粉丝数：<span>{index2}</span></li> </ul> </div> </li>',
+                            "weixin":'<li id="{appid}:str" op-data-type="weixin" data-name="趋势分析图"><div class="a a5">微信</div><div class="wrapper"> <ul class="product_list_ul"> <li>平均阅读量：<span>{index1}</span></li> <li> 点赞量：<span>{index2}</span></li> </ul> </div> </li>',
                         }
                         if(data.data.length>0){
                               $(data.data).each(function(i,e){
