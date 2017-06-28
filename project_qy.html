@@ -351,7 +351,7 @@ var location_array = new Array()
 for(var i=0; i<$('.project_t').length; i++){
 	location_array.push($('.project_t').eq(i).attr('location_l'));
 }
-$(window).scroll(function(){
+ $(window).scroll(function(){
 	var  myArray=new Array();
 	for(var i=0; i<location_array.length; i++){
 		var obj = {};
@@ -367,7 +367,7 @@ $(window).scroll(function(){
 	}else{
 		$(".project_all_r").removeClass("project_all_r_top");
 	}
-});
+}); 
 function location_on(obj,scrollTop){
 	for(var i=0; i<obj.length; i++){
 		var j =i+1;
@@ -388,10 +388,14 @@ function location_on(obj,scrollTop){
 }
 //右边浮动
 $('body').delegate('.project_all_r li','click',function(event){
+	var _this=$(this);
 	event.stopPropagation();
 	var location_r = $(this).attr('location_r');
 	var location_value = $('[location_l="'+location_r+'"]').offset().top-50;
-	$("html,body").animate({scrollTop:location_value},1000);
+	$("html,body").animate({scrollTop:location_value},300);
+	setTimeout(function(){
+		_this.addClass("project_all_r_on").siblings().removeClass("project_all_r_on")
+	},300)
 })
 //更多
 $('body').delegate('.project_more','click',function(event){
