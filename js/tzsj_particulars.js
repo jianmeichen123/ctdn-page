@@ -9,6 +9,9 @@ function fillBaseEventInfo(data,divList){
             var o = $(this);
             var k = o.attr("data-field")
             var v = data[o.attr("data-field")]
+            if(k=='company'){
+                v="<span class='list_table_td'><a href='project_qy.html?code="+data.sourceCode+"'>"+v+"</a></span>"
+            }
             if(k=='investDate'){
                 v = formatDate(v, "yyyy-MM-dd")
             }
