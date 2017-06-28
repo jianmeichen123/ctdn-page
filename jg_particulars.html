@@ -318,7 +318,17 @@
 {(footerDetails.html)}
 <script src="js/jg_particulars.js"></script>
 <script>
-nav_locaton('ctsj','tzjg','','')
+nav_locaton('ctsj','tzjg','','');
+$(function(){
+	var len=$(".particulars_table_list tbody tr").length;
+	//console.log(len)
+	var sum=0;
+	for(var i=0;i<10;i++){
+		sum+=$(".particulars_table_list tbody tr").eq(i).height();
+	}
+	$(".particulars_table_list tbody").css({"height":sum})
+	
+})
 </script>
 </body>
 </html>
