@@ -177,7 +177,7 @@ com{color:#1ed2ff;}
 .fr{ float:right;}
 .width_97{width:110px; display:block; text-align:right;}
 .particulars_all{    width: 100%; overflow: hidden;  margin-top: 28px; position: relative;}
-.particulars_black{width:100%; overflow:hidden; border:1px solid #f0f0f0; background-color:#fff; padding:20px 20px;}
+.particulars_black{width:100%; height:auto;overflow:hidden;border:1px solid #f0f0f0; background-color:#fff; padding:20px 20px;}
 .particulars_k{width:100%; overflow:hidden;}
 .particulars_tit img{ float:left; width:70px; height:70px; border:1px solid #e6e6e6; border-radius:4px; overflow:hidden;}
 .particulars_tit ul{ float:left; margin-left:10px; margin-bottom: 0px;}
@@ -205,6 +205,7 @@ com{color:#1ed2ff;}
 .particulars_table_list td{border-bottom:1px solid #f0f0f0; padding:10px 0;  color:#666666;  text-align:center;}
 #begin_on,#end_on{widh:100px; height:28px; border: 1px solid #cccccc;  border-radius: 4px;  height: 28px;  width: 100px;  text-indent: 5px;  font-size: 12px;}
 .particulars_table_list td .list_table_td li{line-height:20px;}
+span[data-field="districtSubName"] span{margin-right:5px;}
 /*企业详情*/
 .project_tit{float:left; width:720px; position:relative; overflow:hidden;}
 .project_tit img { float: left;   width: 90px;   height: 90px;   border: 1px solid #e6e6e6;   border-radius: 4px;  overflow: hidden; }
@@ -219,12 +220,13 @@ com{color:#1ed2ff;}
 .project_tit_r{width:375px; float:right; border-left:1px solid #e6e6e6;    padding-top: 10px; padding-bottom: 10px;}
 .project_tit_r ul{margin-left:30px;}
 .project_tit_r ul li{ line-height:26px;}
-.brain_ico_project_1{ background-position:0 -41px; width: 23px;  height: 20px; display: inline-block; margin-right:30px; float:right;}
-.brain_ico_project_2{ background-position:-59px -65px; width: 23px;  height: 20px; display: inline-block; margin-right:30px; float:right;}
+.brain_ico_project_1{ background-position:0 -41px; width: 23px;  height: 20px; display: inline-block; float:right;}
+.brain_ico_project_2{ background-position:-59px -65px; width: 23px;  height: 20px; display: inline-block; float:right;}
 .brain_ico_project_3{ background-position:-54px -41px; width: 23px;  height: 20px; display: inline-block; float:right;}
-.brain_ico_project_1_on{  cursor:pointer;  background-position:-28px -65px; width: 23px;  height: 20px; display: inline-block; margin-right:30px; float:right;}
-.brain_ico_project_2_on{ cursor:pointer;  background-position:-27px -41px; width: 23px;  height: 20px; display: inline-block; margin-right:30px; float:right;}
+.brain_ico_project_1_on{  cursor:pointer;  background-position:-28px -65px; width: 23px;  height: 20px; display: inline-block; float:right;}
+.brain_ico_project_2_on{ cursor:pointer;  background-position:-27px -41px; width: 23px;  height: 20px; display: inline-block; float:right;}
 .brain_ico_project_3_on{ cursor:pointer;  background-position:-87px -65px; width: 23px;  height: 20px; display: inline-block; float:right;}
+.brain_ico_project_span{width: 23px;  height: 20px; display: inline-block; margin-left:30px; float:right;}
 .project_nav{width:100%; background-color:#ecf3ff; height:44px;}
 .project_nav_top{position:fixed; top:0; width:1140px;left:50%; margin-left:-570px; z-index:999;}
 .project_nav ul {margin-left:1%}
@@ -395,3 +397,12 @@ com{color:#1ed2ff;}
 .particulars_table_list thead, .particulars_table_list tbody tr {display:table;  width:100%; table-layout:fixed;}
 .particulars_table_list a,.project_new a{    color: #666666;     }
 .particulars_table_list a:hover ,.project_new a:hover{text-decoration: none;}
+/* 微信二维码 */
+.weixin{position:relative;}
+.project_tit_r .weixin_ewm{display:none;position:absolute;z-index:9;width:140px;padding:10px 20px 4px;background-color:rgba(0,0,0,.8);border-top:15px solid #fff;color:#fff;}
+.project_tit_r .wx_img{width:100px;display:block;}
+.project_tit_r .wx_img img{width:100%}
+.project_tit_r .wx_img span{;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;padding:5px 0 0;text-align:center;}
+.project_tit_r .weixin_ewm:after{content:"";display:block;width:0;height:0;border-left:10px solid transparent;border-right:10px solid transparent;border-bottom:10px solid rgba(0,0,0,.8);position:absolute;top:-10px;left:60px;}
+
+
