@@ -202,7 +202,7 @@ function eventListedInfoListFormatter(data,div){
 }
 //并购事件
 function eventMergerInfoListFormatter(data,div){
-   var staticTemplate='<tr> <td style=""> <div class="list_table_td"> <img height="37" width="37" src="${logo}"> <ul class="col_999"> <li><a href="#">${projTitle}</a></li> <li><span>${districtSubName}</span><span>${industryName}</span></li> </ul> </div> </td><td>${equityRate}</td> <td>${amountStr}</td> <td>${mergeSideJson}</td> <td>${mergeState}</td> <td>${mergeDate}</td> <td>${eventId}</td> </tr>'
+   var staticTemplate='<tr> <td style="width:20%"> <div class="list_table_td"> <span><img height="37" width="37" src="${logo}"></span> <ul class="col_999"> <li><a href="#">${projTitle}</a></li> <li><span>${districtSubName}</span><span>${industryName}</span></li> </ul> </div> </td><td>${equityRate}</td> <td>${amountStr}</td> <td>${mergeSideJson}</td> <td>${mergeState}</td> <td>${mergeDate}</td> <td>${eventId}</td> </tr>'
    var temp = staticTemplate;
    var html = "";
    //遍历数组
