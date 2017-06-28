@@ -247,7 +247,9 @@ function eventMergerInfoListFormatter(data,div){
                        if(v){
                           v = formatDate(v, "yyyy-MM-dd")
                        }
-                  }else if(k=="industryName"){
+                  }else if(k=="equityRate"){
+                       if(v){v += "%"}
+                 }else if(k=="industryName"){
                        var str = "";
                        if(v){
                            str += v;
