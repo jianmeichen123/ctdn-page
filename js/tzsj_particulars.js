@@ -82,10 +82,10 @@ function eventDetailListFormatter(data,div){
                             v= "<span class='list_table_td'><a target='_blank' href = '/project_qy.html?code="+json.code+"'>"+json.invstor+"</a></span>";
                         }
                         if(json.type=='person'){
-                            v = json.invstor
+                            v = "<center>"+json.invstor+"</center>"
                         }
                         if(json.type=='unknown'){
-                            v = '<div class="list_table_td"><span class="black">'+json.invstor+'</span></div>'
+                            v = '<center><span class="black">'+json.invstor+'</span></center>'
                         }
     //                    v='<div class="list_table_td"><center><span class="col_999"><a href="/jg_particulars.html?orgId='+eventId+'">'+v+'</a></span></center></div>'
     //                    v='<a href="#">'+v+'</a>'
