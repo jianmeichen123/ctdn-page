@@ -148,7 +148,7 @@ var tableFormate ={
     listedProjectName:function(value, row, index){
             var projectName = row.projTitle
             var img = ""
-            var industrict = ""
+
             if(projectName==null){
                 projectName='名称未知'
             }
@@ -160,8 +160,8 @@ var tableFormate ={
             if(img.indexOf(".") == -1){
                 img = ""
             }
-            if (row.district){
-                industrict+=row.district
+            if (row.districtSubName){
+                industrict+=row.districtSubName
             }else{
                 industrict+='地区未知'
             }
