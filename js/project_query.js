@@ -174,7 +174,11 @@ var tableFormate ={
             if (row.industryName&&row.industrySubName){
                 industrict+=' '+row.industryName +">" +row.industrySubName
             }
-            return '<div class="list_table_td"> <img height="37" width="37" src="'+Constants.logoPath+img+'"> <ul><li><span class="col_999"><a target="_blank" href="/project_qy.html?code='+row.sourceCode+'">'+projectName+'</a></span></li><li>'+industrict+'</li> </div>'
+            if(row.sourceCode){
+                return '<div class="list_table_td"> <img height="37" width="37" src="'+Constants.logoPath+img+'"> <span class="col_999"><a target="_blank" href="/project_qy.html?code='+row.sourceCode+'">'+projectName+'</a></span> </div>'
+            }else{
+                return '<div class="list_table_td"> <img height="37" width="37" src="'+Constants.logoPath+img+'"> <span color="black">'+projectName+'</span> </div>'
+            }
         },
         //投资方
     investSide:function(value, row, index){
@@ -271,7 +275,11 @@ var tableFormate ={
         if(img.indexOf(".") == -1){
             img = ""
         }
-        return '<div class="list_table_td"> <img height="37" width="37" src="'+Constants.logoPath+img+'"> <ul class="col_999"> <li><a target="_blank" href="/project_qy.html?code='+row.sourceCode+'">'+mergered+'</a></li> <li>'+industrict+'</li> </ul> </div>'
+        if(row.sourceCode){
+            return '<div class="list_table_td"> <img height="37" width="37" src="'+Constants.logoPath+img+'"> <ul class="col_999"> <li><a target="_blank" href="/project_qy.html?code='+row.sourceCode+'">'+mergered+'</a></li> <li>'+industrict+'</li> </ul> </div>'
+        }else{
+            return '<div class="list_table_td"> <img height="37" width="37" src="'+Constants.logoPath+img+'"> <ul class="col_999"> <li><a>'+mergered+'</a></li> <li>'+industrict+'</li> </ul> </div>'
+        }
     },
     amountStr:function(value,row,index){
         var amountStr = row.amountStr
