@@ -183,34 +183,38 @@ var tableFormate ={
         //投资方
     investSide:function(value, row, index){
          var investSideJson = row.investSideJson
-         var jsonObjArr = eval('(' + investSideJson + ')');
-         for(i in jsonObjArr){
-            var i = jsonObjArr[i]
-            var investTitle = ''
-            for(j in i){
-                var json = i[j]
-                if(json.invstor!=null&&j<3){
-                    if(json.id){
-                        if(json.type=='invst'){
-                	        investTitle+='<center><span class="list_table_td"><a target="_blank" href="/jg_particulars.html?orgId='+json.id+'">'+json.invstor+'</a></span></center>';
-                        }
-                        if(json.type=='com'){
-                 	        investTitle+='<center><span class="list_table_td"><a target="_blank" href="/project_qy.html?code='+json.code+'">'+json.invstor+'</a></span></center>';
-                        }
-                        if(json.type!='invst'&&json.type!='com'){
+         if(investSideJson==null){
+            return '未透露'
+         }else{
+             var jsonObjArr = eval('(' + investSideJson + ')');
+             for(i in jsonObjArr){
+                var i = jsonObjArr[i]
+                var investTitle = ''
+                for(j in i){
+                    var json = i[j]
+                    if(json.invstor!=null&&j<3){
+                        if(json.id){
+                            if(json.type=='invst'){
+                                investTitle+='<center><span class="list_table_td"><a target="_blank" href="/jg_particulars.html?orgId='+json.id+'">'+json.invstor+'</a></span></center>';
+                            }
+                            if(json.type=='com'){
+                                investTitle+='<center><span class="list_table_td"><a target="_blank" href="/project_qy.html?code='+json.code+'">'+json.invstor+'</a></span></center>';
+                            }
+                            if(json.type!='invst'&&json.type!='com'){
+                                investTitle+='<center><span class="list_table_td">'+json.invstor+'</span></center>';
+                            }
+                        }else{
                             investTitle+='<center><span class="list_table_td">'+json.invstor+'</span></center>';
                         }
-                    }else{
-                        investTitle+='<center><span class="list_table_td">'+json.invstor+'</span></center>';
                     }
                 }
-            }
-            if(investTitle!=''){
-                return investTitle
-            }else{
-                investTitle='未透露'
-                return investTitle
-            }
+                if(investTitle!=''&&investTitle){
+                    return investTitle
+                }else{
+                    investTitle='未透露'
+                    return investTitle
+                }
+             }
          }
     },
     //融资公司/投资列表
