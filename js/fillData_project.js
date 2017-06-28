@@ -405,10 +405,8 @@ var callBack = {
            }else if(k=="labels"){
                 if(v){
                     var str = "";
-                    $(v.split(","),function(i,e){
-                       str.append("<span class='project_lable'>");
-                       str.append(e);
-                       str.append("</span>");
+                    $(v.split(",")).each(function(i,e){
+                         str+= "<span class='project_lable'>"+e+"</span>";
                     })
                     v = str
                 }
