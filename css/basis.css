@@ -206,7 +206,6 @@ com{color:#1ed2ff;}
 .particulars_table_list td{border-bottom:1px solid #f0f0f0; padding:10px 0;  color:#666666;  text-align:center;}
 #begin_on,#end_on{widh:100px; height:28px; border: 1px solid #cccccc;  border-radius: 4px;  height: 28px;  width: 100px;  text-indent: 5px;  font-size: 12px;}
 .particulars_table_list td .list_table_td li{line-height:20px;}
-span[data-field="districtSubName"] span{margin-right:5px;}
 .particulars_table_list tbody .list_table_td span{float:left}
 .particulars_table_list tbody .list_table_td span.zz{text-indent:0;}
 .particulars_table_list .shgp .list_table_td{width:220px}
@@ -215,6 +214,7 @@ span[data-field="districtSubName"] span{margin-right:5px;}
 .project_tit img { float: left;   width: 90px;   height: 90px;   border: 1px solid #e6e6e6;   border-radius: 4px;  overflow: hidden; }
 .project_tit ul{float:left; margin-left:15px; overflow:hidden; margin-bottom:0;}
 .project_tit ul li{line-height:26px;}
+.project_tit .dot{margin:0 2px;}
 .project_absolute{position:absolute; right:0;}
 .project_tit .project_absolute li{float:left; padding-left:10px; border-radius:10px; padding-right:10px; margin-right:20px;}
 .project_absolute_blue{ color:#6ba2fc; border:1px solid #6ba2fc;}

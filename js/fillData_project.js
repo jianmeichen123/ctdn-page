@@ -396,7 +396,7 @@ var callBack = {
                }else{
                    v = '<span>'+v+'</span>'
                    if(data.districtGrandsonName){
-                     v +='.<span>'+data.districtGrandsonName+'</span>'
+                     v +='<span class="dot">·</span><span>'+data.districtGrandsonName+'</span>'
                    }
                }
            }else if(k=="industryName"){
