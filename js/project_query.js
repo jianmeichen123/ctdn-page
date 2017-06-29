@@ -251,7 +251,11 @@ var tableFormate ={
         if(img.indexOf(".") == -1){
             img = ""
         }
-        return '<div class="list_table_td"> <img height="37" width="37" src="'+Constants.logoPath+img+'"> <ul class="col_999"> <li><a target="_blank" href="/project_qy.html?code='+row.sourceCode+'">'+company+'</a></li> <li>'+industrict+'</li> </ul> </div>'
+        if(row.sourceCode){
+            return '<div class="list_table_td"> <img height="37" width="37" src="'+Constants.logoPath+img+'"> <ul class="col_999"> <li><a target="_blank" href="/project_qy.html?code='+row.sourceCode+'">'+company+'</a></li> <li>'+industrict+'</li> </ul> </div>'
+        }else{
+            return '<div class="list_table_td"> <img height="37" width="37" src="'+Constants.logoPath+img+'"> <ul class="col_999"> <li><a>'+company+'</a></li> <li>'+industrict+'</li> </ul> </div>'
+        }
     },
     //被并购方-并购列表
     beenMergered:function(value,row,index){
