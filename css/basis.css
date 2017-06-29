@@ -209,6 +209,7 @@ com{color:#1ed2ff;}
 span[data-field="districtSubName"] span{margin-right:5px;}
 .particulars_table_list tbody .list_table_td span{float:left}
 .particulars_table_list tbody .list_table_td span.zz{text-indent:0;}
+.particulars_table_list .shgp .list_table_td{width:220px}
 /*企业详情*/
 .project_tit{float:left; width:720px; position:relative; overflow:hidden;}
 .project_tit img { float: left;   width: 90px;   height: 90px;   border: 1px solid #e6e6e6;   border-radius: 4px;  overflow: hidden; }
