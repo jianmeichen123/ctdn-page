@@ -175,7 +175,7 @@ var tableFormate ={
                 industrict+=' '+row.industryName +">" +row.industrySubName
             }
             if(row.sourceCode){
-                return '<div class="list_table_td"> <img height="37" width="37" src="'+Constants.logoPath+img+'"> <ul><li><span class="col_999"><a target="_blank" href="/project_qy.html?code='+row.sourceCode+'">'+projectName+'</a></span></li><li>'+industrict+'</li></ul> </div>'
+                return '<div class="list_table_td"> <a target="_blank" href="/project_qy.html?code='+row.sourceCode+'"><img height="37" width="37" src="'+Constants.logoPath+img+'"></a> <ul><li><span class="col_999"><a target="_blank" href="/project_qy.html?code='+row.sourceCode+'">'+projectName+'</a></span></li><li>'+industrict+'</li></ul> </div>'
             }else{
                 return '<div class="list_table_td"> <img height="37" width="37" src="'+Constants.logoPath+img+'"> <ul><li><span color="black">'+projectName+'</span></li><li>'+industrict+'</li></ul> </div>'
             }
@@ -252,7 +252,7 @@ var tableFormate ={
             img = ""
         }
         if(row.sourceCode){
-            return '<div class="list_table_td"> <img height="37" width="37" src="'+Constants.logoPath+img+'"> <ul class="col_999"> <li><a target="_blank" href="/project_qy.html?code='+row.sourceCode+'">'+company+'</a></li> <li>'+industrict+'</li> </ul> </div>'
+            return '<div class="list_table_td"> <a target="_blank" href="/project_qy.html?code='+row.sourceCode+'"><img height="37" width="37" src="'+Constants.logoPath+img+'"> </a><ul class="col_999"> <li><a target="_blank" href="/project_qy.html?code='+row.sourceCode+'">'+company+'</a></li> <li>'+industrict+'</li> </ul> </div>'
         }else{
             return '<div class="list_table_td"> <img height="37" width="37" src="'+Constants.logoPath+img+'"> <ul class="col_999"> <li><a>'+company+'</a></li> <li>'+industrict+'</li> </ul> </div>'
         }
@@ -284,7 +284,7 @@ var tableFormate ={
             img = ""
         }
         if(row.sourceCode){
-            return '<div class="list_table_td"> <img height="37" width="37" src="'+Constants.logoPath+img+'"> <ul class="col_999"> <li><a target="_blank" href="/project_qy.html?code='+row.sourceCode+'">'+mergered+'</a></li> <li>'+industrict+'</li> </ul> </div>'
+            return '<div class="list_table_td"> <a target="_blank" href="/project_qy.html?code='+row.sourceCode+'"><img height="37" width="37" src="'+Constants.logoPath+img+'"></a> <ul class="col_999"> <li><a target="_blank" href="/project_qy.html?code='+row.sourceCode+'">'+mergered+'</a></li> <li>'+industrict+'</li> </ul> </div>'
         }else{
             return '<div class="list_table_td"> <img height="37" width="37" src="'+Constants.logoPath+img+'"> <ul class="col_999"> <li><a>'+mergered+'</a></li> <li>'+industrict+'</li> </ul> </div>'
         }
