@@ -61,7 +61,7 @@
 							<th><div class="border_l">详情</div></th>
 						</tr>
 					</thead>
-					<tbody >
+					<tbody class="shgp">
 						<!--<tr style ="display:none">-->
 							<!--<td data-field="investDate"></td>-->
 							<!--<td >-->
@@ -108,6 +108,9 @@
 								if(v){v=formatDate(v)}else{v = "-"}
 						   }
 						   if(k=="company"){
+							   if(v.length>9){
+								   v = "<a href='project_qy.html?code="+row.sourceCode+"' title='"+v+"'>"+v.substring(0,9)+"..."+"</a>"
+							   }
 						   		v = "<a href='project_qy.html?code="+row.sourceCode+"'>"+v+"</a>"
 						   }
 						   if(k=="districtSubName"){
