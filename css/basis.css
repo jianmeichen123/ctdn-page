@@ -80,6 +80,7 @@ input{outline: none;}
 .line_h{ line-height:28px;}
 .list_table_td{text-align:left;}
 .list_table_td span{ line-height:35px; text-indent: 5px; display: inline-block;}
+.shgp .list_table_td span{line-height:initial;text-indent:0;}
 .list_table_td img,.list_table_td ul{ float:left; margin-left:8px;}
 .list_table_td ul{ float:left; margin-left:10px;}
 .list_table_td a{ color:#333;}
