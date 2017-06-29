@@ -284,7 +284,7 @@ var tableFormate ={
         }
         if(row.districtSubName) industrict+=row.districtSubName
         if(!row.districtSubName) industrict+= "地区未知"
-        if (!row.industryName) industrict+=' '+"行业未知"
+        if (!row.industryName) industrict+=' '+" 行业未知"
         if (row.industryName&&!row.industrySubName) industrict+=' '+row.industryName
         if (row.industryName&&row.industrySubName) industrict+=' '+row.industryName +">" +row.industrySubName
         
