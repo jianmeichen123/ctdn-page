@@ -227,7 +227,7 @@ function eventMergerInfoListFormatter(data,div){
                              //待修改 没加领投
                              if(this.title &&i<3){
                                    if(this.id){
-                                       if($(this).type=='invse'){
+                                       if(json.type=='invse'){
                                            mergeSideTitle+='<center><span class="list_table_td"><a href="/jg_particulars.html?orgId='+json.id+'">'+json.title+'</a></span></center>';
                                        }
                                        if(json.type=='com'){
