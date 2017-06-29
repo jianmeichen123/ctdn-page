@@ -195,10 +195,18 @@ var tableFormate ={
                     if(json.invstor!=null&&j<3){
                         if(json.id){
                             if(json.type=='invst'){
-                                investTitle+='<center><span class="list_table_td"><a target="_blank" href="/jg_particulars.html?orgId='+json.id+'">'+json.invstor+'</a></span></center>';
+                                if(json.isLeader==1){
+                                    investTitle+='<center><span class="list_table_td"><a target="_blank" href="/jg_particulars.html?orgId='+json.id+'">'+json.invstor+'</a></span></center>';
+                                }else{
+                                    investTitle+='<center><span class="list_table_td"><a target="_blank" href="/jg_particulars.html?orgId='+json.id+'">'+json.invstor+'</a></span></center>';
+                                }
                             }
                             if(json.type=='com'){
-                                investTitle+='<center><span class="list_table_td"><a target="_blank" href="/project_qy.html?code='+json.code+'">'+json.invstor+'</a></span></center>';
+                                if(json.isLeader==1){
+                                    investTitle+='<center><span class="list_table_td"><a target="_blank" href="/project_qy.html?code='+json.code+'">'+json.invstor+'</a></span></center>';
+                                }else{
+                                    investTitle+='<center><span class="list_table_td"><a target="_blank" href="/project_qy.html?code='+json.code+'">'+json.invstor+'</a></span></center>';
+                                }
                             }
                             if(json.type!='invst'&&json.type!='com'){
                                 investTitle+='<center><span class="list_table_td">'+json.invstor+'</span></center>';
@@ -240,7 +248,7 @@ var tableFormate ={
             industrict+='地区未知'
         }
         if(!row.industryName){
-            industrict+='行业未知'
+            industrict+=' 行业未知'
         }
         if (row.industryName&&!row.industrySubName){
             industrict+=' '+row.industryName
