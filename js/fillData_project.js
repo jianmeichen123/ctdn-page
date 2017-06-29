@@ -223,19 +223,19 @@ function eventMergerInfoListFormatter(data,div){
                           var ls = json["mergeSideJson"];
                           var mergeSideTitle = "";
                           $(ls).each(function(i){
-                          var json =$(this)[0]
+                          var data =$(this)[0]
                              //待修改 没加领投
-                             if(this.title &&i<3){
-                                   if(this.id){
-                                       if($(this).type=='invse'){
-                                           mergeSideTitle+='<center><span class="list_table_td"><a href="/jg_particulars.html?orgId='+json.id+'">'+json.title+'</a></span></center>';
+                             if(data.title &&i<3){
+                                   if(data.id){
+                                       if(data.type=='invse'){
+                                           mergeSideTitle+='<center><span class="list_table_td"><a href="/jg_particulars.html?orgId='+data.id+'">'+data.title+'</a></span></center>';
                                        }
-                                       if(json.type=='com'){
-                                           mergeSideTitle+='<center><span class="list_table_td"><a href="/project_qy.html?code='+json.code+'">'+json.title+'</a></span></center>';
+                                       if(data.type=='com'){
+                                           mergeSideTitle+='<center><span class="list_table_td"><a href="/project_qy.html?code='+data.code+'">'+data.title+'</a></span></center>';
 
                                        }
                                    }else{
-                                       mergeSideTitle+='<center><span class="list_table_td">'+json.title+'</span></center>';
+                                       mergeSideTitle+='<center><span class="list_table_td">'+data.title+'</span></center>';
                                    }
                                }
                           })
@@ -253,8 +253,8 @@ function eventMergerInfoListFormatter(data,div){
                        var str = "";
                        if(v){
                            str += v;
-                           if(row["industrySubName"]){
-                               str += ">" + row["industrySubName"]
+                           if(row["industrySubname"]){
+                               str += ">" + row["industrySubname"]
                            }
                        }else{
                            str ="行业未知"
@@ -396,7 +396,7 @@ var callBack = {
                }else{
                    v = '<span>'+v+'</span>'
                    if(data.districtGrandsonName){
-                     v +='<span>'+data.districtGrandsonName+'</span>'
+                     v +='.<span>'+data.districtGrandsonName+'</span>'
                    }
                }
            }else if(k=="industryName"){

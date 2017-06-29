@@ -85,7 +85,7 @@ function eventDetailListFormatter(data,div){
                             v = "<center>"+json.invstor+"</center>"
                         }
                         if(json.type=='unknown'){
-                            v = '<center><span class="black">'+json.invstor+'</span></center>'
+                            v = '<span><span class="black">'+json.invstor+'</span></span>'
                         }
     //                    v='<div class="list_table_td"><center><span class="col_999"><a href="/jg_particulars.html?orgId='+eventId+'">'+v+'</a></span></center></div>'
     //                    v='<a href="#">'+v+'</a>'
