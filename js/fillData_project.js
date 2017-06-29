@@ -147,7 +147,7 @@ function projectContactListFormatter(data,div){
 }
 //上市挂牌
 function eventListedInfoListFormatter(data,div){
-   var staticTemplate = '<tr> <td style=""> <div class="list_table_td"><span>${logo}</span> <ul class="col_999"> <li><a href="#">${projTitle}</a></li> <li><span>${districtSubName}</span><span>${industryName}</span></li> </ul> </div> </td> <td>${type}</td> <td>${stockExchange}</td> <td>${stockCode}</td> <td>${listedDate}</td> <td>${eventId}</td> </tr>'
+   var staticTemplate = '<tr> <td style="width:220px"> <div class="list_table_td"><span>${logo}</span> <ul class="col_999"> <li><a href="#">${projTitle}</a></li> <li><span>${districtSubName}</span><span class="industryName">${industryName}</span></li> </ul> </div> </td> <td>${type}</td> <td>${stockExchange}</td> <td>${stockCode}</td> <td>${listedDate}</td> <td>${eventId}</td> </tr>'
    var temp = staticTemplate;
    var html = "";
     //遍历数组
@@ -396,7 +396,7 @@ var callBack = {
                }else{
                    v = '<span>'+v+'</span>'
                    if(data.districtGrandsonName){
-                     v +='.<span>'+data.districtGrandsonName+'</span>'
+                     v +='<span class="dot">·</span><span>'+data.districtGrandsonName+'</span>'
                    }
                }
            }else if(k=="industryName"){

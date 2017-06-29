@@ -130,7 +130,7 @@
 							})
 							v = firms
 				  		}else{
-				  			v="投资方未知"
+				  			v="-"
 				  		}
 				  }
 				  if(k=="industryName"){
@@ -174,7 +174,7 @@
                	 		v=""
                	 	}
                	 }
-               	 if(k=="latestFinanceRound" && !v){v ="轮次未知"}
+               	 if(k=="latestFinanceRound" && !v){v ="尚未获投"}
                	 if(k=="firmDesc" && !v){v="暂无描述"}
                	 if(k=="setupDT" && !v){v="成立时间未知"}
                	 if(k=="districtSubName" && !v){v="地点未知"}
@@ -193,9 +193,9 @@
 			     	  	 v ="相似度未知"
 			     	 }
 			     }
-			     if(k=="latestFinanceAmountStr" && !v){v="融资金额未知"}
+			     if(k=="latestFinanceAmountStr" && !v){v="-"}
 			     if(k=="latestFinanceDT"){
-			     	if(!v){v="融资日期未知"}else{v =formatDate(v)}
+			     	if(!v){v="-"}else{v =formatDate(v)}
 			     }
 			  	 temp =temp.replace("${"+k+"}",v)
 			  }
