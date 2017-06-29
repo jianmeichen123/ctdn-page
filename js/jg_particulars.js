@@ -37,6 +37,43 @@ function fillBaseInfo(data,divList){
         })
     })
 }
+//发展历史
+function orgHistoryInfoListFormatter(data,div){
+     var staticTemplate = '<li> <div class="relative m_t5"><span class="circle_b"></span><span>${title}</span></div> <div class="color_999 relative">${eventDate}</div> </li>'
+     var staticTemplateHide = '<li class="blue_l_b_three"> <div class="relative m_t5"><span class="circle_b"></span><span>${title}</span></div> <div class="color_999 relative">${eventDate}</div> </li>'
+     var temp = staticTemplate;
+     var html = "";
+     if(data.length>0){
+          $(data).each(function(i,row){
+            $.each(row,function(k,v){
+                while(temp.indexOf("${"+k+"}") > 1){
+                    if(k =="eventDate"){
+                        if(!v){
+                            v= "日期未知"
+                        }else{
+                            v=formatDate(v,"yyyy-MM-dd")
+                        }
+                    }
+                    temp =temp.replace("${"+k+"}",v)
+                }
+            })
+            if(i>3){
+                html += temp;
+                temp = staticTemplateHide
+            }else{
+                html += temp;
+                temp = staticTemplate
+            }
+
+         })
+     }else{
+       html="<li><span>　暂无数据</span></li>"
+    }
+    div.append(html)
+    if(data.length>3){
+        div.parent().append('<div class="block project_click_show color_666" >展开全部<span data-field="length">'+data.length+'</span>条<span class="brain_ico brain_ico_project_more"></span></div>')
+    }
+}
 var orgId = getHrefParamter("orgId")
 //投资事件
 function eventInfoListFormatter(data,div){
@@ -127,6 +164,7 @@ function orgMediaInfoListFormatter(data,div){
     }
     div.append(html)
 }
+
 //机构成员
 function orgMemberInfoListFormatter(data,div){
    var staticTemplate = '<tr> <td>${fund}</td> <td>${investOrg}</td> <td>${foundDate}</td><td>${fundType}</td> <td>${investDate}</td><td>${commitAmount}</td></tr>'
