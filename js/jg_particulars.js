@@ -170,8 +170,8 @@ function orgMediaInfoListFormatter(data,div){
 }
 
 //机构成员
-function orgMemberInfoListFormatter(data,div){
-   var staticTemplate = '<tr> <td>${fund}</td> <td>${investOrg}</td> <td>${foundDate}</td><td>${fundType}</td> <td>${investDate}</td><td>${commitAmount}</td></tr>'
+function orgMemberListFormatter(data,div){
+   var staticTemplate = '<tr> <td>${name}</td> <td>${positions}</td> <td>${status}</td><td>${phoneNum}</td> <td>${email}</td></tr>'
    var temp = staticTemplate;
     var html =""
 
@@ -179,12 +179,7 @@ function orgMemberInfoListFormatter(data,div){
         $(data).each(function(i,row){
              $.each(row,function(k,v){
                  while(temp.indexOf("${"+k+"}") > 1){
-                    if(k =="investDate"){
-                        v = formatDate(v, "yyyy-MM-dd")
-                    }
-                    if(k =="foundDate"){
-                        v = formatDate(v, "yyyy-MM-dd")
-                    }
+
                     if(!v){ v = "-"}
                     temp = temp.replace("${"+k+"}",v)
                  }
