@@ -73,6 +73,9 @@ function eventDetailListFormatter(data,div){
                     if(k=="stock"&&!v){
                         v="未透露"
                     }
+                    if(k=='amount'&&!v){
+                        v="未透露"
+                    }
                     if(k=="investor"&&v){
                         var json = eval("(" + v + ")");
                         if(json.type=='invst'){
