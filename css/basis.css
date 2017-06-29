@@ -120,7 +120,7 @@ input{outline: none;}
 .nav_all>ul{ margin-left:40px; float:left; overflow:hidden; margin-top: 2px;}
 .nav_all>ul li{ float:left; font-size:16px; color:#fff; margin-top: 14px; margin-left:60px;}
 .nav_all>ul .nav_on a{ color:#1fc1eb}
-.nav_all ul a{color:#fff;}o
+.nav_all ul a{color:#fff;}
 .nav_all ul a:hover{ text-decoration:none}
 .nav_nav ul li{ float:left; height:65px; text-align:center; width:75px; margin-left:60px;}
 .nav_nav{border-bottom:1px solid #d9d9d9; height:66px; background-color:#ffffff;}
