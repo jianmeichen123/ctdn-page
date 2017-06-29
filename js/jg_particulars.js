@@ -101,6 +101,10 @@ function eventInfoListFormatter(data,div){
                                     }else{
                                         firms += json.invstor+"<br>";
                                     }
+                                }else{
+                                    if(json.id==orgId){
+                                        firms += json.invstor+"<br>";
+                                    }
                                 }
                             }
     //                        $(ls).each(function(){
