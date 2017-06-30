@@ -28,6 +28,10 @@ input{outline: none;}
 .column_ul li{ float:left; line-height:42px; width:88px;  text-align:center; font-size:14px; margin-right:40px; border-top-left-radius:10px; border-top-right-radius:10px; cursor:pointer; }
 .condition_all{border:1px solid #f0f0f0; background-color:#fff; margin-top:42px; padding-top:10px; ;}
 .condition_all_no{border:1px solid #f0f0f0; background-color:#fff;  padding-top:10px; ;}
+/*clearfix-浮动清理*/
+* html .clearfix { height:1% }
+.clearfix:after { content:"."; display:block; height:0; clear:both; visibility:hidden }
+.clearfix {zoom: 1;}
 /*条件*/
 .condition_all,.condition_all_no{ line-height:26px; width:100%;}
 .condition_all_ul{ float:left; margin-left:22px; width:1040px; margin-bottom: 0px}
@@ -79,8 +83,8 @@ input{outline: none;}
 }
 .line_h{ line-height:28px;}
 .list_table_td{text-align:left;}
-.list_table_td span{ line-height:35px; text-indent: 5px; display: inline-block;float:left;}
-.list_table_td label.name{font-weight:normal;margin-bottom:0;margin-right:10px;}
+.list_table_td span{ line-height:35px; text-indent: 5px; display: inline-block;float:left; }
+.list_table_td label.name{font-weight:normal;margin-bottom:0;margin-right:5px;}
 .list_table_td span.lticon{background:#fa7f1c;padding:0 5px;border-radius:2px;line-height:initial;color:#fff;text-indent:0;margin-left:10px;}
 .shgp .list_table_td span{line-height:initial;text-indent:0;}
 .list_table_td .districtSubName{margin-right:5px;}
