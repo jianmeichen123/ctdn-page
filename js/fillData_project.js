@@ -31,11 +31,19 @@ function eventInfoListFormatter(data,div){
                                 $(ls).each(function(i){
                                    //待修改 没加领投
                                    if(i<3){
-                                        if($(this)[0].isClick=="1"){
+                                        json = ls[i]
+                                        if($(this)[0].isClick=="1"&&$(this)[0].isLeader=="1"){
+                                            firms +='<div><span class="list_table_td"><a target="_blank" href="/jg_particulars.html?orgId='+json.id+'">'+json.invstor+'</a><span class="lticon">领投</span></span></div>';
+                                        }else if($(this)[0].isClick=="1"&&!json.isLeader=="1"){
                                             firms += "<div><a href = 'jg_particulars.html?orgId="+$(this)[0].id+"'>"+$(this)[0].invstor+"</a><div>";
                                         }else{
                                             firms += "<div>"+$(this)[0].invstor+"</div>";
                                         }
+//                                        if($(this)[0].isClick=="1"){
+//                                            firms += "<div><a href = 'jg_particulars.html?orgId="+$(this)[0].id+"'>"+$(this)[0].invstor+"</a><div>";
+//                                        }else{
+//                                            firms += "<div>"+$(this)[0].invstor+"</div>";
+//                                        }
                                    }
                                 })
                                 v = firms
