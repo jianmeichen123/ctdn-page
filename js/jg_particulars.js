@@ -202,6 +202,13 @@ function projectContactListFormatter(data,div){
         $(data).each(function(i,row){
          $.each(row,function(k,v){
              while(temp.indexOf("${"+k+"}") > 1){
+                if(k=='status'){
+                    if(v==0){
+                        v='在职'
+                    }else{
+                        v='离职'
+                    }
+                }
                  if(!v){
                      v= "-"
                  }
