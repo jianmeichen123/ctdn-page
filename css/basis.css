@@ -299,7 +299,7 @@ com{color:#1ed2ff;}
 .product_list .a3{background:#8dce10 url(../img/03.png) center 30px no-repeat;}
 .product_list .a4{background:#d8211b url(../img/04.png) center 30px no-repeat;}
 .product_list .a5{background:#13a749 url(../img/05.png) center 30px no-repeat;}
-.project_new{width:100%; overflow:hidden; max-height: 300px; overflow-y: auto;}
+.project_new{width:100%; overflow:hidden; overflow-y: auto;}
 .project_new li{margin-bottom:15px;}
 .project_new .one{width:660px; display:block; float:left;}
 .project_new .two{width:200px; display:block; float:left;}
