@@ -207,7 +207,6 @@ com{color:#1ed2ff;}
 .particulars_table_list td{border-bottom:1px solid #f0f0f0; padding:10px 0;  color:#666666;  text-align:center;}
 #begin_on,#end_on{widh:100px; height:28px; border: 1px solid #cccccc;  border-radius: 4px;  height: 28px;  width: 100px;  text-indent: 5px;  font-size: 12px;}
 .particulars_table_list td .list_table_td li{line-height:20px;}
-.particulars_table_list tbody .list_table_td span{float:left}
 .particulars_table_list tbody .list_table_td span.zz{text-indent:0;}
 .particulars_table_list .shgp .list_table_td{width:220px}
 /*企业详情*/
