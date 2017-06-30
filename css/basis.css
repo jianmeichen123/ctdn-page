@@ -79,9 +79,11 @@ input{outline: none;}
 }
 .line_h{ line-height:28px;}
 .list_table_td{text-align:left;}
-.list_table_td span{ line-height:35px; text-indent: 5px; display: inline-block;}
+.list_table_td span{ line-height:35px; text-indent: 5px; display: inline-block;float:left;}
+.list_table_td label.name{font-weight:normal;margin-bottom:0;margin-right:5px;}
 .list_table_td span.lticon{background:#fa7f1c;padding:0 5px;border-radius:2px;line-height:initial;color:#fff;text-indent:0;margin-left:10px;}
 .shgp .list_table_td span{line-height:initial;text-indent:0;}
+.list_table_td .districtSubName{margin-right:5px;}
 .list_table_td img,.list_table_td ul{ float:left; margin-left:8px;}
 .list_table_td ul{ float:left; margin-left:10px;}
 .list_table_td a{ color:#333;white-space:nowrap;}
@@ -209,7 +211,6 @@ com{color:#1ed2ff;}
 #begin_on,#end_on{widh:100px; height:28px; border: 1px solid #cccccc;  border-radius: 4px;  height: 28px;  width: 100px;  text-indent: 5px;  font-size: 12px;}
 .particulars_table_list td .list_table_td li{line-height:20px;}
 .particulars_table_list tbody .list_table_td span.zz{text-indent:0;}
-.particulars_table_list .shgp .list_table_td{width:220px}
 /*企业详情*/
 .project_tit{float:left; width:720px; position:relative; overflow:hidden;}
 .project_tit img { float: left;   width: 90px;   height: 90px;   border: 1px solid #e6e6e6;   border-radius: 4px;  overflow: hidden; }
