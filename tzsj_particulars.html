@@ -84,6 +84,17 @@
 {(footerDetails.html)}
 <script src="js/tzsj_particulars.js"></script>
 <script>
+$(function(){
+	//投资方超过3条显示滚动条
+	$(".particulars_table_list").each(function(){
+		var len=$(this).find("tbody tr").length;
+		var sum=0;
+		for(var i=0;i<10;i++){
+			sum+=$(this).find("tbody tr").eq(i).height();
+		}
+		$(this).find("tbody").css({"height":sum})
+	})
+})
 nav_locaton('ctsj','rzdt','','')
 </script>
 </body>

@@ -344,6 +344,21 @@ $(function(){
 		 $(this).find("li:last").text(con)
 	 }
  })
+ //新闻超过10条显示滚动条
+ $(".project_new").each(function(){
+		var len=$(this).find("li").length;
+		var sum=0;
+		if(len>10){
+			for(var i=0;i<10;i++){
+				sum+=$(this).find("li").eq(i).height()+15;
+			}
+		}else{
+			for(var i=0;i<len;i++){
+				sum+=$(this).find("li").eq(i).height()+15;
+			}
+		}
+		$(this).css({"height":sum})
+	})
 })
 /* 菜单悬浮 */
 var location_array = new Array()
