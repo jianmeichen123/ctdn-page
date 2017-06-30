@@ -25,7 +25,7 @@ function fillBaseEventInfo(data,divList){
                 v=' '
             }
             if(k=='districtGrandsonName'&&v){
-                v=" "+v
+                v='<span class="dot">·</span>'+v
             }
             if(k=='districtGrandsonName'&&!v){
                 v=' '
