@@ -216,6 +216,7 @@ com{color:#1ed2ff;}
 .project_tit ul{float:left; margin-left:15px; overflow:hidden; margin-bottom:0;}
 .project_tit_ul{width:600px;}
 .project_tit ul li{line-height:26px;}
+.project_tit ul.project_tit_ul li{line-height:initial;margin-bottom:5px}
 .project_tit .dot{margin:0 2px;}
 .project_absolute{position:absolute; right:0;}
 .project_tit .project_absolute li{float:left; padding-left:10px; border-radius:10px; padding-right:10px; margin-right:20px;}
