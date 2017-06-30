@@ -88,7 +88,6 @@ function beenMergeSideListFormatter(data,div){
                         for(i in ls){
                             mergeSideJson = ls[i]
                             if(row.party=="C"){
-                                alert(mergeSideJson.code)
                                 if(mergeSideJson.code){
                                     v= "<span class='list_table_td'><a target='_blank' href = '/project_qy.html?code="+mergeSideJson.code+"'>"+mergeSideJson.title+"</a></span>";
                                 }else{
