@@ -84,7 +84,8 @@ input{outline: none;}
 .shgp .list_table_td span{line-height:initial;text-indent:0;}
 .list_table_td img,.list_table_td ul{ float:left; margin-left:8px;}
 .list_table_td ul{ float:left; margin-left:10px;}
-.list_table_td a{ color:#333;}
+.list_table_td a{ color:#333;white-space:nowrap;}
+.tzsj_table .list_table_td a{white-space:nowrap;}
 .list_table_td a:hover{ color:#1ed2ff; text-decoration:none;}
 .boder_all table{ border:1px solid #f0f0f0;}
 .block .fixed-table-container {
