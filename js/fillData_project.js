@@ -155,7 +155,7 @@ function projectContactListFormatter(data,div){
 }
 //上市挂牌
 function eventListedInfoListFormatter(data,div){
-   var staticTemplate = '<tr> <td style="width:220px"> <div class="list_table_td"><span>${logo}</span> <ul class="col_999"> <li><a href="#">${projTitle}</a></li> <li><span>${districtSubName}</span><span class="industryName">${industryName}</span></li> </ul> </div> </td> <td>${type}</td> <td>${stockExchange}</td> <td>${stockCode}</td> <td>${listedDate}</td> <td>${eventId}</td> </tr>'
+   var staticTemplate = '<tr> <td style="width:30%"> <div class="list_table_td"><span>${logo}</span> <ul class="col_999"> <li><a href="#">${projTitle}</a></li> <li><span class="districtSubName">${districtSubName}</span><span class="industryName">${industryName}</span></li> </ul> </div> </td> <td>${type}</td> <td>${stockExchange}</td> <td>${stockCode}</td> <td>${listedDate}</td> <td>${eventId}</td> </tr>'
    var temp = staticTemplate;
    var html = "";
     //遍历数组
@@ -210,7 +210,7 @@ function eventListedInfoListFormatter(data,div){
 }
 //并购事件
 function eventMergerInfoListFormatter(data,div){
-   var staticTemplate='<tr> <td style="width:20%"> <div class="list_table_td"> <span><img height="37" width="37" src="${logo}"></span> <ul class="col_999"> <li><a href="#">${projTitle}</a></li> <li><span>${districtSubName}</span><span>${industryName}</span></li> </ul> </div> </td><td>${equityRate}</td> <td>${amountStr}</td> <td>${mergeSideJson}</td> <td>${mergeDate}</td> <td>${eventId}</td> </tr>'
+   var staticTemplate='<tr> <td style="width:30%"> <div class="list_table_td"> <span><img height="37" width="37" src="${logo}"></span> <ul class="col_999"> <li><a href="#">${projTitle}</a></li> <li><label class="name">${districtSubName}</label><label class="name">${industryName}</label></li> </ul> </div> </td><td>${equityRate}</td> <td>${amountStr}</td> <td>${mergeSideJson}</td> <td>${mergeDate}</td> <td>${eventId}</td> </tr>'
    var temp = staticTemplate;
    var html = "";
    //遍历数组
