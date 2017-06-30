@@ -76,7 +76,7 @@ function orgHistoryInfoListFormatter(data,div){
 }
 var orgId = getHrefParamter("orgId")
 //投资事件
-function eventInfoListFormatter(data,div){
+function eventInfoExtListFormatter(data,div){
      var staticTemplate =  "<tr><td>${investSideJson}</td><td>${company}</td><td>${investDate}</td><td>${round}</td><td> ${amountStr}</td><td>${eventId}</td></tr>";
      var temp = staticTemplate;
      var html = "";
@@ -107,10 +107,7 @@ function eventInfoListFormatter(data,div){
                                     }
                                 }
                             }
-    //                        $(ls).each(function(){
-    //                           //待修改 没加领投
-    //                           firms += "<a href = '#?id="+$(this)[0].id+"'>"+$(this)[0].invstor+"</a><br>";
-    //                        })
+
                             v = firms
                         }
                         if(k=="company"){
