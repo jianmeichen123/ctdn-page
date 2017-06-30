@@ -22,6 +22,9 @@ function fillBgBaseInfo(data,divList){
                 if(k=='desc'&&!v){
                     v = '暂无描述'
                 }
+                if(k=='industrySubname'&&!v){
+                    v=' '
+                }
                 if(v){
                     o.html(v)
                 }else{
