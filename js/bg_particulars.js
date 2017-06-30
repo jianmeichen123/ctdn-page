@@ -16,7 +16,7 @@ function fillBgBaseInfo(data,divList){
                 if(k=='mergeDate'){
                     v = formatDate(v,'yyyy-MM-dd')
                 }
-                if(k=='equityRate'){
+                if(k=='equityRate'&&v){
                     v=v+'%'
                 }
                 if(k=='desc'&&!v){
