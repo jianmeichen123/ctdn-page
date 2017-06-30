@@ -21,6 +21,15 @@ function fillBaseEventInfo(data,divList){
             if(k=='industrySubName'&&v){
                 v = '>'+v
             }
+            if(k=='industrySubName'&&!v){
+                v=' '
+            }
+            if(k=='districtGrandsonName'&&v){
+                v='<span class="dot">·</span>'+v
+            }
+            if(k=='districtGrandsonName'&&!v){
+                v=' '
+            }
             if(k=='investevent'&&!v){
                 v = '未透露'
             }

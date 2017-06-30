@@ -13,6 +13,15 @@ function fillSsBaseInfo(data,divList){
                     window[func](v,o)
                 }
            }else{
+                if(k=='projTitle'&&v){
+                    v="<span class='list_table_td'><a href='project_qy.html?code="+data.sourceCode+"'>"+v+"</a></span>"
+                }
+                if(k=='industrySubName'&&v){
+                    v='>'+v
+                }
+                if(k=='industrySubName'&&!v){
+                    v=' '
+                }
                 if(k=='desc'&&!v){
                     v = '暂无描述'
                 }
