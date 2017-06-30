@@ -50,8 +50,10 @@ function mergeSideListFormatter(data,div){
                             for(i in ls){
                                 mergeSideJson = ls[i]
                                 if(row.party=='B'){
-                                    if(mergeSideJson.id){
+                                    if(mergeSideJson.id&&mergeSideJson.id!=0){
                                         v= "<span class='list_table_td'><a target='_blank' href = 'jg_particulars.html?orgId="+mergeSideJson.id+"'>"+mergeSideJson.title+"</a></span>";
+                                    }else{
+                                        v=mergeSideJson.title
                                     }
                                 }
                             }
@@ -85,11 +87,13 @@ function beenMergeSideListFormatter(data,div){
                         var mergeSideJson = ''
                         for(i in ls){
                             mergeSideJson = ls[i]
-                            if(mergeSideJson.type=='com'){
-                                v= "<span class='list_table_td'><a target='_blank' href = '/project_qy.html?code="+mergeSideJson.code+"'>"+mergeSideJson.title+"</a></span>";
-                            }
-                            if(mergeSideJson.type=='invse'){
-                                v= "<span class='list_table_td'><a target='_blank' href = 'jg_particulars.html?orgId="+mergeSideJson.id+"'>"+mergeSideJson.title+"</a></span>";
+                            if(row.party=="C"){
+                                alert(mergeSideJson.code)
+                                if(mergeSideJson.code){
+                                    v= "<span class='list_table_td'><a target='_blank' href = '/project_qy.html?code="+mergeSideJson.code+"'>"+mergeSideJson.title+"</a></span>";
+                                }else{
+                                    v=mergeSideJson.title
+                                }
                             }
                         }
                     }
