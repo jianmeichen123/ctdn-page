@@ -16,7 +16,7 @@ var Constants = {
 	userContentURL: "http://ctdndev.gi.com/user/",
 	searchContentURL: "http://ctdndev.gi.com/search/",
 	dataContentURL: "http://ctdndev.gi.com/data/",
-    logoPath: "http:///10.10.0.147/"
+    logoPath: "http://static.galaxyinternet.com"
 }
 var home = {
 	    index : "http://ctdndev.gi.com"
