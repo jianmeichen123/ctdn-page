@@ -22,8 +22,15 @@ function fillBgBaseInfo(data,divList){
                 if(k=='desc'&&!v){
                     v = '暂无描述'
                 }
-                if(k=='industrySubname'&&!v){
-                    v=' '
+                if(k=='industrySubName'){
+                      var str = "";
+                      if(v){
+                          str += v;
+                          if(row["industrySubName"]){
+                              str += ">" + row["industrySubName"]
+                          }
+                      }
+                      v =  str;
                 }
                 if(v){
                     o.html(v)
