@@ -326,7 +326,12 @@ $(function(){
 		for(var i=0;i<10;i++){
 			sum+=$(this).find("tbody tr").eq(i).height();
 		}
-		$(this).find("tbody").css({"height":sum})
+		$(this).find("tbody").css({"height":sum});
+		if(len<10){
+			$(this).find("tbody").css({"overflow-y":"hidden"});
+		}else{
+			$(this).find("tbody").css({"overflow-y":"auto"});
+		}
 	})
 
 
