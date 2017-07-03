@@ -96,16 +96,18 @@ function beenMergeSideListFormatter(data,div){
              $.each(row,function(k,v){
                  while(temp.indexOf("${"+k+"}") > 1){
                     if(k=='partyName'){
-                        var json = eval("("+v+")")
-                        var ls = json["mergeSideJson"]
-                        var mergeSideJson = ''
-                        for(i in ls){
-                            mergeSideJson = ls[i]
-                            if(row.party=="C"){
-                                if(mergeSideJson.code){
-                                    v= "<span class='list_table_td'><a target='_blank' href = '/project_qy.html?code="+mergeSideJson.code+"'>"+mergeSideJson.title+"</a></span>";
-                                }else{
-                                    v=mergeSideJson.title
+                        if(v){
+                            var json = eval("("+v+")")
+                            var ls = json["mergeSideJson"]
+                            var mergeSideJson = ''
+                            for(i in ls){
+                                mergeSideJson = ls[i]
+                                if(row.party=="C"){
+                                    if(mergeSideJson.code){
+                                        v= "<span class='list_table_td'><a target='_blank' href = '/project_qy.html?code="+mergeSideJson.code+"'>"+mergeSideJson.title+"</a></span>";
+                                    }else{
+                                        v=mergeSideJson.title
+                                    }
                                 }
                             }
                         }
