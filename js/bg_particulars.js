@@ -39,7 +39,7 @@ function fillBgBaseInfo(data,divList){
 }
 //并购方
 function mergeSideListFormatter(data,div){
-   var staticTemplate = '<tr> <td>${partyName}</td> <td>${industry}</td> <td>${district}</td><td>${isVcFe}</td> <td>${isStock}</td><td>${isNation}</td><td>${lawFirms}</td><td>${accountFirms}</td><td>${financeConsult}</td></tr>'
+   var staticTemplate = '<tr> <td>${partyName}</td> <td>${industryName}</td> <td>${district}</td><td>${isVcFe}</td> <td>${isStock}</td><td>${isNation}</td><td>${lawFirms}</td><td>${accountFirms}</td><td>${financeConsult}</td></tr>'
    var temp = staticTemplate;
     var html =""
     if(data.length>0){
@@ -87,7 +87,7 @@ function mergeSideListFormatter(data,div){
 
 //被并购方
 function beenMergeSideListFormatter(data,div){
-   var staticTemplate = '<tr> <td>${partyName}</td> <td>${industry}</td> <td>${district}</td><td>${isVcFe}</td> <td>${isStock}</td><td>${isNation}</td><td>${lawFirms}</td><td>${accountFirms}</td><td>${financeConsult}</td></tr>'
+   var staticTemplate = '<tr> <td>${partyName}</td> <td>${industryName}</td> <td>${district}</td><td>${isVcFe}</td> <td>${isStock}</td><td>${isNation}</td><td>${lawFirms}</td><td>${accountFirms}</td><td>${financeConsult}</td></tr>'
    var temp = staticTemplate;
     var html =""
 
