@@ -25,6 +25,9 @@ function fillBgBaseInfo(data,divList){
                 if(k=='industrySubname'&&!v){
                     v=' '
                 }
+                if(k=='equityRate'&&!v){
+                    v='未透露'
+                }
                 if(v){
                     o.html(v)
                 }else{
@@ -36,7 +39,7 @@ function fillBgBaseInfo(data,divList){
 }
 //并购方
 function mergeSideListFormatter(data,div){
-   var staticTemplate = '<tr> <td>${partyName}</td> <td>${industry}</td> <td>${district}</td><td>${isVcFe}</td> <td>${isStock}</td><td>${isNation}</td><td>${lawFirms}</td><td>${accountFirms}</td><td>${financeConsult}</td></tr>'
+   var staticTemplate = '<tr> <td>${partyName}</td> <td>${industryName}</td> <td>${district}</td><td>${isVcFe}</td> <td>${isStock}</td><td>${isNation}</td><td>${lawFirms}</td><td>${accountFirms}</td><td>${financeConsult}</td></tr>'
    var temp = staticTemplate;
     var html =""
     if(data.length>0){
@@ -58,15 +61,11 @@ function mergeSideListFormatter(data,div){
                                 }
                             }
                         }
-                        if(k=="industryName"){
-                               var str = "";
-                               if(v){
-                                   str += v;
-                                   if(row["industrySubName"]){
-                                       str += ">" + row["industrySubName"]
-                                   }
-                               }
-                               v =  str;
+
+                        if(k=='industryName'){
+                            if(row.industrySubName){
+                                v = v+'>'+row.industrySubName
+                            }
                         }
                         if(!v){ v = "-"}
                         temp = temp.replace("${"+k+"}",v)
@@ -83,7 +82,7 @@ function mergeSideListFormatter(data,div){
 
 //被并购方
 function beenMergeSideListFormatter(data,div){
-   var staticTemplate = '<tr> <td>${partyName}</td> <td>${industry}</td> <td>${district}</td><td>${isVcFe}</td> <td>${isStock}</td><td>${isNation}</td><td>${lawFirms}</td><td>${accountFirms}</td><td>${financeConsult}</td></tr>'
+   var staticTemplate = '<tr> <td>${partyName}</td> <td>${industryName}</td> <td>${district}</td><td>${isVcFe}</td> <td>${isStock}</td><td>${isNation}</td><td>${lawFirms}</td><td>${accountFirms}</td><td>${financeConsult}</td></tr>'
    var temp = staticTemplate;
     var html =""
 
@@ -91,30 +90,31 @@ function beenMergeSideListFormatter(data,div){
         $(data).each(function(i,row){
              $.each(row,function(k,v){
                  while(temp.indexOf("${"+k+"}") > 1){
+
                     if(k=='partyName'){
-                        var json = eval("("+v+")")
-                        var ls = json["mergeSideJson"]
-                        var mergeSideJson = ''
-                        for(i in ls){
-                            mergeSideJson = ls[i]
-                            if(row.party=="C"){
-                                if(mergeSideJson.code){
-                                    v= "<span class='list_table_td'><a target='_blank' href = '/project_qy.html?code="+mergeSideJson.code+"'>"+mergeSideJson.title+"</a></span>";
-                                }else{
-                                    v=mergeSideJson.title
+                        if(v){
+                            var json = eval("("+v+")")
+                            var ls = json["mergeSideJson"]
+                            var mergeSideJson = ''
+                            for(i in ls){
+                                mergeSideJson = ls[i]
+                                if(row.party=="C"){
+                                    if(mergeSideJson.code){
+                                        v= "<span class='list_table_td'><a target='_blank' href = '/project_qy.html?code="+mergeSideJson.code+"'>"+mergeSideJson.title+"</a></span>";
+                                    }else{
+                                        v=mergeSideJson.title
+                                    }
                                 }
                             }
                         }
                     }
-                    if(k=="industryName"){
-                           var str = "";
-                           if(v){
-                               str += v;
-                               if(row["industrySubName"]){
-                                   str += ">" + row["industrySubName"]
-                               }
-                           }
-                           v =  str;
+                    if(k=='industryName'&&v){
+                        if(row.industrySubName){
+                            v = v+'>'+row.industrySubName
+                        }
+                    }
+                    if(k=='industrySubname'&&!v){
+                        v = ' '
                     }
                     if(!v){ v = "-"}
                     temp = temp.replace("${"+k+"}",v)
