@@ -104,6 +104,7 @@ input{outline: none;}
     -moz-border-radius: 0px;
 }
 .rzxx .invstorName{white-space:nowrap;}
+.rzxx a.invstorName:hover{color:#1ed2ff}
 /*行业选择*/
 .industry_list{ position:absolute; overflow:hidden; top:26px; width:305px; background-color:#fff; border:1px solid #e7e7e7; height:290px; z-index:98; left:0px;}
 .industry_list ul{ float:left;  border-left:1px solid #f0f0f0; height:305px;   width: 130px; padding-top:10px;}
