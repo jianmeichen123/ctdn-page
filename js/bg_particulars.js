@@ -13,6 +13,9 @@ function fillBgBaseInfo(data,divList){
                     window[func](v,o)
                 }
            }else{
+                if(k=='amountStr'&&!v){
+                    v='未透露'
+                }
                 if(k=='mergeDate'){
                     v = formatDate(v,'yyyy-MM-dd')
                 }
