@@ -58,6 +58,16 @@ function mergeSideListFormatter(data,div){
                                 }
                             }
                         }
+                        if(k=="industryName"){
+                               var str = "";
+                               if(v){
+                                   str += v;
+                                   if(row["industrySubName"]){
+                                       str += ">" + row["industrySubName"]
+                                   }
+                               }
+                               v =  str;
+                        }
                         if(!v){ v = "-"}
                         temp = temp.replace("${"+k+"}",v)
                      }
@@ -95,6 +105,16 @@ function beenMergeSideListFormatter(data,div){
                                 }
                             }
                         }
+                    }
+                    if(k=="industryName"){
+                           var str = "";
+                           if(v){
+                               str += v;
+                               if(row["industrySubName"]){
+                                   str += ">" + row["industrySubName"]
+                               }
+                           }
+                           v =  str;
                     }
                     if(!v){ v = "-"}
                     temp = temp.replace("${"+k+"}",v)

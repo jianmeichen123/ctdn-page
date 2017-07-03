@@ -191,7 +191,7 @@ function eventListedInfoListFormatter(data,div){
                                 v = formatDate(v, "yyyy-MM-dd")
                            }
                        }else if(k == "eventId"){
-                            v = "<a href='#?id="+row.eventId+"'>详情</a>"
+                            v = "<a href='ss_particulars.html?eventId="+row.eventId+"'>详情</a>"
                        }
                        if(!v){
                             v = "-"
