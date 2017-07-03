@@ -63,13 +63,8 @@ function mergeSideListFormatter(data,div){
                         }
 
                         if(k=='industryName'){
-                            alert(v)
-                            if(row.industrySubname){
-                                alert(row.industrySubname)
-                                v = v+'>'+row.industrySubname
-                            }else{
-                                alert(row.industrySubname)
-                                v=v
+                            if(row.industrySubName){
+                                v = v+'>'+row.industrySubName
                             }
                         }
                         if(!v){ v = "-"}
@@ -95,6 +90,7 @@ function beenMergeSideListFormatter(data,div){
         $(data).each(function(i,row){
              $.each(row,function(k,v){
                  while(temp.indexOf("${"+k+"}") > 1){
+
                     if(k=='partyName'){
                         if(v){
                             var json = eval("("+v+")")
@@ -112,8 +108,10 @@ function beenMergeSideListFormatter(data,div){
                             }
                         }
                     }
-                    if(k=='industrySubname'&&v){
-                        v = '>'+v
+                    if(k=='industryName'&&v){
+                        if(row.industrySubName){
+                            v = v+'>'+row.industrySubName
+                        }
                     }
                     if(k=='industrySubname'&&!v){
                         v = ' '
