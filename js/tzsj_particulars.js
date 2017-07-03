@@ -18,11 +18,15 @@ function fillBaseEventInfo(data,divList){
             if(k=='desc'&&!v){
                 v = '暂无描述'
             }
-            if(k=='industrySubName'&&v){
-                v = '>'+v
-            }
-            if(k=='industrySubName'&&!v){
-                v=' '
+            if(k=="industryName"){
+               var str = "";
+               if(v){
+                   str += v;
+                   if(data["industrySubName"]){
+                       str += ">" + data["industrySubName"]
+                   }
+               }
+               v =  str;
             }
             if(k=='districtGrandsonName'&&v){
                 v='<span class="dot">·</span>'+v
