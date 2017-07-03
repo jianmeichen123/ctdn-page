@@ -385,7 +385,13 @@ $(function(){
 			  $(this).text($(this).text())
 		  }
 	})
-	
+	//发展历史条数
+	var len=$("ul[data-formatter=\"historyList\"] li").length;
+    if(len>4){
+    	$(".project_click_show").show();
+    }else{
+    	$(".project_click_show").hide();
+    }
 })
 /* 菜单悬浮 */
 var location_array = new Array()
@@ -445,6 +451,7 @@ $('body').delegate('.project_more','click',function(event){
 	$(this).parent().children('.color_666').css('height','auto')
 })
 //project_click_show发展历史
+
 $('body').delegate('.project_click_show','click',function(event){
 	event.stopPropagation();
 	$(this).hide();
