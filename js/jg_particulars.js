@@ -200,7 +200,7 @@ function orgMemberListFormatter(data,div){
 }
 //联系方式
 function projectContactListFormatter(data,div){
-    var staticTemplate ='<tr> <td>${city}</td> <td>${addr}</td> <td>${zipCode}</td> <td>${tel}</td> <td>${mail}</td> <td>${fax}</td> </tr>'
+    var staticTemplate ='<tr> <td>${city}</td> <td>${addr}</td> <td>${zipCode}</td> <td>${tel}</td> <td>'+data[0].mail.replace(";","<br>")+'</td> <td>${fax}</td> </tr>'
     var temp = staticTemplate;
     var html = "";
 
