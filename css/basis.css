@@ -338,7 +338,7 @@ com{color:#1ed2ff;}
 .brain_ico_project_money{ background-position: -55px -86px; float:left; margin-left:10px; margin-top:3px; width: 14px;  height: 14px;   display: inline-block;}
 .brain_ico_project_site{ background-position: -77px -86px; float:left; margin-left:10px; margin-top:3px; width: 14px;  height: 14px;   display: inline-block;}
 .project_jz_r_l .tzf{float:left;width:160px;padding-left:10px;text-indent:0;}
-.tzf span{margin-right:5px;}
+.tzf span.dh{margin:0 2px;}
 /* 圆盘*/
 .project_jz_r_r{ width: 106px; height: 106px;  position: relative; } 
 .on_project_jz_r_r{position:absolute; color:#78aaff; top:19px;left: 0px;  text-align: center;  width: 96px;}
