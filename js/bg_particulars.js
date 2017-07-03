@@ -25,6 +25,9 @@ function fillBgBaseInfo(data,divList){
                 if(k=='industrySubname'&&!v){
                     v=' '
                 }
+                if(k=='equityRate'&&!v){
+                    v='未透露'
+                }
                 if(v){
                     o.html(v)
                 }else{
@@ -58,15 +61,16 @@ function mergeSideListFormatter(data,div){
                                 }
                             }
                         }
-                        if(k=="industryName"){
-                               var str = "";
-                               if(v){
-                                   str += v;
-                                   if(row["industrySubName"]){
-                                       str += ">" + row["industrySubName"]
-                                   }
-                               }
-                               v =  str;
+
+                        if(k=='industryName'){
+                            alert(v)
+                            if(row.industrySubname){
+                                alert(row.industrySubname)
+                                v = v+'>'+row.industrySubname
+                            }else{
+                                alert(row.industrySubname)
+                                v=v
+                            }
                         }
                         if(!v){ v = "-"}
                         temp = temp.replace("${"+k+"}",v)
@@ -106,15 +110,11 @@ function beenMergeSideListFormatter(data,div){
                             }
                         }
                     }
-                    if(k=="industryName"){
-                           var str = "";
-                           if(v){
-                               str += v;
-                               if(row["industrySubName"]){
-                                   str += ">" + row["industrySubName"]
-                               }
-                           }
-                           v =  str;
+                    if(k=='industrySubname'&&v){
+                        v = '>'+v
+                    }
+                    if(k=='industrySubname'&&!v){
+                        v = ' '
                     }
                     if(!v){ v = "-"}
                     temp = temp.replace("${"+k+"}",v)
