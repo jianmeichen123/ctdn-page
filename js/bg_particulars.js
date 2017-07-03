@@ -22,15 +22,8 @@ function fillBgBaseInfo(data,divList){
                 if(k=='desc'&&!v){
                     v = '暂无描述'
                 }
-                if(k=='industrySubName'){
-                      var str = "";
-                      if(v){
-                          str += v;
-                          if(row["industrySubName"]){
-                              str += ">" + row["industrySubName"]
-                          }
-                      }
-                      v =  str;
+                if(k=='industrySubname'&&!v){
+                    v=' '
                 }
                 if(v){
                     o.html(v)
@@ -64,6 +57,16 @@ function mergeSideListFormatter(data,div){
                                     }
                                 }
                             }
+                        }
+                        if(k=="industryName"){
+                               var str = "";
+                               if(v){
+                                   str += v;
+                                   if(row["industrySubName"]){
+                                       str += ">" + row["industrySubName"]
+                                   }
+                               }
+                               v =  str;
                         }
                         if(!v){ v = "-"}
                         temp = temp.replace("${"+k+"}",v)
@@ -102,6 +105,16 @@ function beenMergeSideListFormatter(data,div){
                                 }
                             }
                         }
+                    }
+                    if(k=="industryName"){
+                           var str = "";
+                           if(v){
+                               str += v;
+                               if(row["industrySubName"]){
+                                   str += ">" + row["industrySubName"]
+                               }
+                           }
+                           v =  str;
                     }
                     if(!v){ v = "-"}
                     temp = temp.replace("${"+k+"}",v)
