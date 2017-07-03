@@ -28,6 +28,9 @@ function fillBaseInfo(data,divList){
                 if(k=="foundDate"){
                     v = formatDate(v,"yyyy-MM-dd")
                 }
+                if(k=='investAmountStr'&&v){
+                    v=v+'&nbsp;(仅供参考)'
+                }
                 if(v){
                     o.html(v)
                 }else{
