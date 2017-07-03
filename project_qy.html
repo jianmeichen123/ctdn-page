@@ -62,7 +62,7 @@
 									<th data-field="eventId"><div class="border_l" >详情</div></th>
 								</tr>
 							</thead>
-						    <tbody data-query="list" data-formatter="eventInfoList"></tbody>
+						    <tbody data-query="list" data-formatter="eventInfoList" class="rzxx"></tbody>
 							<!--<td>-->
 								<!--<div class="project_bj_div">万启明创投<span class="project_bj_org">领投</span></div>-->
 								<!--<div class="project_bj_div">万启明创投<span class="project_bj_org">领投</span></div>-->
@@ -348,17 +348,43 @@ $(function(){
  $(".project_new").each(function(){
 		var len=$(this).find("li").length;
 		var sum=0;
-		if(len>10){
+		if(len>9){
 			for(var i=0;i<10;i++){
 				sum+=$(this).find("li").eq(i).height()+15;
 			}
+			$(this).css({"overflow-y":"auto"});
 		}else{
 			for(var i=0;i<len;i++){
 				sum+=$(this).find("li").eq(i).height()+15;
 			}
+			$(this).css({"overflow-y":"hidden"});
 		}
-		$(this).css({"height":sum})
+		$(this).css({"height":sum});
 	})
+	//超过10条显示滚动条
+	$(".particulars_table_list").each(function(){
+		var len=$(this).find("tbody tr").length;
+		var sum=0;
+		for(var i=0;i<10;i++){
+			sum+=$(this).find("tbody tr").eq(i).height();
+		}
+		$(this).find("tbody").css({"height":sum});
+		if(len<10){
+			$(this).find("tbody").css({"overflow-y":"hidden"});
+		}else{
+			$(this).find("tbody").css({"overflow-y":"auto"});
+		}
+	})
+	//融资信息过长截断显示
+	$(".invstorName").each(function(){
+		var len=$(this).text().length;
+		  if(len>10){
+			  $(this).text($(this).text().substring(0,10)+"...")
+		  }else{
+			  $(this).text($(this).text())
+		  }
+	})
+	
 })
 /* 菜单悬浮 */
 var location_array = new Array()
