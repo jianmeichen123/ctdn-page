@@ -330,7 +330,9 @@ com{color:#1ed2ff;}
 .project_jz_l>ul>li{ float:left;}
 .project_jz_l .project_absolute_blue{ padding:5px 10px; border-radius:15px; display: inline;}
 .project_jz_span span{background-color:#f2f2f2; padding:5px 10px; border-radius:15px; display:block; float:left; margin-right:15px; color:#999;}
-.project_jz_l img{ border:1px solid #e6e6e6; width:78px; height:78px; float:left; margin-right:10px;}
+.project_jz_l span.img_parent{margin-right:10px;overflow:hidden;position:relative;width:78px;height:78px;overflow: hidden;display:inline-block;border:1px solid #e6e6e6;float:left;}
+.project_jz_l img { float: left;   width: 78px;   position:absolute;top:50%;transform:translateY(-50%)}
+/* .project_jz_l img{ border:1px solid #e6e6e6; width:78px; height:78px; float:left; margin-right:10px;} */
 .project_jz_l_n_3{margin-top:27px; margin-left:20px; width:100px;}
 .project_jz_l_n_2{margin-top:27px; margin-left:20px;}
 .project_jz_l_n_ul li{margin-bottom:5px; width:435px; overflow:hidden; white-space:nowrap; text-overflow:ellipsis;}
