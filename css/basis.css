@@ -93,6 +93,7 @@ input{outline: none;}
 .list_table_td a{ color:#333;white-space:nowrap;}
 .tzsj_list .list_table_td a{white-space:normal;}
 .tzsj_table .list_table_td a{white-space:nowrap;}
+.tzsj_table .invstorName{width:168px;white-space:nowrap; overflow:hidden; text-overflow:ellipsis;display:block;text-align:center;}
 .list_table_td a:hover{ color:#1ed2ff; text-decoration:none;}
 .boder_all table{ border:1px solid #f0f0f0;}
 .block .fixed-table-container {
