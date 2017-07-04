@@ -31,6 +31,11 @@ function fillSsBaseInfo(data,divList){
                 if(k=='listedEvent'&&!v){
                     v='暂未披露'
                 }
+                if(k=='districtSubName'&&v){
+                    if(data.districtgrandsonname){
+                        v=v+'&nbsp;'+data.districtgrandsonname
+                    }
+                }
                 if(v){
                     o.html(v)
                 }else{
