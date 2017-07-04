@@ -59,7 +59,7 @@ function mergeSideListFormatter(data,div){
                                     if(mergeSideJson.id&&mergeSideJson.id!=0){
                                         v= "<span class='list_table_td'><a target='_blank' href = 'jg_particulars.html?orgId="+mergeSideJson.id+"'>"+mergeSideJson.title+"</a></span>";
                                     }else{
-                                        v=mergeSideJson.title
+                                            v="<tr> <td colspan='6'><span>暂无数据</span></th></tr>"
                                     }
                                 }
                             }
