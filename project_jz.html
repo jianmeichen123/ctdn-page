@@ -97,6 +97,14 @@
 			$(this).attr("href",$(this).attr("href")+"?code="+code)
 		//}
 	   })
+	  $(".tzf").each(function(){   //去掉最后一个分隔符
+		  console.log($(this).children("span:last-child").html());
+		  if($(this).children("span:last-child").html()==","){
+			  $(this).children("span:last-child").remove()
+		  }else{
+			  $(this).children("span:last-child").find(".dh").remove();
+		  }
+	  })
 	})
 	function directCompetationlistFormatter(data,div){
 		aa(data,div)
@@ -122,9 +130,9 @@
 							   //待修改 没加领投
 							   if(i<3){
 							   	if($(this)[0].isClick=="1"){
-							   		firms += "<span><a href = 'jg_particulars.html?orgId="+$(this)[0].id+"'>"+$(this)[0].invstor+"</a></span>";
+							   		firms += "<span><a href = 'jg_particulars.html?orgId="+$(this)[0].id+"'>"+$(this)[0].invstor+"</a><span class=\"dh\">,</span></span>";
 							   	}else{
-							   		firms += "<span>"+$(this)[0].invstor+"</span>";
+							   		firms += "<span>"+$(this)[0].invstor+"</span><span class=\"dh\">,</span>";
 							   	}
 							   }
 							})
