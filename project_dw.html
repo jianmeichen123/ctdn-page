@@ -141,7 +141,11 @@
 							  $(ls).each(function(i){
 								if(i<3){
 									if($(this)[0].isClick=="1"){
-										firms += "<div><a href = 'jg_particulars.html?orgId="+$(this)[0].id+"'>"+$(this)[0].invstor+"</a><div>";
+										if($(this)[0].type=="com"){
+											firms += "<div><a href = 'project_qy.html?code="+$(this)[0].code+"'>"+$(this)[0].invstor+"</a><div>";
+										}else {
+											firms += "<div><a href = 'jg_particulars.html?orgId="+$(this)[0].id+"'>"+$(this)[0].invstor+"</a><div>";
+										}
 									}else{
 										firms += "<div>"+$(this)[0].invstor+"</div>";
 									}
