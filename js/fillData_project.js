@@ -126,8 +126,8 @@ function historyListFormatter(data,div){
        html="<li><span>　暂无数据</span></li>"
     }
     div.append(html)
-    if(data.length>10){
-        div.parent().append('<div class="block project_click_show color_666" >展开全部<span data-field="length">'+data.length+'</span>条<span class="brain_ico brain_ico_project_more"></span></div>')
+    if(data.length>5){
+        div.parent().parent().append('<div class="block project_click_show color_666" >展开全部<span data-field="length">'+data.length+'</span>条<span class="brain_ico brain_ico_project_more"></span></div>')
     }
 }
 //联系方式
