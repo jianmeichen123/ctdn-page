@@ -126,8 +126,8 @@ function historyListFormatter(data,div){
        html="<li><span>　暂无数据</span></li>"
     }
     div.append(html)
-    if(data.length>10){
-        div.parent().append('<div class="block project_click_show color_666" >展开全部<span data-field="length">'+data.length+'</span>条<span class="brain_ico brain_ico_project_more"></span></div>')
+    if(data.length>5){
+        div.parent().parent().append('<div class="block project_click_show color_666" >展开全部<span data-field="length">'+data.length+'</span>条<span class="brain_ico brain_ico_project_more"></span></div>')
     }
 }
 //联系方式
@@ -347,8 +347,8 @@ var callBack = {
                    if(data.success){
                         var p_html = {
                             "domain":'<li id="{code}:str" op-data-type="pvuv" data-name="趋势分析图"><div class="a a1">网站</div> <div class="wrapper"> <ul class="product_list_ul"> <li>{appname}</li> <li>alexa排名：{index2}</li> </ul> </div> </li>',
-                            "android":'<li id="{appid}:long" op-data-type="android" data-name="趋势分析图"><div class="a a2">iOS</div>  <div class="wrapper"> <ul class="product_list_ul"> <li>下载总量：<span>{index1}</span></li> <li>每日下载量：<span>{index2}</span></li> <li>更新时间：<span>{updateDate}</span></li> <li>评分：<span>{avgScore}</span></li> </ul> </div> </li>',
-                            "ios":'<li id="{appid}:long" op-data-type="ios" data-name="趋势分析图"><div class="a a3">Android</div> <div class="wrapper"> <ul class="product_list_ul"> <li>下载总量：<span>{index1}</span></li> <li>每日下载量：<span>{index2}</span></li> <li>更新时间：<span>{updateDate}</span></li> <li>评分：<span>{avgScore}</span></li> </ul> </div> </li>',
+                            "android":'<li id="{appid}:long" op-data-type="android" data-name="趋势分析图"><div class="a a3">Android</div>  <div class="wrapper"> <ul class="product_list_ul"> <li>下载总量：<span>{index1}</span></li> <li>每日下载量：<span>{index2}</span></li> <li>更新时间：<span>{updateDate}</span></li> <li>评分：<span>{avgScore}</span></li> </ul> </div> </li>',
+                            "ios":'<li id="{appid}:long" op-data-type="ios" data-name="趋势分析图"><div class="a a2">iOS</div> <div class="wrapper"> <ul class="product_list_ul"> <li>下载总量：<span>{index1}</span></li> <li>每日下载量：<span>{index2}</span></li> <li>更新时间：<span>{updateDate}</span></li> <li>评分：<span>{avgScore}</span></li> </ul> </div> </li>',
                             "weibo":'<li id="{appid}:str" op-data-type="weibo" data-name="趋势分析图"> <div class="a a4">微博</div> <div class="wrapper"> <ul class="product_list_ul"> <li>微博数：<span>{index1}</span></li> <li> 粉丝数：<span>{index2}</span></li> </ul> </div> </li>',
                             "weixin":'<li id="{appid}:str" op-data-type="weixin" data-name="趋势分析图"><div class="a a5">微信</div><div class="wrapper"> <ul class="product_list_ul"> <li>平均阅读量：<span>{index1}</span></li> <li> 点赞量：<span>{index2}</span></li> </ul> </div> </li>',
                         }
