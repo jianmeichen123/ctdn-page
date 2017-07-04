@@ -42,7 +42,7 @@ function fillBgBaseInfo(data,divList){
 }
 //并购方
 function mergeSideListFormatter(data,div){
-   var staticTemplate = '<tr> <td>${partyName}</td> <td>${industryName}</td> <td>${district}</td><td>${isVcFe}</td> <td>${isStock}</td><td>${isNation}</td><td>${lawFirms}</td><td>${accountFirms}</td><td>${financeConsult}</td></tr>'
+   var staticTemplate = '<tr> <td>${partyName}</td> <td>${industryName}</td> <td>${districtSubName}</td><td>${isVcFe}</td> <td>${isStock}</td><td>${isNation}</td><td>${lawFirms}</td><td>${accountFirms}</td><td>${financeConsult}</td></tr>'
    var temp = staticTemplate;
     var html =""
     if(data.length>0){
@@ -64,7 +64,14 @@ function mergeSideListFormatter(data,div){
                                 }
                             }
                         }
-
+                        if(k=="districtSubName"){
+                           if(!v){
+                               v = '<span>'+v+'</span>'
+                               if(data.districtGrandsonName){
+                                 v +='<span class="dot">·</span><span>'+data.districtGrandsonName+'</span>'
+                               }
+                           }
+                        }
                         if(k=='industryName'){
                             if(row.industrySubName){
                                 v = v+'>'+row.industrySubName
@@ -85,7 +92,7 @@ function mergeSideListFormatter(data,div){
 
 //被并购方
 function beenMergeSideListFormatter(data,div){
-   var staticTemplate = '<tr> <td>${partyName}</td> <td>${industryName}</td> <td>${district}</td><td>${isVcFe}</td> <td>${isStock}</td><td>${isNation}</td><td>${lawFirms}</td><td>${accountFirms}</td><td>${financeConsult}</td></tr>'
+   var staticTemplate = '<tr> <td>${partyName}</td> <td>${industryName}</td> <td>${districtSubName}</td><td>${isVcFe}</td> <td>${isStock}</td><td>${isNation}</td><td>${lawFirms}</td><td>${accountFirms}</td><td>${financeConsult}</td></tr>'
    var temp = staticTemplate;
     var html =""
 
@@ -115,6 +122,14 @@ function beenMergeSideListFormatter(data,div){
                         if(row.industrySubName){
                             v = v+'>'+row.industrySubName
                         }
+                    }
+                    if(k=="districtSubName"){
+                       if(!v){
+                           v = '<span>'+v+'</span>'
+                           if(data.districtGrandsonName){
+                             v +='<span class="dot">·</span><span>'+data.districtGrandsonName+'</span>'
+                           }
+                       }
                     }
                     if(k=='industrySubname'&&!v){
                         v = ' '
