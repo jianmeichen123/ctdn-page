@@ -80,8 +80,8 @@ function eventDetailListFormatter(data,div){
                     if(k=="quitTime"){
                         v = formatDate(v, "yyyy-MM-dd")
                     }
-                    if(k=="role"&&!v){
-                        v="未透露"
+                    if(k=="role"&&v!='领投'){
+                        v="-"
                     }
                     if(k=="stock"&&!v){
                         v="未透露"
