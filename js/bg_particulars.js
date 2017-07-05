@@ -80,8 +80,8 @@ function mergeSideListFormatter(data,div){
                         if(k=="districtSubName"){
                            if(v){
                                v = '<span>'+v+'</span>'
-                               if(data.districtGrandsonName){
-                                 v +='<span class="dot">·</span><span>'+data.districtGrandsonName+'</span>'
+                               if(row.districtGrandsonName){
+                                 v +='<span class="dot">·</span><span>'+row.districtGrandsonName+'</span>'
                                }
                            }
                         }
@@ -139,8 +139,8 @@ function beenMergeSideListFormatter(data,div){
                     if(k=="districtSubName"){
                        if(v){
                            v = '<span>'+v+'</span>'
-                           if(data.districtGrandsonName){
-                             v +='<span class="dot">·</span><span>'+data.districtGrandsonName+'</span>'
+                           if(row.districtGrandsonName){
+                             v +='<span class="dot">·</span><span>'+row.districtGrandsonName+'</span>'
                            }
                        }
                     }
