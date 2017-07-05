@@ -171,7 +171,7 @@ function orgMediaInfoListFormatter(data,div){
 
 //机构成员
 function orgMemberListFormatter(data,div){
-   var staticTemplate = '<tr> <td>${name}</td> <td>${positions}</td> <td>${status}</td><td>${phoneNum}</td> <td>${email}</td></tr>'
+   var staticTemplate = '<tr> <td>${name}</td> <td>${positions}</td> <td>${status}</td><td>${phoneNum}</td> <td style="width:30%">${email}</td></tr>'
    var temp = staticTemplate;
     var html =""
 
@@ -185,6 +185,12 @@ function orgMemberListFormatter(data,div){
                         }else{
                             v='离职'
                         }
+                    }else if(k=='email'){  //邮箱“；”替换成换行符
+                    	if(v.indexOf(";")>-1){
+                    		v=v.replace(";","<br>")
+                    	}else{
+                    		v=v
+                    	}
                     }
                     if(!v){ v = "-"}
                     temp = temp.replace("${"+k+"}",v)
