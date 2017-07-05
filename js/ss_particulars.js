@@ -33,7 +33,7 @@ function fillSsBaseInfo(data,divList){
                 }
                 if(k=='districtSubName'&&v){
                     if(data.districtgrandsonname){
-                        v=v+'&nbsp;'+data.districtgrandsonname
+                        v=v+' · '+data.districtgrandsonname
                     }
                 }
                 if(v){
