@@ -13,6 +13,9 @@ function fillBgBaseInfo(data,divList){
                     window[func](v,o)
                 }
            }else{
+                if(k=='mergeType'&&!v){
+                    v='未透露'
+                }
                 if(k=='amountStr'&&!v){
                     v='未透露'
                 }
@@ -59,7 +62,7 @@ function mergeSideListFormatter(data,div){
                                     if(mergeSideJson.id&&mergeSideJson.id!=0){
                                         v= "<span class='list_table_td'><a target='_blank' href = 'jg_particulars.html?orgId="+mergeSideJson.id+"'>"+mergeSideJson.title+"</a></span>";
                                     }else{
-                                            v="<tr> <td colspan='6'><span>暂无数据</span></th></tr>"
+                                        v=mergeSideJson.title
                                     }
                                 }
                             }
