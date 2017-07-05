@@ -60,7 +60,17 @@ function mergeSideListFormatter(data,div){
                                 mergeSideJson = ls[i]
                                 if(row.party=='B'){
                                     if(mergeSideJson.id&&mergeSideJson.id!=0){
-                                        v= "<span class='list_table_td'><a target='_blank' href = 'jg_particulars.html?orgId="+mergeSideJson.id+"'>"+mergeSideJson.title+"</a></span>";
+                                        var title = mergeSideJson.title
+                                        var mergeSide = ''
+                                        if(title.indexOf('|')>0){
+                                            var titleArr = title.split('|')
+                                            for(i in titleArr){
+                                                mergeSide += titleArr[i]+'</br>'
+                                            }
+                                        }else{
+                                            mergeSide = title
+                                        }
+                                        v= "<span class='list_table_td'><a target='_blank' href = 'jg_particulars.html?orgId="+mergeSideJson.id+"'>"+mergeSide+"</a></span>";
                                     }else{
                                         v=mergeSideJson.title
                                     }
