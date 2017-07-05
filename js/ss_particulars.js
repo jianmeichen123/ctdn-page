@@ -28,6 +28,9 @@ function fillSsBaseInfo(data,divList){
                 if(k=='listedDate'){
                     v = formatDate(v,'yyyy-MM-dd')
                 }
+                if(k=='amountStr'){
+                    v='-'
+                }
                 if(k=='listedEvent'&&!v){
                     v='暂未披露'
                 }
