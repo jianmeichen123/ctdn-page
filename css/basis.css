@@ -222,6 +222,7 @@ com{color:#1ed2ff;}
 .particulars_table_list td .list_table_td li{line-height:20px;}
 .particulars_table_list tbody .list_table_td span.zz{text-indent:0;margin-right:5px;}
 .list_table_td ul li a.defalut:hover{color:#333;}
+.particulars_table_list .tzsj_eventInfoExtList tr td:nth-child(1){width:182px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
 /*企业详情*/
 .project_tit{float:left; width:720px; position:relative; overflow:hidden;}
 .project_tit span[data-field="logoSmall"]{overflow:hidden;position:relative;width:90px;height:90px;display:inline-block;border:1px solid #e6e6e6;border-radius:4px;float:left;}
