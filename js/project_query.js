@@ -435,35 +435,37 @@ var tableFormate ={
         return '<center><span class="list_table_td"><a target="_blank" href="/tzsj_particulars.html?eventId='+eventId+'">'+"详情"+'</a></span></center>'
     },
     totalRatio:function(value,row,index){
-        var totalRatio = row.totalRatio
-        var totalRatioStr = ''
-        if(totalRatio>0){
-            totalRatioStr+='+'+totalRatio
-            totalRatioStr='<div align="center" class="list_table_td"><center><span class="brain_ico brain_ico_up_arrows"></span>'+totalRatioStr+'%'+'</center></div>'
-        }else if(totalRatio<0){
-            totalRatioStr+=totalRatio
-            totalRatioStr='<div align="center" class="list_table_td"><center><span class="brain_ico brain_ico_down_arrows"></span>'+totalRatioStr+'%'+'</center></div>'
-        }else{
-            totalRatioStr+=totalRatio
-            totalRatioStr='<div align="center" class="list_table_td"><center>'+totalRatioStr+'%'+'</center></div>'
-        }
-        return totalRatioStr
-    },
-    amountRatio:function(value,row,index){
-            var amountRatio = row.amountRatio
-            var amountRatioStr = ''
-            if(amountRatio>0){
-                amountRatioStr+='+'+amountRatio
-                amountRatioStr='<div align="center" class="list_table_td"><center><span class="brain_ico brain_ico_up_arrows"></span>'+amountRatioStr+'%'+'</center></div>'
-            }else if(amountRatio<0){
-                amountRatioStr+=amountRatio
-                amountRatioStr='<div align="center" class="list_table_td"><center><span class="brain_ico brain_ico_down_arrows"></span>'+amountRatioStr+'%'+'</center></div>'
+            var totalRatio = row.totalRatio
+            var totalRatioStr = ''
+            if(totalRatio){
+                 if(totalRatio>0){
+                            totalRatioStr='<div align="center" class="list_table_td"><center><span class="brain_ico brain_ico_up_arrows"></span>'+totalRatio/100+'%'+'</center></div>'
+                }else if(totalRatio<0){
+                    totalRatioStr='<div align="center" class="list_table_td"><center><span class="brain_ico brain_ico_down_arrows"></span>'+totalRatio/100+'%'+'</center></div>'
+                }else{
+                    totalRatioStr='<div align="center" class="list_table_td"><center>0%</center></div>'
+                }
             }else{
-                amountRatioStr+=amountRatio
-                amountRatioStr='<div align="center" class="list_table_td"><center>'+amountRatioStr+'%'+'</center></div>'
+                totalRatioStr='<div align="center" class="list_table_td"><center>-</center></div>'
             }
-            return amountRatioStr
+            return totalRatioStr
         },
+        amountRatio:function(value,row,index){
+                var amountRatio = row.amountRatio
+                var amountRatioStr = ''
+                if(amountRatio){
+                     if(amountRatio>0){
+                        amountRatioStr='<div align="center" class="list_table_td"><center><span class="brain_ico brain_ico_up_arrows"></span>'+amountRatio/100+'%'+'</center></div>'
+                     }else if(amountRatio<0){
+                        amountRatioStr='<div align="center" class="list_table_td"><center><span class="brain_ico brain_ico_down_arrows"></span>'+amountRatio/100+'%'+'</center></div>'
+                     }else{
+                         amountRatioStr='<div align="center" class="list_table_td"><center>0%</center></div>'
+                     }
+                }else{
+                    amountRatioStr='<div align="center" class="list_table_td"><center>-</center></div>'
+                }
+                return amountRatioStr
+            },
         //上市事件详情
         launchDetail:function(value,row,index){
                 return "<center><span class='list_table_td'><a target='_blank' href ='/ss_particulars.html?eventId="+row.eventId+"'"+value+">详情</a></span></center>"
