@@ -56,20 +56,18 @@ function mergeSideListFormatter(data,div){
                             for(i in ls){
                                 mergeSideJson = ls[i]
                                 if(row.party=='B'){
-                                    if(mergeSideJson.id&&mergeSideJson.id!=0){
-                                        var title = mergeSideJson.title
-                                        var mergeSide = ''
-                                        if(title.indexOf('|')>0){
-                                            var titleArr = title.split('|')
-                                            for(i in titleArr){
-                                                mergeSide += titleArr[i]+'</br>'
-                                            }
+                                    if(mergeSideJson.type=='invse'){
+                                        if(mergeSideJson.id&&mergeSideJson.id!=0){
+                                            v= "<span class='list_table_td'><a target='_blank' href = 'jg_particulars.html?orgId="+mergeSideJson.id+"'>"+mergeSideJson.title+"</a></span>";
                                         }else{
-                                            mergeSide = title
+                                            v=mergeSideJson.title
                                         }
-                                        v= "<span class='list_table_td'><a target='_blank' href = 'jg_particulars.html?orgId="+mergeSideJson.id+"'>"+mergeSide+"</a></span>";
                                     }else{
-                                        v=mergeSideJson.title
+                                        if(mergeSideJson.type=='com'){
+                                            if(mergeSideJson.code){
+                                                v= "<span class='list_table_td'><a target='_blank' href = 'project_qy.html?code="+mergeSideJson.code+"'>"+mergeSideJson.title+"</a></span>";
+                                            }
+                                        }
                                     }
                                 }
                             }
