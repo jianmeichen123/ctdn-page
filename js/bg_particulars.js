@@ -13,9 +13,6 @@ function fillBgBaseInfo(data,divList){
                     window[func](v,o)
                 }
            }else{
-                if(k=='mergeType'&&!v){
-                    v='未透露'
-                }
                 if(k=='amountStr'&&!v){
                     v='未透露'
                 }
