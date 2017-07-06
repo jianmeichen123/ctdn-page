@@ -379,8 +379,8 @@ var tableFormate ={
             for(j in i){
 
                 var json = i[j]
-                if(json.title!=null&&j<3){
-                    investProj+='<span class="list_table_td"><a target="_blank" href="/project_qy.html?code='+json.code+'">'+json.title+"</a></span><br>"
+                if(json.invstor!=null&&j<3){
+                    investProj+='<span class="list_table_td"><a target="_blank" href="/project_qy.html?code='+json.code+'">'+json.invstor+"</a></span><br>"
                 }
             }
             if(investProj!=''){
