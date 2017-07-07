@@ -45,7 +45,7 @@ function fillBgBaseInfo(data,divList){
 }
 //并购方
 function mergeSideListFormatter(data,div){
-   var staticTemplate = '<tr> <td>${partyName}</td> <td>${industryName}</td> <td>${districtSubName}</td><td>${isVcFe}</td> <td>${isStock}</td><td>${isNation}</td><td>${lawFirms}</td><td>${accountFirms}</td><td>${financeConsult}</td></tr>'
+   var staticTemplate = '<tr> <td class="bgsh">${partyName}</td> <td>${industryName}</td> <td>${districtSubName}</td><td>${isVcFe}</td> <td>${isStock}</td><td>${isNation}</td><td>${lawFirms}</td><td>${accountFirms}</td><td>${financeConsult}</td></tr>'
    var temp = staticTemplate;
     var html =""
     if(data.length>0){
@@ -61,14 +61,14 @@ function mergeSideListFormatter(data,div){
                                 if(row.party=='B'){
                                     if(mergeSideJson.type=='invse'){
                                         if(mergeSideJson.id&&mergeSideJson.id!=0){
-                                            v= "<span class='list_table_td'><a target='_blank' href = 'jg_particulars.html?orgId="+mergeSideJson.id+"'>"+mergeSideJson.title+"</a></span>";
+                                            v= "<span class='list_table_td'><a target='_blank' href = 'jg_particulars.html?orgId="+mergeSideJson.id+"' title='"+mergeSideJson.title+"'>"+mergeSideJson.title+"</a></span>";
                                         }else{
                                             v=mergeSideJson.title
                                         }
                                     }else{
                                         if(mergeSideJson.type=='com'){
                                             if(mergeSideJson.code){
-                                                v= "<span class='list_table_td'><a target='_blank' href = 'project_qy.html?code="+mergeSideJson.code+"'>"+mergeSideJson.title+"</a></span>";
+                                                v= "<span class='list_table_td'><a target='_blank' href = 'project_qy.html?code="+mergeSideJson.code+"' title='"+mergeSideJson.title+"'>"+mergeSideJson.title+"</a></span>";
                                             }
                                         }
                                     }
@@ -106,7 +106,7 @@ function mergeSideListFormatter(data,div){
 }
 //被并购方
 function beenMergeSideListFormatter(data,div){
-   var staticTemplate = '<tr> <td>${partyName}</td> <td>${industryName}</td> <td>${districtSubName}</td><td>${isVcFe}</td> <td>${isStock}</td><td>${isNation}</td><td>${lawFirms}</td><td>${accountFirms}</td><td>${financeConsult}</td></tr>'
+   var staticTemplate = '<tr> <td class="bgsh">${partyName}</td> <td>${industryName}</td> <td>${districtSubName}</td><td>${isVcFe}</td> <td>${isStock}</td><td>${isNation}</td><td>${lawFirms}</td><td>${accountFirms}</td><td>${financeConsult}</td></tr>'
    var temp = staticTemplate;
     var html =""
     if(data.length>0){
@@ -122,7 +122,7 @@ function beenMergeSideListFormatter(data,div){
                                 mergeSideJson = ls[i]
                                 if(row.party=="C"){
                                     if(mergeSideJson.code){
-                                        v= "<span class='list_table_td'><a target='_blank' href = '/project_qy.html?code="+mergeSideJson.code+"'>"+mergeSideJson.title+"</a></span>";
+                                        v= "<span class='list_table_td'><a target='_blank' href = '/project_qy.html?code="+mergeSideJson.code+"' title='"+mergeSideJson.title+"'>"+mergeSideJson.title+"</a></span>";
                                     }else{
                                         v=mergeSideJson.title
                                     }
