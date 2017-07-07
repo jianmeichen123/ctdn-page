@@ -64,14 +64,14 @@ function mergeSideListFormatter(data,div){
                                     }else{
                                         if(mergeSideJson.type=='invse'){
                                             if(mergeSideJson.id&&mergeSideJson.id!=0){
-                                                v= "<span class='list_table_td'><a target='_blank' href = 'jg_particulars.html?orgId="+mergeSideJson.id+"' title='"+mergeSideJson.title+"'>"+mergeSideJson.title+"</a></span>";
+                                                v= "<span class='list_table_td'><a target='_blank' href = 'jg_particulars.html?orgId="+mergeSideJson.id+"'>"+mergeSideJson.title+"</a></span>";
                                             }else{
                                                 v=mergeSideJson.title
                                             }
                                         }else{
                                             if(mergeSideJson.type=='com'){
                                                 if(mergeSideJson.code){
-                                                    v= "<span class='list_table_td'><a target='_blank' href = 'project_qy.html?code="+mergeSideJson.code+"' title='"+mergeSideJson.title+"'>"+mergeSideJson.title+"</a></span>";
+                                                    v= "<span class='list_table_td'><a target='_blank' href = 'project_qy.html?code="+mergeSideJson.code+"'>"+mergeSideJson.title+"</a></span>";
                                                 }
                                             }
                                         }
@@ -126,7 +126,7 @@ function beenMergeSideListFormatter(data,div){
                                 mergeSideJson = ls[i]
                                 if(row.party=="C"){
                                     if(mergeSideJson.code){
-                                        v= "<span class='list_table_td'><a target='_blank' href = '/project_qy.html?code="+mergeSideJson.code+"' title='"+mergeSideJson.title+"'>"+mergeSideJson.title+"</a></span>";
+                                        v= "<span class='list_table_td'><a target='_blank' href = '/project_qy.html?code="+mergeSideJson.code+"'>"+mergeSideJson.title+"</a></span>";
                                     }else{
                                         v=mergeSideJson.title
                                     }
