@@ -371,8 +371,8 @@ var tableFormate ={
     },
     //投资项目-投资机构列表
     investProject:function(value, row, index){
-         var investProJson = row.investProjJson
-         var jsonObjArr = eval('(' + investProJson + ')');
+         var orgProjJson = row.orgProjJson
+         var jsonObjArr = eval('(' + orgProjJson + ')');
          for(i in jsonObjArr){
             var i = jsonObjArr[i]
             var investProj = ''
