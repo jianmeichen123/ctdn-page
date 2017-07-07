@@ -446,7 +446,7 @@ var tableFormate ={
                     totalRatioStr='<div align="center" class="list_table_td"><center>0%</center></div>'
                 }
             }else{
-                totalRatioStr='<div align="center" class="list_table_td"><center>-</center></div>'
+                totalRatioStr='-'
             }
             return totalRatioStr
         },
@@ -462,7 +462,7 @@ var tableFormate ={
                          amountRatioStr='<div align="center" class="list_table_td"><center>0%</center></div>'
                      }
                 }else{
-                    amountRatioStr='<div align="center" class="list_table_td"><center>-</center></div>'
+                    amountRatioStr='-'
                 }
                 return amountRatioStr
             },
