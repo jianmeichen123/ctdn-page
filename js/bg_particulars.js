@@ -59,18 +59,23 @@ function mergeSideListFormatter(data,div){
                             for(i in ls){
                                 mergeSideJson = ls[i]
                                 if(row.party=='B'){
-                                    if(mergeSideJson.type=='invse'){
-                                        if(mergeSideJson.id&&mergeSideJson.id!=0){
-                                            v= "<span class='list_table_td'><a target='_blank' href = 'jg_particulars.html?orgId="+mergeSideJson.id+"' title='"+mergeSideJson.title+"'>"+mergeSideJson.title+"</a></span>";
+
+                                    if(!mergeSideJson.type=='null'){
+                                        if(mergeSideJson.type=='invse'){
+                                            if(mergeSideJson.id&&mergeSideJson.id!=0){
+                                                v= "<span class='list_table_td'><a target='_blank' href = 'jg_particulars.html?orgId="+mergeSideJson.id+"' title='"+mergeSideJson.title+"'>"+mergeSideJson.title+"</a></span>";
+                                            }else{
+                                                v=mergeSideJson.title
+                                            }
                                         }else{
-                                            v=mergeSideJson.title
-                                        }
-                                    }else{
-                                        if(mergeSideJson.type=='com'){
-                                            if(mergeSideJson.code){
-                                                v= "<span class='list_table_td'><a target='_blank' href = 'project_qy.html?code="+mergeSideJson.code+"' title='"+mergeSideJson.title+"'>"+mergeSideJson.title+"</a></span>";
+                                            if(mergeSideJson.type=='com'){
+                                                if(mergeSideJson.code){
+                                                    v= "<span class='list_table_td'><a target='_blank' href = 'project_qy.html?code="+mergeSideJson.code+"' title='"+mergeSideJson.title+"'>"+mergeSideJson.title+"</a></span>";
+                                                }
                                             }
                                         }
+                                    }else{
+                                        v=mergeSideJson.title
                                     }
                                 }
                             }
