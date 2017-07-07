@@ -28,12 +28,19 @@ function fillBaseEventInfo(data,divList){
                }
                v =  str;
             }
-            if(k=='districtGrandsonName'&&v){
-                v='<span class="dot">·</span>'+v
+            if(k=='districtSubName'){
+                if(v){
+                    v='<span>'+v+'</span>'
+                    if(data.districtGrandsonName){
+                        v +='<span class="dot">·</span>'+data.districtGrandsonName
+                    }
+                }else{
+                    if(data.districtGrandsonName){
+                        v =data.districtGrandsonName
+                    }
+                }
             }
-            if(k=='districtGrandsonName'&&!v){
-                v=' '
-            }
+
             if(k=='investevent'&&!v){
                 v = '未透露'
             }
