@@ -35,7 +35,7 @@ function fillBaseEventInfo(data,divList){
                         v +='<span class="dot">·</span>'+data.districtGrandsonName
                     }
                 }else{
-                    if(data.districtGrandsonName){
+                    if(data.districtGrandsonName&&data.districtGrandsonName!='0'){
                         v =data.districtGrandsonName
                     }
                 }
