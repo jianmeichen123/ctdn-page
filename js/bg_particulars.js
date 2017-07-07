@@ -142,11 +142,11 @@ function beenMergeSideListFormatter(data,div){
                     if(k=="districtSubName"){
                        if(v){
                            v = '<span>'+v+'</span>'
-                           if(row.districtGrandsonName){
+                           if(row.districtGrandsonName&&row.districtGrandsonName!='0'){
                                v +='<span class="dot">·</span><span>'+row.districtGrandsonName+'</span>'
                            }
                        }else{
-                           if(row.districtGrandsonName){
+                           if(row.districtGrandsonName&&row.districtGrandsonName!='0'){
                                v ='<span>'+row.districtGrandsonName+'</span>'
                            }
                        }
