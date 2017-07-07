@@ -120,7 +120,6 @@ $('table[data-url]').bootstrapTable({
         $(".page_all .col_999 span").text(data.data.totalhit)
     }
 });
-
 var tableFormate ={
     industryStr:function(value, row, index){
         if (!row.industryName)return "行业未知"
@@ -281,8 +280,9 @@ var tableFormate ={
             }
         }
         if(row.districtSubName) industrict+=row.districtSubName
-        if(!row.districtSubName) industrict+= "地区未知"
-        if (!row.industryName) industrict+=' '+" 行业未知"
+        if(!row.districtSubName&&!row.districtGrandsonName) industrict+= "地区未知"
+        if(!row.districtSubName&&row.districtGrandsonName) industrict+=row.districtGrandsonName
+        if (!row.industryName&&!row.industrySubName) industrict+=' '+" 行业未知"
         if (row.industryName&&!row.industrySubName) industrict+=' '+row.industryName
         if (row.industryName&&row.industrySubName) industrict+=' '+row.industryName +">" +row.industrySubName
         
