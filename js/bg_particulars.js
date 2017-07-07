@@ -59,8 +59,9 @@ function mergeSideListFormatter(data,div){
                             for(i in ls){
                                 mergeSideJson = ls[i]
                                 if(row.party=='B'){
-
-                                    if(!mergeSideJson.type=='null'){
+                                    if(mergeSideJson.type=='null'){
+                                        v=mergeSideJson.title
+                                    }else{
                                         if(mergeSideJson.type=='invse'){
                                             if(mergeSideJson.id&&mergeSideJson.id!=0){
                                                 v= "<span class='list_table_td'><a target='_blank' href = 'jg_particulars.html?orgId="+mergeSideJson.id+"' title='"+mergeSideJson.title+"'>"+mergeSideJson.title+"</a></span>";
@@ -74,8 +75,6 @@ function mergeSideListFormatter(data,div){
                                                 }
                                             }
                                         }
-                                    }else{
-                                        v=mergeSideJson.title
                                     }
                                 }
                             }
