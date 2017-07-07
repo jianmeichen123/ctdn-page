@@ -404,21 +404,18 @@ var tableFormate ={
         for(i in jsonObjArr){
             var i = jsonObjArr[i]
             for(j in i){
-                var jsonArr = i[j]
-                for(k in jsonArr){
-                    var json = jsonArr[k]
-                    if(json.title!=''&&k<3){
-                        if(json.id!=0){
-                            if(json.type=='invse'){
-                                mergeSideTitle+='<center><span class="list_table_td"><a target="_blank" href="/jg_particulars.html?orgId='+json.id+'">'+json.title+'</a></span></center>';
-                            }
-                            if(json.type=='com'){
-                                mergeSideTitle+='<center><span class="list_table_td"><a target="_blank" href="/project_qy.html?code='+json.code+'">'+json.title+'</a></span></center>';
-
-                            }
-                        }else{
-                            mergeSideTitle+='<center><span class="list_table_td">'+json.title+'</span></center>';
+                var json = i[j]
+                if(json.title!=''&&j<3){
+                    if(json.id!=0){
+                        if(json.type=='invse'){
+                            mergeSideTitle+='<center><span class="list_table_td"><a target="_blank" href="/jg_particulars.html?orgId='+json.id+'">'+json.title+'</a></span></center>';
                         }
+                        if(json.type=='com'){
+                            mergeSideTitle+='<center><span class="list_table_td"><a target="_blank" href="/project_qy.html?code='+json.code+'">'+json.title+'</a></span></center>';
+
+                        }
+                    }else{
+                        mergeSideTitle+='<center><span class="list_table_td">'+json.title+'</span></center>';
                     }
                 }
             }
