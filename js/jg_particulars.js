@@ -25,9 +25,9 @@ function fillBaseInfo(data,divList){
                 if(k=='webUrl'){
                     v='<span class="list_table_td"><a target="_blank" href="'+v+'">'+v+'</a></span>'
                 }
-                if(k=="foundDate"){
-                    v = formatDate(v,"yyyy-MM-dd")
-                }
+//                if(k=="foundDate"){
+//                    v = formatDate(v,"yyyy-MM-dd")
+//                }
                 if(k=='investAmountStr'&&v){
                     v=v+'&nbsp;(仅供参考)'
                 }
