@@ -31,6 +31,9 @@ function fillBgBaseInfo(data,divList){
                 if(k=='equityRate'&&!v){
                     v='未透露'
                 }
+                if(k=='valuation'&&!data.equityRate){
+                    v='未透露'
+                }
                 if(v){
                     o.html(v)
                 }else{
@@ -78,6 +81,10 @@ function mergeSideListFormatter(data,div){
                                if(row.districtGrandsonName){
                                  v +='<span class="dot">·</span><span>'+row.districtGrandsonName+'</span>'
                                }
+                           }else{
+                               if(row.districtGrandsonName){
+                                   v ='<span>'+row.districtGrandsonName+'</span>'
+                               }
                            }
                         }
                         if(k=='industryName'){
@@ -97,18 +104,15 @@ function mergeSideListFormatter(data,div){
      }
     div.append(html)
 }
-
 //被并购方
 function beenMergeSideListFormatter(data,div){
    var staticTemplate = '<tr> <td>${partyName}</td> <td>${industryName}</td> <td>${districtSubName}</td><td>${isVcFe}</td> <td>${isStock}</td><td>${isNation}</td><td>${lawFirms}</td><td>${accountFirms}</td><td>${financeConsult}</td></tr>'
    var temp = staticTemplate;
     var html =""
-
     if(data.length>0){
         $(data).each(function(i,row){
              $.each(row,function(k,v){
                  while(temp.indexOf("${"+k+"}") > 1){
-
                     if(k=='partyName'){
                         if(v){
                             var json = eval("("+v+")")
@@ -135,7 +139,11 @@ function beenMergeSideListFormatter(data,div){
                        if(v){
                            v = '<span>'+v+'</span>'
                            if(row.districtGrandsonName){
-                             v +='<span class="dot">·</span><span>'+row.districtGrandsonName+'</span>'
+                               v +='<span class="dot">·</span><span>'+row.districtGrandsonName+'</span>'
+                           }
+                       }else{
+                           if(row.districtGrandsonName){
+                               v ='<span>'+row.districtGrandsonName+'</span>'
                            }
                        }
                     }
