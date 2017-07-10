@@ -282,7 +282,8 @@ var tableFormate ={
                 img = imgArr[0]
             }
         }
-        if(row.districtSubName) industrict+=row.districtSubName
+        if(row.districtSubName&&row.districtSubName!='国外') industrict+=row.districtSubName
+        if(row.districtSubName=='国外') industrict+="地区未知"
         if(!row.districtSubName&&!row.districtGrandsonName) industrict+= "地区未知"
         if(!row.districtSubName&&row.districtGrandsonName) industrict+=row.districtGrandsonName
         if (!row.industryName&&!row.industrySubName) industrict+=' '+" 行业未知"
