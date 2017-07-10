@@ -259,7 +259,7 @@ function eventMergerInfoListFormatter(data,div){
                           v = formatDate(v, "yyyy-MM-dd")
                        }
                   }else if(k=="equityRate"){
-                       if(v){v += "%"}
+                       if(v){v += "%"}else{v="未透露"}
                  }else if(k=="industryName"){
                        var str = "";
                        if(v){
@@ -278,10 +278,6 @@ function eventMergerInfoListFormatter(data,div){
                   }else if(k == "eventId"){
                       //待修改 跳转事件详情
                       v = "<a href='bg_particulars.html?eventId="+row.eventId+"'>详情</a>"
-                  }else if(k=="equityRate"){
-                     if(!v){
-                        v= "未透露"
-                     }
                   }
                   if(!v){
                         v ="-"
