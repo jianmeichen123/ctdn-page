@@ -242,6 +242,9 @@ function eventMergerInfoListFormatter(data,div){
                                            mergeSideTitle+='<center><span class="list_table_td"><a href="/project_qy.html?code='+data.code+'">'+data.title+'</a></span></center>';
 
                                        }
+                                       if(data.type=='null'){
+                                           mergeSideTitle+=data.title
+                                       }
                                    }else{
                                        mergeSideTitle+='<center><span class="list_table_td">'+data.title+'</span></center>';
                                    }
