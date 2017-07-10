@@ -62,6 +62,7 @@ input{outline: none;}
 .bj_fff{ background-color:#fff;}
 .block .table_style > thead > tr > th { text-align:center; font-weight: normal;border-bottom: 1px solid #f0f0f0 !important;;border-left:0px solid #f0f0f0; padding-top:16px; color:#666; padding-bottom:16px;}
 .block .table_style > tbody  > tr > td { text-align:center; font-weight: normal;border-bottom: 1px solid #f0f0f0;border-left:0px solid #f0f0f0; }
+.bgsj_list_table tr td{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
 .block .table_style > tbody > tr:nth-of-type(odd) {
      background-color: #fff;
 }
