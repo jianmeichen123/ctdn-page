@@ -243,7 +243,11 @@ var tableFormate ={
             industrict='地区未知'+ ' '+'行业未知'
         }
         if (row.districtSubName){
-            industrict+=row.districtSubName
+            if(row.districtSubName!='国外'){
+                industrict+=row.districtSubName
+            }else{
+                industrict+='地区未知'
+            }
         }else{
             industrict+='地区未知'
         }
