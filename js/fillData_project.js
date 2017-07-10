@@ -234,16 +234,13 @@ function eventMergerInfoListFormatter(data,div){
                           var data =$(this)[0]
                              //待修改 没加领投
                              if(data.title &&i<3){
-                                   if(data.id){
+                                   if(data.id>0){
                                        if(data.type=='invse'){
                                            mergeSideTitle+='<center><span class="list_table_td"><a href="/jg_particulars.html?orgId='+data.id+'">'+data.title+'</a></span></center>';
                                        }
                                        if(data.type=='com'){
                                            mergeSideTitle+='<center><span class="list_table_td"><a href="/project_qy.html?code='+data.code+'">'+data.title+'</a></span></center>';
 
-                                       }
-                                       if(data.type=='null'){
-                                           mergeSideTitle+=data.title
                                        }
                                    }else{
                                        mergeSideTitle+='<center><span class="list_table_td">'+data.title+'</span></center>';
