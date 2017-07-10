@@ -395,9 +395,13 @@ var callBack = {
                if(!v){
                    v="地区未知"
                }else{
-                   v = '<span>'+v+'</span>'
-                   if(data.districtGrandsonName){
-                     v +='<span class="dot">·</span><span>'+data.districtGrandsonName+'</span>'
+                   if(v=='国外'){
+                       v='地区未知'
+                   }else{
+                       v = '<span>'+v+'</span>'
+                       if(data.districtGrandsonName){
+                         v +='<span class="dot">·</span><span>'+data.districtGrandsonName+'</span>'
+                       }
                    }
                }
            }else if(k=="industryName"){
