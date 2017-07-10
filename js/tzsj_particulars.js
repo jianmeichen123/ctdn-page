@@ -30,9 +30,13 @@ function fillBaseEventInfo(data,divList){
             }
             if(k=='districtSubName'){
                 if(v){
-                    v='<span>'+v+'</span>'
-                    if(data.districtGrandsonName&&data.districtGrandsonName!='0'){
-                        v +='<span class="dot">·</span>'+data.districtGrandsonName
+                    if(v=='国外'){
+                        v='地区未知'
+                    }else{
+                        v='<span>'+v+'</span>'
+                        if(data.districtGrandsonName&&data.districtGrandsonName!='0'){
+                            v +='<span class="dot">·</span>'+data.districtGrandsonName
+                        }
                     }
                 }else{
                     if(data.districtGrandsonName&&data.districtGrandsonName!='0'){
