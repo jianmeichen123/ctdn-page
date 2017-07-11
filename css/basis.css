@@ -430,8 +430,8 @@ com{color:#1ed2ff;}
 .particulars_table_list tbody { display:block; overflow-y:auto; }
 .particulars_table_list .bgsh a,.particulars_table_list .bgsh span,.particulars_table_list .bgsh{white-space:normal;}
 .particulars_table_list thead, .particulars_table_list tbody tr {display:table;  width:100%; table-layout:fixed;}
-.particulars_table_list a,.project_new a{    color: #666666;     }
-.particulars_table_list a:hover ,.project_new a:hover{text-decoration: none;}
+.particulars_table_list a,.project_new a{color: #666666; }
+.particulars_table_list a:hover ,.project_new a:hover{ color:#1ed2ff; text-decoration: none;}
 /* 微信二维码 */
 .weixin{position:relative;}
 .project_tit_r .weixin_ewm{display:none;position:absolute;z-index:9;width:140px;padding:10px 20px 4px;background-color:rgba(0,0,0,.8);border-top:15px solid #fff;color:#fff;}
