@@ -29,21 +29,25 @@ function eventInfoListFormatter(data,div){
                                 var ls = json["investSideJson"];
                                 var firms = "";
                                 $(ls).each(function(i){
-                                   //待修改 没加领投
                                    if(i<3){
                                         json = ls[i]
-                                        if($(this)[0].isClick=="1"&&$(this)[0].isLeader=="1"){
-                                            firms +='<div><span class="list_table_td"><a target="_blank" href="/jg_particulars.html?orgId='+json.id+'" class=\'invstorName\' title="'+json.invstor+'">'+json.invstor+'</a><label class="lticon">领投</label></span></div>';
-                                        }else if($(this)[0].isClick=="1"&&!json.isLeader=="1"){
-                                            firms += "<div><a href = 'jg_particulars.html?orgId="+$(this)[0].id+"' class='invstorName'  title='"+$(this)[0].invstor+"'>"+$(this)[0].invstor+"</a><div>";
+                                        if(json.isClick==1){
+                                           if(json.isLeader==1){
+                                                if(json.type="invst"){
+                                                    firms +='<div><span class="list_table_td"><a target="_blank" href="/jg_particulars.html?orgId='+json.id+'" class=\'invstorName\' title="'+json.invstor+'">'+json.invstor+'</a><label class="lticon">领投</label></span></div>';
+                                                }else{
+                                                    firms +='<div><span class="list_table_td"><a target="_blank" href="/project_qy.html?code='+json.code+'" class=\'invstorName\' title="'+json.invstor+'">'+json.invstor+'</a><label class="lticon">领投</label></span></div>';
+                                                }
+                                           }else{
+                                                if(json.type="invst"){
+                                                    firms +='<div><a target="_blank" href="/jg_particulars.html?orgId='+json.id+'" class=\'invstorName\' title="'+json.invstor+'">'+json.invstor+'</a></div>';
+                                                }else{
+                                                    firms +='<div><a target="_blank" href="/project_qy.html?code='+json.code+'" class=\'invstorName\' title="'+json.invstor+'">'+json.invstor+'</a></div>';
+                                                }
+                                           }
                                         }else{
                                             firms += "<div class='invstorName' title='"+$(this)[0].invstor+"'>"+$(this)[0].invstor+"</div>";
                                         }
-//                                        if($(this)[0].isClick=="1"){
-//                                            firms += "<div><a href = 'jg_particulars.html?orgId="+$(this)[0].id+"'>"+$(this)[0].invstor+"</a><div>";
-//                                        }else{
-//                                            firms += "<div>"+$(this)[0].invstor+"</div>";
-//                                        }
                                    }
                                 })
                                 v = firms
