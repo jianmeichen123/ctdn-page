@@ -33,13 +33,13 @@ function eventInfoListFormatter(data,div){
                                         json = ls[i]
                                         if(json.isClick==1){
                                            if(json.isLeader==1){
-                                                if(json.type="invst"){
+                                                if(json.type=="invst"){
                                                     firms +='<div><span class="list_table_td"><a target="_blank" href="/jg_particulars.html?orgId='+json.id+'" class=\'invstorName\' title="'+json.invstor+'">'+json.invstor+'</a><label class="lticon">领投</label></span></div>';
                                                 }else{
                                                     firms +='<div><span class="list_table_td"><a target="_blank" href="/project_qy.html?code='+json.code+'" class=\'invstorName\' title="'+json.invstor+'">'+json.invstor+'</a><label class="lticon">领投</label></span></div>';
                                                 }
                                            }else{
-                                                if(json.type="invst"){
+                                                if(json.type=="invst"){
                                                     firms +='<div><a target="_blank" href="/jg_particulars.html?orgId='+json.id+'" class=\'invstorName\' title="'+json.invstor+'">'+json.invstor+'</a></div>';
                                                 }else{
                                                     firms +='<div><a target="_blank" href="/project_qy.html?code='+json.code+'" class=\'invstorName\' title="'+json.invstor+'">'+json.invstor+'</a></div>';
