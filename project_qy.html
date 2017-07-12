@@ -68,7 +68,7 @@
 						</ul>
 					</div>
 				</div>
-				
+
 				<!-- 上市挂牌 -->
 				<div class="project_t" location_l="location_ss"><span class="brain_ico brain_ico_project_crumbs"></span>上市挂牌</div>
 				<div class="particulars_black m_t5">
@@ -85,7 +85,7 @@
 							</thead>
 							<tbody data-query="list" data-formatter="eventListedInfoList" class="shgp"></tbody>
 						</table>
-					
+
 				</div>
 				<!-- 并购事件 -->
 				<div class="project_t" location_l="location_bg"><span class="brain_ico brain_ico_project_crumbs"></span>并购事件</div>
@@ -106,7 +106,7 @@
 							</tbody>
 						</table>
 				</div>
-				
+
 					<!-- 联系方式 -->
 				<div class="project_t" location_l="location_lx"><span class="brain_ico brain_ico_project_crumbs"></span>联系方式</div>
 				<div class="particulars_black m_t5">
@@ -125,7 +125,7 @@
 
 						</tbody>
 					</table>
-					
+
 				</div>
 				<!-- 相关新闻 -->
 				<div class="project_t" location_l="location_xw"><span class="brain_ico brain_ico_project_crumbs"></span>相关新闻</div>
@@ -136,7 +136,7 @@
 				</div>
 				<!-- z end -->
 			</div>
-			
+
 		</div>
 		<div class="project_all_r">
 			<ul>
@@ -155,14 +155,15 @@
 		</div>
 	</div>
 </div>
-<script src="js/fillData_common.js"></script>
+<script src="js/fill_project_header.js"></script>
+<script src="js/fillData_common.js"></script>s
 <script src="js/fillData_project.js"></script>
 <script>
 //给tab页a赋参数
 $(function(){
    $(".project_nav a").each(function(){
     //if($(this).attr("href") != "####"){
-    	$(this).attr("href",$(this).attr("href")+"?code="+code)
+    	$(this).attr("href",$(this).attr("href")+"?code="+getHrefParamter("code"))
    // }
    })
  //团队信息两行显示
@@ -259,7 +260,7 @@ function location_on(obj,scrollTop){
 				$('[location_r="'+obj[i].name+'"]').addClass('project_all_r_on');
 			}
 		}
-		
+
 	}
 
 }

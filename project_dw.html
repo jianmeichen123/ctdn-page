@@ -34,14 +34,13 @@
 		</div>
 	</div>
 </div>
-<script src="js/fillData_common.js"></script>
-<script src="js/fillData_project.js"></script>
+<script src="js/fill_project_header.js"></script>
 <script>
 	//给tab页a赋参数
 	$(function(){
 	   $(".project_nav a").each(function(){
 		//if($(this).attr("href") != "####"){
-			$(this).attr("href",$(this).attr("href")+"?code="+code)
+			$(this).attr("href",$(this).attr("href")+"?code="+getHrefParamter("code"))
 		//}
 	   })
 	})

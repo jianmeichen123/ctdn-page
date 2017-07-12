@@ -29,14 +29,14 @@
 	</div>
 </div>
 </div>
+<script src="js/fill_project_header.js"></script>
 <script src="js/fillData_common.js"></script>
-<script src="js/fillData_project.js"></script>
 <script>
 	//给tab页a赋参数
 	$(function(){
 	   $(".project_nav a").each(function(){
 		//if($(this).attr("href") != "####"){
-			$(this).attr("href",$(this).attr("href")+"?code="+code)
+			$(this).attr("href",$(this).attr("href")+"?code="+getHrefParamter("code"))
 		//}
 	   })
 	  $(".tzf").each(function(){   //去掉最后一个分隔符
@@ -160,7 +160,7 @@
 		div.append("<tr> <td colspan='6'><span>暂无数据</span></th></tr>")
 	}
 	}
-	sendGetRequest(detail.queryCompetationlist+code,function(data){fillList(data.data,$("*[data-query='list']"))})
+	sendGetRequest(detail.queryCompetationlist+getHrefParamter("code"),function(data){fillList(data.data,$("*[data-query='list']"))})
 
 	nav_locaton('ctsj','qyxm','','jzds')
 </script>
