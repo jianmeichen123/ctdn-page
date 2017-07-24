@@ -12,40 +12,7 @@
 {(header.html)}
 <div class="container">
 	<div class="particulars_all">
-		<div class="particulars_black">
-			<div class="project_tit">
-				<ul class="project_absolute"><li class="project_absolute_blue">B轮</li><li class="project_absolute_green">运营中</li><li class="project_absolute_lan">不需要融资</li></ul>
-				<img src="">
-				<ul>
-					<li class="font_24">奇瑞动力</li>
-					<li class="color_999 font_14">zhongguo Petroleum&Chemical Sales Co</li>
-					<li class="color_666 font_14 ">一个云服务平台</li>
-					<li class="color_666 font_12">亚洲  印度　　金融 > 互联网保险 > 保险理赔</li>
-					<li class="color_666 font_12"><span class="project_lable">金融</span><span class="project_lable">金融</span><span class="project_lable">金融</span></li>
-				</ul>
-			</div>
-			<div class="project_tit_r">
-				<ul>
-					<li>商业计划书：<span class="pick_on_color">下载</span></li>
-					<li>企业邮箱：<span class="pick_on_color">xiangmeimeng@cdhfund.com</span></li>
-					<li>联系电话：<span>13812345680</span></li>
-				</ul>
-				<span class="brain_ico brain_ico_project_3"></span>
-				<span class="brain_ico brain_ico_project_2" title="232323"></span>
-				<span class="brain_ico brain_ico_project_1"></span>
-			</div>
-		</div>	
-		<div class="project_nav">
-			<ul>
-				<li><span>企业信息</span></li>
-				<li><span>工商信息</span></li>
-				<li><span>企业财报</span></li>
-				<li><span>竞争对手</span></li>
-				<li><span>对外投资</span></li>
-				<li><span>知识产权</span></li>
-				<li><span class="project_nav_on">风险信息</span></li>				
-			</ul>
-		</div>
+		{(project_header.html)}
 		<div class="project_all">
 			<ul class="project_fx_tit">
 				<li class="project_fx_tit_on">被执行人　<span>37</span></li>
@@ -204,6 +171,17 @@
 </div>
 
 
-
+<script src="js/fill_project_header.js"></script>
+<script>
+	//给tab页a赋参数
+	$(function(){
+	   $(".project_nav a").each(function(){
+		//if($(this).attr("href") != "####"){
+			$(this).attr("href",$(this).attr("href")+"?code="+getHrefParamter("code"))
+		//}
+	   })
+	})
+     nav_locaton('ctsj','qyxm','','fxxx')
+</script>
 </body>
 </html>
