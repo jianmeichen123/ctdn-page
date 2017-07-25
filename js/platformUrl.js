@@ -1,23 +1,23 @@
 //本地
 
-//var Constants = {
-//	platformContentURL: "http://127.0.0.1:8081/api/",
-//	userContentURL: "http://ctdndev.gi.com/user/",
-//	searchContentURL: "http://127.0.0.1:8089/search/",
-//	dataContentURL: "http://ctdndev.gi.com/data/",
-//	logoPath: "http:///10.10.0.147/"
-//}
+var Constants = {
+	platformContentURL: "http://10.9.130.143:8081/api/",
+	userContentURL: "http://ctdndev.gi.com/user/",
+	searchContentURL: "http://10.9.130.135:8089/search/",
+	dataContentURL: "http://127.0.0.1:8085/data/",
+	logoPath: "http:///10.10.0.147/"
+}
 
 
 
 //线上
-var Constants = {
-	platformContentURL: "http://ctdndev.gi.com/api/",
-	userContentURL: "http://ctdndev.gi.com/user/",
-	searchContentURL: "http://ctdndev.gi.com/search/",
-	dataContentURL: "http://ctdndev.gi.com/data/",
-    logoPath: "http://static.galaxyinternet.com/"
-}
+//var Constants = {
+//	platformContentURL: "http://ctdndev.gi.com/api/",
+//	userContentURL: "http://ctdndev.gi.com/user/",
+//	searchContentURL: "http://ctdndev.gi.com/search/",
+//	dataContentURL: "http://ctdndev.gi.com/data/",
+//    logoPath: "http://static.galaxyinternet.com/"
+//}
 var home = {
 	    index : "http://ctdndev.gi.com"
 	}
@@ -41,6 +41,7 @@ var searchUrl = {
     mergeEvent:Constants.searchContentURL+"mergeEvent",
     launchEvent:Constants.searchContentURL+"launchEvent",
     investOrg:Constants.searchContentURL+"investfirms",
+
 }
 var dataUrl = {
     products:Constants.dataContentURL+"op/is/",
@@ -50,9 +51,7 @@ var dataUrl = {
     android:Constants.dataContentURL+"op/android/",
     ios:Constants.dataContentURL+"op/ios/",
 }
-var ctdnUrl = {
 
-}
 var platformUrl = {
 	me:Constants.userContentURL+"userlogin/me",
 	allQuery:Constants.platformContentURL+"common/allQuery",
@@ -69,7 +68,12 @@ var detail = {
     queryInvestOrgInfo:Constants.platformContentURL+"/orgInfo/getListByOrgId/",
     queryListedInfo:Constants.platformContentURL+"/eventListedInfo/getListByEventId/",
     queryEventByName:Constants.platformContentURL+"/eventInfo/getListByName/",
-    queryCompetationlist:Constants.platformContentURL+"/projectList/queryCompetationlist/"
+    queryCompetationlist:Constants.platformContentURL+"/projectList/queryCompetationlist/",
+    queryExcutedByPage:Constants.dataContentURL+"risk/queryExcutedByPage",
+    queryDishonestyExcuted:Constants.dataContentURL+"risk/queryDishonestyExcuted/",
+    queryCourtAnnouncement:Constants.dataContentURL+"risk/queryCourtAnnouncement/",
+    queryRiskJudgmentDocument:Constants.dataContentURL+"risk/queryRiskJudgmentDocument/",
+    queryOperationException:Constants.dataContentURL+"risk/queryOperationException/"
 }
 /**
  * how to use? location.href = platformUrl.login
