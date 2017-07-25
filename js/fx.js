@@ -22,6 +22,7 @@ $('table[data-url]').bootstrapTable({
     },
     onLoadSuccess: function (data) {
         $(".project_t .excuted span").text(data.data.total)
+         $("#total").find("li:eq(0) span").text(data.data.total)
     }
 });
 
@@ -47,6 +48,6 @@ $(divList).each(function(){
        var target = $("#"+div.attr("data-block"));
        target.tmpl(data).appendTo(target.parent())
        div.find(".fr span").text(data.data.length)
+       $("#total").find("span[data-num='"+div.attr("data-block")+"']").text(data.data.length)
     })
-
 })

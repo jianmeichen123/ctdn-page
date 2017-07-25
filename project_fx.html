@@ -1,4 +1,3 @@
-
 <!doctype html>
 <html>
 <head>
@@ -14,88 +13,95 @@
 	<div class="particulars_all">
 		{(project_header.html)}
 		<div class="project_all">
-			<ul class="project_fx_tit">
-				<li class="project_fx_tit_on">被执行人　<span>37</span></li>
-				<li>失信被执行人　<span>37</span></li>
-				<li>法院公告　<span>37</span></li>
-				<li>裁判文书　<span>37</span></li>
-				<li>经营异常　<span>37</span></li>
+			<ul class="project_fx_tit" id="total">
+				<li class="project_fx_tit_on">被执行人　<span></span></li>
+				<li>失信被执行人　<span data-num="queryDishonestyExcuted"></span></li>
+				<li>法院公告　<span data-num="queryCourtAnnouncement"></span></li>
+				<li>裁判文书　<span data-num="queryRiskJudgmentDocument"></span></li>
+				<li>经营异常　<span data-num="queryOperationException"></span></li>
 			</ul>
 			<!-- 被执行人 -->
-			<div class="project_t"><span class="brain_ico brain_ico_project_crumbs"></span>被执行人<div class="fr">共<span>5</span>个</div></div>
+			<div class="project_t"><span class="brain_ico brain_ico_project_crumbs"></span>被执行人<div class="fr excuted">共<span >5</span>个</div></div>
 			<div class="particulars_black m_t5">
-				<table class=" particulars_table_list">
+				<table class=" particulars_table_list" data-url="queryExcutedByPage">
+					<thead>
+					<tr>
+						<th data-formatter="rowNumformatter" ><div>序号</div></th>
+						<th data-field="caseName" ><div class="border_l">名称</div></th>
+						<th data-field="recordDate" ><div class="border_l">立案时间</div></th>
+						<th data-field="excuteCourt"><div class="border_l">执行法院</div></th>
+						<th data-field="returnBack"><div class="border_l">执行标的</div></th>
+					</tr>
+					</thead>
+				</table>
+			</div>
+			<!-- 失信被执行人 -->
+			<div class="project_t"  data-block="queryDishonestyExcuted"><span class="brain_ico brain_ico_project_crumbs"></span>失信被执行人<div class="fr">共<span></span>个</div></div>
+			<div>{-raw-}
+				<script id="queryDishonestyExcuted" type="text/x-jquery-tmpl">
+					{{each(i,v) data}}
+						<div class="particulars_black m_t5" >
+							<ul class="project_fx_ul">
+								<li>
+									<div class="brain_ico project_fx_a"><span>${i+1}</span></div>
+									<div class="font_16">${v.caseName}</div>
+									<ul class="project_fx_div">
+										<li>
+											<div class="project_fx_div_one"><span >立案时间：</span><span>${v.recordDate}</span></div>
+											<span class="project_fx_span_t">执行依据文号：</span><span>${v.evidenceNum}</span>
+										</li>
+										<li>
+											<div class="project_fx_div_one"><span>公布时间：</span><span>${v.distributeDate}</span></div>
+											<span class="project_fx_span_t">执行法院：</span><span>${v.excuteCourt}</span>
+										</li>
+										<li><span>被执行人的履行情况：</span><span>${v.performance}</span></li>
+										<li><span>法律生效文书确定的义务：</span><span class="wi_920">${v.sduty}</span></li>
+									</ul>
+								</li>
+							</ul>
+						</div>
+					{{/each}}
+				</script>
+			{-raw-}
+			</div>
+			<!-- 法院公告 -->
+			<div class="project_t" data-block="queryCourtAnnouncement" ><span class="brain_ico brain_ico_project_crumbs"></span>法院公告<div class="fr">共<span></span>个</div></div>
+
+				<div class="particulars_black m_t5">
+					<table class=" particulars_table_list">
 						<thead>
 							<tr>
 								<th ><div>序号</div></th>
-								<th><div class="border_l">名称</div></th>
-								<th><div class="border_l">立案时间</div></th>
-								<th><div class="border_l">执行法院</div></th>
-								<th><div class="border_l">执行标的</div></th>
+								<th><div class="border_l">公示时间</div></th>
+								<th><div class="border_l">分类</div></th>
+								<th><div class="border_l">当事人</div></th>
+								<th class="wi_400"><div class="border_l">公告内容</div></th>
 							</tr>
 						</thead>
 						<tbody>
-							<tr>
-								<td>结果</td>
-								<td>结果</td>
-								<td>结果</td>
-								<td>结果</td>
-								<td>结果</td>
-							</tr>
+						{-raw-}
+						<script id="queryCourtAnnouncement" type="text/x-jquery-tmpl">
+							{{if data.length>0}}
+								{{each(i,v) data}}
+									<tr>
+										<td>${i+1}</td>
+										<td>${v.distributeDate}</td>
+										<td>${v.sortment}</td>
+										<td>${v.litigant}</td>
+										<td>${v.content}</td>
+									</tr>
+								{{/each}}
+							{{else}}
+								<span>暂无数据</span>
+							{{/if}}
+						</script>
+						{-raw-}
 						</tbody>
 					</table>
-			</div>
-			<!-- 失信被执行人 -->
-			<div class="project_t"><span class="brain_ico brain_ico_project_crumbs"></span>失信被执行人<div class="fr">共<span>5</span>个</div></div>
-			<div class="particulars_black m_t5">
-				<ul class="project_fx_ul">
-					<li>
-						<div class="brain_ico project_fx_a"><span>1</span></div>
-						<div class="font_16">（2016）新法执1468号</div>
-						<ul class="project_fx_div">
-							<li>
-								<div class="project_fx_div_one"><span>立案时间：</span><span>2016-07-22</span></div>
-								<span class="project_fx_span_t">执行依据文号：</span><span>（2016）豫0184民初1013号</span>
-							</li>
-							<li>
-								<div class="project_fx_div_one"><span>公布时间：</span><span>2016-07-22</span></div>
-								<span class="project_fx_span_t">执行法院：</span><span>（2016）豫0184民初1013号</span>
-							</li>
-							<li><span>被执行人的履行情况：</span><span>全部未履行</span></li>
-							<li><span>法律生效文书确定的义务：</span><span class="wi_920">被告党爱民应于本判决生效后三日内支付原告郭太虎劳务费8800元。被告党爱民应于本判决生效后三日内支付原告郭太虎劳务费8800元。被告党爱民应于本判决生效后三日内支付原告郭
-                                           太虎劳务费8800元。</span></li>
-						</ul>
-					</li>
-				</ul>				
-			</div>
-			<!-- 法院公告 -->
-			<div class="project_t"><span class="brain_ico brain_ico_project_crumbs"></span>法院公告<div class="fr">共<span>5</span>个</div></div>
-			<div class="particulars_black m_t5">
-				<table class=" particulars_table_list">
-					<thead>
-						<tr>
-							<th ><div>序号</div></th>
-							<th><div class="border_l">公示时间</div></th>
-							<th><div class="border_l">分类</div></th>
-							<th><div class="border_l">当事人</div></th>
-							<th class="wi_400"><div class="border_l">公告内容</div></th>
-						</tr>
-					</thead>
-					<tbody>
-						<tr>
-							<td>结果</td>
-							<td>结果</td>
-							<td>结果</td>
-							<td>结果</td>
-							<td>
-								<div class="wi_400">天津]天津市滨海新区人民法院(塘沽) 北京聚成兴达商贸有限公司：本院受理李静诉你公司与北京京东叁佰陆拾度电子商务有限公司产品销售者责任一案，现依法向你公告送达起诉状副本、应诉通知书、举证通知书、诉讼风险提示书、廉政监督卡、案件查询密码、简转普裁定书、合议庭组成人员告知书及开庭传票。自公告之日起经过60日，即视为送达。提出答辩状和举证的期限</div>
-							</td>
-						</tr>
-					</tbody>
-				</table>
-			</div>
+				</div>
+
 			<!-- 裁判文书 -->
-			<div class="project_t"><span class="brain_ico brain_ico_project_crumbs"></span>裁判文书<div class="fr">共<span>5</span>个</div></div>
+			<div class="project_t" data-block="queryRiskJudgmentDocument"><span class="brain_ico brain_ico_project_crumbs"></span>裁判文书<div class="fr">共<span></span>个</div></div>
 			<div class="particulars_black m_t5">
 				<table class=" particulars_table_list">
 					<thead>
@@ -109,69 +115,57 @@
 						</tr>
 					</thead>
 					<tbody>
-						<tr>
-							<td>1</td>
-							<td><div class="wi_380">新郑市国土资源局、新郑市松源房地产开发有限公司非诉执行审查行政裁定书</div></td>
-							<td>2016-12-19</td>
-							<td>（2016）豫0184行审4号</td>
-							<td>
-								<div class="wi_210">申请执行人-新郑市国土资源局</div>
-								<div class="wi_210">被执行人-新郑市松原房产开发有限公司有限公司</div>
-							</td>
-							<td>新郑市人民法院</td>
-						</tr>
+					{-raw-}
+					    <script id="queryRiskJudgmentDocument" type="text/x-jquery-tmpl">
+							{{if data.length >0}}
+								{{each(i,v) data}}
+									<tr>
+										<td>${i+1}</td>
+										<td><div class="wi_380">${v.caseName}</div></td>
+										<td>${v.distributeDate}</td>
+										<td>${v.caseNum}</td>
+										<td>${v.caseRole}</td>
+										<td>${v.excuteCourt}</td>
+									</tr>
+								{{/each}}
+							{{else}}
+								<span>暂无数据</span>
+							{{/if}}
+						</script>
+					{-raw-}
 					</tbody>
 				</table>
 			</div>
 			<!-- 经营异常 -->
-			<div class="project_t"><span class="brain_ico brain_ico_project_crumbs"></span>经营异常<div class="fr">共<span>5</span>个</div></div>
+			<div class="project_t" data-block="queryOperationException"><span class="brain_ico brain_ico_project_crumbs"></span>经营异常<div class="fr">共<span>5</span>个</div></div>
 			<div class="particulars_black m_t5">
 				<ul class="project_fx_ul">
-					<li>
-						<ul class="project_fx_div">
-							<li>
-								<div class="project_fx_div_one"><span>列入日期：</span><span>2016-07-22</span></div>
-								<span class="project_fx_span_t">作出决定机关：</span><span>（2016）豫0184民初1013号</span>
-							</li>
-							<li><span>列入经营异常名录原因：</span><span class="wi_920">通过登记的住所或着经营场所无法联系的通过登记的住所或着经营场所无法联系的通过登记的住所或着经营场所无法联系的通过登记的住所或着经营场所无法联系的通过登记的住所或着经营
-                                        场所无法联系的。</span></li>
-						</ul>
-					</li>
-					<li>
-						<ul class="project_fx_div">
-							<li>
-								<div class="project_fx_div_one"><span>列入日期：</span><span>2016-07-22</span></div>
-								<span class="project_fx_span_t">作出决定机关：</span><span>（2016）豫0184民初1013号</span>
-							</li>
-							<li><span>列入经营异常名录原因：</span><span class="wi_920">通过登记的住所或着经营场所无法联系的通过登记的住所或着经营场所无法联系的通过登记的住所或着经营场所无法联系的通过登记的住所或着经营场所无法联系的通过登记的住所或着经营
-                                        场所无法联系的。</span></li>
-						</ul>
-					</li>
-				</ul>	
+					{-raw-}
+						<script id="queryOperationException" type="text/x-jquery-tmpl">
+							{{if data.length >0}}
+									{{each(i,v) data}}
+										<li>
+											<ul class="project_fx_div">
+												<li>
+													<div class="project_fx_div_one"><span>列入日期：</span><span>${v.recordDate}</span></div>
+													<span class="project_fx_span_t">作出决定机关：</span><span>${v.excuteOrgans}</span>
+												</li>
+												<li><span>列入经营异常名录原因：</span><span class="wi_920">${v.excuteReason}</span></li>
+											</ul>
+										</li>
+									{{/each}}
+							{{else}}
+								<span>暂无数据</span>
+							{{/if}}
+						</script>
+					{-raw-}
+				</ul>
 			</div>
-			
-			
-			
-			
-			
-			
-			<!-- enf -->
 		</div>
-		
-	
-	
-
-		
-
-
-
-
-
 	</div>
 </div>
-
-
 <script src="js/fill_project_header.js"></script>
+<script src="js/jquery.tmpl.js"></script>
 <script>
 	//给tab页a赋参数
 	$(function(){
@@ -181,7 +175,8 @@
 		//}
 	   })
 	})
-     nav_locaton('ctsj','qyxm','','fxxx')
+    nav_locaton('ctsj','qyxm','','fxxx')
 </script>
+<script src="js/fx.js"></script>
 </body>
 </html>
