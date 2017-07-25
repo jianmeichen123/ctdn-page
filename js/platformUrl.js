@@ -1,23 +1,22 @@
 //本地
 
-var Constants = {
-	platformContentURL: "http://10.9.130.143:8081/api/",
-	userContentURL: "http://ctdndev.gi.com/user/",
-	searchContentURL: "http://10.9.130.135:8089/search/",
-	dataContentURL: "http://127.0.0.1:8085/data/",
-	logoPath: "http:///10.10.0.147/"
-}
-
+//var Constants = {
+//	platformContentURL: "http://127.0.0.1:8081/api/",
+//	userContentURL: "http://ctdndev.gi.com/user/",
+//	searchContentURL: "http://10.9.130.135:8089/search/",
+//	dataContentURL: "http://127.0.0.1:8085/data/",
+//	logoPath: "http:///10.10.0.147/"
+//}
 
 
 //线上
-//var Constants = {
-//	platformContentURL: "http://ctdndev.gi.com/api/",
-//	userContentURL: "http://ctdndev.gi.com/user/",
-//	searchContentURL: "http://ctdndev.gi.com/search/",
-//	dataContentURL: "http://ctdndev.gi.com/data/",
-//    logoPath: "http://static.galaxyinternet.com/"
-//}
+var Constants = {
+	platformContentURL: "http://ctdndev.gi.com/api/",
+	userContentURL: "http://ctdndev.gi.com/user/",
+	searchContentURL: "http://ctdndev.gi.com/search/",
+	dataContentURL: "http://ctdndev.gi.com/data/",
+    logoPath: "http://static.galaxyinternet.com/"
+}
 var home = {
 	    index : "http://ctdndev.gi.com"
 	}
@@ -73,7 +72,9 @@ var detail = {
     queryDishonestyExcuted:Constants.dataContentURL+"risk/queryDishonestyExcuted/",
     queryCourtAnnouncement:Constants.dataContentURL+"risk/queryCourtAnnouncement/",
     queryRiskJudgmentDocument:Constants.dataContentURL+"risk/queryRiskJudgmentDocument/",
-    queryOperationException:Constants.dataContentURL+"risk/queryOperationException/"
+    queryOperationException:Constants.dataContentURL+"risk/queryOperationException/",
+    queryPorjectBusniessInfo:Constants.dataContentURL+"/businessInfo/getListBySourceCode/",
+    queryZSCQInfo:Constants.dataContentURL+"/projectMarkInfo/getListBySourceCode/",
 }
 /**
  * how to use? location.href = platformUrl.login
