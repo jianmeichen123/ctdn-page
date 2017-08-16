@@ -27,15 +27,17 @@ function projectMarkInfoListFormatter(data,div){
     var html =""
     if(data.length>0){
         $(data).each(function(i,row){
-             $.each(row,function(k,v){
-                 while(temp.indexOf("${"+k+"}") > 1){
+            if(i<6){
+                 $.each(row,function(k,v){
+                     while(temp.indexOf("${"+k+"}") > 1){
 
-                    if(!v){ v = "-"}
-                    temp = temp.replace("${"+k+"}",v)
-                 }
-             })
-             html += temp;
-             temp = staticTemplate
+                        if(!v){ v = "-"}
+                        temp = temp.replace("${"+k+"}",v)
+                     }
+                 })
+                 html += temp;
+                 temp = staticTemplate
+            }
         })
     }else{
         html="<tr> <td colspan='6'><span>暂无数据</span></th></tr>"
@@ -137,7 +139,7 @@ function projectWebInfoListFormatter(data,div){
 
 //证书信息
 function certificateInfoListFormatter(data,div){
-   var staticTemplate = '<li><ul class="project_zs_ul_c"> <li class="font_16"  onclick="pop_credential("22")">${prodName}</li> <li class="color_666">发证日期：${date}</li> <li class="color_666">截止日期：${endDate}</li> </ul></li>'
+   var staticTemplate = '<li><ul class="project_zs_ul_c"> <li class="font_16"  onclick="pop_credential("22")">${cfctTitle}</li> <li class="color_666">发证日期：${issueDT}</li> <li class="color_666">截止日期：${closeDT}</li> </ul></li>'
    var temp = staticTemplate;
     var html =""
     if(data.length>0){
