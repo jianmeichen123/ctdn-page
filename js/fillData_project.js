@@ -15,65 +15,94 @@ $(window).scroll(function(){
 
 //投资事件
 function eventInfoListFormatter(data,div){
-     var staticTemplate =  "<tr><td>${investDate}</td><td>${round}</td><td> ${amountStr}</td><td>${valuation}</td><td>${stock}</td><td>${investSideJson}</td><td>${eventId}</td></tr>";
-     var temp = staticTemplate;
-     var html = "";
-     //遍历数组
-     if(data.length>0){
+    if(data.length>0){
+         var strArr = new Array();
          $(data).each(function(i,row){
-                $.each(row,function(k,v){
-                    while(temp.indexOf("${"+k+"}") > 1){
-                        if(v){
-                            if(k =="investSideJson"){
-                                var json = eval("(" + v + ")");
-                                var ls = json["investSideJson"];
-                                var firms = "";
-                                $(ls).each(function(i){
-                                   if(i<3){
-                                        json = ls[i]
-                                        if(json.isClick==1){
-                                           if(json.isLeader==1){
-                                                if(json.type=="invst"){
-                                                    firms +='<div><span class="list_table_td"><a target="_blank" href="/jg_particulars.html?orgId='+json.id+'" class=\'invstorName\' title="'+json.invstor+'">'+json.invstor+'</a><label class="lticon">领投</label></span></div>';
-                                                }else{
-                                                    firms +='<div><span class="list_table_td"><a target="_blank" href="/project_qy.html?code='+json.code+'" class=\'invstorName\' title="'+json.invstor+'">'+json.invstor+'</a><label class="lticon">领投</label></span></div>';
-                                                }
-                                           }else{
-                                                if(json.type=="invst"){
-                                                    firms +='<div><a target="_blank" href="/jg_particulars.html?orgId='+json.id+'" class=\'invstorName\' title="'+json.invstor+'">'+json.invstor+'</a></div>';
-                                                }else{
-                                                    firms +='<div><a target="_blank" href="/project_qy.html?code='+json.code+'" class=\'invstorName\' title="'+json.invstor+'">'+json.invstor+'</a></div>';
-                                                }
-                                           }
-                                        }else{
-                                            firms += "<div class='invstorName' title='"+$(this)[0].invstor+"'>"+$(this)[0].invstor+"</div>";
-                                        }
-                                   }
-                                })
-                                v = firms
-                            }
-                            if(k == "eventId"){
-                                 //待修改 跳转事件详情
-                                 v = "<a href='tzsj_particulars.html?eventId="+row.eventId+"'>详情</a>"
-                            }
-                            if(k =="investDate"){
-                                v = formatDate(v, "yyyy-MM-dd")
-                            }
+            strArr.push("<tr><td>")
+            $.each(row,function(k,v){
+                if(!v){
+                    row[k] = table.empty;
+                }
+            })
+            if(row.investDate != table.empty){
+                row.investDate = formatDate(row.investDate)
+            }
+            strArr.push(row.investDate);
+            strArr.push("</td><td>");
+            strArr.push(row.round);
+            strArr.push("</td><td>");
+            strArr.push(row.amountStr);
+            strArr.push("</td><td>");
+            strArr.push(row.valuation);
+            strArr.push("</td><td>");
+            strArr.push(row.stock);
+            strArr.push("</td><td>");
+            if(row["investSideJson"] != table.empty){
+                var json = eval("(" + row["investSideJson"] + ")");
+                var ls = json["investSideJson"];
+                var firms = new Array();
+                $(ls).each(function(i){
+                   if(i<3){
+                        json = ls[i]
+                        if(json.isClick==1){
+                           if(json.isLeader==1){
+                                if(json.type=="invst"){
+                                    firms.push('<div><span class="list_table_td"><a target="_blank" href="/jg_particulars.html?orgId=')
+                                    firms.push(json.id)
+                                    firms.push('" class=\'invstorName\' title="')
+                                    firms.push(json.invstor)
+                                    firms.push('">')
+                                    firms.push(json.invstor)
+                                    firms.push('</a><label class="lticon">领投</label></span></div>');
+                                }else{
+                                    firms.push('<div><span class="list_table_td"><a target="_blank" href="/project_qy.html?code=');
+                                    firms.push(json.code)
+                                    firms.push('" class=\'invstorName\' title="')
+                                    firms.push(json.invstor)
+                                    firms.push('">')
+                                    firms.push(json.invstor)
+                                    firms.push('</a><label class="lticon">领投</label></span></div>');
+                                }
+                           }else{
+                                if(json.type=="invst"){
+                                    firms.push('<div><a target="_blank" href="/jg_particulars.html?orgId=')
+                                    firms.push(json.id)
+                                    firms.push('" class=\'invstorName\' title="')
+                                    firms.push(json.invstor)
+                                    firms.push('">')
+                                    firms.push(json.invstor)
+                                    firms.push('</a></div>');
+                                }else{
+                                    firms.push('<div><a target="_blank" href="/project_qy.html?code=')
+                                    firms.push(json.code)
+                                    firms.push('" class=\'invstorName\' title="')
+                                    firms.push(json.invstor)
+                                    firms.push('">')
+                                    firms.push(json.invstor)
+                                    firms.push('</a></div>');
+                                }
+                           }
                         }else{
-                            v= "-"
+                            firms.push("<div class='invstorName' title='")
+                            firms.push($(this)[0].invstor)
+                            firms.push("'>");
+                            firms.push($(this)[0].invstor)
+                            firms.push("</div>");
                         }
-                        temp =temp.replace("${"+k+"}",v)
-                    }
+                   }
                 })
-                html += temp;
-                temp = staticTemplate
-             })
+               row.investSideJson =firms.join("");
 
-     }else{
-        html="<tr> <td colspan='7'><span>暂无数据</span></th></tr>"
-     }
-      div.append(html)
-
+            }
+            strArr.push(row.investSideJson)
+            strArr.push("</td><td>");
+            strArr.push("<a href='tzsj_particulars.html?eventId="+row.eventId+"'>详情</a>")
+            strArr.push("</td></tr>")
+         })
+         div.append(strArr.join(""))
+    }else{
+       div.append("<tr> <td colspan='7'><span>暂无数据</span></th></tr>")
+    }
 }
 //团队成员
 function projectTeamListFormatter(data,div){
