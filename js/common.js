@@ -117,6 +117,8 @@ function sendGetRequest(reqUrl, callbackFun) {
  *            处理成功后的回调方法
  */
 function sendPostRequest(reqUrl, callbackFun) {
+	var myDate = (new Date()).getTime()
+	console.log(myDate)
 	$.ajax({
 		url : reqUrl,
 		type : "POST",
