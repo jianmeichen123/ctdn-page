@@ -448,7 +448,17 @@ com{color:#1ed2ff;}
 .index_new_ul>li .brain_ico_project_time{margin-right:5px;}
 .index_new_ul>li .index_time{width:100px;}
 .index_new_ul_ul{width:200px; float:left;}
-.center{text-align: center;}
+.index_news_ul{width:100%; overflow:hidden; border:1px solid #f0f0f0; background-color:#fff; padding-top:30px;padding-left:10px;padding-right:10px;}
+.index_news_ul>li{position:relative; margin-bottom:26px;}
+.index_news_tie{font-size:16px; color:#333333; padding-left:30px; }
+.index_news_tie2{font-size:12px; color:#666666; margin-top:10px; padding-left:30px;}
+.index_news_tie:before{content: ' ';
+  width: 16px;
+  height: 16px;
+  border-radius: 8px;
+  background-color: #5fafff;
+  position: absolute; left: 5px; top:3px;}
+.center{text-align: center; }
 .index_l .project_t a{color:#1ed2ff;}
 .index_banner{background:url(../img/banner.jpg)  no-repeat center top; height:290px; position:relative;}
 .index_ico_close{background-position:-375px -55px; height:25px; width:25px; position:absolute; right:0; top:0; cursor:pointer;}
