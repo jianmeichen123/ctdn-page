@@ -4,7 +4,7 @@ var option = {
 	    tooltip : {
 	        trigger: 'axis',
 	        axisPointer : {            // 坐标轴指示器，坐标轴触发有效
-	            type : 'shadow'        // 默认为直线，可选为：'line' | 'shadow'
+	            type : 'none'        // 默认为直线，可选为：'line' | 'shadow'
 	        }
 	    },
 	    grid: {
@@ -161,3 +161,12 @@ var option = {
 	                    
 //使用刚指定的配置项和数据显示图表。
 myChart.setOption(option);   
+
+
+//var ecConfig = require('echarts/config');
+myChart.on('click',  function eConsole(param) {
+//这个params可以获取你要的饼图中的当前点击的项的参数
+	console.log(param)
+  alert(param);
+});
+
