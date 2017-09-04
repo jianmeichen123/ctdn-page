@@ -166,10 +166,20 @@ div.list_table_td{text-align:left;position:relative;float:left;margin-left:8px; 
 com{color:#1ed2ff;}
 .th_li{ height:28px; overflow:hidden; margin-bottom:0;}
 .th_li li{line-height:15px;}
-.list_click_ul{ position: absolute; display:none;padding-top: 3px; top:54px; background-color:#202934; right:0; }
-.list_click_ul li{ line-height:36px; height:36px; width:112px; color:#fff; text-align: center; border-top:1px solid #ccc; cursor:pointer;}
+.list_click_ul{ position: absolute; display:none;padding-top: 3px; top:60px;z-index: 9999; background-color:#3e4e63; right:0; }
+.list_click_ul:before{content: ' ';
+    width: 0;
+    height: 0;
+    border-right: 10px solid transparent;
+    border-bottom: 12px solid #3e4e63;
+    border-left: 10px solid transparent;
+    top: -10px;
+    position: absolute;
+    left: 48px;}
+.center{text-align: center; }
+.list_click_ul li{ line-height:36px;background-color:#3e4e63; height:36px; width:112px; color:#fff; text-align: center;  cursor:pointer;}
 .list_click_ul a{display: block; color: #fff; text-decoration: none;}
-.list_click_ul a:hover{color: #fff; }
+.list_click_ul a:hover{color: #1fc1eb; }
 .condition_all_ul li:hover{ color:#1ed2ff; cursor:pointer;}
 .condition_all_ul .pick_on:hover{ color:#fff}
 .brain_ico_name_on{background-position: -94px -14px;}
