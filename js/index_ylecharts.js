@@ -308,7 +308,7 @@ myChart_db.setOption(option_db);
 $('#main_yl_db').hide();
 $('.eachrst_tit [cmd="yl_tit"]').click(function(){
 	var name = $(this).attr('name');
-	$('.eachrst_tit span').removeClass('eachrst_tit_on')
+	$('.eachrst_tit .fl span').removeClass('eachrst_tit_on')
 	$(this).addClass('eachrst_tit_on');
 	//$('#main_yl').html('')
 	if(name=='one'){
