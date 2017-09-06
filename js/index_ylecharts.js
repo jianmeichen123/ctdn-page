@@ -7,10 +7,13 @@ var option = {
         text: ''
     },
     color: [
-        '#000', '#000', '#da70d6', '#32cd32', '#6495ed',
-        '#ff69b4', '#ba55d3', '#cd5c5c', '#ffa500', '#40e0d0',
-        '#1e90ff', '#ff6347', '#7b68ee', '#00fa9a', '#ffd700',
-        '#6b8e23', '#ff00ff', '#3cb371', '#b8860b', '#30e0e0'
+        '#c36646', '#7d2f53', '#ad1551', '#e91d62', '#e86290',
+        '#ff6b6c', '#f44236', '#9b27b0', '#663ab6', '#3e50b4',
+        '#5870f4', '#2095f2', '#32bdfd', '#4edef1', '#00bbd4',
+        '#019587', '#286963', '#3b832c', '#4baf4f', '#8bc24a',
+        '#a9df6a', '#ccdb38', '#f4de21', '#fdc107', '#c09717',
+        '#795346', '#c36646', '#da8267', '#ff6838', '#ff9700',
+        '#ff6838', '#f4de21', '#b999a4'
     ],
     tooltip: {
         trigger: 'axis',
@@ -148,9 +151,15 @@ var myChart_db = echarts.init(document.getElementById('main_yl_db'));
 var option_db = {
     tooltip : {
         trigger: 'axis',
-    axisPointer : {            // 坐标轴指示器，坐标轴触发有效
-        type : 'none'        // 默认为直线，可选为：'line' | 'shadow'
-    }
+        axisPointer : {            // 坐标轴指示器，坐标轴触发有效
+            type : 'none'        // 默认为直线，可选为：'line' | 'shadow'
+        }
+    },
+    color:['#2479ed','#389cfe','#5ea8ff','#91c3ff','#12eae9','#67ffcc'],
+    legend: {
+    	 x : '630',
+         y : '400',
+        data:['种子/天使/PreA轮', 'A轮','B轮','C轮','D轮','D轮以上']
     },
     grid: {
         left: '3%',
@@ -158,107 +167,65 @@ var option_db = {
         bottom: '100',
         containLabel: true
     },
-    color: [
-        '#227bea', '#389aff', '#5ea7ff', '#91c3ff', '#12e9e6',
-        '#ff69b4', '#ba55d3', '#cd5c5c', '#ffa500', '#40e0d0',
-        '#1e90ff', '#ff6347', '#7b68ee', '#00fa9a', '#ffd700',
-        '#6b8e23', '#ff00ff', '#3cb371', '#b8860b', '#30e0e0'
-    ],
-    legend: {
-    	 x : 'right',
-         y : 'bottom',
-        data:['种子/天使/PreA轮', 'A轮','B轮','C轮','D轮','D轮以上']
-    },
-    toolbox: {
-        show : false,
-        feature : {
-            mark : {show: true},
-            dataView : {show: true, readOnly: false},
-            magicType : {show: true, type: ['line', 'bar', 'stack', 'tiled']},
-            restore : {show: true},
-            saveAsImage : {show: true}
-        }
-    },
-    calculable : true,
     xAxis : [
-    {
-		type : 'category',
-		splitLine :{show:false},
-		boundaryGap: false,
-		 data : ['金融科技','互联网银行','电子商务','O2O','人工智能'],
-		scale:true,
-		top:0,			
-		axisLine:{
-		  show:false,
-		  lineStyle:{
-		  	color: '#e2e3e4',
-		  	width: 1,
-		  	type: 'solid'
-		  }
-		},
-		axisTick:{
-		  show:false
-		 },
-		axisLabel: {
-		    //formatter: '{value}',
-		    interval:0,  
-		rotate:40 ,
-		    textStyle: {
-		    	color: '#333333',
-		        fontSize:'12'
-		    }
-		}
-		     
-	 }
+        {
+            type : 'category',
+            data : ['金融科技','互联网银行','电子商务','O2O','人工智能'],
+            axisTick:{
+  			  show:false
+  			 },
+            axisLabel: {
+			    //formatter: '{value}',
+			    interval:0,  
+			    rotate:40 ,
+			    textStyle: {
+			    	color: '#333333',
+			        fontSize:'12'
+			    }
+			},
+			axisLine:{
+			  show:false,
+			  lineStyle:{
+			  	color: '#e2e3e4',
+			  	width: 1,
+			  	type: 'solid'
+			  }
+			}
+        }
     ],
     yAxis : [
-	    	 {
-                 type : 'value',
-                 splitLine :{show:true},
-                 scale:true,
-                 top:0,
-                 name:'新增投资事件',
+        {
+            type : 'value',
+            name:'新增投资事件',
+            nameTextStyle: {
+                color: '#333',
+                fontSize: '12'
+            },
+            axisLabel: {
+			    interval:0,  
+			    textStyle: {
+			    	color: '#333333',
+			        fontSize:'12'
+			    }
+			},
+			axisLine:{
+			  show:false,
+			  lineStyle:{
+			  	color: '#e2e3e4',
+			  	width: 1,
+			  	type: 'solid'
+			  }
+			}
 
-                 nameTextStyle :{
-                     color:'#333333',
-                     //nameLocation:'top',
-                     right:'20',
-                 },
-                 scale: true,
-                 /* nameLocation:'middle',
-                 nameGap:25, */
-                 nameTextStyle: {
-                     color: '#333',
-                     fontSize: '12'
-                 },
-			      axisLine:{
-			        show:false,
-			        lineStyle:{
-			        	color: '#e2e3e4',
-			        	width: 1,
-			        	type: 'solid'
-			        }
-			      },
-			      axisTick:{
-			        show:false
-			       },
-			        axisLabel: {
-			            //formatter: '{value}',
-			            textStyle: {
-			            	color: '#333333',
-			                fontSize:'12'
-			            }
-			        }
-                 
-             }
-	    ],
+        }
+    ],
     series : [
+              
         {
             name:'种子/天使/PreA轮',
             type:'bar',
             stack: '总量',
-            barWidth : 15,//柱图宽度
-           // itemStyle : { normal: {label : {show: true, position: 'insideRight'}}},
+            barWidth : 15,//柱图宽度 
             data:[320, 302, 301, 334, 390, 330, 320]
         },
         {
@@ -266,7 +233,6 @@ var option_db = {
             type:'bar',
             stack: '总量',
             barWidth : 15,//柱图宽度
-           // itemStyle : { normal: {label : {show: true, position: 'insideRight'}}},
             data:[120, 132, 101, 134, 90, 230, 210]
         },
         {
@@ -274,7 +240,6 @@ var option_db = {
             type:'bar',
             stack: '总量',
             barWidth : 15,//柱图宽度
-           // itemStyle : { normal: {label : {show: true, position: 'insideRight'}}},
             data:[220, 182, 191, 234, 290, 330, 310]
         },
         {
@@ -282,7 +247,6 @@ var option_db = {
             type:'bar',
             stack: '总量',
             barWidth : 15,//柱图宽度
-           // itemStyle : { normal: {label : {show: true, position: 'insideRight'}}},
             data:[150, 212, 201, 154, 190, 330, 410]
         },
         {
@@ -290,7 +254,6 @@ var option_db = {
             type:'bar',
             stack: '总量',
             barWidth : 15,//柱图宽度
-            //itemStyle : { normal: {label : {show: true, position: 'insideRight'}}},
             data:[820, 832, 901, 934, 1290, 1330, 1320]
         },
         {
@@ -298,7 +261,6 @@ var option_db = {
             type:'bar',
             stack: '总量',
             barWidth : 15,//柱图宽度
-            //itemStyle : { normal: {label : {show: true, position: 'insideRight'}}},
             data:[820, 832, 901, 934, 1290, 1330, 1320]
         }
     ]
