@@ -1,0 +1,182 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>企业详情-风险信息</title>
+	<!--basis-->
+	{(basis.html)}
+</head>
+
+<body>
+{(header.html)}
+<div class="container">
+	<div class="particulars_all">
+		{(project_header.html)}
+		<div class="project_all">
+			<ul class="project_fx_tit" id="total">
+				<li class="project_fx_tit_on">被执行人　<span></span></li>
+				<li>失信被执行人　<span data-num="queryDishonestyExcuted"></span></li>
+				<li>法院公告　<span data-num="queryCourtAnnouncement"></span></li>
+				<li>裁判文书　<span data-num="queryRiskJudgmentDocument"></span></li>
+				<li>经营异常　<span data-num="queryOperationException"></span></li>
+			</ul>
+			<!-- 被执行人 -->
+			<div class="project_t"><span class="brain_ico brain_ico_project_crumbs"></span>被执行人<div class="fr excuted">共<span >5</span>个</div></div>
+			<div class="particulars_black m_t5">
+				<table class=" particulars_table_list" data-url="queryExcutedByPage">
+					<thead>
+					<tr>
+						<th data-formatter="rowNumformatter" ><div>序号</div></th>
+						<th data-field="caseName" ><div class="border_l">名称</div></th>
+						<th data-field="recordDate" ><div class="border_l">立案时间</div></th>
+						<th data-field="excuteCourt"><div class="border_l">执行法院</div></th>
+						<th data-field="returnBack"><div class="border_l">执行标的</div></th>
+					</tr>
+					</thead>
+				</table>
+			</div>
+			<!-- 失信被执行人 -->
+			<div class="project_t"  data-block="queryDishonestyExcuted"><span class="brain_ico brain_ico_project_crumbs"></span>失信被执行人<div class="fr">共<span></span>个</div></div>
+			<div>{-raw-}
+				<script id="queryDishonestyExcuted" type="text/x-jquery-tmpl">
+					{{each(i,v) data}}
+						<div class="particulars_black m_t5" >
+							<ul class="project_fx_ul">
+								<li>
+									<div class="brain_ico project_fx_a"><span>${i+1}</span></div>
+									<div class="font_16">${v.caseName}</div>
+									<ul class="project_fx_div">
+										<li>
+											<div class="project_fx_div_one"><span >立案时间：</span><span>${v.recordDate}</span></div>
+											<span class="project_fx_span_t">执行依据文号：</span><span>${v.evidenceNum}</span>
+										</li>
+										<li>
+											<div class="project_fx_div_one"><span>公布时间：</span><span>${v.distributeDate}</span></div>
+											<span class="project_fx_span_t">执行法院：</span><span>${v.excuteCourt}</span>
+										</li>
+										<li><span>被执行人的履行情况：</span><span>${v.performance}</span></li>
+										<li><span>法律生效文书确定的义务：</span><span class="wi_920">${v.sduty}</span></li>
+									</ul>
+								</li>
+							</ul>
+						</div>
+					{{/each}}
+				</script>
+			{-raw-}
+			</div>
+			<!-- 法院公告 -->
+			<div class="project_t" data-block="queryCourtAnnouncement" ><span class="brain_ico brain_ico_project_crumbs"></span>法院公告<div class="fr">共<span></span>个</div></div>
+
+				<div class="particulars_black m_t5">
+					<table class=" particulars_table_list">
+						<thead>
+							<tr>
+								<th ><div>序号</div></th>
+								<th><div class="border_l">公示时间</div></th>
+								<th><div class="border_l">分类</div></th>
+								<th><div class="border_l">当事人</div></th>
+								<th class="wi_400"><div class="border_l">公告内容</div></th>
+							</tr>
+						</thead>
+						<tbody>
+						{-raw-}
+						<script id="queryCourtAnnouncement" type="text/x-jquery-tmpl">
+							{{if data.length>0}}
+								{{each(i,v) data}}
+									<tr>
+										<td>${i+1}</td>
+										<td>${v.distributeDate}</td>
+										<td>${v.sortment}</td>
+										<td>${v.litigant}</td>
+										<td>${v.content}</td>
+									</tr>
+								{{/each}}
+							{{else}}
+								<span>暂无数据</span>
+							{{/if}}
+						</script>
+						{-raw-}
+						</tbody>
+					</table>
+				</div>
+
+			<!-- 裁判文书 -->
+			<div class="project_t" data-block="queryRiskJudgmentDocument"><span class="brain_ico brain_ico_project_crumbs"></span>裁判文书<div class="fr">共<span></span>个</div></div>
+			<div class="particulars_black m_t5">
+				<table class=" particulars_table_list">
+					<thead>
+						<tr>
+							<th ><div>序号</div></th>
+							<th class="wi_380"><div class="border_l">案件名称</div></th>
+							<th><div class="border_l">发布时间</div></th>
+							<th><div class="border_l">案件编号</div></th>
+							<th class="wi_210"><div class="border_l">案件身份</div></th>
+							<th><div class="border_l">执行法院</div></th>
+						</tr>
+					</thead>
+					<tbody>
+					{-raw-}
+					    <script id="queryRiskJudgmentDocument" type="text/x-jquery-tmpl">
+							{{if data.length >0}}
+								{{each(i,v) data}}
+									<tr>
+										<td>${i+1}</td>
+										<td><div class="wi_380">${v.caseName}</div></td>
+										<td>${v.distributeDate}</td>
+										<td>${v.caseNum}</td>
+										<td>${v.caseRole}</td>
+										<td>${v.excuteCourt}</td>
+									</tr>
+								{{/each}}
+							{{else}}
+								<span>暂无数据</span>
+							{{/if}}
+						</script>
+					{-raw-}
+					</tbody>
+				</table>
+			</div>
+			<!-- 经营异常 -->
+			<div class="project_t" data-block="queryOperationException"><span class="brain_ico brain_ico_project_crumbs"></span>经营异常<div class="fr">共<span>5</span>个</div></div>
+			<div class="particulars_black m_t5">
+				<ul class="project_fx_ul">
+					{-raw-}
+						<script id="queryOperationException" type="text/x-jquery-tmpl">
+							{{if data.length >0}}
+									{{each(i,v) data}}
+										<li>
+											<ul class="project_fx_div">
+												<li>
+													<div class="project_fx_div_one"><span>列入日期：</span><span>${v.recordDate}</span></div>
+													<span class="project_fx_span_t">作出决定机关：</span><span>${v.excuteOrgans}</span>
+												</li>
+												<li><span>列入经营异常名录原因：</span><span class="wi_920">${v.excuteReason}</span></li>
+											</ul>
+										</li>
+									{{/each}}
+							{{else}}
+								<span>暂无数据</span>
+							{{/if}}
+						</script>
+					{-raw-}
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>
+<script src="js/fill_project_header.js"></script>
+<script src="js/jquery.tmpl.js"></script>
+<script>
+	//给tab页a赋参数
+	$(function(){
+	   $(".project_nav a").each(function(){
+		//if($(this).attr("href") != "####"){
+			$(this).attr("href",$(this).attr("href")+"?code="+getHrefParamter("code"))
+		//}
+	   })
+	})
+    nav_locaton('ctsj','qyxm','','fxxx')
+</script>
+<script src="js/fx.js"></script>
+</body>
+</html>

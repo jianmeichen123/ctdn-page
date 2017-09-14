@@ -1,0 +1,133 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>企业详情-对外投资</title>
+	<!--basis-->
+	{(basis.html)}
+</head>
+
+<body>
+{(header.html)}
+<div class="container">
+	<div class="particulars_all">
+		{(project_header.html)}
+		<div class="project_all">
+			<!-- 工商信息-->
+			<div class="project_t"><span class="brain_ico brain_ico_project_crumbs"></span>对外投资</div>
+			<div class="particulars_black m_t5">
+				<table class=" particulars_table_list m_t5">
+					<thead>
+						<tr>
+							<th ><div>时间</div></th>
+							<th><div class="border_l">融资公司</div></th>
+							<th><div class="border_l">轮次</div></th>
+							<th><div class="border_l">融资额</div></th>
+							<th><div class="border_l">投资方</div></th>
+							<th><div class="border_l">详情</div></th>
+						</tr>
+					</thead>
+					<tbody class="shgp">
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+</div>
+<script src="js/fill_project_header.js"></script>
+<script>
+	//给tab页a赋参数
+	$(function(){
+	   $(".project_nav a").each(function(){
+		//if($(this).attr("href") != "####"){
+			$(this).attr("href",$(this).attr("href")+"?code="+getHrefParamter("code"))
+		//}
+	   })
+	})
+     nav_locaton('ctsj','qyxm','','dwtz')
+</script>
+<script>
+    var staticTemplate = '<tr> <td>${investDate}</td> <td > <div class="list_table_td"><span>${logo}</span><ul class="col_999"> <li >${company}</li> <li><span>${districtSubName}</span> <span >${industryName}</span></li> </ul> </div> </td> <td  >${round}</td> <td >${amountStr}</td> <td class="number_th_20">${investSideJson} </td> <td >${eventId}</td> </tr>'
+	 var temp = staticTemplate;
+	 var html = "";
+	 sendPostRequestByJsonObj(detail.queryEventByName,{"company":name},function(data){
+		var entityList = data.data;
+		if(entityList.length>0){
+			$(entityList).each(function(i,row){
+				 $.each(row,function(k,v){
+					   while(temp.indexOf("${"+k+"}") > 1){
+						   if(k=="investDate"){
+								if(v){v=formatDate(v)}else{v = "-"}
+						   }
+						   if(k=="company"){
+							   if(v.length>9){
+								   v = "<a href='project_qy.html?code="+row.sourceCode+"' title='"+v+"'>"+v.substring(0,9)+"..."+"</a>"
+							   }
+						   		v = "<a href='project_qy.html?code="+row.sourceCode+"'>"+v+"</a>"
+						   }
+						   if(k=="districtSubName"){
+						   		if(v){
+						   			v = "<span class='zz'>"+v+"</span>"
+						   		}
+						   }
+						   if(k=="logo"){
+							   if(!v){
+								   v= '<img height="37" width="37" src="img/default.gif">'
+							   }else{
+								   v ='<img height="37" width="37" src="'+Constants.logoPath+v+'">'
+							   }
+						   }
+						   if(k=="industryName"){
+								if(!v){v="行业未知"}
+						   }
+						   if(k=="round"){
+						   		if(!v){v="-"}
+						   }
+						   if(k=="amountStr"){
+						   		if(!v){v="未透露"}
+						   }
+						   if(k=="investSideJson"){
+						   	  var json = eval("(" + v + ")");
+							  var ls = json["investSideJson"];
+							  var firms = "";
+							  $(ls).each(function(i){
+								if(i<3){
+									if($(this)[0].isClick=="1"){
+										if($(this)[0].type=="com"){
+											firms += "<div><a href = 'project_qy.html?code="+$(this)[0].code+"'>"+$(this)[0].invstor+"</a><div>";
+										}else {
+											firms += "<div><a href = 'jg_particulars.html?orgId="+$(this)[0].id+"'>"+$(this)[0].invstor+"</a><div>";
+										}
+									}else{
+										firms += "<div>"+$(this)[0].invstor+"</div>";
+									}
+								}
+							  })
+							  v = firms
+						   }
+						   if(k=="company"){
+						   		if(v){
+									v= "<a href ='project_qy.html?code='"+row.sourceCode+">"+v+"</a>"
+								}else{
+									v= "名称未知"
+								}
+						   }
+						   if(k=="eventId"){
+						   		if(v){
+									v= "<a href='tzsj_particulars.html?eventId="+v+"'>详情</a>"
+								}
+						   }
+						   temp =temp.replace("${"+k+"}",v)
+					   }
+				 })
+			     html += temp;
+			     temp = staticTemplate
+		 	})
+		}else{
+			html  = "<tr> <td colspan='6'><span>暂无数据</span></th></tr>"
+		}
+		$("tbody").append(html)
+     })
+</script>
+</body>
+</html>

@@ -1,0 +1,295 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>企业详情-详细信息</title>
+	<!--basis-->
+	{(basis.html)}
+</head>
+
+<body>
+{(header.html)}
+<div class="container">
+	<div class="particulars_all">
+		{(project_header.html)}
+		<div class="project_all">
+			<div class="project_all_l">
+				<!-- zhuo -->
+				<!-- 基本信息-->
+				<div class="project_t" location_l="location_jb"><span class="brain_ico brain_ico_project_crumbs"></span>基本信息</div>
+				<div class="particulars_black m_t5" data-query = "projectBase">
+					<ul class="project_all_l_ul">
+						<li>
+							<div class="font_14">公司描述</div>
+							<p  class="color_666" data-field="firmDesc"></p>
+							<div class="project_more">更多<span class="brain_ico brain_ico_project_more"></span></div>
+						</li>
+
+					</ul>
+
+				</div>
+				<!-- 融资信息 -->
+				<div class="project_t" location_l="location_rz"><span class="brain_ico brain_ico_project_crumbs"></span>融资信息</div>
+				<div class="particulars_black m_t5" >
+					<table class=" particulars_table_list"  >
+							<thead>
+								<tr>
+									<th data-field="investDate"><div class="border_l" >融资时间</div></th>
+									<th ><div class="border_l">轮次</div></th>
+									<th ><div class="border_l" >融资金额</div></th>
+									<th ><div class="border_l" >企业估值</div></th>
+									<th data-field=""><div class="border_l" >出让股份</div></th>
+									<th data-field="investSideJson"><div class="border_l" >投资机构</div></th>
+									<th data-field="eventId"><div class="border_l" >详情</div></th>
+								</tr>
+							</thead>
+						    <tbody data-query="list" data-formatter="eventInfoList" class="rzxx"></tbody>
+
+						</table>
+				</div>
+				<!-- 产品信息 -->
+				<div class="project_t" location_l="location_cp"><span class="brain_ico brain_ico_project_crumbs"></span>产品信息<div class="fr" id="pro_num"></div>
+				<div class="particulars_black m_t5" >
+					<ul class="product_list" id="product-ul"></ul>
+
+				</div>
+				<!-- 团队信息 -->
+				<div class="project_t" location_l="location_td"><span class="brain_ico brain_ico_project_crumbs"></span>团队信息</div>
+				<div class="particulars_black m_t5" >
+					<ul class="product_list_team" data-query="list" data-formatter="projectTeamList">
+					</ul>
+				</div>
+				<!-- 发展历史 -->
+				<div class="project_t" location_l="location_fz"><span class="brain_ico brain_ico_project_crumbs"></span>发展历史</div>
+				<div class="particulars_black m_t5">
+					<div class="blue_l_b">
+						<ul data-query="list" data-formatter="historyList">
+
+						</ul>
+					</div>
+				</div>
+
+				<!-- 上市挂牌 -->
+				<div class="project_t" location_l="location_ss"><span class="brain_ico brain_ico_project_crumbs"></span>上市挂牌</div>
+				<div class="particulars_black m_t5">
+					<table class=" particulars_table_list m_t5">
+							<thead>
+								<tr>
+									<th style="width:30%"><div>公司</div></th>
+									<th><div class="border_l">类型</div></th>
+									<th><div class="border_l">交易所</div></th>
+									<th><div class="border_l">股票代码</div></th>
+									<th><div class="border_l">上市/挂牌时间</div></th>
+									<th><div class="border_l">详情</div></th>
+								</tr>
+							</thead>
+							<tbody data-query="list" data-formatter="eventListedInfoList" class="shgp"></tbody>
+						</table>
+
+				</div>
+				<!-- 并购事件 -->
+				<div class="project_t" location_l="location_bg"><span class="brain_ico brain_ico_project_crumbs"></span>并购事件</div>
+				<div class="particulars_black m_t5">
+					<table class=" particulars_table_list m_t5">
+							<thead>
+								<tr>
+									<th style="width:30%"><div>被并购方</div></th>
+									<th><div class="border_l">股权比例</div></th>
+									<th><div class="border_l">金额</div></th>
+									<th><div class="border_l">并购方</div></th>
+									<th><div class="border_l">并购时间</div></th>
+									<th><div class="border_l">详情</div></th>
+								</tr>
+							</thead>
+							<tbody  data-query="list" data-formatter="eventMergerInfoList">
+
+							</tbody>
+						</table>
+				</div>
+
+					<!-- 联系方式 -->
+				<div class="project_t" location_l="location_lx"><span class="brain_ico brain_ico_project_crumbs"></span>联系方式</div>
+				<div class="particulars_black m_t5">
+					<table class=" particulars_table_list m_t5">
+						<thead>
+							<tr>
+								<th ><div></div></th>
+								<th ><div>地址</div></th>
+								<th><div class="border_l">邮编</div></th>
+								<th><div class="border_l">公司电话</div></th>
+								<th><div class="border_l">公司邮箱</div></th>
+								<th><div class="border_l">传真</div></th>
+							</tr>
+						</thead>
+						<tbody  data-query="list" data-formatter="projectContactList">
+
+						</tbody>
+					</table>
+
+				</div>
+				<!-- 相关新闻 -->
+				<div class="project_t" location_l="location_xw"><span class="brain_ico brain_ico_project_crumbs"></span>相关新闻</div>
+				<div class="particulars_black m_t5">
+					<ul class="project_new" data-query="list" data-formatter="newsList">
+
+					</ul>
+				</div>
+				<!-- z end -->
+			</div>
+
+		</div>
+		<div class="project_all_r">
+			<ul>
+				<li class="project_all_r_on" location_r="location_jb"><span class="brain_ico brain_ico_project_circle"></span>基本信息</li>
+				<li location_r="location_rz"><span class="brain_ico brain_ico_project_circle"></span>融资信息</li>
+				<li location_r="location_cp"><span class="brain_ico brain_ico_project_circle"></span>产品信息 </li>
+				<li location_r="location_td"><span class="brain_ico brain_ico_project_circle"></span>团队信息 </li>
+				<li location_r="location_fz"><span class="brain_ico brain_ico_project_circle"></span>发展历史</li>
+				<li location_r="location_ss"><span class="brain_ico brain_ico_project_circle"></span>上市挂牌</li>
+				<li location_r="location_bg"><span class="brain_ico brain_ico_project_circle"></span>并购事件</li>
+			<!--<li location_r="location_tc"><span class="brain_ico brain_ico_project_circle"></span>退出事件</li>
+				<li location_r="location_zgs"><span class="brain_ico brain_ico_project_circle"></span>分支机构</li> -->
+				<li location_r="location_lx"><span class="brain_ico brain_ico_project_circle"></span>联系方式</li>
+				<li location_r="location_xw"><span class="brain_ico brain_ico_project_circle"></span>相关新闻</li>
+			</ul>
+		</div>
+	</div>
+</div>
+</div>
+<script src="js/fill_project_header.js"></script>
+<script src="js/fillData_common.js"></script>
+<script src="js/fillData_project.js"></script>
+<script>
+//给tab页a赋参数
+$(function(){
+   $(".project_nav a").each(function(){
+    //if($(this).attr("href") != "####"){
+    	$(this).attr("href",$(this).attr("href")+"?code="+getHrefParamter("code"))
+   // }
+   })
+ //团队信息两行显示
+ $(".product_list_team_ul").each(function(){
+	 var con=$(this).find("li:last").text();
+	 var len=con.length;
+	 if(len>60){
+		 $(this).find("li:last").text(con.substring(0,60)+"...")
+	 }else{
+		 $(this).find("li:last").text(con)
+	 }
+ })
+ //新闻超过10条显示滚动条
+ $(".project_new").each(function(){
+		var len=$(this).find("li").length;
+		var sum=0;
+		if(len>9){
+			for(var i=0;i<10;i++){
+				sum+=$(this).find("li").eq(i).height()+15;
+			}
+			$(this).css({"overflow-y":"auto"});
+		}else{
+			for(var i=0;i<len;i++){
+				sum+=$(this).find("li").eq(i).height()+15;
+			}
+			$(this).css({"overflow-y":"hidden"});
+		}
+		$(this).css({"height":sum});
+	})
+	//超过10条显示滚动条
+	$(".particulars_table_list").each(function(){
+		var len=$(this).find("tbody tr").length;
+		var sum=0;
+		for(var i=0;i<10;i++){
+			sum+=$(this).find("tbody tr").eq(i).height();
+		}
+		$(this).find("tbody").css({"height":sum});
+		if(len<10){
+			$(this).find("tbody").css({"overflow-y":"hidden"});
+		}else{
+			$(this).find("tbody").css({"overflow-y":"auto"});
+		}
+	})
+	//融资信息过长截断显示
+	$(".invstorName").each(function(){
+		var len=$(this).text().length;
+		  if(len>10){
+			  $(this).text($(this).text().substring(0,10)+"...")
+		  }else{
+			  $(this).text($(this).text())
+		  }
+	})
+	//发展历史条数
+	var len=$("ul[data-formatter=\"historyList\"] li").length;
+    if(len>4){
+    	$(".project_click_show").show();
+    }else{
+    	$(".project_click_show").hide();
+    }
+})
+/* 菜单悬浮 */
+var location_array = new Array()
+for(var i=0; i<$('.project_t').length; i++){
+	location_array.push($('.project_t').eq(i).attr('location_l'));
+}
+ $(window).scroll(function(){
+	var  myArray=new Array();
+	for(var i=0; i<location_array.length; i++){
+		var obj = {};
+		var name = location_array[i];
+		obj.name = name;
+		obj.value= parseInt($('[location_l="'+location_array[i]+'"]').offset().top -70);
+		myArray.push(obj);
+	}
+	var scrollTop=$(window).scrollTop();
+	if(scrollTop>=myArray[0].value){
+		$('.project_all_r').addClass('project_all_r_top');
+		 location_on(myArray,scrollTop)
+	}else{
+		$(".project_all_r").removeClass("project_all_r_top");
+	}
+});
+function location_on(obj,scrollTop){
+	for(var i=0; i<obj.length; i++){
+		var j =i+1;
+		if(j==obj.length){
+			if(scrollTop >=obj[i].value){
+				$('.project_all_r li').removeClass('project_all_r_on');
+				$('[location_r="'+obj[i].name+'"]').addClass('project_all_r_on');
+			}
+		}else{
+			if(scrollTop >=obj[i].value && scrollTop<obj[j].value){
+				$('.project_all_r li').removeClass('project_all_r_on');
+				$('[location_r="'+obj[i].name+'"]').addClass('project_all_r_on');
+			}
+		}
+
+	}
+
+}
+//右边浮动
+$('body').delegate('.project_all_r li','click',function(event){
+	var _this=$(this);
+	event.stopPropagation();
+	var location_r = $(this).attr('location_r');
+	var location_value = $('[location_l="'+location_r+'"]').offset().top-50;
+	$("html,body").animate({scrollTop:location_value},300);
+	setTimeout(function(){
+		_this.addClass("project_all_r_on").siblings().removeClass("project_all_r_on")
+	},300)
+})
+//更多
+$('body').delegate('.project_more','click',function(event){
+	event.stopPropagation();
+	$(this).hide();
+	$(this).parent().children('.color_666').css('height','auto')
+})
+//project_click_show发展历史
+
+$('body').delegate('.project_click_show','click',function(event){
+	event.stopPropagation();
+	$(this).hide();
+	$('.blue_l_b .blue_l_b_three').show();
+})
+nav_locaton('ctsj','qyxm','','qyxx')
+</script>
+</body>
+</html>

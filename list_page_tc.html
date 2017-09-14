@@ -1,0 +1,126 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>退出事件</title>
+    <!--basis-->
+    {(basis.html)}
+</head>
+<body data-page-parent="trdt">
+{(header.html)}
+	<div class="container">
+		<div class="page_title">
+			<span class="col_999">创投数据　&gt;　</span><span class="col_999">投融动态　&gt;　</span><span class="col_666">退出事件</span>
+		</div>
+		
+        <div class="page_all">
+
+			<!--行业选择end-->
+			{(invest_tab.html)}
+			<div class="condition_all">
+				<div class="block_industry">
+					<span class="classify">所属行业</span>
+					<ul class="condition_all_ul">
+						<li class="pick_on" id="industry_one">全部</li>
+						<li class="click_industry_show">选择行业 <span class="brain_ico brain_ico_arrow"></span>
+							<!--行业选择-->
+							<div class="industry_list">
+								<ul id="one_industry">
+								</ul>
+								<ul id="two_industry">
+								</ul>
+<!--								<ul id="three_industry">
+									<li>教育</li>
+									<li>教育</li>
+									<li>教育</li>
+									<li>教育</li>
+								</ul>-->
+							</div>
+						</li>
+						<div id="click_list" data-industry-name="industry"  data-query="industryIds:tree">
+						</div>
+					</ul>
+				</div>
+				
+				<div class="block">
+					<span class="classify">退出方式</span>
+					<ul class="condition_all_ul" data-query="quitType:normal">
+						<li class="pick_on">全部</li>
+						<!--<li>反向收购<span class="brain_ico brain_ico_bj"></span></li>-->
+						<!--<li>IPO<span class="brain_ico brain_ico_bj"></span></li>-->
+						<!--<li>并购<span class="brain_ico brain_ico_bj"></span></li>-->
+						<!--<li>股权转让<span class="brain_ico brain_ico_bj"></span></li>-->
+						<!--<li>公司回购<span class="brain_ico brain_ico_bj"></span></li>-->
+						<!--<li>管理层回购<span class="brain_ico brain_ico_bj"></span></li>-->
+						<!--<li>清算<span class="brain_ico brain_ico_bj"></span></li>-->
+						<!--<li>LP退出<span class="brain_ico brain_ico_bj"></span></li>-->
+						<!--<li>清偿债权<span class="brain_ico brain_ico_bj"></span></li>-->
+					</ul>
+				</div>
+
+
+
+
+				<div class="global_block">
+					<span class="classify">投资地区</span>
+					<ul class="condition_all_ul" id="global_all" data-query="districtIds:district">
+						<li class="pick_on">全部</li>
+						<li>国内<span class="brain_ico brain_ico_bj"></span></li>
+						<li>国外<span class="brain_ico brain_ico_bj"></span></li>
+					</ul>
+				</div>
+
+				<div id="global_list" data-query="districtSubIds:district">
+
+				</div>
+
+
+
+				<div class="block switch_condition">
+					<span class="classify">投资币种</span>
+					<ul class="condition_all_ul" data-query="currencyType:normal">
+						<li class="pick_on">全部</li>
+					</ul>
+				</div>
+				<div class="block switch_condition">
+					<span class="classify">投资时间</span>
+					<ul class="time_ul">
+						<li><input type="text" id="begin" readonly/></li>
+						<li>至</li>
+						<li><input type="text" id="end" readonly/></li>
+					</ul>
+				</div>
+				
+				<div class="block click_show">更多选项（币种、时间）等<span class="brain_ico brain_ico_arrowup"></span></div>
+				
+			</div>
+
+			
+			<div class="block m_t_20 line_h">
+				<span class="col_999">共<span></span>个结果</span>
+				<div class="table_seek"><input id = "projTitle" type="text" onkeydown="entersearch()" placeholder="结果中搜索"/><span class="brain_ico brain_ico_seek" onclick="_query()"></span></div>
+			</div>
+			<div class="block m_t_10 boder_all">
+				<table class="table bj_fff table_style" data-url="quitEvent">
+				   <thead>
+					  <tr>
+						 <th data-field="quitEvent"><div>时间</div></th>
+						 <th data-field="company"><div class="border_l">公司</div></th>
+						 <th data-field="quitSide"><div class="border_l">退出方</div></th>
+						 <th data-field="quitWay"><div class="border_l">退出方式</div></th>
+						 <th data-field="quitAmount"><div class="border_l">退出金额</div></th>
+						 <th><div class="border_l">详情</div></th>
+					  </tr>
+				   </thead>
+				   <tbody>
+				   </tbody>
+				</table>
+			</div>
+		</div>
+    </div>
+{(footer.html)}
+<script>
+nav_locaton('ctsj','rzdt','','')
+</script>
+</body>
+</html>

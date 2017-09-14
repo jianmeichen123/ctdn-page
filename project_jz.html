@@ -1,0 +1,177 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>企业详情-竞争对手</title>
+	<!--basis-->
+	{(basis.html)}
+</head>
+
+<body>
+{(header.html)}
+<div class="container">
+	<div class="particulars_all">
+	{(project_header.html)}
+		<div class="project_all">
+			<!-- 直接竞争-->
+			<div class="project_t"><span class="brain_ico brain_ico_project_crumbs"></span>直接竞争</div>
+			<div class="particulars_black m_t5">
+				<ul  class="ul_all" data-query="list" data-formatter="directCompetationlist">
+				</ul>
+			</div>
+			<!-- 间接竞争-->
+			<div class="project_t"><span class="brain_ico brain_ico_project_crumbs"></span>间接竞争</div>
+			<div class="particulars_black m_t5">
+				<ul  class="ul_all" data-query="list" data-formatter="indirectCompetationlist">
+				</ul>
+				
+			</div>
+	</div>
+</div>
+</div>
+<script src="js/fill_project_header.js"></script>
+<script src="js/fillData_common.js"></script>
+<script>
+	//给tab页a赋参数
+	$(function(){
+	   $(".project_nav a").each(function(){
+		//if($(this).attr("href") != "####"){
+			$(this).attr("href",$(this).attr("href")+"?code="+getHrefParamter("code"))
+		//}
+	   })
+	  $(".tzf").each(function(){   //去掉最后一个分隔符
+		  console.log($(this).children("span:last-child").html());
+		  if($(this).children("span:last-child").html()==","){
+			  $(this).children("span:last-child").remove()
+		  }else{
+			  $(this).children("span:last-child").find(".dh").remove();
+		  }
+	  })
+	})
+	function directCompetationlistFormatter(data,div){
+		aa(data,div)
+	}
+	function indirectCompetationlistFormatter(data,div){
+		aa(data,div)
+	}
+	function aa(data,div){
+	   var staticTemplate= '<li> <div class="project_jz_l"> <ul> <li><span class=\'img_parent\'>${logoSmall}</span></li> <li> <ul class="project_jz_l_n_ul"> <li class="font_16">${projTitle}</li> <li class="color_666 ">${firmDesc}</li> <li class="color_666 "><span>${industryName}</span></li> <li class="project_jz_span">${labels}</li> </ul> </li> <li class="project_jz_l_n_3"><div class="project_absolute_blue">${latestFinanceRound}</div></li> <li class="project_jz_l_n_2">${setupDT}</li> <li class="project_jz_l_n_2">${districtSubName}</li> </ul> </div> <div class="project_jz_r"> <div class="project_jz_r_l"> <div class="project_jz_r_l_tit">融资信息</div> <ul> <li> <span class="brain_ico brain_ico_project_time"></span> <span>${latestFinanceDT}</span> </li> <li> <span class="brain_ico brain_ico_project_money"></span> <span>${latestFinanceAmountStr}</span> </li> <li> <span class="brain_ico brain_ico_project_site"></span> <span class="tzf">${investSideJson}</span> </li> </ul> </div> <div class="project_jz_r_r"> <ul class="on_project_jz_r_r"> <li><span class="font_30">${similarity}</span></li> <li>相似度</li> </ul> <ul class="ul">${li} </ul> </div> </div> </li>';
+	   var temp = staticTemplate;
+	   var html = "";
+	   if(data.length>0){
+	   //遍历数组
+	   $(data).each(function(i,row){
+		  $.each(row,function(k,v){
+			  while(temp.indexOf("${"+k+"}") > 1){
+				  if(k=="investSideJson"){
+				  		if(v){
+				  			var json = eval("(" + v + ")");
+							var ls = json["investSideJson"];
+							var firms = "";
+							$(ls).each(function(i,e){
+							   //待修改 没加领投
+							   if(i<3){
+							   	if($(this)[0].isClick=="1"){
+							   		firms += "<span><a href = 'jg_particulars.html?orgId="+$(this)[0].id+"'>"+$(this)[0].invstor+"</a><span class=\"dh\">,</span></span>";
+							   	}else{
+							   		firms += "<span>"+$(this)[0].invstor+"</span><span class=\"dh\">,</span>";
+							   	}
+							   }
+							})
+							v = firms
+				  		}else{
+				  			v="-"
+				  		}
+				  }
+				  if(k=="industryName"){
+					  if(v){
+							var str = "";
+							str += v;
+							if(row["industrySubName"]){
+								str += ">" + row["industrySubName"]
+							}
+							v =  str;
+					  }else{
+						 v =  "行业未知";
+					  }
+				  }
+               	 if(k=="logoSmall"){
+
+               	  	if (v && v.indexOf("/")!=-1){
+						img = v.split("/")[1]
+						v= '<img src="'+Constants.logoPath+img+'">'
+					}else if (v && v!=""){
+						img = v
+						v= '<img src="'+Constants.logoPath+img+'">'
+					}else{
+					    v= '<img src="img/default.gif">'
+					}
+				 }
+				 if(k=="projTitle"){
+				 	if(v){
+				 		v ='<a href="project_qy.html?code='+row["sourceCode"]+'">'+v+'</a>'
+				 	}
+				 }
+               	 <!--if(k=="labels"){-->
+               	 	<!--if(v){-->
+               	 		<!--var str = "";-->
+						<!--$(v.split(","),function(i,e){-->
+						   <!--str.append("<span class='project_lable'>");-->
+						   <!--str.append(e);-->
+						   <!--str.append("</span>");-->
+						<!--})-->
+						<!--v = str-->
+               	 	<!--}else{-->
+               	 		<!--v=""-->
+               	 	<!--}-->
+               	 <!--}-->
+               	 if(k=="latestFinanceRound" && !v){v ="尚未获投"}
+               	 if(k=="firmDesc" && !v){v="暂无描述"}
+               	 if(k=="setupDT" && !v){v="成立时间未知"}
+               	 if(k=="districtSubName" && !v){v="地点未知"}
+
+				 if(k=="labels"){
+					if(v){
+						var str = "";
+						$(v.split(",")).each(function(i,e){
+							 str+= "<span class='project_lable'>"+e+"</span>";
+						})
+						v = str
+					}
+			     }
+               	 if(k=="similarity"){
+
+               	 	 if(v){
+						 var tmp = "";
+						 for(var i = 0; i< parseInt(v*100); i++){
+							tmp += "<li></li>"
+						 }
+               	 	 	 temp =temp.replace("${li}",tmp)
+               	 	 	 v = parseInt(v*100)+'%'
+
+               	 	 }else{
+			     	  	 v ="相似度未知"
+			     	 }
+			     }
+			     if(k=="latestFinanceAmountStr" && !v){v="-"}
+			     if(k=="latestFinanceDT"){
+			     	if(!v){v="-"}else{v =formatDate(v)}
+			     }
+			  	 temp =temp.replace("${"+k+"}",v)
+			  }
+		  })
+		  html += temp;
+		  temp = staticTemplate
+	   })
+	   div.append(html)
+	}
+	else{
+		div.append("<tr> <td colspan='6'><span>暂无数据</span></th></tr>")
+	}
+	}
+	sendGetRequest(detail.queryCompetationlist+getHrefParamter("code"),function(data){fillList(data.data,$("*[data-query='list']"))})
+
+	nav_locaton('ctsj','qyxm','','jzds')
+</script>
+</body>
+</html>

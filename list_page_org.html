@@ -1,0 +1,136 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>投资机构</title>
+	<!--basis-->
+	{(basis.html)}
+</head>
+
+<body data-page-parent="org">
+{(header.html)}
+	<div class="container">
+		<div class="page_title">
+			<span class="col_999"><a href="list_page_com.html">创投数据　&gt;　</a></span><span class="col_999">投资机构　</span>
+		</div>
+		
+        <div class="page_all">
+			
+		
+			<!--行业选择end-->
+			<div class="condition_all_no no_two_industry">
+				<div class="block_industry">
+					<span class="classify">关注领域</span>
+					<ul class="condition_all_ul">
+						<li class="pick_on" id="industry_one">全部</li>
+						<li class="click_industry_show">选择行业 <span class="brain_ico brain_ico_arrow"></span>
+							<!--行业选择-->
+							<div class="industry_list">
+								<ul id="one_industry">
+								</ul>
+								<ul id="two_industry">
+								</ul>
+<!--								<ul id="three_industry">
+									<li>教育</li>
+									<li>教育</li>
+									<li>教育</li>
+									<li>教育</li>
+								</ul>-->
+							</div>
+						</li>
+						<div id="click_list" data-industry-name="orgIndustry" data-query="industryIds:nor">
+						</div>
+					</ul>
+				</div>
+				
+				<div class="block">
+					<span class="classify">投资轮次</span>
+					<ul class="condition_all_ul" data-query="orgRound:normal">
+						<li class="pick_on">全部</li>
+					</ul>
+				</div>
+<!--				<div class="block">
+					<span class="classify">机构类型</span>
+					<ul class="condition_all_ul" data-query="orgType:normal">
+						<li class="pick_on">全部</li>
+					</ul>
+				</div>-->
+
+				<div class="global_block">
+					<span class="classify">总部地区</span>
+					<ul class="condition_all_ul" id="global_all" data-query="districtIds:district">
+						<li class="pick_on">全部</li>
+						<li>国内<span class="brain_ico brain_ico_bj"></span></li>
+						<li>国外<span class="brain_ico brain_ico_bj"></span></li>				
+					</ul>
+				</div>
+				
+				<div id="global_list" data-query="districtSubIds:district">
+				
+				</div>
+
+				<!--<div class="block switch_condition">-->
+					<!--<span class="classify">资本类型</span>-->
+					<!--<ul class="condition_all_ul" data-query="capitalType:normal">-->
+						<!--<li class="pick_on">全部</li>-->
+					<!--</ul>-->
+				<!--</div>-->
+
+				<!--<div class="block switch_condition">-->
+					<!--<span class="classify">　　币种</span>-->
+					<!--<ul class="condition_all_ul" data-query="currencyType:normal">-->
+						<!--<li class="pick_on">全部</li>-->
+					<!--</ul>-->
+				<!--</div>-->
+
+
+				<div class="block">&nbsp;</div>
+				<!--<div class="block click_show">更多选项（资本类型,币种）等<span class="brain_ico brain_ico_arrowup"></span></div>-->
+				<input type="hidden" id="begin" readonly/>
+				<input type="hidden" id="end" readonly/>
+			</div>
+
+			
+			<div class="block m_t_20 line_h">
+				<span class="col_999">共<span></span>个结果</span>
+				<div class="table_seek"><input data-field="investOrg"  id = "projTitle" type="text" onkeydown="entersearch()" placeholder="结果中搜索"/><span class="brain_ico brain_ico_seek" onclick="_query()"></span></div>
+			</div>
+			<div class="block m_t_10 boder_all">
+				<table class="table bj_fff table_style" data-url="org">
+				   <thead>
+					  <tr>
+						  <th data-formatter="tableFormate.org"><div>投资机构</div></th>
+						  <!--<th data-field="orgType"><div class="border_l">机构类型</div></th>-->
+						  <th data-sortable="true" data-field="investTotal" class="number_th_10"><div class="border_l">总投资笔数</div></th>
+						  <th data-sortable="true" data-field="totalRatio" data-formatter="tableFormate.totalRatio"  class="number_th"><div class="border_l"><ul class="th_li"><li>投资笔数</li><li>上月环比</li></ul></div></th>
+						  <th data-field="investAmountStr" class="number_th_20"><div class="border_l">投资总额</div></th>
+						  <th data-sortable="true" data-field="amountRatio" data-formatter="tableFormate.amountRatio"  class="number_th"><div class="border_l"><ul class="th_li"><li>投资额度</li><li>上月环比</li></ul></div></th>
+						  <th data-formatter="tableFormate.investProject" class="number_th_20"><div class="border_l">最近投资项目</div></th>
+					  </tr>
+				   </thead>
+				   <tbody>
+
+				   <!--<td><span class="brain_ico brain_ico_up_arrows"></span>+10%</td>-->
+				   <!--<td>亿元及以上人民币</td>-->
+				   <!--<td><span class="brain_ico brain_ico_down_arrows"></span>-12%</td>-->
+				   </tbody>
+				</table>
+
+
+				
+			</div>
+			
+						
+		</div>
+		
+		
+		
+		
+    </div>
+
+{(footer.html)}
+<script>
+nav_locaton('ctsj','tzjg','','')
+</script>
+</body>
+</html>

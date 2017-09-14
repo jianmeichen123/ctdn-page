@@ -1,0 +1,382 @@
+<link rel="stylesheet" type="text/css" href="../css/revision.css">
+<link rel="stylesheet" type="text/css" href="../css/basis.css">
+<script src="../js/jquery-1.12.3.min.js"></script>
+<script src="../js/echarts_3.2.3.js"></script>
+<script src="../js/platformUrl.js"></script>
+<script src="../js/common.js"></script>
+<div class="popup_project">
+	<div class="popup_project_title"><span class="popup_ico"></span><span id="popup_name"></span></div>
+	<div class="project_popup_all">
+		<ul class="popup_classify">
+			<li class="popup_classify_on" attr-name="one_popup">下载总量</li>
+			<li attr-name="two_popup">每日下载总量</li>
+			<li attr-name="three_popup">用户评分</li>
+		</ul>
+		<div class="one_list_on " id="one_popup">
+			<div><span class="fl m_l_20 chart_on_span" id="down-count"></span><span class="fr m_r_20 chart_on_span">最近三个月</span></div>
+			<div class=" chart_on" id="option_download"></div>
+		</div>
+		<div class="one_list_on none" id="two_popup">
+			<div><span class="fl m_l_20 chart_on_span" id="down-add-count"></span><span class="fr m_r_20 chart_on_span">最近三个月</span></div>
+			<div class=" chart_on" id="option_rveryday"></div>
+		</div>
+		<div class="one_list_on none" id="three_popup">
+			<div class="name_grade"><span class="name_grade_bj"></span>评分统计</div>
+			<div class="popup_classify_3">
+				<ul class="name_grade_ul">
+					<li class="fl" star-type="0">
+						<div class="name_grade_ul_on"><span class="name_grade_ul_on_1">当前版本</span></div>
+						<div class="name_grade_cent_1">0.0</div>
+						<div class="name_grade_cent_on">
+							<div class="user_ico star_ico_bj"><span  class="user_ico star_ico_bj_on" style="width:0%;"></span></div>
+						</div>
+						<div class="name_grade_cent_2">评分次数：0</div>
+						<ul class="star_ul" >
+							<li>
+								<span class="star_ul_l">5星</span>
+								<span class="star_ul_bj"><span class="star_ul_bj_on"style="width:0%;"></span></span>
+								<span class="star_ul_r">0</span>
+							</li>
+							<li>
+								<span class="star_ul_l">4星</span>
+								<span class="star_ul_bj"><span class="star_ul_bj_on"style="width:0%;"></span></span>
+								<span class="star_ul_r">0</span>
+							</li>
+							<li>
+								<span class="star_ul_l">3星</span>
+								<span class="star_ul_bj"><span class="star_ul_bj_on"style="width:0%;"></span></span>
+								<span class="star_ul_r">0</span>
+							</li>
+							<li>
+								<span class="star_ul_l">2星</span>
+								<span class="star_ul_bj"><span class="star_ul_bj_on"style="width:0%;"></span></span>
+								<span class="star_ul_r">0</span>
+							</li>
+							<li>
+								<span class="star_ul_l">1星</span>
+								<span class="star_ul_bj"><span class="star_ul_bj_on"style="width:0%;"></span></span>
+								<span class="star_ul_r">0</span>
+							</li>
+						</ul>
+					</li>
+					<li class="fr" star-type="1">
+						<div class="name_grade_ul_on"><span class="name_grade_ul_on_1">历史版本</span></div>
+						<div class="name_grade_cent_1">0.0</div>
+						<div class="name_grade_cent_on">
+							<div class="user_ico star_ico_bj"><span class="user_ico star_ico_bj_on" style="width:0%;"></span></div>
+						</div>
+						<div class="name_grade_cent_2">评分次数：0</div>
+						<ul class="star_ul">
+							<li>
+								<span class="star_ul_l">5星</span>
+								<span class="star_ul_bj"><span class="star_ul_bj_on"style="width:0%;"></span></span>
+								<span class="star_ul_r">0</span>
+							</li>
+							<li>
+								<span class="star_ul_l">4星</span>
+								<span class="star_ul_bj"><span class="star_ul_bj_on"style="width:0%;"></span></span>
+								<span class="star_ul_r">0</span>
+							</li>
+							<li>
+								<span class="star_ul_l">3星</span>
+								<span class="star_ul_bj"><span class="star_ul_bj_on"style="width:0%;"></span></span>
+								<span class="star_ul_r">0</span>
+							</li>
+							<li>
+								<span class="star_ul_l">2星</span>
+								<span class="star_ul_bj"><span class="star_ul_bj_on"style="width:0%;"></span></span>
+								<span class="star_ul_r">0</span>
+							</li>
+							<li>
+								<span class="star_ul_l">1星</span>
+								<span class="star_ul_bj"><span class="star_ul_bj_on"style="width:0%;"></span></span>
+								<span class="star_ul_r">0</span>
+							</li>
+						</ul>
+					</li>
+				</ul>
+			</div>
+			<div class="name_grade"><span class="name_grade_bj"></span>每日统计</div>
+			<div class="chart_on" id="option_star"></div>
+		</div>
+	</div>
+</div>
+<script>
+//切换
+$('.popup_classify li').click(function (){
+	$('.popup_classify li').removeClass('popup_classify_on');
+	$(this).addClass('popup_classify_on')	
+	var name =$(this).attr('attr-name');
+	$('.one_list_on').hide()
+	$("#"+name).show();
+})
+
+//星评
+var option_start={
+    title: {
+        text: ''
+    },
+    tooltip : {
+        trigger: 'axis'
+    },
+    legend: {
+		itemWidth:10,
+	     itemHeight:10,
+		 data:['正面评分','负面评分']
+    },
+    toolbox: {
+		 show: false,
+        feature: {
+            saveAsImage: {}
+        }
+    },
+    grid: {
+        left: '3%',
+        right: '4%',
+        bottom: '3%',
+        containLabel: true
+    },
+    xAxis : [
+        {
+			axisLabel : {
+            	rotate: 30,
+            	interval: 0,
+                formatter: '{value}',
+                textStyle: {
+                    color: '#808080',
+                    fontFamily:'微软雅黑'
+                }
+            },
+			splitLine : {
+				show : false
+			},
+			axisLine : {
+				show : true,
+				lineStyle : {
+					color : '#e2e3e4',
+					width : 1,
+					type : 'solid'
+				}
+			},
+			axisTick : {
+				show : false
+			},
+		
+            type : 'category',
+            boundaryGap : false,
+            data : []
+        }
+    ],
+    yAxis : [
+        {axisLine : {
+				show : true,
+				lineStyle : {
+					color : '#ccc',
+					width : 0,
+					type : 'solid'
+				}
+			},
+			axisLabel : {
+            	interval: 0,
+                formatter: '{value}',
+                textStyle: {
+                    color: '#808080',
+                    fontFamily:'微软雅黑'
+                }
+            },
+            type : 'value',
+			axisTick : {
+				show : false
+			}
+        }
+    ],
+    series : [
+        
+        {
+            name:'正面评分',
+            type:'line',
+            stack: '总量',
+			symbol:'square',
+            label: {
+                normal: {
+                    show: false,
+                    position: 'top'
+                }
+            },
+			color : [ '#729fff'],
+            data:[]
+        },
+		{
+            name:'负面评分',
+            type:'line',
+            stack: '总量',
+			symbol:'square',
+            label: {
+                normal: {
+                    show: false,
+                    position: 'top'
+                }
+            },
+			color : [ '#ff7db4'],
+            data:[]
+        }
+    ]
+};
+//下载
+var option_download = {
+    title: {
+        text: ''
+    },
+    tooltip : {
+        trigger: 'axis'
+    },
+    legend: {
+		 show: false,
+        data:[]
+    },
+    toolbox: {
+		 show: false,
+        feature: {
+            saveAsImage: {}
+        }
+    },
+    grid: {
+        left: '3%',
+        right: '4%',
+        bottom: '3%',
+        containLabel: true
+    },
+    xAxis : [
+        {
+			axisLine : {
+				show : true,
+				lineStyle : {
+					color : '#ccc',
+					width : 1,
+					type : 'solid'
+				}
+			},
+			axisLabel : {
+            	rotate: 30,
+            	interval: 0,
+                formatter: '{value}',
+                textStyle: {
+                    color: '#808080',
+                    fontFamily:'微软雅黑'
+                }
+            },
+			axisTick : {
+				show : false
+			},
+            type : 'category',
+            boundaryGap : false,
+            data : []
+        }
+    ],
+    yAxis : [
+        {axisLine : {
+				show : true,
+				lineStyle : {
+					color : '#ccc',
+					width : 0,
+					type : 'solid'
+				}
+			},
+			axisLabel : {
+            	interval: 0,
+                formatter: '{value}',
+                textStyle: {
+                    color: '#808080',
+                    fontFamily:'微软雅黑'
+                }
+            },
+            type : 'value'
+        }
+    ],
+    series : [
+        
+        {
+            name:'',
+            type:'line',
+            stack: '',
+             areaStyle: {normal: {}},
+            label: {
+                normal: {
+                    show: false,
+                    position: 'top'
+                }
+            },
+			color : [ '#c1eaef'],
+            data:[]
+        }
+    ]
+};
+var opCallBack = {
+	android :function(data){
+            if (data.downData.success){
+                var  date = []
+                var downday =[]
+                var downsum =[]
+                $(data.downData.data).each(function(i,e){
+                    var str = e.date.toString()
+                    date.push(str.substring(0,4)+"-"+str.substring(4,6)+"-"+str.substring(6,8))
+                    downday.push(e.downday)
+                    downsum.push(e.downsum)
+                });
+                var myChart_option_download = echarts.init(document.getElementById('option_download'));
+                option_download.xAxis[0].data = date
+                option_download.series[0].data = downsum
+                if(downsum.length > 0){
+                    $("#down-count").html("下载量:"+downsum[downsum.length-1])
+                }
+                myChart_option_download.setOption(option_download);
+
+                var myChart_option_rveryday = echarts.init(document.getElementById('option_rveryday'));
+                option_download.series[0].data = downday
+                if(downday.length > 0){
+                    $("#down-add-count").html("昨日新增下载量:"+downday[downday.length-1])
+                }
+                myChart_option_rveryday.setOption(option_download)
+            }
+            if (data.rateDailyData.success){
+                var  date = []
+                var negetives =[]
+                var positives =[]
+                $(data.rateDailyData.data).each(function(i,e){
+                    var str = e.date.toString()
+                    date.push(str.substring(0,4)+"-"+str.substring(4,6)+"-"+str.substring(6,8))
+                    negetives.push(e.negetives)
+                    positives.push(e.positives)
+                });
+
+                var myChart_option_star = echarts.init(document.getElementById('option_star'));
+            	option_start.xAxis[0].data = date
+            	option_start.series[0].data = positives
+            	option_start.series[1].data = negetives
+            	myChart_option_star.setOption(option_start)
+            }
+            if(data.rateData.success){
+                $(data.rateDailyData.data).each(function(i,e){
+                    var str = e.date.toString()
+                    date.push(str.substring(0,4)+"-"+str.substring(4,6)+"-"+str.substring(6,8))
+                    negetives.push(e.negetives)
+                    positives.push(e.positives)
+                });
+            }
+            if(data.rateData.success){
+                $(data.rateData.data).each(function(i,e){
+                    var li = $('li[star-type="'+e.type+'"]')
+                    li.find(".name_grade_cent_1").html(e.avgr/10)
+                    li.find(".name_grade_cent_2").html("评分次数："+e.sumr)
+                    li.find(".name_grade_cent_on .star_ico_bj_on").attr("style","width:"+e.avgr/50*100+"%;")
+                    li.find(".star_ul li").each(function(j,f){
+                        var v =e["r"+(5-j)]
+                        $(f).find(".star_ul_bj_on").attr("style","width:"+v/e.sumr*100+"%;")
+                        $(f).find(".star_ul_r").html(v)
+                    })
+                })
+            }
+        }
+}
+
+</script>
