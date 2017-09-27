@@ -235,7 +235,7 @@ com{color:#1ed2ff;}
 .w_155{ width:160px; }
 .line_x{width:100%; overflow:hidden;  border-top:1px solid #e6e6e6; margin-top:12px;}
 .particulars_table_list{ width:100%;  border:1px solid #f0f0f0;}
-.particulars_table_list th{background-color:#f2fcff;  padding:10px 0; color:#666666;    font-weight: 100;  line-height: 28px;text-align:center;}
+.particulars_table_list th{background-color:#ecf3ff;  padding:10px 0; color:#666666;    font-weight: 100;  line-height: 28px;text-align:center;}
 .particulars_table_list td{border-bottom:1px solid #f0f0f0; padding:10px 0;  color:#666666;  text-align:center;}
 #begin_on,#end_on{widh:100px; height:28px; border: 1px solid #cccccc;  border-radius: 4px;  height: 28px;  width: 100px;  text-indent: 5px;  font-size: 12px;}
 .particulars_table_list td .list_table_td li{line-height:20px;}
@@ -274,7 +274,7 @@ com{color:#1ed2ff;}
 .project_nav ul li{float:left; font-size:14px; width:14%; text-align:center; height:41px; line-height:41px;}
 .project_nav ul li span{display: inline-block;  cursor:pointer}
 .project_nav ul li a{color: #333;}
-.project_nav .nav_on{border-bottom:2px solid #1ed2ff;}
+.project_nav .nav_on{border-bottom:2px solid #f78123;}
 .project_t{color:#666; margin-top:20px; }
 .project_more{float:right; cursor:pointer;}
 .brain_ico_project_crumbs{background-position:-78px -41px;margin-left:2px; width:3px; margin-right:10px; height:16px; display:block; float:left;}
