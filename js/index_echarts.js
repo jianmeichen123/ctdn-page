@@ -7,9 +7,9 @@ var option = {
 	            type : 'none'        // 默认为直线，可选为：'line' | 'shadow'
 	        }
 	    },
-	    color:['#2479ed','#389cfe','#5ea8ff','#91c3ff','#12eae9','#67ffcc'],
+	    color:['#ea4322','#ff722d','#ff975e','#ffc470','#e9e612','#c7ff66'],
 	    legend: {
-	    	 x : '400',
+	    	 x : '630',
 	         y : '330',
 	        data:['种子/天使/PreA轮', 'A轮','B轮','C轮','D轮','D轮以上']
 	    },
