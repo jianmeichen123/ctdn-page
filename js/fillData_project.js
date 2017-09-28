@@ -37,8 +37,8 @@ function eventInfoListFormatter(data,div){
             strArr.push("</td><td>");
             strArr.push(row.stock);
             strArr.push("</td><td>");
-            if(row["investSideJson"] != table.empty){
-                var json = eval("(" + row["investSideJson"] + ")");
+            if(row.investSideJson && row.investSideJson != table.empty) {
+                var json = eval("(" +  row.investSideJson + ")");
                 var ls = json["investSideJson"];
                 var firms = new Array();
                 $(ls).each(function(i){
@@ -92,7 +92,8 @@ function eventInfoListFormatter(data,div){
                    }
                 })
                row.investSideJson =firms.join("");
-
+            }else{
+               row.investSideJson = table.empty;
             }
             strArr.push(row.investSideJson)
             strArr.push("</td><td>");
