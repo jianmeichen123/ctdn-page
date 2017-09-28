@@ -95,7 +95,7 @@ div.list_table_td{text-align:left;position:relative;float:left;margin-left:8px; 
 .list_table_td img,.list_table_td ul{ float:left; margin-left:8px;}
 .list_table_td img{position:absolute;top:50%;transform:translateY(-50%);margin-left:0px;left:0px;}
 .list_table_td ul{ float:left; margin-left:47px;}
-.list_table_td a{ color:#333;white-space:nowrap;}
+.list_table_td a{ color: #333;  white-space: nowrap;  max-width: 100px;  overflow: hidden;  display: block;  float: left; text-overflow: ellipsis;}
 .tzsj_list .list_table_td a{white-space:normal;}
 .tzsj_table .list_table_td a{white-space:nowrap;}
 .tzsj_table .invstorName{width:168px;white-space:nowrap; overflow:hidden; text-overflow:ellipsis;display:block;text-align:center;}
@@ -473,6 +473,7 @@ com{color:#f78123;}
 .index_new_ul>li{background-color:#fff; height:102px; overflow:hidden; padding-bottom:10px; padding-top:10px; border-bottom:1px dotted  #e6e6e6;}
 .index_new_ul>li img{ width:80px; height:80px; float:left; border-radius:4px; margin-right:8px; border:1px solid #e6e6e6;}
 .index_new_ul>li .wrapper {  display: inline-block;  vertical-align: middle; color:#666666;  line-height:20px; height: auto; }
+.wrapper>ul>li{width:100%; overflow:hidden;}
 .index_new_ul>li:before {  content: '';  display: inline-block;  vertical-align: middle;  height: 100%; }
 .index_new_ul>li .brain_ico_project_time{margin-right:5px;}
 .new_index_9>li{overflow:hidden; padding-bottom:10px; width:100%; padding-top:10px; border-bottom:1px dotted  #e6e6e6;}
@@ -481,7 +482,7 @@ com{color:#f78123;}
 .new_index_9_ul_1{font-size:16px; color:#333333; margin-top:19px;}
 .new_index_9_ul_2{color:#999999; margin-top:15px; height:40px; overflow:hidden; line-height:20px;}
 .new_index_9_ul_3{float:right;color:#999999; margin-top:45px;}
-.index_new_ul>li .index_time{width:100px;     float: right; margin-top:30px; padding-left: 10px;}
+.index_new_ul>li .index_time{width:100px;     float: right; margin-top:30px; padding-left: 8px;}
 .index_new_ul_ul{width:200px; float:left;}
 .index_new_ul_ul .color_666{height:60px; line-height:20px; overflow:hidden;}
 .index_news_ul{width:100%; overflow:hidden; border:1px solid #f0f0f0; background-color:#fff; padding-top:30px;padding-left:10px;padding-right:10px;}
