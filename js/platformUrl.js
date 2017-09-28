@@ -82,6 +82,7 @@ var detail = {
     queryLatestProjects:Constants.platformContentURL+"/projectList/queryLatestProjects/",
     getLatestEventInfo:Constants.platformContentURL+"/eventInfo/getLatestEventInfo/",
     getOrgsByTimes:Constants.platformContentURL+"/orgRank/getOrgsByTimes/",
+    getOrgsByAllTimes:Constants.platformContentURL+"/orgRank/getOrgsByAllTimes/",
 }
 /**
  * how to use? location.href = platformUrl.login
