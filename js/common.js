@@ -118,7 +118,6 @@ function sendGetRequest(reqUrl, callbackFun) {
  */
 function sendPostRequest(reqUrl, callbackFun) {
 	var myDate = (new Date()).getTime()
-	console.log(myDate)
 	$.ajax({
 		url : reqUrl,
 		type : "POST",

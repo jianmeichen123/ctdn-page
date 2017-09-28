@@ -1,25 +1,16 @@
 <link rel="stylesheet" type="text/css" href="../css/basis.css">
-<div class="attention_pop">
-	<ul>
-		<li class="on">工业互联网</li>
-		<li>工业互联网</li>
-		<li>工业互联网</li>
-		<li>工业互联网</li>
-		<li>工业互联网</li>
-		<li>工业互联网</li>
-		<li>工业互联网</li>
-		<li>工业互联网</li>
-		<li>工业互联网</li>
-		<li>工业互联网</li>
-		<li>工业互联网</li>
-		
+<script src="../js/jquery-1.12.3.min.js"></script>
+<script src="../js/platformUrl.js"></script>
+<script src="../js/common.js"></script>
+<div class="attention_pop" >
+	<ul id="industry">
 	</ul>
 </div>
 <div class="attention_pop_on">
 	<ul>
-		<li class="on">保存</li>
-		<li>重置</li>
-		<li>取消</li>
+		<li class="on" onclick="saveIndustry()">保存</li>
+		<li class="reset">重置</li>
+		<li >取消</li>
 	</ul>
 </div>
 <style>
@@ -35,3 +26,29 @@ body{    background-color: #fff;}
 .attention_pop_on ul .on{ background-color: #1ed2ff;}
 .attention_pop_on ul li:hover{background-color: #1ed2ff;}
 </style>
+<script>
+	function popIndustry(popIndustryHtml){
+		$('#industry').html(popIndustryHtml)
+		$("#industry li").on("click", function(){
+            $(this).toggleClass("on");
+        });
+	}
+	function saveIndustry(){
+		parent.initVar();
+		var clicked = $("#industry").find(".on");
+		$(clicked).each(function(){
+			parent.focusIndustryIds.push($(this).attr("value"))
+			parent.focusIndustryNames.push($(this).text())
+		})
+		var userIndustry ={};
+		userIndustry.userId =parent.userId;
+		userIndustry.industryIds = parent.focusIndustryIds.join(",");
+		userIndustry.industryNames = parent.focusIndustryNames.join(",");
+		sendPostRequestByJsonObj(platformUrl.updateUserIndustry,userIndustry,function(data){
+			parent.initIndex(); //重新加载主页
+		})
+	}
+
+</script>
+
+

@@ -54,6 +54,10 @@ var dataUrl = {
 var platformUrl = {
 //	me:Constants.userContentURL+"userlogin/me",
 	allQuery:Constants.platformContentURL+"common/allQuery",
+	industry:Constants.platformContentURL+"common/industry",
+	userIndustry:Constants.platformContentURL+"index/userIndustry/",
+	updateUserIndustry:Constants.platformContentURL+"index/updateUserIndustry",
+	eventIndustryMonth:Constants.platformContentURL+"eventIndustryMonth/query"
 }
 var table ={
    empty: "-"
