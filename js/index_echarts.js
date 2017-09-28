@@ -7,7 +7,7 @@ var option = {
 	            type : 'none'        // 默认为直线，可选为：'line' | 'shadow'
 	        }
 	    },
-	    color:['#ea4322','#ff722d','#ff975e','#ffc470','#e9e612','#c7ff66','#c7ff66','#7cff92'],
+	    color:['#ea4322','#ff722d','#ff975e','#ffc470','#e9e612','#c7ff66','#7cff92'],
 	    legend: {
 	    	 x : '500',
 	         y : '330',

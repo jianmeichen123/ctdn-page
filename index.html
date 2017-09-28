@@ -252,7 +252,7 @@
                 <script id="getOrgsByTimes" type="text/x-jquery-tmpl">
                 {{if data.length >0}}
                     {{each(i,v) data}}
-					  <li><img src="{{html Constants.logoPath+"/org"+v.orgid+".png" }}">${v.orgname}<div class="fr">${v.times}</div></li>
+					  <li><img src="{{html Constants.logoPath+'/org/'+v.orgid+'.png'}}">${v.orgname}<div class="fr">${v.times}</div></li>
                     {{/each}}
                 {{else}}
                     <span>暂无数据</span>
