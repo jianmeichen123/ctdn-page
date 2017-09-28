@@ -65,92 +65,149 @@
 <div class="container">
 	<div class="index_l">
 		<div class="bj_fff m_t10" >
-			<div class="index_titnew"><span class="spanon">发现项目</span> <div class="fr font_12"><a href="#">更多>></a></div></div>
+			<div class="index_titnew" data-block="queryLatestProjects"><span class="spanon" >发现项目</span> <div class="fr font_12"><a href="http://127.0.0.1/list_page_com.html">更多>></a></div></div>
 			<ul class="indul_4">
-				<li>
-					<div class="indul_4_1">
-						<img src="http:///10.10.0.147/212e9286f44f32890c9bbc78a2b2efa7.png">
-					</div>
-					<div class="indul_4_2">奇瑞动力</div>
-					<div class="indul_4_3"><span class="bj_9"></span>北京<span class="indul_4_3_2">B论</span></div>
-					<div class="indul_4_4">动力外骨骼机器人研发制，动力外骨骼机器人研发制，动力外</div>
-					<div class="indul_4_5">
-						<ul class="index_xm_ul">
-							<li>V拟现实</li>
-							<li>VR虚拟实</li>
-							<li>VR虚现实</li>
-						</ul>
-					</div>
-				</li>
-				<li>
-					<div class="indul_4_1">
-						<img src="http:///10.10.0.147/212e9286f44f32890c9bbc78a2b2efa7.png">
-					</div>
-					<div class="indul_4_2">奇瑞动力</div>
-					<div class="indul_4_3"><span class="bj_9"></span>北京<span class="indul_4_3_2">B论</span></div>
-					<div class="indul_4_4">动力外骨骼机器人研发制，动力外骨骼机器人研发制，动力外</div>
-					<div class="indul_4_5">
-						<ul class="index_xm_ul">
-							<li>V拟现实</li>
-							<li>VR虚拟实</li>
-							<li>VR虚现实</li>
-						</ul>
-					</div>
-				</li>
-				<li>
-					<div class="indul_4_1">
-						<img src="http:///10.10.0.147/212e9286f44f32890c9bbc78a2b2efa7.png">
-					</div>
-					<div class="indul_4_2">奇瑞动力</div>
-					<div class="indul_4_3"><span class="bj_9"></span>北京<span class="indul_4_3_2">B论</span></div>
-					<div class="indul_4_4">动力外骨骼机器人研发制，动力外骨骼机器人研发制，动力外</div>
-					<div class="indul_4_5">
-						<ul class="index_xm_ul">
-							<li>V拟现实</li>
-							<li>VR虚拟实</li>
-							<li>VR虚现实</li>
-						</ul>
-					</div>
-				</li>
-				<li>
-					<div class="indul_4_1">
-						<img src="http:///10.10.0.147/212e9286f44f32890c9bbc78a2b2efa7.png">
-					</div>
-					<div class="indul_4_2">奇瑞动力</div>
-					<div class="indul_4_3"><span class="bj_9"></span>北京<span class="indul_4_3_2">B论</span></div>
-					<div class="indul_4_4">动力外骨骼机器人研发制，动力外骨骼机器人研发制，动力外</div>
-					<div class="indul_4_5">
-						<ul class="index_xm_ul">
-							<li>V拟现实</li>
-							<li>VR虚拟实</li>
-							<li>VR虚现实</li>
-						</ul>
-					</div>
-				</li>
+				{-raw-}
+				<script id="queryLatestProjects" type="text/x-jquery-tmpl">
+							{{if data.length >0}}
+								{{each(i,v) data}}
+									<li>
+										<div class="indul_4_1">
+											<img src="http:///10.10.0.147/212e9286f44f32890c9bbc78a2b2efa7.png">
+										</div>
+										<div class="indul_4_2">${v.projTitle}</div>
+										<div class="indul_4_3"><span class="bj_9"></span>${v.addr}<span class="indul_4_3_2">${v.latestFinanceRound}</span></div>
+										<div class="indul_4_4">${v.firmDesc}</div>
+										<div class="indul_4_5">
+											<ul class="index_xm_ul">
+												<li>V拟现实</li>
+												<li>VR虚拟实</li>
+												<li>VR虚现实</li>
+											</ul>
+										</div>
+									</li>
+								{{/each}}
+							{{else}}
+								<span>暂无数据</span>
+							{{/if}}
+						</script>
+				{-raw-}
+				<!--<li>-->
+					<!--<div class="indul_4_1">-->
+						<!--<img src="http:///10.10.0.147/212e9286f44f32890c9bbc78a2b2efa7.png">-->
+					<!--</div>-->
+					<!--<div class="indul_4_2">奇瑞动力</div>-->
+					<!--<div class="indul_4_3"><span class="bj_9"></span>北京<span class="indul_4_3_2">B论</span></div>-->
+					<!--<div class="indul_4_4">动力外骨骼机器人研发制，动力外骨骼机器人研发制，动力外</div>-->
+					<!--<div class="indul_4_5">-->
+						<!--<ul class="index_xm_ul">-->
+							<!--<li>V拟现实</li>-->
+							<!--<li>VR虚拟实</li>-->
+							<!--<li>VR虚现实</li>-->
+						<!--</ul>-->
+					<!--</div>-->
+				<!--</li>-->
+				<!--<li>-->
+					<!--<div class="indul_4_1">-->
+						<!--<img src="http:///10.10.0.147/212e9286f44f32890c9bbc78a2b2efa7.png">-->
+					<!--</div>-->
+					<!--<div class="indul_4_2">奇瑞动力</div>-->
+					<!--<div class="indul_4_3"><span class="bj_9"></span>北京<span class="indul_4_3_2">B论</span></div>-->
+					<!--<div class="indul_4_4">动力外骨骼机器人研发制，动力外骨骼机器人研发制，动力外</div>-->
+					<!--<div class="indul_4_5">-->
+						<!--<ul class="index_xm_ul">-->
+							<!--<li>V拟现实</li>-->
+							<!--<li>VR虚拟实</li>-->
+							<!--<li>VR虚现实</li>-->
+						<!--</ul>-->
+					<!--</div>-->
+				<!--</li>-->
+				<!--<li>-->
+					<!--<div class="indul_4_1">-->
+						<!--<img src="http:///10.10.0.147/212e9286f44f32890c9bbc78a2b2efa7.png">-->
+					<!--</div>-->
+					<!--<div class="indul_4_2">奇瑞动力</div>-->
+					<!--<div class="indul_4_3"><span class="bj_9"></span>北京<span class="indul_4_3_2">B论</span></div>-->
+					<!--<div class="indul_4_4">动力外骨骼机器人研发制，动力外骨骼机器人研发制，动力外</div>-->
+					<!--<div class="indul_4_5">-->
+						<!--<ul class="index_xm_ul">-->
+							<!--<li>V拟现实</li>-->
+							<!--<li>VR虚拟实</li>-->
+							<!--<li>VR虚现实</li>-->
+						<!--</ul>-->
+					<!--</div>-->
+				<!--</li>-->
+				<!--<li>-->
+					<!--<div class="indul_4_1">-->
+						<!--<img src="http:///10.10.0.147/212e9286f44f32890c9bbc78a2b2efa7.png">-->
+					<!--</div>-->
+					<!--<div class="indul_4_2">奇瑞动力</div>-->
+					<!--<div class="indul_4_3"><span class="bj_9"></span>北京<span class="indul_4_3_2">B论</span></div>-->
+					<!--<div class="indul_4_4">动力外骨骼机器人研发制，动力外骨骼机器人研发制，动力外</div>-->
+					<!--<div class="indul_4_5">-->
+						<!--<ul class="index_xm_ul">-->
+							<!--<li>V拟现实</li>-->
+							<!--<li>VR虚拟实</li>-->
+							<!--<li>VR虚现实</li>-->
+						<!--</ul>-->
+					<!--</div>-->
+				<!--</li>-->
 			</ul>
 		</div>
 	
 	<!-- qieh -->
-		<div class="bj_fff m_t10" >
-			<div class="index_titnew index_titnew_on"><span class="spanon">最新资讯</span> <span class="index_titnew_l">最新投融资事件</span> <div class="fr font_12"><a href="#">更多>></a></div></div>
+		<div class="bj_fff m_t10">
+			<div class="index_titnew index_titnew_on">
+				<span class="spanon">最新资讯</span>
+				<span class="index_titnew_l">最新投融资事件</span>
+				<div class="fr font_12"><a href="http://127.0.0.1/list_page_rz.html">更多>></a></div>
+			</div>
+			<div  data-block="getLatestEventInfo">
 			<ul class="index_new_ul index_titnew_ulu none">
-				<li>
-					<img src="http:///10.10.0.147/212e9286f44f32890c9bbc78a2b2efa7.png">
-					<ul class="index_new_ul_ul">
-						<li class="font_14">若森数字</li>
-						<li class="color_666">若森数字是一家集动画技术研发、教育、若森数字是一家集动画技术研发、影视制作、动画教育、字</li>
-					</ul>
-					<div class="wrapper number_th_15 center m_l10">B轮</div>
-					<div class="wrapper number_th_12 m_l10">420万人民币</div>
-					<div class="wrapper number_th_15 m_l10"> 
-						<ul> 
-							<li>新加坡政府投资公司</li> 
-							<li>新加坡政府投资公司</li> 
-						</ul> 
-					</div>
-					<div class="wrapper index_time"><span class="brain_ico brain_ico_project_time"></span><span>2017-1-21</span></div>
-				</li>
+				{-raw-}
+				<script id="getLatestEventInfo" type="text/x-jquery-tmpl">
+							{{if data.length >0}}
+								{{each(i,v) data}}
+									<li>
+										<img src="http:///10.10.0.147/212e9286f44f32890c9bbc78a2b2efa7.png">
+										<ul class="index_new_ul_ul">
+											<li class="font_14">${v.company}</li>
+											<li class="color_666">${v.desc}</li>
+										</ul>
+										<div class="wrapper number_th_15 center m_l10">${v.round}</div>
+										<div class="wrapper number_th_12 m_l10">${v.amountStr}</div>
+										<div class="wrapper number_th_15 m_l10">
+											<ul>
+												<li>${v.invstorgnames}</li>
+											</ul>
+										</div>
+										<div class="wrapper index_time"><span class="brain_ico brain_ico_project_time"></span><span>2017-1-21</span></div>
+									</li>
+								{{/each}}
+							{{else}}
+								<span>暂无数据</span>
+							{{/if}}
+						</script>
+				{-raw-}
+				<!--<li>-->
+					<!--<img src="http:///10.10.0.147/212e9286f44f32890c9bbc78a2b2efa7.png">-->
+					<!--<ul class="index_new_ul_ul">-->
+						<!--<li class="font_14">若森数字</li>-->
+						<!--<li class="color_666">若森数字是一家集动画技术研发、教育、若森数字是一家集动画技术研发、影视制作、动画教育、字</li>-->
+					<!--</ul>-->
+					<!--<div class="wrapper number_th_15 center m_l10">B轮</div>-->
+					<!--<div class="wrapper number_th_12 m_l10">420万人民币</div>-->
+					<!--<div class="wrapper number_th_15 m_l10"> -->
+						<!--<ul> -->
+							<!--<li>新加坡政府投资公司</li> -->
+							<!--<li>新加坡政府投资公司</li> -->
+						<!--</ul> -->
+					<!--</div>-->
+					<!--<div class="wrapper index_time"><span class="brain_ico brain_ico_project_time"></span><span>2017-1-21</span></div>-->
+				<!--</li>-->
 			</ul>
+			</div>
+			<div >
 			<ul class="new_index_9 index_titnew_ulu">
 				<li>
 					<div class="fl"><img src="http:///10.10.0.147/798dfee9ab29badd8d07c160b46473e8.png"></div>
@@ -167,6 +224,7 @@
 					</ul>
 				</li>
 			</ul>
+			</div>
 		</div>
 		<!-- qieend -->
 	</div>
@@ -205,9 +263,11 @@
 </body>
 <script src="js/platformUrl.js"></script>
 <script src="js/common.js"></script>
+<script src="js/jquery.tmpl.js"></script>
 <!-- echarts 关注行业动态 -->
 <script src="js/echarts.min.js"></script>
 <script src="js/index_echarts.js"></script>
+<script src="js/index.js"></script>
 <!-- 本季度最热关键词 -->
 <script src="js/jqcloud-1.0.4.js"></script>
 <link href="js/jqcloud.css" rel="stylesheet">
