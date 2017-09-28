@@ -1,4 +1,4 @@
-﻿@charset "utf-8";
+﻿﻿@charset "utf-8";
 /* CSS Document */
 body{font-size:14px; font-family:"微软雅黑" !important;background-color: #f7f7f7; color:#333;}
 /*css-reset*/
@@ -442,7 +442,7 @@ com{color:#f78123;}
 .indul_4>li{float:left; margin-left:20px; margin-top:20px; width: 200px; margin-bottom:20px; border:1px solid #f0f0f0; padding:10px;}
 .indul_4_1 img{width:88px; height:88px; border:1px solid #e6e6e6; margin:0 auto;}
 .indul_4_2{font-size:20px; color:#333333; text-align:center; margin-top:10px;}
-.indul_4_4{color:#666666; font-size:12px; margin-top:10px;}
+.indul_4_4{color:#666666; font-size:12px; margin-top:10px; height:80px; line-height:20px;overflow:hidden;}
 .indul_4_5>ul>li{float:left; margin-top:10px;  margin-right:5px; margin-left: 0px;}
 .index_eachart li{ float:right; margin-right:45px;}
 .index_eachart li select{border:1px solid #e6e6e6; border-radius:4px; background-color:#f5f5f5;height:28px; line-height:28px;  color:#333333}
@@ -483,6 +483,7 @@ com{color:#f78123;}
 .new_index_9_ul_3{float:right;color:#999999; margin-top:45px;}
 .index_new_ul>li .index_time{width:100px;     float: right; margin-top:30px; padding-left: 10px;}
 .index_new_ul_ul{width:200px; float:left;}
+.index_new_ul_ul .color_666{height:60px; line-height:20px; overflow:hidden;}
 .index_news_ul{width:100%; overflow:hidden; border:1px solid #f0f0f0; background-color:#fff; padding-top:30px;padding-left:10px;padding-right:10px;}
 .index_news_ul>li{position:relative; margin-bottom:26px;}
 .index_news_tie{font-size:16px; color:#333333; padding-left:30px; }

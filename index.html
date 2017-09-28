@@ -33,19 +33,19 @@
 		<ul class="nav_all_tit_ul">
 			<li>
 				<ul>
-					<li class="tnav_all_tit_ul_1">56450</li>
+					<li class="tnav_all_tit_ul_1" id="total-project">0</li>
 					<li class="tnav_all_tit_ul_2">收录创业项目</li>
 				</ul>
 			</li>
 			<li>
 				<ul>
-					<li class="tnav_all_tit_ul_1">56450</li>
+					<li class="tnav_all_tit_ul_1" id="total-org">0</li>
 					<li class="tnav_all_tit_ul_2">投资机构</li>
 				</ul>
 			</li>
 			<li>
 				<ul>
-					<li class="tnav_all_tit_ul_1">56450</li>
+					<li class="tnav_all_tit_ul_1" id="total-investevent">0</li>
 					<li class="tnav_all_tit_ul_2">投资事件 </li>
 				</ul>
 			</li>
@@ -65,7 +65,7 @@
 <div class="container">
 	<div class="index_l">
 		<div class="bj_fff m_t10" >
-			<div class="index_titnew" data-block="queryLatestProjects"><span class="spanon" >发现项目</span> <div class="fr font_12"><a href="http://127.0.0.1/list_page_com.html">更多></a></div></div>
+			<div class="index_titnew" data-block="queryLatestProjects"><span class="spanon" >发现项目</span> <div class="fr font_12"><a href="http://127.0.0.1/list_page_com.html">更多>></a></div></div>
 			<ul class="indul_4">
 				{-raw-}
 				<script id="queryLatestProjects" type="text/x-jquery-tmpl">
@@ -74,7 +74,7 @@
 									<li>
 										<div class="indul_4_1">
 											<!--<img src="http:///10.10.0.147/212e9286f44f32890c9bbc78a2b2efa7.png">-->
-											<img src="http:///10.10.0.147/${v.logoSmall}">
+											<img src="{{html Constants.logoPath+v.logoSmall}}">
 										</div>
 										<div class="indul_4_2">${v.projTitle}</div>
 										<div class="indul_4_3"><span class="bj_9"></span>${v.addr}<span class="indul_4_3_2">${v.latestFinanceRound}</span></div>
@@ -161,7 +161,7 @@
 			<div class="index_titnew index_titnew_on">
 				<span class="spanon">最新资讯</span>
 				<span class="index_titnew_l">最新投融资事件</span>
-				<div class="fr font_12"><a href="http://127.0.0.1/list_page_rz.html">更多></a></div>
+				<div class="fr font_12"><a href="/list_page_rz.html">更多></a></div>
 			</div>
 			<div  data-block="getLatestEventInfo">
 			<ul class="index_new_ul index_titnew_ulu none">
@@ -170,8 +170,7 @@
 							{{if data.length >0}}
 								{{each(i,v) data}}
 									<li>
-										<!--<img src="http:///10.10.0.147/212e9286f44f32890c9bbc78a2b2efa7.png">-->
-										<img src="http:///10.10.0.147/${v.logo}">
+										<img src="{{html Constants.logoPath+v.logo}}">
 										<ul class="index_new_ul_ul">
 											<li class="font_14">${v.company}</li>
 											<li class="color_666">${v.desc}</li>
@@ -180,7 +179,7 @@
 										<div class="wrapper number_th_12 m_l10">${v.amountStr}</div>
 										<div class="wrapper number_th_15 m_l10">
 											<ul>
-												<li>${v.invstorgnames}</li>
+												{{html formatOrg(v.investSideJson) }}
 											</ul>
 										</div>
 										<div class="wrapper index_time"><span class="brain_ico brain_ico_project_time"></span><span>2017-1-21</span></div>
@@ -209,22 +208,30 @@
 				<!--</li>-->
 			</ul>
 			</div>
-			<div >
+			<div data-block="news" >
 			<ul class="new_index_9 index_titnew_ulu">
-				<li>
-					<div class="fl"><img src="http:///10.10.0.147/798dfee9ab29badd8d07c160b46473e8.png"></div>
-					<ul class="new_index_9_ul">
-						<li class="new_index_9_ul_1">YC前合伙人liya Sukhar宣布加入经纬创投，主导投资工程类创企</li>
-						<li class="new_index_9_ul_2">YC前合伙人liya Sukhar宣布加入经纬创投，主导投资工程类创企</li>
-						<li class="new_index_9_ul_3">2017-1-21  投资界综合</li>
-					</ul>
-				</li>
-				<li>
-					<div><img src="http:///10.10.0.147/212e9286f44f32890c9bbc78a2b2efa7.png"></div>
-					<ul>
-						<li></li>
-					</ul>
-				</li>
+				{-raw-}
+				<script id="news" type="text/x-jquery-tmpl">
+					{{if records.length >0}}
+						{{each(i,v) records}}
+							<li>
+								{{if v.imgUrl == ""}}
+									<div class="fl"><img src="/img/defalut_img/default3.jpg"></div>
+								{{else}}
+									<div class="fl"><img src="${v.imgUrl}" href="${v.url}"></div>
+								{{/if}}
+								<ul class="new_index_9_ul">
+									<li class="new_index_9_ul_1">${v.title}</li>
+									<li class="new_index_9_ul_2">${v.abs}</li>
+									<li class="new_index_9_ul_3">${v.publicTime}  ${v.author}</li>
+								</ul>
+							</li>
+						{{/each}}
+					{{else}}
+						<span>暂无数据</span>
+					{{/if}}
+				</script>
+				{-raw-}
 			</ul>
 			</div>
 		</div>
@@ -239,7 +246,7 @@
 			<div id="my_favorite_latin_words" class="jqcloud" style="height: 280px; width: 100%;     margin-top: -10px;"></div>
 		</div>
 		<div class="index_r_bj m_t10">
-			<div class="index_r_title" data-block="getOrgsByTimes">近7天活跃机构<div class="fr"><a href="#" >查看全部>&nbsp;</a></div></div>
+			<div class="index_r_title" data-block="getOrgsByTimes">近7天活跃机构<div class="fr"><a href="/list_page_org.html/list_page_org.html" >查看全部>&nbsp;</a></div></div>
 			<ul class="index_ul_g">
                 {-raw-}
                 <script id="getOrgsByTimes" type="text/x-jquery-tmpl">

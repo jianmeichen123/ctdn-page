@@ -5,7 +5,7 @@
 //	userContentURL: "http://ctdndev.gi.com/user/",
 //	searchContentURL: "http://10.9.130.135:8089/search/",
 //	dataContentURL: "http://127.0.0.1:8085/data/",
-//	logoPath: "http:///10.10.0.147/"
+//	logoPath: "http://static.galaxyinternet.com/"
 //}
 
 
@@ -49,6 +49,7 @@ var dataUrl = {
     weibo:Constants.dataContentURL+"op/weiboIndice/",
     android:Constants.dataContentURL+"op/android/",
     ios:Constants.dataContentURL+"op/ios/",
+    news:Constants.dataContentURL+"news/query"
 }
 
 var platformUrl = {
@@ -57,7 +58,8 @@ var platformUrl = {
 	industry:Constants.platformContentURL+"common/industry",
 	userIndustry:Constants.platformContentURL+"index/userIndustry/",
 	updateUserIndustry:Constants.platformContentURL+"index/updateUserIndustry",
-	eventIndustryMonth:Constants.platformContentURL+"eventIndustryMonth/query"
+	eventIndustryMonth:Constants.platformContentURL+"eventIndustryMonth/query",
+	queryIndexHeaderStat:Constants.platformContentURL+"index/queryIndexHeaderStat"
 }
 var table ={
    empty: "-"

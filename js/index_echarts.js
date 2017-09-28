@@ -7,9 +7,9 @@ var option = {
 	            type : 'none'        // 默认为直线，可选为：'line' | 'shadow'
 	        }
 	    },
-	    color:['#ea4322','#ff722d','#ff975e','#ffc470','#e9e612','#c7ff66','#c7ff66'],
+	    color:['#ea4322','#ff722d','#ff975e','#ffc470','#e9e612','#c7ff66','#c7ff66','#7cff92'],
 	    legend: {
-	    	 x : '630',
+	    	 x : '500',
 	         y : '330',
 	        data:['种子/天使/PreA轮', 'A/A+轮','PreB/B/B+轮','C轮','D轮','D轮以上','其他']
 	    },
@@ -73,8 +73,8 @@ var option = {
 	    ],
 	    series : [],
 	};
-
-	sendPostRequestByJsonObj(platformUrl.eventIndustryMonth,{"year":2017},function(data){
+    var json ={}
+	sendPostRequestByJsonObj(platformUrl.eventIndustryMonth,json,function(data){
 	    var data = data.data;
 	    option.xAxis[0].data= data.industryNameList
 	    var list = new Array();
