@@ -52,7 +52,7 @@ var dataUrl = {
 }
 
 var platformUrl = {
-	me:Constants.userContentURL+"userlogin/me",
+//	me:Constants.userContentURL+"userlogin/me",
 	allQuery:Constants.platformContentURL+"common/allQuery",
 }
 var table ={
@@ -75,6 +75,9 @@ var detail = {
     queryOperationException:Constants.dataContentURL+"risk/queryOperationException/",
     queryPorjectBusniessInfo:Constants.dataContentURL+"/businessInfo/getListBySourceCode/",
     queryZSCQInfo:Constants.dataContentURL+"/projectMarkInfo/getListBySourceCode/",
+    queryLatestProjects:Constants.platformContentURL+"/projectList/queryLatestProjects/",
+    getLatestEventInfo:Constants.platformContentURL+"/eventInfo/getLatestEventInfo/",
+    getOrgsByTimes:Constants.platformContentURL+"/orgRank/getOrgsByTimes/",
 }
 /**
  * how to use? location.href = platformUrl.login
