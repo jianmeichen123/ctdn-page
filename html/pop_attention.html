@@ -1,0 +1,54 @@
+<link rel="stylesheet" type="text/css" href="../css/basis.css">
+<script src="../js/jquery-1.12.3.min.js"></script>
+<script src="../js/platformUrl.js"></script>
+<script src="../js/common.js"></script>
+<div class="attention_pop" >
+	<ul id="industry">
+	</ul>
+</div>
+<div class="attention_pop_on">
+	<ul>
+		<li class="on" onclick="saveIndustry()">保存</li>
+		<li class="reset">重置</li>
+		<li >取消</li>
+	</ul>
+</div>
+<style>
+body{    background-color: #fff;}
+.attention_pop{ margin-left: 55px; margin-top:30px; margin-right: 65px;}
+.attention_pop ul{margin-right: -29px;}
+.attention_pop ul li{width:106px; height: 44px; font-size:12px; text-align:center; margin-bottom:19px; margin-right:19px; line-height: 44px; border: 1px solid #e6e6e6; border-radius:4px; color: #000000; float: left;}
+.attention_pop ul li:hover ,.attention_pop ul .on{background-color: #1ed2ff; border: 1px solid #1ed2ff; color: #fff;}
+.attention_pop_on{width: 100%; overflow: hidden;}
+.attention_pop ul li,.attention_pop_on ul li{cursor:pointer;}
+.attention_pop_on ul{margin-left: 145px;overflow: hidden; margin-top:40px;margin-bottom:40px;}
+.attention_pop_on ul li{width:126px; margin-right:50px; height: 44px; font-size:14px; text-align:center; line-height: 44px; border-radius:4px; color: #fff; background:#cccccc; float: left;}
+.attention_pop_on ul .on{ background-color: #1ed2ff;}
+.attention_pop_on ul li:hover{background-color: #1ed2ff;}
+</style>
+<script>
+	function popIndustry(popIndustryHtml){
+		$('#industry').html(popIndustryHtml)
+		$("#industry li").on("click", function(){
+            $(this).toggleClass("on");
+        });
+	}
+	function saveIndustry(){
+		parent.initVar();
+		var clicked = $("#industry").find(".on");
+		$(clicked).each(function(){
+			parent.focusIndustryIds.push($(this).attr("value"))
+			parent.focusIndustryNames.push($(this).text())
+		})
+		var userIndustry ={};
+		userIndustry.userId =parent.userId;
+		userIndustry.industryIds = parent.focusIndustryIds.join(",");
+		userIndustry.industryNames = parent.focusIndustryNames.join(",");
+		sendPostRequestByJsonObj(platformUrl.updateUserIndustry,userIndustry,function(data){
+			parent.initIndex(); //重新加载主页
+		})
+	}
+
+</script>
+
+

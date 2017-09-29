@@ -20,23 +20,23 @@
 			</div>
 			<div class="particulars_k m_t5 particulars_ul particulars_ul_one">
 				<ul>
-					<li><span class="fl color_666 width_97">企业：</span><span data-field="company">磁金融</span></li>
-					<li><span class="fl color_666 width_97">地区：</span><span data-field="districtSubName">香港</span></li>
-					<li><span class="fl color_666 width_97">行业：</span><span data-field="industryName">金融>互联网保险>保险销售</span><span data-field="industrySubName"></span></li>
-					<li><span class="fl color_666 width_97">融资时间：</span><span data-field="investDate">2017-03-20</span></li>
-					<li><span class="fl color_666 width_97">融资金额：</span><span data-field="amountStr">500万人民币</span></li>
-					<li><span class="fl color_666 width_97">融资阶段：</span><span data-field="stage">初创期</span></li>
-					<li><span class="fl color_666 width_97">轮次：</span><span data-field="round">A轮</span></li>
-					<li><span class="fl color_666 width_97">企业估值：</span><span data-field="valuation">1000万人民币</span></li>
-					<li><span class="fl color_666 width_97">股权：</span><span data-field="stock">20%</span></li>
-					<li><span class="fl color_666 width_97">融资方式：</span><span data-field="mode">股权出让</span></li>
+					<li><span class="fl color_666 width_97">企业：&nbsp;</span><span data-field="company">-</span></li>
+					<li><span class="fl color_666 width_97">地区：&nbsp;</span><span data-field="districtSubName">-</span></span></li>
+					<li><span class="fl color_666 width_97">行业：&nbsp;</span><span data-field="industryName"></span></li>
+					<li><span class="fl color_666 width_97">融资时间：&nbsp;</span><span data-field="investDate">-</span></li>
+					<li><span class="fl color_666 width_97">融资金额：&nbsp;</span><span data-field="amountStr">-</span></li>
+					<li><span class="fl color_666 width_97">融资阶段：&nbsp;</span><span data-field="stage">-</span></li>
+					<li><span class="fl color_666 width_97">轮次：&nbsp;</span><span data-field="round">-</span></li>
+					<li><span class="fl color_666 width_97">企业估值：&nbsp;</span><span data-field="valuation">-</span></li>
+					<li><span class="fl color_666 width_97">股权：&nbsp;</span><span data-field="stock">-</span></li>
+					<li><span class="fl color_666 width_97">融资方式：&nbsp;</span><span data-field="mode">-</span></li>
 				</ul>
 			</div>
 		</div>	
-		<!-- 机构描述 -->
+		<!-- 描述 -->
 		<div class="particulars_black m_t20" data-query="eventInfo">
-			<div class="font_14">机构描述</div>
-			<p  class="color_666" data-field="desc">科学技术部科技型中小企业技术创新基金管理中心成立于2016年，目标规模10.00亿元人民币，存续期5+2年，由盈峰环境科技集团股份有限公司、凯利易方资本管理有限公司、易方达资产管理有限公司及宁夏旅游资本管理有限公司共同发起设立，由凯利易方资本管理有限公司负责管理，基金投资方向为以环保产业为主题，主要聚焦在环保新技术研发与新装备应用、重点领域环境污染治理、发展新型环保服务业、解决政府责任内的公共环境问题等领域。</p>
+			<div class="font_14">描述</div>
+			<p  class="color_666" data-field="desc">暂无描述</p>
 		</div>
 		<!-- 投资方信息 -->
 		<div class="particulars_black m_t20" data-query="eventInfo">
@@ -47,7 +47,7 @@
 							<th><div>投资方</div></th>
 							<th><div class="border_l">基金</div></th>
 							<th><div class="border_l">投资人</div></th>
-							<th><div class="border_l">领投/跟投</div></th>
+							<th><div class="border_l">是否领投</div></th>
 							<th><div class="border_l">投资金额</div></th>
 							<th><div class="border_l">股权</div></th>
 							<th><div class="border_l">机构类型</div></th>
@@ -57,7 +57,7 @@
 							<th><div class="border_l">账面回报（倍数）</div></th>
 						</tr>
 					</thead>
-					<tbody data-query="list" data-formatter="eventDetailList">
+					<tbody data-query="list" data-formatter="eventDetailList" class="tzsj_list">
 						<!--<tr>-->
 							<!--<td data-field="investSideJson"></td>-->
 							<!--<td data-field=""></td>-->
@@ -84,6 +84,22 @@
 {(footerDetails.html)}
 <script src="js/tzsj_particulars.js"></script>
 <script>
+$(function(){
+	//超过10条显示滚动条
+	$(".particulars_table_list").each(function(){
+		var len=$(this).find("tbody tr").length;
+		var sum=0;
+		for(var i=0;i<10;i++){
+			sum+=$(this).find("tbody tr").eq(i).height();
+		}
+		$(this).find("tbody").css({"height":sum})
+		if(len<10){
+			$(this).find("tbody").css({"overflow-y":"hidden"});
+		}else{
+			$(this).find("tbody").css({"overflow-y":"auto"});
+		}
+	})
+})
 nav_locaton('ctsj','rzdt','','')
 </script>
 </body>

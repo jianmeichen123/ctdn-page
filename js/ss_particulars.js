@@ -13,14 +13,36 @@ function fillSsBaseInfo(data,divList){
                     window[func](v,o)
                 }
            }else{
+                if(k=='projTitle'&&v){
+                    v="<span class='list_table_td'><a href='project_qy.html?code="+data.sourceCode+"'>"+v+"</a></span>"
+                }
+                if(k=='industrySubName'&&v){
+                    v='>'+v
+                }
+                if(k=='industrySubName'&&!v){
+                    v=' '
+                }
                 if(k=='desc'&&!v){
                     v = '暂无描述'
                 }
                 if(k=='listedDate'){
                     v = formatDate(v,'yyyy-MM-dd')
                 }
+                if(k=='amountStr'){
+                    v='-'
+                }
                 if(k=='listedEvent'&&!v){
                     v='暂未披露'
+                }
+                if(k=='districtSubName'&&v){
+                    if(data.districtgrandsonname){
+                        v=v+' · '+data.districtgrandsonname
+                    }
+                }
+                if(k=='districtSubName'&&!v){
+                    if(data.districtgrandsonname){
+                        v=data.districtgrandsonname
+                    }
                 }
                 if(v){
                     o.html(v)

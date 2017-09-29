@@ -3,11 +3,10 @@
 //var Constants = {
 //	platformContentURL: "http://127.0.0.1:8081/api/",
 //	userContentURL: "http://ctdndev.gi.com/user/",
-//	searchContentURL: "http://10.9.130.135:8089/search/",
-//	dataContentURL: "http://ctdndev.gi.com/data/",
-//	logoPath: "http:///10.10.0.147/"
+//	searchContentURL: "http://127.0.0.1:8089/search/",
+//	dataContentURL: "http://127.0.0.1:8085/data/",
+//	logoPath: "http://static.galaxyinternet.com/"
 //}
-
 
 
 //线上
@@ -16,7 +15,7 @@ var Constants = {
 	userContentURL: "http://ctdndev.gi.com/user/",
 	searchContentURL: "http://ctdndev.gi.com/search/",
 	dataContentURL: "http://ctdndev.gi.com/data/",
-    logoPath: "http:///10.10.0.147/"
+    logoPath: "http://static.galaxyinternet.com/"
 }
 var home = {
 	    index : "http://ctdndev.gi.com"
@@ -41,6 +40,7 @@ var searchUrl = {
     mergeEvent:Constants.searchContentURL+"mergeEvent",
     launchEvent:Constants.searchContentURL+"launchEvent",
     investOrg:Constants.searchContentURL+"investfirms",
+
 }
 var dataUrl = {
     products:Constants.dataContentURL+"op/is/",
@@ -49,26 +49,42 @@ var dataUrl = {
     weibo:Constants.dataContentURL+"op/weiboIndice/",
     android:Constants.dataContentURL+"op/android/",
     ios:Constants.dataContentURL+"op/ios/",
+    news:Constants.dataContentURL+"news/query"
 }
-var ctdnUrl = {
 
-}
 var platformUrl = {
-	me:Constants.userContentURL+"userlogin/me",
+//	me:Constants.userContentURL+"userlogin/me",
 	allQuery:Constants.platformContentURL+"common/allQuery",
+	industry:Constants.platformContentURL+"common/industry",
+	userIndustry:Constants.platformContentURL+"index/userIndustry/",
+	updateUserIndustry:Constants.platformContentURL+"index/updateUserIndustry",
+	eventIndustryMonth:Constants.platformContentURL+"eventIndustryMonth/query",
+	queryIndexHeaderStat:Constants.platformContentURL+"index/queryIndexHeaderStat"
 }
 var table ={
    empty: "-"
 }
 var detail = {
     queryProject:Constants.platformContentURL+"/projectList/queryProjectByCode/",
+    queryRelativeListByCode:Constants.platformContentURL+"/projectList/queryRelativeListByCode/",
     queryProjectInvestEvent:Constants.platformContentURL+"/eventInfo/getListBySourceCode/",
     queryMergeEventInfo:Constants.platformContentURL+"/eventMergerInfo/getListByEventId/",
     queryEventInfo:Constants.platformContentURL+"/eventInfo/getById/",
     queryInvestOrgInfo:Constants.platformContentURL+"/orgInfo/getListByOrgId/",
     queryListedInfo:Constants.platformContentURL+"/eventListedInfo/getListByEventId/",
     queryEventByName:Constants.platformContentURL+"/eventInfo/getListByName/",
-    queryCompetationlist:Constants.platformContentURL+"/projectList/queryCompetationlist/"
+    queryCompetationlist:Constants.platformContentURL+"/projectList/queryCompetationlist/",
+    queryExcutedByPage:Constants.dataContentURL+"risk/queryExcutedByPage",
+    queryDishonestyExcuted:Constants.dataContentURL+"risk/queryDishonestyExcuted/",
+    queryCourtAnnouncement:Constants.dataContentURL+"risk/queryCourtAnnouncement/",
+    queryRiskJudgmentDocument:Constants.dataContentURL+"risk/queryRiskJudgmentDocument/",
+    queryOperationException:Constants.dataContentURL+"risk/queryOperationException/",
+    queryPorjectBusniessInfo:Constants.dataContentURL+"/businessInfo/getListBySourceCode/",
+    queryZSCQInfo:Constants.dataContentURL+"/projectMarkInfo/getListBySourceCode/",
+    queryLatestProjects:Constants.platformContentURL+"/projectList/queryLatestProjects/",
+    getLatestEventInfo:Constants.platformContentURL+"/eventInfo/getLatestEventInfo/",
+    getOrgsByTimes:Constants.platformContentURL+"/orgRank/getOrgsByTimes/",
+    getOrgsByAllTimes:Constants.platformContentURL+"/orgRank/getOrgsByAllTimes/",
 }
 /**
  * how to use? location.href = platformUrl.login
