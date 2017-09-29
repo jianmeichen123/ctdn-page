@@ -85,7 +85,12 @@
 //		}
 //    });
 //}
-
+//头部统计数字
+sendPostRequest(platformUrl.queryIndexHeaderStat,function(data){
+    $("#total-project").text(data.data.projectNum)
+    $("#total-org").text(data.data.orgNum)
+    $("#total-investevent").text(data.data.eventNum)
+})
 //发现项目 最新投资事件 最新资讯
 var divList = $(".container").find("div[data-block]");
 $(divList).each(function(){
@@ -149,12 +154,6 @@ $(divList).each(function(){
         })
     }
 
-})
-//头部统计数字
-sendPostRequest(platformUrl.queryIndexHeaderStat,function(data){
-    $("#total-project").text(data.data.projectNum)
-    $("#total-org").text(data.data.orgNum)
-    $("#total-investevent").text(data.data.eventNum)
 })
 
 function formatOrg(orgs){
