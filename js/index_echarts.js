@@ -86,7 +86,7 @@ var option = {
 	    ],
 	    series : [],
 	};
-    var json ={"year":"2017"}
+    var json ={"year":2017}
 	sendPostRequestByJsonObj(platformUrl.eventIndustryMonth,json,function(data){
 	    var data = data.data;
 	    option.xAxis[0].data= data.industryNameList
