@@ -70,7 +70,7 @@
 									<li>
 										<div class="indul_4_1">
 											<!--<img src="http:///10.10.0.147/212e9286f44f32890c9bbc78a2b2efa7.png">-->
-											<img src="{{html Constants.logoPath+v.logoSmall}}">
+											<img src="http://static.galaxyinternet.com/${v.logoSmall}">
 										</div>
 										<div class="indul_4_2"><a href="/project_qy.html?code=${v.sourceCode}">${v.projTitle}</a></div>
 										<div class="indul_4_3"><span class="bj_9"></span>${v.districtSubName}<span class="indul_4_3_2">${v.latestFinanceRound}</span></div>
@@ -246,7 +246,7 @@
                 <script id="getOrgsByTimes" type="text/x-jquery-tmpl">
                 {{if data.length >0}}
                     {{each(i,v) data}}
-					  <li><img src="{{html Constants.logoPath+'/org/'+v.orgid+'.png'}}"><a href="/jg_particulars.html?orgId=${v.orgid}">${v.orgname}</a><div class="fr">${v.times}</div></li>
+					  <li><img src="http://static.galaxyinternet.com//org/${v.orgid}.png"><a href="/jg_particulars.html?orgId=${v.orgid}">${v.orgname}</a><div class="fr">${v.times}</div></li>
                     {{/each}}
                 {{else}}
                     <span>暂无数据</span>
