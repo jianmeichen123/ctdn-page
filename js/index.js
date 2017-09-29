@@ -210,3 +210,17 @@ if(orgs && orgs != table.empty) {
             }
             return org;
 }
+
+function formatLabels(labels){
+       var str = "";
+       if(labels){
+            $(labels.split(",")).each(function(i,e){
+                if(i<3){
+                    str+= "<span class='project_lable'>"+e+"</span>";
+                }
+
+            })
+            labels = str
+       }
+       return labels;
+}

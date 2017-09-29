@@ -81,9 +81,7 @@
 										<div class="indul_4_4">${v.firmDesc}</div>
 										<div class="indul_4_5">
 											<ul class="index_xm_ul">
-												<li>V拟现实</li>
-												<li>VR虚拟实</li>
-												<li>VR虚现实</li>
+												{{html formatLabels(v.labels)}}
 											</ul>
 										</div>
 									</li>
@@ -182,7 +180,7 @@
 												{{html formatOrg(v.investSideJson) }}
 											</ul>
 										</div>
-										<div class="wrapper index_time"><span class="brain_ico brain_ico_project_time"></span><span>{{html formatDate(v.investDate,"yyyy-MM-dd")}}</span></div>
+										<div class="wrapper index_time"><span class="brain_ico brain_ico_project_time"></span><span>{{html formatDate(v.investDate)}}</span></div>
 									</li>
 								{{/each}}
 							{{else}}
