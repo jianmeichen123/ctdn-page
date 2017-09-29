@@ -54,7 +54,7 @@ var dataUrl = {
 }
 
 var platformUrl = {
-//	me:Constants.userContentURL+"userlogin/me",
+	me:Constants.userContentURL+"userlogin/me",
 	allQuery:Constants.platformContentURL+"common/allQuery",
 	industry:Constants.platformContentURL+"common/industry",
 	userIndustry:Constants.platformContentURL+"index/userIndustry/",
