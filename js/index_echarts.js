@@ -7,15 +7,16 @@ var option = {
 	            type : 'none'        // 默认为直线，可选为：'line' | 'shadow'
 	        }
 	    },
-	    color:['#ea4322','#ff722d','#ff975e','#ffc470','#e9e612','#c7ff66','#7cff92'],
+	    color:['#ea4322','#ff722d','#ff975e','#ffc470','#e9e612','#c7ff66','#a5ee26'],
 	    legend: {
-	    	 x : '500',
-	         y : '330',
+	    	 x : '525',
+	         y : '340',
 	        data:['种子/天使/PreA轮', 'A/A+轮','PreB/B/B+轮','C轮','D轮','D轮以上','其他']
 	    },
 	    grid: {
-	        left: '3%',
-	        right: '4%',
+	        left: '17',
+	        top:'40',
+	        right: '17',
 	        bottom: '100',
 	        containLabel: true
 	    },
@@ -38,7 +39,7 @@ var option = {
 				axisLine:{
 				  show:false,
 				  lineStyle:{
-				  	color: '#e2e3e4',
+				  	color: '#000',
 				  	width: 1,
 				  	type: 'solid'
 				  }
@@ -49,6 +50,9 @@ var option = {
 	        {
 	            type : 'value',
                 name:'新增投资事件',
+                axisTick:{
+  	  			  show:false
+  	  			 },
                 nameTextStyle: {
                     color: '#333',
                     fontSize: '12'
@@ -56,14 +60,14 @@ var option = {
                 axisLabel: {
 				    interval:0,  
 				    textStyle: {
-				    	color: '#333333',
+				    	color: '#333',
 				        fontSize:'12'
 				    }
 				},
 				axisLine:{
 				  show:false,
 				  lineStyle:{
-				  	color: '#e2e3e4',
+				  	color: '#f2f2f2',
 				  	width: 1,
 				  	type: 'solid'
 				  }
