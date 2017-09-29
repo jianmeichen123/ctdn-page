@@ -97,7 +97,7 @@ input{outline: none;}
 .list_table_td img,.list_table_td ul{ float:left; margin-left:8px;}
 .list_table_td img{position:absolute;top:50%;transform:translateY(-50%);margin-left:0px;left:0px;}
 .list_table_td ul{ float:left; margin-left:47px;}
-.list_table_td a{ color: #333;  white-space: nowrap;  max-width: 100px;  overflow: hidden;  display: block;  float: left; text-overflow: ellipsis;}
+.list_table_td a{ color: #333;  white-space: nowrap;  overflow: hidden;  display: block;  text-overflow: ellipsis;}
 .tzsj_list .list_table_td a{white-space:normal;}
 .tzsj_table .list_table_td a{white-space:nowrap;}
 .tzsj_table .invstorName{width:168px;white-space:nowrap; overflow:hidden; text-overflow:ellipsis;display:block;text-align:center;}
@@ -237,7 +237,7 @@ com{color:#f78123;}
 .w_155{ width:160px; }
 .line_x{width:100%; overflow:hidden;  border-top:1px solid #e6e6e6; margin-top:12px;}
 .particulars_table_list{ width:100%;  border:1px solid #f0f0f0;}
-.particulars_table_list th{background-color:#ecf3ff;  padding:10px 0; color:#666666;    font-weight: 100;  line-height: 28px;text-align:center;}
+.particulars_table_list th{background-color:#ecf3ff;  padding:10px 0; color:#666666;    font-weight: normal;  line-height: 28px;text-align:center;}
 .particulars_table_list td{border-bottom:1px solid #f0f0f0; padding:10px 0;  color:#666666;  text-align:center;}
 #begin_on,#end_on{widh:100px; height:28px; border: 1px solid #cccccc;  border-radius: 4px;  height: 28px;  width: 100px;  text-indent: 5px;  font-size: 12px;}
 .particulars_table_list td .list_table_td li{line-height:20px;}
