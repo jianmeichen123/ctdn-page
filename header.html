@@ -1,3 +1,4 @@
+
 <div class="nav_bj">
 	
     <div class="container nav_all">
@@ -25,6 +26,7 @@
 <div class="block nav_nav">
     <div class="container">
         <ul tab="header" class="nav_two">
+
 	        <!--<a href="list_page_com.html" >-->
 	            <!--<li page_tab="yl"  tab="">-->
 	                <!--<div class="nav_nav_name">概览</div>-->
@@ -34,21 +36,31 @@
         	<a href="list_page_com.html" >
             <li page_tab="qyxm"  tab="com">
                 <div class="nav_nav_name">企业项目</div>
-                <!--<div class="nav_nav_name_x"></div>-->
+                <div class="nav_nav_name_x" id="total-project1"></div>
             </li>
             </a>
             <a href="list_page_rz.html" >
             <li page_tab="rzdt" tab="trdt">
                 <div class="nav_nav_name">投融动态</div>
-                <!--<div class="nav_nav_name_x"></div>-->
+                <div class="nav_nav_name_x" id="total-investevent1"></div>
             </li>
             </a>
             <a href="list_page_org.html" >
             <li page_tab="tzjg" tab="org">
                 <div class="nav_nav_name">投资机构</div>
-                <!--<div class="nav_nav_name_x"></div>-->
+                <div class="nav_nav_name_x" id="total-org1"></div>
             </li>
             </a>
+            <script src="js/platformUrl.js?t=20170523"></script>
+            <script src="js/common.js"></script>
+            <script type="text/javascript">
+            //头部统计数字
+            sendPostRequest(platformUrl.queryIndexHeaderStat,function(data){
+                $("#total-project1").text(data.data.projectNum)
+                $("#total-org1").text(data.data.orgNum)
+                $("#total-investevent1").text(data.data.eventNum)
+            })
+            </script>
             <!--<a href="####" >-->
             <!--<li page_tab="jj">-->
                 <!--<div class="nav_nav_name">基金</div>-->
@@ -70,4 +82,5 @@
         </ul>
     </div>
 </div>
+
 
