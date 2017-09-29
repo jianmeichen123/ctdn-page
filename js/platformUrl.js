@@ -12,14 +12,14 @@
 
 //线上
 var Constants = {
-	platformContentURL: "http://ctdnrc.gi.com/api/",
-	userContentURL: "http://ctdnrc.gi.com/user/",
-	searchContentURL: "http://ctdnrc.gi.com/search/",
-	dataContentURL: "http://ctdnrc.gi.com/data/",
+	platformContentURL: "http://ctdnrc.galaxyinternet.com/api/",
+	userContentURL: "http://ctdnrc.galaxyinternet.com/user/",
+	searchContentURL: "http://ctdnrc.galaxyinternet.com/search/",
+	dataContentURL: "http://ctdnrc.galaxyinternet.com/data/",
     logoPath: "http://static.galaxyinternet.com/"
 }
 var home = {
-	    index : "http://ctdnrc.gi.com"
+	    index : "http://ctdnrc.galaxyinternet.com"
 	}
 var docUrl = {
 
@@ -54,7 +54,7 @@ var dataUrl = {
 }
 
 var platformUrl = {
-//	me:Constants.userContentURL+"userlogin/me",
+	me:Constants.userContentURL+"userlogin/me",
 	allQuery:Constants.platformContentURL+"common/allQuery",
 	industry:Constants.platformContentURL+"common/industry",
 	userIndustry:Constants.platformContentURL+"index/userIndustry/",
