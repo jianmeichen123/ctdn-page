@@ -167,7 +167,7 @@ if(orgs && orgs != table.empty) {
                         if(json.isClick==1){
                            if(json.isLeader==1){
                                 if(json.type=="invst"){
-                                    firms.push('<li><span class="list_table_td"><a target="_blank" href="/jg_particulars.html?orgId=')
+                                    firms.push('<li class="ling_t"><span class="list_table_td"><a target="_blank" href="/jg_particulars.html?orgId=')
                                     firms.push(json.id)
                                     firms.push('" class=\'invstorName\' title="')
                                     firms.push(json.invstor)
@@ -175,7 +175,7 @@ if(orgs && orgs != table.empty) {
                                     firms.push(json.invstor)
                                     firms.push('</a><label class="lticon">领投</label></span></li>');
                                 }else{
-                                    firms.push('<li><span class="list_table_td"><a target="_blank" href="/project_qy.html?code=');
+                                    firms.push('<li class="ling_t"><span class="list_table_td"><a target="_blank" href="/project_qy.html?code=');
                                     firms.push(json.code)
                                     firms.push('" class=\'invstorName\' title="')
                                     firms.push(json.invstor)
@@ -185,7 +185,7 @@ if(orgs && orgs != table.empty) {
                                 }
                            }else{
                                 if(json.type=="invst"){
-                                    firms.push('<li><span class="list_table_td"><a target="_blank" href="/jg_particulars.html?orgId=')
+                                    firms.push('<li class="ling_t"><span class="list_table_td"><a target="_blank" href="/jg_particulars.html?orgId=')
                                     firms.push(json.id)
                                     firms.push('" class=\'invstorName\' title="')
                                     firms.push(json.invstor)
@@ -193,7 +193,7 @@ if(orgs && orgs != table.empty) {
                                     firms.push(json.invstor)
                                     firms.push('</a></li>');
                                 }else{
-                                    firms.push('<li><span class="list_table_td"><a target="_blank" href="/project_qy.html?code=')
+                                    firms.push('<li class="ling_t"><span class="list_table_td"><a target="_blank" href="/project_qy.html?code=')
                                     firms.push(json.code)
                                     firms.push('" class=\'invstorName\' title="')
                                     firms.push(json.invstor)
@@ -205,9 +205,9 @@ if(orgs && orgs != table.empty) {
                         }else{
                             firms.push("<li class='invstorName' title='")
                             firms.push($(this)[0].invstor)
-                            firms.push("'>");
+                            firms.push("'><span class='list_table_td'>");
                             firms.push($(this)[0].invstor)
-                            firms.push("</li>");
+                            firms.push("</span></li>");
                         }
                    }
                 })

@@ -93,6 +93,9 @@ input{outline: none;}
 .list_table_td label.name{font-weight:normal;margin-bottom:0;margin-right:5px;}
 .list_table_td label.lticon{background:#fa7f1c;padding:0 5px;border-radius:2px;line-height:initial;color:#fff;text-indent:0;margin-left:10px;font-weight:normal;}
 .shgp .list_table_td span{line-height:initial;text-indent:0;}
+.ling_t .list_table_td a{ max-width:95px; overflow:hidden; float:left;}
+.ling_t  a:hover{color:#f78123 !important}
+.ling_t .list_table_td .lticon{float:left;}
 .list_table_td .districtSubName{margin-right:5px;}
 .list_table_td img,.list_table_td ul{ float:left; margin-left:8px;}
 .list_table_td img{position:absolute;top:50%;transform:translateY(-50%);margin-left:0px;left:0px;}
@@ -151,7 +154,7 @@ input{outline: none;}
 .nav_all_input input{ width:330px; margin-left:8px; text-indent:5px; float:left; height:30px; margin-top:1px; background-color:#a6aaae; border:0;border-radius:5px;}
 .nav_all_input .brain_ico_seek{    margin-top: 7px;}
 .nav_all_name{ float:right; color:#fff; font-size:12px; margin-top:18px;height: 36px; cursor:pointer;}
-.brain_ico_name{background-position:-28px -14px; width:16px; height:16px; display:inline-block; }
+.brain_ico_name{background-position:-28px -14px; width:16px; height:16px; display:inline-block;     margin-top: -3px;}
 .nav_nav ul{ margin-left:140px;}
 .nav_nav ul li a{color:#333;     text-decoration: none;}
 .gz_ul{widht:100%; overflow:hidden; height:50px; background-color:#4872c1;}
@@ -486,7 +489,7 @@ white-space: nowrap; text-align:center; height:20px; line-height:20px; margin-t
 .new_index_9>li{overflow:hidden; padding-bottom:10px; width:100%; padding-top:20px; border-bottom:1px dotted  #e6e6e6;}
 .new_index_9 img{width:240px; height:150px;     border: 1px solid #f0f0f0; }
 .new_index_9_ul{width:618px; float:right; padding-left:15px;}
-.new_index_9_ul_1 {font-size:16px; color:#333333; margin-top:19px;}
+.new_index_9_ul_1 {font-size:16px; color:#333333; margin-top:19px;display:block;white-space:nowrap; overflow:hidden; text-overflow:ellipsis; width:600px;}
 .new_index_9_ul_1 a{font-size:16px; color:#333333; margin-top:19px;}
 .new_index_9_ul_1 a:hover{font-size:16px; color:#f76900; margin-top:19px;}
 .new_index_9_ul_2{color:#999999; margin-top:15px; height:40px; overflow:hidden; line-height:20px;}
