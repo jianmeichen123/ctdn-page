@@ -155,7 +155,7 @@
 			<div class="index_titnew index_titnew_on">
 				<span class="spanon">最新资讯</span>
 				<span class="index_titnew_l">最新投融资事件</span>
-				<div class="fr font_12"><a href="/list_page_rz.html">更多&nbsp;></a></div>
+				<div class="more fr font_12 none"><a href="/list_page_rz.html">更多&nbsp;></a></div>
 			</div>
 			<div  data-block="getLatestEventInfo">
 			<ul class="index_new_ul index_titnew_ulu none">
@@ -305,13 +305,16 @@
 //导航定位
 nav_locaton('index','yl','','');
 $('.index_titnew_on span').click(function(){
+	$()
 	$('.index_titnew_ulu').hide();
 	$('.index_titnew_on span').removeClass('spanon');
 	$(this).addClass('spanon');
 	if($(this).text()=='最新资讯'){
 		$('.new_index_9').show();
+		$('.more').hide();
 	}else{
 		$('.index_new_ul').show();
+		$('.more').show();
 	}
 })
 </script>
