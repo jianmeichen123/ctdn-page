@@ -25,37 +25,37 @@
 
 <div class="index_bj_tit">
 	<div class="nav_all_tit"></div>
-    <div class="container ">
+	<div class="container ">
 		<ul class="nav_all_tit_ul">
 			<li>
 				<ul>
-					<li class="tnav_all_tit_ul_1 total-project">0</li>
+					<li class="tnav_all_tit_ul_1" id="total-project">0</li>
 					<li class="tnav_all_tit_ul_2">收录创业项目</li>
 				</ul>
 			</li>
 			<li>
 				<ul>
-					<li class="tnav_all_tit_ul_1 total-org" >0</li>
+					<li class="tnav_all_tit_ul_1" id="total-org">0</li>
 					<li class="tnav_all_tit_ul_2">投资机构</li>
 				</ul>
 			</li>
 			<li>
 				<ul>
-					<li class="tnav_all_tit_ul_1 total-investevent">0</li>
+					<li class="tnav_all_tit_ul_1" id="total-investevent">0</li>
 					<li class="tnav_all_tit_ul_2">投资事件 </li>
 				</ul>
 			</li>
 		</ul>
-    </div>
-    
+	</div>
+
 </div>
 <div class="container">
 	<div class="bj_fff"style=" margin-top:60px;">
 		<div class="index_titnew"><span class="spanon">行业动态</span></div>
 		<div id="index_eachart_l" style="height:385px; width：100%; background-color:#fff;"></div>
-		
+
 	</div>
-		
+
 </div>
 
 <div class="container">
@@ -87,10 +87,70 @@
 							{{/if}}
 						</script>
 				{-raw-}
+				<!--<li>-->
+				<!--<div class="indul_4_1">-->
+				<!--<img src="http:///10.10.0.147/212e9286f44f32890c9bbc78a2b2efa7.png">-->
+				<!--</div>-->
+				<!--<div class="indul_4_2">奇瑞动力</div>-->
+				<!--<div class="indul_4_3"><span class="bj_9"></span>北京<span class="indul_4_3_2">B论</span></div>-->
+				<!--<div class="indul_4_4">动力外骨骼机器人研发制，动力外骨骼机器人研发制，动力外</div>-->
+				<!--<div class="indul_4_5">-->
+				<!--<ul class="index_xm_ul">-->
+				<!--<li>V拟现实</li>-->
+				<!--<li>VR虚拟实</li>-->
+				<!--<li>VR虚现实</li>-->
+				<!--</ul>-->
+				<!--</div>-->
+				<!--</li>-->
+				<!--<li>-->
+				<!--<div class="indul_4_1">-->
+				<!--<img src="http:///10.10.0.147/212e9286f44f32890c9bbc78a2b2efa7.png">-->
+				<!--</div>-->
+				<!--<div class="indul_4_2">奇瑞动力</div>-->
+				<!--<div class="indul_4_3"><span class="bj_9"></span>北京<span class="indul_4_3_2">B论</span></div>-->
+				<!--<div class="indul_4_4">动力外骨骼机器人研发制，动力外骨骼机器人研发制，动力外</div>-->
+				<!--<div class="indul_4_5">-->
+				<!--<ul class="index_xm_ul">-->
+				<!--<li>V拟现实</li>-->
+				<!--<li>VR虚拟实</li>-->
+				<!--<li>VR虚现实</li>-->
+				<!--</ul>-->
+				<!--</div>-->
+				<!--</li>-->
+				<!--<li>-->
+				<!--<div class="indul_4_1">-->
+				<!--<img src="http:///10.10.0.147/212e9286f44f32890c9bbc78a2b2efa7.png">-->
+				<!--</div>-->
+				<!--<div class="indul_4_2">奇瑞动力</div>-->
+				<!--<div class="indul_4_3"><span class="bj_9"></span>北京<span class="indul_4_3_2">B论</span></div>-->
+				<!--<div class="indul_4_4">动力外骨骼机器人研发制，动力外骨骼机器人研发制，动力外</div>-->
+				<!--<div class="indul_4_5">-->
+				<!--<ul class="index_xm_ul">-->
+				<!--<li>V拟现实</li>-->
+				<!--<li>VR虚拟实</li>-->
+				<!--<li>VR虚现实</li>-->
+				<!--</ul>-->
+				<!--</div>-->
+				<!--</li>-->
+				<!--<li>-->
+				<!--<div class="indul_4_1">-->
+				<!--<img src="http:///10.10.0.147/212e9286f44f32890c9bbc78a2b2efa7.png">-->
+				<!--</div>-->
+				<!--<div class="indul_4_2">奇瑞动力</div>-->
+				<!--<div class="indul_4_3"><span class="bj_9"></span>北京<span class="indul_4_3_2">B论</span></div>-->
+				<!--<div class="indul_4_4">动力外骨骼机器人研发制，动力外骨骼机器人研发制，动力外</div>-->
+				<!--<div class="indul_4_5">-->
+				<!--<ul class="index_xm_ul">-->
+				<!--<li>V拟现实</li>-->
+				<!--<li>VR虚拟实</li>-->
+				<!--<li>VR虚现实</li>-->
+				<!--</ul>-->
+				<!--</div>-->
+				<!--</li>-->
 			</ul>
 		</div>
-	
-	<!-- qieh -->
+
+		<!-- qieh -->
 		<div class="bj_fff m_t10">
 			<div class="index_titnew index_titnew_on">
 				<span class="spanon">最新资讯</span>
@@ -98,9 +158,9 @@
 				<div class="more fr font_12 none"><a href="/list_page_rz.html">更多</a></div>
 			</div>
 			<div  data-block="getLatestEventInfo">
-			<ul class="index_new_ul index_titnew_ulu none">
-				{-raw-}
-				<script id="getLatestEventInfo" type="text/x-jquery-tmpl">
+				<ul class="index_new_ul index_titnew_ulu none">
+					{-raw-}
+					<script id="getLatestEventInfo" type="text/x-jquery-tmpl">
 							{{if data.length >0}}
 								{{each(i,v) data}}
 									<li>
@@ -123,13 +183,29 @@
 								<span>暂无数据</span>
 							{{/if}}
 						</script>
-				{-raw-}
-			</ul>
+					{-raw-}
+					<!--<li>-->
+					<!--<img src="http:///10.10.0.147/212e9286f44f32890c9bbc78a2b2efa7.png">-->
+					<!--<ul class="index_new_ul_ul">-->
+					<!--<li class="font_14">若森数字</li>-->
+					<!--<li class="color_666">若森数字是一家集动画技术研发、教育、若森数字是一家集动画技术研发、影视制作、动画教育、字</li>-->
+					<!--</ul>-->
+					<!--<div class="wrapper number_th_15 center m_l10">B轮</div>-->
+					<!--<div class="wrapper number_th_12 m_l10">420万人民币</div>-->
+					<!--<div class="wrapper number_th_15 m_l10"> -->
+					<!--<ul> -->
+					<!--<li>新加坡政府投资公司</li> -->
+					<!--<li>新加坡政府投资公司</li> -->
+					<!--</ul> -->
+					<!--</div>-->
+					<!--<div class="wrapper index_time"><span class="brain_ico brain_ico_project_time"></span><span>2017-1-21</span></div>-->
+					<!--</li>-->
+				</ul>
 			</div>
 			<div data-block="news" >
-			<ul class="new_index_9 index_titnew_ulu">
-				{-raw-}
-				<script id="news" type="text/x-jquery-tmpl">
+				<ul class="new_index_9 index_titnew_ulu">
+					{-raw-}
+					<script id="news" type="text/x-jquery-tmpl">
 					{{if records.length >0}}
 						{{each(i,v) records}}
 							<li>
@@ -149,14 +225,14 @@
 						<span>暂无数据</span>
 					{{/if}}
 				</script>
-				{-raw-}
-			</ul>
+					{-raw-}
+				</ul>
 			</div>
 		</div>
 		<!-- qieend -->
 	</div>
-		
-		
+
+
 	<!-- l end -->
 	<div class="index_r">
 		<div class="index_r_bj">
@@ -166,8 +242,8 @@
 		<div class="index_r_bj m_t10">
 			<div class="index_r_title" data-block="getOrgsByTimes">近7天活跃机构<div class="fr"><a href="/list_page_org.html" >查看全部</a></div></div>
 			<ul class="index_ul_g">
-                {-raw-}
-                <script id="getOrgsByTimes" type="text/x-jquery-tmpl">
+				{-raw-}
+				<script id="getOrgsByTimes" type="text/x-jquery-tmpl">
                 {{if data.length >0}}
                     {{each(i,v) data}}
 					  <li><img src="http://static.galaxyinternet.com//org/${v.orgid}.png"><a href="/jg_particulars.html?orgId=${v.orgid}">${v.orgname}</a><div class="fr">${v.times}</div></li>
@@ -176,15 +252,15 @@
                     <span>暂无数据</span>
                 {{/if}}
             </script>
-                {-raw-}
+				{-raw-}
 			</ul>
 			<div class="index_div"><span class="fr"></span></div>
 		</div>
 		<div class="index_r_bj m_t_10">
 			<div class="index_r_title" data-block="getOrgsByAllTimes">机构排名<div class="fr"><a href="/list_page_org.html" >查看全部</a></div></div>
 			<ul class="index_ul_g_x">
-                {-raw-}
-                    <script id="getOrgsByAllTimes" type="text/x-jquery-tmpl">
+				{-raw-}
+				<script id="getOrgsByAllTimes" type="text/x-jquery-tmpl">
                     {{if data.length >0}}
                         {{each(i,v) data}}
                                 <li>
@@ -204,12 +280,12 @@
                         <span>暂无数据</span>
                     {{/if}}
                     </script>
-                {-raw-}
+				{-raw-}
 			</ul>
 			<div>&nbsp;</div>
 		</div>
-	
-		
+
+
 	</div>
 </div>
 
