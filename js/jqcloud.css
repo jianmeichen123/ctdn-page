@@ -11,7 +11,7 @@ div.jqcloud a {
   text-decoration: none;
 }
 .append_div {
-	background: black;color:#FFFFFF; opacity:0.5; text-align: center; position: absolute; height: 100px; width: 80px; 
+	background: black;color:#FFFFFF; opacity:0.5; text-align: center; position: absolute; height: 40px; width: 80px; 
 }
 
 div.jqcloud span.w10 { font-size: 400%; }

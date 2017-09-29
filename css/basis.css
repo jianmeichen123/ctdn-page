@@ -466,7 +466,7 @@ white-space: nowrap; text-align:center; height:20px; line-height:20px; margin-t
 .index_ul_g,.index_ul_g_x{margin-left:15px; margin-right:15px; }
 .index_ul_g img{width:32px; height:32px; float:left;  margin-right:10px; border: 1px solid #f0f0f0;}
 .index_ul_g li{margin-top:15px; height:32px; line-height:32px; overflow: hidden; overflow:hidden;}
-.index_ul_g li a,.index_ul_g_x li a{color:#333;       display: inline-block;  overflow: hidden; width:135px; height:20px; }
+.index_ul_g li a,.index_ul_g_x li a{color:#333;       display: inline-block;  overflow: hidden; width:135px; height:25px; }
 .index_ul_g li a:hover,.index_ul_g_x li a:hover{    color: #f78123;}
 .index_div{overflow:hidden; margin-top:20px; margin-bottom:20px; margin-right:10px;}
 .index_div a{color:#1ed2ff;}
