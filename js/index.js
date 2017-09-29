@@ -166,7 +166,7 @@ if(orgs && orgs != table.empty) {
                                     firms.push(json.invstor)
                                     firms.push('">')
                                     firms.push(json.invstor)
-                                    firms.push('</a><label class="lticon">领投</label></span></div>');
+                                    firms.push('</a><label class="lticon">领投</label></span></li>');
                                 }else{
                                     firms.push('<li><span class="list_table_td"><a target="_blank" href="/project_qy.html?code=');
                                     firms.push(json.code)
@@ -192,7 +192,7 @@ if(orgs && orgs != table.empty) {
                                     firms.push(json.invstor)
                                     firms.push('">')
                                     firms.push(json.invstor)
-                                    firms.push('</a></li>');
+                                    firms.push('</a></span></li>');
                                 }
                            }
                         }else{
