@@ -76,7 +76,7 @@
 											<!--<img src="http:///10.10.0.147/212e9286f44f32890c9bbc78a2b2efa7.png">-->
 											<img src="{{html Constants.logoPath+v.logoSmall}}">
 										</div>
-										<div class="indul_4_2">${v.projTitle}</div>
+										<div class="indul_4_2"><a href="/project_qy.html?code=${v.sourceCode}">${v.projTitle}</a></div>
 										<div class="indul_4_3"><span class="bj_9"></span>${v.addr}<span class="indul_4_3_2">${v.latestFinanceRound}</span></div>
 										<div class="indul_4_4">${v.firmDesc}</div>
 										<div class="indul_4_5">
@@ -170,7 +170,7 @@
 									<li>
 										<img src="{{html Constants.logoPath+v.logo}}">
 										<ul class="index_new_ul_ul">
-											<li class="font_14">${v.company}</li>
+											<li class="font_14"><a href="/tzsj_particulars.html?eventId=${v.eventId}">${v.company}</a></li>
 											<li class="color_666">${v.desc}</li>
 										</ul>
 										<div class="wrapper number_th_15 center m_l10">${v.round}</div>
@@ -250,7 +250,7 @@
                 <script id="getOrgsByTimes" type="text/x-jquery-tmpl">
                 {{if data.length >0}}
                     {{each(i,v) data}}
-					  <li><img src="{{html Constants.logoPath+'/org/'+v.orgid+'.png'}}">${v.orgname}<div class="fr">${v.times}</div></li>
+					  <li><img src="{{html Constants.logoPath+'/org/'+v.orgid+'.png'}}"><a href="/jg_particulars.html?orgId=${v.orgid}">${v.orgname}</a><div class="fr">${v.times}</div></li>
                     {{/each}}
                 {{else}}
                     <span>暂无数据</span>
@@ -277,7 +277,7 @@
                                     {{else}}
                                         <span >${i+1}</span>
                                     {{/if}}
-                                ${v.orgname}<div class="fr">${v.times}</div>
+                                <a href="/jg_particulars.html?orgId=${v.orgid}">${v.orgname}</a><div class="fr">${v.times}</div>
                             </li>
                         {{/each}}
                     {{else}}
