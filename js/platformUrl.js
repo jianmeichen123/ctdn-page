@@ -3,10 +3,11 @@
 //var Constants = {
 //	platformContentURL: "http://127.0.0.1:8081/api/",
 //	userContentURL: "http://ctdndev.gi.com/user/",
-//	searchContentURL: "http://127.0.0.1:8089/search/",
-//	dataContentURL: "http://127.0.0.1:8085/data/",
-//	logoPath: "http://static.galaxyinternet.com/"
+//	searchContentURL: "http://10.9.130.135:8089/search/",
+//	dataContentURL: "http://ctdndev.gi.com/data/",
+//	logoPath: "http:///10.10.0.147/"
 //}
+
 
 
 //线上
