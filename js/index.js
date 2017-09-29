@@ -152,9 +152,9 @@ $(divList).each(function(){
 })
 //头部统计数字
 sendPostRequest(platformUrl.queryIndexHeaderStat,function(data){
-    $("#total-project").text(data.data.projectNum)
-    $("#total-org").text(data.data.orgNum)
-    $("#total-investevent").text(data.data.eventNum)
+    $(".total-project").text(data.data.projectNum)
+    $(".total-org").text(data.data.orgNum)
+    $(".total-investevent").text(data.data.eventNum)
 })
 
 function formatOrg(orgs){

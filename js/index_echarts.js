@@ -49,7 +49,7 @@ var option = {
 	    yAxis : [
 	        {
 	            type : 'value',
-                name:'新增投资事件',
+                name:'                   新增投资事件数（本季度）',
                 axisTick:{
   	  			  show:false
   	  			 },
