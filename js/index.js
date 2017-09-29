@@ -126,6 +126,14 @@ $(divList).each(function(){
                     "publicTime":"2017-09-28",
                     "title":"低调的「托福Easy姐」收购「娃与娃」：为数不多的在线教育公司收购线下公司的案例",
                     "url":"http://36kr.com/p/5095322.html"
+                },
+                {
+                    "abs":"技术的进步及廉价化，则有可能激发被压抑的翻译需求",
+                    "author":"36氪",
+                    "imgUrl":"https://pic.36krcnd.com/avatar/201709/29040239/3ue4uqa5than3bhr!feature",
+                    "publicTime":"2017-09-28",
+                    "title":"落地机器翻译服务，「Atman」推出TransGod翻译工具",
+                    "url":"http://36kr.com/p/5091513.html"
                 }
 			]
 		}
