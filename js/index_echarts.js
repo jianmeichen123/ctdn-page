@@ -64,6 +64,15 @@ var option = {
 				        fontSize:'12'
 				    }
 				},
+				splitLine:{//网格线的格式
+					// show:false//去掉y轴上的网格线——
+					lineStyle:{
+					color: '#e5e5e5',//网格线颜色
+					width: 1,//网格线宽度
+					type: 'solid'//网格线样式
+
+					}
+				},
 				axisLine:{
 				  show:false,
 				  lineStyle:{
