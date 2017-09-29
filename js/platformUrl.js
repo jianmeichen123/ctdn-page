@@ -12,14 +12,14 @@
 
 //线上
 var Constants = {
-	platformContentURL: "http://ctdnqa.gi.com/api/",
-	userContentURL: "http://ctdnqa.gi.com/user/",
-	searchContentURL: "http://ctdnqa.gi.com/search/",
-	dataContentURL: "http://ctdnqa.gi.com/data/",
+	platformContentURL: "http://ctdnrc.gi.com/api/",
+	userContentURL: "http://ctdnrc.gi.com/user/",
+	searchContentURL: "http://ctdnrc.gi.com/search/",
+	dataContentURL: "http://ctdnrc.gi.com/data/",
     logoPath: "http://static.galaxyinternet.com/"
 }
 var home = {
-	    index : "http://ctdnqa.gi.com"
+	    index : "http://ctdnrc.gi.com"
 	}
 var docUrl = {
 
