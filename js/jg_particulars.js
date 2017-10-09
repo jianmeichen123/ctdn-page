@@ -29,6 +29,9 @@ function fillBaseInfo(data,divList){
                 if(k=='investAmountStr'&&v){
                     v=v+'&nbsp;(仅供参考)'
                 }
+                if(k=='backDate'){
+                   v = formatDate(v,"yyyy-MM-dd")
+                }
                 if(v){
                     o.html(v)
                 }else{
