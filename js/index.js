@@ -101,44 +101,44 @@ $(divList).each(function(){
         var data = {
             "records":[
                 {
-                    "abs":"Area 404 研发的产品，从卫星、无人机、Terragraph 再到 VR/AR 和，与 Facebook 公司的 10 年规划配合的非常紧密 ",
+                    "abs":"9月30日至10月8日，全国用户骑行摩拜单车约消耗了460万碗米饭的热量。",
                     "author":"36氪",
-                    "imgUrl":"https://pic.36krcnd.com/avatar/201709/28005240/oqo3qijmo2ezb3cr!feature",
-                    "publicTime":"2017-09-28",
-                    "title":"独家探访Area 404 实验室，Facebook下一个十年的秘密都在这里",
-                    "url":"http://36kr.com/p/5095478.html"
+                    "imgUrl":"https://pic.36krcnd.com/avatar/201710/09041826/tfwbht3s3alhn4i4!feature",
+                    "publicTime":"2017-10-09",
+                    "title":"摩拜单车发布“十一骑行出游报告”：上海用户异地出行比例更高，热衷海外游",
+                    "url":"http://36kr.com/p/5096359.html"
                 },
                 {
-                    "abs":"又是一家名字前面有一个“the”的创业公司",
+                    "abs":"此后，摄像头扫描的数据会与已经包含你面部数据的其他数据库进行交叉引用，你的脸最终成为重新定向的中心。",
                     "author":"36氪",
-                    "imgUrl":"https://pic.36krcnd.com/avatar/201709/27081633/0djsfb1gu9jkz0ik!feature",
-                    "publicTime":"2017-09-28",
-                    "title":"我们和硅谷最棒的付费科技媒体「The Information」聊了聊，这里是一些小料",
-                    "url":"http://36kr.com/p/5095361.html"
+                    "imgUrl":"https://pic.36krcnd.com/avatar/201710/09052342/i6mptqazfff1yacc!feature",
+                    "publicTime":"2017-10-09",
+                    "title":"识别你的脸给你播定制广告，未来这种事或将成真",
+                    "url":"http://36kr.com/p/5096370.html"
                 },
                 {
-                    "abs":"想要发展，得找到一个好的天使投资人。",
+                    "abs":"数据很可能会成为将来AI角逐的关键甚至是决定性因素。",
                     "author":"36氪",
-                    "imgUrl":"https://pic.36krcnd.com/avatar/201709/25123301/ks8uy7foh6hro0c0!feature",
-                    "publicTime":"2017-09-28",
-                    "title":"纽约大学用人工智能引擎，对 AI 领域的天使投资人进行了打分",
-                    "url":"http://36kr.com/p/5095008.html"
+                    "imgUrl":"https://pic.36krcnd.com/avatar/201710/09055714/gmbc62zmvdcr9ehi!feature",
+                    "publicTime":"2017-10-09",
+                    "title":"AI公司如何撬动数据？吴恩达、李飞飞等6位大咖这样说……",
+                    "url":"http://36kr.com/p/5096379.html"
                 },
                 {
-                    "abs":"这是两年多以来，托福Easy姐第一次出现在36氪上。",
+                    "abs":"沉寂中的公司纷纷探索无人机的下一个风口。",
                     "author":"36氪",
-                    "imgUrl":"https://pic.36krcnd.com/avatar/201709/27042140/ywcmf8ey090ik76f!feature",
-                    "publicTime":"2017-09-28",
-                    "title":"低调的「托福Easy姐」收购「娃与娃」：为数不多的在线教育公司收购线下公司的案例",
-                    "url":"http://36kr.com/p/5095322.html"
+                    "imgUrl":"https://pic.36krcnd.com/avatar/201710/09035405/qakwqwqzxgrrcxzo!feature",
+                    "publicTime":"2017-10-09",
+                    "title":"无人机早已不是航拍娱乐的专属，下一个受追捧的是工业级领域应用",
+                    "url":"http://36kr.com/p/5096352.html"
                 },
                 {
-                    "abs":"技术的进步及廉价化，则有可能激发被压抑的翻译需求",
+                    "abs":"计算得出2018年寺库净利润约为0.8-1.2亿元，鉴于寺库处于发展时期，给予20-25倍PE，估值为21-24亿元，略低于当前股价。",
                     "author":"36氪",
-                    "imgUrl":"https://pic.36krcnd.com/avatar/201709/29040239/3ue4uqa5than3bhr!feature",
-                    "publicTime":"2017-09-28",
-                    "title":"落地机器翻译服务，「Atman」推出TransGod翻译工具",
-                    "url":"http://36kr.com/p/5091513.html"
+                    "imgUrl":"https://pic.36krcnd.com/avatar/201710/09034545/91otd8ols7fvovbm!feature",
+                    "publicTime":"2017-10-09",
+                    "title":"寺库估值不到4亿美元，这就是奢侈品电商的终局？",
+                    "url":"http://36kr.com/p/5096347.html"
                 }
 			]
 		}
