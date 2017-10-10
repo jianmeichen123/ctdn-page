@@ -446,7 +446,7 @@ com{color:#f78123;}
 .indul_4>li{float:left; margin-left:20px; margin-top:20px; width: 200px; margin-bottom:20px; border:1px solid #f0f0f0; padding:10px;}
 .indul_4_1 img{width:88px; height:88px; border:1px solid #e6e6e6; margin:0 auto;}
 .indul_4_2{font-size:20px; color:#333333; width:180px; overflow:hidden; text-overflow:ellipsis;
-white-space: nowrap; text-align:center; height:20px; /*line-height:20px;*/ margin-top:10px;}
+white-space: nowrap; text-align:center; height:25px; line-height:25px; margin-top:10px;}
 .indul_4_2 a{color:#333333;}
 .indul_4_2 a:hover{color: #f76900;}
 .indul_4_4{color:#666666; font-size:12px; margin-top:10px; height:40px; line-height:20px;overflow:hidden;}
