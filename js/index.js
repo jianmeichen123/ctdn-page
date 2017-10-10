@@ -101,44 +101,44 @@ $(divList).each(function(){
         var data = {
             "records":[
                 {
-                    "abs":"9月30日至10月8日，全国用户骑行摩拜单车约消耗了460万碗米饭的热量。",
-                    "author":"36氪",
-                    "imgUrl":"https://pic.36krcnd.com/avatar/201710/09041826/tfwbht3s3alhn4i4!feature",
-                    "publicTime":"2017-10-09",
-                    "title":"摩拜单车发布“十一骑行出游报告”：上海用户异地出行比例更高，热衷海外游",
-                    "url":"http://36kr.com/p/5096359.html"
+                    "abs":"5倍的用户增长，10倍的收入增长，接近2亿元的营收，盘点2017，掌上糖医已交出了一个漂亮的成绩单。",
+                    "author":"创业邦",
+                    "imgUrl":"http://img1.cyzone.cn/uploadfile/2017/1010/thumb_200_120_20171010123750756.jpg",
+                    "publicTime":"2017-10-10",
+                    "title":"掌上糖医完成B1轮过亿融资，医院SaaS平台构建AI智能诊疗",
+                    "url":"http://www.cyzone.cn/a/20171010/316281.html"
                 },
                 {
-                    "abs":"此后，摄像头扫描的数据会与已经包含你面部数据的其他数据库进行交叉引用，你的脸最终成为重新定向的中心。",
-                    "author":"36氪",
-                    "imgUrl":"https://pic.36krcnd.com/avatar/201710/09052342/i6mptqazfff1yacc!feature",
-                    "publicTime":"2017-10-09",
-                    "title":"识别你的脸给你播定制广告，未来这种事或将成真",
-                    "url":"http://36kr.com/p/5096370.html"
+                    "abs":"10月9日，微软操作系统事业部全球副总裁Joe Belfiore发表Twitter称，微软还将继续为Windows移动平台提供BUG修复、安全更新等技术支持，不过开发新的操作系统功能及硬件将不再是未来工作的重点。",
+                    "author":"创业邦",
+                    "imgUrl":"http://img1.cyzone.cn/uploadfile/2017/1009/thumb_200_120_20171009072203628.jpg",
+                    "publicTime":"2017-10-10",
+                    "title":"微软高管首次公开表示放弃Windows Phone",
+                    "url":"http://www.cyzone.cn/a/20171009/316269.html"
                 },
                 {
-                    "abs":"数据很可能会成为将来AI角逐的关键甚至是决定性因素。",
-                    "author":"36氪",
-                    "imgUrl":"https://pic.36krcnd.com/avatar/201710/09055714/gmbc62zmvdcr9ehi!feature",
-                    "publicTime":"2017-10-09",
-                    "title":"AI公司如何撬动数据？吴恩达、李飞飞等6位大咖这样说……",
-                    "url":"http://36kr.com/p/5096379.html"
+                    "abs":" Flipboard 想用更高级的内容与展示方式取代“标题党”与软色情，去满足那些逃离今日头条的人，这到底是不是真需求？",
+                    "author":"钛媒体",
+                    "imgUrl":"http://images.tmtpost.com/uploads/images/2017/09/3062258-inline-i-1-flipboard-newsreader-app-flipboards-quest-to-save-online-publishing-and-itself.jpg",
+                    "publicTime":"2017-10-10",
+                    "title":"红板报 Flipboard 想满足“逃离”今日头条的那些人，颜值为王是否代表下一个方向？",
+                    "url":"http://www.tmtpost.com/2826794.html"
                 },
                 {
-                    "abs":"沉寂中的公司纷纷探索无人机的下一个风口。",
-                    "author":"36氪",
-                    "imgUrl":"https://pic.36krcnd.com/avatar/201710/09035405/qakwqwqzxgrrcxzo!feature",
-                    "publicTime":"2017-10-09",
-                    "title":"无人机早已不是航拍娱乐的专属，下一个受追捧的是工业级领域应用",
-                    "url":"http://36kr.com/p/5096352.html"
+                    "abs":"各路玩家加入这场旷世盛宴中，去抢夺这块肥腴多金之地。",
+                    "author":"钛媒体",
+                    "imgUrl":"http://images.tmtpost.com/uploads/images/2017/10/u3167236725,1400755695fm173sB78CF905D8195ACC2A24A1C60300A0B3w580h330img.JPEG",
+                    "publicTime":"2017-10-10",
+                    "title":"资本大鳄、流量巨头蜂拥，上万平台陷现金贷争食混战 ",
+                    "url":"http://www.tmtpost.com/2843351.html"
                 },
                 {
-                    "abs":"计算得出2018年寺库净利润约为0.8-1.2亿元，鉴于寺库处于发展时期，给予20-25倍PE，估值为21-24亿元，略低于当前股价。",
-                    "author":"36氪",
-                    "imgUrl":"https://pic.36krcnd.com/avatar/201710/09034545/91otd8ols7fvovbm!feature",
-                    "publicTime":"2017-10-09",
-                    "title":"寺库估值不到4亿美元，这就是奢侈品电商的终局？",
-                    "url":"http://36kr.com/p/5096347.html"
+                    "abs":" “准，快，好，省”，这四字诀的每一单点的突破都意味着机会，都意味着或许能抓到一块阿里京东炮火之外的根据地。为此，我们想好好数一下，在当前这个时点，这四个字到底对应着哪些零售业态或模式。",
+                    "author":"钛媒体",
+                    "imgUrl":"http://images.tmtpost.com/uploads/images/2017/10/150736533218545600_a580x330.jpg",
+                    "publicTime":"2017-10-10",
+                    "title":"关于新零售创业，这里有一份“4字秘诀”",
+                    "url":"http://www.tmtpost.com/2843428.html"
                 }
 			]
 		}
