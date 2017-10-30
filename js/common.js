@@ -355,7 +355,7 @@ function fmoney3(s){
 $(function(){
 	function setName(data){
 	    if(!data&&data.length < 100){
-	         location.href = home.index
+	         location.href = "http://ctdnrc.galaxyinternet.com/user/userlogin/toLogin"
 	    }else{
 	        var obj = JSON.parse(data)
             var name = obj['realName']
@@ -372,14 +372,14 @@ $(function(){
             contentType : "application/json; charset=UTF-8",
             async : false,
             error : function(request) {
-                location.href = home.index
+                location.href = "http://ctdnrc.galaxyinternet.com/user/userlogin/toLogin"
             },
             success : function(data) {
                 setName(decodeURIComponent(data))
             }
         });
     }
-     me()
+     //me()
     /* $("ul[tab='header']").on("click","li",function(){
     	 
     	 var o = $(this)

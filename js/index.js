@@ -85,7 +85,12 @@
 //		}
 //    });
 //}
-
+//头部统计数字
+sendPostRequest(platformUrl.queryIndexHeaderStat,function(data){
+    $(".total-project").text(data.data.projectNum)
+    $(".total-org").text(data.data.orgNum)
+    $(".total-investevent").text(data.data.eventNum)
+})
 //发现项目 最新投资事件 最新资讯
 var divList = $(".container").find("div[data-block]");
 $(divList).each(function(){
@@ -96,36 +101,44 @@ $(divList).each(function(){
         var data = {
             "records":[
                 {
-                    "abs":"Area 404 研发的产品，从卫星、无人机、Terragraph 再到 VR/AR 和，与 Facebook 公司的 10 年规划配合的非常紧密 ",
-                    "author":"36氪",
-                    "imgUrl":"https://pic.36krcnd.com/avatar/201709/28005240/oqo3qijmo2ezb3cr!feature",
-                    "publicTime":"2017-09-28",
-                    "title":"独家探访Area 404 实验室，Facebook下一个十年的秘密都在这里",
-                    "url":"http://36kr.com/p/5095478.html"
+                    "abs":"5倍的用户增长，10倍的收入增长，接近2亿元的营收，盘点2017，掌上糖医已交出了一个漂亮的成绩单。",
+                    "author":"创业邦",
+                    "imgUrl":"http://img1.cyzone.cn/uploadfile/2017/1010/thumb_200_120_20171010123750756.jpg",
+                    "publicTime":"2017-10-10",
+                    "title":"掌上糖医完成B1轮过亿融资，医院SaaS平台构建AI智能诊疗",
+                    "url":"http://www.cyzone.cn/a/20171010/316281.html"
                 },
                 {
-                    "abs":"又是一家名字前面有一个“the”的创业公司",
-                    "author":"36氪",
-                    "imgUrl":"https://pic.36krcnd.com/avatar/201709/27081633/0djsfb1gu9jkz0ik!feature",
-                    "publicTime":"2017-09-28",
-                    "title":"我们和硅谷最棒的付费科技媒体「The Information」聊了聊，这里是一些小料",
-                    "url":"http://36kr.com/p/5095361.html"
+                    "abs":"10月9日，微软操作系统事业部全球副总裁Joe Belfiore发表Twitter称，微软还将继续为Windows移动平台提供BUG修复、安全更新等技术支持，不过开发新的操作系统功能及硬件将不再是未来工作的重点。",
+                    "author":"创业邦",
+                    "imgUrl":"http://img1.cyzone.cn/uploadfile/2017/1009/thumb_200_120_20171009072203628.jpg",
+                    "publicTime":"2017-10-10",
+                    "title":"微软高管首次公开表示放弃Windows Phone",
+                    "url":"http://www.cyzone.cn/a/20171009/316269.html"
                 },
                 {
-                    "abs":"想要发展，得找到一个好的天使投资人。",
-                    "author":"36氪",
-                    "imgUrl":"https://pic.36krcnd.com/avatar/201709/25123301/ks8uy7foh6hro0c0!feature",
-                    "publicTime":"2017-09-28",
-                    "title":"纽约大学用人工智能引擎，对 AI 领域的天使投资人进行了打分",
-                    "url":"http://36kr.com/p/5095008.html"
+                    "abs":" Flipboard 想用更高级的内容与展示方式取代“标题党”与软色情，去满足那些逃离今日头条的人，这到底是不是真需求？",
+                    "author":"钛媒体",
+                    "imgUrl":"http://images.tmtpost.com/uploads/images/2017/09/3062258-inline-i-1-flipboard-newsreader-app-flipboards-quest-to-save-online-publishing-and-itself.jpg",
+                    "publicTime":"2017-10-10",
+                    "title":"红板报 Flipboard 想满足“逃离”今日头条的那些人，颜值为王是否代表下一个方向？",
+                    "url":"http://www.tmtpost.com/2826794.html"
                 },
                 {
-                    "abs":"这是两年多以来，托福Easy姐第一次出现在36氪上。",
-                    "author":"36氪",
-                    "imgUrl":"https://pic.36krcnd.com/avatar/201709/27042140/ywcmf8ey090ik76f!feature",
-                    "publicTime":"2017-09-28",
-                    "title":"低调的「托福Easy姐」收购「娃与娃」：为数不多的在线教育公司收购线下公司的案例",
-                    "url":"http://36kr.com/p/5095322.html"
+                    "abs":"各路玩家加入这场旷世盛宴中，去抢夺这块肥腴多金之地。",
+                    "author":"钛媒体",
+                    "imgUrl":"http://images.tmtpost.com/uploads/images/2017/10/u3167236725,1400755695fm173sB78CF905D8195ACC2A24A1C60300A0B3w580h330img.JPEG",
+                    "publicTime":"2017-10-10",
+                    "title":"资本大鳄、流量巨头蜂拥，上万平台陷现金贷争食混战 ",
+                    "url":"http://www.tmtpost.com/2843351.html"
+                },
+                {
+                    "abs":" “准，快，好，省”，这四字诀的每一单点的突破都意味着机会，都意味着或许能抓到一块阿里京东炮火之外的根据地。为此，我们想好好数一下，在当前这个时点，这四个字到底对应着哪些零售业态或模式。",
+                    "author":"钛媒体",
+                    "imgUrl":"http://images.tmtpost.com/uploads/images/2017/10/150736533218545600_a580x330.jpg",
+                    "publicTime":"2017-10-10",
+                    "title":"关于新零售创业，这里有一份“4字秘诀”",
+                    "url":"http://www.tmtpost.com/2843428.html"
                 }
 			]
 		}
@@ -142,12 +155,6 @@ $(divList).each(function(){
     }
 
 })
-//头部统计数字
-sendPostRequest(platformUrl.queryIndexHeaderStat,function(data){
-    $("#total-project").text(data.data.projectNum)
-    $("#total-org").text(data.data.orgNum)
-    $("#total-investevent").text(data.data.eventNum)
-})
 
 function formatOrg(orgs){
 if(orgs && orgs != table.empty) {
@@ -160,15 +167,15 @@ if(orgs && orgs != table.empty) {
                         if(json.isClick==1){
                            if(json.isLeader==1){
                                 if(json.type=="invst"){
-                                    firms.push('<li><span class="list_table_td"><a target="_blank" href="/jg_particulars.html?orgId=')
+                                    firms.push('<li class="ling_t"><span class="list_table_td"><a target="_blank" href="/jg_particulars.html?orgId=')
                                     firms.push(json.id)
                                     firms.push('" class=\'invstorName\' title="')
                                     firms.push(json.invstor)
                                     firms.push('">')
                                     firms.push(json.invstor)
-                                    firms.push('</a><label class="lticon">领投</label></span></div>');
+                                    firms.push('</a><label class="lticon">领投</label></span></li>');
                                 }else{
-                                    firms.push('<li><span class="list_table_td"><a target="_blank" href="/project_qy.html?code=');
+                                    firms.push('<li class="ling_t"><span class="list_table_td"><a target="_blank" href="/project_qy.html?code=');
                                     firms.push(json.code)
                                     firms.push('" class=\'invstorName\' title="')
                                     firms.push(json.invstor)
@@ -178,7 +185,7 @@ if(orgs && orgs != table.empty) {
                                 }
                            }else{
                                 if(json.type=="invst"){
-                                    firms.push('<li><span class="list_table_td"><a target="_blank" href="/jg_particulars.html?orgId=')
+                                    firms.push('<li class="ling_t"><span class="list_table_td"><a target="_blank" href="/jg_particulars.html?orgId=')
                                     firms.push(json.id)
                                     firms.push('" class=\'invstorName\' title="')
                                     firms.push(json.invstor)
@@ -186,21 +193,21 @@ if(orgs && orgs != table.empty) {
                                     firms.push(json.invstor)
                                     firms.push('</a></li>');
                                 }else{
-                                    firms.push('<li><span class="list_table_td"><a target="_blank" href="/project_qy.html?code=')
+                                    firms.push('<li class="ling_t"><span class="list_table_td"><a target="_blank" href="/project_qy.html?code=')
                                     firms.push(json.code)
                                     firms.push('" class=\'invstorName\' title="')
                                     firms.push(json.invstor)
                                     firms.push('">')
                                     firms.push(json.invstor)
-                                    firms.push('</a></li>');
+                                    firms.push('</a></span></li>');
                                 }
                            }
                         }else{
                             firms.push("<li class='invstorName' title='")
                             firms.push($(this)[0].invstor)
-                            firms.push("'>");
+                            firms.push("'><span class='list_table_td'>");
                             firms.push($(this)[0].invstor)
-                            firms.push("</li>");
+                            firms.push("</span></li>");
                         }
                    }
                 })

@@ -47,7 +47,7 @@ function eventInfoListFormatter(data,div){
                         if(json.isClick==1){
                            if(json.isLeader==1){
                                 if(json.type=="invst"){
-                                    firms.push('<div><span class="list_table_td"><a target="_blank" href="/jg_particulars.html?orgId=')
+                                    firms.push('<div class="ling_t"><span class="list_table_td"><a target="_blank" href="/jg_particulars.html?orgId=')
                                     firms.push(json.id)
                                     firms.push('" class=\'invstorName\' title="')
                                     firms.push(json.invstor)
@@ -55,7 +55,7 @@ function eventInfoListFormatter(data,div){
                                     firms.push(json.invstor)
                                     firms.push('</a><label class="lticon">领投</label></span></div>');
                                 }else{
-                                    firms.push('<div><span class="list_table_td"><a target="_blank" href="/project_qy.html?code=');
+                                    firms.push('<div class="ling_t"><span class="list_table_td"><a target="_blank" href="/project_qy.html?code=');
                                     firms.push(json.code)
                                     firms.push('" class=\'invstorName\' title="')
                                     firms.push(json.invstor)
@@ -65,7 +65,7 @@ function eventInfoListFormatter(data,div){
                                 }
                            }else{
                                 if(json.type=="invst"){
-                                    firms.push('<div><a target="_blank" href="/jg_particulars.html?orgId=')
+                                    firms.push('<div class="ling_t"><a target="_blank" href="/jg_particulars.html?orgId=')
                                     firms.push(json.id)
                                     firms.push('" class=\'invstorName\' title="')
                                     firms.push(json.invstor)
@@ -73,7 +73,7 @@ function eventInfoListFormatter(data,div){
                                     firms.push(json.invstor)
                                     firms.push('</a></div>');
                                 }else{
-                                    firms.push('<div><a target="_blank" href="/project_qy.html?code=')
+                                    firms.push('<div class="ling_t"><a target="_blank" href="/project_qy.html?code=')
                                     firms.push(json.code)
                                     firms.push('" class=\'invstorName\' title="')
                                     firms.push(json.invstor)

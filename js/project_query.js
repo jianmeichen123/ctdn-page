@@ -200,13 +200,13 @@ var tableFormate ={
                     	}*/
                         if(json.id){
                             if(json.type=='invst'&&json.isClick==1){
-                                investTitle+='<center><span class="list_table_td"><a target="_blank" href="/jg_particulars.html?orgId='+json.id+'" title="'+json.invstor.replace("<firm>","").replace("</firm>","")+'" class="invstorName">'+con+'</a></span></center>';
+                                investTitle+='<center><span class="list_table_bbad"><a target="_blank" href="/jg_particulars.html?orgId='+json.id+'" title="'+json.invstor.replace("<firm>","").replace("</firm>","")+'" class="invstorName">'+con+'</a></span></center>';
                             }
                             if(json.type=='invst'&&json.isClick==0){
                                 investTitle+='<center><span class="list_table_td invstorName" title="'+json.invstor.replace("<firm>","").replace("</firm>","")+'">'+con+'</span></center>';
                             }
                             if(json.type=='com'){
-                                investTitle+='<center><span class="list_table_td"><a target="_blank" href="/project_qy.html?code='+json.code+'"  title="'+json.invstor.replace("<firm>","").replace("</firm>","")+'" class="invstorName">'+con+'</a></span></center>';
+                                investTitle+='<center><span class="list_table_bbad"><a target="_blank" href="/project_qy.html?code='+json.code+'"  title="'+json.invstor.replace("<firm>","").replace("</firm>","")+'" class="invstorName">'+con+'</a></span></center>';
                             }
                             if(json.type!='invst'&&json.type!='com'){
                                 investTitle+='<center><span class="list_table_td invstorName" title="'+json.invstor.replace("<firm>","").replace("</firm>","")+'">'+con+'</span></center>';

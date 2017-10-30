@@ -11,7 +11,7 @@ div.jqcloud a {
   text-decoration: none;
 }
 .append_div {
-	background: black;color:#FFFFFF; opacity:0.5; text-align: center; position: absolute; height: 100px; width: 80px; 
+	background: black;color:#FFFFFF; opacity:0.5; text-align: center; position: absolute; height: 40px; width: 80px; 
 }
 
 div.jqcloud span.w10 { font-size: 400%; }
@@ -29,7 +29,7 @@ div.jqcloud span.w1 { font-size: 110%; }
 
 div.jqcloud { color: #09f; }
 div.jqcloud a { color: inherit; }
-div.jqcloud span:hover { color: red; font-size: 40px; font-weight: bold;}
+div.jqcloud span:hover { color: red; font-weight: bold;}
 div.jqcloud span.w10 { color: #fd7239; }
 div.jqcloud span.w9 { color: #f78b31; }
 div.jqcloud span.w8 { color: #f69749; }

@@ -9,14 +9,22 @@
 //}
 
 
-//线上
 var Constants = {
-	platformContentURL: "http://ctdndev.gi.com/api/",
+	platformContentURL: "http://10.10.1.73:8081/api/",
 	userContentURL: "http://ctdndev.gi.com/user/",
-	searchContentURL: "http://ctdndev.gi.com/search/",
-	dataContentURL: "http://ctdndev.gi.com/data/",
-    logoPath: "http://static.galaxyinternet.com/"
+	searchContentURL: "http://10.9.130.135:8089/search/",
+	dataContentURL: "http://10.10.1.74:8085/data/",
+	logoPath: "http://static.galaxyinternet.com/"
 }
+
+//线上
+//var Constants = {
+//	platformContentURL: "http://ctdndev.gi.com/api/",
+//	userContentURL: "http://ctdndev.gi.com/user/",
+//	searchContentURL: "http://ctdndev.gi.com/search/",
+//	dataContentURL: "http://ctdndev.gi.com/data/",
+//    logoPath: "http://static.galaxyinternet.com/"
+//}
 var home = {
 	    index : "http://ctdndev.gi.com"
 	}

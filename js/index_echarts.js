@@ -49,7 +49,7 @@ var option = {
 	    yAxis : [
 	        {
 	            type : 'value',
-                name:'新增投资事件',
+                name:'                   新增投资事件数（本季度）',
                 axisTick:{
   	  			  show:false
   	  			 },
@@ -64,6 +64,15 @@ var option = {
 				        fontSize:'12'
 				    }
 				},
+				splitLine:{//网格线的格式
+					// show:false//去掉y轴上的网格线——
+					lineStyle:{
+					color: '#e5e5e5',//网格线颜色
+					width: 1,//网格线宽度
+					type: 'solid'//网格线样式
+
+					}
+				},
 				axisLine:{
 				  show:false,
 				  lineStyle:{
@@ -77,7 +86,7 @@ var option = {
 	    ],
 	    series : [],
 	};
-    var json ={}
+    var json ={"year":"2017"}
 	sendPostRequestByJsonObj(platformUrl.eventIndustryMonth,json,function(data){
 	    var data = data.data;
 	    option.xAxis[0].data= data.industryNameList
