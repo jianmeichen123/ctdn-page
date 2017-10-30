@@ -1,25 +1,22 @@
 //本地
-
-//var Constants = {
-//	platformContentURL: "http://127.0.0.1:8081/api/",
-//	userContentURL: "http://ctdndev.gi.com/user/",
-//	searchContentURL: "http://10.9.130.135:8089/search/",
-//	dataContentURL: "http://ctdndev.gi.com/data/",
-//	logoPath: "http:///10.10.0.147/"
-//}
-
-
+var Constants = {
+	platformContentURL: "http://10.10.1.73:8081/api/",
+	userContentURL: "http://ctdndev.gi.com/user/",
+	searchContentURL: "http://10.9.130.135:8089/search/",
+	dataContentURL: "http://10.10.1.74:8085/data/",
+	logoPath: "http://static.galaxyinternet.com/"
+}
 
 //线上
-var Constants = {
-	platformContentURL: "http://ctdnrc.galaxyinternet.com/api/",
-	userContentURL: "http://ctdnrc.galaxyinternet.com/user/",
-	searchContentURL: "http://ctdnrc.galaxyinternet.com/search/",
-	dataContentURL: "http://ctdnrc.galaxyinternet.com/data/",
-    logoPath: "http://static.galaxyinternet.com/"
-}
+//var Constants = {
+//	platformContentURL: "http://ctdndev.gi.com/api/",
+//	userContentURL: "http://ctdndev.gi.com/user/",
+//	searchContentURL: "http://ctdndev.gi.com/search/",
+//	dataContentURL: "http://ctdndev.gi.com/data/",
+//    logoPath: "http://static.galaxyinternet.com/"
+//}
 var home = {
-	    index : "http://ctdnrc.galaxyinternet.com"
+	    index : "http://ctdndev.gi.com"
 	}
 var docUrl = {
 
@@ -54,7 +51,7 @@ var dataUrl = {
 }
 
 var platformUrl = {
-	me:Constants.userContentURL+"userlogin/me",
+//	me:Constants.userContentURL+"userlogin/me",
 	allQuery:Constants.platformContentURL+"common/allQuery",
 	industry:Constants.platformContentURL+"common/industry",
 	userIndustry:Constants.platformContentURL+"index/userIndustry/",
