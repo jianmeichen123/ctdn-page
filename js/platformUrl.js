@@ -1,9 +1,9 @@
 //本地
 
 //var Constants = {
-//	platformContentURL: "http://127.0.0.1:8081/api/",
-//	userContentURL: "http://ctdndev.gi.com/user/",
-//	searchContentURL: "http://127.0.0.1:8089/search/",
+//	platformContentURL: "http://10.9.130.143:8081/api/",
+//	userContentURL: "http://127.0.0.1/user/",
+//	searchContentURL: "http://10.9.130.135:8089/search/",
 //	dataContentURL: "http://127.0.0.1:8085/data/",
 //	logoPath: "http://static.galaxyinternet.com/"
 //}
