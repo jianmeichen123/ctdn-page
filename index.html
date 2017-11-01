@@ -4,10 +4,10 @@
 	<meta charset="utf-8">
 	<title>首页</title>
 	<!--basis-->
-	{(basis.html)}
+	{(dn_basis.html)}
 	<style>
 	.nav_nav{display:none;}
-	body {background-image:url(img/bj.jpg); background-position:center 0 ;       background-color: #f7f7f7;  background-repeat: no-repeat;	}
+	body {background-image:url(img/dn/banner.jpg); background-position:center 0 ;       background-color: #f7f7f7;  background-repeat: no-repeat;	}
 	.nav_bj{  
      /*  filter:alpha(opacity=50);  
       -moz-opacity:0.5;  
@@ -20,302 +20,158 @@
 	</style>
 </head>
 
-<body data-page-parent="trdt">
-{(header.html)}
+<body>
+<div style="height:630px;"></div>
 
-<div class="index_bj_tit">
-	<div class="nav_all_tit"></div>
-	<div class="container ">
-		<ul class="nav_all_tit_ul">
-			<li>
-				<ul>
-					<li class="tnav_all_tit_ul_1 total-project" >0</li>
-					<li class="tnav_all_tit_ul_2">收录创业项目</li>
-				</ul>
-			</li>
-			<li>
-				<ul>
-					<li class="tnav_all_tit_ul_1 total-org">0</li>
-					<li class="tnav_all_tit_ul_2">投资机构</li>
-				</ul>
-			</li>
-			<li>
-				<ul>
-					<li class="tnav_all_tit_ul_1 total-investevent">0</li>
-					<li class="tnav_all_tit_ul_2">投资事件 </li>
-				</ul>
-			</li>
-		</ul>
-	</div>
-
-</div>
-<div class="container">
-	<div class="bj_fff"style=" margin-top:60px;">
-		<div class="index_titnew"><span class="spanon">行业动态</span></div>
-		<div id="index_eachart_l" style="height:385px; width：100%; background-color:#fff;"></div>
-
-	</div>
-
-</div>
 
 <div class="container">
-	<div class="index_l">
-		<div class="bj_fff m_t10" >
-			<div class="index_titnew" data-block="queryLatestProjects"><span class="spanon" >发现项目</span> <div class="fr font_12"><a href="/list_page_com.html">更多</a></div></div>
-			<ul class="indul_4">
-				{-raw-}
-				<script id="queryLatestProjects" type="text/x-jquery-tmpl">
-							{{if data.length >0}}
-								{{each(i,v) data}}
-									<li>
-										<div class="indul_4_1">
-											<!--<img src="http:///10.10.0.147/212e9286f44f32890c9bbc78a2b2efa7.png">-->
-											<img src="http://static.galaxyinternet.com/${v.logoSmall}">
-										</div>
-										<div class="indul_4_2"><a href="/project_qy.html?code=${v.sourceCode}">${v.projTitle}</a></div>
-										<div class="indul_4_3"><span class="bj_9"></span>${v.districtSubName}<span class="indul_4_3_2">${v.latestFinanceRound}</span></div>
-										<div class="indul_4_4">${v.firmDesc}</div>
-										<div class="indul_4_5">
-											<ul class="index_xm_ul">
-												{{html formatLabels(v.labels)}}
-											</ul>
-										</div>
-									</li>
-								{{/each}}
-							{{else}}
-								<span>暂无数据</span>
-							{{/if}}
-						</script>
-				{-raw-}
-				<!--<li>-->
-				<!--<div class="indul_4_1">-->
-				<!--<img src="http:///10.10.0.147/212e9286f44f32890c9bbc78a2b2efa7.png">-->
-				<!--</div>-->
-				<!--<div class="indul_4_2">奇瑞动力</div>-->
-				<!--<div class="indul_4_3"><span class="bj_9"></span>北京<span class="indul_4_3_2">B论</span></div>-->
-				<!--<div class="indul_4_4">动力外骨骼机器人研发制，动力外骨骼机器人研发制，动力外</div>-->
-				<!--<div class="indul_4_5">-->
-				<!--<ul class="index_xm_ul">-->
-				<!--<li>V拟现实</li>-->
-				<!--<li>VR虚拟实</li>-->
-				<!--<li>VR虚现实</li>-->
-				<!--</ul>-->
-				<!--</div>-->
-				<!--</li>-->
-				<!--<li>-->
-				<!--<div class="indul_4_1">-->
-				<!--<img src="http:///10.10.0.147/212e9286f44f32890c9bbc78a2b2efa7.png">-->
-				<!--</div>-->
-				<!--<div class="indul_4_2">奇瑞动力</div>-->
-				<!--<div class="indul_4_3"><span class="bj_9"></span>北京<span class="indul_4_3_2">B论</span></div>-->
-				<!--<div class="indul_4_4">动力外骨骼机器人研发制，动力外骨骼机器人研发制，动力外</div>-->
-				<!--<div class="indul_4_5">-->
-				<!--<ul class="index_xm_ul">-->
-				<!--<li>V拟现实</li>-->
-				<!--<li>VR虚拟实</li>-->
-				<!--<li>VR虚现实</li>-->
-				<!--</ul>-->
-				<!--</div>-->
-				<!--</li>-->
-				<!--<li>-->
-				<!--<div class="indul_4_1">-->
-				<!--<img src="http:///10.10.0.147/212e9286f44f32890c9bbc78a2b2efa7.png">-->
-				<!--</div>-->
-				<!--<div class="indul_4_2">奇瑞动力</div>-->
-				<!--<div class="indul_4_3"><span class="bj_9"></span>北京<span class="indul_4_3_2">B论</span></div>-->
-				<!--<div class="indul_4_4">动力外骨骼机器人研发制，动力外骨骼机器人研发制，动力外</div>-->
-				<!--<div class="indul_4_5">-->
-				<!--<ul class="index_xm_ul">-->
-				<!--<li>V拟现实</li>-->
-				<!--<li>VR虚拟实</li>-->
-				<!--<li>VR虚现实</li>-->
-				<!--</ul>-->
-				<!--</div>-->
-				<!--</li>-->
-				<!--<li>-->
-				<!--<div class="indul_4_1">-->
-				<!--<img src="http:///10.10.0.147/212e9286f44f32890c9bbc78a2b2efa7.png">-->
-				<!--</div>-->
-				<!--<div class="indul_4_2">奇瑞动力</div>-->
-				<!--<div class="indul_4_3"><span class="bj_9"></span>北京<span class="indul_4_3_2">B论</span></div>-->
-				<!--<div class="indul_4_4">动力外骨骼机器人研发制，动力外骨骼机器人研发制，动力外</div>-->
-				<!--<div class="indul_4_5">-->
-				<!--<ul class="index_xm_ul">-->
-				<!--<li>V拟现实</li>-->
-				<!--<li>VR虚拟实</li>-->
-				<!--<li>VR虚现实</li>-->
-				<!--</ul>-->
-				<!--</div>-->
-				<!--</li>-->
-			</ul>
-		</div>
-
-		<!-- qieh -->
-		<div class="bj_fff m_t10">
-			<div class="index_titnew index_titnew_on">
-				<span class="spanon">最新资讯</span>
-				<span class="index_titnew_l">最新投融资事件</span>
-				<div class="more fr font_12 none"><a href="/list_page_rz.html">更多</a></div>
-			</div>
-			<div  data-block="getLatestEventInfo">
-				<ul class="index_new_ul index_titnew_ulu none">
-					{-raw-}
-					<script id="getLatestEventInfo" type="text/x-jquery-tmpl">
-							{{if data.length >0}}
-								{{each(i,v) data}}
-									<li>
-										<img src="{{html Constants.logoPath+v.logo}}">
-										<ul class="index_new_ul_ul">
-											<li class="font_14"><a href="/tzsj_particulars.html?eventId=${v.eventId}">${v.company}</a></li>
-											<li class="color_666">${v.desc}</li>
-										</ul>
-										<div class="wrapper number_th_15 center m_l10">${v.round}</div>
-										<div class="wrapper number_th_12 m_l10">${v.amountStr}</div>
-										<div class="wrapper number_th_15 m_l10">
-											<ul>
-												{{html formatOrg(v.investSideJson) }}
-											</ul>
-										</div>
-										<div class="wrapper index_time"><span class="brain_ico brain_ico_project_time"></span><span>{{html formatDate(v.investDate)}}</span></div>
-									</li>
-								{{/each}}
-							{{else}}
-								<span>暂无数据</span>
-							{{/if}}
-						</script>
-					{-raw-}
-					<!--<li>-->
-					<!--<img src="http:///10.10.0.147/212e9286f44f32890c9bbc78a2b2efa7.png">-->
-					<!--<ul class="index_new_ul_ul">-->
-					<!--<li class="font_14">若森数字</li>-->
-					<!--<li class="color_666">若森数字是一家集动画技术研发、教育、若森数字是一家集动画技术研发、影视制作、动画教育、字</li>-->
-					<!--</ul>-->
-					<!--<div class="wrapper number_th_15 center m_l10">B轮</div>-->
-					<!--<div class="wrapper number_th_12 m_l10">420万人民币</div>-->
-					<!--<div class="wrapper number_th_15 m_l10"> -->
-					<!--<ul> -->
-					<!--<li>新加坡政府投资公司</li> -->
-					<!--<li>新加坡政府投资公司</li> -->
-					<!--</ul> -->
-					<!--</div>-->
-					<!--<div class="wrapper index_time"><span class="brain_ico brain_ico_project_time"></span><span>2017-1-21</span></div>-->
-					<!--</li>-->
+	<div class="dn_l_all">
+		<div class="dn_l">
+			<div  class="dnsy_tit">
+				<div><span class="dn_ico dn_ico_financing"></span><span class="dnsy_tit_size">投融快讯</span></div>
+				<ul>
+					<li>全部</li>
+					<li>机构</li>
+					<li>大公司</li>
+					<li>事件</li>
+					<li>人物</li>
+					<li>政策</li>
+					<li>行业</li>
+					<li>新产品</li>
+					
 				</ul>
+				<div class="dnsy_list"><a href="#">更多</a></div>
 			</div>
-			<div data-block="news" >
-				<ul class="new_index_9 index_titnew_ulu">
-					{-raw-}
-					<script id="news" type="text/x-jquery-tmpl">
-					{{if records.length >0}}
-						{{each(i,v) records}}
-							<li>
-								{{if v.imgUrl == ""}}
-									<div class="fl"><img src="/img/defalut_img/default3.jpg"></div>
-								{{else}}
-									<div class="fl"><img src="${v.imgUrl}" href="${v.url}"></div>
-								{{/if}}
-								<ul class="new_index_9_ul">
-									<li class="new_index_9_ul_1"><a href ="${v.url}">${v.title}</a></li>
-									<li class="new_index_9_ul_2">${v.abs}</li>
-									<li class="new_index_9_ul_3">${v.publicTime}  ${v.author}</li>
+			<div class="dn_info_list">
+				<ul>
+					<li>
+						<div class="dn_info_list_show">
+							<div class="dn_info_list_show_l"><img src="img/dn/l.png"></div>
+							<div class="dn_info_list_show_r">
+								<ul>
+									<li class="dn_info_list_tit">携程捆绑销售风波背后：盈利压力与负重前行</li>
+									<li class="dn_info_list_cen">携程捆绑销售风波背后：盈利压力与负重前行携程捆绑销售风波背后：盈利压力与负重前行携程捆绑销售风波背后：盈利压力与负重前行携程捆绑销售风波背后：盈利压力与负重前行携程捆绑销售风波背后：盈利压力与负重前行携程捆绑销售风波背后：盈利压力与负重前行</li>
+									<li class="dn_info_list_ic"><span>1小时前</span><span>来自：投资中国</span></li>
 								</ul>
-							</li>
-						{{/each}}
-					{{else}}
-						<span>暂无数据</span>
-					{{/if}}
-				</script>
-					{-raw-}
+							</div>
+						</div>
+						<div class="dn_sy_line"></div>
+					</li>
+					<li>
+						<div class="dn_info_list_show">
+							<div class="dn_info_list_show_l"><img src="img/dn/l.png"></div>
+							<div class="dn_info_list_show_r">
+								<ul>
+									<li class="dn_info_list_tit">携程捆绑销售风波背后：盈利压力与负重前行</li>
+									<li class="dn_info_list_cen">携程捆绑销售风波背后：盈利压力与负重前行携程捆绑销售风波背后：盈利压力与负重前行携程捆绑销售风波背后：盈利压力与负重前行携程捆绑销售风波背后：盈利压力与负重前行携程捆绑销售风波背后：盈利压力与负重前行携程捆绑销售风波背后：盈利压力与负重前行</li>
+									<li class="dn_info_list_ic"><span>1小时前</span><span>来自：投资中国</span></li>
+								</ul>
+							</div>
+						</div>
+						<div class="dn_sy_line"></div>
+					</li>
+					<li>
+						<div class="dn_info_list_show_noimg">
+							<ul>
+								<li class="dn_info_list_tit">携程捆绑销售风波背后：盈利压力与负重前行</li>
+								<li class="dn_info_list_cen">携程捆绑销售风波背后：盈利压力与负重前行携程捆绑销售风波背后：盈利压力与负重前行携程捆绑销售风波背后：盈利压力与负重前行携程捆绑销售风波背后：盈利压力与负重前行携程捆绑销售风波背后：盈利压力与负重前行携程捆绑销售风波背后：盈利压力与负重前行</li>
+								<li class="dn_info_list_ic"><span>1小时前</span><span>来自：投资中国</span></li>
+							</ul>
+						</div>
+						<div class="dn_sy_line"></div>
+					</li>
 				</ul>
 			</div>
 		</div>
-		<!-- qieend -->
+		<!-- 投融事件 -->
+		<div class="dn_l m_t10">
+			<div  class="dnsy_tit no_border">
+				<div><span class="dn_ico dn_ico_event"></span><span class="dnsy_tit_size">投融事件</span></div>
+				<div class="dnsy_list"><a href="#">更多</a></div>
+			</div>
+			<div class="dn_info_list">
+				<ul>
+					<li>
+						<div class="dn_info_list_show padding_tb20">
+							<ul>
+								<li class="event_img"><img src="img/dn/l.png"></li>
+								<li class="event_tit">
+									<div class="event_tit_t">优投网</div>
+									<div class="event_tit_c">若森数字是一家集动画技术研发、影视制作东华教育、科技研发为主的公司。</div>
+								</li>
+								<li class="event_turn">轮次未知</li>
+								<li class="event_money">2亿5000万美金</li>
+								<li class="event_financing">
+									<ul>
+										<li>松禾资本</li>
+									</ul>
+								</li>
+								<li class="event_time">2017-01-24</li>
+							</ul>
+						</div>
+						<div class="dn_sy_line_event"></div>
+					</li>
+					
+				</ul>
+			</div>
+		</div>
+	</div>
+	<div class="dn_r_all">
+		<div class="dn_r">
+			<div  class="dnsy_tit no_border">
+				<div><span class="dn_ico dn_ico_subject"></span><span class="dnsy_tit_size">专题</span></div>
+				<div class="dnsy_list"><a href="#">更多</a></div>
+			</div>
+			<div class="subject_all">
+				<ul>
+					<li>
+						<div class="subject_img">
+							<img src="img/dn/r.png">
+							<div class="subject_img_b">
+								<span class="dn_ico dn_ico_conpany"></span><span class="m_r20">3家公司</span>
+								<span class="dn_ico dn_ico_time"></span><span>3家公司</span>
+							</div>
+						</div>
+						<div class="subject_tit"><a href="#">睡眠监测创业创业创业创业创业创业创业创业创业项目推荐合辑</a></div>
+					</li>
+					<li>
+						<div class="subject_img">
+							<img src="img/dn/r.png">
+							<div class="subject_img_b">
+								<span class="dn_ico dn_ico_conpany"></span><span class="m_r20">3家公司</span>
+								<span class="dn_ico dn_ico_time"></span><span>3家公司</span>
+							</div>
+						</div>
+						<div class="subject_tit"><a href="#">睡眠监测创业创业创业创业创业创业创业创业创业项目推荐合辑</a></div>
+					</li>
+				</ul>
+			</div>
+		</div>
+		
+		<div class="dn_r m_t10">
+			<div  class="dnsy_tit no_border">
+				<div><span class="dn_ico dn_ico_report"></span><span class="dnsy_tit_size">行研报告</span></div>
+				<div class="dnsy_list"><a href="#">更多</a></div>
+			</div>
+			<div class="report_all">
+				<ul>
+					<li>
+						<p><a href="#">从dropbox、Udacity和Razer看美国互联网工具、在线教育和智能硬件独角兽</a></p>
+					</li>
+					<li>
+						<p><a href="#">在线教育和智能硬件独角兽</a></p>
+					</li>
+				</ul>
+			</div>
+		</div>
 	</div>
 
-
-	<!-- l end -->
-	<div class="index_r">
-		<div class="index_r_bj">
-			<div class="index_r_title">本季度最热关键词</div>
-			<div id="my_favorite_latin_words" class="jqcloud" style="height: 280px; width: 100%;     margin-top: -10px;"></div>
-		</div>
-		<div class="index_r_bj m_t10">
-			<div class="index_r_title" data-block="getOrgsByTimes">近7天活跃机构<div class="fr"><a href="/list_page_org.html" >查看全部</a></div></div>
-			<ul class="index_ul_g">
-				{-raw-}
-				<script id="getOrgsByTimes" type="text/x-jquery-tmpl">
-                {{if data.length >0}}
-                    {{each(i,v) data}}
-					  <li><img src="http://static.galaxyinternet.com//org/${v.orgid}.png"><a href="/jg_particulars.html?orgId=${v.orgid}">${v.orgname}</a><div class="fr">${v.times}</div></li>
-                    {{/each}}
-                {{else}}
-                    <span>暂无数据</span>
-                {{/if}}
-            </script>
-				{-raw-}
-			</ul>
-			<div class="index_div"><span class="fr"></span></div>
-		</div>
-		<div class="index_r_bj m_t_10">
-			<div class="index_r_title" data-block="getOrgsByAllTimes">机构排名<div class="fr"><a href="/list_page_org.html" >查看全部</a></div></div>
-			<ul class="index_ul_g_x">
-				{-raw-}
-				<script id="getOrgsByAllTimes" type="text/x-jquery-tmpl">
-                    {{if data.length >0}}
-                        {{each(i,v) data}}
-                                <li>
-                                    {{if i == 0}}
-                                         <span class="index_ico_one">1</span>
-                                    {{else  i == 1}}
-                                        <span class="index_ico_two">2</span>
-                                    {{else  i == 2}}
-                                        <span class="index_ico_three">3</span>
-                                    {{else}}
-                                        <span >${i+1}</span>
-                                    {{/if}}
-                                <a href="/jg_particulars.html?orgId=${v.orgid}">${v.orgname}</a><div class="fr">${v.times}</div>
-                            </li>
-                        {{/each}}
-                    {{else}}
-                        <span>暂无数据</span>
-                    {{/if}}
-                    </script>
-				{-raw-}
-			</ul>
-			<div>&nbsp;</div>
-		</div>
-
-
-	</div>
 </div>
+
+
 
 </body>
-<script src="js/platformUrl.js"></script>
-<script src="js/common.js"></script>
-<script src="js/jquery.tmpl.js"></script>
-<!-- echarts 关注行业动态 -->
-<script src="js/echarts.min.js"></script>
-<script src="js/index_echarts.js"></script>
-<script src="js/index.js"></script>
-<!-- 本季度最热关键词 -->
-<script src="js/jqcloud-1.0.4.js"></script>
-<link href="js/jqcloud.css" rel="stylesheet">
-<script src="js/index_jqcloud.js"></script>
-<script>
-//导航定位
-nav_locaton('index','yl','','');
-$('.index_titnew_on span').click(function(){
-	$()
-	$('.index_titnew_ulu').hide();
-	$('.index_titnew_on span').removeClass('spanon');
-	$(this).addClass('spanon');
-	if($(this).text()=='最新资讯'){
-		$('.new_index_9').show();
-		$('.more').hide();
-	}else{
-		$('.index_new_ul').show();
-		$('.more').show();
-	}
-})
-</script>
+
+
+
 </html>
