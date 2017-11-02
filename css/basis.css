@@ -136,10 +136,10 @@ input{outline: none;}
 .industry_li_on{background-color:#f78123; color:#fff !important;}
 .no_two_industry .industry_list{width:131px;}
 /*导航*/
-.nav_bj{ background-color:#373e5a; height:61px;    position: relative; }
-.logo{display:block; float:left; width:122px; height:36px; margin-top:7px;}
+.nav_bj{ background-color:#2d3245; height:68px;    position: relative; }
+.logo{display:block; float:left; width:122px; height:36px; margin-top:16px;}
 .nav_all_bj{width:329px; height:60px;background-image:url(../img/nav_d.jpg);  background-repeat:no-repeat;   position: absolute;}
-.nav_all{ height:60px; position:relative;  }
+.nav_all{ height:68px; position:relative;  }
 .nav_all>ul{ margin-left:40px; float:left; overflow:hidden; margin-top: 2px;}
 .nav_all>ul li{ float:left; font-size:16px; color:#fff; margin-top: 14px; margin-left:60px;}
 .nav_all>ul .nav_on a{ color:#f78123}
