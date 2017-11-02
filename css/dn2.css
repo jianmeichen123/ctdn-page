@@ -10,7 +10,7 @@ em,i{font-style:normal;}
 .info-nav-content:after{content:'\0020';display:block;height:0;clear:both;}
 .info-list{width:100%;padding:0px 20px;}
 .info-list-title{padding:20px 20px;border:1px solid #f0f0f0;background:#fff;font-size:12px;color:#323333;}
-.info-list-title>span,em{color:red;}
+.title-color{color:red;}
 .info-list-item{width:100%;height:181px;border:1px solid #f0f0f0;background:#fff;cursor:pointer;}
 .info-list-item:hover{background:#f5f5f5;}
 .info-list-item dt{margin:24px 0px 19px  19px;}
@@ -25,3 +25,39 @@ em,i{font-style:normal;}
 .info-list-item .info-no-pic .info-tips{margin-top: 26px;margin-left: 130px;}
 .info-list-item .info-no-pic p{height:40px;overflow:hidden;text-overflow:ellipsis;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;}
 /*ÏîÄ¿*/
+.list-item{width:100%;height:172px;cursor:pointer;background:#fff;border-left:1px solid #f0f0f0;border-right:1px solid #f0f0f0;}
+/* .info-list-container{border:1px solid #f0f0f0} */
+.list-item-inner{width:98%;height:100%;border-bottom:1px solid #f0f0f0;margin:0 auto;}
+.list-item-left{width:80px;float:left;margin:20px 0 0 20px;}
+.list-item-right{float:right;width:1041px;}
+.list-item-inner:after{content:'\0020';display:block;height:0;clear:both;}
+.list-item-title{margin-top:23px;color:#323232;}
+.list-item-title span{display:inline-block;width:145px;height:20px;border-radius:20px;border:1px solid #999999;padding:2px 15px;;margin-left:9px;color:#333333;font-size:12px;}
+.list-item-content{color:#666666;font-size:13px;}
+.list-item-address{display:inline-block;width:14px;height:16px;vertical-align:middle;margin-right:9px;background:url('../img/address_03.png') no-repeat;}
+.list-item-finace{display:inline-block;width:16px;height:16px;vertical-align:middle;margin-left:20px;margin-right:10px;background:url('../img/address_05.png') no-repeat;}
+.list-item-tips{margin-top:40px;}
+.list-item:hover{background:#f5f5f5;}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
