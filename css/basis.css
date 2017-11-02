@@ -59,7 +59,7 @@ input{outline: none;}
 .time_ul li{ float:left; margin-top:10px; margin-right:10px;}
 .time_ul li input{ border:1px solid #cccccc; border-radius:4px; height:28px; width:100px; text-indent:5px; font-size:12px;}
 .table_seek{ width:300px; float:right; background-color:#fff; border-radius:15px; height:30px; border:1px solid #e6e6e6;}
-.brain_ico_seek{ background-position:0px -21px; width:17px; height:16px; display:block; float:right; margin-right:12px; margin-top:5px; cursor:pointer;}
+.brain_ico_seek{ background-position:0px -20px; width:17px; height:19px; display:block; float:right; margin-right:12px; margin-top:5px; cursor:pointer;}
 .table_seek input{ width:255px; height:28px; margin-left:10px; border:0; text-indent:5px;}
 .bj_fff{ background-color:#fff;}
 .block .table_style > thead > tr > th { text-align:center; font-weight: normal;border-bottom: 1px solid #f0f0f0 !important;;border-left:0px solid #f0f0f0; padding-top:16px; color:#666; padding-bottom:16px;}
@@ -137,21 +137,22 @@ input{outline: none;}
 .no_two_industry .industry_list{width:131px;}
 /*导航*/
 .nav_bj{ background-color:#2d3245; height:68px;    position: relative; }
-.logo{display:block; float:left; width:122px; height:36px; margin-top:16px;}
+.logo{display:block; float:left; width:122px; height:36px; margin-top:18px;}
 .nav_all_bj{width:329px; height:60px;background-image:url(../img/nav_d.jpg);  background-repeat:no-repeat;   position: absolute;}
 .nav_all{ height:68px; position:relative;  }
-.nav_all>ul{ margin-left:40px; float:left; overflow:hidden; margin-top: 2px;}
-.nav_all>ul li{ float:left; font-size:16px; color:#fff; margin-top: 14px; margin-left:60px;}
-.nav_all>ul .nav_on a{ color:#f78123}
-.nav_all ul a{color:#fff;}
+.nav_all>ul{ margin-left:36px; float:left; overflow:hidden; }
+.nav_all>ul li{ float:left;  font-size:16px; color:#fff;  margin-left:12px;}
+.nav_all>ul .nav_on a{ color:#fff; background-color:#2393f7; }
+.nav_all ul a{color:#fff; padding-left:24px; padding-right:24px; padding-top: 24px; display: block;  height:68px;}
 .nav_all ul a:hover{ text-decoration:none}
 .nav_nav ul li{ float:left; height:65px; text-align:center; width:75px; margin-left:60px;}
 .nav_nav{border-bottom:1px solid #d9d9d9; height:66px; background-color:#ffffff;}
 .nav_nav_name{ font-size:16px; color:#333333; margin-top:15px;}
 .nav_nav_name_x{ font-size:12px; color:#999;}
 .nav_two .nav_on{ border-bottom:4px solid #f78123;}
-.nav_all_input{ width:370px; height:32px; background-color:#a6aaae; border-radius:15px; float:left; margin-top:10px; margin-left:100px;}
-.nav_all_input input{ width:330px; margin-left:8px; text-indent:5px; float:left; height:30px; margin-top:1px; background-color:#a6aaae; border:0;border-radius:5px;}
+.nav_all_seek{float:left;     margin-left: 76px;}
+.nav_all_input{ width:275px; height:32px; background-color:#071026; display:none; border-radius:15px; float:left; margin-top:18px; margin-left:70px;}
+.nav_all_input input{ width:238px; margin-left:8px; text-indent:5px; float:left; height:30px;    color: #fff; font-size: 12px; background-color:#071026; border:0;border-radius:5px;}
 .nav_all_input .brain_ico_seek{    margin-top: 7px;}
 .nav_all_name{ float:right; color:#fff; font-size:12px; margin-top:18px;height: 36px; cursor:pointer;}
 .brain_ico_name{background-position:-28px -14px; width:16px; height:16px; display:inline-block;     margin-top: -3px;}
