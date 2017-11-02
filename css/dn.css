@@ -25,16 +25,18 @@ ul,ol,dl,dt,dd,p,img{ display:block; border:0;list-style:none; }
 .dn_info_list>ul>li{width:100%; padding-left:20px;}
 .dn_info_list>ul>li:hover{background-color:#f5f5f5; }
 .dn_info_list_show{width:100%; overflow: hidden; padding-right:20px;}
-.dn_info_list_show_l{margin-top:20px; margin-bottom:20px; float:left; width:242px; border:1px solid #eff0f2; border-radius:10px; height:142px}
-.dn_info_list_show_l img{width:240px; height:140px;}
+.dn_info_list_show_l{margin-top:10px; margin-bottom:24px; float:left; width:123px; border:1px solid #eff0f2; border-radius:10px; height:77px}
+.dn_info_list_show_l img{width:121px; height:75px;}
 .dn_sy_line{border-bottom:1px solid #f0f0f0; width:100%;  height:1px;}
-.dn_info_list_show_r{margin-top:40px; margin-left:20px;float:left; width:578px;}
-.dn_info_list_tit{font-size:16px; font-weight: bold;}
-.dn_info_list_cen{font-size:14px; color:#666666; height: 40px;    overflow: hidden;margin-top:12px; line-height:20px;}
-.dn_info_list_ic{font-size:12px; margin-top:20px;    text-align: right; color:#999999}
+.dn_info_list_show_r{margin-top:0px; margin-left:10px;float:left; width:706px;}
+.dn_info_list_tit{font-size:16px; font-weight: bold; padding-top:24px;}
+.dn_info_list_cen{font-size:14px; color:#666666; height: 40px;    overflow: hidden;margin-top:15px; line-height:20px;}
+.dn_info_list_ic{font-size:12px; margin-top:5px;  margin-bottom:24px;  text-align: right; color:#999999}
 .dn_info_list_ic span{padding-left:10px;}
-.dn_info_list_show_noimg{padding-top:20px; padding-bottom:20px;  padding-right:20px;}
+.dn_info_list_show_noimg{padding-right:20px;}
 .no_border{border:0;}
+.dn_ico_equity_trading{background-position: -25px -38px; width: 21px; height: 22px; display: inline-block; float:left; margin-left:20px;}
+.dn_ico_lable{background-position: 0px -38px; width: 21px; height: 20px; display: inline-block; float:left; margin-left:20px;}
 .dn_ico_report{background-position: -63px 0px; width: 21px; height: 20px; display: inline-block; float:left; margin-left:20px;}
 .dn_ico_time{background-position: -16px -24px; width: 15px; height: 12px; display: inline-block;      margin-right: 6px;}
 .dn_ico_conpany{background-position: 0px -24px; width: 15px; height: 12px; display: inline-block;     margin-right: 6px;}
@@ -67,5 +69,20 @@ ul,ol,dl,dt,dd,p,img{ display:block; border:0;list-style:none; }
 .report_all>ul>li:before{ content: "　";float:left; background-image: url(../img/dn/dn_ico.png); background-repeat: no-repeat; background-position: -143px -2px; width: 9px; height: 11px;}
 .report_all>ul>li>p{display:block;  margin-left: 20px; line-height:15px; max-height:30px; overflow:hidden;}
 .report_all>ul>li a{color:#333;}
-
-.height{height:400px; }
+/*融资快讯*/
+.lable_all{width:100%; overflow:hidden;}
+.dn_ico_equity_trading_area{background-position: -34px -27px; width: 8px; height: 8px; display: inline-block; float:left; margin-left:20px;     left: 69px;    position: absolute;}
+.lable_all>ul{width:100%; padding-right:20px; padding-bottom:30px;     overflow: hidden; }
+.lable_all>ul>li{margin-top:20px; margin-left:20px; float:left;  padding-left:12px; padding-right:12px; cursor:pointer; border:1px solid #b3dbff; height:30px; line-height:30px; border-radius:15px; font-size:12px;}
+.lable_all>ul>li:hover,.lable_all>ul>.lable_on{border:1px solid #2393f7; color:#fff; background-color:#2393f7}
+.equity_trading_all>ul{width:100%; overflow:hidden; padding-bottom:30px;  padding-top: 40px;}
+.equity_trading_all>ul>li{padding-left:20px; position:relative;     margin-top: -40px;  overflow:hidden; padding-right:20px; float:none;}
+.equity_trading_l{font-size:12px; color:#999999; border-right:1px solid #cee8ff; float:left; height:80px; width:73px; margin-top: 40px;}
+.equity_trading_time{position:absolute; top: 35px;}
+.equity_trading_r{float:left;  margin-left:12px; margin-top:20px; height:50px;}
+.equity_trading_r img{width:50px; height:50px; border:1px solid #f0f0f0; float:left;}
+.equity_trading_r_c{width:154px; margin-left:12px; float:left;}
+.equity_trading_r_tit{font-size:14px; margin-top:5px; }
+.equity_trading_r_cen{font-size:12px; color:#666666}
+.news_click{font-size:12px; color:#999999; padding-left:20px;}
+.news_click_on{color:#2393f7;}
