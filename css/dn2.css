@@ -1,15 +1,6 @@
-@charset "utf-8";
-/*css-reset*/
-button {outline: none !important;}
-html,body,div,ul,ol,li,dl,dt,dd,p,span,em,strong,b,i,h1,h2,h3,h4,form,input,button,textarea,select,option,img,a{ margin:0; padding:0}
-ul,ol,dl,dt,dd,p,img{ display:block; border:0;list-style:none; }
-em,i,b{font-style:normal;}
-::-webkit-input-placeholder { color:#ccc;}
-:-moz-placeholder { /* Mozilla Firefox 4 to 18 */ã€€color:#ccc;ã€€}
-::-moz-placeholder { /* Mozilla Firefox 19+ */color:#ccc;}
-:-ms-input-placeholder { /* Internet Explorer 10+ */color:#ccc;}
 
-/*å’¨è¯¢*/
+
+/*×ÉÑ¯*/
 .info-top{width:100%;height:158px;background:#fff;display:-webkit-box;-webkit-box-pack:center;-webkit-box-align:center;}
 .info-search{width:536px;height:33px;margin:0 auto;}
 .info-search input{width:408px;border-radius:20px;height:100%;outline:none;border:1px solid #dbdbdb;padding-left:20px;}
@@ -21,14 +12,15 @@ em,i,b{font-style:normal;}
 .info-list{width:100%;padding:0px 20px;}
 .info-list-title{padding:20px 20px;border:1px solid #f0f0f0;background:#fff;font-size:12px;color:#323333;}
 .info-list-title>span,em{color:red;}
-.info-list-item{width:100%;height:181px;margin:0 auto;background:#fff;border-bottom:1px solid #f0f0f0;border-left:1px solid #f0f0f0;border-right:1px solid #f0f0f0;cursor:pointer;}
+.info-list-item{width:100%;height:181px;border:1px solid #f0f0f0;background:#fff;cursor:pointer;}
 .info-list-item:hover{background:#f5f5f5;}
-.info-list-item dt{width:241px;height:142px;margin:19px 0px 19px  19px;float:left;}
-.info-list-item dd{float:right;width:906px;margin-top:7px;}
+.info-list-item dt{margin:24px 0px 19px  19px;}
+.info-list-item dd{margin-top:7px;}
 .info-list-item dd h3{color:#333333;font-size:16px;font-weight:bold;}
-.info-list-item dd p{color:#666666;font-size:14px;}
-.info-list-item dd .info-tips{text-align:right;margin-right:20px;color:#999999;font-size:12px;margin-top:40px;}
+.info-list-item dd img{width:121px;height:75px;display:inline-block;border:1px solid #f0f0f0;margin-left:20px;}
+.info-list-item dd p{color:#666666;font-size:14px;display:inline-block;width:1035px;margin-left:10px;}
+.info-list-item dd .info-tips{text-align:right;margin-left:139px;color:#999999;font-size:12px;}
 .info-list dl{margin-bottom:0px;}
 .info-list-item .info-no-pic{width:100%;padding:0px 20px;}
-.container{border:1px solid;}
-
+.info-line{width:90%;margin:0 auto;border:1px solid #f0f0f0;}
+/*ÏîÄ¿*/
