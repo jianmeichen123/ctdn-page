@@ -38,9 +38,10 @@ em,i{font-style:normal;}
 .list-item-finace{display:inline-block;width:16px;height:16px;vertical-align:middle;margin-left:20px;margin-right:10px;background:url('../img/address_05.png') no-repeat;}
 .list-item-tips{margin-top:40px;}
 .list-item:hover{background:#f5f5f5;}
-
-
-
+/*»ú¹¹*/
+.institute-title span{width:40px;padding:2px 11px;}
+.list-item-case{color:#333333;font-size:15px;margin-top:21px;}
+.list-institute-content{margin-top:21px;}
 
 
 
