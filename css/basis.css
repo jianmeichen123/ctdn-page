@@ -151,8 +151,8 @@ input{outline: none;}
 .nav_nav_name_x{ font-size:12px; color:#999;}
 .nav_two .nav_on{ border-bottom:4px solid #f78123;}
 .nav_all_seek{float:left;     margin-left: 76px;}
-.nav_all_input{ width:275px; height:32px; background-color:#071026; display:none; border-radius:15px; float:left; margin-top:18px; margin-left:70px;}
-.nav_all_input input{ width:238px; margin-left:8px; text-indent:5px; float:left; height:30px;    color: #fff; font-size: 12px; background-color:#071026; border:0;border-radius:5px;}
+.nav_all_input{ width:255px; height:32px; background-color:#071026; display:none; border-radius:15px; float:left; position: relative; margin-top:20px; margin-left:70px;}
+.nav_all_input input{ width:218px; margin-left:8px; text-indent:5px; float:left; height:30px;    color: #fff; font-size: 12px; background-color:#071026; border:0;border-radius:5px;}
 .nav_all_input .brain_ico_seek{    margin-top: 7px;}
 .nav_all_name{ float:right; color:#fff; font-size:12px; margin-top:18px;height: 36px; cursor:pointer;}
 .brain_ico_name{background-position:-28px -14px; width:16px; height:16px; display:inline-block;     margin-top: -3px;}

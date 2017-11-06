@@ -522,3 +522,15 @@ $.extend($,{
  		$('.list_click_ul').hide();
  	}
  })
+ //导航搜索相关
+$('body').delegate('.dn_ico_search','click', function(event){
+ 	event.stopPropagation();
+ 	$('.nav_all_seek').hide();
+ 	$('.nav_all_input').show();
+ 	$('#nav_all_input').focus();
+})
+/*$('body').delegate('#nav_all_input','focusout', function(event){
+ 	event.stopPropagation();
+ 	$('.nav_all_seek').show();
+ 	$('.nav_all_input').hide();
+})*/
