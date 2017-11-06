@@ -35,7 +35,7 @@ em,i{font-style:normal;}
 .list-item-title{margin-top:23px;color:#323232;}
 .list-item-title a{ color:#323232}
 .list-item-title span{display:inline-block;height:20px;border-radius:20px;border:1px solid #999999;padding:0px 10px;;margin-left:9px;color:#333333; line-height:20px;font-size:12px;}
-.list-item-content{color:#666666;font-size:13px;}
+.list-item-content{color:#666666;font-size:14px;}
 .list-item-address{display:inline-block;width:14px;height:16px;vertical-align:middle;margin-right:9px;background:url('../img/dn/address_03.png') no-repeat;}
 .list-item-finace{display:inline-block;width:16px;height:16px;vertical-align:middle;margin-left:20px;margin-right:10px;background:url('../img/dn/address_05.png') no-repeat;}
 .list-item-tips{margin-top:40px;}
