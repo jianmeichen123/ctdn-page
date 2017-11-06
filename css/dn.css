@@ -82,6 +82,7 @@ ul,ol,dl,dt,dd,p,img{ display:block; border:0;list-style:none; }
 .report_all>ul>li:before{ content: "　";float:left; background-image: url(../img/dn/dn_ico.png); background-repeat: no-repeat; background-position: -143px -2px; width: 9px; height: 11px;}
 .report_all>ul>li>p{display:block;  margin-left: 20px; line-height:15px; max-height:30px; overflow:hidden;}
 .report_all>ul>li a{color:#333;}
+.report_all>ul>li a:hover{color:#2393f7;}
 /*融资快讯*/
 .lable_all{width:100%; overflow:hidden;}
 .dn_ico_equity_trading_area{background-position: -34px -27px; width: 8px; height: 8px; display: inline-block; float:left; margin-left:20px;     left: 69px;    position: absolute;}
@@ -98,6 +99,7 @@ ul,ol,dl,dt,dd,p,img{ display:block; border:0;list-style:none; }
 .equity_trading_r_tit{font-size:14px; margin-top:5px; }
 .equity_trading_r_cen{font-size:12px; color:#666666}
 .news_click{font-size:12px; color:#999999; padding-left:20px;}
+.news_click a{font-size:12px; color:#999999; }
 .news_click_on{color:#2393f7;}
 /*行研报告*/
 .report_detailed{padding:40px; overflow:hidden;}
@@ -117,7 +119,7 @@ ul,ol,dl,dt,dd,p,img{ display:block; border:0;list-style:none; }
 .report_list_all{width:100%; overflow:hidden;     background-color: #fff;  border-radius: 10px;}
 .report_list_all>ul>li{padding-left:20px; padding-right:20px; overflow:hidden;}
 .report_list_cen{width:1115px; float:right;  padding-top:30px; padding-bottom:30px;}
-.report_list_cen_tit{font-size:16px; color:#333;}
+.report_list_cen_tit a{font-size:16px; color:#333;}
 .report_list_cen_time{font-size:12px; color:#999; margin-top:10px;}
 .report_list_cen_time span{margin-right:20px;}
 .report_list_cen_c{font-size:14px; color:#666; margin-top:20px;}
