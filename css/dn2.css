@@ -36,8 +36,8 @@ em,i{font-style:normal;}
 .list-item-title a{ color:#323232}
 .list-item-title span{display:inline-block;height:20px;border-radius:20px;border:1px solid #999999;padding:2px 10px;;margin-left:9px;color:#333333;font-size:12px;}
 .list-item-content{color:#666666;font-size:13px;}
-.list-item-address{display:inline-block;width:14px;height:16px;vertical-align:middle;margin-right:9px;background:url('../img/address_03.png') no-repeat;}
-.list-item-finace{display:inline-block;width:16px;height:16px;vertical-align:middle;margin-left:20px;margin-right:10px;background:url('../img/address_05.png') no-repeat;}
+.list-item-address{display:inline-block;width:14px;height:16px;vertical-align:middle;margin-right:9px;background:url('../img/dn/address_03.png') no-repeat;}
+.list-item-finace{display:inline-block;width:16px;height:16px;vertical-align:middle;margin-left:20px;margin-right:10px;background:url('../img/dn/address_05.png') no-repeat;}
 .list-item-tips{margin-top:40px;}
 .list-item:hover{background:#f5f5f5;}
 /*»ú¹¹*/
@@ -47,10 +47,11 @@ em,i{font-style:normal;}
 /*error*/
 .info-error{margin:0 auto;width:244px;height:204px;margin-top:120px;}
 /*index*/
-.index_top{height:294px;background:url('../img/banner.png') no-repeat 151px 0px;}
-.index-top-content{width:1202px;height:157px;border:1px solid;margin:0 auto;}
+.index_top{height:412px;background:url('../img/dn/banner1.jpg') no-repeat center 0px; padding-top:40px;}
+.index-top-content{width:1240px;height:157px;border:1px solid;margin:0 auto;}
+.project_top_center{ height:140px; overflow:hidden; text-indent:2em;}
 .index-top-content h3{color:#fff;text-align:center;font-size:24px;}
-.index-top-content p{color:#fff;font-size:16px;margin-top:38px;}
+.index-top-content p{color:#fff;font-size:16px;margin-top:48px;}
 .index-top-content .index-top-tips{text-align:right;margin-top:47px;}
 .index-company{display:inline-block;width:13px;height:13px;margin-right:7px;vertical-align:middle;background:url('../img/company_03.png') no-repeat}
 .index-time{display:inline-block;width:13px;height:13px;margin-left:20px;margin-right:7px;vertical-align:middle;background:url('../img/time_03.png') no-repeat}
