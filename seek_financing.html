@@ -1,0 +1,129 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>投融快讯</title>
+	<!--basis-->
+	{(dn_basis.html)}
+</head>
+
+<body>
+{(header.html)}
+<div class="container">
+	<div class="seek_financing">
+		<div class="seek_financing_tit">提交项目</div>
+		<ul>
+			<li>
+				<div class="seek_financing_l"><span class="seek_financing_two">项目名称</span><span class="seek_financing_one">*</span></div>
+				<div class="seek_financing_r">
+					<input class="seek_financing_input" placeholder="请输入公司核心产品名称，不超过20个字">
+				</div>
+			</li>
+			<li>
+				<div class="seek_financing_l"><span class="seek_financing_two">所在地区</span><span class="seek_financing_one">*</span></div>
+				<div class="seek_financing_r">
+					<select class="seek_financing_select">
+						<option>111</option>
+					</select>
+					<select class="seek_financing_select seek_financing_select_lef">
+						<option>111</option>
+					</select>
+				</div>
+			</li>
+			<li>
+				<div class="seek_financing_l"><span class="seek_financing_two">项目介绍</span><span class="seek_financing_one">*</span></div>
+				<div class="seek_financing_r">
+					<textarea class="seek_financing_textarea" placeholder="产品描述、用户群体、项目愿景、竞争对手等方面详细描述，不超过1000个字"></textarea>
+				</div>
+			</li>
+			<li>
+				<div class="seek_financing_l"><span class="seek_financing_two">联系人姓名</span><span class="seek_financing_one">*</span></div>
+				<div class="seek_financing_r">
+					<input class="seek_financing_input" placeholder="联系人姓名">
+				</div>
+			</li>
+			<li>
+				<div class="seek_financing_l"><span class="seek_financing_two">商业计划书</span><span class="seek_financing_one">*</span></div>
+				<div class="seek_financing_r">
+					<div class="seek_put"><span class="dn_ico dn_ico_seek_pur1"></span>上传文件</div>
+				</div>
+			</li>
+			<li class="seek_show_on">
+				<div class="seek_financing_l"><span class="seek_financing_two">项目LOGO</span></div>
+				<div class="seek_financing_r">
+					<div class="seek_put"><span class="dn_ico dn_ico_seek_pur2"></span>上传logo</div>
+				</div>
+			</li>
+			<li class="seek_show_on">
+				<div class="seek_financing_l"><span class="seek_financing_two">所属领域</span></div>
+				<div class="seek_financing_r">
+					<select class="seek_financing_select">
+						<option>111</option>
+					</select>
+					<select class="seek_financing_select seek_financing_select_lef">
+						<option>111</option>
+					</select>
+				</div>
+			</li>
+			<li class="seek_show_on">
+				<div class="seek_financing_l"><span class="seek_financing_two">产品网址</span></div>
+				<div class="seek_financing_r">
+					<input class="seek_financing_input" placeholder="产品网址">
+				</div>
+			</li>
+			<li class="seek_show_on">
+				<div class="seek_financing_l"><span class="seek_financing_two">公司全称</span></div>
+				<div class="seek_financing_r">
+					<input class="seek_financing_input" placeholder="请输入工商注册公司全称，不超过40个字">
+				</div>
+			</li>
+			<li class="seek_show_on">
+				<div class="seek_financing_l"><span class="seek_financing_two">公司地址</span></div>
+				<div class="seek_financing_r">
+					<input class="seek_financing_input" placeholder="公司地址">
+				</div>
+			</li>
+			<li class="seek_show_on">
+				<div class="seek_financing_l"><span class="seek_financing_two">融资轮次</span></div>
+				<div class="seek_financing_r">
+					<input class="seek_financing_input" placeholder="请输入公司核心产品名称，不超过20个字">
+				</div>
+			</li>
+			<li class="seek_show_on">
+				<div class="seek_financing_l"><span class="seek_financing_two">融资金额</span></div>
+				<div class="seek_financing_r">
+					<input class="seek_financing_input" placeholder="请输入您需要的融资金额">
+					<div class="seek_financing_absolute">万元　(人民币)</div>
+				</div>
+			</li>
+			<li class="seek_show_on">
+				<div class="seek_financing_l"><span class="seek_financing_two">出让股份</span></div>
+				<div class="seek_financing_r">
+					<input class="seek_financing_input" placeholder="请输入出让的股份（百分比）">
+					<div class="seek_financing_absolute">%</div>
+				</div>
+			</li>
+		</ul>
+		<div class="seek_show"><span class="seek_show_open"><span class="seek_show_blue">完善信息　</span>可以加速融资进度哦~<span class="dn_ico dn_ico_seek_open"></span></span><span class="seek_show_off"><span class="seek_show_blue">收起</span><span class="dn_ico dn_ico_seek_off"></span></span></div>
+		<div class="seek_submit">提交项目</div>
+	</div>
+</div>
+
+
+
+</body>
+<script>
+	$('.seek_show_open').click(function(event){
+		$(this).hide();
+		$('.seek_show_on').show();
+		$('.seek_show_off').show();
+	})
+	$('.seek_show_off').click(function(event){
+		$(this).hide();
+		$('.seek_show_on').hide();
+		$('.seek_show_open').show();
+	})
+</script>
+
+
+</html>

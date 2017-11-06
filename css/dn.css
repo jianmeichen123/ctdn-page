@@ -123,3 +123,31 @@ ul,ol,dl,dt,dd,p,img{ display:block; border:0;list-style:none; }
 .report_list_cen_time{font-size:12px; color:#999; margin-top:10px;}
 .report_list_cen_time span{margin-right:20px;}
 .report_list_cen_c{font-size:14px; color:#666; margin-top:20px;}
+/*寻求融资*/
+.seek_financing{width:1100px; overflow:hidden; margin-left:auto; margin-right:auto; background-color:#fff; border:1px solid #f0f0f0; padding-left:20px; border-radius:10px; margin-top:20px; padding-right:20px; padding-bottom:40px}
+.seek_financing_tit{font-size:18px; color:#333; text-align:center; border-bottom:1px solid #e6e6e6; line-height:50px; height:50px; }
+.seek_financing_l{width:264px;  float:left; font-size:14px; color:#333;   padding-right: 20px; text-align:right; height:50px; line-height:50px;}
+.seek_financing_l>span{  float:right; display:block;}
+.seek_financing_one{color:#ff4e49; font-size:20px;  padding-right:10px;   padding-top: 3px;}
+.seek_financing_r{float:left; width:790px;     position: relative;}
+.seek_financing>ul{overflow:hidden;}
+.seek_financing>ul>li{margin-top:20px; overflow:hidden;}
+.seek_financing_input{width:620px; height:48px; line-height:50px; font-size:14px; border:1px solid #cccccc; text-indent:10px; border-radius:6px;}
+.seek_financing_textarea{width:620px; border:1px solid #cccccc; padding-top: 8px; height:129px; max-height:129px; text-indent:10px; border-radius:6px;}
+.seek_financing_absolute{    position: absolute; top:15px; right:185px;}
+.seek_financing_select{ width:298px; height:48px; line-height:50px; font-size:14px; border:1px solid #cccccc; text-indent:10px; border-radius:6px;}
+.seek_financing_select_lef{margin-left:20px;}
+.seek_show{width:100%; overflow:hidden; margin-top:28px;  font-size:14px;  text-align: center;}
+.seek_show_blue{color:#2393f7;}
+.seek_put{width:140px; background-color:#f0f0f0; border:1px solid #cccccc; height:50px; line-height:50px; text-align:center; border-radius:6px;}
+.seek_put:hover{background-color:#2393f7; border:1px solid #2393f7; color:#fff;}
+.dn_ico_seek_pur1{background-position: -100px -42px; width: 14px; height: 15px; display: inline-block;      margin-right: 6px;}
+.dn_ico_seek_pur2{background-position: -129px -41px; width: 14px; height: 15px;  display: inline-block;      margin-right: 6px;}
+.seek_put:hover .dn_ico_seek_pur1{background-position: -114px -42px; width: 14px; height: 15px;  display: inline-block;      margin-right: 6px;}
+.seek_put:hover .dn_ico_seek_pur2{background-position: -145px -41px; width: 14px; height: 15px;  display: inline-block;      margin-right: 6px;}
+.seek_show_off,.seek_show_on{display:none;}
+.seek_show_open ,.seek_show_off{    cursor: pointer;}
+.dn_ico_seek_open{background-position: -76px -43px; width: 10px; height: 12px; margin-left:10px; display: inline-block;      margin-right: 6px;}
+.dn_ico_seek_off{background-position: -87px -43px; width: 10px; height: 12px; margin-left:10px; display: inline-block;      margin-right: 6px;}
+.seek_submit{width:280px; background-color:#f0f0f0; cursor:pointer; border:1px solid #ccc; margin-left:auto; margin-right:auto; height:50px; line-height:50px; text-align:center; border-radius:25px; margin-top:30px;}
+.seek_submit:hover{widht:280px; background-color:#2393f7; border:1px solid #2393f7; color:#fff;}
