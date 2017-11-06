@@ -51,7 +51,7 @@ em,i{font-style:normal;}
 .index-top-content{width:1240px;height:157px;margin:0 auto;}
 .project_top_center{ height:140px; overflow:hidden; text-indent:2em;}
 .index-top-content h3{color:#fff;text-align:center;font-size:24px;}
-.index-top-content p{color:#fff;font-size:16px;margin-top:48px;}
+.index-top-content p{color:#fff;font-size:16px;margin-top:48px;  padding-right:20px;   padding-left: 20px;}
 .index-top-content .index-top-tips{text-align:right;margin-top:47px;}
 .index-company{display:inline-block;width:13px;height:13px;margin-right:7px;vertical-align:middle;background:url('../img/dn/company_03.png') no-repeat}
 .index-time{display:inline-block;width:13px;height:13px;margin-left:20px;margin-right:7px;vertical-align:middle;background:url('../img/dn/time_03.png') no-repeat}
