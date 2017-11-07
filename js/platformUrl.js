@@ -1,8 +1,8 @@
 //本地
 
 //var Constants = {
-//	platformContentURL: "http://10.9.130.143:8081/api/",
-//	userContentURL: "http://127.0.0.1/user/",
+//	platformContentURL: "http://127.0.0.1:8081/api/",
+//	//userContentURL: "http://127.0.0.1/user/",
 //	searchContentURL: "http://10.9.130.135:8089/search/",
 //	dataContentURL: "http://127.0.0.1:8085/data/",
 //	logoPath: "http://static.galaxyinternet.com/"
@@ -12,7 +12,7 @@
 var Constants = {
 	platformContentURL: "http://10.10.1.73:8081/api/",
 	userContentURL: "http://ctdndev.gi.com/user/",
-	searchContentURL: "http://10.9.130.135:8089/search/",
+	searchContentURL: "http://127.0.0.1:8089/search/",
 	dataContentURL: "http://10.10.1.74:8085/data/",
 	logoPath: "http://static.galaxyinternet.com/"
 }
@@ -41,13 +41,13 @@ var docUrl = {
 
 }
 var searchUrl = {
-    com:Constants.searchContentURL+"project",
+    project:Constants.searchContentURL+"project",
     investEvent:Constants.searchContentURL+"investEvent",
-    org:Constants.searchContentURL+"investfirms",
     quitEvent:Constants.searchContentURL+"quitEvent",
     mergeEvent:Constants.searchContentURL+"mergeEvent",
     launchEvent:Constants.searchContentURL+"launchEvent",
-    investOrg:Constants.searchContentURL+"investfirms",
+    investfirms:Constants.searchContentURL+"investfirms",
+    news:Constants.searchContentURL+"news"
 
 }
 var dataUrl = {
