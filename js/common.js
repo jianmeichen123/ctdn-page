@@ -511,6 +511,15 @@ $.extend($,{
 		 $('.project_nav [page_tab='+four_level+']').addClass("nav_on");
 	 }
  }
+//创投数据库
+ $('body').delegate('.nav_list_data_all','mouseenter mouseleave', function(event){
+ 	event.stopPropagation();
+ 	if(event.type == "mouseenter"){
+ 		$('.nav_list_data_all .nav_list_data').addClass("nav_list_data_on");
+ 	}else if(event.type == "mouseleave" ){
+ 		$('.nav_list_data_all .nav_list_data').removeClass("nav_list_data_on");
+ 	}
+ })
 //名字事件
  $('body').delegate('.nav_all_name','mouseenter mouseleave', function(event){
  	event.stopPropagation();
@@ -522,6 +531,7 @@ $.extend($,{
  		$('.list_click_ul').hide();
  	}
  })
+ 
  //导航搜索相关
 $('body').delegate('.dn_ico_search','click', function(event){
  	event.stopPropagation();
