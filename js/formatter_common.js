@@ -361,9 +361,9 @@ var tableFormate ={
 //替换占位符
 function injectValues(html,row){
        $.each(row,function(k,v){
-                    while(html.indexOf("${"+k+"}") > 1){
-                    html = html.replace("${"+k+"}",v)
-                    }
+            while(html.indexOf("${"+k+"}") > 1){
+                html = html.replace("${"+k+"}",v)
+            }
        })
        return html;
 }
@@ -385,10 +385,25 @@ function newsFormatter(value,row){
 }
 //项目formatter <span>F轮-上市前/55亿美元</span>
 function projectFormatter(value,row){
+    var projectName = row.projTitle
+    var img = ""
+    if(projectName==null){
+        projectName='名称未知'
+    }
+    if (row.logoSmall&&row.logoSmall.indexOf("/")!=-1){
+        img = row.logoSmall.split("/")[1]
+    }else if (row.logoSmall&&row.logoSmall!=""){
+        img = row.logoSmall
+    }
+    if(img.indexOf(".") == -1){
+        img = ""
+    }
+    if(!row.introduce) row.introduce="暂无"
+
 	var html = "<div class='list-item'>"+
 			"<div class='list-item-inner'>"+
 				"<div class='list-item-left'>"+
-					"<img src=''/>"+
+					"<img src='"+Constants.logoPath+img+"'>"+
 				"</div>"+
 				"<div class='list-item-right'>"+
 					"<p class='list-item-title'>${projTitle}<span>${latestFinanceRound}</span></p>"+
@@ -397,18 +412,61 @@ function projectFormatter(value,row){
 				"</div>"+
 			"</div>"+
 		"</div>"
+
    return injectValues(html,row);
 }
 //投资机构
 function investfirmFormatter(value,row){
+ var investOrg = row.investOrg
+        var orgArr = []
+        if(investOrg){
+            orgArr = investOrg.split("|")
+            if($("#projTitle").val()){
+                for(i in orgArr){
+                    var investOrgStr = orgArr[i]
+                    if(investOrgStr.indexOf($("#projTitle").val())>=0){
+                        if(investOrgStr.indexOf(';')>=0){
+                            var arr = investOrgStr.split(";")
+                            for(j in arr){
+                                if(arr[j].indexOf($("#projTitle").val())>=0){
+                                    investOrg = arr[j]
+                                    break
+                                }
+                            }
+                        }else{
+                            investOrg = investOrgStr
+                        }
+                        break;
+                    }
+                }
+            }else{
+                investOrg = orgArr[0]
+            }
+         }else{
+            investOrg = '名称未知'
+         }
+
+        var img = ""
+        if (row.logoSmall&&row.logoSmall!=""){
+            var imgArr = row.logoSmall.split("/")
+            if(imgArr[1]!=null){
+                img = imgArr[1]
+            }else{
+                img = imgArr[0]
+            }
+        }
+        if(img.indexOf(".") == -1){
+            img = ""
+        }
+
    	var html = "<div class='list-item'>"+
    			"<div class='list-item-inner'>"+
    				"<div class='list-item-left'>"+
-   					"<img src='${logo}'/>"+
+   					"<img src='"+Constants.logoPath+img+"'>"+
    				"</div>"+
    				"<div class='list-item-right'>"+
    					"<p class='list-item-title institute-title'>${investOrg}<span>${orgType}</span></p>"+
-   					"<p class='list-item-case'>投资事件:<span>${}</span></p>"+
+   					"<p class='list-item-case'>投资事件:<span>${investTotal}</span></p>"+
    					"<p class='list-item-content list-institute-content'>简介:服务方面的投入，在全国代理商签约学校出呼吁，</p>"
    				"</div>"+
    			"</div>"+

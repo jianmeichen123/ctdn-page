@@ -47,8 +47,8 @@ var searchUrl = {
     mergeEvent:Constants.searchContentURL+"mergeEvent",
     launchEvent:Constants.searchContentURL+"launchEvent",
     investfirms:Constants.searchContentURL+"investfirms",
-    news:Constants.searchContentURL+"news"
-
+    news:Constants.searchContentURL+"news",
+    total:Constants.searchContentURL+"total"
 }
 var dataUrl = {
     products:Constants.dataContentURL+"op/is/",

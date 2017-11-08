@@ -15,27 +15,26 @@
 <body>
 <div class="info-top">
 	<div class="info-search">
-		<input type='text' placeholder='滴滴' name=""/>
+		<input type='text' placeholder='滴滴' name="keyword"/>
 		<span class="search-btn">搜索</span>
 	</div>
 </div>
 <div class="container">
 	<div class='info-nav'>
 		<ul id ="test" class='info-nav-content'>
-			<li data-tab="news">资讯<span data-field="news_num">(5)</span></li>
-			<li data-tab="project">项目<span data-field="project_num">(3)</span></li>
-			<li data-tab="investfirms">机构<span data-field="investfirm_num">(26)</span></li>
-			<li data-tab="investEvent">投资事件<span data-field="investEvent">(3)</span></li>
-			<li data-tab="mergeEvent">并购事件<span data-field="mergeEvent">(1)</span></li>
-			<li data-tab="launchEvent">上市事件<span data-field="launchEvent">(0)</span></li>
+			<li data-tab="news"><span>资讯</span><span></span></li>
+			<li data-tab="project"><span>项目</span><span ></span></li>
+			<li data-tab="investfirms"><span>机构</span><span ></span></li>
+			<li data-tab="investEvent"><span>投资事件</span><span></span></li>
+			<li data-tab="mergeEvent"><span>并购事件</span><span></span></li>
+			<li data-tab="launchEvent"><span>上市事件</span><span></span></li>
 		</ul>
 	</div>
 	<div class='info-list info-list-container'>
 		<div class="info-list-title">
-			共搜索到 <span data-item="totalHit">3</span>  条内容中含有  <em data-field="keyword">'滴滴'</em>  的项目
+			<span id ="tip"></span>
 		</div>
-
-		<table  class="table table_white" data-url="news"  style="display:none">
+		<table  class="table table_white_search " data-url="news"  style="display">
 			<thead>
 			<tr>
 				<th class="data-input" style="" data-item="0" data-formatter="newsFormatter"></th>
@@ -43,7 +42,7 @@
 			</thead>
 		</table>
 
-		<table  class="table table_white" data-url="project" style="display:none">
+		<table  class="table table_white_search" data-url="project" style="display:none">
 			<thead>
 			<tr>
 				<th class="data-input" style="" data-item="0" data-formatter="projectFormatter"></th>
@@ -51,7 +50,7 @@
 			</thead>
 		</table>
 
-		<table  class="table table_white" data-url="investfirms" style="display:none" >
+		<table  class="table table_white_search" data-url="investfirms" style="display:none" >
 			<thead>
 			<tr>
 				<th class="data-input" style="" data-item="0" data-formatter="investfirmFormatter"></th>
