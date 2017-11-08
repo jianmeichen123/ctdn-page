@@ -370,15 +370,25 @@ function injectValues(html,row){
 
 //资讯formatter
 function newsFormatter(value,row){
+    if (row.newsListpics){
+         row.newsListpics = "<a href='${newsAddress}'> <img src=''> </a>";
+    }else {
+         row.newsListpics = ""
+    }
+//    if(row.newsSource){
+//       row.newsSource = "来自：<i>${newsSource}</i>"
+//    }else{
+//        row.newsSource =''
+//    }
    var html = "<dl class='info-list-item'>"+
     			"<dt>"+
+    			"${newsListpics}"+
     			"<h3><a href='${newsAddress}' style='blr:expression(this.onFocus=this.blur()); /* IE Opera */ outline:none; /* FF Opera */ '> ${newsTitle}</a></h3>"+
-    			"</dt>"
+    			"</dt>"+
     			"<dd>"+
-    				"<a href='${newsAddress}'> <img src=''> </a>">+
     				"<p>${newsOverview}</p>"+
     				"<p class='info-tips'>"+
-    				"<i>${newsOverview}<i>  来自：<i>${newsSource}</i></p>"+
+    				"<i>${newsReportDate}<i> ${newsSource}</p>"+
     			"</dd>"+
     		"</dl>"
     return injectValues(html,row);
@@ -400,15 +410,32 @@ function projectFormatter(value,row){
     }
     if(!row.introduce) row.introduce="暂无"
 
+    if(row.latestFinanceRound){
+        row.latestFinanceRound = "<span>"+row.latestFinanceRound+"</span>"
+    }else{
+        row.latestFinanceRound ="";
+    }
+
+    if (!row.districtSubName){
+       row.districtSubName ="地址未知"
+    }
+
+    if(!row.industryName){
+        industryName+=' 行业未知'
+    }
+    if (row.industryName&&row.industrySubName){
+        row.industryName=row.industryName +"-" +row.industrySubName
+    }
+
 	var html = "<div class='list-item'>"+
 			"<div class='list-item-inner'>"+
 				"<div class='list-item-left'>"+
 					"<img src='"+Constants.logoPath+img+"'>"+
 				"</div>"+
 				"<div class='list-item-right'>"+
-					"<p class='list-item-title'>${projTitle}<span>${latestFinanceRound}</span></p>"+
+					"<p class='list-item-title'><a target='_blank' href='/project_qy.html?code="+row.code+"'>"+projectName+"</a>${latestFinanceRound}</p>"+
 					"<p class='list-item-content'>简介:${introduce}</p>"+
-					"<p class='list-item-tips'><i class='list-item-address'></i>${districtSubName}<i class='list-item-finace'></i>${industryName}-${industrySubName}</p>"+
+					"<p class='list-item-tips'><i class='list-item-address'></i>${districtSubName}<i class='list-item-finace'></i>${industryName}</p>"+
 				"</div>"+
 			"</div>"+
 		"</div>"
@@ -458,16 +485,26 @@ function investfirmFormatter(value,row){
         if(img.indexOf(".") == -1){
             img = ""
         }
-
-   	var html = "<div class='list-item'>"+
+        if(row.orgType){
+            row.orgType= "<span>"+row.orgType+"</span>";
+        }else{
+            row.orgType= "";
+        }
+        if(!row.orgDesc){
+            row.orgDesc = "暂无"
+        }
+        if(!row.investTotal){
+            row.investTotal = 0
+        }
+    	var html = "<div class='list-item'>"+
    			"<div class='list-item-inner'>"+
    				"<div class='list-item-left'>"+
    					"<img src='"+Constants.logoPath+img+"'>"+
    				"</div>"+
    				"<div class='list-item-right'>"+
-   					"<p class='list-item-title institute-title'>${investOrg}<span>${orgType}</span></p>"+
+   					"<p class='list-item-title institute-title'><a target='_blank' href='/jg_particulars.html?orgId="+row.orgId+"'>"+investOrg+"</a>${orgType}</p>"+
    					"<p class='list-item-case'>投资事件:<span>${investTotal}</span></p>"+
-   					"<p class='list-item-content list-institute-content'>简介:服务方面的投入，在全国代理商签约学校出呼吁，</p>"
+   					"<p class='list-item-content list-institute-content'>简介:${orgDesc}</p>"
    				"</div>"+
    			"</div>"+
    		"</div>"
