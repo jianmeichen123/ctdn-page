@@ -4,7 +4,7 @@ $(function () {
    var keyword = "阿里";
    $("input[name='keyword']").val(keyword);
    if($("input[name='keyword']").val()){
-        showContent("news");
+        firstShow();
    }
 })
 
@@ -52,18 +52,22 @@ function loadTable(tab){
 *tab页上的数字
 */
 function queryTotal(){
+    var trigger_tab = "new"
     sendPostRequestByJsonObj(searchUrl.total,{"keyword":$("input[name='keyword']").val()},function(data){
         $('.info-nav-content li').each(function(){
             var tab = $(this).attr('data-tab');
-            $(this).children().next().html("("+data.numMap[tab]+")")
-//            if(data.numMap[tab] >0){
-//                showContent(tab);
-//            }
+            $(this).children().next().html(data.numMap[tab])
         })
+
+        var map = data.numMap;
+        for(key in map){
+            if(map[key]>0){
+                trigger_tab = key;
+                break;
+            }
+        }
     })
-
-
-
+    return trigger_tab;
 }
 $(".info-nav-content").delegate("li","click",function(){
     var tab = $(this).attr("data-tab");
@@ -72,14 +76,7 @@ $(".info-nav-content").delegate("li","click",function(){
 
 function showContent(tab){
       queryTotal();
-      loadTable(tab);
-      $('.bootstrap-table').hide();
-      $("table[data-item='"+tab+"']").show();
-      $("table[data-item='"+tab+"']").parent().parent().parent().show();
-      var content =$('.info-nav-content').find("li[data-tab='"+tab+"']").children(":first").html();
-      var total =  $('.info-nav-content').find("li[data-tab='"+tab+"']").children().next().html();
-      var keyword = $("input[name='keyword']").val();
-      $("#tip").html("共搜索到"+total+"条内容中含有<em>"+keyword+"</em>的"+content)
+      triggerTable(tab)
 }
 
 function initTable() {
@@ -102,18 +99,33 @@ function initTable() {
   	return oTableInit;
   };
 
-$(".search-btn").on("click",function(){
-    if($("input[name='keyword']").val()){
-      showContent("news");
-    }
-});
+   $(".search-btn").on("click",function(){
+        if($("input[name='keyword']").val()){
+          firstShow();
+        }
+   });
 
   $("input[name='keyword']").bind('keypress',function(event){
-
 		  keyword = $("input[data-search='search']").val();
 		  if(event.keyCode == '13'){
               if($("input[name='keyword']").val()){
-                showContent("news");
+                firstShow();
               }
           }
-	});
+  });
+
+  function firstShow(){
+     var tab = queryTotal();
+     triggerTable(tab);
+  }
+
+  function triggerTable(tab){
+      loadTable(tab);
+      $('.bootstrap-table').hide();
+      $("table[data-item='"+tab+"']").show();
+      $("table[data-item='"+tab+"']").parent().parent().parent().show();
+      var content =$('.info-nav-content').find("li[data-tab='"+tab+"']").children(":first").html();
+      var total =  $('.info-nav-content').find("li[data-tab='"+tab+"']").children().next().html();
+      var keyword = $("input[name='keyword']").val();
+      $("#tip").html("共搜索到<span class='highlight'>"+total+"</span>条内容中含有<span class='highlight'>"+keyword+"</span>的"+content)
+  }
