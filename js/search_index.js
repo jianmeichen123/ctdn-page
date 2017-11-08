@@ -9,7 +9,7 @@ $(function () {
 })
 
 function loadTable(tab){
-    $("table[data-url='"+tab+"']").bootstrapTable("refreshOptions",{
+    $("table[data-item='"+tab+"']").bootstrapTable("refreshOptions",{
         url: searchUrl[tab],         //请求后台的URL（*）
         method: 'post',                      //请求方式（*）
         queryParamsType: 'size|page', // undefined
@@ -56,8 +56,14 @@ function queryTotal(){
         $('.info-nav-content li').each(function(){
             var tab = $(this).attr('data-tab');
             $(this).children().next().html("("+data.numMap[tab]+")")
+//            if(data.numMap[tab] >0){
+//                showContent(tab);
+//            }
         })
     })
+
+
+
 }
 $(".info-nav-content").delegate("li","click",function(){
     var tab = $(this).attr("data-tab");
@@ -68,8 +74,8 @@ function showContent(tab){
       queryTotal();
       loadTable(tab);
       $('.bootstrap-table').hide();
-      $("table[data-url='"+tab+"']").show();
-      $("table[data-url='"+tab+"']").parent().parent().parent().show();
+      $("table[data-item='"+tab+"']").show();
+      $("table[data-item='"+tab+"']").parent().parent().parent().show();
       var content =$('.info-nav-content').find("li[data-tab='"+tab+"']").children(":first").html();
       var total =  $('.info-nav-content').find("li[data-tab='"+tab+"']").children().next().html();
       var keyword = $("input[name='keyword']").val();
@@ -84,7 +90,7 @@ function initTable() {
   	var oTableInit = new Object();
   	//初始化Table
   	oTableInit.Init = function () {
-  	        $('table[data-url]').bootstrapTable({
+  	        $('table[data-item]').bootstrapTable({
                		pageSize:15,
                		showRefresh : false ,
                		sidePagination: 'server',
