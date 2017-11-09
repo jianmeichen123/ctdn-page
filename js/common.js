@@ -448,38 +448,6 @@ $.extend($,{
 	}  
 });
 
- $("#globalsearch_index").on("click",function(){
-           var value = $("input[data-search='globalsearch_index']").val()
-           if(value.trim() != ""){
-              sendPostRequestByJsonObj(searchUrl.globalSearch,
-                                       {"keyword":value},
-                                       function(data){
-                                           if(data.data.totalhit == 0){
-                                               location.href = "noresult.html";
-                                           }else{
-                                                 location.href = "search_index.html?keyword="+value
-                                           }
-                                       })
-           }
-
- })
-
- $("input[data-search='globalsearch_index']").bind('keypress',function(event){
-          var value =  $("input[data-search='globalsearch_index']").val()
-               if(value.trim() != "") {
-                 if(event.keyCode == '13'){
-                     sendPostRequestByJsonObj(searchUrl.globalSearch,
-                                              {"keyword":value},
-                                              function(data){
-                                                   if(data.data.totalhit == 0){
-                                                       location.href = "noresult.html";
-                                                   }else{
-                                                         location.href = "search_index.html?keyword="+value
-                                                   }
-                                              })
-                 }
-               }
- });
  $("span[action='html:save']").bind('on',function(event){
     var e = $(this)
     var target = $(e.attr("data-target"))
