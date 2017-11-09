@@ -1,7 +1,7 @@
 //本地
 
 //var Constants = {
-//	platformContentURL: "http://10.11.8.9:8081/api/",
+//	platformContentURL: "http://127.0.0.1:8081/api/",
 //	//userContentURL: "http://127.0.0.1/user/",
 //	searchContentURL: "http://127.0.0.1:8089/search/",
 //	dataContentURL: "http://10.11.8.9:8085/data/",
@@ -93,6 +93,10 @@ var detail = {
     getLatestEventInfo:Constants.platformContentURL+"/eventInfo/getLatestEventInfo/",
     getOrgsByTimes:Constants.platformContentURL+"/orgRank/getOrgsByTimes/",
     getOrgsByAllTimes:Constants.platformContentURL+"/orgRank/getOrgsByAllTimes/",
+    getAllnews:Constants.platformContentURL+"/news/getAllnews/",
+    getNewsByTypeName:Constants.platformContentURL+"/news/getNewsByTypeName/",
+    getCTDNEventInfo:Constants.platformContentURL+"/eventInfo/getCtdnEventInfo/",
+    getNewsByLabels:Constants.platformContentURL+"/news/getByLabels/",
 }
 /**
  * how to use? location.href = platformUrl.login
