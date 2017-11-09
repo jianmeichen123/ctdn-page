@@ -25,10 +25,10 @@
 			<div class="seek_all"><span class="dn_ico dn_ico_seek"></span>寻求融资</div>
 			<div  class="dn_ico dn_ico_search"></div>
 		</div>
-		
+
 		<div class="nav_all_input">
-            <input type="text" class="" id="nav_all_input" placeholder="请输入关键搜索词"/>
-            <span class="brain_ico brain_ico_seek"></span>
+            <input type="text" class="" id="nav_all_input" data-search="globalsearch_index"  placeholder="请输入关键搜索词"/>
+            <span class="brain_ico brain_ico_seek"  id="globalsearch_index"></span>
             
             <!-- 热词 -->
 			<div class="hot_speech">
@@ -47,13 +47,13 @@
 				</div>
 			</div>
         </div>
-		<div class="nav_all_name">
-			<span id="id_name"></span>
-			<span class="brain_ico brain_ico_name "></span>
-			<ul class="list_click_ul">
-				<li><a href="http://ctdnrc.galaxyinternet.com/user/userlogin/logout">退出</a></li>
-			</ul>
-		</div>
+		<!--<div class="nav_all_name">-->
+			<!--<span id="id_name"></span>-->
+			<!--<span class="brain_ico brain_ico_name "></span>-->
+			<!--<ul class="list_click_ul">-->
+				<!--<li><a href="http://ctdnrc.galaxyinternet.com/user/userlogin/logout">退出</a></li>-->
+			<!--</ul>-->
+		<!--</div>-->
 		
 	</div>
 
@@ -116,4 +116,19 @@ sendPostRequest(platformUrl.queryIndexHeaderStat,function(data){
     $(".total-org").text(data.data.orgNum)
     $(".total-investevent").text(data.data.eventNum)
 })
+ $("#globalsearch_index").on("click",function(){
+           var value = $("input[data-search='globalsearch_index']").val()
+           if(value.trim() != ""){
+              location.href = "search_index.html?keyword="+value
+           }
+
+ })
+ $("input[data-search='globalsearch_index']").bind('keypress',function(event){
+          var value =  $("input[data-search='globalsearch_index']").val()
+               if(value.trim() != "") {
+                 if(event.keyCode == '13'){
+                      location.href = "search_index.html?keyword="+value
+                 }
+               }
+ });
 </script>

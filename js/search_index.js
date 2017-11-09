@@ -1,7 +1,6 @@
 $(function () {
-   //var keyword = getHrefParamter("keyword");
+   var keyword = getHrefParamter("keyword");
    initTable();
-   var keyword = "阿里";
    $("input[name='keyword']").val(keyword);
    if($("input[name='keyword']").val()){
         firstShow();
@@ -30,10 +29,12 @@ function loadTable(tab){
             return "请稍等，正在加载中...";
         },
         formatNoMatches: function () {  //没有匹配的结果
-            return '抱歉，没有相关的结果';
+             var noresult = "<div class='info-error'>"+
+                            "<img src='../img/error_03.png'/>"+
+                            "</div>"
+             return noresult;
         },
         onLoadSuccess: function (data) {
-
         }
     });
 
@@ -52,7 +53,7 @@ function loadTable(tab){
 *tab页上的数字
 */
 function queryTotal(){
-    var trigger_tab = "new"
+    var trigger_tab = "news"
     sendPostRequestByJsonObj(searchUrl.total,{"keyword":$("input[name='keyword']").val()},function(data){
         $('.info-nav-content li').each(function(){
             var tab = $(this).attr('data-tab');
