@@ -1,10 +1,10 @@
 //本地
 
 //var Constants = {
-//	platformContentURL: "http://10.10.1.73:8081/api/",
+//	platformContentURL: "http://10.11.8.9:8081/api/",
 //	//userContentURL: "http://127.0.0.1/user/",
-//	searchContentURL: "http://10.9.130.135:8089/search/",
-//	dataContentURL: "http://10.10.1.74:8085/data/",
+//	searchContentURL: "http://127.0.0.1:8089/search/",
+//	dataContentURL: "http://10.11.8.9:8085/data/",
 //	logoPath: "http://static.galaxyinternet.com/"
 //}
 
