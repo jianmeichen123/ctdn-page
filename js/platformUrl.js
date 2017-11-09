@@ -97,6 +97,7 @@ var detail = {
     getNewsByTypeName:Constants.platformContentURL+"/news/getNewsByTypeName/",
     getCTDNEventInfo:Constants.platformContentURL+"/eventInfo/getCtdnEventInfo/",
     getNewsByLabels:Constants.platformContentURL+"/news/getByLabels/",
+    getNewsByLabel:Constants.platformContentURL+"/news/getNewsByLabel/",
 }
 /**
  * how to use? location.href = platformUrl.login
