@@ -12,47 +12,46 @@
 <div class="container">
 	<div class="dn_l_all">
 		<div class="dn_l">
-			<div  class="dnsy_tit">
+			<div  class="dnsy_tit dnsy_hide">
 				<div><span class="dn_ico dn_ico_financing"></span><span class="dnsy_tit_size">投融快讯</span></div>
-				<ul>
-					<li class="financing_on">全部</li>
-					<li>机构</li>
-					<li>大公司</li>
-					<li>事件</li>
-					<li>人物</li>
-					<li>政策</li>
-					<li>行业</li>
-					<li>新产品</li>
-					
-				</ul>
+				{(news_tab.html)}
+			</div>
+			<div  class="dnsy_tit" id="hotTag" style="display:none">
+				<div class="news_click"><span><a href="index.html">首页</a></span>><span><a href="news.html">投融快讯</a></span>><span class="news_click_on"></span></div>
 			</div>
 			<div class="dn_info_list">
 				<ul>
-					<li>
-						<div class="dn_info_list_show">
-							<div class="dn_info_list_tit">携程捆绑销售风波背后：盈利压力与负重前行</div>
-							<div class="dn_info_list_show_l"><img src="img/dn/l.png"></div>
-							<div class="dn_info_list_show_r">
-								<ul>
-									
-									<li class="dn_info_list_cen">携程捆绑销售风波背后：盈利压力与负重前行携程捆绑销售风波背后：盈利压力与负重前行携程捆绑销售风波背后：盈利压力与负重前行携程捆绑销售风波背后：盈利压力与负重前行携程捆绑销售风波背后：盈利压力与负重前行携程捆绑销售风波背后：盈利压力与负重前行</li>
-									<li class="dn_info_list_ic"><span>1小时前</span><span>来源：投资中国</span></li>
-								</ul>
-							</div>
-						</div>
-						<div class="dn_sy_line"></div>
-					</li>
-					<li>
-						<div class="dn_info_list_show_noimg">
-							<ul>
-								<li class="dn_info_list_tit">携程捆绑销售风波背后：盈利压力与负重前行</li>
-								<li class="dn_info_list_cen">携程捆绑销售风波背后：盈利压力与负重前行携程捆绑销售风波背后：盈利压力与负重前行携程捆绑销售风波背后：盈利压力与负重前行携程捆绑销售风波背后：盈利压力与负重前行携程捆绑销售风波背后：盈利压力与负重前行携程捆绑销售风波背后：盈利压力与负重前行</li>
-								<li class="dn_info_list_ic"><span>1小时前</span><span>来源：投资中国</span></li>
-							</ul>
-						</div>
-						<div class="dn_sy_line"></div>
-					</li>
+					<table  class="table table_white" data-item="">
+						<thead>
+						<tr>
+							<th class="data-input" style="" data-item="0" data-formatter="newsFormatter"></th>
+						</tr>
+						</thead>
+					</table>
 				</ul>
+
+				<!--<div class="dn_info_list_show">-->
+				<!--<div class="dn_info_list_tit">携程捆绑销售风波背后：盈利压力与负重前行</div>-->
+				<!--<div class="dn_info_list_show_l"><img src="img/dn/l.png"></div>-->
+				<!--<div class="dn_info_list_show_r">-->
+				<!--<ul>-->
+				<!---->
+				<!--<li class="dn_info_list_cen">携程捆绑销售风波背后：盈利压力与负重前行携程捆绑销售风波背后：盈利压力与负重前行携程捆绑销售风波背后：盈利压力与负重前行携程捆绑销售风波背后：盈利压力与负重前行携程捆绑销售风波背后：盈利压力与负重前行携程捆绑销售风波背后：盈利压力与负重前行</li>-->
+				<!--<li class="dn_info_list_ic"><span>1小时前</span><span>来源：投资中国</span></li>-->
+				<!--</ul>-->
+				<!--</div>-->
+				<!--</div>-->
+				<!--<div class="dn_sy_line"></div>-->
+				<!--</li>-->
+				<!--<li>-->
+				<!--<div class="dn_info_list_show_noimg">-->
+				<!--<ul>-->
+				<!--<li class="dn_info_list_tit">携程捆绑销售风波背后：盈利压力与负重前行</li>-->
+				<!--<li class="dn_info_list_cen">携程捆绑销售风波背后：盈利压力与负重前行携程捆绑销售风波背后：盈利压力与负重前行携程捆绑销售风波背后：盈利压力与负重前行携程捆绑销售风波背后：盈利压力与负重前行携程捆绑销售风波背后：盈利压力与负重前行携程捆绑销售风波背后：盈利压力与负重前行</li>-->
+				<!--<li class="dn_info_list_ic"><span>1小时前</span><span>来源：投资中国</span></li>-->
+				<!--</ul>-->
+				<!--</div>-->
+				<!--<div class="dn_sy_line"></div>-->
 			</div>
 		</div>
 	</div>
@@ -61,13 +60,25 @@
 			<div  class="dnsy_tit no_border">
 				<div><span class="dn_ico dn_ico_lable"></span><span class="dnsy_tit_size">热门标签</span></div>
 			</div>
-			<div class="lable_all">
-				<ul>
-					<li class="lable_on">苹果iPhone8</li>
-					<li>苹果iPhone8</li>
-					<li>趣分期</li>
-					<li>苹果iPhone8</li>
-					<li>苹果iPhone8</li>
+			<input type="hidden" name="keyword">
+			<div class="lable_all" data-url="">
+				<ul class="labels">
+					{-raw-}
+					<script id="getNewsByLabels" type="text/x-jquery-tmpl">
+					{{if data.length >0}}
+						{{each(i,v) data}}
+						<li>${v.labels}</li>
+						{{/each}}
+					{{else}}
+						<span>暂无数据</span>
+					{{/if}}
+					</script>
+					{-raw-}
+					<!--<li class="lable_on">苹果iPhone8</li>-->
+					<!--<li>苹果iPhone8</li>-->
+					<!--<li>趣分期</li>-->
+					<!--<li>苹果iPhone8</li>-->
+					<!--<li>苹果iPhone8</li>-->
 				</ul>
 			</div>
 		</div>
@@ -75,55 +86,81 @@
 		<div class="dn_r m_t10">
 			<div  class="dnsy_tit no_border">
 				<div><span class="dn_ico dn_ico_equity_trading"></span><span class="dnsy_tit_size">融资事件</span></div>
-				<div class="dnsy_list"><a href="#">更多</a></div>
+				<div class="dnsy_list"><a href="/list_page_rz.html">更多</a></div>
 			</div>
-			<div class="equity_trading_all">
+			<div class="equity_trading_all" data-block="getCTDNEventInfo">
 				<ul>
-					<li>
-						<div class="equity_trading_l">
-							<spn class="dn_ico dn_ico_equity_trading_area"></spn>
-							<span class="equity_trading_time">2017-11-01</span>
-						</div>
-						<div class="equity_trading_r">
-							<img src="img/dn/r.png">
-							<div class="equity_trading_r_c">
-								<ul>
-									<li class="equity_trading_r_tit">摩拜单车</li>
-									<li class="equity_trading_r_cen"><span>A+轮</span><span>1亿5000万人民币</span></li>
-								</ul>
+					{-raw-}
+					<script id="getCTDNEventInfo" type="text/x-jquery-tmpl">
+					{{if data.length >0}}
+						{{each(i,v) data}}
+						<li>
+							<div class="equity_trading_l">
+								<spn class="dn_ico dn_ico_equity_trading_area"></spn>
+								<span class="equity_trading_time">${v.investDate}</span>
 							</div>
-						</div>
-					</li>
-					<li>
-						<div class="equity_trading_l">
-							<spn class="dn_ico dn_ico_equity_trading_area"></spn>
-							<span class="equity_trading_time">2017-11-01</span>
-						</div>
-						<div class="equity_trading_r">
-							<img src="img/dn/r.png">
-							<div class="equity_trading_r_c">
-								<ul>
-									<li class="equity_trading_r_tit">摩拜单车</li>
-									<li class="equity_trading_r_cen"><span>A+轮</span><span>1亿5000万人民币</span></li>
-								</ul>
+							<div class="equity_trading_r">
+								<img src="${v.logo}">
+								<div class="equity_trading_r_c">
+									<ul>
+										<li class="equity_trading_r_tit">${v.company}</li>
+										<li class="equity_trading_r_cen"><span>${v.round}</span><span>${v.amountStr}</span></li>
+									</ul>
+								</div>
 							</div>
-						</div>
-					</li>
-					<li>
-						<div class="equity_trading_l">
-							<spn class="dn_ico dn_ico_equity_trading_area"></spn>
-							<span class="equity_trading_time">2017-11-01</span>
-						</div>
-						<div class="equity_trading_r">
-							<img src="img/dn/r.png">
-							<div class="equity_trading_r_c">
-								<ul>
-									<li class="equity_trading_r_tit">摩拜单车</li>
-									<li class="equity_trading_r_cen"><span>A+轮</span><span>1亿5000万人民币</span></li>
-								</ul>
-							</div>
-						</div>
-					</li>
+						</li>
+						{{/each}}
+					{{else}}
+						<span>暂无数据</span>
+					{{/if}}
+					</script>
+					{-raw-}
+
+					<!--<li>-->
+						<!--<div class="equity_trading_l">-->
+							<!--<spn class="dn_ico dn_ico_equity_trading_area"></spn>-->
+							<!--<span class="equity_trading_time">2017-11-01</span>-->
+						<!--</div>-->
+						<!--<div class="equity_trading_r">-->
+							<!--<img src="img/dn/r.png">-->
+							<!--<div class="equity_trading_r_c">-->
+								<!--<ul>-->
+									<!--<li class="equity_trading_r_tit">摩拜单车</li>-->
+									<!--<li class="equity_trading_r_cen"><span>A+轮</span><span>1亿5000万人民币</span></li>-->
+								<!--</ul>-->
+							<!--</div>-->
+						<!--</div>-->
+					<!--</li>-->
+					<!--<li>-->
+						<!--<div class="equity_trading_l">-->
+							<!--<spn class="dn_ico dn_ico_equity_trading_area"></spn>-->
+							<!--<span class="equity_trading_time">2017-11-01</span>-->
+						<!--</div>-->
+						<!--<div class="equity_trading_r">-->
+							<!--<img src="img/dn/r.png">-->
+							<!--<div class="equity_trading_r_c">-->
+								<!--<ul>-->
+									<!--<li class="equity_trading_r_tit">摩拜单车</li>-->
+									<!--<li class="equity_trading_r_cen"><span>A+轮</span><span>1亿5000万人民币</span></li>-->
+								<!--</ul>-->
+							<!--</div>-->
+						<!--</div>-->
+					<!--</li>-->
+					<!--<li>-->
+						<!--<div class="equity_trading_l">-->
+							<!--<spn class="dn_ico dn_ico_equity_trading_area"></spn>-->
+							<!--<span class="equity_trading_time">2017-11-01</span>-->
+						<!--</div>-->
+						<!--<div class="equity_trading_r">-->
+							<!--<img src="img/dn/r.png">-->
+							<!--<div class="equity_trading_r_c">-->
+								<!--<ul>-->
+									<!--<li class="equity_trading_r_tit">摩拜单车</li>-->
+									<!--<li class="equity_trading_r_cen"><span>A+轮</span><span>1亿5000万人民币</span></li>-->
+								<!--</ul>-->
+							<!--</div>-->
+						<!--</div>-->
+					<!--</li>-->
 				</ul>
 			</div>
 		</div>
@@ -131,8 +168,9 @@
 
 </div>
 
-
-
+<script src="js/platformUrl.js"></script>
+<script src="js/jquery.tmpl.js"></script>
+<script src="js/news.js"></script>
 </body>
 
 

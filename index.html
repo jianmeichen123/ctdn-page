@@ -30,77 +30,124 @@
 		<div class="dn_l">
 			<div  class="dnsy_tit">
 				<div><span class="dn_ico dn_ico_financing"></span><span class="dnsy_tit_size">投融快讯</span></div>
-				<ul>
-					<li class="financing_on">全部</li>
-					<li>机构</li>
-					<li>大公司</li>
-					<li>事件</li>
-					<li>人物</li>
-					<li>政策</li>
-					<li>行业</li>
-					<li>新产品</li>
-					
-				</ul>
-				<div class="dnsy_list"><a href="#">更多</a></div>
+				{(news_tab.html)}
+				<div class="dnsy_list"><a href="/news.html">更多</a></div>
 			</div>
 			<div class="dn_info_list">
-				<ul>
-					<li>
-						<div class="dn_info_list_show">
-							<div class="dn_info_list_tit">携程捆绑销售风波背后：盈利压力与负重前行</div>
-							<div class="dn_info_list_show_l"><img src="img/dn/l.png"></div>
-							<div class="dn_info_list_show_r">
-								<ul>
-									
-									<li class="dn_info_list_cen">携程捆绑销售风波背后：盈利压力与负重前行携程捆绑销售风波背后：盈利压力与负重前行携程捆绑销售风波背后：盈利压力与负重前行携程捆绑销售风波背后：盈利压力与负重前行携程捆绑销售风波背后：盈利压力与负重前行携程捆绑销售风波背后：盈利压力与负重前行</li>
-									<li class="dn_info_list_ic"><span>1小时前</span><span>来源：投资中国</span></li>
-								</ul>
-							</div>
-						</div>
-						<div class="dn_sy_line"></div>
-					</li>
-					<li>
-						<div class="dn_info_list_show_noimg">
-							<ul>
-								<li class="dn_info_list_tit">携程捆绑销售风波背后：盈利压力与负重前行</li>
-								<li class="dn_info_list_cen">携程捆绑销售风波背后：盈利压力与负重前行携程捆绑销售风波背后：盈利压力与负重前行携程捆绑销售风波背后：盈利压力与负重前行携程捆绑销售风波背后：盈利压力与负重前行携程捆绑销售风波背后：盈利压力与负重前行携程捆绑销售风波背后：盈利压力与负重前行</li>
-								<li class="dn_info_list_ic"><span>1小时前</span><span>来源：投资中国</span></li>
-							</ul>
-						</div>
-						<div class="dn_sy_line"></div>
-					</li>
+				<ul id="newsList">
 				</ul>
+				{-raw-}
+				<script id="getAllnews" type="text/x-jquery-tmpl">
+							{{if data.records.length >0}}
+								{{each(i,v) data.records}}
+								<li>
+									<div class="dn_info_list_show">
+									<div class="dn_info_list_tit">${v.newsTitle}</div>
+									{{if v.newsAddress != null}}
+										<div class="dn_info_list_show_l"><img src="${v.newsAddress}"></div>
+									{{/if}}
+									<div class="dn_info_list_show_r">
+										<ul>
+
+											<li class="dn_info_list_cen">${v.newsContent}</li>
+											<li class="dn_info_list_ic"><span>${v.newsReportDate}</span><span>来源：</span><span>${v.newsSource}</span></li>
+										</ul>
+									</div>
+									</div>
+								</li>
+								{{/each}}
+							{{else}}
+								<span>暂无数据</span>
+							{{/if}}
+							</script>
+				{-raw-}
+
+				<!--<ul>-->
+					<!--<li>-->
+						<!--<div class="dn_info_list_show">-->
+							<!--<div class="dn_info_list_tit">携程捆绑销售风波背后：盈利压力与负重前行</div>-->
+							<!--<div class="dn_info_list_show_l"><img src="img/dn/l.png"></div>-->
+							<!--<div class="dn_info_list_show_r">-->
+								<!--<ul>-->
+									<!---->
+									<!--<li class="dn_info_list_cen">携程捆绑销售风波背后：盈利压力与负重前行携程捆绑销售风波背后：盈利压力与负重前行携程捆绑销售风波背后：盈利压力与负重前行携程捆绑销售风波背后：盈利压力与负重前行携程捆绑销售风波背后：盈利压力与负重前行携程捆绑销售风波背后：盈利压力与负重前行</li>-->
+									<!--<li class="dn_info_list_ic"><span>1小时前</span><span>来源：投资中国</span></li>-->
+								<!--</ul>-->
+							<!--</div>-->
+						<!--</div>-->
+						<!--<div class="dn_sy_line"></div>-->
+					<!--</li>-->
+					<!--<li>-->
+						<!--<div class="dn_info_list_show_noimg">-->
+							<!--<ul>-->
+								<!--<li class="dn_info_list_tit">携程捆绑销售风波背后：盈利压力与负重前行</li>-->
+								<!--<li class="dn_info_list_cen">携程捆绑销售风波背后：盈利压力与负重前行携程捆绑销售风波背后：盈利压力与负重前行携程捆绑销售风波背后：盈利压力与负重前行携程捆绑销售风波背后：盈利压力与负重前行携程捆绑销售风波背后：盈利压力与负重前行携程捆绑销售风波背后：盈利压力与负重前行</li>-->
+								<!--<li class="dn_info_list_ic"><span>1小时前</span><span>来源：投资中国</span></li>-->
+							<!--</ul>-->
+						<!--</div>-->
+						<!--<div class="dn_sy_line"></div>-->
+					<!--</li>-->
+				<!--</ul>-->
 			</div>
 		</div>
 		<!-- 投融事件 -->
 		<div class="dn_l m_t10">
 			<div  class="dnsy_tit no_border">
 				<div><span class="dn_ico dn_ico_event"></span><span class="dnsy_tit_size">投融事件</span></div>
-				<div class="dnsy_list"><a href="#">更多</a></div>
+				<div class="dnsy_list"><a href="/list_page_rz.html">更多</a></div>
 			</div>
-			<div class="dn_info_list">
+			<div class="dn_info_list" data-block="getCTDNEventInfo">
+
 				<ul>
-					<li>
-						<div class="dn_info_list_show padding_tb20">
-							<ul>
-								<li class="event_img"><img src="img/dn/l.png"></li>
-								<li class="event_tit">
-									<div class="event_tit_t">优投网</div>
-									<div class="event_tit_c">若森数字是一家集动画技术研发、影视制作东华教育、科技研发为主的公司。</div>
-								</li>
-								<li class="event_turn">轮次未知</li>
-								<li class="event_money">2亿5000万美金</li>
-								<li class="event_financing">
+					{-raw-}
+
+							<script id="getCTDNEventInfo" type="text/x-jquery-tmpl">
+							{{if data.length >0}}
+								{{each(i,v) data}}
+								<li>
+									<div class="dn_info_list_show padding_tb20">
 									<ul>
-										<li>松禾资本</li>
+										<li class="event_img"><img src="${v.logo}"></li>
+										<li class="event_tit">
+											<div class="event_tit_t"><a href="/tzsj_particulars.html?eventId=${v.sourceCode}">${v.investevent}</a></div>
+											<div class="event_tit_c">${v.desc}</div>
+										</li>
+										<li class="event_turn">${v.round}</li>
+										<li class="event_money">${v.amountStr}</li>
+										<li class="event_financing">
+											<ul>
+												<li>${v.invstorgnames}</li>
+											</ul>
+										</li>
+										<li class="event_time">${v.investDate}</li>
 									</ul>
+									</div>
+
+									<div class="dn_sy_line_event"></div>
 								</li>
-								<li class="event_time">2017-01-24</li>
-							</ul>
-						</div>
-						<div class="dn_sy_line_event"></div>
-					</li>
-					
+								{{/each}}
+							{{else}}
+								<span>暂无数据</span>
+							{{/if}}
+							</script>
+
+							<!--<ul>-->
+								<!--<li class="event_img"><img src="img/dn/l.png"></li>-->
+								<!--<li class="event_tit">-->
+									<!--<div class="event_tit_t">优投网</div>-->
+									<!--<div class="event_tit_c">若森数字是一家集动画技术研发、影视制作东华教育、科技研发为主的公司。</div>-->
+								<!--</li>-->
+								<!--<li class="event_turn">轮次未知</li>-->
+								<!--<li class="event_money">2亿5000万美金</li>-->
+								<!--<li class="event_financing">-->
+									<!--<ul>-->
+										<!--<li>松禾资本</li>-->
+									<!--</ul>-->
+								<!--</li>-->
+								<!--<li class="event_time">2017-01-24</li>-->
+							<!--</ul>-->
+
+					{-raw-}
 				</ul>
 			</div>
 		</div>
@@ -157,8 +204,8 @@
 
 </div>
 
-
-
+<script src="js/jquery.tmpl.js"></script>
+<script src="js/newIndex.js"></script>
 </body>
 
 
