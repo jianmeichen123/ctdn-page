@@ -107,7 +107,7 @@ function eventInfoListFormatter(data,div){
 }
 //团队成员
 function projectTeamListFormatter(data,div){
-     var staticTemplate = '<li> <div class="product_list_team_img_bj"><img src="img/default3.gif"/></div> <ul class="product_list_team_ul"> <li class="font_14">${name}<span class="zw">${job}</span></li> <li class="color_666 font_12" >${college}<span>${edu}</span></li> <li class="color_999 font_12" title="${introduction}">${introduction}</li> </ul> </li>'
+     var staticTemplate = '<li> <div class="product_list_team_img_bj"><img src="img/default3.gif"/></div> <ul class="product_list_team_ul"> <li class="team_color_font_3">${name}<span class="zw">${job}</span></li> <li class="team_color_font" >${college}<span>${edu}</span></li> <li class="team_color_font_2" title="${introduction}">${introduction}</li> </ul> </li>'
      var temp = staticTemplate;
      var html = "";
      //遍历数组
