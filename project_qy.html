@@ -16,6 +16,7 @@
 			<div class="project_all_l">
 				<!-- zhuo -->
 				<!-- 基本信息-->
+				<input type="hidden" name="keyword">
 				<div class="background_boeder">
 				<div class="project_t" location_l="location_jb"><span class="brain_ico brain_ico_project_crumbs"></span>项目描述</div>
 				<div class="particulars_black" >
@@ -147,6 +148,9 @@
 				<div class="background_boeder">
 				<div class="project_t" location_l="location_cp"><span class="brain_ico brain_ico_project_crumbs"></span>产品信息<div class="fr" id="pro_num"></div></div>
 				<div class="particulars_black" >
+
+                    <!-- 把要轮播的地方写上来 -->
+
 					<div class="project_t_team">产品服务</div>
 					<ul class="project_t_team_cen">
 						<li>创始人宋广才：具有多年创业经验， 2006年创业至今，成功运营了多个创业项目，多年互联网从业经验，优势在于大团队的组建和管理运营，成本控制以及资金管理。</li>
@@ -262,32 +266,32 @@
 				<div class="background_boeder">
 				<div class="project_t" location_l="location_xw"><span class="brain_ico brain_ico_project_crumbs"></span>相关新闻</div>
 				<div class="particulars_black">
-					<div class="dn_info_list">
+					<div class="dn_info_list" data-url= searchUrl["project"] data-page-size="2" data-page-no="0">
 						<ul>
-							<li>
-								<div class="dn_info_list_show">
-									<div class="dn_info_list_tit">携程捆绑销售风波背后：盈利压力与负重前行</div>
-									<div class="dn_info_list_show_l"><img src="img/dn/l.png"></div>
-									<div class="dn_info_list_show_r">
-										<ul>
-											
-											<li class="dn_info_list_cen">携程捆绑销售风波背后：盈利压力与负重前行携程捆绑销售风波背后：盈利压力与负重前行携程捆绑销售风波背后：盈利压力与负重前行携程捆绑销售风波背后：盈利压力与负重前行携程捆绑销售风波背后：盈利压力与负重前行携程捆绑销售风波背后：盈利压力与负重前行</li>
-											<li class="dn_info_list_ic"><span>1小时前</span><span>来源：投资中国</span></li>
-										</ul>
-									</div>
-								</div>
-								<div class="dn_sy_line"></div>
-							</li>
-							<li>
-								<div class="dn_info_list_show_noimg">
-									<ul>
-										<li class="dn_info_list_tit">携程捆绑销售风波背后：盈利压力与负重前行</li>
-										<li class="dn_info_list_cen">携程捆绑销售风波背后：盈利压力与负重前行携程捆绑销售风波背后：盈利压力与负重前行携程捆绑销售风波背后：盈利压力与负重前行携程捆绑销售风波背后：盈利压力与负重前行携程捆绑销售风波背后：盈利压力与负重前行携程捆绑销售风波背后：盈利压力与负重前行</li>
-										<li class="dn_info_list_ic"><span>1小时前</span><span>来源：投资中国</span></li>
-									</ul>
-								</div>
-								<div class="dn_sy_line"></div>
-							</li>
+							<!--<li>-->
+								<!--<div class="dn_info_list_show">-->
+									<!--<div class="dn_info_list_tit">携程捆绑销售风波背后：盈利压力与负重前行</div>-->
+									<!--<div class="dn_info_list_show_l"><img src="img/dn/l.png"></div>-->
+									<!--<div class="dn_info_list_show_r">-->
+										<!--<ul>-->
+											<!---->
+											<!--<li class="dn_info_list_cen">携程捆绑销售风波背后：盈利压力与负重前行携程捆绑销售风波背后：盈利压力与负重前行携程捆绑销售风波背后：盈利压力与负重前行携程捆绑销售风波背后：盈利压力与负重前行携程捆绑销售风波背后：盈利压力与负重前行携程捆绑销售风波背后：盈利压力与负重前行</li>-->
+											<!--<li class="dn_info_list_ic"><span>1小时前</span><span>来源：投资中国</span></li>-->
+										<!--</ul>-->
+									<!--</div>-->
+								<!--</div>-->
+								<!--<div class="dn_sy_line"></div>-->
+							<!--</li>-->
+							<!--<li>-->
+								<!--<div class="dn_info_list_show_noimg">-->
+									<!--<ul>-->
+										<!--<li class="dn_info_list_tit">携程捆绑销售风波背后：盈利压力与负重前行</li>-->
+										<!--<li class="dn_info_list_cen">携程捆绑销售风波背后：盈利压力与负重前行携程捆绑销售风波背后：盈利压力与负重前行携程捆绑销售风波背后：盈利压力与负重前行携程捆绑销售风波背后：盈利压力与负重前行携程捆绑销售风波背后：盈利压力与负重前行携程捆绑销售风波背后：盈利压力与负重前行</li>-->
+										<!--<li class="dn_info_list_ic"><span>1小时前</span><span>来源：投资中国</span></li>-->
+									<!--</ul>-->
+								<!--</div>-->
+								<!--<div class="dn_sy_line"></div>-->
+							<!--</li>-->
 						</ul>
 					</div>
 					<div class="dn_ico_more_all"><div class="dn_ico_more_al_divl">加载更多<span class="dn_ico dn_ico_more"></span></div></div>
@@ -452,6 +456,64 @@ $('body').delegate('.project_click_show','click',function(event){
 	$('.blue_l_b .blue_l_b_three').show();
 })
 nav_locaton('ctsj','qyxm','','qyxx')
+    $(".dn_ico_more_al_divl").click(function(){
+    	var obj = $(this).parent().prev();
+		var json={};
+    	var url = obj.attr("data-url");
+    	var keyword = "ofo";
+    	var pageSize = obj.attr("data-page-size")+1;
+    	var pageNo = obj.attr("data-page-no");
+    	if(keyword){
+    		json["keyword"] = keyword;
+    	}
+    	json["pageSize"] = pageSize;
+    	json["pageNo"] = pageNo;
+    	var html="";
+    	sendPostRequestByJsonObj(search["project"],json,function(data){
+    		var records = data.data.records;
+    		$.each(records,function(){
+    					 html+="<li>"+
+							"<div class='dn_info_list_show'>"+
+								"<div class='dn_info_list_tit'>携程捆绑销售风波背后：盈利压力与负重前行</div>"+
+								"<div class='dn_info_list_show_l'><img src='img/dn/l.png'></div>"+
+								"<div class='dn_info_list_show_r'>"+
+									"<ul>"+
+
+										"<li class='dn_info_list_cen'>携程捆绑销售风波背后：盈利压力与负重前行携程捆绑销售风波背后：盈利压力与负重前行携程捆绑销售风波背后：盈利压力与负重前行携程捆绑销售风波背后：盈利压力与负重前行携程捆绑销售风波背后：盈利压力与负重前行携程捆绑销售风波背后：盈利压力与负重前行</li>"+
+										"<li class='dn_info_list_ic'><span>1小时前</span><span>来源：投资中国</span></li>"+
+									"</ul>"+
+								"</div>"+
+							"</div>"+
+							"<div class='dn_sy_line'></div>"+
+						"</li>"
+    		})
+    		obj.append(html)
+    	})
+    })
+
+    function loadMore(){
+		sendPostRequestByJsonObj(search["project"],json,function(data){
+    		var records = data.data.records;
+    		$.each(records,function(){
+    					 html+="<li>"+
+							"<div class='dn_info_list_show'>"+
+								"<div class='dn_info_list_tit'>携程捆绑销售风波背后：盈利压力与负重前行</div>"+
+								"<div class='dn_info_list_show_l'><img src='img/dn/l.png'></div>"+
+								"<div class='dn_info_list_show_r'>"+
+									"<ul>"+
+
+										"<li class='dn_info_list_cen'>携程捆绑销售风波背后：盈利压力与负重前行携程捆绑销售风波背后：盈利压力与负重前行携程捆绑销售风波背后：盈利压力与负重前行携程捆绑销售风波背后：盈利压力与负重前行携程捆绑销售风波背后：盈利压力与负重前行携程捆绑销售风波背后：盈利压力与负重前行</li>"+
+										"<li class='dn_info_list_ic'><span>1小时前</span><span>来源：投资中国</span></li>"+
+									"</ul>"+
+								"</div>"+
+							"</div>"+
+							"<div class='dn_sy_line'></div>"+
+						"</li>"
+    		})
+    		obj.append(html)
+    	})
+
+    }
 </script>
 </body>
 </html>

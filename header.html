@@ -11,7 +11,7 @@
 				<div class="nav_list_data">
 					<ul>
 						<a href="list_page_com.html" ><li page_tab="qyxm"  tab="com">项目</li></a>
-						<a href="list_page_rz.html" ><li page_tab="rzdt" tab="trdt">投融动态</li></a>
+						<a href="list_page_rz.html" ><li page_tab="trdt" tab="trdt">投融动态</li></a>
 						<a href="list_page_org.html" ><li page_tab="tzjg" tab="org">投资事件</li></a>
 					</ul>
 				</div>
@@ -37,7 +37,7 @@
 				</div>
 				<div class="hot_speech_all">
 					<div>热门搜索</div>
-					<ul>
+					<ul class="hotKeyword">
 						<li>共享充电宝</li>
 						<li>共享充电宝</li>
 						<li>共享充电宝</li>
@@ -131,4 +131,11 @@ sendPostRequest(platformUrl.queryIndexHeaderStat,function(data){
                  }
                }
  });
+
+ $(".hotKeyword").delegate("li","click",function(){
+  	var value = $(this).text();
+	   if(value.trim() != "") {
+			  location.href = "search_index.html?keyword="+value
+	   }
+});
 </script>
