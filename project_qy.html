@@ -113,51 +113,73 @@
 				</div>
 				</div>
 				<!-- 产品信息 -->
-				<div class="background_boeder" data-id ="product" data-url="pvuv">
+				<div class="background_boeder" data-id ="product" data-url="products">
 				<div class="project_t" location_l="location_cp"><span class="brain_ico brain_ico_project_crumbs"></span>产品信息<div class="fr" id="pro_num"></div></div>
 				<div class="particulars_black">
-
+					<input type="hidden" name = "code" value="qscbxt">
                     <!-- 把要轮播的地方写上来 -->
-					{-raw-}
-					<script id="product" type="text/x-jquery-tmpl">
-					</script>
-					{-raw-}
-					<div class="project_t_team">产品服务</div>
-					<ul class="project_t_team_cen">
-						<li>创始人宋广才：具有多年创业经验， 2006年创业至今，成功运营了多个创业项目，多年互联网从业经验，优势在于大团队的组建和管理运营，成本控制以及资金管理。</li>
-						<li>后台开发工程师：刘铭： 多个项目的独立后台开发，有丰富的后台开发能力</li>
-						<li>IOS工程师： 赵曾光， IOS前端开发，独立开发过多个互联网APP项目。</li>
-						<li>Android开发工程：龚伟明， 5个以上的APP开发经验。</li>
-					</ul>
-					<div class="project_t_team">用户市场</div>
-					<ul class="project_t_team_cen">
-						<li>受众很广泛，企业、微商、自媒体、销售等一切商务人士都可以使用拇指推；全国的微商电商用户2000多万， 企业用户5000多万，个体商务用户1500万以上，涵盖的需求人群1.5亿商务用户涵盖的需求人群1.5亿商务用户。</li>
-					</ul>
-					<div class="project_t_team">产品数据</div>
-					<ul class="product_list" id="product-ul"></ul>
+					<div class = "prodSrv">
+						<div class="project_t_team">产品服务</div>
+						<ul class="project_t_team_cen">
+							<li id="prodSrv"> </li>
+							<!--<li>创始人宋广才：具有多年创业经验， 2006年创业至今，成功运营了多个创业项目，多年互联网从业经验，优势在于大团队的组建和管理运营，成本控制以及资金管理。</li>-->
+							<!--<li>后台开发工程师：刘铭： 多个项目的独立后台开发，有丰富的后台开发能力</li>-->
+							<!--<li>IOS工程师： 赵曾光， IOS前端开发，独立开发过多个互联网APP项目。</li>-->
+							<!--<li>Android开发工程：龚伟明， 5个以上的APP开发经验。</li>-->
+						</ul>
+					</div>
+					<div class = "userMarket">
+						<div class="project_t_team">用户市场</div>
+						<ul class="project_t_team_cen">
+							<li id="userMarket"></li>
+						</ul>
+					</div>
 
+					<div class="project_t_team">产品数据</div>
+					<ul class="product_list" id="product-ul">
+						{-raw-}
+						<script id="product" type="text/x-jquery-tmpl">
+							{{html formatProduct(data)}}
+						</script>
+						{-raw-}
+					</ul>
 				</div>
 				</div>
 				<!-- 团队信息 -->
 				<div class="background_boeder" data-id="team" data-url="queryProjectTeamByCode">
 				<div class="project_t" location_l="location_td"><span class="brain_ico brain_ico_project_crumbs"></span>团队信息</div>
-				<div class="project_t_team">团队关键字</div>
-				<ul class="project_t_team_ul">
-					<li>知名公司经历</li>
-					<li>知名公司经历</li>
-				</ul>
-				<div class="project_t_team">团队优势</div>
-				<ul class="project_t_team_cen">
-					<li>创始人宋广才：具有多年创业经验， 2006年创业至今，成功运营了多个创业项目，多年互联网从业经验，优势在于大团队的组建和管理运营，成本控制以及资金管理。</li>
-					<li>后台开发工程师：刘铭： 多个项目的独立后台开发，有丰富的后台开发能力</li>
-					<li>IOS工程师： 赵曾光， IOS前端开发，独立开发过多个互联网APP项目。</li>
-					<li>Android开发工程：龚伟明， 5个以上的APP开发经验。</li>
-				</ul>
+					<input type="hidden" name="projectCode" value="13266053">
+				<div class="teamTags">
+					<div class="project_t_team">团队关键字</div>
+					<ul class="project_t_team_ul" id="teamTags">
+						<li>知名公司经历</li>
+						<li>知名公司经历</li>
+					</ul>
+				</div>
+				<div class="teamSuper">
+					<div class="project_t_team">团队优势</div>
+					<ul class="project_t_team_cen" id="teamSuper">
+						<li>创始人宋广才：具有多年创业经验， 2006年创业至今，成功运营了多个创业项目，多年互联网从业经验，优势在于大团队的组建和管理运营，成本控制以及资金管理。</li>
+						<li>后台开发工程师：刘铭： 多个项目的独立后台开发，有丰富的后台开发能力</li>
+						<li>IOS工程师： 赵曾光， IOS前端开发，独立开发过多个互联网APP项目。</li>
+						<li>Android开发工程：龚伟明， 5个以上的APP开发经验。</li>
+					</ul>
+				</div>
 				<div class="project_t_team">团队成员</div>
 				<div class="particulars_black" >
 					<ul class="product_list_team" data-query="list" data-formatter="projectTeamList">
 						{-raw-}
 						<script id="team" type="text/x-jquery-tmpl">
+						{{each(i,v) data}}
+							<li>
+								<div class="product_list_team_img_bj"><img src="img/default3.gif"/></div>
+								<ul class="product_list_team_ul">
+								 	<li class="team_color_font_3">${v.name}<span class="zw">${v.job}</span></li>
+								 	<li class="team_color_font" >${v.college}<span>${v.edu}</span></li>
+								 	<li class="team_color_font_2" title="${introduction}">${v.introduction}</li>
+								 </ul>
+						    </li>
+						{{/each}}
 						</script>
 						{-raw-}
 					</ul>
@@ -395,7 +417,6 @@
 </div>
 </div>
 <script src="js/fill_project_header.js"></script>
-<script src="js/fillData_project.js"></script>
 <script src="js/jquery.tmpl.js"></script>
 <script src="js/project_qy.js"></script>
 <script>
@@ -528,9 +549,6 @@ $('body').delegate('.project_click_show','click',function(event){
 	$('.blue_l_b .blue_l_b_three').show();
 })
 nav_locaton('ctsj','qyxm','','qyxx')
-
-
-
 </script>
 </body>
 </html>

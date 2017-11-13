@@ -85,6 +85,41 @@ function formatProjectInfo(data,divList){
                $("p[data-field='introduce']").closest(".background_boeder").hide()
               }
            }
+           else if(k=="teamTags"){
+                 if(!v){
+                      var tags = v.split(",");
+                      var temp = "";
+                      $.each(function(i,e){
+                        temp += "<li>"+e+"</li>"
+                      })
+                      $("#teamTags").html(temp)
+                 }else{
+                      $(".teamTags").hide()
+                 }
+           }else if(k=="teamSuper"){
+                if(!v){
+                     var tags = v.split(",");
+                     var temp = "";
+                     $.each(function(i,e){
+                       temp += "<li>"+e+"</li>"
+                     })
+                     $("#teamSuper").html(temp)
+                }else{
+                     $(".teamSuper").hide()
+                }
+            }else if(k=="userMarket"){
+               if(!v){
+                    $("#userMarket").html(v)
+               }else{
+                    $(".userMarket").hide()
+               }
+            } else if(k=="prodSrv"){
+               if(!v){
+                    $("#prodSrv").html(v)
+               }else{
+                    $(".prodSrv").hide()
+               }
+            }
            o.html(v)
         })
     })
