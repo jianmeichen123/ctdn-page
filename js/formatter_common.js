@@ -370,63 +370,26 @@ function injectValues(html,row){
 
 //资讯formatter
 function newsFormatter(value,row){
-    if (row.newsListpics){
-         row.newsListpics = "<a href='${newsAddress}'> <img src=''> </a>";
+    if (row.imgmd5){
+         row.imgmd5 = "<a href='${imgmd5}'> <img src=''> </a>";
     }else {
-         row.newsListpics = ""
+         row.imgmd5 = ""
     }
-
-    var dateTimeStamp=Date.parse(row.newsReportDate.replace(/-/gi,"/"));
-        var result = '';
-        //JavaScript函数：
-        var minute = 1000 * 60;
-        var hour = minute * 60;
-        var day = hour * 24;
-        var halfamonth = day * 15;
-        var month = day * 30;
-            var now = new Date().getTime();
-            var diffValue = now - dateTimeStamp;
-            if(diffValue < 0){
-             //若日期不符则弹出窗口告之
-             //alert("结束日期不能小于开始日期！");
-             }
-            var monthC =diffValue/month;
-            var weekC =diffValue/(7*day);
-            var dayC =diffValue/day;
-            var hourC =diffValue/hour;
-            var minC =diffValue/minute;
-            if(monthC>=1){
-                 result="发表于" + parseInt(monthC) + "个月前";
-             }
-             else if(weekC>=1){
-                result="发表于" + parseInt(weekC) + "周前";
-             }
-             else if(dayC>=1){
-                result="发表于"+ parseInt(dayC) +"天前";
-             }
-             else if(hourC>=1){
-                result="发表于"+ parseInt(hourC) +"个小时前";
-             }
-             else if(minC>=1){
-                result="发表于"+ parseInt(minC) +"分钟前";
-             }else{
-                result="刚刚发表";
-             }
-
-//    if(row.newsSource){
-//       row.newsSource = "来自：<i>${newsSource}</i>"
-//    }else{
-//        row.newsSource =''
-//    }
+    row.orderTime = formatNewsTime(row.orderTime)
+    if(row.auther){
+       row.auther = "来自：<i>${auther}</i>"
+    }else{
+        row.auther =''
+    }
    var html = "<dl class='info-list-item'>"+
     			"<dt>"+
-    			"${newsListpics}"+
-    			"<h3><a href='${newsAddress}' style='blr:expression(this.onFocus=this.blur()); /* IE Opera */ outline:none; /* FF Opera */ '> ${newsTitle}</a></h3>"+
+    			"${imgmd5}"+
+    			"<h3><a href='${auther}' style='blr:expression(this.onFocus=this.blur()); /* IE Opera */ outline:none; /* FF Opera */ '> ${title}</a></h3>"+
     			"</dt>"+
     			"<dd>"+
-    				"<p>${newsOverview}</p>"+
+    				"<p>${overview}</p>"+
     				"<p class='info-tips'>"+
-    				"<i>"+result+"<i> ${newsSource}</p>"+
+    				"<i>"+result+"<i> ${auther}</p>"+
     			"</dd>"+
     		"</dl>"
     return injectValues(html,row);
