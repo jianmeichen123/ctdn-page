@@ -1,26 +1,24 @@
 //本地
 
-//var Constants = {
-//	platformContentURL: "http://127.0.0.1:8081/api/",
-//	//userContentURL: "http://127.0.0.1/user/",
-//	searchContentURL: "http://127.0.0.1:8089/search/",
-//	dataContentURL: "http://10.11.8.9:8085/data/",
-//	logoPath: "http://static.galaxyinternet.com/"
-//}
-
-
 var Constants = {
-	platformContentURL: "http://ctdndev.gi.com/api/",
-	//userContentURL: "http://ctdndev.gi.com/user/",
-	searchContentURL: "http://ctdndev.gi.com/search/",
-	dataContentURL: "http://ctdndev.gi.com/data/",
+	platformContentURL: "http://127.0.0.1:8081/api/",
+	//userContentURL: "http://127.0.0.1/user/",
+	searchContentURL: "http://127.0.0.1:8089/search/",
+	dataContentURL: "http://127.0.0.1:8085/data/",
 	logoPath: "http://static.galaxyinternet.com/"
 }
 
-//线上
+
 //var Constants = {
 //	platformContentURL: "http://ctdndev.gi.com/api/",
-//	userContentURL: "http://ctdndev.gi.com/user/",
+//	searchContentURL: "http://ctdndev.gi.com/search/",
+//	dataContentURL: "http://ctdndev.gi.com/data/",
+//	logoPath: "http://static.galaxyinternet.com/"
+//}
+
+////线上
+//var Constants = {
+//	platformContentURL: "http://ctdndev.gi.com/api/",
 //	searchContentURL: "http://ctdndev.gi.com/search/",
 //	dataContentURL: "http://ctdndev.gi.com/data/",
 //    logoPath: "http://static.galaxyinternet.com/"
@@ -57,7 +55,6 @@ var dataUrl = {
     weibo:Constants.dataContentURL+"op/weiboIndice/",
     android:Constants.dataContentURL+"op/android/",
     ios:Constants.dataContentURL+"op/ios/",
-    news:Constants.dataContentURL+"news/query"
 }
 
 var platformUrl = {
@@ -73,9 +70,16 @@ var table ={
    empty: "-"
 }
 var detail = {
+
     queryProject:Constants.platformContentURL+"/projectList/queryProjectByCode/",
+    queryProjectMediaInfoByCode:Constants.platformContentURL+"/projectList/queryMediaInfoByCode",
+    queryProjectTeamByCode:Constants.platformContentURL+"/projectList/queryProjectTeamByCode",
+    queryProjectInvestEvent:Constants.platformContentURL+"/eventInfo/queryProjectEventList/",
+    queryProjectEventListed:Constants.platformContentURL+"/eventListedInfo/queryProjectEventListed/",
+    queryMergeEventBySourceCode:Constants.platformContentURL+"/eventMergerInfo/queryMergeEventBySourceCode/",
+    queryProjectContactByCode:Constants.platformContentURL+"/projectList/queryProjectContactByCode/",
+
     queryRelativeListByCode:Constants.platformContentURL+"/projectList/queryRelativeListByCode/",
-    queryProjectInvestEvent:Constants.platformContentURL+"/eventInfo/getListBySourceCode/",
     queryMergeEventInfo:Constants.platformContentURL+"/eventMergerInfo/getListByEventId/",
     queryEventInfo:Constants.platformContentURL+"/eventInfo/getById/",
     queryInvestOrgInfo:Constants.platformContentURL+"/orgInfo/getListByOrgId/",
@@ -98,6 +102,7 @@ var detail = {
     getCTDNEventInfo:Constants.platformContentURL+"/eventInfo/getCtdnEventInfo/",
     getNewsByLabels:Constants.platformContentURL+"/news/getByLabels/",
     getNewsByLabel:Constants.platformContentURL+"/news/getNewsByLabel/",
+
 }
 /**
  * how to use? location.href = platformUrl.login

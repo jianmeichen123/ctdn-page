@@ -23,6 +23,8 @@ function formatProjectInfo(data,divList){
                 if(!v){
                     v = "名称未知"
                 }
+               // $("input[name='keyword']").val(v)
+
            }else if(k=="districtSubName"){
                if(!v){
                    v="地区未知"
@@ -78,19 +80,10 @@ function formatProjectInfo(data,divList){
                 }else{
                     v = '<span class="brain_ico brain_ico_project_3"></span>'
                 }
-           }else if(k=="firmDesc"){
-                if(!v){
-                    v ="<span>暂无数据</span>"
-                	 o.css('height','auto')
-                	 o.parent().children('.project_more').hide()
-                }else{
-                	if(v.length <250){
-	            		 o.css('height','auto')
-	                	 o.parent().children('.project_more').hide()
-                	}else {
-
-					}
-                }
+           }else if(k=="introduce"){
+              if(!v){
+               $("p[data-field='introduce']").closest(".background_boeder").hide()
+              }
            }
            o.html(v)
         })
