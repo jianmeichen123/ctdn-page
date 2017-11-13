@@ -7,25 +7,46 @@
 	{(dn_basis.html)}
 	<style>
 	.nav_nav{display:none;}
-	body {background-image:url(img/dn/banner.jpg); background-position:center 0 ;       background-color: #f7f7f7;  background-repeat: no-repeat;	}
 	.nav_bj{  
      /*  filter:alpha(opacity=50);  
       -moz-opacity:0.5;  
       -khtml-opacity: 0.5;  
       opacity: 0.5;   */
-      background-color: rgba(0,0,0,0.0);
+      background-color: rgba(0,0,0,0.0);z-index: 998;   position: absolute;
+    width: 100%;
 } 
 	.nav_bj .container { position: relative;  color: #FFFFFF;
 	}
 	</style>
+<script type="text/javascript" src="js/jquery_slide/jquery_slide.js"></script>
 </head>
 
 <body>
 {(header.html)}
-<div style="height:630px;"></div>
+<div class="container_image">
+	<a href="javascript:void(0)" tip="0" class="i_btn prev_L"></a>
+	<a href="javascript:void(0)" tip="1" class="i_btn next_R"></a>
+	<ul class="slide_img">
+		<li>
+			
+			<a href="javascript:void(0)"><img src="img/dn/b_1.jpg" /></a>
+		</li>
+		<li>
+			<a href="javascript:void(0)"><img src="img/dn/b_2.jpg" /></a>
+		</li>
+		<li>
+			<a href="javascript:void(0)"><img src="img/dn/b_3.jpg" /></a>
+		</li>
+	</ul>
+	<ul class="slide_img_bj">
+		<li style="background-image:url(img/dn/b1.jpg);"></li>
+		<li style="background-image:url(img/dn/b2.jpg);"></li>
+		<li style="background-image:url(img/dn/b3.jpg);"></li>
+	</ul>
+</div>
 
 
-<div class="container">
+<div class="container" style="margin-top:-50px;">
 	<div class="dn_l_all">
 		<div class="dn_l">
 			<div  class="dnsy_tit">
@@ -215,7 +236,18 @@
 	</div>
 
 </div>
+<script type="text/javascript">
+$(function(){
 
+	var newopt={
+		w2:"700",//小图宽度
+		h2:"350"//小图高度 
+	};
+	
+	i_slide($(".container_image"),newopt);
+	
+});
+</script>
 <script src="js/jquery.tmpl.js"></script>
 <script src="js/newIndex.js"></script>
 </body>
