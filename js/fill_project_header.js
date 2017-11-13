@@ -1,5 +1,8 @@
-//企业基本信息formatter
+//项目基本信息formatter
 function formatProjectInfo(data,divList){
+//    $("input[name='projectCode']").val(data["projectCode"])
+//    $("input[name='sourceCode']").val(data["projectCode"])
+//    $("input[name='code']").val(data["projectCode"])
     $(divList).each(function(){
         var div = $(this);
         var ls = div.find("*[data-field]")
@@ -23,8 +26,6 @@ function formatProjectInfo(data,divList){
                 if(!v){
                     v = "名称未知"
                 }
-               // $("input[name='keyword']").val(v)
-
            }else if(k=="districtSubName"){
                if(!v){
                    v="地区未知"

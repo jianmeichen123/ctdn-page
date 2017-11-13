@@ -59,7 +59,16 @@
                 var target = $("#"+dataId)
                 target.tmpl(data).appendTo(target.parent())
             }else{
-                obj.hide();
+
+                if(dataId=="product"){
+                    if(!$("#prodSrv").val()&& !$("#userMarket").val()){
+                         obj.hide();
+                    }
+                }else if(dataId="team"){
+                    if(!$("#teamTags").val()&& !$("#teamSuper").val()){
+                         obj.hide();
+                    }
+                }
             }
         })
    }

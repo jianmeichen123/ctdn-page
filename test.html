@@ -1,21 +1,62 @@
 <html>
+<!-- 写点样式，让轮播好看点 -->
+<style>
+ul, ol { padding: 0;}
+.banner { position: relative; overflow: auto; text-align: center;}
+.banner li { list-style: none; }
+.banner ul li { float: left; }
+#b04 { width: 640px;}
+#b04 .dots { position: absolute; left: 0; right: 0; bottom: 20px;}
+#b04 .dots li
+{
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    margin: 0 4px;
+    text-indent: -999em;
+    border: 2px solid #fff;
+    border-radius: 6px;
+    cursor: pointer;
+    opacity: .4;
+    -webkit-transition: background .5s, opacity .5s;
+    -moz-transition: background .5s, opacity .5s;
+    transition: background .5s, opacity .5s;
+}
+#b04 .dots li.active
+{
+    background: #fff;
+    opacity: 1;
+}
+#b04 .arrow { position: absolute; top: 200px;}
+#b04 #al { left: 15px;}
+#b04 #ar { right: 15px;}
+</style>
 <body>
-<div id="div_each">
-</div>
 <script src="js/jquery-1.12.3.min.js"></script>
-<script src="js/jquery.tmpl.js"></script>
-<script type="text/javascript">
-$(function () {
-　　var eachData = { users: [{ name: 'jerry' }, { name: 'john'}], groups: [{ name: 'mingdao' }, { name: 'meihua' }, { name: 'test'}], departs: [{ name: 'IT'}] };
-　　$("#each").tmpl(eachData).appendTo('#div_each');
+<script src="js/unslider.js"></script>
+<!-- 把要轮播的地方写上来 -->
+
+<div class="banner" id="b04">
+    <ul>
+        <li><img src="img/01.jpg" alt="" width="640" height="480" ></li>
+        <li><img src="img/02.jpg" alt="" width="640" height="480" ></li>
+        <li><img src="img/03.jpg" alt="" width="640" height="480" ></li>
+    </ul>
+    <a href="javascript:void(0);" class="unslider-arrow04 prev"><img class="arrow" id="al" src="img/a1.jpg" alt="prev" width="20" height="35"></a>
+    <a href="javascript:void(0);" class="unslider-arrow04 next"><img class="arrow" id="ar" src="img/a1.jpg" alt="next" width="20" height="37"></a>
+</div>
+</body>
+<script>
+$(document).ready(function(e) {
+    var unslider04 = $('#b04').unslider({
+        dots: true
+    }),
+    data04 = unslider04.data('unslider');
+
+    $('.unslider-arrow04').click(function() {
+        var fn = this.className.split(' ')[1];
+        data04[fn]();
+    });
 });
 </script>
-{-raw-}
-<script id="each" type="text/x-jquery-tmpl">
-    <h3>users</h3>
-    {{each(i,user) users}}
-    {{/each}}
-</script>
-{-raw-}
-</body>
 </html>
