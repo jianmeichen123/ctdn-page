@@ -533,14 +533,8 @@ function formatNewsTime(time){
      var dayC =diffValue/day;
      var hourC =diffValue/hour;
      var minC =diffValue/minute;
-     if(monthC>=1){
-          result="发表于" + parseInt(monthC) + "个月前";
-      }
-      else if(weekC>=1){
-         result="发表于" + parseInt(weekC) + "周前";
-      }
-      else if(dayC>=1){
-         result="发表于"+ parseInt(dayC) +"天前";
+     if(dayC>=1){
+         result=formatDate(time*1000,'yyyy-MM-dd');
       }
       else if(hourC>=1){
          result="发表于"+ parseInt(hourC) +"个小时前";
