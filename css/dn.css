@@ -186,3 +186,21 @@ ul,ol,dl,dt,dd,p,img{ display:block; border:0;list-style:none; }
 .inex_bj_all{ background-repeat: no-repeat;}
 .slide_img_bj>li{position:absolute; width:100%; height:700px; top:0; z-index: -1; background-position:center 0 ; width:100%; height:700px;   top:0px; display:none; }
 .slide_img_bj>.on{display:block;}
+/*评测*/
+.evaluting_all_bj{width:100%; background:url(../img/dn/bjcp.jpg) no-repeat center top; height:500px; width:100%;}
+.evaluting_all{width:100%; height:556px; background-color:#ffffff;  position: relative;}
+.evaluting_l{float:left; padding-left:20px;}
+.evaluting_r{float:right;}
+.evaluting_r ,.evaluting_l{width:50%; padding:0 40px;}
+.evaluting_r>ul ,.evaluting_l>ul{ margin-top:157px;}
+.evaluting_r>ul>li,.evaluting_l>ul>li{ margin-top:20px;}
+.evaluting_r img,.evaluting_l img{padding-top:38px}
+.evaluting_tit{font-size:26px; color:#333;}
+.evaluting_tit2{font-size:24px; color:#333;}
+.evaluting_all_2{position:relative; background-image:url(../img/dn/bbb.png);     background-repeat: repeat-x;}
+.evaluting_all_2 .evaluting_tit,.evaluting_all_2 .evaluting_tit2{color:#fff;}
+.evaluting_all_2_bj{top:0; right:0; position:absolute;}
+.evaluting_all_2 .evaluting_r ,.evaluting_all_2 .evaluting_l{position:absolute;}
+.evaluting_all_2 .evaluting_r {left:48%; margin-right:40px;}
+.evaluting_position{position:relative;}
+.evaluting_all_di{font-size:26px; color:#333; text-align:center;}
