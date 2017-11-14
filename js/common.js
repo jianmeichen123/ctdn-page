@@ -514,7 +514,7 @@ $('body').delegate('.dn_ico_search','click', function(event){
 })*/
 
 function formatNewsTime(time){
-     var dateTimeStamp=Date.parse(time.replace(/-/gi,"/"));
+//     var dateTimeStamp=Date.parse(time.replace(/-/gi,"/"));
      var result = '';
      //JavaScript函数：
      var minute = 1000 * 60;
@@ -523,7 +523,7 @@ function formatNewsTime(time){
      var halfamonth = day * 15;
      var month = day * 30;
      var now = new Date().getTime();
-     var diffValue = now - dateTimeStamp;
+     var diffValue = now - time*1000;
      if(diffValue < 0){
       //若日期不符则弹出窗口告之
       //alert("结束日期不能小于开始日期！");
