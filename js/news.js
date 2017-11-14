@@ -127,11 +127,17 @@ function newsFormatter(value,row){
    if(row.overview.length>80){
         row.overview = row.overview.substring(0,80)+"...";
    }
+   if (row.imgmd5){
+        row.imgmd5 = "<a href='"+row.imgmd5+"'> <img src=''> </a>";
+   }else {
+        row.imgmd5 = ""
+   }
   row.orderTime =  formatNewsTime(row.orderTime);
    var html = "<li>"+
                     '<div class="dn_info_list_show">'+
-                    '<div class="dn_info_list_tit">${title}</div>'+
-                    '<div class="dn_info_list_show_l"><img src="http://10.11.8.18:8089/static/news/img/${imgmd5}"></div>'+
+                    '<div class="dn_info_list_tit"><a href="${href}">${title}</a></div>'+
+//                    '<div class="dn_info_list_show_l"><img src="http://10.11.8.18:8089/static/news/img/${imgmd5}"></div>'+
+                    '${imgmd5}'+
                     '<div class="dn_info_list_show_r">'+
                         "<ul>"+
 

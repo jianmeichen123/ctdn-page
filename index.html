@@ -63,7 +63,7 @@
 								{{each(i,v) data.records}}
 								<li>
 									<div class="dn_info_list_show">
-									<div class="dn_info_list_tit">${v.title}</div>
+									<div class="dn_info_list_tit"><a href="${v.href}">${v.title}</a></div>
 									{{if v.newsAddress != null}}
 										<div class="dn_info_list_show_l"><img src="${v.imgmd5}"></div>
 									{{/if}}
