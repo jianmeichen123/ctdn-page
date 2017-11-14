@@ -63,15 +63,15 @@
 								{{each(i,v) data.records}}
 								<li>
 									<div class="dn_info_list_show">
-									<div class="dn_info_list_tit">${v.newsTitle}</div>
+									<div class="dn_info_list_tit">${v.title}</div>
 									{{if v.newsAddress != null}}
-										<div class="dn_info_list_show_l"><img src="${v.newsAddress}"></div>
+										<div class="dn_info_list_show_l"><img src="${v.imgmd5}"></div>
 									{{/if}}
 									<div class="dn_info_list_show_r">
 										<ul>
 
-											<li class="dn_info_list_cen">${v.newsContent}</li>
-											<li class="dn_info_list_ic"><span>${v.newsReportDate}</span><span>来源：</span><span>${v.newsSource}</span></li>
+											<li class="dn_info_list_cen">${v.overview}</li>
+											<li class="dn_info_list_ic"><span>${v.orderTime}</span><span>来源：</span><span>${v.auther}</span></li>
 										</ul>
 									</div>
 									</div>
@@ -248,6 +248,7 @@ $(function(){
 	
 });
 </script>
+<script src="js/common.js"></script>
 <script src="js/jquery.tmpl.js"></script>
 <script src="js/newIndex.js"></script>
 </body>

@@ -33,20 +33,6 @@ $(divList).each(function(){
 })
 
 
-var lab = $(".lable_all");
-var labUrl = detail["getNewsByLabels"]
-sendGetRequest(labUrl,function(data){
-    $(data.data).each(function(k,v){
-        if(!v){
-            v="-"
-        }
-    })
-    var target = $("#getNewsByLabels");
-    target.tmpl(data).appendTo(target.parent())
-    })
-
-
-var newsType = "";
 
 function  getNews(){
     $("table[data-item]").bootstrapTable("refreshOptions",{
@@ -138,19 +124,19 @@ function injectValues(html,row){
 
 //资讯formatter
 function newsFormatter(value,row){
-   if(row.newsContent.length>80){
-        row.newsContent = row.newsContent.substring(0,80)+"...";
+   if(row.overview.length>80){
+        row.overview = row.overview.substring(0,80)+"...";
    }
-  row.newsReportDate =  formatNewsTime(row.newsReportDate);
+  row.orderTime =  formatNewsTime(row.orderTime);
    var html = "<li>"+
                     '<div class="dn_info_list_show">'+
-                    '<div class="dn_info_list_tit">${newsTitle}</div>'+
-                    '<div class="dn_info_list_show_l"><img src="img/dn/${newsAddress}"></div>'+
+                    '<div class="dn_info_list_tit">${title}</div>'+
+                    '<div class="dn_info_list_show_l"><img src="http://10.11.8.18:8089/static/news/img/${imgmd5}"></div>'+
                     '<div class="dn_info_list_show_r">'+
                         "<ul>"+
 
-                            '<li class="dn_info_list_cen">${newsContent}</li>'+
-                            '<li class="dn_info_list_ic"><span>'+result+'</span><span>来源：</span><span>${newsSource}</span></li>'+
+                            '<li class="dn_info_list_cen">${overview}</li>'+
+                            '<li class="dn_info_list_ic"><span>${orderTime}</span><span>来源：</span><span>${auther}</span></li>'+
                         "</ul>"+
                     "</div>"+
                     "</div>"+

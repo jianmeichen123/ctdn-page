@@ -1,8 +1,5 @@
 
-var divList = $(".container").find("div[data-block]");
-$(divList).each(function(){
-    var div =$(this);
-    var url = detail[div.attr("data-block")];
+    var url = detail['getCTDNEventInfo'];
     sendGetRequest(url,function(data){
        $(data.data).each(function(k,v){
             if(!v){
@@ -12,23 +9,17 @@ $(divList).each(function(){
                     if(i=="investDate"){
                         v[i] = formatDate(v[i],"yyyy-MM-dd")
                     }
-                    if(i=="newsContent"){
-                        if(v[i].length>88){
-                            v[i]=v[i].substring(0,88)+'...'
-                        }
-                    }
                 }
             }
        })
-       var target = $("#"+div.attr("data-block"));
+       var target = $("#getCTDNEventInfo");
        target.tmpl(data).appendTo(target.parent())
     })
-})
 
 //新闻
 function getNews(){
     var json={};
-    json["newsTypeName"] = $("input[name='newsTypeName']").val();
+    json["type"] = $("input[name='type']").val();
     json["pageSize"]=6;
     json["pageNo"]=0;
      sendPostRequestByJsonObj(searchUrl["news"],json,function(data){
@@ -39,10 +30,10 @@ function getNews(){
                     for(i in v){
                         if(i=="records"){
                             for(j in v[i]){
-                               if(v[i][j].newsContent.length>88){
-                                   v[i][j].newsContent=v[i][j].newsContent.substring(0,88)+'...'
+                               if(v[i][j].overview.length>88){
+                                   v[i][j].overview=v[i][j].overview.substring(0,88)+'...'
                                }
-                                v[i][j].newsReportDate= formatNewsTime(v[i][j].newsReportDate)
+                                v[i][j].orderTime= formatNewsTime(v[i][j].orderTime)
                            }
                         }
                     }
