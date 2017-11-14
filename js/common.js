@@ -514,7 +514,7 @@ $('body').delegate('.dn_ico_search','click', function(event){
 })*/
 
 function formatNewsTime(time){
-     var dateTimeStamp=Date.parse(time.replace(/-/gi,"/"));
+     var dateTimeStamp = time;
      var result = '';
      //JavaScript函数：
      var minute = 1000 * 60;

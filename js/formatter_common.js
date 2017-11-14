@@ -371,25 +371,25 @@ function injectValues(html,row){
 //资讯formatter
 function newsFormatter(value,row){
     if (row.imgmd5){
-         row.imgmd5 = "<a href='${imgmd5}'> <img src=''> </a>";
+         row.imgmd5 = "<a href='"+row.imgmd5+"'> <img src=''> </a>";
     }else {
          row.imgmd5 = ""
     }
     row.orderTime = formatNewsTime(row.orderTime)
     if(row.auther){
-       row.auther = "来自：<i>${auther}</i>"
+       row.auther = "来自：<i>"+row.auther+"</i>"
     }else{
         row.auther =''
     }
    var html = "<dl class='info-list-item'>"+
     			"<dt>"+
     			"${imgmd5}"+
-    			"<h3><a href='${auther}' style='blr:expression(this.onFocus=this.blur()); /* IE Opera */ outline:none; /* FF Opera */ '> ${title}</a></h3>"+
+    			"<h3><a href='${href}' style='blr:expression(this.onFocus=this.blur()); /* IE Opera */ outline:none; /* FF Opera */ '> ${title}</a></h3>"+
     			"</dt>"+
     			"<dd>"+
-    				"<p>${overview}</p>"+
+    				"<p></p>"+
     				"<p class='info-tips'>"+
-    				"<i>"+result+"<i> ${auther}</p>"+
+    				"<i>${orderTime}<i> ${auther}</p>"+
     			"</dd>"+
     		"</dl>"
     return injectValues(html,row);
