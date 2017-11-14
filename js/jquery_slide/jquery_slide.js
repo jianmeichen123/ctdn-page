@@ -55,7 +55,6 @@ function i_slide(obj,opt){
    //重新定位
    
    function pos_dex(N){ 
-		console.log(N)
 		var next;
 		var z=li.length;
 		$('.slide_img_bj li').removeClass('on');
