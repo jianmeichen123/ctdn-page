@@ -17,6 +17,19 @@
 	<div class="info-search">
 		<input type='text' placeholder='滴滴' name="keyword"/>
 		<span class="search-btn">搜索</span>
+		<!-- 热词 -->
+		<div class="hot_speech">
+			<div class="tit">热门搜索</div>
+			<div class="hot_speech_all">
+				<ul class="hotKeyword">
+					<li>共享充电宝</li>
+					<li>共享充电宝</li>
+					<li>共享充电宝</li>
+					<li>共享充电宝</li>
+					<li>共享充电宝</li>
+				</ul>
+			</div>
+		</div>
 	</div>
 </div>
 <div class="container">
@@ -107,6 +120,13 @@
 	</div>
 </div>
 </body>
+<script>
+$(".info-search input").focus(function(){
+    $(".info-search .hot_speech").show();
+}).blur(function(){
+    $(".info-search .hot_speech").hide();
+});
+</script>
 <script src="js/platformUrl.js?t=20170523"></script>
 <script src="js/common.js"></script>
 <script src="js/formatter_common.js"></script>
