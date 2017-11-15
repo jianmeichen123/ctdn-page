@@ -123,16 +123,16 @@
 							</tr>
 						</thead>
 						<tbody data-query="list" data-formatter="projectShareholderInfoList">
-							<tr>
-								<td>结果</td>
-								<td>结果</td>
-								<td>结果</td>
-								<td>结果</td>
-								<td>结果</td>
-								<td>结果</td>
-								<td>结果</td>
-								<td>结果</td>
-							</tr>
+							<!--<tr>-->
+								<!--<td>结果</td>-->
+								<!--<td>结果</td>-->
+								<!--<td>结果</td>-->
+								<!--<td>结果</td>-->
+								<!--<td>结果</td>-->
+								<!--<td>结果</td>-->
+								<!--<td>结果</td>-->
+								<!--<td>结果</td>-->
+							<!--</tr>-->
 						</tbody>
 					</table>
 			</div>
@@ -220,13 +220,36 @@
 				<div class="project_t"><span class="brain_ico brain_ico_project_crumbs"></span>企业项目</div>
 				<div class="porject_all_black">
 					<div class="list-item">
-						<div class="list-item-inner">
-							<div class="list-item-left"><img src="http://static.galaxyinternet.com/fc4189beb12aeb09783962125311d565.jpg"></div>
-							<div class="list-item-right">
-								<p class="list-item-title"><a target="_blank" href="/project_qy.html?code=boxwfh"><comp>阿里</comp>西西网</a><span>尚未获投</span></p><p class="list-item-content">简介:暂无</p><p class="list-item-tips"><i class="list-item-address"></i>上海<i class="list-item-finace"></i>企业服务
-								</p>
-							</div>
-						</div>
+
+							{-raw-}
+							<script id="queryByProjTitle" type="text/x-jquery-tmpl">
+								{{if data.length >0}}
+									{{each(i,v) data}}
+										<li>
+										<div class="list-item-inner">
+										<div class="list-item-left"><img src="http://static.galaxyinternet.com/fc4189beb12aeb09783962125311d565.jpg"></div>
+										<div class="list-item-right">
+											<p class="list-item-title"><a target="_blank" href="/project_qy.html?code=boxwfh"><comp>${v.projTitle}</comp></a><span>${v.latestFinanceRound}</span></p><p class="list-item-content">简介:${v.introduce}</p><p class="list-item-tips"><i class="list-item-address"></i>${v.districtSubName}<i class="list-item-finace"></i>${v.industrySubName}
+											</p>
+										</div>
+										</div>
+										<li>
+									{{/each}}
+								{{else}}
+									<span>暂无数据</span>
+								{{/if}}
+								</script>
+							{-raw-}
+							<!--<li>-->
+								<!--<div class="list-item-inner">-->
+								<!--<div class="list-item-left"><img src="http://static.galaxyinternet.com/fc4189beb12aeb09783962125311d565.jpg"></div>-->
+								<!--<div class="list-item-right">-->
+									<!--<p class="list-item-title"><a target="_blank" href="/project_qy.html?code=boxwfh"><comp>阿里</comp>西西网</a><span>尚未获投</span></p><p class="list-item-content">简介:暂无</p><p class="list-item-tips"><i class="list-item-address"></i>上海<i class="list-item-finace"></i>企业服务-->
+									<!--</p>-->
+								<!--</div>-->
+								<!--</div>-->
+							<!--</li>-->
+
 					</div>
 					<div class="dn_ico_more_all"><div class="dn_ico_more_al_divl">加载更多<span class="dn_ico dn_ico_more"></span></div></div>
 				</div>
@@ -235,7 +258,7 @@
 			<div class="background_boeder">
 				<div class="project_t" location_l="location_lx"><span class="brain_ico brain_ico_project_crumbs"></span>对外投资</div>
 				<div class="particulars_black">
-					<table class=" particulars_table_list m_t5">
+					<table class=" particulars_table_list">
 					<thead>
 						<tr>
 							<th ><div>时间</div></th>
@@ -246,7 +269,7 @@
 							<th><div class="border_l">详情</div></th>
 						</tr>
 					</thead>
-					<tbody class="shgp">
+					<tbody class="shgp" data-query="lists" data-formatter="projectInvestOthers">
 					</tbody>
 				</table>
 				<div class="dn_ico_more_all"><div class="dn_ico_more_al_divl">加载更多<span class="dn_ico dn_ico_more"></span></div></div>
@@ -295,6 +318,7 @@
 		</div>
 	</div>
 </div>
+<script src="js/jquery.tmpl.js"></script>
 <script src="js/fill_project_header.js"></script>
 <script src="js/fillData_common.js"></script>
 <script src="js/gsxx_particulars.js"></script>
