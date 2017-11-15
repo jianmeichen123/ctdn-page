@@ -117,6 +117,19 @@
 				<div class="project_t" location_l="location_cp"><span class="brain_ico brain_ico_project_crumbs"></span>产品信息<div class="fr" id="pro_num"></div></div>
 				<div class="particulars_black">
 					<input type="hidden" name = "code" value="qscbxt">
+					<div class="">
+						<div class="slider6">
+
+							<div class="slide"><img src="http://placehold.it/600x200&text=FooBar1"></div>
+							
+							<div class="slide"><img src="http://placehold.it/600x200&text=FooBar2"></div>
+							
+							<div class="slide"><img src="http://placehold.it/600x200&text=FooBar3"></div>
+							
+							<div class="slide"><img src="http://placehold.it/600x200&text=FooBar4"></div> 
+						
+						</div>
+					</div>
                     <!-- 把要轮播的地方写上来 -->
 					<div class = "prodSrv">
 						<div class="project_t_team">产品服务</div>
@@ -419,6 +432,26 @@
 <script src="js/fill_project_header.js"></script>
 <script src="js/jquery.tmpl.js"></script>
 <script src="js/project_qy.js"></script>
+<!-- 轮播图 -->
+<script src="js/slider/jquery.bxslider.js"></script>
+<link rel="stylesheet" type="text/css" href="js/slider/jquery.bxslider.css">
+<script type="text/javascript">
+
+        $(document).ready(function(){
+
+          $('.slider6').bxSlider({
+
+			mode: 'fade',
+
+            slideWidth: 600, 
+
+            slideMargin: 10
+
+          });
+
+        });
+
+    </script>
 <script>
 //给tab页a赋参数
 $(function(){
