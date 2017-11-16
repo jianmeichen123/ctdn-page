@@ -10,7 +10,7 @@
 <body>
 {(header.html)}
 <div class="container">
-	<form  action="#" id="form">
+	<form  action="#" id="form" enctype="multipart/form-data">
 	<div class="seek_financing">
 		<div class="seek_financing_tit">提交项目</div>
 		<ul>
@@ -23,15 +23,15 @@
 			<li>
 				<div class="seek_financing_l"><span class="seek_financing_two">所在地区</span><span class="seek_financing_one">*</span></div>
 				<div class="seek_financing_r">
-					<select class="seek_financing_select" name="projDistrict" required>
-						<option>111</option>
+					<select class="seek_financing_select" name="projDistrictId" data-item="parent" data-field="district" required>
+						<option>选择所在省/市</option>
 					</select>
-					<select class="seek_financing_select seek_financing_select_lef" name="projSubDistrict" required>
-						<option>111</option >
+					<select class="seek_financing_select  seek_financing_select_lef" data-item="son" name="projSubDistrictId" required>
+						<option>选择所在市/区</option>
 					</select>
 				</div>
-				<input type="hidden" name="projDistrictId">
-				<input type="hidden" name="projSubDistrictId">
+				<input type="hidden" name="projDistrict">
+				<input type="hidden" name="projSubDistrict">
 			</li>
 			<li>
 				<div class="seek_financing_l"><span class="seek_financing_two">项目介绍</span><span class="seek_financing_one">*</span></div>
@@ -48,16 +48,11 @@
 			<li>
 				<div class="seek_financing_l"><span class="seek_financing_two">商业计划书</span><span class="seek_financing_one">*</span></div>
 				<div class="seek_financing_r">
-					<div class="file_box">
-
-						<button class="file_btn btn"><input id="fileupload" type="file" name="file" data-url="files/upload">选择文件</button>
-						<span class="file_name"></span>
-					</div>
-
 					<div class="seek_put">
-						<input id="bpUpload" type="file" name="file" data-url="files/upload" >
+						<input type="file" name="file" id="projPb"/>
+						<input type="hidden" name="projPb">
 						<span class="dn_ico dn_ico_seek_pur1"></span>上传文件
-						<span class="file_name" id="bpFileName"></span>
+						<span id="projPbName"></span>
 					</div>
 
 				</div>
@@ -67,23 +62,22 @@
 				<div class="seek_financing_l"><span class="seek_financing_two">项目LOGO</span></div>
 				<div class="seek_financing_r">
 					<div class="seek_put">
-						<input id="logoUpload" type="file" name="file" data-url="files/upload" >
+						<input type="file" name="file" id="projLogo">
+						<input type="hidden" name="projLogo">
 						<span class="dn_ico dn_ico_seek_pur2"></span>上传logo
 					</div>
-					<span class="file_name" id="logoFileName"></span>
-
 				</div>
 			</li>
 			<li class="seek_show_on">
 				<div class="seek_financing_l"><span class="seek_financing_two">所属领域</span></div>
-				<input type="hidden" name="projIndustryId">
-				<input type="hidden" name="projSubIndustryId">
+				<input type="hidden" name="projIndustry">
+				<input type="hidden" name="projSubIndustry">
 				<div class="seek_financing_r">
-					<select class="seek_financing_select" name="projIndustry">
-						<option>111</option>
+					<select class="seek_financing_select" name="projIndustryId" data-item="parent" data-field="industry" >
+						<option>选择一级行业</option>
 					</select>
-					<select class="seek_financing_select seek_financing_select_lef" name="projSubIndustry">
-						<option>111</option>
+					<select class="seek_financing_select seek_financing_select_lef" name="projSubIndustryId" data-item="son" >
+						<option>选择二级行业</option>
 					</select>
 				</div>
 			</li>
@@ -107,10 +101,10 @@
 			</li>
 			<li class="seek_show_on">
 				<div class="seek_financing_l"><span class="seek_financing_two">融资轮次</span></div>
-				<input type="hidden" name="projRoundId">
+				<input type="hidden" name="projRound">
 				<div class="seek_financing_r">
-					<select class="seek_financing_select seek_financing_select_lef" name="projRound">
-						<option>111</option>
+					<select class="seek_financing_select seek_financing_select_lef" name="projRoundId"  data-item="parent" data-field="round">
+						<option >选择融资轮次</option>
 					</select>
 				</div>
 			</li>
@@ -130,9 +124,173 @@
 			</li>
 		</ul>
 		<div class="seek_show"><span class="seek_show_open"><span class="seek_show_blue">完善信息　</span>可以加速融资进度哦~<span class="dn_ico dn_ico_seek_open"></span></span><span class="seek_show_off"><span class="seek_show_blue">收起</span><span class="dn_ico dn_ico_seek_off"></span></span></div>
-		<div class="seek_submit" id="save-user-btn">提交项目</div>
+		<div class="seek_submit" id="save-btn">提交项目</div>
 	</div>
 	</form>
 </div>
 </body>
+<script type="text/javascript" src="js/jquery.validate.js"></script>
+<script type="text/javascript" src="js/jquery.ui.widget.js"></script>
+<script type="text/javascript" src="js/jquery.fileupload.js"></script>
+<script>
+$.fn.serializeJson = function(){
+	var data = {};
+	var array = this.serializeArray();
+	$.each(array,function(){
+		data[this.name]=this.value.replace(/(^\s+)|(\s+$)/g,"");
+	})
+	return data;
+}
+
+	$('.seek_show_open').click(function(event){
+		$(this).hide();
+		$('.seek_show_on').show();
+		$('.seek_show_off').show();
+	})
+	$('.seek_show_off').click(function(event){
+		$(this).hide();
+		$('.seek_show_on').hide();
+		$('.seek_show_open').show();
+	})
+
+	$("#projLogo").fileupload({
+		url:platformUrl.fileUpload,
+		formData:{},
+		add: function (e, data) {
+			$("#projLogoName").text(data.files[0].name);
+            data.submit();
+        },
+		done: function (e, data) {
+			if(data.result.message == 'OK')
+			{
+				$("input[name='projLogo']").val(data.result.data)
+				alert('导入成功');
+			}
+			else
+			{
+				alert(data.result.message);
+			}
+		}
+	});
+		$("#projPb").fileupload({
+		url:platformUrl.fileUpload,
+		formData:{},
+		add: function (e, data) {
+			$("#projPbName").text(data.files[0].name);
+            data.submit();
+        },
+		done: function (e, data) {
+			if(data.result.message == 'OK')
+			{
+				$("input[name='projPb']").val(data.result.data)
+				alert('导入成功');
+			}
+			else
+			{
+				alert(data.result.message);
+			}
+		}
+	});
+
+
+
+</script>
+<script>
+	$("#form").validate({
+		onkeyup:false,
+        errorElement : 'span',
+        errorClass : 'help-inline',
+        focusInvalid : false,
+        messages:{
+        	password2:{
+        		equalTo:'两次密码输入不一致'
+        	}
+        }
+	});
+
+
+	$("#save-btn").click(function(event){
+		event.preventDefault();
+		var projDistrict =  $("select[name='projDistrictId']").attr("name")
+		var projSubDistrict =  $("select[name='projSubDistrictId']").attr("name")
+		var projIndustry =  $("select[name='projIndustryId']").attr("name")
+		var projSubIndustry =  $("select[name='projSubIndustryId']").attr("name")
+		var projRound =  $("select[name='projRoundId']").attr("name")
+
+		console.log(projDistrict+":"+projSubDistrict+":"+projIndustry+":"+projSubIndustry+":"+projRound)
+
+		$("input[name='projDistrict']").val(projDistrict)
+		$("input[name='projSubDistrict']").val(projSubDistrict)
+		$("input[name='projIndustry']").val(projIndustry)
+		$("input[name='projSubIndustry']").val(projSubIndustry)
+		$("input[name='projRound']").val(projRound)
+
+		if($("#form").validate().form())
+		{
+			var url =detail.insertProject
+			var data = JSON.stringify($("#form").serializeJson());
+			$.ajax({
+				type: "POST",
+				url:url,
+				contentType:'application/json;charset=UTF-8',
+				data:data,
+				success:function(data){
+					if(data.message == 'OK')
+					{
+						alert('保存成功');
+					}
+					else
+					{
+						alert(data.message);
+					}
+				}
+			})
+		}
+	});
+
+	var list ={} ;
+	sendGetRequest(platformUrl.allQuery,function(data){
+		list["district"] = data.data.district[0].children;
+		list["industry"] = data.data.industry;
+		list["round"] = data.data.round;
+	})
+	var parents = $("select[data-item='parent']");
+	$.each(parents,function(){
+		var parent = $(this);
+		var field =  parent.attr("data-field");
+		var data  = list[field];
+		var html = ""
+		$.each(data,function(i,e){
+			html += "<option value ="+e.id+"  name = "+e.name+">"+e.name+"</option>"
+		})
+		parent.append(html);
+	})
+
+	$.each(parents,function(){
+		var parent = $(this);
+		parent.change(function(){
+			var son =parent.next()
+			 // 先清空第二个
+			son.empty();
+			//var id =parent.val();
+			var field=parent.attr("data-field")
+			var data =list[field][(parent[0].selectedIndex)-1].children;
+			//console.log(data)
+			var html = ""
+			$.each(data,function(i,e){
+				html += "<option value ="+e.id+" name = "+e.name+">"+e.name+"</option>"
+			})
+			son.append(html);
+		})
+	});
+
+
+
+
+
+
+</script>
+
+
+
 </html>

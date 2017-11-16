@@ -371,7 +371,7 @@ function injectValues(html,row){
 //资讯formatter
 function newsFormatter(value,row){
     if (row.imgmd5){
-         row.imgmd5 = "<a href='"+row.imgmd5+"'> <img src=''> </a>";
+         row.imgmd5 = "<a href='"+row.imgmd5+"'> <img src='"+Constants.logoPath+row.imgmd5+"'> </a>";
     }else {
          row.imgmd5 = ""
     }

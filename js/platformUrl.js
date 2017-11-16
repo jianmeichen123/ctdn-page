@@ -5,7 +5,8 @@ var Constants = {
 	//userContentURL: "http://127.0.0.1/user/",
 	searchContentURL: "http://127.0.0.1:8089/search/",
 	dataContentURL: "http://127.0.0.1:8085/data/",
-	logoPath: "http://static.galaxyinternet.com/"
+	logoPath: "http://10.11.8.18:8089/static/img/news/"
+	//logoPath: "http://10.11.8.18:8089/static/img/news/"
 }
 
 
@@ -64,7 +65,8 @@ var platformUrl = {
 	userIndustry:Constants.platformContentURL+"index/userIndustry/",
 	updateUserIndustry:Constants.platformContentURL+"index/updateUserIndustry",
 	eventIndustryMonth:Constants.platformContentURL+"eventIndustryMonth/query",
-	queryIndexHeaderStat:Constants.platformContentURL+"index/queryIndexHeaderStat"
+	queryIndexHeaderStat:Constants.platformContentURL+"index/queryIndexHeaderStat",
+	fileUpload:Constants.platformContentURL+"upload"
 }
 var table ={
    empty: "-"
@@ -102,6 +104,8 @@ var detail = {
     getCTDNEventInfo:Constants.platformContentURL+"/eventInfo/getCtdnEventInfo/",
     getNewsByLabels:Constants.platformContentURL+"/news/getByLabels/",
     getNewsByLabel:Constants.platformContentURL+"/news/getNewsByLabel/",
+
+    insertProject:Constants.platformContentURL+"/appProjectDemandInfo/insert"
 
 }
 /**
