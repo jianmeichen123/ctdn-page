@@ -383,10 +383,10 @@ function newsFormatter(value,row){
     }
    var html = "<dl class='info-list-item'>"+
     			"<dt>"+
-    			"${imgmd5}"+
     			"<h3><a href='${href}' style='blr:expression(this.onFocus=this.blur()); /* IE Opera */ outline:none; /* FF Opera */ '> ${title}</a></h3>"+
     			"</dt>"+
     			"<dd>"+
+    			"${imgmd5}"+
     				"<p></p>"+
     				"<p class='info-tips'>"+
     				"<i>${orderTime}<i> ${auther}</p>"+

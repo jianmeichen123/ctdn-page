@@ -1,22 +1,22 @@
 //本地
+//
+//var Constants = {
+//	platformContentURL: "http://127.0.0.1:8081/api/",
+//	//userContentURL: "http://127.0.0.1/user/",
+//	searchContentURL: "http://127.0.0.1:8089/search/",
+//	dataContentURL: "http://127.0.0.1:8085/data/",
+//	logoPath: "http://10.11.8.18:8089/static/img/news/"
+//	//logoPath: "http://10.11.8.18:8089/static/img/news/"
+//}
+
+
 
 var Constants = {
-	platformContentURL: "http://127.0.0.1:8081/api/",
-	//userContentURL: "http://127.0.0.1/user/",
-	searchContentURL: "http://127.0.0.1:8089/search/",
-	dataContentURL: "http://127.0.0.1:8085/data/",
-	newsLogoPath: "http://10.11.8.18:8089/static/img/news/",
-	projectLogoPath:"http://10.11.8.18:8089/static/img/project/",
-	//logoPath: "http://10.11.8.18:8089/static/img/news/"
+	platformContentURL: "http://ctdndev.gi.com/api/",
+	searchContentURL: "http://ctdndev.gi.com/search/",
+	dataContentURL: "http://ctdndev.gi.com/data/",
+	logoPath: "http://10.11.8.18:8089/static/img/news/"
 }
-
-
-//var Constants = {
-//	platformContentURL: "http://ctdndev.gi.com/api/",
-//	searchContentURL: "http://ctdndev.gi.com/search/",
-//	dataContentURL: "http://ctdndev.gi.com/data/",
-//	logoPath: "http://10.11.8.18:8089/static/img/news/"
-//}
 
 ////线上
 //var Constants = {
@@ -94,8 +94,8 @@ var detail = {
     queryCourtAnnouncement:Constants.dataContentURL+"risk/queryCourtAnnouncement/",
     queryRiskJudgmentDocument:Constants.dataContentURL+"risk/queryRiskJudgmentDocument/",
     queryOperationException:Constants.dataContentURL+"risk/queryOperationException/",
-    queryPorjectBusniessInfo:Constants.dataContentURL+"/businessInfo/getListBySourceCode/",
-    queryZSCQInfo:Constants.dataContentURL+"/projectMarkInfo/getListBySourceCode/",
+    queryPorjectBusniessInfo:Constants.platformContentURL+"/businessInfo/getListBySourceCode/",
+    queryZSCQInfo:Constants.platformContentURL+"/projectMarkInfo/getListBySourceCode/",
     queryLatestProjects:Constants.platformContentURL+"/projectList/queryLatestProjects/",
     getLatestEventInfo:Constants.platformContentURL+"/eventInfo/getLatestEventInfo/",
     getOrgsByTimes:Constants.platformContentURL+"/orgRank/getOrgsByTimes/",
@@ -105,9 +105,12 @@ var detail = {
     getCTDNEventInfo:Constants.platformContentURL+"/eventInfo/getCtdnEventInfo/",
     getNewsByLabels:Constants.platformContentURL+"/news/getByLabels/",
     getNewsByLabel:Constants.platformContentURL+"/news/getNewsByLabel/",
-
+    queryByProjTitle:Constants.platformContentURL+"/projectList/queryByProjTitle/",
+    getListByCompany:Constants.platformContentURL+"/eventInfo/getListByCompany/",
+    getListByCompany:Constants.platformContentURL+"/businessInfo/getListByRegName/",
+    getAllCompMember:Constants.platformContentURL+"/compMember/getAllCompMember/",
+    getAllCompSubs:Constants.platformContentURL+"/compSub/getAllCompSubs/",
     insertProject:Constants.platformContentURL+"/appProjectDemandInfo/insert"
-
 }
 /**
  * how to use? location.href = platformUrl.login

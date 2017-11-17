@@ -1,19 +1,19 @@
-<input type="hidden" name="newsTypeName"  >
+<input type="hidden" name="typeId"  >
 <ul class="news_li">
     <li class="financing_on">全部</li>
-    <li value="org">机构</li>
-    <li data-tab="news" value="bigCom">大公司</li>
-    <li data-tab="news" value="event">事件</li>
-    <li data-tab="news" value="people">人物</li>
-    <li data-tab="news" value="zhengce">政策</li>
-    <li data-tab="news" value="industry">行业</li>
-    <li data-tab="" value="newProd">新产品</li>
+    <li value="1">机构</li>
+    <li data-tab="news" value="2">大公司</li>
+    <li data-tab="news" value="3">事件</li>
+    <li data-tab="news" value="4">人物</li>
+    <li data-tab="news" value="5">政策</li>
+    <li data-tab="news" value="6">行业</li>
+    <li data-tab="" value="7">新产品</li>
 </ul>
 <script>
     //切换tab 请求数据
     $(".news_li").delegate("li","click",function(){
         var tab = $(this).attr("value");
-        $("input[name='newsTypeName']").val(tab);
+        $("input[name='typeId']").val(tab);
         getNews();
     });
     </script>

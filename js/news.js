@@ -72,9 +72,9 @@ function  getNews(){
           if(keyword){
             data["keyword"]=keyword;
           }
-          var newsTypeName = $("input[name='newsTypeName']").val();
-          if(newsTypeName){
-            data["newsTypeName"]= newsTypeName;
+          var typeId = $("input[name='typeId']").val();
+          if(type){
+            data["typeId"]= typeId;
           }
         return data;
     }
