@@ -73,7 +73,7 @@ function  getNews(){
             data["keyword"]=keyword;
           }
           var typeId = $("input[name='typeId']").val();
-          if(type){
+          if(typeId){
             data["typeId"]= typeId;
           }
         return data;
