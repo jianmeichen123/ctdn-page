@@ -1,22 +1,23 @@
 //本地
 //
-//var Constants = {
-//	platformContentURL: "http://127.0.0.1:8081/api/",
-//	//userContentURL: "http://127.0.0.1/user/",
-//	searchContentURL: "http://127.0.0.1:8089/search/",
-//	dataContentURL: "http://127.0.0.1:8085/data/",
-//	logoPath: "http://10.11.8.18:8089/static/img/news/"
-//	//logoPath: "http://10.11.8.18:8089/static/img/news/"
-//}
-
-
-
 var Constants = {
-	platformContentURL: "http://ctdndev.gi.com/api/",
-	searchContentURL: "http://ctdndev.gi.com/search/",
-	dataContentURL: "http://ctdndev.gi.com/data/",
-	logoPath: "http://10.11.8.18:8089/static/img/news/"
+	platformContentURL: "http://127.0.0.1:8081/api/",
+	//userContentURL: "http://127.0.0.1/user/",
+	searchContentURL: "http://127.0.0.1:8089/search/",
+	dataContentURL: "http://127.0.0.1:8085/data/",
+	newsLogoPath: "http://10.11.8.18:8089/static/img/news/"
+	projectLogoPath:"http://10.11.8.18:8089/static/img/project/"
+	//logoPath: "http://10.11.8.18:8089/static/img/news/"
 }
+
+
+
+//var Constants = {
+//	platformContentURL: "http://ctdndev.gi.com/api/",
+//	searchContentURL: "http://ctdndev.gi.com/search/",
+//	dataContentURL: "http://ctdndev.gi.com/data/",
+//	logoPath: "http://10.11.8.18:8089/static/img/news/"
+//}
 
 ////线上
 //var Constants = {
