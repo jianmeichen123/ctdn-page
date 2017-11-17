@@ -1,20 +1,14 @@
 
-//    var url = detail['getCTDNEventInfo'];
-//    sendGetRequest(url,function(data){
-//       $(data.data).each(function(k,v){
-//            if(!v){
-//                v="-"
-//            }else{
-//                for(i in v){
-//                    if(i=="investDate"){
-//                        v[i] = formatDate(v[i],"yyyy-MM-dd")
-//                    }
-//                }
-//            }
-//       })
-//       var target = $("#getCTDNEventInfo");
-//       target.tmpl(data).appendTo(target.parent())
-//    })
+    var url = detail['getCTDNEventInfo'];
+    sendGetRequest(url,function(data){
+       $(data.data).each(function(k,v){
+            if(!v){
+                v="-"
+            }
+       })
+       var target = $("#getCTDNEventInfo");
+       target.tmpl(data).appendTo(target.parent())
+    })
 
 //新闻
 function getNews(){
