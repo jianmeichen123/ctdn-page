@@ -389,5 +389,5 @@ var callBack = {
 
 
 var name;
-sendPostRequest(dataUrl.products+getHrefParamter("code"),callBack.productData);
-sendGetRequest(detail.queryRelativeListByCode+"/"+getHrefParamter("code"),function(data){fillList(data.data,$("div[data-query='list']")) })
+sendPostRequest(dataUrl.products+getHrefParamter("projCode"),callBack.productData);
+sendGetRequest(detail.queryRelativeListByCode+"/"+getHrefParamter("projCode"),function(data){fillList(data.data,$("div[data-query='list']")) })
