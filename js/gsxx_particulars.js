@@ -146,7 +146,7 @@ sendGetRequest(url,function(data){
 })
 
 //任职人员
-var url = detail["getAllCompMember"]+getHrefParamter("code");
+var url = detail["getAllCompMember"]+proj.data.compCode;
 sendGetRequest(url,function(data){
    $(data.data).each(function(k,v){
         if(!v){
@@ -277,5 +277,6 @@ function fillInvestOthers(data,div){
         })
         return json;
    }
+   alert(proj.data.compCode)
 sendGetRequest(detail.queryPorjectBusniessInfo+proj.data.compCode,function(data){fillBaseBusinessInfo(data.data,$("div[data-query='businessInfo']")); fillList(data.data,$("*[data-query='list']"))})
 sendGetRequest(detail.getListByCompany+name,function(data){fillInvestOthers(data.data,$("tbody[data-query='lists']"))})
