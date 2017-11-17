@@ -245,17 +245,18 @@
 				</div>
 			</div>
 			<!-- 企业项目 -->
-			<div class="background_boeder">
+			<div class="background_boeder" data-id="queryByProjTitle" data-url="queryByProjTitle" id="projects">
 				<div class="project_t"><span class="brain_ico brain_ico_project_crumbs"></span>企业项目</div>
-				<input type="hidden" name = "pageSize" value="2">
-				<input type="hidden" name = "pageNo" value="0">
+				<input type="hidden" name = "pageSize" value="5">
+				<input type="hidden" name = "pageNo" value="1">
+				<input type="hidden" name = "projTitle" value="0">
 				<div class="porject_all_black">
 					<div class="list-item">
 
 							{-raw-}
 							<script id="queryByProjTitle" type="text/x-jquery-tmpl">
-								{{if data.length >0}}
-									{{each(i,v) data}}
+								{{if data.records.length >0}}
+									{{each(i,v) data.records}}
 										<li>
 										<div class="list-item-inner">
 										<div class="list-item-left"><img src="http://static.galaxyinternet.com/fc4189beb12aeb09783962125311d565.jpg"></div>
@@ -282,7 +283,7 @@
 							<!--</li>-->
 
 					</div>
-					<!--<div class="dn_ico_more_all"><div class="dn_ico_more_al_divl">加载更多<span class="dn_ico dn_ico_more"></span></div></div>-->
+					<div class="dn_ico_more_all"><div class="dn_ico_more_al_divl">加载更多<span class="dn_ico dn_ico_more"></span></div></div>
 				</div>
 			</div>
 			<!-- 对外投资-->
@@ -353,150 +354,150 @@
 <script src="js/fill_project_header.js"></script>
 <script src="js/fillData_common.js"></script>
 <script src="js/gsxx_particulars.js"></script>
-<script>
-var option = {
-    /* backgroundColor: new echarts.graphic.RadialGradient(0.3, 0.3, 0.8, [{
-        offset: 0,
-        color: '#f7f8fa'
-    }, {
-        offset: 1,
-        color: '#cdd0d5'
-    }]), */
-       title:{
-    },
-      tooltip: {},
-      color:['#3e50b4','#2095f2','#8bc24a','#fdk107','#f44236','#da8267'],
-      legend: [{
-          formatter: function (name) {
-        return echarts.format.truncateText(name, 100, '14px Microsoft Yahei', '…');
-    },
-    tooltip: {
-        show: true
-    },
-          selectedMode: 'false',
-          bottom: 20,
-          data: ['企业名字','项目', '股东', '子公司', '对外投资', '任职人员']
-      }],
-      toolbox: {
-        show : false,
-        feature : {
-            dataView : {show: true, readOnly: true},
-            restore : {show: true},
-            saveAsImage : {show: true}
-        }
-    },
-      animationDuration: 1000,
-      animationEasingUpdate: 'quinticInOut',
-      series: [{
-          name: '企业名字',
-          type: 'graph',
-          layout: 'force',
+<!--<script>-->
+<!--var option = {-->
+    <!--/* backgroundColor: new echarts.graphic.RadialGradient(0.3, 0.3, 0.8, [{-->
+        <!--offset: 0,-->
+        <!--color: '#f7f8fa'-->
+    <!--}, {-->
+        <!--offset: 1,-->
+        <!--color: '#cdd0d5'-->
+    <!--}]), */-->
+       <!--title:{-->
+    <!--},-->
+      <!--tooltip: {},-->
+      <!--color:['#3e50b4','#2095f2','#8bc24a','#fdk107','#f44236','#da8267'],-->
+      <!--legend: [{-->
+          <!--formatter: function (name) {-->
+        <!--return echarts.format.truncateText(name, 100, '14px Microsoft Yahei', '…');-->
+    <!--},-->
+    <!--tooltip: {-->
+        <!--show: true-->
+    <!--},-->
+          <!--selectedMode: 'false',-->
+          <!--bottom: 20,-->
+          <!--data: ['企业名字','项目', '股东', '子公司', '对外投资', '任职人员']-->
+      <!--}],-->
+      <!--toolbox: {-->
+        <!--show : false,-->
+        <!--feature : {-->
+            <!--dataView : {show: true, readOnly: true},-->
+            <!--restore : {show: true},-->
+            <!--saveAsImage : {show: true}-->
+        <!--}-->
+    <!--},-->
+      <!--animationDuration: 1000,-->
+      <!--animationEasingUpdate: 'quinticInOut',-->
+      <!--series: [{-->
+          <!--name: '企业名字',-->
+          <!--type: 'graph',-->
+          <!--layout: 'force',-->
 
-          force: {
-              repulsion: 500
-          },
-          data: [{
-              "name": "企业名字",
-              // "x": 0,
-              // y: 0,
-              "symbolSize": 30,
-              "draggable": "true",
-              "value": 27
+          <!--force: {-->
+              <!--repulsion: 500-->
+          <!--},-->
+          <!--data: [{-->
+              <!--"name": "企业名字",-->
+              <!--// "x": 0,-->
+              <!--// y: 0,-->
+              <!--"symbolSize": 30,-->
+              <!--"draggable": "true",-->
+              <!--"value": 27-->
 
-          }, {
-              "name": "对外投资",
-              "value": 5,
-              "symbolSize": 15,
-              "category": "对外投资",
-              "draggable": "true"
-          }, {
-              "name": "广告学",
-              "symbolSize": 3,
-              "category": "对外投资",
-              "draggable": "true",
-              "value": 1
-          }, {
-              "name": "广播电视学",
-              "symbolSize": 3,
-              "category": "对外投资",
-              "draggable": "true",
-              "value": 1
-          }, {
-              "name": "网络与新媒体",
-              "symbolSize": 3,
-              "category": "对外投资",
-              "draggable": "true",
-              "value": 1
-          }, {
-              "name": "播音与主持艺术",
-              "symbolSize": 3,
-              "category": "对外投资",
-              "draggable": "true",
-              "value": 1
-          }, {
-              "name": "广播电视编导",
-              "symbolSize": 3,
-              "category": "对外投资",
-              "draggable": "true",
-              "value": 1
-          }],
-          links: [ {
-              "source": "企业名字",
-              "target": "对外投资"
-          }, {
-              "source": "对外投资",
-              "target": "广告学"
-          }, {
-              "source": "对外投资",
-              "target": "广播电视学"
-          }, {
-              "source": "对外投资",
-              "target": "网络与新媒体"
-          }, {
-              "source": "对外投资",
-              "target": "播音与主持艺术"
-          }, {
-              "source": "对外投资",
-              "target": "广播电视编导"
-          }],
-          categories: [{
-              'name': '企业名字'
-          },{
-              'name': '项目'
-          }, {
-              'name': '股东'
-          }, {
-              'name': '子公司'
-          }, {
-              'name': '对外投资'
-          }, {
-              'name': '任职人员'
-          }, {
-              'name': '新闻与传播学院'
-          }],
-          focusNodeAdjacency: true,
-          roam: true,
-          label: {
-              normal: {
+          <!--}, {-->
+              <!--"name": "对外投资",-->
+              <!--"value": 5,-->
+              <!--"symbolSize": 15,-->
+              <!--"category": "对外投资",-->
+              <!--"draggable": "true"-->
+          <!--}, {-->
+              <!--"name": "广告学",-->
+              <!--"symbolSize": 3,-->
+              <!--"category": "对外投资",-->
+              <!--"draggable": "true",-->
+              <!--"value": 1-->
+          <!--}, {-->
+              <!--"name": "广播电视学",-->
+              <!--"symbolSize": 3,-->
+              <!--"category": "对外投资",-->
+              <!--"draggable": "true",-->
+              <!--"value": 1-->
+          <!--}, {-->
+              <!--"name": "网络与新媒体",-->
+              <!--"symbolSize": 3,-->
+              <!--"category": "对外投资",-->
+              <!--"draggable": "true",-->
+              <!--"value": 1-->
+          <!--}, {-->
+              <!--"name": "播音与主持艺术",-->
+              <!--"symbolSize": 3,-->
+              <!--"category": "对外投资",-->
+              <!--"draggable": "true",-->
+              <!--"value": 1-->
+          <!--}, {-->
+              <!--"name": "广播电视编导",-->
+              <!--"symbolSize": 3,-->
+              <!--"category": "对外投资",-->
+              <!--"draggable": "true",-->
+              <!--"value": 1-->
+          <!--}],-->
+          <!--links: [ {-->
+              <!--"source": "企业名字",-->
+              <!--"target": "对外投资"-->
+          <!--}, {-->
+              <!--"source": "对外投资",-->
+              <!--"target": "广告学"-->
+          <!--}, {-->
+              <!--"source": "对外投资",-->
+              <!--"target": "广播电视学"-->
+          <!--}, {-->
+              <!--"source": "对外投资",-->
+              <!--"target": "网络与新媒体"-->
+          <!--}, {-->
+              <!--"source": "对外投资",-->
+              <!--"target": "播音与主持艺术"-->
+          <!--}, {-->
+              <!--"source": "对外投资",-->
+              <!--"target": "广播电视编导"-->
+          <!--}],-->
+          <!--categories: [{-->
+              <!--'name': '企业名字'-->
+          <!--},{-->
+              <!--'name': '项目'-->
+          <!--}, {-->
+              <!--'name': '股东'-->
+          <!--}, {-->
+              <!--'name': '子公司'-->
+          <!--}, {-->
+              <!--'name': '对外投资'-->
+          <!--}, {-->
+              <!--'name': '任职人员'-->
+          <!--}, {-->
+              <!--'name': '新闻与传播学院'-->
+          <!--}],-->
+          <!--focusNodeAdjacency: true,-->
+          <!--roam: true,-->
+          <!--label: {-->
+              <!--normal: {-->
 
-                  show: true,
-                  position: 'top',
+                  <!--show: true,-->
+                  <!--position: 'top',-->
 
-              }
-          },
-          lineStyle: {
-              normal: {
-                  color: 'source',
-                  curveness: 0,
-                  type: "solid"
-              }
-          }
-      }]
-  };
-var myChart = echarts.init(document.getElementById('eacharts_in'));
-myChart.setOption(option);
+              <!--}-->
+          <!--},-->
+          <!--lineStyle: {-->
+              <!--normal: {-->
+                  <!--color: 'source',-->
+                  <!--curveness: 0,-->
+                  <!--type: "solid"-->
+              <!--}-->
+          <!--}-->
+      <!--}]-->
+  <!--};-->
+<!--var myChart = echarts.init(document.getElementById('eacharts_in'));-->
+<!--myChart.setOption(option);-->
 
-</script>
+<!--</script>-->
 
 </body>
 </html>
