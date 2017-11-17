@@ -511,7 +511,7 @@ $(document).bind('click', function(e) {
 	var e = e || window.event; //浏览器兼容性   
     var elem = e.target || e.srcElement;  
     while (elem) { //循环判断至跟节点，防止点击的是div子元素   
-        if (elem.id && elem.id == 'nav_all_input') {  
+        if (elem.id && elem.id == 'nav_all_input_all') {  
             return;  
         }  
         elem = elem.parentNode;  
