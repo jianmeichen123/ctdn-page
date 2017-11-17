@@ -368,6 +368,7 @@ function injectValues(html,row){
        return html;
 }
 
+
 //资讯formatter
 function newsFormatter(value,row){
     if (row.imgmd5){
