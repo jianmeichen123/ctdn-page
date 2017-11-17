@@ -9,7 +9,6 @@
        var target = $("#getCTDNEventInfo");
        target.tmpl(data).appendTo(target.parent())
     })
-
 //新闻
 function getNews(){
     var json={};
