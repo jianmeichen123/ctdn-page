@@ -13,7 +13,7 @@
 //新闻
 function getNews(){
     var json={};
-    json["type"] = $("input[name='type']").val();
+    json["typeId"] = $("input[name='typeId']").val();
     json["pageSize"]=6;
     json["pageNo"]=0;
      sendPostRequestByJsonObj(searchUrl["news"],json,function(data){
