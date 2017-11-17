@@ -4,12 +4,6 @@
        $(data.data).each(function(k,v){
             if(!v){
                 v="-"
-            }else{
-                for(i in v){
-                    if(i=="investDate"){
-                        v[i] = formatDate(v[i],"yyyy-MM-dd")
-                    }
-                }
             }
        })
        var target = $("#getCTDNEventInfo");

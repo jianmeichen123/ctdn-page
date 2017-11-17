@@ -10,6 +10,7 @@
 <body>
 {(header.html)}
 <div class="container">
+
 	<form  action="#" id="form" enctype="multipart/form-data">
 	<div class="seek_financing">
 		<div class="seek_financing_tit">提交项目</div>
@@ -17,16 +18,16 @@
 			<li>
 				<div class="seek_financing_l"><span class="seek_financing_two">项目名称</span><span class="seek_financing_one">*</span></div>
 				<div class="seek_financing_r">
-					<input class="seek_financing_input" name="projName" required maxlength="20"  placeholder="请输入公司核心产品名称，不超过20个字">
+					<input class="seek_financing_input" name="projName"  required data-rule-length20="true"  maxlength="20"  data-msg-length20="请输入公司核心产品名称，不超过20个字"  placeholder="请输入公司核心产品名称，不超过20个字">
 				</div>
 			</li>
 			<li>
 				<div class="seek_financing_l"><span class="seek_financing_two">所在地区</span><span class="seek_financing_one">*</span></div>
 				<div class="seek_financing_r">
-					<select class="seek_financing_select" name="projDistrictId" data-item="parent" data-field="district" required>
+					<select class="seek_financing_select" name="projDistrictId" data-item="parent" data-field="district"  data-rule-select="true" data-msg-select="<font color=red>*</font>请选择所在省/市" >
 						<option>选择所在省/市</option>
 					</select>
-					<select class="seek_financing_select  seek_financing_select_lef" data-item="son" name="projSubDistrictId" required>
+					<select class="seek_financing_select  seek_financing_select_lef" data-item="son" name="projSubDistrictId" data-rule-select="true" data-msg-select="<font color=red>*</font>请选择所在市/区" >
 						<option>选择所在市/区</option>
 					</select>
 				</div>
@@ -36,25 +37,33 @@
 			<li>
 				<div class="seek_financing_l"><span class="seek_financing_two">项目介绍</span><span class="seek_financing_one">*</span></div>
 				<div class="seek_financing_r">
-					<textarea class="seek_financing_textarea" name="projDesc" required maxlength="1000" minlength="1" placeholder="产品描述、用户群体、项目愿景、竞争对手等方面详细描述，不超过1000个字"></textarea>
+					<textarea class="seek_financing_textarea" name="projDesc" required maxlength="1000" placeholder="产品描述、用户群体、项目愿景、竞争对手等方面详细描述，不超过1000个字"></textarea>
 				</div>
 			</li>
 			<li>
 				<div class="seek_financing_l"><span class="seek_financing_two">联系人姓名</span><span class="seek_financing_one">*</span></div>
 				<div class="seek_financing_r">
-					<input class="seek_financing_input" name="projLinkman" required placeholder="联系人姓名">
+					<input class="seek_financing_input" name="projLinkman" required  maxlength="50"  placeholder="联系人姓名">
+				</div>
+			</li>
+			<li>
+				<div class="seek_financing_l"><span class="seek_financing_two">联系人电话</span><span class="seek_financing_one">*</span></div>
+				<div class="seek_financing_r">
+					<input class="seek_financing_input" name="projLinktel" required  data-rule-phone="true"   maxlength="40" placeholder="联系人电话"  data-msg-phone="<font color=red>*</font>联系电话格式不正确">
 				</div>
 			</li>
 			<li>
 				<div class="seek_financing_l"><span class="seek_financing_two">商业计划书</span><span class="seek_financing_one">*</span></div>
 				<div class="seek_financing_r">
-					<div class="seek_put">
-						<input type="file" name="file" id="projPb"/>
-						<input type="hidden" name="projPb">
-						<span class="dn_ico dn_ico_seek_pur1"></span>上传文件
-						<span id="projPbName"></span>
-					</div>
 
+					<div class="seek_put">
+						<div class="logo_posi"><input type="file" name="file" id="projPb" style="opacity: 0;"/>
+							<input type="hidden" name="projPb" >
+						</div>
+						<span class="dn_ico dn_ico_seek_pur1"></span>上传文件
+
+					</div>
+					<span class="tit_span" id="projPbName">上传商业计划书，文件大小请限制在25M之内</span>
 				</div>
 			</li>
 
@@ -62,10 +71,11 @@
 				<div class="seek_financing_l"><span class="seek_financing_two">项目LOGO</span></div>
 				<div class="seek_financing_r">
 					<div class="seek_put">
-						<input type="file" name="file" id="projLogo">
-						<input type="hidden" name="projLogo">
-						<span class="dn_ico dn_ico_seek_pur2"></span>上传logo
+						<div class="logo_posi"><input type="file" name="file" id="projLogo" style="opacity: 0;">
+						<input type="hidden" name="projLogo"></div>
+						<span class="dn_ico dn_ico_seek_pur2"></span>上传logos
 					</div>
+					<span class="tit_span" id="projLogoName">请上传项目logo，建议图片尺寸300*300 文件大小请限制在500k内</span>
 				</div>
 			</li>
 			<li class="seek_show_on">
@@ -73,10 +83,10 @@
 				<input type="hidden" name="projIndustry">
 				<input type="hidden" name="projSubIndustry">
 				<div class="seek_financing_r">
-					<select class="seek_financing_select" name="projIndustryId" data-item="parent" data-field="industry" >
+					<select class="seek_financing_select" name="projIndustryId" data-item="parent" data-field="industry"  data-rule-select="true" data-msg-select="请选择一级行业">
 						<option>选择一级行业</option>
 					</select>
-					<select class="seek_financing_select seek_financing_select_lef" name="projSubIndustryId" data-item="son" >
+					<select class="seek_financing_select seek_financing_select_lef" name="projSubIndustryId" data-item="son" data-rule-select="true" data-msg-select="请选择二级行业">
 						<option>选择二级行业</option>
 					</select>
 				</div>
@@ -96,14 +106,14 @@
 			<li class="seek_show_on">
 				<div class="seek_financing_l"><span class="seek_financing_two">公司地址</span></div>
 				<div class="seek_financing_r">
-					<input class="seek_financing_input" name="projCompAddr" placeholder="公司地址">
+					<input class="seek_financing_input" name="projCompAddr"  maxlength="500"   placeholder="公司地址">
 				</div>
 			</li>
 			<li class="seek_show_on">
 				<div class="seek_financing_l"><span class="seek_financing_two">融资轮次</span></div>
 				<input type="hidden" name="projRound">
 				<div class="seek_financing_r">
-					<select class="seek_financing_select seek_financing_select_lef" name="projRoundId"  data-item="parent" data-field="round">
+					<select class="seek_financing_select seek_financing_select_lef" name="projRoundId"  data-item="parent" data-field="round" data-rule-select="true" data-msg-select="请选择融资轮次">
 						<option >选择融资轮次</option>
 					</select>
 				</div>
@@ -111,14 +121,14 @@
 			<li class="seek_show_on">
 				<div class="seek_financing_l"><span class="seek_financing_two">融资金额</span></div>
 				<div class="seek_financing_r">
-					<input class="seek_financing_input" name="projMoney" placeholder="请输入您需要的融资金额">
+					<input class="seek_financing_input" name="projMoney" placeholder="请输入您需要的融资金额"  data-rule-money="true" data-msg-money="请输入数字，最多可填写4位小数">
 					<div class="seek_financing_absolute">万元　(人民币)</div>
 				</div>
 			</li>
 			<li class="seek_show_on">
 				<div class="seek_financing_l"><span class="seek_financing_two">出让股份</span></div>
 				<div class="seek_financing_r">
-					<input class="seek_financing_input" name="projStock" placeholder="请输入出让的股份（百分比）">
+					<input class="seek_financing_input" name="projStock" placeholder="请输入出让的股份（百分比）" data-rule-stock="true" data-msg-stock="请输入0-100之间的数字，最多可填写4位小数" >
 					<div class="seek_financing_absolute">%</div>
 				</div>
 			</li>
@@ -129,18 +139,70 @@
 	</form>
 </div>
 </body>
-<script type="text/javascript" src="js/jquery.validate.js"></script>
+<script src="js/jquery.validate.js" type="text/javascript"></script>
+<script src="js/messages_zh.min.js" type="text/javascript"></script>
 <script type="text/javascript" src="js/jquery.ui.widget.js"></script>
 <script type="text/javascript" src="js/jquery.fileupload.js"></script>
+<script type="text/javascript" src="js/jquery.fileupload-validate.js"></script>
 <script>
-$.fn.serializeJson = function(){
-	var data = {};
-	var array = this.serializeArray();
-	$.each(array,function(){
-		data[this.name]=this.value.replace(/(^\s+)|(\s+$)/g,"");
+$(function(){
+    //jquery.validate
+	$("#form").validate({
+		submitHandler: function() {
+			//验证通过后 的js代码写在这里
+		}
 	})
-	return data;
-}
+
+})
+//验证手机号
+    jQuery.validator.addMethod("phone", function (value, element) {
+     var phone = /^[\+\-\(\)0-9]{0,40}$/;
+   	return this.optional(element) || (phone.test(value));
+    }, "手机格式不对");
+
+//验证长度
+jQuery.validator.addMethod("length20", function (value, element) {
+	var verify_20 = /^(?!.{20}|^\s*$)/;
+	return this.optional(element) || (verify_20.test(value));
+}, "");
+
+//验证select
+jQuery.validator.addMethod("select", function (value, element) {
+	if(isNaN(value)){
+		return false;
+	}else{
+		return true;
+	}
+}, "");
+
+//验证长度
+jQuery.validator.addMethod("money", function (value, element) {
+	var regex = /^([1-9]\d{0,7}|0)(\.\d{1,4})?$/;
+	return this.optional(element) || (regex.test(value));
+}, "");
+
+//验证长度
+jQuery.validator.addMethod("stock", function (value, element) {
+	var regex = /^([1-9]\d{0,2}|0)(\.\d{1,4})?$/;
+	return this.optional(element) || (regex.test(value));
+}, "");
+
+
+
+
+
+
+
+
+
+	$.fn.serializeJson = function(){
+		var data = {};
+		var array = this.serializeArray();
+		$.each(array,function(){
+			data[this.name]=this.value.replace(/(^\s+)|(\s+$)/g,"");
+		})
+		return data;
+	}
 
 	$('.seek_show_open').click(function(event){
 		$(this).hide();
@@ -157,25 +219,43 @@ $.fn.serializeJson = function(){
 		url:platformUrl.fileUpload,
 		formData:{},
 		add: function (e, data) {
+			var acceptFileTypes = /\/(jpg|jpeg|png|gif)$/i;
+			if(data.originalFiles[0]['type'].length && !acceptFileTypes.test(data.originalFiles[0]['type'])) {
+				$("#projLogoName").text("<font color=red>*</font>您的文件格式不正确")
+				return;
+			}
+			if(data.files[0].size > 500*1024){
+				$("#projLogoName").text("<font color=red>*</font>您的文件大小超过限制，请控制在500KB之内")
+				return;
+			}
 			$("#projLogoName").text(data.files[0].name);
             data.submit();
         },
+        messages: {
+			maxFileSize: 'File exceeds maximum allowed size of 5b'
+		},
 		done: function (e, data) {
 			if(data.result.message == 'OK')
 			{
 				$("input[name='projLogo']").val(data.result.data)
-				alert('导入成功');
 			}
 			else
 			{
-				alert(data.result.message);
+				$("#projLogoName").text(data.result.message);
 			}
+		},
+		always:function(e,data){
+			$("#save-btn").attr("disabled",true)
 		}
 	});
-		$("#projPb").fileupload({
+	$("#projPb").fileupload({
 		url:platformUrl.fileUpload,
 		formData:{},
 		add: function (e, data) {
+			if(data.files[0].size > 25*1024*1024){
+				$("#projPbName").text("<font color=red>*</font>您的文件大小超过限制，请控制在25M之内")
+				return;
+			}
 			$("#projPbName").text(data.files[0].name);
             data.submit();
         },
@@ -183,12 +263,14 @@ $.fn.serializeJson = function(){
 			if(data.result.message == 'OK')
 			{
 				$("input[name='projPb']").val(data.result.data)
-				alert('导入成功');
 			}
 			else
 			{
-				alert(data.result.message);
+				$("#projPbName").text(data.result.message);
 			}
+		},
+		always:function(e,data){
+				$("#save-btn").attr("disabled",true)
 		}
 	});
 
@@ -196,26 +278,16 @@ $.fn.serializeJson = function(){
 
 </script>
 <script>
-	$("#form").validate({
-		onkeyup:false,
-        errorElement : 'span',
-        errorClass : 'help-inline',
-        focusInvalid : false,
-        messages:{
-        	password2:{
-        		equalTo:'两次密码输入不一致'
-        	}
-        }
-	});
+
 
 
 	$("#save-btn").click(function(event){
 		event.preventDefault();
-		var projDistrict =  $("select[name='projDistrictId']").attr("name")
-		var projSubDistrict =  $("select[name='projSubDistrictId']").attr("name")
-		var projIndustry =  $("select[name='projIndustryId']").attr("name")
-		var projSubIndustry =  $("select[name='projSubIndustryId']").attr("name")
-		var projRound =  $("select[name='projRoundId']").attr("name")
+		var projDistrict =  $("select[name='projDistrictId']").find("option:selected").text();
+		var projSubDistrict =  $("select[name='projSubDistrictId']").find("option:selected").text();
+		var projIndustry =  $("select[name='projIndustryId']").find("option:selected").text();
+		var projSubIndustry =  $("select[name='projSubIndustryId']").find("option:selected").text();
+		var projRound =  $("select[name='projRoundId']").find("option:selected").text();
 
 		console.log(projDistrict+":"+projSubDistrict+":"+projIndustry+":"+projSubIndustry+":"+projRound)
 
@@ -269,6 +341,7 @@ $.fn.serializeJson = function(){
 	$.each(parents,function(){
 		var parent = $(this);
 		parent.change(function(){
+		parent.find("option:first").hide();
 			var son =parent.next()
 			 // 先清空第二个
 			son.empty();

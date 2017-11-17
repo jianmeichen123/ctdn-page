@@ -64,8 +64,8 @@
 								<li>
 									<div class="dn_info_list_show">
 									<div class="dn_info_list_tit"><a href="${v.href}">${v.title}</a></div>
-									{{if v.newsAddress != null}}
-										<div class="dn_info_list_show_l"><img src="${v.imgmd5}"></div>
+									{{if v.imgmd5}}
+										<div class="dn_info_list_show_l"><img src={{html Constants.logoPath +v.imgmd5}}></div>
 									{{/if}}
 									<div class="dn_info_list_show_r">
 										<ul>
@@ -140,7 +140,7 @@
 												<li>${v.invstorgnames}</li>
 											</ul>
 										</li>
-										<li class="event_time">${v.investDate}</li>
+										<li class="event_time">{{html formatDate(v.investDate,"yyyy-MM-dd") }}</li>
 									</ul>
 									</div>
 
@@ -183,23 +183,43 @@
 				<ul>
 					<li>
 						<div class="subject_img">
-							<img src="img/dn/r.png">
+							<img src="img/dn/zj_i1.jpg">
 							<div class="subject_img_b">
-								<span class="dn_ico dn_ico_conpany"></span><span class="m_r20">3家公司</span>
-								<span class="dn_ico dn_ico_time"></span><span>3家公司</span>
+								<span class="dn_ico dn_ico_conpany"></span><span class="m_r20">9家公司</span>
+								<span class="dn_ico dn_ico_time"></span><span>2017-9-28</span>
 							</div>
 						</div>
-						<div class="subject_tit"><a href="#">睡眠监测创业创业创业创业创业创业创业创业创业项目推荐合辑</a></div>
+						<div class="subject_tit"><a href="index_project_01.html">未来的物流机器人</a></div>
 					</li>
 					<li>
 						<div class="subject_img">
-							<img src="img/dn/r.png">
+							<img src="img/dn/zj_i2.jpg">
 							<div class="subject_img_b">
-								<span class="dn_ico dn_ico_conpany"></span><span class="m_r20">3家公司</span>
-								<span class="dn_ico dn_ico_time"></span><span>3家公司</span>
+								<span class="dn_ico dn_ico_conpany"></span><span class="m_r20">14家公司</span>
+								<span class="dn_ico dn_ico_time"></span><span>2017-9-28</span>
 							</div>
 						</div>
-						<div class="subject_tit"><a href="#">睡眠监测创业创业创业创业创业创业创业创业创业项目推荐合辑</a></div>
+						<div class="subject_tit"><a href="index_project_02.html">红杉资本在生命科技领域的布局</a></div>
+					</li>
+					<li>
+						<div class="subject_img">
+							<img src="img/dn/zj_i3.jpg">
+							<div class="subject_img_b">
+								<span class="dn_ico dn_ico_conpany"></span><span class="m_r20">16家公司</span>
+								<span class="dn_ico dn_ico_time"></span><span>2017-9-28</span>
+							</div>
+						</div>
+						<div class="subject_tit"><a href="index_project_03.html">共享经济还剩哪些可以做？</a></div>
+					</li>
+					<li>
+						<div class="subject_img">
+							<img src="img/dn/zj_i4.jpg">
+							<div class="subject_img_b">
+								<span class="dn_ico dn_ico_conpany"></span><span class="m_r20">12家公司</span>
+								<span class="dn_ico dn_ico_time"></span><span>2017-9-28</span>
+							</div>
+						</div>
+						<div class="subject_tit"><a href="index_project_04.html">下一部获奥斯卡的VR电影可能是谁？</a></div>
 					</li>
 				</ul>
 			</div>
@@ -236,18 +256,18 @@
 	</div>
 
 </div>
+{(dn_foot.html)}
 <script type="text/javascript">
 $(function(){
 
 	var newopt={
 		w2:"700",//小图宽度
-		h2:"350"//小图高度 
+		h2:"350"//小图高度
 	};
-	
+
 	i_slide($(".container_image"),newopt);
 });
 </script>
-<script src="js/common.js"></script>
 <script src="js/jquery.tmpl.js"></script>
 <script src="js/newIndex.js"></script>
 </body>
