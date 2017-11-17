@@ -125,4 +125,4 @@ function formatProjectInfo(data,divList){
         })
     })
 }
-sendGetRequest(detail.queryProject+"/"+getHrefParamter("code"),function(data){name =  data.data.projTitle;formatProjectInfo(data.data,$("div[data-query='projectBase']"))})
+sendGetRequest(detail.queryProject+"/"+getHrefParamter("code"),function(data){proj=data;name = data.data.projTitle;formatProjectInfo(data.data,$("div[data-query='projectBase']"))})
