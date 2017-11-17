@@ -128,7 +128,7 @@ function newsFormatter(value,row){
         row.overview = row.overview.substring(0,80)+"...";
    }
    if (row.imgmd5){
-        row.imgmd5 = "<a href='"+row.imgmd5+"'> <img src='"++row.imgmd5++"'> </a>";
+        row.imgmd5 = "<div class='dn_info_list_show_l'><a href='"+row.href+"'> <img src='"+Constants.logoPath +row.imgmd5+"'> </a></div>";
    }else {
         row.imgmd5 = ""
    }
