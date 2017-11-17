@@ -78,7 +78,7 @@ function orgHistoryInfoListFormatter(data,div){
         div.parent().append('<div class="block project_click_show color_666" >展开全部<span data-field="length">'+data.length+'</span>条<span class="brain_ico brain_ico_project_more"></span></div>')
     }
 }
-var orgId = getHrefParamter("orgId")
+var orgCode = getHrefParamter("orgCode")
 //投资事件
 function eventInfoExtListFormatter(data,div){
      var staticTemplate =  "<tr><td>${investSideJson}</td><td>${company}</td><td>${investDate}</td><td>${round}</td><td> ${amountStr}</td><td>${eventId}</td></tr>";
@@ -98,15 +98,15 @@ function eventInfoExtListFormatter(data,div){
                             for(i in ls){
                                 var json = ls[i]
                                 if(i<3){
-                                    if(json.id==orgId){
+                                    if(json.orgCode==orgCode){
                                         firms += json.invstor+"<br>";
-                                    }else if(json.id!=orgId&&json.type=='invst'){
-                                        firms +='<span class="list_table_bbad"><a target="_blank" href="jg_particulars.html?orgId='+json.id+'">'+json.invstor+'</a></span><br>'
+                                    }else if(json.orgCode!=orgCode&&json.type=='invst'){
+                                        firms +='<span class="list_table_bbad"><a target="_blank" href="jg_particulars.html?orgCode='+json.orgCode+'">'+json.invstor+'</a></span><br>'
                                     }else{
                                         firms += json.invstor+"<br>";
                                     }
                                 }else{
-                                    if(json.id==orgId){
+                                    if(json.orgCode==orgCode){
                                         firms += json.invstor+"<br>";
                                     }
                                 }
@@ -175,7 +175,6 @@ function orgMemberListFormatter(data,div){
    var staticTemplate = '<tr> <td>${name}</td> <td>${positions}</td> <td>${status}</td><td>${phoneNum}</td> <td style="width:30%">${email}</td></tr>'
    var temp = staticTemplate;
     var html =""
-
     if(data.length>0){
         $(data).each(function(i,row){
              $.each(row,function(k,v){
@@ -187,11 +186,11 @@ function orgMemberListFormatter(data,div){
                             v='离职'
                         }
                     }else if(k=='email'){  //邮箱“；”替换成换行符
-                    	if(v.indexOf(";")>-1){
-                    		v=v.replace(";","<br>")
-                    	}else{
-                    		v=v
-                    	}
+//                    	if(v.indexOf(";")>-1){
+//                    		v=v.replace(";","<br>")
+//                    	}else{
+//                    		v=v
+//                    	}
                     }
                     if(!v){ v = "-"}
                     temp = temp.replace("${"+k+"}",v)
@@ -230,4 +229,4 @@ function projectContactListFormatter(data,div){
     div.append(html)
 }
 
-sendGetRequest(detail.queryInvestOrgInfo+orgId,function(data){fillBaseInfo(data.data,$("div[data-query='baseOrgInfo']")); fillList(data.data,$("*[data-query='list']"))})
+sendGetRequest(detail.queryInvestOrgInfo+orgCode,function(data){fillBaseInfo(data.data,$("div[data-query='baseOrgInfo']")); fillList(data.data,$("*[data-query='list']"))})
