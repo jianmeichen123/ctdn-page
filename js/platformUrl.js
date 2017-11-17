@@ -5,7 +5,7 @@ var Constants = {
 	//userContentURL: "http://127.0.0.1/user/",
 	searchContentURL: "http://127.0.0.1:8089/search/",
 	dataContentURL: "http://127.0.0.1:8085/data/",
-	newsLogoPath: "http://10.11.8.18:8089/static/img/news/"
+	newsLogoPath: "http://10.11.8.18:8089/static/img/news/",
 	projectLogoPath:"http://10.11.8.18:8089/static/img/project/"
 	//logoPath: "http://10.11.8.18:8089/static/img/news/"
 }
