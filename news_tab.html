@@ -13,6 +13,8 @@
     //切换tab 请求数据
     $(".news_li").delegate("li","click",function(){
         var tab = $(this).attr("value");
+        $(".news_li li").removeClass('financing_on')
+        $(this).addClass('financing_on')
         $("input[name='typeId']").val(tab);
         getNews();
     });
