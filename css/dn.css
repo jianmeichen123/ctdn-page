@@ -73,7 +73,7 @@ ul,ol,dl,dt,dd,p,img{ display:block; border:0;list-style:none; }
 .subject_all>ul{margin-top:20px}
 .subject_all>ul>li{ padding-left:20px; padding-right:20px; padding-bottom:30px;}
 .subject_img{width:308px; height:179px; border-bottom:1px solid #f0f0f0; border-radius:10px;  position: relative;}
-.subject_img img{width:307px; height:178px; }
+.subject_img img{width:307px; height:178px;     border-radius: 8px;}
 .subject_tit{font-size:14px; text-align:center;overflow:hidden; height:20px; margin-top:10px; line-height:20px;}
 .subject_tit a{color:#333333;}
 .subject_img_b{ text-align: center;   position: absolute; bottom:0;height:30px; background:#3e4865; width:100%; opacity:0.8; color:#fff; font-size:12px; line-height:30px;}
