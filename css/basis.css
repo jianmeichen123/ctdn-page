@@ -36,10 +36,10 @@ input{outline: none;}
 .clearfix {zoom: 1;}
 /*条件*/
 .condition_all,.condition_all_no{ line-height:26px; width:100%;}
-.condition_all_ul{ float:left; margin-left:22px; width:1040px; margin-bottom: 0px}
+.condition_all_ul{ float:left; margin-left:22px; width:1120px; margin-bottom: 0px}
 .condition_all_ul li{ float:left; padding-left:10px; padding-right:10px; margin-top:10px; margin-right:5px; position:relative;}
 .condition_all_ul .click_industry_show{padding-right:4px;}
-.block .classify,.block_industry .classify,.global_block .classify{ float:left;  margin-top:10px; padding-left:15px; display:block; width:63px;}
+.block .classify,.block_industry .classify,.global_block .classify{ float:left;  margin-top:10px; padding-left:15px; display:block; width:73px;}
 .pick_on{ background-color:#f78123; color:#fff; border-radius:4px;}
 .block{ clear:both; width:100%; overflow:hidden;}
 .global_block{ clear:both; width:100%; overflow:hidden;}
