@@ -1,5 +1,5 @@
 //本地
-
+//
 //var Constants = {
 //	platformContentURL: "http://127.0.0.1:8081/api/",
 //	//userContentURL: "http://127.0.0.1/user/",
@@ -93,8 +93,8 @@ var detail = {
     queryCourtAnnouncement:Constants.dataContentURL+"risk/queryCourtAnnouncement/",
     queryRiskJudgmentDocument:Constants.dataContentURL+"risk/queryRiskJudgmentDocument/",
     queryOperationException:Constants.dataContentURL+"risk/queryOperationException/",
-    queryPorjectBusniessInfo:Constants.dataContentURL+"/businessInfo/getListBySourceCode/",
-    queryZSCQInfo:Constants.dataContentURL+"/projectMarkInfo/getListBySourceCode/",
+    queryPorjectBusniessInfo:Constants.platformContentURL+"/businessInfo/getListBySourceCode/",
+    queryZSCQInfo:Constants.platformContentURL+"/projectMarkInfo/getListBySourceCode/",
     queryLatestProjects:Constants.platformContentURL+"/projectList/queryLatestProjects/",
     getLatestEventInfo:Constants.platformContentURL+"/eventInfo/getLatestEventInfo/",
     getOrgsByTimes:Constants.platformContentURL+"/orgRank/getOrgsByTimes/",
@@ -104,9 +104,12 @@ var detail = {
     getCTDNEventInfo:Constants.platformContentURL+"/eventInfo/getCtdnEventInfo/",
     getNewsByLabels:Constants.platformContentURL+"/news/getByLabels/",
     getNewsByLabel:Constants.platformContentURL+"/news/getNewsByLabel/",
-
+    queryByProjTitle:Constants.platformContentURL+"/projectList/queryByProjTitle/",
+    getListByCompany:Constants.platformContentURL+"/eventInfo/getListByCompany/",
+    getListByCompany:Constants.platformContentURL+"/businessInfo/getListByRegName/",
+    getAllCompMember:Constants.platformContentURL+"/compMember/getAllCompMember/",
+    getAllCompSubs:Constants.platformContentURL+"/compSub/getAllCompSubs/",
     insertProject:Constants.platformContentURL+"/appProjectDemandInfo/insert"
-
 }
 /**
  * how to use? location.href = platformUrl.login
