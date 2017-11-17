@@ -21,7 +21,7 @@
 				<div class="particulars_black">
 					<ul class="project_all_l_ul">
 						<li>
-							<div class="font_14">项目描述</div>
+							<div class="font_14"></div>
 							<p  class="color_666" data-field="introduce"></p>
 							<div class="project_more">更多<span class="brain_ico brain_ico_project_more"></span></div>
 						</li>
@@ -35,7 +35,7 @@
 				<div class="particulars_black_rz" >
 					<input type="hidden" name = "pageSize" value="2">
 					<input type="hidden" name = "pageNo" value="0">
-					<input type="hidden" name = "sourceCode" value="qscbxt">
+					<input type="hidden" name = "sourceCode">
 					<div class="equity_trading_all list">
 						<ul>
 							<div class="border_equity_trading_l"></div>
@@ -116,19 +116,11 @@
 				<div class="background_boeder" data-id ="product" data-url="products">
 				<div class="project_t" location_l="location_cp"><span class="brain_ico brain_ico_project_crumbs"></span>产品信息<div class="fr" id="pro_num"></div></div>
 				<div class="particulars_black">
-					<input type="hidden" name = "code" value="qscbxt">
-					<div class="">
-						<div class="slider6">
-
-							<div class="slide"><img src="img/dn/b_1.jpg"></div>
-							
-							<div class="slide"><img src="img/dn/b_2.jpg"></div>
-							<div class="slide"><img src="img/dn/b_3.jpg"></div>
-						
-						</div>
+					<input type="hidden" name = "code">
+					<div class="photos">
 					</div>
                     <!-- 把要轮播的地方写上来 -->
-					<div class = "prodSrv">
+					<div class = "prodSrv" style="display:none">
 						<div class="project_t_team">产品服务</div>
 						<ul class="project_t_team_cen">
 							<li id="prodSrv"> </li>
@@ -138,7 +130,7 @@
 							<!--<li>Android开发工程：龚伟明， 5个以上的APP开发经验。</li>-->
 						</ul>
 					</div>
-					<div class = "userMarket">
+					<div class = "userMarket" style="display:none">
 						<div class="project_t_team">用户市场</div>
 						<ul class="project_t_team_cen">
 							<li id="userMarket"></li>
@@ -158,15 +150,15 @@
 				<!-- 团队信息 -->
 				<div class="background_boeder" data-id="team" data-url="queryProjectTeamByCode">
 				<div class="project_t" location_l="location_td"><span class="brain_ico brain_ico_project_crumbs"></span>团队信息</div>
-					<input type="hidden" name="projectCode" value="13266053">
-				<div class="teamTags">
+					<input type="hidden" name="projCode" value="13266053">
+				<div class="teamTags" style="display:none">
 					<div class="project_t_team">团队关键字</div>
 					<ul class="project_t_team_ul" id="teamTags">
 						<li>知名公司经历</li>
 						<li>知名公司经历</li>
 					</ul>
 				</div>
-				<div class="teamSuper">
+				<div class="teamSuper" style="display:none">
 					<div class="project_t_team">团队优势</div>
 					<ul class="project_t_team_cen" id="teamSuper">
 						<li>创始人宋广才：具有多年创业经验， 2006年创业至今，成功运营了多个创业项目，多年互联网从业经验，优势在于大团队的组建和管理运营，成本控制以及资金管理。</li>
@@ -201,7 +193,7 @@
 				<div class="particulars_black">
 					<input type="hidden" name = "pageSize" value="2">
 					<input type="hidden" name = "pageNo" value="0">
-					<input type="hidden" name = "projectCode" value="7950665">
+					<input type="hidden" name = "projCode" value="7950665">
 					<input type="hidden" name = "type" value="H">
 					<div class="blue_l_b">
 						<ul data-query="list" data-formatter="historyList">
@@ -227,7 +219,7 @@
 				<div class="background_boeder" data-id ="launchEvent" data-url="queryProjectEventListed">
 				<div class="project_t" location_l="location_ss"><span class="brain_ico brain_ico_project_crumbs"></span>上市挂牌</div>
 				<div class="particulars_black">
-					<input type="hidden" name = "sourceCode" value="7950665">
+					<input type="hidden" name = "sourceCode" >
 					<table class=" particulars_table_list m_t5">
 							<thead>
 								<tr>
@@ -291,7 +283,7 @@
 				<div class="background_boeder" data-id ="mergeEvent" data-url="queryMergeEventBySourceCode">
 				<div class="project_t" location_l="location_bg"><span class="brain_ico brain_ico_project_crumbs"></span>并购事件</div>
 				<div class="particulars_black">
-					<input type="hidden" name = "sourceCode" value="7dztgo">
+					<input type="hidden" name = "sourceCode" >
 					<table class=" particulars_table_list m_t5">
 							<thead>
 								<tr>
@@ -365,14 +357,14 @@
 								{{each(i,v) data.records}}
 								<li>
 									<div class="dn_info_list_show">
-									<div class="dn_info_list_tit">${v.newsTitle}</div>
-									{{if v.newsAddress != null}}
-										<div class="dn_info_list_show_l"><img src="${v.newsAddress}"></div>
+									<div class="dn_info_list_tit">${v.title}</div>
+									{{if v.imgmd5}}
+										<div class="dn_info_list_show_l"><img src="{{html Constants.newsLogoPath+v.imgmd5}}"></div>
 									{{/if}}
 									<div class="dn_info_list_show_r">
 										<ul>
-											<li class="dn_info_list_cen">${v.newsContent}</li>
-											<li class="dn_info_list_ic"><span>${v.newsReportDate}</span><span>来源：</span><span>${v.newsSource}</span></li>
+											<li class="dn_info_list_cen">${v.overview}</li>
+											<li class="dn_info_list_ic"><span>${formatNewsTime(v.orderTime)}</span><span>来源：</span><span>${v.auther}</span></li>
 										</ul>
 									</div>
 									</div>
@@ -453,7 +445,7 @@
 $(function(){
    $(".project_nav a").each(function(){
     //if($(this).attr("href") != "####"){
-    	$(this).attr("href",$(this).attr("href")+"?code="+getHrefParamter("code"))
+    	$(this).attr("href",$(this).attr("href")+"?projCode="+getHrefParamter("projCode"))
    // }
    })
  //团队信息两行显示

@@ -1,11 +1,47 @@
 //项目基本信息formatter
 function formatProjectInfo(data,divList){
-//    $("input[name='projectCode']").val(data["projectCode"])
-//    $("input[name='sourceCode']").val(data["projectCode"])
-//    $("input[name='code']").val(data["projectCode"])
+    $("input[name='projCode']").val(data["projCode"])
+    $("input[name='sourceCode']").val(data["projCode"])
+    $("input[name='code']").val(data["projCode"])
+        if(data["teamTags"]){
+              $(".teamTags").show()
+              var tags = v.split(",");
+              var temp = "";
+              $.each(function(i,e){
+                temp += "<li>"+e+"</li>"
+              })
+             $("#teamTags").html(temp)
+        }
+
+        if(data["teamSuper"]){
+             $(".teamSuper").show()
+             var tags = v.split(",");
+             var temp = "";
+             $.each(function(i,e){
+               temp += "<li>"+e+"</li>"
+             })
+             $("#teamSuper").html(temp)
+        }
+
+        if(data["userMarket"]){
+            $(".userMarket").show()
+            $("#userMarket").html(v)
+        }
+
+        if(data["prodSrv"]){
+             $(".prodSrv").show()
+            $("#prodSrv").html(v)
+       }
+
     $(divList).each(function(){
         var div = $(this);
         var ls = div.find("*[data-field]")
+
+
+
+
+
+
         $(ls).each(function(){
            var o = $(this);
            var k = o.attr("data-field");
@@ -58,7 +94,19 @@ function formatProjectInfo(data,divList){
                     })
                     v = str
                 }
-           } else if(k=="bp"|| k =="hqEmail" || k== "hqTel"){
+           }else if(k=="photos"){
+                if(v){
+                    var str = "<div class='slider6'>";
+                    $(v.split("^$^")).each(function(i,e){
+                         str+= "<div class='slide'><img src="+Constants.projectLogoPath+"></div>";
+                    })
+                    v = str+"</div>"
+                    $(".photos").html(str)
+                }else{
+                    $(".photos").hide()
+                }
+           }
+           else if(k=="bp"|| k =="hqEmail" || k== "hqTel"){
                 if(!v){
                     v= "-"
                 }
@@ -83,46 +131,13 @@ function formatProjectInfo(data,divList){
                 }
            }else if(k=="introduce"){
               if(!v){
-               $("p[data-field='introduce']").closest(".background_boeder").hide()
-              }
+                    $("p[data-field='introduce']").closest(".background_boeder").hide()
+               }else{
+                    $("p[data-field='introduce']").html(v)
+               }
            }
-           else if(k=="teamTags"){
-                 if(!v){
-                      var tags = v.split(",");
-                      var temp = "";
-                      $.each(function(i,e){
-                        temp += "<li>"+e+"</li>"
-                      })
-                      $("#teamTags").html(temp)
-                 }else{
-                      $(".teamTags").hide()
-                 }
-           }else if(k=="teamSuper"){
-                if(!v){
-                     var tags = v.split(",");
-                     var temp = "";
-                     $.each(function(i,e){
-                       temp += "<li>"+e+"</li>"
-                     })
-                     $("#teamSuper").html(temp)
-                }else{
-                     $(".teamSuper").hide()
-                }
-            }else if(k=="userMarket"){
-               if(!v){
-                    $("#userMarket").html(v)
-               }else{
-                    $(".userMarket").hide()
-               }
-            } else if(k=="prodSrv"){
-               if(!v){
-                    $("#prodSrv").html(v)
-               }else{
-                    $(".prodSrv").hide()
-               }
-            }
            o.html(v)
         })
     })
 }
-sendGetRequest(detail.queryProject+"/"+getHrefParamter("code"),function(data){proj=data;name = data.data.projTitle;formatProjectInfo(data.data,$("div[data-query='projectBase']"))})
+sendGetRequest(detail.queryProject+"/"+getHrefParamter("projCode"),function(data){proj=data;name = data.data.projTitle;formatProjectInfo(data.data,$("div[data-query='projectBase']"))})

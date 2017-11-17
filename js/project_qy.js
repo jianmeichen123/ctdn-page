@@ -23,8 +23,8 @@
         var dataId = obj.attr("data-id");
         url = getUrl(dataId,url);
 		var json = getJson(obj);
-    	var pageNo = $("input[name='pageNo']").val();
-    	var pageSize = $("input[name='pageSize']").val();
+    	var pageNo = obj.find("input[name='pageNo']").val();
+    	var pageSize = obj.find("input[name='pageSize']").val();
     	var html="";
     	sendPostRequestByJsonObj(url,json,function(data){
     		var records = data.data.records;
@@ -59,13 +59,12 @@
                 var target = $("#"+dataId)
                 target.tmpl(data).appendTo(target.parent())
             }else{
-
                 if(dataId=="product"){
-                    if(!$("#prodSrv").val()&& !$("#userMarket").val()){
+                    if(!$("#prodSrv").val() && !$("#userMarket").val()){
                          obj.hide();
                     }
                 }else if(dataId="team"){
-                    if(!$("#teamTags").val()&& !$("#teamSuper").val()){
+                    if(!$("#teamTags").val()&& !$("#teamSuper").val() && $("#")){
                          obj.hide();
                     }
                 }

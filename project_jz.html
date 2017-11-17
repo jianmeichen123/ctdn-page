@@ -41,7 +41,7 @@
 	$(function(){
 	   $(".project_nav a").each(function(){
 		//if($(this).attr("href") != "####"){
-			$(this).attr("href",$(this).attr("href")+"?code="+getHrefParamter("code"))
+			$(this).attr("href",$(this).attr("href")+"?projCode="+getHrefParamter("projCode"))
 		//}
 	   })
 	  $(".tzf").each(function(){   //去掉最后一个分隔符
@@ -114,7 +114,7 @@
 				 }
 				 if(k=="projTitle"){
 				 	if(v){
-				 		v ='<a href="project_qy.html?code='+row["sourceCode"]+'">'+v+'</a>'
+				 		v ='<a href="project_qy.html?projCode='+row["sourceCode"]+'">'+v+'</a>'
 				 	}
 				 }
                	 <!--if(k=="labels"){-->
