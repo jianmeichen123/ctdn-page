@@ -5,7 +5,7 @@ function formatProjectInfo(data,divList){
     $("input[name='code']").val(data["projCode"])
         if(data["teamTags"]){
               $(".teamTags").show()
-              var tags = v.split(",");
+              var tags = data["userMarket"].split(",");
               var temp = "";
               $.each(function(i,e){
                 temp += "<li>"+e+"</li>"
@@ -15,7 +15,7 @@ function formatProjectInfo(data,divList){
 
         if(data["teamSuper"]){
              $(".teamSuper").show()
-             var tags = v.split(",");
+             var tags = data["userMarket"].split(",");
              var temp = "";
              $.each(function(i,e){
                temp += "<li>"+e+"</li>"
@@ -25,12 +25,12 @@ function formatProjectInfo(data,divList){
 
         if(data["userMarket"]){
             $(".userMarket").show()
-            $("#userMarket").html(v)
+            $("#userMarket").html(data["userMarket"])
         }
 
         if(data["prodSrv"]){
              $(".prodSrv").show()
-            $("#prodSrv").html(v)
+            $("#prodSrv").html(data["userMarket"])
        }
 
     $(divList).each(function(){
