@@ -114,7 +114,7 @@
                   }
                  }
           }else{
-                firms+= '<span class="dn_ico_bj_lc_b_r">json.invstor</span>'
+                firms+= '<span class="dn_ico_bj_lc_b_r">'+json.invstor+'</span>'
           }
         })
 
