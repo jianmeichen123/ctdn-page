@@ -994,6 +994,7 @@ $.extend($.validator, {
 
 		// http://docs.jquery.com/Plugins/Validation/Methods/required
 		required: function( value, element, param ) {
+		    value = value.replace(/(^\s+)|(\s+$)/g,"");
 			// check if dependency is met
 			if ( !this.depend(param, element) ) {
 				return "dependency-mismatch";
@@ -1080,6 +1081,7 @@ $.extend($.validator, {
 
 		// http://docs.jquery.com/Plugins/Validation/Methods/maxlength
 		maxlength: function( value, element, param ) {
+		    value = value.replace(/(^\s+)|(\s+$)/g,"");
 			var length = $.isArray( value ) ? value.length : this.getLength($.trim(value), element);
 			return this.optional(element) || length <= param;
 		},
