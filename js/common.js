@@ -550,10 +550,10 @@ function formatNewsTime(time){
          result=formatDate(time*1000,'yyyy-MM-dd');
       }
       else if(hourC>=1){
-         result="发表于"+ parseInt(hourC) +"个小时前";
+         result=parseInt(hourC) +"个小时前";
       }
       else if(minC>=1){
-         result="发表于"+ parseInt(minC) +"分钟前";
+         result= parseInt(minC) +"分钟前";
       }else{
          result="刚刚发表";
       }
