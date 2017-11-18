@@ -128,7 +128,7 @@ function newsFormatter(value,row){
         row.overview = row.overview.substring(0,80)+"...";
    }
    if (row.imgmd5){
-        row.imgmd5 = "<div class='dn_info_list_show_l'><a href='"+row.href+"'> <img src='"+Constants.logoPath +row.imgmd5+"'> </a></div>";
+        row.imgmd5 = "<div class='dn_info_list_show_l'><a href='"+row.href+"'> <img src='"+Constants.newsLogoPath +row.imgmd5+"'> </a></div>";
    }else {
         row.imgmd5 = ""
    }
@@ -136,7 +136,7 @@ function newsFormatter(value,row){
    var html = "<li>"+
                     '<div class="dn_info_list_show">'+
                     '<div class="dn_info_list_tit"><a href="${href}">${title}</a></div>'+
-//                    '<div class="dn_info_list_show_l"><img src="http://10.11.8.18:8089/static/news/img/${imgmd5}"></div>'+
+//                    '<div class="dn_info_list_show_l"></div>'+
                     '${imgmd5}'+
                     '<div class="dn_info_list_show_r">'+
                         "<ul>"+
