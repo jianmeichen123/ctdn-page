@@ -102,15 +102,15 @@
           if(json.isClick==1){
                  if(json.isLeader==1){
                       if(json.type=="invst"){
-                           firms+= '<span class="dn_ico_bj_lc_b_r"><a target="_blank" title="'+json.invstor+'" href="/jg_particulars.html?orgId='+json.id+'">'+json.invstor+'</a><label class="lticon">领投</label></span>'
+                           firms+= '<span class="dn_ico_bj_lc_b_r"><a target="_blank" title="'+json.invstor+'" href="/jg_particulars.html?orgCode='+json.code+'">'+json.invstor+'</a><label class="lticon">领投</label></span>'
                       }else{
-                           firms+= '<span class="dn_ico_bj_lc_b_r"><a target="_blank" title="'+json.invstor+'"  href="/project_qy.html?code='+json.code+'">'+json.invstor+'</a><label class="lticon">领投</label></span>'
+                           firms+= '<span class="dn_ico_bj_lc_b_r"><a target="_blank" title="'+json.invstor+'"  href="/project_qy.html?projCode='+json.code+'">'+json.invstor+'</a><label class="lticon">领投</label></span>'
                       }
                  }else{
                   if(json.type=="invst"){
-                       firms+= '<span class="dn_ico_bj_lc_b_r"><a target="_blank" title="'+json.invstor+'" href="/jg_particulars.html?orgId='+json.id+'">'+json.invstor+'</a></span>'
+                       firms+= '<span class="dn_ico_bj_lc_b_r"><a target="_blank" title="'+json.invstor+'" href="/jg_particulars.html?orgCode='+json.code+'">'+json.invstor+'</a></span>'
                   }else{
-                       firms+= '<span class="dn_ico_bj_lc_b_r"><a target="_blank" title="'+json.invstor+'"  href="/project_qy.html?code='+json.code+'">'+json.invstor+'</a></span>'
+                       firms+= '<span class="dn_ico_bj_lc_b_r"><a target="_blank" title="'+json.invstor+'"  href="/project_qy.html?projCode='+json.code+'">'+json.invstor+'</a></span>'
                   }
                  }
           }else{
@@ -131,10 +131,10 @@
         if(data.title &&i<3){
               if(data.id>0){
                   if(data.type=='invse'){
-                      mergeSideTitle+='<center><span class="list_table_td"><a href="/jg_particulars.html?orgId='+data.id+'">'+data.title+'</a></span></center>';
+                      mergeSideTitle+='<center><span class="list_table_td"><a href="/jg_particulars.html?orgCode='+data.code+'">'+data.title+'</a></span></center>';
                   }
                   if(data.type=='com'){
-                      mergeSideTitle+='<center><span class="list_table_td"><a href="/project_qy.html?code='+data.code+'">'+data.title+'</a></span></center>';
+                      mergeSideTitle+='<center><span class="list_table_td"><a href="/project_qy.html?projCode='+data.code+'">'+data.title+'</a></span></center>';
                   }
               }else{
                   mergeSideTitle+='<center><span class="list_table_td">'+data.title+'</span></center>';
