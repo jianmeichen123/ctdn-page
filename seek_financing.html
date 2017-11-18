@@ -94,7 +94,7 @@
 				<li class="seek_show_on">
 					<div class="seek_financing_l"><span class="seek_financing_two">产品网址</span></div>
 					<div class="seek_financing_r">
-						<input class="seek_financing_input" name="projWebaddress" placeholder="产品网址">
+						<input class="seek_financing_input" name="projWebaddress" placeholder="产品网址" data-rule-url="true" data-msg-url="<font color=red>*</font>网址格式不正确">
 					</div>
 				</li>
 				<li class="seek_show_on">
@@ -183,6 +183,11 @@
 	}, "");
 
 
+	//验证长度
+	jQuery.validator.addMethod("url", function (value, element) {
+		var regex = /^(https?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \.-]*)*\/?$/;
+		return this.optional(element) || (regex.test(value));
+	}, "");
 
 
 	//验证长度
