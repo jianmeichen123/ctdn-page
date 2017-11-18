@@ -116,6 +116,9 @@ var tableFormate ={
                 img = imgArr[0]
             }
         }
+        if(img.indexOf(".") == -1){
+                    img = ""
+        }
         if(!company){
             company='名称未知'
             industrict='地区未知'+ ' '+'行业未知'
@@ -138,9 +141,7 @@ var tableFormate ={
         if (row.industryName&&row.industrySubName){
             industrict+=' '+row.industryName +">" +row.industrySubName
         }
-        if(img.indexOf(".") == -1){
-            img = ""
-        }
+
         if(row.sourceCode){
             return '<div class="list_table_td"> <a target="_blank" href="/project_qy.html?projCode='+row.sourceCode+'"><img  width="37" src="'+Constants.projectLogoPath+img+'"> </a><ul class="col_999"> <li><a target="_blank" href="/project_qy.html?projCode='+row.sourceCode+'">'+company+'</a></li> <li>'+industrict+'</li> </ul> </div>'
         }else{
@@ -294,7 +295,7 @@ var tableFormate ={
                 if(json.title!=''&&j<3){
                     if(json.id!=0){
                         if(json.type=='invse'){
-                            mergeSideTitle+='<center><span class="list_table_td"><a target="_blank" href="/jg_particulars.html?orgId='+json.id+'">'+json.title+'</a></span></center>';
+                            mergeSideTitle+='<center><span class="list_table_td"><a target="_blank" href="/jg_particulars.html?orgCode='+json.code+'">'+json.title+'</a></span></center>';
                         }
                         if(json.type=='com'){
                             mergeSideTitle+='<center><span class="list_table_td"><a target="_blank" href="/project_qy.html?code='+json.code+'">'+json.title+'</a></span></center>';
@@ -431,7 +432,7 @@ function projectFormatter(value,row){
 					"<img src='${logoSmall}'>"+
 				"</div>"+
 				"<div class='list-item-right'>"+
-					"<p class='list-item-title'><a target='_blank' href='/project_qy.html?code="+row.code+"'>"+projectName+"</a>${latestFinanceRound}</p>"+
+					"<p class='list-item-title'><a target='_blank' href='/project_qy.html?projCode="+row.projCode+"'>"+projectName+"</a>${latestFinanceRound}</p>"+
 					"<p class='list-item-content'>简介:${introduce}</p>"+
 					"<p class='list-item-tips'><i class='list-item-address'></i>${districtSubName}<i class='list-item-finace'></i>${industryName}</p>"+
 				"</div>"+
@@ -501,7 +502,7 @@ function investfirmFormatter(value,row){
    					"<img src='"+Constants.newsLogoPath+img+"'>"+
    				"</div>"+
    				"<div class='list-item-right'>"+
-   					"<p class='list-item-title institute-title'><a target='_blank' href='/jg_particulars.html?orgId="+row.orgId+"'>"+investOrg+"</a>${orgType}</p>"+
+   					"<p class='list-item-title institute-title'><a target='_blank' href='/jg_particulars.html?orgCode="+row.code+"'>"+investOrg+"</a>${orgType}</p>"+
    					"<p class='list-item-case'>投资事件:<span>${investTotal}</span></p>"+
    					"<p class='list-item-content list-institute-content'>简介:${orgDesc}</p>"
    				"</div>"+

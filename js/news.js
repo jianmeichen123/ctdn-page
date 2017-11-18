@@ -5,12 +5,8 @@ $(function () {
 
 })
 
-
-var divList = $(".container").find("div[data-block]");
-$(divList).each(function(){
-    var div =$(this);
-    var url = detail[div.attr("data-block")];
-    sendGetRequest(url,function(data){
+   var url = detail['getCTDNEventInfo'];
+     sendPostRequestByJsonObj(url,{"pageSize":7},function(data){
        $(data.data).each(function(k,v){
             if(!v){
                 v="-"
@@ -27,10 +23,9 @@ $(divList).each(function(){
                 }
             }
        })
-       var target = $("#"+div.attr("data-block"));
+       var target = $("#getCTDNEventInfo");
        target.tmpl(data).appendTo(target.parent())
     })
-})
 
 
 

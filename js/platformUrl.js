@@ -7,7 +7,7 @@ var Constants = {
 	dataContentURL: "http://127.0.0.1:8085/data/",
 	newsLogoPath: "http://static.galaxyinternet.com/img/news/",
 
-	projectLogoPath:"http://static.galaxyinternet.com/img//img/project/"
+	projectLogoPath:"http://static.galaxyinternet.com/img/project/"
 	//logoPath: "http://10.11.8.18:8089/static/img/news/"
 }
 
