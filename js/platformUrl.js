@@ -16,7 +16,6 @@ var Constants = {
 	platformContentURL: "http://ctdndev.gi.com/api/",
 	searchContentURL: "http://ctdndev.gi.com/search/",
 	dataContentURL: "http://ctdndev.gi.com/data/",
-	newsLogoPath: "http://10.11.8.18:8089/static/img/news/",
     newsLogoPath: "http://static.galaxyinternet.com/img/news/",
     projectLogoPath:"http://static.galaxyinternet.com/img/project/"
 }
