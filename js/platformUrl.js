@@ -13,7 +13,7 @@ var Constants = {
 	platformContentURL: "http://ctdndev.gi.com/api/",
 	searchContentURL: "http://ctdndev.gi.com/search/",
 	dataContentURL: "http://ctdndev.gi.com/data/",
-    logoPath: "http://static.galaxyinternet.com/img/
+    logoPath: "http://static.galaxyinternet.com/img/"
 }
 
 ////线上
