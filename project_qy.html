@@ -23,7 +23,7 @@
 						<li>
 							<div class="font_14"></div>
 							<p  class="color_666" id="introduce"></p>
-							<div class="project_more">更多<span class="brain_ico brain_ico_project_more"></span></div>
+							<div class="project_more" style="display:none">更多<span class="brain_ico brain_ico_project_more"></span></div>
 						</li>
 					</ul>
 				</div>
@@ -192,8 +192,8 @@
 				<div class="project_t" location_l="location_fz"><span class="brain_ico brain_ico_project_crumbs"></span>发展历史</div>
 				<div class="particulars_black">
 					<input type="hidden" name = "pageSize" value="2">
-					<input type="hidden" name = "pageNo" value="0">
-					<input type="hidden" name = "projCode" value="7950665">
+					<input type="hidden" name = "pageNo" value="1">
+					<input type="hidden" name = "projectCode" >
 					<input type="hidden" name = "type" value="H">
 					<div class="blue_l_b">
 						<ul data-query="list" data-formatter="historyList">
@@ -348,9 +348,9 @@
 				<div class="project_t" location_l="location_xw"><span class="brain_ico brain_ico_project_crumbs"></span>相关新闻</div>
 				<div class="particulars_black">
 					<input type="hidden" name = "pageSize" value="2">
-					<input type="hidden" name = "pageNo" value="0">
-					<input type="hidden" name = "typeId" value="8">
-					<input type="hidden" name = "code"  value="">
+					<input type="hidden" name = "pageNo" value="1">
+					<input type="hidden" name = "typeId" value="0">
+					<input type="hidden" name = "keyword"  value="">
 					<div class="dn_info_list">
 						{-raw-}
 						<script id="news" type="text/x-jquery-tmpl">
@@ -359,7 +359,7 @@
 									<div class="dn_info_list_show">
 									<div class="dn_info_list_tit">${v.title}</div>
 									{{if v.imgmd5}}
-										<div class="dn_info_list_show_l"><img src="{{html Constants.newsLogoPath+v.imgmd5}}"></div>
+										<div class="dn_info_list_show_l"><img src="{{html Constants.logoPath+"news/"+v.imgmd5}}"></div>
 									{{/if}}
 									<div class="dn_info_list_show_r">
 										<ul>

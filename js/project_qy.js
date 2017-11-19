@@ -23,6 +23,9 @@
         var dataId = obj.attr("data-id");
         url = getUrl(dataId,url);
 		var json = getJson(obj);
+		if(dataId=="news"){
+		    json["pageNo"] = json["pageNo"]-1
+		}
     	var pageNo = obj.find("input[name='pageNo']").val();
     	var pageSize = obj.find("input[name='pageSize']").val();
     	var html="";
@@ -32,14 +35,14 @@
     		    var target = $("#"+dataId)
     		    target.tmpl(data).appendTo(target.parent())
 				if(pageNo && pageSize){
-				    if(data.data.total<=(pageNo*1+1)*pageSize){
+				    if(data.data.total<=(pageNo*1)*pageSize){
                         more.hide();
                         return;
                     }
                     pageNo = pageNo*1+1
                     obj.find("input[name='pageNo']").val(pageNo)
 				}
-    		}else if(records.length ==0 && pageNo=="0"){
+    		}else if(records.length ==0 && pageNo=="1"){
     		    obj.hide();
     		}
     	})

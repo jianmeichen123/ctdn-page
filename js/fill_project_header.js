@@ -4,6 +4,7 @@ function formatProjectInfo(data,divList){
     $("input[name='projectCode']").val(data["projCode"])
     $("input[name='sourceCode']").val(data["projCode"])
     $("input[name='code']").val(data["projCode"])
+     $("input[name='keyword']").val(data["projTitle"])
         if(data["teamTags"]){
               $(".teamTags").show()
               var tags = data["userMarket"].split(",");
@@ -35,6 +36,9 @@ function formatProjectInfo(data,divList){
        }
        if(data["introduce"]){
            $("#introduce").closest(".background_boeder").show()
+           if(data["introduce"].length>60){
+                $(".project_more").show();
+           }
            $("#introduce").html(data["introduce"])
        }
 
