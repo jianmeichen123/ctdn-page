@@ -10,14 +10,14 @@ $(window).scroll(function(){
 	}
 });
 
-var code = getHrefParamter("code");
-//给tab页a赋参数
-$(function(){
-    $(".project_nav a").each(function(){
-        $(this).attr("href",$(this).attr("href")+"?code="+getHrefParamter("code"))
-    })
-    nav_locaton('ctsj','qyxm','','gsxx')
-})
+//var projCode = getHrefParamter("projCode");
+////给tab页a赋参数
+//$(function(){
+//    $(".project_nav a").each(function(){
+//        $(this).attr("href",$(this).attr("href")+"?projCode="+getHrefParamter("projCode"))
+//    })
+//    nav_locaton('ctsj','qyxm','','gsxx')
+//})
 //图谱
 var projectShareholderInfoList ;
 var dwList ;
@@ -401,7 +401,6 @@ sendGetRequest(url,function(data){
         projectContactListFormatter(data.data,$("*[data-query='listes']"))
         })
 
-
    //企业图谱
 var option = {
     /* backgroundColor: new echarts.graphic.RadialGradient(0.3, 0.3, 0.8, [{
@@ -480,6 +479,10 @@ var option = {
   };
 var myChart = echarts.init(document.getElementById('eacharts_in'));
 myChart.setOption(option);
+
+
+console.log("array:",option.series[0].data)
+console.log("link:",option.series[0].links)
 
 
 
