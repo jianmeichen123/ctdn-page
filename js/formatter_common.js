@@ -11,15 +11,8 @@ var tableFormate ={
         if(projectName==null){
             projectName='名称未知'
         }
-        if (row.logoSmall&&row.logoSmall.indexOf("/")!=-1){
-            img = row.logoSmall.split("/")[1]
-        }else if (row.logoSmall&&row.logoSmall!=""){
-            img = row.logoSmall
-        }
-        if(img.indexOf(".") == -1){
-            img = ""
-        }
-        return '<div class="list_table_td"> <img width="37" src="'+Constants.projectLogoPath+img+'"> <span class="col_999"><a target="_blank" href="/project_qy.html?projCode='+row.projCode+'">'+projectName+'</a></span> </div>'
+        var img = Constants.logoPath+"project/"+row["projCode"]+".png"
+        return '<div class="list_table_td"> <img width="37" src="'+img+'"> <span class="col_999"><a target="_blank" href="/project_qy.html?projCode='+row.projCode+'">'+projectName+'</a></span> </div>'
     },
     //上市列表
     listedProjectName:function(value, row, index){
@@ -29,14 +22,7 @@ var tableFormate ={
             if(projectName==null){
                 projectName='名称未知'
             }
-            if (row.logoSmall&&row.logoSmall.indexOf("/")!=-1){
-                img = row.logoSmall.split("/")[1]
-            }else if (row.logoSmall&&row.logoSmall!=""){
-                img = row.logoSmall
-            }
-            if(img.indexOf(".") == -1){
-                img = ""
-            }
+            var img = Constants.logoPath+"project/"+row["sourceCode"]+".png"
             if (row.districtSubName){
                 industrict+=row.districtSubName
             }else{
@@ -52,9 +38,9 @@ var tableFormate ={
                 industrict+=' '+row.industryName +">" +row.industrySubName
             }
             if(row.sourceCode){
-                return '<div class="list_table_td"> <a target="_blank" href="/project_qy.html?projCode='+row.sourceCode+'"><img  width="37" src="'+Constants.projectLogoPath+img+'"></a> <ul><li class="clearfix"><span class="col_999"><a target="_blank" href="/project_qy.html?projCode='+row.sourceCode+'">'+projectName+'</a></span></li><li>'+industrict+'</li></ul> </div>'
+                return '<div class="list_table_td"> <a target="_blank" href="/project_qy.html?projCode='+row.sourceCode+'"><img  width="37" src="'+img+'"></a> <ul><li class="clearfix"><span class="col_999"><a target="_blank" href="/project_qy.html?projCode='+row.sourceCode+'">'+projectName+'</a></span></li><li>'+industrict+'</li></ul> </div>'
             }else{
-                return '<div class="list_table_td"> <img  width="37" src="'+Constants.projectLogoPath+img+'"> <ul><li><a class="defalut">'+projectName+'</a></li><li>'+industrict+'</li></ul> </div>'
+                return '<div class="list_table_td"> <img  width="37" src="'+img+'"> <ul><li><a class="defalut">'+projectName+'</a></li><li>'+industrict+'</li></ul> </div>'
             }
         },
         //投资方
@@ -107,18 +93,7 @@ var tableFormate ={
     financeCompany:function(value,row,index){
         var company = row.company
         var industrict = ""
-        var img = ""
-        if (row.logo&&row.logo!=""){
-            var imgArr = row.logo.split("/")
-            if(imgArr[1]!=null){
-                img = imgArr[1]
-            }else{
-                img = imgArr[0]
-            }
-        }
-        if(img.indexOf(".") == -1){
-                    img = ""
-        }
+        var img = Constants.logoPath+"project/"+row["sourceCode"]+".png"
         if(!company){
             company='名称未知'
             industrict='地区未知'+ ' '+'行业未知'
@@ -143,9 +118,9 @@ var tableFormate ={
         }
 
         if(row.sourceCode){
-            return '<div class="list_table_td"> <a target="_blank" href="/project_qy.html?projCode='+row.sourceCode+'"><img  width="37" src="'+Constants.projectLogoPath+img+'"> </a><ul class="col_999"> <li><a target="_blank" href="/project_qy.html?projCode='+row.sourceCode+'">'+company+'</a></li> <li>'+industrict+'</li> </ul> </div>'
+            return '<div class="list_table_td"> <a target="_blank" href="/project_qy.html?projCode='+row.sourceCode+'"><img  width="37" src="'+img+'"> </a><ul class="col_999"> <li><a target="_blank" href="/project_qy.html?projCode='+row.sourceCode+'">'+company+'</a></li> <li>'+industrict+'</li> </ul> </div>'
         }else{
-            return '<div class="list_table_td"> <img  width="37" src="'+Constants.projectLogoPath+img+'"> <ul class="col_999"> <li><a class="defalut">'+company+'</a></li> <li>'+industrict+'</li> </ul> </div>'
+            return '<div class="list_table_td"> <img  width="37" src="'+img+'"> <ul class="col_999"> <li><a class="defalut">'+company+'</a></li> <li>'+industrict+'</li> </ul> </div>'
         }
     },
     //被并购方-并购列表
@@ -156,15 +131,7 @@ var tableFormate ={
             mergered='名称未知'
             industrict='地区未知'+ ' '+'行业未知'
         }
-        var img = ""
-        if (row.logo&&row.logo!=""){
-            var imgArr = row.logo.split("/")
-            if(imgArr[1]!=null){
-                img = imgArr[1]
-            }else{
-                img = imgArr[0]
-            }
-        }
+        var img = Constants.logoPath+"project/"+row["sourceCode"]+".png"
         if(row.districtSubName&&row.districtSubName!='国外') industrict+=row.districtSubName
         if(row.districtSubName=='国外') industrict+="地区未知"
         if(!row.districtSubName&&!row.districtGrandsonName) industrict+= "地区未知"
@@ -177,9 +144,9 @@ var tableFormate ={
             img = ""
         }
         if(row.sourceCode){
-            return '<div class="list_table_td"> <a target="_blank" href="/project_qy.html?projCode='+row.sourceCode+'"><img  width="37" src="'+Constants.projectLogoPath+img+'"></a> <ul class="col_999"> <li><a target="_blank" href="/project_qy.html?code='+row.sourceCode+'">'+mergered+'</a></li> <li>'+industrict+'</li> </ul> </div>'
+            return '<div class="list_table_td"> <a target="_blank" href="/project_qy.html?projCode='+row.sourceCode+'"><img  width="37" src="'+img+'"></a> <ul class="col_999"> <li><a target="_blank" href="/project_qy.html?code='+row.sourceCode+'">'+mergered+'</a></li> <li>'+industrict+'</li> </ul> </div>'
         }else{
-            return '<div class="list_table_td"> <img  width="37" src="'+Constants.projectLogoPath+img+'"> <ul class="col_999"> <li><a class="defalut">'+mergered+'</a></li> <li>'+industrict+'</li> </ul> </div>'
+            return '<div class="list_table_td"> <img  width="37" src="'+img+'"> <ul class="col_999"> <li><a class="defalut">'+mergered+'</a></li> <li>'+industrict+'</li> </ul> </div>'
         }
     },
     amountStr:function(value,row,index){
@@ -242,19 +209,8 @@ var tableFormate ={
             investOrg = '名称未知'
          }
 
-        var img = ""
-        if (row.logoSmall&&row.logoSmall!=""){
-            var imgArr = row.logoSmall.split("/")
-            if(imgArr[1]!=null){
-                img = imgArr[1]
-            }else{
-                img = imgArr[0]
-            }
-        }
-        if(img.indexOf(".") == -1){
-            img = ""
-        }
-        return '<div class="list_table_td"> <img  width="37" src="'+Constants.projectLogoPath+'/org/'+img+'"> <ul class="col_999"> <li><a target="_blank" href="/jg_particulars.html?orgCode='+row.orgCode+'">'+investOrg+'</a></li> </ul> </div>'
+        var img=  Constants.logoPath+"org/"+row["orgCode"]+".png"
+        return '<div class="list_table_td"> <img  width="37" src="'+img+'"> <ul class="col_999"> <li><a target="_blank" href="/jg_particulars.html?orgCode='+row.orgCode+'">'+investOrg+'</a></li> </ul> </div>'
     },
     //投资项目-投资机构列表
     investProject:function(value, row, index){
@@ -373,7 +329,7 @@ function injectValues(html,row){
 //资讯formatter
 function newsFormatter(value,row){
     if (row.imgmd5){
-         row.imgmd5 = "<a href='"+row.imgmd5+"'> <img src='"+Constants.newsLogoPath+row.imgmd5+"'> </a>";
+         row.imgmd5 = "<a href='"+row.imgmd5+"'> <img src='"+Constants.logoPath+"news/"+row.imgmd5+"'> </a>";
     }else {
          row.imgmd5 = ""
     }
