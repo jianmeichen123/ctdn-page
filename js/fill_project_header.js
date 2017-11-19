@@ -1,9 +1,14 @@
 //项目基本信息formatter
 function formatProjectInfo(data,divList){
-    $("input[name='projCode']").val(data["projCode"])
-    $("input[name='projectCode']").val(data["projCode"])
-    $("input[name='sourceCode']").val(data["projCode"])
-    $("input[name='code']").val(data["projCode"])
+     projCode = data["projCode"]
+     $(".oo a").each(function(){
+     	var href= $(this).attr("data-href")
+        $(this).attr("href",href+projCode)
+     })
+     $("input[name='projCode']").val(data["projCode"])
+     $("input[name='projectCode']").val(data["projCode"])
+     $("input[name='sourceCode']").val(data["projCode"])
+     $("input[name='code']").val(data["projCode"])
      $("input[name='keyword']").val(data["projTitle"])
         if(data["teamTags"]){
               $(".teamTags").show()
