@@ -277,6 +277,5 @@ function fillInvestOthers(data,div){
         })
         return json;
    }
-   alert(proj.data.compCode)
 sendGetRequest(detail.queryPorjectBusniessInfo+proj.data.compCode,function(data){fillBaseBusinessInfo(data.data,$("div[data-query='businessInfo']")); fillList(data.data,$("*[data-query='list']"))})
 sendGetRequest(detail.getListByCompany+name,function(data){fillInvestOthers(data.data,$("tbody[data-query='lists']"))})

@@ -349,11 +349,18 @@
 		</div>
 	</div>
 </div>
-<script src="js/jquery.tmpl.js"></script>
-<script src="js/echarts_3.2.3.js"></script>
-<script src="js/fill_project_header.js"></script>
-<script src="js/fillData_common.js"></script>
-<script src="js/gsxx_particulars.js"></script>
+<script>
+	$(function(){
+	   $(".project_nav a").each(function(){
+			$(this).attr("href",$(this).attr("href")+"?projCode="+getHrefParamter("projCode"))
+	   })
+   })
+</script>
+<!--<script src="js/jquery.tmpl.js"></script>-->
+<!--<script src="js/echarts_3.2.3.js"></script>-->
+<!--<script src="js/fill_project_header.js"></script>-->
+<!--<script src="js/fillData_common.js"></script>-->
+<!--<script src="js/gsxx_particulars.js"></script>-->
 <!--<script>-->
 <!--var option = {-->
     <!--/* backgroundColor: new echarts.graphic.RadialGradient(0.3, 0.3, 0.8, [{-->
@@ -498,6 +505,5 @@
 <!--myChart.setOption(option);-->
 
 <!--</script>-->
-
 </body>
 </html>

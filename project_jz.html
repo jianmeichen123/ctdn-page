@@ -40,9 +40,7 @@
 	//给tab页a赋参数
 	$(function(){
 	   $(".project_nav a").each(function(){
-		//if($(this).attr("href") != "####"){
 			$(this).attr("href",$(this).attr("href")+"?projCode="+getHrefParamter("projCode"))
-		//}
 	   })
 	  $(".tzf").each(function(){   //去掉最后一个分隔符
 		  console.log($(this).children("span:last-child").html());
@@ -174,7 +172,7 @@
 		div.append("<tr> <td colspan='6'><span>暂无数据</span></th></tr>")
 	}
 	}
-	sendGetRequest(detail.queryCompetationlist+getHrefParamter("code"),function(data){fillList(data.data,$("*[data-query='list']"))})
+	sendGetRequest(detail.queryCompetationlist+getHrefParamter("projCode"),function(data){fillList(data.data,$("*[data-query='list']"))})
 
 	nav_locaton('ctsj','qyxm','','jzds')
 </script>
