@@ -38,12 +38,11 @@
 <script src="js/fillData_common.js"></script>
 <script>
 	//给tab页a赋参数
-	$(function(){
-	   $(".project_nav a").each(function(){
-		//if($(this).attr("href") != "####"){
-			$(this).attr("href",$(this).attr("href")+"?projCode="+getHrefParamter("projCode"))
-		//}
-	   })
+ $(".project_nav a").each(function(){
+   	    var href= $(this).attr("href")
+   	    var hrefcode = $(this).attr("href")+"?projCode="+getHrefParamter("projCode")
+    	$(this).attr("href",hrefcode)
+   })
 	  $(".tzf").each(function(){   //去掉最后一个分隔符
 		  console.log($(this).children("span:last-child").html());
 		  if($(this).children("span:last-child").html()==","){

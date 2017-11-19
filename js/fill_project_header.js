@@ -32,6 +32,10 @@ function formatProjectInfo(data,divList){
              $(".prodSrv").show()
             $("#prodSrv").html(data["userMarket"])
        }
+       if(data["introduce"]){
+           $("#introduce").closest(".background_boeder").show()
+           $("#introduce").html(data["introduce"])
+       }
 
     $(divList).each(function(){
         var div = $(this);
@@ -129,12 +133,6 @@ function formatProjectInfo(data,divList){
                 }else{
                     v = '<span class="brain_ico brain_ico_project_3"></span>'
                 }
-           }else if(k=="introduce"){
-              if(!v){
-                    $("p[data-field='introduce']").closest(".background_boeder").hide()
-               }else{
-                    $("p[data-field='introduce']").html(v)
-               }
            }
            o.html(v)
         })

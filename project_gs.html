@@ -349,6 +349,13 @@
 		</div>
 	</div>
 </div>
+<script>
+   $(".project_nav a").each(function(){
+   	    var href= $(this).attr("href")
+   	    var hrefcode = $(this).attr("href")+"?projCode="+getHrefParamter("projCode")
+    	$(this).attr("href",hrefcode)
+   })
+</script>
 <script src="js/jquery.tmpl.js"></script>
 <script src="js/echarts_3.2.3.js"></script>
 <script src="js/fill_project_header.js"></script>
