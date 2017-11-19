@@ -1,6 +1,7 @@
 //项目基本信息formatter
 function formatProjectInfo(data,divList){
     $("input[name='projCode']").val(data["projCode"])
+    $("input[name='projectCode']").val(data["projCode"])
     $("input[name='sourceCode']").val(data["projCode"])
     $("input[name='code']").val(data["projCode"])
         if(data["teamTags"]){
@@ -40,12 +41,6 @@ function formatProjectInfo(data,divList){
     $(divList).each(function(){
         var div = $(this);
         var ls = div.find("*[data-field]")
-
-
-
-
-
-
         $(ls).each(function(){
            var o = $(this);
            var k = o.attr("data-field");
@@ -53,15 +48,8 @@ function formatProjectInfo(data,divList){
            if(k == "latestFinanceRound" || k=="runState" || k=="needFinance"){
                if(!v) o.removeClass(o.attr("class"));
            }else if(k == "logoSmall"){
-               	if (v && v.indexOf("/")!=-1){
-                    img = v.split("/")[1]
-                    v= '<img src="'+Constants.logoPath+img+'">'
-                }else if (v && v!=""){
-                    img = v
-                    v= '<img src="'+Constants.logoPath+img+'">'
-                }else{
-                    v= '<img src="img/default.gif">'
-                }
+                var img = Constants.logoPath+"project/"+data["projCode"]+".png"
+                v= '<img  width="37" src="'+img+'">'
            }else if(k=="projTitle"){
                 if(!v){
                     v = "名称未知"

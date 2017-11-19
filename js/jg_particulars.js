@@ -15,10 +15,7 @@ function fillBaseInfo(data,divList){
                 }
            }else{
                 if(k=='logo'){
-                   if(!v){
-                        v='0783e0de6ce367754ebbefb7ed3ae4bb.jpg'
-                   }
-                    o.attr('src',Constants.logoPath+'/org/'+v)
+                    o.attr('src',Constants.logoPath+'org/'+data["orgCode"]+".png")
                 }
                 if(k=='webUrl'){
                     v='<span class="list_table_td"><a target="_blank" href="'+v+'">'+v+'</a></span>'
