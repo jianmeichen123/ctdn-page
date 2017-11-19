@@ -6,7 +6,14 @@
 	<!--basis-->
 	{(basis.html)}
 </head>
-
+<style>
+	.highlight {
+		color:#1ac4d3
+	}
+	comp{
+		color:#1ac4d3
+	}
+</style>
 <body>
 {(header.html)}
 <div class="container">
@@ -77,37 +84,6 @@
 								{{/each}}
 							</script>
 							{-raw-}
-							<!--<div class="border_equity_trading_l"></div>-->
-							<!--<li>-->
-								<!--<div class="equity_trading_l">-->
-									<!--<spn class="dn_ico dn_ico_equity_trading_area"></spn>-->
-									<!--<span class="equity_trading_time">2017-11-01</span>-->
-								<!--</div>-->
-								<!--<div class="equity_trading_r">-->
-									<!--<spn class="dn_ico dn_ico_bj_lc"><span class="dn_ico_bj_lc_cen">未知轮次</span></spn>-->
-									<!--<div class="dn_ico_bj_lc_b">-->
-										<!--<ul>-->
-											<!--<li><span class="dn_ico_bj_lc_b_l">融资金额 </span><span class="dn_ico_bj_lc_b_r">358万人民币</span></li>-->
-											<!--<li>-->
-												<!--<span class="dn_ico_bj_lc_b_l">投资方</span>-->
-												<!--<span class="dn_ico_bj_lc_b_r">Temasek淡马锡<label class="lticon">领投</label></span>-->
-												<!--<span class="dn_ico_bj_lc_b_r">Tem淡马锡</span>-->
-												<!--<span class="dn_ico_bj_lc_b_r">Temasek淡马锡</span>-->
-												<!--<span class="dn_ico_bj_lc_b_r">masek淡马锡</span>-->
-												<!--<span class="dn_ico_bj_lc_b_r">asek淡马锡</span>-->
-												<!--<span class="dn_ico_bj_lc_b_r">Temasek淡马锡</span>-->
-												<!--<span class="dn_ico_bj_lc_b_r">Temasek淡马锡</span>-->
-												<!--<span class="dn_ico_bj_lc_b_r">Temasek淡马锡</span>-->
-												<!--<span class="dn_ico_bj_lc_b_r">Temasek淡马锡</span>-->
-												<!--<span class="dn_ico_bj_lc_b_r">Temasek淡马锡</span>-->
-												<!--<span class="dn_ico_bj_lc_b_r">Temasek淡马锡</span>-->
-												<!--<span class="dn_ico_bj_lc_b_r">Temasek淡马锡</span>-->
-											<!--</li>-->
-										<!--</ul>-->
-										<!--<div class="dn_ico_bj_lc_b_xq"><a href="">详情</a></div>-->
-									<!--</div>-->
-								<!--</div>-->
-							<!--</li>-->
 						</ul>
 					</div>
 				</div>
@@ -124,10 +100,6 @@
 						<div class="project_t_team">产品服务</div>
 						<ul class="project_t_team_cen">
 							<li id="prodSrv"> </li>
-							<!--<li>创始人宋广才：具有多年创业经验， 2006年创业至今，成功运营了多个创业项目，多年互联网从业经验，优势在于大团队的组建和管理运营，成本控制以及资金管理。</li>-->
-							<!--<li>后台开发工程师：刘铭： 多个项目的独立后台开发，有丰富的后台开发能力</li>-->
-							<!--<li>IOS工程师： 赵曾光， IOS前端开发，独立开发过多个互联网APP项目。</li>-->
-							<!--<li>Android开发工程：龚伟明， 5个以上的APP开发经验。</li>-->
 						</ul>
 					</div>
 					<div class = "userMarket" style="display:none">
@@ -357,7 +329,7 @@
 								{{each(i,v) data.records}}
 								<li>
 									<div class="dn_info_list_show">
-									<div class="dn_info_list_tit">${v.title}</div>
+									<div class="dn_info_list_tit"><a "href" = ${v.href}>${v.title}</a></div>
 									{{if v.imgmd5}}
 										<div class="dn_info_list_show_l"><img src="{{html Constants.logoPath+"news/"+v.imgmd5}}"></div>
 									{{/if}}
@@ -372,22 +344,6 @@
 								{{/each}}
 							</script>
 						{-raw-}
-						<!--<ul id="newsul">
-							<!--<li>-->
-								<!--<div class="dn_info_list_show">-->
-									<!--<div class="dn_info_list_tit">携程捆绑销售风波背后：盈利压力与负重前行</div>-->
-									<!--<div class="dn_info_list_show_l"><img src="img/dn/l.png"></div>-->
-									<!--<div class="dn_info_list_show_r">-->
-										<!--<ul>-->
-											<!---->
-											<!--<li class="dn_info_list_cen">携程捆绑销售风波背后：盈利压力与负重前行携程捆绑销售风波背后：盈利压力与负重前行携程捆绑销售风波背后：盈利压力与负重前行携程捆绑销售风波背后：盈利压力与负重前行携程捆绑销售风波背后：盈利压力与负重前行携程捆绑销售风波背后：盈利压力与负重前行</li>-->
-											<!--<li class="dn_info_list_ic"><span>1小时前</span><span>来源：投资中国</span></li>-->
-										<!--</ul>-->
-									<!--</div>-->
-								<!--</div>-->
-								<!--<div class="dn_sy_line"></div>-->
-							<!--</li>-->
-						<!--</ul>-->
 					</div>
 					<div class="dn_ico_more_all"><div class="dn_ico_more_al_divl">加载更多<span class="dn_ico dn_ico_more"></span></div></div>
 					<ul class="project_new" data-query="list" data-formatter="newsList">
@@ -426,7 +382,6 @@
 <script type="text/javascript">
 
         $(document).ready(function(){
-
           $('.slider6').bxSlider({
 
 			mode: 'fade',
@@ -443,11 +398,6 @@
 <script>
 //给tab页a赋参数
 $(function(){
-   $(".project_nav a").each(function(){
-   	    var href= $(this).attr("href")
-   	    var hrefcode = $(this).attr("href")+"?projCode="+getHrefParamter("projCode")
-    	$(this).attr("href",hrefcode)
-   })
  //团队信息两行显示
  $(".product_list_team_ul").each(function(){
 	 var con=$(this).find("li:last").text();

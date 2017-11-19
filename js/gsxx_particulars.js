@@ -47,7 +47,7 @@ compJson1["name"]="项目";
 compJson1["symbolSize"]=15;
 compJson1["category"]="项目";
 compJson1["draggable"]="true";
-compJson1["value"]=0;
+compJson1["value"]=1;
 
 compJson2["name"]="股东";
 compJson2["symbolSize"]=15;
@@ -214,7 +214,6 @@ function projectContactListFormatter(data,div){
 var url = detail["getAllCompMember"]+proj.data.compCode;
 sendGetRequest(url,function(data){
     perJson=data.data;
-    console.log('perJson:' , perJson);
     $(perJson).each(function(i){
         if(i<5){
             var json ={}
@@ -231,8 +230,6 @@ sendGetRequest(url,function(data){
         }
     })
 
-    console.log('array :' , array);
-    console.log('linkArr :' , linkArr);
 
     if(!data){
         $('#projects').hide();
@@ -279,40 +276,40 @@ sendGetRequest(url,function(data){
     	var html="";
     	sendPostRequestByJsonObj(url,json,function(data){
     	    if(dataId=='queryByProjTitle'){
-//    	        projJson=data.data.records
-//    	        $(projJson).each(function(i){
-//    	            if(i<5){
-//                        var json ={}
-//                        var linkJson={}
-//                        json["name"]=$(this)[0].projTitle;
-//                        json["value"]=5;
-//                        json["symbolSize"]=15;
-//                        json["category"]="项目";
-//                        json["draggable"]="true";
-//                        linkJson["source"]="项目";
-//                        linkJson["target"]=$(this)[0].projTitle;
-//                        array.push(json)
-//                        linkArr.push(linkJson)
-//    	            }
-//    	        })
+    	        projJson=data.data.records
+    	        $(projJson).each(function(i){
+    	            if(i<5){
+                        var json ={}
+                        var linkJson={}
+                        json["name"]=$(this)[0].projTitle;
+                        json["value"]=1;
+                        json["symbolSize"]=10;
+                        json["category"]="项目";
+                        json["draggable"]="true";
+                        linkJson["source"]="项目";
+                        linkJson["target"]=$(this)[0].projTitle;
+                        array.push(json)
+                        linkArr.push(linkJson)
+    	            }
+    	        })
             }
     	    if(dataId=='getAllCompSubs'){
-//    	        subJson=data.data.records;
-//    	        $(subJson).each(function(i){
-//                    if(i<5){
-//                        var json ={}
-//                        var linkJson={}
-//                        json["name"]=$(this)[0].compFulltitle;
-//                        json["value"]=5;
-//                        json["symbolSize"]=15;
-//                        json["category"]="子公司";
-//                        json["draggable"]="true";
-//                        linkJson["source"]="子公司";
-//                        linkJson["target"]=$(this)[0].compFulltitle;
-//                        array.push(json)
-//                        linkArr.push(linkJson)
-//                    }
-//                })
+    	        subJson=data.data.records;
+    	        $(subJson).each(function(i){
+                    if(i<5){
+                        var json ={}
+                        var linkJson={}
+                        json["name"]=$(this)[0].compFulltitle;
+                        json["value"]=5;
+                        json["symbolSize"]=15;
+                        json["category"]="子公司";
+                        json["draggable"]="true";
+                        linkJson["source"]="子公司";
+                        linkJson["target"]=$(this)[0].compFulltitle;
+                        array.push(json)
+                        linkArr.push(linkJson)
+                    }
+                })
     	    }
     		var records = data.data.records;
     		if(records.length>0){
@@ -404,8 +401,6 @@ sendGetRequest(url,function(data){
         projectContactListFormatter(data.data,$("*[data-query='listes']"))
         })
 
-console.log(array)
-console.log(linkArr)
 
    //企业图谱
 var option = {
