@@ -16,8 +16,8 @@ $(function () {
                         v[i] = formatDate(v[i],"yyyy-MM-dd")
                     }
                     if(i=="newsContent"){
-                        if(v[i].length>88){
-                            v[i]=v[i].substring(0,88)+'...'
+                        if(v[i].length>150){
+                            v[i]=v[i].substring(0,150)+'...'
                         }
                     }
                 }

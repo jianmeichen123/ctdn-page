@@ -23,8 +23,9 @@ function getNews(){
                     for(i in v){
                         if(i=="records"){
                             for(j in v[i]){
-                               if(v[i][j].overview.length>88){
-                                   v[i][j].overview=v[i][j].overview.substring(0,88)+'...'
+                               if(v[i][j].overview.length>150){
+                                   alert(v[i][j].overview)
+                                   v[i][j].overview=v[i][j].overview.substring(0,150)+'...'
                                }
                                 v[i][j].orderTime= formatNewsTime(v[i][j].orderTime)
                            }
