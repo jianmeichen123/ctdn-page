@@ -464,9 +464,8 @@ $(function(){
 
  $(window).scroll(function(){
 	 var location_array = new Array()
-	 for(var i=0; i<$('.project_all_r .storey_list').length; i++){
-	 	var list_all = $('.storey_list').eq(i).attr('location_l');
-	 	$('.project_all_r li[location_r='+list_all+']').show();
+	 for(var i=0; i<$('.project_all_l .storey_list').length; i++){
+	 	var list_all = $('.project_all_l .storey_list').eq(i).attr('location_l');
 	 	location_array.push(list_all);
 	 }
 	var  myArray=new Array();
