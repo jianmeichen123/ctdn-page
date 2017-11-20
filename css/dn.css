@@ -23,13 +23,13 @@ ul,ol,dl,dt,dd,p,img{ display:block; border:0;list-style:none; }
 .dnsy_list{float:right; margin-right:20px; font-size:12px;  margin-top:5px;}
 .dnsy_list a{color:#999999;}
 .dnsy_list a:hover{color:#2393f7;}
-.dn_info_list>ul>li{width:100%; padding-left:20px;}
-.dn_info_list>ul>li:hover{background-color:#f5f5f5; }
+
 .dn_info_list_show{width:100%; overflow: hidden; padding-right:20px;     padding-left: 20px;}
 .dn_info_list_show_l{margin-top:10px; margin-bottom:24px; float:left; width:123px; border:1px solid #eff0f2; border-radius:10px; height:77px}
 .dn_info_list_show_l img{width:121px; height:75px; overflow:hidden;}
 .dn_sy_line{border-bottom:1px solid #f0f0f0; width:100%;  height:1px; overflow: hidden;}
 .dn_info_list_show_r{margin-top:0px; margin-left:10px;float:left; width:700px;}
+.no_img .dn_info_list_show_r ,.no_img_index .dn_info_list_show_r{width:100%;     margin-left: 0px;}
 .dn_info_list_tit{font-size:16px; font-weight: bold; padding-top:24px;}
 .dn_info_list_tit a{color:#333}
 .dn_info_list_cen{font-size:14px; color:#666666; height: 40px;    overflow: hidden;margin-top:15px; line-height:20px;}
@@ -105,6 +105,7 @@ ul,ol,dl,dt,dd,p,img{ display:block; border:0;list-style:none; }
 .news_click a{font-size:12px; color:#999999; }
 .news_click_on{color:#2393f7;}
 .new_table th{display:none;}
+.new_table td{border:0 !important;     padding: 0px !important;}
 /*行研报告*/
 .report_detailed{padding:40px; overflow:hidden;}
 .report_detailed>ul>li{font-size:16px; margin-top:35px; color:#666666}
@@ -216,6 +217,5 @@ ul,ol,dl,dt,dd,p,img{ display:block; border:0;list-style:none; }
 /*di*/
 .foot_top{margin-top:40px;padding-bottom:40px;}
 .foot_ce{color:#999999; font-size:14px; text-align:center; border-top:1px solid #e6e6e6; line-height:40px;}
-.block .table-striped > tbody > tr:nth-of-type(odd) {
-    background:rgba(0,0,0,0);
-}
+.dn_info_list  .fixed-table-container{border:0 !important;}
+.dn_info_list  .fixed-table-pagination{    padding-left: 20px;  padding-right: 20px;}
