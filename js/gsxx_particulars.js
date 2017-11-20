@@ -165,7 +165,7 @@ function projectInvestOthersFormatter(data,div){
     var staticTemplate ='<tr> <td>${investDate}</td> <td>${company}</td> <td>${round}</td> <td>${amountStr}</td> <td>${invstorgnames}</td> </tr>'
     var temp = staticTemplate;
     var html = "";
-    if(data){
+    if(data.length>0){
         $(data).each(function(i,row){
          $.each(row,function(k,v){
              while(temp.indexOf("${"+k+"}") > 1){
@@ -225,8 +225,16 @@ sendGetRequest(url,function(data){
             json["value"]=1;
             linkJson["source"]="任职人员";
             linkJson["target"]=$(this)[0].memberName+i;
-            array.push(json);
+//            for(i in array){
+//                for(j in array[i]){
+//                    if(array[i][j].name!=json["name"]){
+//                        array.push(json);
+//                    }
+//                }
+//            }
             linkArr.push(linkJson);
+
+
         }
     })
 

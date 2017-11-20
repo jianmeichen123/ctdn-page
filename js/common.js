@@ -282,7 +282,6 @@ function getHrefParamter(name){
           for (var i = 0; i < qs.length; i++) {
               if (qs[i].substring(0, qs[i].indexOf("=")) == name) {
                   var ss = qs[i].substring(qs[i].indexOf("=") + 1)
-                  console.log(ss)
                   return ss;
               }
           }
