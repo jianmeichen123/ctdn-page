@@ -381,8 +381,10 @@ com{color:#f78123;}
 .dn_ico_bj_lc{ background-position: -21px -64px; width: 107px;     margin-top: 3px; height: 85px;  float:left;  display:block;}
 .dn_ico_bj_lc_b{border:1px solid #e6e6e6;  width:843px;       position: relative;   overflow: hidden;   border-radius: 8px;  margin-left: 110px; }
 .particulars_black_rz .equity_trading_r{height:auto;}
+..equity_trading_r{width:953px;}
 .dn_ico_bj_lc_b_l{color:#999999;margin-right:10px;display:block; float:left;}
 .dn_ico_bj_lc_b_r{color:#333333; margin-right:40px; display:block; float:left; margin-bottom:10px;}
+.dn_ico_bj_lc_b_r a{color:#333333;}
 .dn_ico_bj_lc_b>ul{padding-top:20px;  padding-left:30px; padding-right:30px; width: 800px;  float: left; }
 .dn_ico_bj_lc_b>ul>li{margin-bottom:10px;      margin-right:-40px;   overflow: hidden;}
 .dn_ico_bj_lc_b_xq{width:35px; float:right; font-size:14px;     position: absolute; top:50%; margin-top:-6px; height:100%;  right:20px;}
