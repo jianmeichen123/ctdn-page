@@ -122,29 +122,26 @@ function newsFormatter(value,row){
    if(row.overview.length>80){
         row.overview = row.overview.substring(0,80)+"...";
    }
+   var html = "<li>";
    if (row.imgmd5){
+        html +=  '<div class="dn_info_list_show">'
         row.imgmd5 = "<div class='dn_info_list_show_l'><a href='"+row.href+"'> <img src='"+Constants.logoPath +"news/"+row.imgmd5+"'> </a></div>";
    }else {
+        html +=  '<div class="dn_info_list_show no_img">'
         row.imgmd5 = ""
    }
    row.orderTime =  formatNewsTime(row.orderTime);
-   var html = "<li>";
-                   if(row.imgmd5){
-                        html +=  '<div class="dn_info_list_show no_img">'
-                   }else{
-                         html +=  '<div class="dn_info_list_show">'
-                   }
-                    html += '<div class="dn_info_list_tit"><a href="${href}">${title}</a></div>'+
-                    '${imgmd5}'+
-                    '<div class="dn_info_list_show_r">'+
-                        "<ul>"+
-                            '<li class="dn_info_list_cen">${overview}</li>'+
-                            '<li class="dn_info_list_ic"><span>${orderTime}</span><span>来源：</span><span>${auther}</span></li>'+
-                        "</ul>"+
-                    "</div>"+
-                    "</div>"+
-                    '<div class="dn_sy_line"></div>'+
-                "</li>"
+   html += '<div class="dn_info_list_tit"><a href="${href}">${title}</a></div>'+
+        '${imgmd5}'+
+        '<div class="dn_info_list_show_r">'+
+            "<ul>"+
+                '<li class="dn_info_list_cen">${overview}</li>'+
+                '<li class="dn_info_list_ic"><span>${orderTime}</span><span>来源：</span><span>${auther}</span></li>'+
+            "</ul>"+
+        "</div>"+
+        "</div>"+
+        '<div class="dn_sy_line"></div>'+
+    "</li>"
 
     return injectValues(html,row);
 }
