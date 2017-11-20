@@ -1,5 +1,5 @@
 //本地
-//
+
 //var Constants = {
 //	platformContentURL: "http://127.0.0.1:8081/api/",
 //	searchContentURL: "http://127.0.0.1:8089/search/",
@@ -105,7 +105,7 @@ var detail = {
     getNewsByLabel:Constants.platformContentURL+"/news/getNewsByLabel/",
     queryByProjTitle:Constants.platformContentURL+"/projectList/queryByProjTitle/",
     getListByCompany:Constants.platformContentURL+"/eventInfo/getListByCompany/",
-    getListByCompany:Constants.platformContentURL+"/businessInfo/getListByRegName/",
+    getListByRegName:Constants.platformContentURL+"/businessInfo/getListByRegName/",
     getAllCompMember:Constants.platformContentURL+"/compMember/getAllCompMember/",
     getAllCompSubs:Constants.platformContentURL+"/compSub/getAllCompSubs/",
     insertProject:Constants.platformContentURL+"/appProjectDemandInfo/insert",
