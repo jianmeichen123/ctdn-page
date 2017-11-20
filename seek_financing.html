@@ -18,7 +18,7 @@
 				<li>
 					<div class="seek_financing_l"><span class="seek_financing_two">项目名称</span><span class="seek_financing_one">*</span></div>
 					<div class="seek_financing_r">
-						<input class="seek_financing_input" name="projName"  required data-rule-length20="true"  maxlength="20"  data-msg-length20="请输入公司核心产品名称，不超过20个字"  placeholder="请输入公司核心产品名称，不超过20个字">
+						<input class="seek_financing_input" name="projName"  required data-rule-length20="true"  maxlength="20"  data-msg-length20="<span class='dn_ico dn_ico_error'></span>不超过20个字"  placeholder="请输入公司核心产品名称，不超过20个字">
 					</div>
 				</li>
 				<li>
@@ -43,13 +43,13 @@
 				<li>
 					<div class="seek_financing_l"><span class="seek_financing_two">联系人姓名</span><span class="seek_financing_one">*</span></div>
 					<div class="seek_financing_r">
-						<input class="seek_financing_input" name="projLinkman" required  maxlength="50"  placeholder="联系人姓名">
+						<input class="seek_financing_input" name="projLinkman" required  maxlength="50"  placeholder="联系人姓名"  required data-rule-length50="true" data-msg-length50="<span class='dn_ico dn_ico_error'></span>不超过20个字">
 					</div>
 				</li>
 				<li>
 					<div class="seek_financing_l"><span class="seek_financing_two">联系人电话</span><span class="seek_financing_one">*</span></div>
 					<div class="seek_financing_r">
-						<input class="seek_financing_input" name="projLinktel" required  data-rule-phone="true"   maxlength="40" placeholder="联系人电话"  data-msg-phone="<font color=red>*</font>联系电话格式不正确">
+						<input class="seek_financing_input" name="projLinktel" required  data-rule-phone="true"   maxlength="40" placeholder="联系人电话"  data-msg-phone="<span class='dn_ico dn_ico_error'></span>联系电话格式不正确">
 					</div>
 				</li>
 				<li>
@@ -171,6 +171,12 @@
 	jQuery.validator.addMethod("length20", function (value, element) {
 		var verify_20 = /^(?!.{20}|^\s*$)/;
 		return this.optional(element) || (verify_20.test(value));
+	}, "");
+	
+	//验证长度
+	jQuery.validator.addMethod("length50", function (value, element) {
+		var verify_20 = /^(?!.{50}|^\s*$)/;
+		return this.optional(element) || (verify_50.test(value));
 	}, "");
 
 	//验证select
