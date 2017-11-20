@@ -489,8 +489,6 @@ var myChart = echarts.init(document.getElementById('eacharts_in'));
 myChart.setOption(option);
 
 
-console.log("array:",option.series[0].data)
-console.log("link:",option.series[0].links)
 
 
 
