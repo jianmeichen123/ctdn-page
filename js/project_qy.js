@@ -33,6 +33,10 @@
     		var records = data.data.records;
     		if(records.length>0 && pageNo !="1"){
     		     obj.show();
+    		     var right_show =obj.children('.project_t').attr('location_l');
+                 $('.project_all_r li[location_r='+right_show+']').show();
+                 $('.project_all_r li[location_r='+right_show+']').addClass('storey_list')
+                 obj.children('.project_t').addClass('storey_list');
     		    var target = $("#"+dataId)
     		    target.tmpl(data).appendTo(target.parent())
 				if(pageNo && pageSize){
@@ -61,6 +65,10 @@
                 var target = $("#"+dataId)
                 target.tmpl(data).appendTo(target.parent())
                 obj.show();
+                var right_show =obj.children('.project_t').attr('location_l');
+                $('.project_all_r li[location_r='+right_show+']').show();
+                $('.project_all_r li[location_r='+right_show+']').addClass('storey_list')
+                obj.children('.project_t').addClass('storey_list');
             }else{
                 if(dataId=="product"){
                     if($("#prodSrv").val() || $("#userMarket").val()){
