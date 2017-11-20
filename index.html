@@ -65,7 +65,7 @@
 									<div class="dn_info_list_show">
 									<div class="dn_info_list_tit"><a href="${v.href}">${v.title}</a></div>
 									{{if v.imgmd5}}
-										<div class="dn_info_list_show_l"><img src={{html Constants.logoPath +v.imgmd5}}></div>
+										<div class="dn_info_list_show_l"><img src={{html Constants.logoPath +"news/"+v.imgmd5}}></div>
 									{{/if}}
 									<div class="dn_info_list_show_r">
 										<ul>
@@ -130,7 +130,7 @@
 									<ul>
 										<li class="event_img"><img src="${v.logo}"></li>
 										<li class="event_tit">
-											<div class="event_tit_t"><a href="/tzsj_particulars.html?eventId=${v.sourceCode}">${v.investevent}</a></div>
+											<div class="event_tit_t"><a href="/project_qy.html?projCode="${v.sourceCode}">${v.company}</a></div>
 											<div class="event_tit_c">${v.desc}</div>
 										</li>
 										<li class="event_turn">${v.round}</li>
@@ -177,7 +177,7 @@
 		<div class="dn_r">
 			<div  class="dnsy_tit no_border">
 				<div><span class="dn_ico dn_ico_subject"></span><span class="dnsy_tit_size">专题</span></div>
-				<div class="dnsy_list"><a href="#">更多</a></div>
+				<div class="dnsy_list"><a href="/index_project.html">更多</a></div>
 			</div>
 			<div class="subject_all">
 				<ul>
@@ -228,7 +228,7 @@
 		<div class="dn_r m_t10">
 			<div  class="dnsy_tit no_border">
 				<div><span class="dn_ico dn_ico_report"></span><span class="dnsy_tit_size">行研报告</span></div>
-				<div class="dnsy_list"><a href="#">更多</a></div>
+				<div class="dnsy_list"><a href="/report_list.html">更多</a></div>
 			</div>
 			<div class="report_all">
 				<ul>

@@ -6,7 +6,14 @@
 	<!--basis-->
 	{(dn_basis.html)}
 </head>
-
+<style>
+	.highlight {
+		color:#1ac4d3
+	}
+	comp{
+		color:#1ac4d3
+	}
+</style>
 <body>
 {(header.html)}
 <div class="container">
@@ -63,22 +70,38 @@
 			<input type="hidden" name="keyword">
 			<div class="lable_all" data-url="">
 				<ul class="labels">
-					{-raw-}
-					<script id="getNewsByLabels" type="text/x-jquery-tmpl">
-					{{if data.length >0}}
-						{{each(i,v) data}}
-						<li>${v.labels}</li>
-						{{/each}}
-					{{else}}
-						<span>暂无数据</span>
-					{{/if}}
-					</script>
-					{-raw-}
-					<!--<li class="lable_on">苹果iPhone8</li>-->
-					<!--<li>苹果iPhone8</li>-->
-					<!--<li>趣分期</li>-->
-					<!--<li>苹果iPhone8</li>-->
-					<!--<li>苹果iPhone8</li>-->
+					<!--{-raw-}-->
+					<!--<script id="getNewsByLabels" type="text/x-jquery-tmpl">-->
+					<!--{{if data.length >0}}-->
+						<!--{{each(i,v) data}}-->
+						<!--<li>${v.labels}</li>-->
+						<!--{{/each}}-->
+					<!--{{else}}-->
+						<!--<span>暂无数据</span>-->
+					<!--{{/if}}-->
+					<!--</script>-->
+					<!--{-raw-}-->
+					<li>人工智能</li>
+					<li>神经网络</li>
+					<li>机器学习</li>
+					<li>无人驾驶</li>
+					<li>虚拟现实</li>
+					<li>财税金融</li>
+					<li>智能交通</li>
+					<li>支付</li>
+					<li>众创空间</li>
+					<li>物联网</li>
+					<li>智能家居</li>
+					<li>芯片</li>
+					<li>共享</li>
+					<li>信贷</li>
+					<li>保险</li>
+					<li>教育信息化</li>
+					<li>华为</li>
+					<li>携程网</li>
+					<li>IDG资本</li>
+					<li>红杉资本中国</li>
+
 				</ul>
 			</div>
 		</div>
@@ -103,7 +126,7 @@
 								<img src="${v.logo}">
 								<div class="equity_trading_r_c">
 									<ul>
-										<li class="equity_trading_r_tit">${v.company}</li>
+										<li class="equity_trading_r_tit"><a href="/project_qy.html?projCode=${v.sourceCode}">${v.company}</a></li>
 										<li class="equity_trading_r_cen"><span>${v.round}</span><span>${v.amountStr}</span></li>
 									</ul>
 								</div>

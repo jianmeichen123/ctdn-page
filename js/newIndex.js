@@ -1,6 +1,6 @@
 
     var url = detail['getCTDNEventInfo'];
-    sendGetRequest(url,function(data){
+    sendPostRequestByJsonObj(url,{"pageSize":5},function(data){
        $(data.data).each(function(k,v){
             if(!v){
                 v="-"
@@ -9,7 +9,6 @@
        var target = $("#getCTDNEventInfo");
        target.tmpl(data).appendTo(target.parent())
     })
-
 //新闻
 function getNews(){
     var json={};

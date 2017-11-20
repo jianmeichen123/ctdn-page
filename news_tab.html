@@ -1,7 +1,7 @@
 <input type="hidden" name="typeId"  >
 <ul class="news_li">
     <li class="financing_on">全部</li>
-    <li value="1">机构</li>
+    <li data-tab="news" value="1">机构</li>
     <li data-tab="news" value="2">大公司</li>
     <li data-tab="news" value="3">事件</li>
     <li data-tab="news" value="4">人物</li>
@@ -13,6 +13,8 @@
     //切换tab 请求数据
     $(".news_li").delegate("li","click",function(){
         var tab = $(this).attr("value");
+        $(".news_li li").removeClass('financing_on')
+        $(this).addClass('financing_on')
         $("input[name='typeId']").val(tab);
         getNews();
     });

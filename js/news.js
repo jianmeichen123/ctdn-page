@@ -5,12 +5,8 @@ $(function () {
 
 })
 
-
-var divList = $(".container").find("div[data-block]");
-$(divList).each(function(){
-    var div =$(this);
-    var url = detail[div.attr("data-block")];
-    sendGetRequest(url,function(data){
+   var url = detail['getCTDNEventInfo'];
+     sendPostRequestByJsonObj(url,{"pageSize":7},function(data){
        $(data.data).each(function(k,v){
             if(!v){
                 v="-"
@@ -27,10 +23,9 @@ $(divList).each(function(){
                 }
             }
        })
-       var target = $("#"+div.attr("data-block"));
+       var target = $("#getCTDNEventInfo");
        target.tmpl(data).appendTo(target.parent())
     })
-})
 
 
 
@@ -128,7 +123,7 @@ function newsFormatter(value,row){
         row.overview = row.overview.substring(0,80)+"...";
    }
    if (row.imgmd5){
-        row.imgmd5 = "<div class='dn_info_list_show_l'><a href='"+row.href+"'> <img src='"+Constants.logoPath +row.imgmd5+"'> </a></div>";
+        row.imgmd5 = "<div class='dn_info_list_show_l'><a href='"+row.href+"'> <img src='"+Constants.logoPath +"news/"+row.imgmd5+"'> </a></div>";
    }else {
         row.imgmd5 = ""
    }
@@ -136,7 +131,7 @@ function newsFormatter(value,row){
    var html = "<li>"+
                     '<div class="dn_info_list_show">'+
                     '<div class="dn_info_list_tit"><a href="${href}">${title}</a></div>'+
-//                    '<div class="dn_info_list_show_l"><img src="http://10.11.8.18:8089/static/news/img/${imgmd5}"></div>'+
+//                    '<div class="dn_info_list_show_l"></div>'+
                     '${imgmd5}'+
                     '<div class="dn_info_list_show_r">'+
                         "<ul>"+

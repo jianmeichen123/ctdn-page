@@ -38,21 +38,13 @@
 <script src="js/fillData_common.js"></script>
 <script>
 	//给tab页a赋参数
-	$(function(){
-	   $(".project_nav a").each(function(){
-		//if($(this).attr("href") != "####"){
-			$(this).attr("href",$(this).attr("href")+"?projCode="+getHrefParamter("projCode"))
-		//}
-	   })
-	  $(".tzf").each(function(){   //去掉最后一个分隔符
-		  console.log($(this).children("span:last-child").html());
-		  if($(this).children("span:last-child").html()==","){
-			  $(this).children("span:last-child").remove()
-		  }else{
-			  $(this).children("span:last-child").find(".dh").remove();
-		  }
-	  })
-	})
+  $(".tzf").each(function(){   //去掉最后一个分隔符
+	  if($(this).children("span:last-child").html()==","){
+		  $(this).children("span:last-child").remove()
+	  }else{
+		  $(this).children("span:last-child").find(".dh").remove();
+	  }
+  })
 	function directCompetationlistFormatter(data,div){
 		aa(data,div)
 	}
@@ -171,7 +163,7 @@
 	   div.append(html)
 	}
 	else{
-		div.append("<tr> <td colspan='6'><span>暂无数据</span></th></tr>")
+		div.closet(".background_boeder").hide()
 	}
 	}
 	sendGetRequest(detail.queryCompetationlist+getHrefParamter("code"),function(data){fillList(data.data,$("*[data-query='list']"))})

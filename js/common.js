@@ -281,7 +281,9 @@ function getHrefParamter(name){
       if (qs) {
           for (var i = 0; i < qs.length; i++) {
               if (qs[i].substring(0, qs[i].indexOf("=")) == name) {
-                  return qs[i].substring(qs[i].indexOf("=") + 1);
+                  var ss = qs[i].substring(qs[i].indexOf("=") + 1)
+                  console.log(ss)
+                  return ss;
               }
           }
       }
@@ -550,10 +552,10 @@ function formatNewsTime(time){
          result=formatDate(time*1000,'yyyy-MM-dd');
       }
       else if(hourC>=1){
-         result="发表于"+ parseInt(hourC) +"个小时前";
+         result=parseInt(hourC) +"个小时前";
       }
       else if(minC>=1){
-         result="发表于"+ parseInt(minC) +"分钟前";
+         result= parseInt(minC) +"分钟前";
       }else{
          result="刚刚发表";
       }

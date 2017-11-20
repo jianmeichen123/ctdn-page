@@ -1,11 +1,18 @@
 //项目基本信息formatter
 function formatProjectInfo(data,divList){
-    $("input[name='projCode']").val(data["projCode"])
-    $("input[name='sourceCode']").val(data["projCode"])
-    $("input[name='code']").val(data["projCode"])
+     projCode = data["projCode"]
+     $(".oo a").each(function(){
+     	var href= $(this).attr("data-href")
+        $(this).attr("href",href+projCode)
+     })
+     $("input[name='projCode']").val(data["projCode"])
+     $("input[name='projectCode']").val(data["projCode"])
+     $("input[name='sourceCode']").val(data["projCode"])
+     $("input[name='code']").val(data["projCode"])
+     $("input[name='keyword']").val(data["projTitle"])
         if(data["teamTags"]){
               $(".teamTags").show()
-              var tags = v.split(",");
+              var tags = data["userMarket"].split(",");
               var temp = "";
               $.each(function(i,e){
                 temp += "<li>"+e+"</li>"
@@ -15,7 +22,7 @@ function formatProjectInfo(data,divList){
 
         if(data["teamSuper"]){
              $(".teamSuper").show()
-             var tags = v.split(",");
+             var tags = data["userMarket"].split(",");
              var temp = "";
              $.each(function(i,e){
                temp += "<li>"+e+"</li>"
@@ -25,23 +32,24 @@ function formatProjectInfo(data,divList){
 
         if(data["userMarket"]){
             $(".userMarket").show()
-            $("#userMarket").html(v)
+            $("#userMarket").html(data["userMarket"])
         }
 
         if(data["prodSrv"]){
              $(".prodSrv").show()
-            $("#prodSrv").html(v)
+            $("#prodSrv").html(data["userMarket"])
+       }
+       if(data["introduce"]){
+           $("#introduce").closest(".background_boeder").show()
+           if(data["introduce"].length>60){
+                $(".project_more").show();
+           }
+           $("#introduce").html(data["introduce"])
        }
 
     $(divList).each(function(){
         var div = $(this);
         var ls = div.find("*[data-field]")
-
-
-
-
-
-
         $(ls).each(function(){
            var o = $(this);
            var k = o.attr("data-field");
@@ -49,15 +57,8 @@ function formatProjectInfo(data,divList){
            if(k == "latestFinanceRound" || k=="runState" || k=="needFinance"){
                if(!v) o.removeClass(o.attr("class"));
            }else if(k == "logoSmall"){
-               	if (v && v.indexOf("/")!=-1){
-                    img = v.split("/")[1]
-                    v= '<img src="'+Constants.logoPath+img+'">'
-                }else if (v && v!=""){
-                    img = v
-                    v= '<img src="'+Constants.logoPath+img+'">'
-                }else{
-                    v= '<img src="img/default.gif">'
-                }
+                var img = Constants.logoPath+"project/"+data["projCode"]+".png"
+                v= '<img  width="37" src="'+img+'">'
            }else if(k=="projTitle"){
                 if(!v){
                     v = "名称未知"
@@ -129,12 +130,6 @@ function formatProjectInfo(data,divList){
                 }else{
                     v = '<span class="brain_ico brain_ico_project_3"></span>'
                 }
-           }else if(k=="introduce"){
-              if(!v){
-                    $("p[data-field='introduce']").closest(".background_boeder").hide()
-               }else{
-                    $("p[data-field='introduce']").html(v)
-               }
            }
            o.html(v)
         })
