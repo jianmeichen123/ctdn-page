@@ -41,6 +41,10 @@ function formatProjectInfo(data,divList){
        }
        if(data["introduce"]){
            $("#introduce").closest(".background_boeder").show()
+            var right_show =$('#introduce').parent().parent().parent().parent().children('.project_t').attr('location_l');
+			 $('.project_all_r li[location_r='+right_show+']').show();
+			 $('.project_all_r li[location_r='+right_show+']').addClass('storey_list')
+			 $('.project_all_l [location_l='+right_show+']').addClass('storey_list')
            if(data["introduce"].length>60){
                 $(".project_more").show();
            }
