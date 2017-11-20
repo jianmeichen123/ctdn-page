@@ -127,15 +127,17 @@ function newsFormatter(value,row){
    }else {
         row.imgmd5 = ""
    }
-  row.orderTime =  formatNewsTime(row.orderTime);
-   var html = "<li>"+
-                    '<div class="dn_info_list_show">'+
-                    '<div class="dn_info_list_tit"><a href="${href}">${title}</a></div>'+
-//                    '<div class="dn_info_list_show_l"></div>'+
+   row.orderTime =  formatNewsTime(row.orderTime);
+   var html = "<li>";
+                   if(row.imgmd5){
+                        html +=  '<div class="dn_info_list_show no_img">'
+                   }else{
+                         html +=  '<div class="dn_info_list_show">'
+                   }
+                    html += '<div class="dn_info_list_tit"><a href="${href}">${title}</a></div>'+
                     '${imgmd5}'+
                     '<div class="dn_info_list_show_r">'+
                         "<ul>"+
-
                             '<li class="dn_info_list_cen">${overview}</li>'+
                             '<li class="dn_info_list_ic"><span>${orderTime}</span><span>来源：</span><span>${auther}</span></li>'+
                         "</ul>"+
