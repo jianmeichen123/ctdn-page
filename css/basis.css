@@ -327,7 +327,7 @@ com{color:#f78123;}
 .product_list_ul{color:#666; display:block; margin-left:10px; float:left; }
 .product_list_ul li{display:block; width:190px; overflow:hidden; text-overflow:ellipsis; white-space:normal; line-height:20px;}
 .product_list_team,.product_list_company,.project_new{margin-bottom:-15px; overflow:hidden;}
-.product_list_team>li{width:25%; float:left;     border-right: 1px solid #f0f0f0;   padding-left: 10px;  padding-right: 10px; overflow:hidden; margin-bottom:15px;}
+.product_list_team>li{width:25%; float:left;   height:308px;  border-right: 1px solid #f0f0f0;   padding-left: 10px;  padding-right: 10px; overflow:hidden; margin-bottom:15px;}
 .product_list_team_img_bj{ margin-bottom: 30px;   margin-left: auto;  margin-right: auto;  background-image: url(../img/dn/dn_ico.png); background-repeat: no-repeat;     background-position: -0px -162px;  width: 102px; margin-top: 3px;    height:114px;   display: block;}
 .product_list_team>li>img{width:64px; height:64px; float:left; border-radius:32px; margin-top:30px;}
 .product_list_team_img_bj  img{width:86px; margin-top:14px;    float: left; margin-left:8px; height:86px; border-radius:43px; }
@@ -357,7 +357,7 @@ com{color:#f78123;}
 /*工商*/
 .project_all_l_ul_50,.project_all_l_ul_50_div {width:100%; overflow:hidden;}
 .project_all_l_ul_50 li{width:50%; float:left; overflow:hidden; margin-bottom:10px;}
-.project_all_l_ul_50_left{width:115px; display:block; float:left; overflow:hidden; color:#666; text-align:right;}
+.project_all_l_ul_50_left{width:130px; display:block; float:left; overflow:hidden; color:#666; text-align:right;}
 .project_all_l_ul_50_div span{float:left; max-width:920px}
 .particulars_table_list_project th,.particulars_table_list_project td{padding-left:10px;padding-right:10px;}
 .particulars_table_list_project .c_left{text-align:left;}
@@ -381,8 +381,10 @@ com{color:#f78123;}
 .dn_ico_bj_lc{ background-position: -21px -64px; width: 107px;     margin-top: 3px; height: 85px;  float:left;  display:block;}
 .dn_ico_bj_lc_b{border:1px solid #e6e6e6;  width:843px;       position: relative;   overflow: hidden;   border-radius: 8px;  margin-left: 110px; }
 .particulars_black_rz .equity_trading_r{height:auto;}
+..equity_trading_r{width:953px;}
 .dn_ico_bj_lc_b_l{color:#999999;margin-right:10px;display:block; float:left;}
 .dn_ico_bj_lc_b_r{color:#333333; margin-right:40px; display:block; float:left; margin-bottom:10px;}
+.dn_ico_bj_lc_b_r a{color:#333333;}
 .dn_ico_bj_lc_b>ul{padding-top:20px;  padding-left:30px; padding-right:30px; width: 800px;  float: left; }
 .dn_ico_bj_lc_b>ul>li{margin-bottom:10px;      margin-right:-40px;   overflow: hidden;}
 .dn_ico_bj_lc_b_xq{width:35px; float:right; font-size:14px;     position: absolute; top:50%; margin-top:-6px; height:100%;  right:20px;}
