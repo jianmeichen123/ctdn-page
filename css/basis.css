@@ -327,7 +327,7 @@ com{color:#f78123;}
 .product_list_ul{color:#666; display:block; margin-left:10px; float:left; }
 .product_list_ul li{display:block; width:190px; overflow:hidden; text-overflow:ellipsis; white-space:normal; line-height:20px;}
 .product_list_team,.product_list_company,.project_new{margin-bottom:-15px; overflow:hidden;}
-.product_list_team>li{width:25%; float:left;     border-right: 1px solid #f0f0f0;   padding-left: 10px;  padding-right: 10px; overflow:hidden; margin-bottom:15px;}
+.product_list_team>li{width:25%; float:left;   height:308px;  border-right: 1px solid #f0f0f0;   padding-left: 10px;  padding-right: 10px; overflow:hidden; margin-bottom:15px;}
 .product_list_team_img_bj{ margin-bottom: 30px;   margin-left: auto;  margin-right: auto;  background-image: url(../img/dn/dn_ico.png); background-repeat: no-repeat;     background-position: -0px -162px;  width: 102px; margin-top: 3px;    height:114px;   display: block;}
 .product_list_team>li>img{width:64px; height:64px; float:left; border-radius:32px; margin-top:30px;}
 .product_list_team_img_bj  img{width:86px; margin-top:14px;    float: left; margin-left:8px; height:86px; border-radius:43px; }
