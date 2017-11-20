@@ -297,7 +297,7 @@ com{color:#f78123;}
 .project_all{width:100%; overflow:hidden; position:relative;}
 .project_all_l{width:1080px; float:left;}
 .project_all_r{width:150px; background-color:#fff; border:1px solid #f0f0f0; float:right;margin-top: 10px;}
-.project_all_r_top{position:fixed;  top:65px; right:50%; margin-right:-620px;    margin-top:0px;}
+.project_all_r_top{position:fixed;  top:5px; right:50%; margin-right:-620px;    margin-top:0px;}
 .project_all_r ul li{ line-height:38px;  text-align:center; height:38px; position:relative; cursor: pointer;}
 .brain_ico_project_circle{background-position:0 -65px;display: none; top:11px;left: 20px; position:absolute; width:15px;  height:15px;}
 .project_all_r_on .brain_ico_project_circle{display:block;}
