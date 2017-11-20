@@ -18,6 +18,7 @@ em,i{font-style:normal;}
 .info-list-item  a{color:#333333;font-size:16px;font-weight:bold;}
 .info-list-item dd img{width:121px;height:75px;display:inline-block;border:1px solid #f0f0f0;margin-left:20px;}
 .info-list-item dd p{color:#666666;font-size:14px;display:inline-block;width:1080px;     padding-right: 20px; margin-left:10px;}
+.no_img dd p{width:100%;  padding-right: 20px;  padding-left: 20px; margin-left:0px;}
 .info-list-item dd .info-tips{text-align:right;margin-left:139px;color:#999999;font-size:12px;}
 .info-list dl{margin-bottom:0px;}
 .info-list-item .info-no-pic{width:100%;padding:0px 11px;}
