@@ -24,10 +24,10 @@
 				<li>
 					<div class="seek_financing_l"><span class="seek_financing_two">所在地区</span><span class="seek_financing_one">*</span></div>
 					<div class="seek_financing_r">
-						<select class="seek_financing_select" name="projDistrictId" data-item="parent" data-field="district"  data-rule-select="true" data-msg-select="<font color=red>*</font>请选择所在省/市" >
+						<select class="seek_financing_select" name="projDistrictId" data-item="parent" data-field="district"  data-rule-select="true" data-msg-select="<font color=red>*</font>必选字段" >
 							<option  selected = "selected" disabled="true">选择所在省/市</option>
 						</select>
-						<select class="seek_financing_select  seek_financing_select_lef" data-item="son" name="projSubDistrictId" data-rule-select="true" data-msg-select="<font color=red>*</font>请选择所在市/区" >
+						<select class="seek_financing_select  seek_financing_select_lef" data-item="son" name="projSubDistrictId" data-rule-select="true" data-msg-select="<font color=red>*</font>必选字段" >
 							<option selected= "selected" disabled="true">选择所在市/区</option>
 						</select>
 					</div>
@@ -37,13 +37,13 @@
 				<li>
 					<div class="seek_financing_l"><span class="seek_financing_two">项目介绍</span><span class="seek_financing_one">*</span></div>
 					<div class="seek_financing_r">
-						<textarea class="seek_financing_textarea" name="projDesc" required maxlength="1000" placeholder="产品描述、用户群体、项目愿景、竞争对手等方面详细描述，不超过1000个字"></textarea>
+						<textarea class="seek_financing_textarea" name="projDesc" required maxlength="1000" placeholder="产品描述、用户群体、项目愿景、竞争对手等方面详细描述，不超过1000个字"  required data-rule-length1000="true" data-msg-length1000="<span class='dn_ico dn_ico_error'></span>不超过1000个字"></textarea>
 					</div>
 				</li>
 				<li>
 					<div class="seek_financing_l"><span class="seek_financing_two">联系人姓名</span><span class="seek_financing_one">*</span></div>
 					<div class="seek_financing_r">
-						<input class="seek_financing_input" name="projLinkman" required  maxlength="50"  placeholder="联系人姓名"  required data-rule-length50="true" data-msg-length50="<span class='dn_ico dn_ico_error'></span>不超过20个字">
+						<input class="seek_financing_input" name="projLinkman" required  maxlength="50"  placeholder="联系人姓名"  required data-rule-length50="true" data-msg-length50="<span class='dn_ico dn_ico_error'></span>不超过50个字">
 					</div>
 				</li>
 				<li>
@@ -175,8 +175,13 @@
 	
 	//验证长度
 	jQuery.validator.addMethod("length50", function (value, element) {
-		var verify_20 = /^(?!.{50}|^\s*$)/;
+		var verify_50 = /^(?!.{50}|^\s*$)/;
 		return this.optional(element) || (verify_50.test(value));
+	}, "");
+	//验证长度
+	jQuery.validator.addMethod("length1000", function (value, element) {
+		var verify_1000 = /^(?!.{50}|^\s*$)/;
+		return this.optional(element) || (verify_1000.test(value));
 	}, "");
 
 	//验证select

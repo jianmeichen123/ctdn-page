@@ -145,7 +145,8 @@ ul,ol,dl,dt,dd,p,img{ display:block; border:0;list-style:none; }
 .seek_financing_select_lef{margin-left:20px;}
 .seek_show{width:100%; overflow:hidden; margin-top:28px;  font-size:14px;  text-align: center;}
 .seek_show_blue{color:#2393f7;}
-.seek_put{width:140px; background-color:#f0f0f0; border:1px solid #cccccc; height:50px; float: left; position: relative; line-height:50px; text-align:center; border-radius:6px;}
+.error_file{color:#d2100b}
+.seek_put{width:140px; overflow: hidden; background-color:#f0f0f0; border:1px solid #cccccc; height:50px; float: left; position: relative; line-height:50px; text-align:center; border-radius:6px;}
 .seek_put:hover{background-color:#2393f7; border:1px solid #2393f7; color:#fff;}
 .logo_posi{position: absolute; width: 140px; height:50px; top:0;}
 .tit_span{float:left; margin-left:20px; margin-top:20px;}
