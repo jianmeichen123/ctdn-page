@@ -359,9 +359,7 @@ function projectFormatter(value,row){
     if(projectName==null){
         projectName='名称未知'
     }
-    if (!row.logoSmall){
-       row.logoSmall ="img/default2.gif"
-    }
+    var img = Constants.logoPath +"project/"+row.projCode+".png"
 
     if(!row.introduce) row.introduce="暂无"
 
@@ -385,7 +383,7 @@ function projectFormatter(value,row){
 	var html = "<div class='list-item'>"+
 			"<div class='list-item-inner'>"+
 				"<div class='list-item-left'>"+
-					"<img src='${logoSmall}'>"+
+					"<img src='"+img+"'>"+
 				"</div>"+
 				"<div class='list-item-right'>"+
 					"<p class='list-item-title'><a target='_blank' href='/project_qy.html?projCode="+row.projCode+"'>"+projectName+"</a>${latestFinanceRound}</p>"+
@@ -427,20 +425,7 @@ function investfirmFormatter(value,row){
          }else{
             investOrg = '名称未知'
          }
-
-        var img = ""
-        if (row.logoSmall&&row.logoSmall!=""){
-            var imgArr = row.logoSmall.split("/")
-            if(imgArr[1]!=null){
-                img = imgArr[1]
-            }else{
-                img = imgArr[0]
-            }
-        }
-        if(img.indexOf(".") == -1){
-            img = ""
-        }
-
+         var img = Constants.logoPath +"org/"+row.orgCode+".png"
         if(row.orgType){
             row.orgType= "<span>"+row.orgType+"</span>";
         }else{
@@ -455,7 +440,7 @@ function investfirmFormatter(value,row){
     	var html = "<div class='list-item'>"+
    			"<div class='list-item-inner'>"+
    				"<div class='list-item-left'>"+
-   					"<img src='"+Constants.newsLogoPath+img+"'>"+
+   					"<img src='"+img+"'>"+
    				"</div>"+
    				"<div class='list-item-right'>"+
    					"<p class='list-item-title institute-title'><a target='_blank' href='/jg_particulars.html?orgCode="+row.code+"'>"+investOrg+"</a>${orgType}</p>"+
