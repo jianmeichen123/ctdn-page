@@ -328,19 +328,22 @@ function injectValues(html,row){
 
 //资讯formatter
 function newsFormatter(value,row){
-    if (row.imgmd5){
-         row.imgmd5 = "<a href='"+row.imgmd5+"'> <img src='"+Constants.logoPath+"news/"+row.imgmd5+"'> </a>";
-    }else {
-         row.imgmd5 = ""
-    }
+
     row.orderTime = formatNewsTime(row.orderTime)
     if(row.auther){
        row.auther = "来自：<i>"+row.auther+"</i>"
     }else{
         row.auther =''
     }
-   var html = "<dl class='info-list-item'>"+
-    			"<dt>"+
+    var html;
+        if (row.imgmd5){
+             html = "<dl class='info-list-item'>"
+             row.imgmd5 = "<a href='"+row.imgmd5+"'> <img src='"+Constants.logoPath+"news/"+row.imgmd5+"'> </a>";
+        }else {
+             html = "<dl class='info-list-item  no_img'>"
+             row.imgmd5 = ""
+        }
+    	html +="<dt>"+
     			"<h3><a href='${href}' style='blr:expression(this.onFocus=this.blur()); /* IE Opera */ outline:none; /* FF Opera */ '> ${title}</a></h3>"+
     			"</dt>"+
     			"<dd>"+
