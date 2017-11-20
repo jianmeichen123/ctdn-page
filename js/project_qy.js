@@ -31,7 +31,8 @@
     	var html="";
     	sendPostRequestByJsonObj(url,json,function(data){
     		var records = data.data.records;
-    		if(records.length>0){
+    		if(records.length>0 && pageNo !="1"){
+    		     obj.show();
     		    var target = $("#"+dataId)
     		    target.tmpl(data).appendTo(target.parent())
 				if(pageNo && pageSize){
@@ -42,8 +43,6 @@
                     pageNo = pageNo*1+1
                     obj.find("input[name='pageNo']").val(pageNo)
 				}
-    		}else if(records.length ==0 && pageNo=="1"){
-    		    obj.hide();
     		}
     	})
    }
@@ -61,14 +60,15 @@
             if(data.data.length>0){
                 var target = $("#"+dataId)
                 target.tmpl(data).appendTo(target.parent())
+                obj.show();
             }else{
                 if(dataId=="product"){
-                    if(!$("#prodSrv").val() && !$("#userMarket").val()){
-                         obj.hide();
+                    if($("#prodSrv").val() || $("#userMarket").val()){
+                         obj.show();
                     }
                 }else if(dataId="team"){
-                    if(!$("#teamTags").val()&& !$("#teamSuper").val() && $("#")){
-                         obj.hide();
+                    if($("#teamTags").val()|| $("#teamSuper").val()){
+                         obj.show();
                     }
                 }
             }
