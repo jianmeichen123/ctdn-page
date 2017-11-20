@@ -328,7 +328,11 @@
 						<script id="news" type="text/x-jquery-tmpl">
 								{{each(i,v) data.records}}
 								<li>
-									<div class="dn_info_list_show">
+									{{if v.imgmd5}}
+										<div class="dn_info_list_show">
+									{{else}}
+										<div class="dn_info_list_show no_img_project">
+									{{/if}}
 									<div class="dn_info_list_tit"><a "href" = ${v.href}>${v.title}</a></div>
 									{{if v.imgmd5}}
 										<div class="dn_info_list_show_l"><img src="{{html Constants.logoPath+"news/"+v.imgmd5}}"></div>
