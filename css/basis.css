@@ -357,7 +357,7 @@ com{color:#f78123;}
 /*工商*/
 .project_all_l_ul_50,.project_all_l_ul_50_div {width:100%; overflow:hidden;}
 .project_all_l_ul_50 li{width:50%; float:left; overflow:hidden; margin-bottom:10px;}
-.project_all_l_ul_50_left{width:115px; display:block; float:left; overflow:hidden; color:#666; text-align:right;}
+.project_all_l_ul_50_left{width:130px; display:block; float:left; overflow:hidden; color:#666; text-align:right;}
 .project_all_l_ul_50_div span{float:left; max-width:920px}
 .particulars_table_list_project th,.particulars_table_list_project td{padding-left:10px;padding-right:10px;}
 .particulars_table_list_project .c_left{text-align:left;}
