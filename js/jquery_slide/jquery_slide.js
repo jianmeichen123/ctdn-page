@@ -1,14 +1,16 @@
 // JavaScript Document
 function i_slide(obj,opt){
+	var conuntW1 =window.screen.width ;
+	alert(conuntW1)
   var option={
 		speed:"50000",//间隔运动时间
 		a_speed:"500",//运动时间
-		conuntW:"1520",//整体内容宽度
+		conuntW:conuntW1,//整体内容宽度
 		countH:"450",//整体内容高度
-		w1:"800",//大图宽度
+		w1:"840",//大图宽度
 		h1:"450",//大图高度
 		w2:"700",//小图宽度
-		h2:"350"//小图高度  
+		h2:"375"//小图高度  
 	  }
   
   var ul=obj.find("ul.slide_img");

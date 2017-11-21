@@ -29,7 +29,7 @@
 					<ul class="project_all_l_ul">
 						<li>
 							<div class="font_14"></div>
-							<p  class="color_666" id="firmDesc"></p>
+							<p  class="color_666" id="introduce"></p>
 							<div class="project_more" style="display:none">更多<span class="brain_ico brain_ico_project_more"></span></div>
 						</li>
 					</ul>
@@ -333,7 +333,7 @@
 									{{else}}
 										<div class="dn_info_list_show no_img_project">
 									{{/if}}
-									<div class="dn_info_list_tit"><a "href" = ${v.href}>${v.title}</a></div>
+									<div class="dn_info_list_tit"><a href = "${v.href}"  target="_blank" k>${v.title}</a></div>
 									{{if v.imgmd5}}
 										<div class="dn_info_list_show_l"><img src="{{html Constants.logoPath+"news/"+v.imgmd5}}"></div>
 									{{/if}}
