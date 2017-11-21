@@ -157,7 +157,7 @@
 								{{each(i,v) data}}
 									<li>
 									<span class="job_bj">${v.compJob}</span><span>${v.memberName}</span>
-									<li>
+									</li>
 								{{/each}}
 							{{else}}
 								<span>暂无数据</span>
@@ -194,21 +194,21 @@
 				</div>
 			</div>
 			<!-- 企业项目 -->
-			<div class="background_boeder" data-id="queryByProjTitle" data-url="queryByProjTitle" id="projects">
+			<div class="background_boeder" data-id="queryByProjTitle" data-url="queryByProjTitle">
 				<div class="project_t"><span class="brain_ico brain_ico_project_crumbs"></span>企业项目</div>
-				<input type="hidden" name = "pageSize" value="5">
+				<input type="hidden" name = "pageSize1" value="3">
 				<input type="hidden" name = "pageNo" value="1">
 				<input type="hidden" name = "compCode" value="0">
 				<div class="porject_all_black">
 					<div class="list-item">
-
+                        <ul>
 							{-raw-}
 							<script id="queryByProjTitle" type="text/x-jquery-tmpl">
 								{{if data.records.length >0}}
 									{{each(i,v) data.records}}
 										<li>
 										<div class="list-item-inner">
-										<div class="list-item-left"><a href="/project_qy.html?projCode=${v.projCode}"><img src="http://static.galaxyinternet.com/fc4189beb12aeb09783962125311d565.jpg"></a></div>
+										<div class="list-item-left"><a href="/project_qy.html?projCode=${v.projCode}"><img src="${v.logoSmall}"></a></div>
 										<div class="list-item-right">
 											<p class="list-item-title"><a target="_blank" href="/project_qy.html?projCode=${v.projCode}"><comp>${v.projTitle}</comp></a>
 											{{if v.latestFinanceRound}}
@@ -225,8 +225,9 @@
 								{{/if}}
 								</script>
 							{-raw-}
-					</div>
-					<div class="dn_ico_more_all"><div class="dn_ico_more_al_divl">加载更多<span class="dn_ico dn_ico_more"></span></div></div>
+                        </ul>
+                        <div class="dn_ico_more_all"><div class="dn_ico_more_al_divl">加载更多<span class="dn_ico dn_ico_more"></span></div></div>
+                    </div>
 				</div>
 			</div>
 			<!-- 对外投资-->
