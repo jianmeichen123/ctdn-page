@@ -61,7 +61,7 @@ var platformUrl = {
 	fileUpload:Constants.platformContentURL+"upload"
 }
 var table ={
-   empty: "-"
+   empty: "--"
 }
 var detail = {
 
