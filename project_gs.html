@@ -210,7 +210,11 @@
 										<div class="list-item-inner">
 										<div class="list-item-left"><img src="http://static.galaxyinternet.com/fc4189beb12aeb09783962125311d565.jpg"></div>
 										<div class="list-item-right">
-											<p class="list-item-title"><a target="_blank" href="/project_qy.html?projCode=${v.projCode}"><comp>${v.projTitle}</comp></a><span>${v.latestFinanceRound}</span></p><p class="list-item-content">简介:${v.introduce}</p><p class="list-item-tips"><i class="list-item-address"></i>${v.districtSubName}<i class="list-item-finace"></i>${v.industrySubName}
+											<p class="list-item-title"><a target="_blank" href="/project_qy.html?projCode=${v.projCode}"><comp>${v.projTitle}</comp></a>
+											{{if v.latestFinanceRound}}
+												<span>${v.latestFinanceRound}</span></p>
+											{{/if}}
+											<p class="list-item-content">简介:${v.introduce}</p><p class="list-item-tips"><i class="list-item-address"></i>${v.districtSubName}<i class="list-item-finace"></i>${v.industrySubName}
 											</p>
 										</div>
 										</div>
