@@ -1,9 +1,11 @@
 // JavaScript Document
 function i_slide(obj,opt){
+	var conuntW1 =window.screen.width ;
+	alert(conuntW1)
   var option={
 		speed:"5000",//间隔运动时间
 		a_speed:"500",//运动时间
-		conuntW:"1520",//整体内容宽度
+		conuntW:conuntW1,//整体内容宽度
 		countH:"450",//整体内容高度
 		w1:"840",//大图宽度
 		h1:"450",//大图高度
