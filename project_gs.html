@@ -214,7 +214,11 @@
 											{{if v.latestFinanceRound}}
 												<span>${v.latestFinanceRound}</span></p>
 											{{/if}}
-											<p class="list-item-content">简介:${v.introduce}</p><p class="list-item-tips"><i class="list-item-address"></i>${v.districtSubName}<i class="list-item-finace"></i>${v.industrySubName}
+											<p class="list-item-content">简介:${v.introduce}</p><p class="list-item-tips"><i class="list-item-address"></i>${v.districtSubName}<i class="list-item-finace"></i>
+											 {{if v.industryName}}
+											    ${v.industryName}>
+											  {{/if}}
+											 ${v.industrySubName}
 											</p>
 										</div>
 										</div>
