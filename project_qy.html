@@ -150,9 +150,9 @@
 								<ul class="product_list_team_ul">
 								 	<li class="team_color_font_3">${v.name}<span class="zw">${v.job}</span>
 								 	{{if state ==0}}
-								 		<span class="zw">在职</span>
+								 		<span class="zw z_on">在职</span>
 								 	{{else}}
-								 		<span class="zw">离职</span>
+								 		<span class="zw _no">离职</span>
 								 	{{/if}}
 								 	</li>
 								 	<li class="team_color_font" >${v.college}<span>${v.edu}</span></li>
@@ -469,6 +469,14 @@ $(function(){
 /* 菜单悬浮 */
 
  $(window).scroll(function(){
+	 var scrollTop=$(window).scrollTop();
+		if(scrollTop>305){
+			$('.project_nav').addClass('project_nav_top');
+			$('.project_nav_top_none').show();
+		}else{
+			$(".project_nav").removeClass("project_nav_top");
+			$('.project_nav_top_none').hide();
+		}
 	 var location_array = new Array()
 	 for(var i=0; i<$('.project_all_l .storey_list').length; i++){
 	 	var list_all = $('.project_all_l .storey_list').eq(i).attr('location_l');
@@ -482,7 +490,6 @@ $(function(){
 		obj.value= parseInt($('[location_l="'+location_array[i]+'"]').offset().top -70);
 		myArray.push(obj);
 	}
-	var scrollTop=$(window).scrollTop();
 	if(scrollTop>=myArray[0].value){
 		$('.project_all_r').addClass('project_all_r_top');
 		 location_on(myArray,scrollTop)
