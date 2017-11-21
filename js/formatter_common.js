@@ -389,7 +389,7 @@ function projectFormatter(value,row){
 	var html = "<div class='list-item'>"+
 			"<div class='list-item-inner'>"+
 				"<div class='list-item-left'>"+
-					"<img src='"+img+"'>"+
+					"<a target='_blank' href='/project_qy.html?projCode="+row.projCode+"'><img src='"+img+"'></a>"+
 				"</div>"+
 				"<div class='list-item-right'>"+
 					"<p class='list-item-title'><a target='_blank' href='/project_qy.html?projCode="+row.projCode+"'>"+projectName+"</a>"+tag+"</p>"+
