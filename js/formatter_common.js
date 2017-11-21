@@ -47,7 +47,7 @@ var tableFormate ={
     investSide:function(value, row, index){
          var investSideJson = row.investSideJson
          if(!investSideJson){
-            return '--'
+            return table.empty
          }else{
              var jsonObjArr = eval('(' + investSideJson + ')');
              for(i in jsonObjArr){
@@ -289,7 +289,7 @@ var tableFormate ={
                     totalRatioStr='<div align="center" class="list_table_td"><center>0%</center></div>'
                 }
             }else{
-                totalRatioStr='-'
+                totalRatioStr=table.empty
             }
             return totalRatioStr
         },
@@ -305,7 +305,7 @@ var tableFormate ={
                          amountRatioStr='<div align="center" class="list_table_td"><center>0%</center></div>'
                      }
                 }else{
-                    amountRatioStr='-'
+                    amountRatioStr=table.empty
                 }
                 return amountRatioStr
             },

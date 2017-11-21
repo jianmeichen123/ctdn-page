@@ -150,7 +150,7 @@ input{outline: none;}
 .nav_nav{border-bottom:1px solid #d9d9d9; height:66px; background-color:#ffffff; display:none;}
 .nav_nav_name{ font-size:16px; color:#333333; margin-top:15px;}
 .nav_nav_name_x{ font-size:12px; color:#999;}
-.nav_two .nav_on{ border-bottom:4px solid #f78123;}
+.nav_two .nav_on{ border-bottom:4px solid #2393f7;}
 .nav_all_seek{float:left;     margin-left: 76px;}
 .nav_list_data{position:absolute; left:262px; display:none; background-color:#313749; width:129px; top:68px; z-index: 999;}
 .nav_list_data_on{display:block;}
@@ -358,7 +358,7 @@ com{color:#f78123;}
 .project_all_l_ul_50,.project_all_l_ul_50_div {width:100%; overflow:hidden;}
 .project_all_l_ul_50 li{width:50%; float:left; overflow:hidden; margin-bottom:10px;}
 .project_all_l_ul_50_left{width:130px; display:block; float:left; overflow:hidden; color:#666; text-align:right;}
-.project_all_l_ul_50_div span{float:left; max-width:920px}
+.project_all_l_ul_50_div span{float:left; max-width:900px;display: block;}
 .particulars_table_list_project th,.particulars_table_list_project td{padding-left:10px;padding-right:10px;}
 .particulars_table_list_project .c_left{text-align:left;}
 /*职务*/

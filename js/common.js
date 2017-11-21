@@ -504,6 +504,7 @@ $.extend($,{
  //导航搜索相关
 $('body').delegate('.dn_ico_search','click', function(event){
  	event.stopPropagation();
+ 	$(".info-search .hot_speech").hide(); 
  	$('.nav_all_seek').hide();
  	$('.nav_all_input').show();
  	$('#nav_all_input').focus();
@@ -512,14 +513,20 @@ $(document).bind('click', function(e) {
 	var e = e || window.event; //浏览器兼容性   
     var elem = e.target || e.srcElement;  
     while (elem) { //循环判断至跟节点，防止点击的是div子元素   
-        if (elem.id && elem.id == 'nav_all_input_all') {  
+        if (elem.id && elem.id == 'nav_all_input_all') { 
+         	$(".info-search .hot_speech").hide(); 
             return;  
+        }else if(elem.id && elem.id == 'info-search_span'){
+        	$('.nav_all_seek').show();
+     	$('.nav_all_input').hide();
+        	return;  
         }  
         elem = elem.parentNode;  
     }  
     $('.nav_all_seek').show();
  	$('.nav_all_input').hide();
-    //   
+ 	$(".info-search .hot_speech").hide();
+       
 });
 /*$('body').delegate('#nav_all_input','focusout', function(event){
  	event.stopPropagation();

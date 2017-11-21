@@ -19,6 +19,7 @@ function loadTable(tab){
         sortOrder: "desc",                   //排序方式
         tableDataName:'data',
         queryParams: queryParams, //参数
+        undefinedText:"--",
         tableDataListName:'records',
         tableDataTotalName:'total',
         sidePagination: "server",           //分页方式：client客户端分页，server服务端分页（*）
@@ -72,10 +73,13 @@ function queryTotal(){
 }
 $(".info-nav-content").delegate("li","click",function(){
     var tab = $(this).attr("data-tab");
+    $('.info-nav-content li').removeClass('search_on')
+    $(this).addClass('search_on');
     showContent(tab);
 });
 
  $(".search").delegate("li","click",function(){
+	 $(".info-search .hot_speech").hide();
   	   var value = $(this).text();
   	   $("input[name='keyword']").val(value)
   	   firstShow();

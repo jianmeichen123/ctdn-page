@@ -19,28 +19,31 @@
 {(header.html)}
 <div class="info-top">
 	<div class="info-search">
-		<input type='text' placeholder='请输入搜索关键字' name="keyword"/>
-		<span class="search-btn">搜索</span>
-		<!-- 热词 -->
-		<div class="hot_speech">
-			<div class="tit">热门搜索</div>
-			<div class="hot_speech_all">
-				<ul class="hotKeyword search">
-					<li>区块链</li>
-					<li>乐视</li>
-					<li>共享经济</li>
-					<li>消费升级</li>
-					<li>机器人</li>
-					<li>VR</li>
-				</ul>
+		<span  id="info-search_span">
+			<input type='text' placeholder='请输入搜索关键字' name="keyword"/>
+			<!-- 热词 -->
+			<div class="hot_speech" >
+				<div class="tit">热门搜索</div>
+				<div class="hot_speech_all">
+					<ul class="hotKeyword search">
+						<li>区块链</li>
+						<li>乐视</li>
+						<li>共享经济</li>
+						<li>消费升级</li>
+						<li>机器人</li>
+						<li>VR</li>
+					</ul>
+				</div>
 			</div>
-		</div>
+		</span>
+		<span class="search-btn">搜索</span>
+		
 	</div>
 </div>
 <div class="container block">
 	<div class='info-nav'>
 		<ul id ="test" class='info-nav-content'>
-			<li data-tab="news"><span>资讯</span>(<span></span>)</li>
+			<li data-tab="news" class="search_on"><span>资讯</span>(<span></span>)</li>
 			<li data-tab="project"><span>项目</span>(<span ></span>)</li>
 			<li data-tab="investfirms"><span>机构</span>(<span ></span>)</li>
 			<li data-tab="investEvent"><span>投资事件</span>(<span></span>)</li>
@@ -130,9 +133,9 @@
 <script>
 $(".info-search input").focus(function(){
     $(".info-search .hot_speech").show();
-}).blur(function(){
+})/* .blur(function(){
     $(".info-search .hot_speech").hide();
-});
+}); */
 </script>
 <script src="js/platformUrl.js?t=20170523"></script>
 <script src="js/common.js"></script>
