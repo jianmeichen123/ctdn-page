@@ -133,6 +133,9 @@
    }
 
    function formatMergeSideJson(v){
+     if(!v){
+        return table.empty;
+     }
      var json = eval("(" + v.mergeSideJson + ")");
      var ls = json["mergeSideJson"];
      var mergeSideTitle = "";
@@ -140,7 +143,7 @@
      var data =$(this)[0]
         //待修改 没加领投
         if(data.title &&i<3){
-              if(data.id>0){
+              if(data.code){
                   if(data.type=='invse'){
                       mergeSideTitle+='<center><span class="list_table_td"><a href="/jg_particulars.html?orgCode='+data.code+'">'+data.title+'</a></span></center>';
                   }
