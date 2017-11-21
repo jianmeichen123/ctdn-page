@@ -4,6 +4,12 @@
        $(data.data).each(function(k,v){
             if(!v){
                 v="-"
+            }else{
+                for(i in v){
+                    if(i=='invstorgnames'&&!v[i]){
+                        v[i]='--'
+                    }
+                }
             }
        })
        var target = $("#getCTDNEventInfo");
@@ -24,7 +30,6 @@ function getNews(){
                         if(i=="records"){
                             for(j in v[i]){
                                if(v[i][j].overview.length>150){
-                                   alert(v[i][j].overview)
                                    v[i][j].overview=v[i][j].overview.substring(0,150)+'...'
                                }
                                 v[i][j].orderTime= formatNewsTime(v[i][j].orderTime)
