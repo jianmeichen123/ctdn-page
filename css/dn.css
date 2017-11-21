@@ -58,6 +58,7 @@ ul,ol,dl,dt,dd,p,img{ display:block; border:0;list-style:none; }
 .dn_ico_financing{background-position: 0px 0px; width: 20px; height: 20px; display: inline-block; float:left; margin-left:20px;}
 .dnsy_tit_size{font-size:18px; display: inline-block; line-height:20px;float:left; margin-left:10px;}
 .dn_info_list_show>ul>li{ float:left;}
+#newsList>li{border-bottom:1px solid #f0f0f0}
 .padding_tb20{padding-top:20px; padding-bottom:20px;}
 .event_img{width:80px; height:80px; border:1px solid #f0f0f0; margin-right:10px;}
 .event_img img{width:79px; height:79px;}

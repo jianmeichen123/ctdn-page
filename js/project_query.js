@@ -118,7 +118,7 @@ $('table[data-url]').bootstrapTable({
         return '抱歉，没有相关的结果';
     },
     onLoadSuccess: function (data) {
-        $(".page_all .col_999 span").text(data.data.totalhit)
+        $(".page_all .col_999 span").text(data.totalhit)
     }
 });
  function entersearch(){
