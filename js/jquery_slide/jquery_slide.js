@@ -1,7 +1,6 @@
 // JavaScript Document
 function i_slide(obj,opt){
 	var conuntW1 =window.screen.width ;
-	alert(conuntW1)
   var option={
 		speed:"50000",//间隔运动时间
 		a_speed:"500",//运动时间
