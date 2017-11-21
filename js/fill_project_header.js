@@ -50,7 +50,16 @@ function formatProjectInfo(data,divList){
            }
            $("#introduce").html(data["introduce"])
        }
+       if(data["photos"]){
+             $(".photos").closest(".background_boeder").show()
+            var str = "<div class='slider6'>";
+            $(data["photos"].split("^$^")).each(function(i,e){
+                 str+= "<div class='slide'><img src='"+e+"'></div>";
+            })
+            str += "</div>"
+            $(".photos").html(str)
 
+       }
        if(data["firmDesc"]){
                   $("#firmDesc").closest(".background_boeder").show()
                    var right_show =$('#firmDesc').parent().parent().parent().parent().children('.project_t').attr('location_l');
@@ -110,17 +119,6 @@ function formatProjectInfo(data,divList){
                          str+= "<span class='project_lable'>"+e+"</span>";
                     })
                     v = str
-                }
-           }else if(k=="photos"){
-                if(v){
-                    var str = "<div class='slider6'>";
-                    $(v.split("^$^")).each(function(i,e){
-                         str+= "<div class='slide'><img src="+Constants.projectLogoPath+"></div>";
-                    })
-                    v = str+"</div>"
-                    $(".photos").html(str)
-                }else{
-                    $(".photos").hide()
                 }
            }
            else if(k=="bp"|| k =="hqEmail" || k== "hqTel"){

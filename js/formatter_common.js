@@ -366,10 +366,13 @@ function projectFormatter(value,row){
 
     if(!row.introduce) row.introduce="暂无"
 
-    if(row.latestFinanceRound){
-        row.latestFinanceRound = "<span>"+row.latestFinanceRound+"</span>"
-    }else{
-        row.latestFinanceRound ="";
+    var tag =""
+    if(row.latestFinanceRound && !row.latestFinanceAmountStr){
+        tag =  "<span>"+row.latestFinanceRound+"/金额未知</span>"
+    }else if(!row.latestFinanceRound && row.latestFinanceAmountStr){
+        tag =  "<span>轮次未知/"+row.latestFinanceAmountStr+"</span>"
+    }else if(row.latestFinanceRound && row.latestFinanceAmountStr){
+        tag =  "<span>"+row.latestFinanceRound+"/"+row.latestFinanceAmountStr+"</span>"
     }
 
     if (!row.districtSubName){
@@ -386,10 +389,10 @@ function projectFormatter(value,row){
 	var html = "<div class='list-item'>"+
 			"<div class='list-item-inner'>"+
 				"<div class='list-item-left'>"+
-					"<img src='"+img+"'>"+
+					"<a target='_blank' href='/project_qy.html?projCode="+row.projCode+"'><img src='"+img+"'></a>"+
 				"</div>"+
 				"<div class='list-item-right'>"+
-					"<p class='list-item-title'><a target='_blank' href='/project_qy.html?projCode="+row.projCode+"'>"+projectName+"</a>${latestFinanceRound}</p>"+
+					"<p class='list-item-title'><a target='_blank' href='/project_qy.html?projCode="+row.projCode+"'>"+projectName+"</a>"+tag+"</p>"+
 					"<p class='list-item-content'>简介:${introduce}</p>"+
 					"<p class='list-item-tips'><i class='list-item-address'></i>${districtSubName}<i class='list-item-finace'></i>${industryName}</p>"+
 				"</div>"+
