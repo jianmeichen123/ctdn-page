@@ -46,8 +46,8 @@ var tableFormate ={
         //投资方
     investSide:function(value, row, index){
          var investSideJson = row.investSideJson
-         if(investSideJson==null){
-            return '未透露'
+         if(!investSideJson){
+            return '--'
          }else{
              var jsonObjArr = eval('(' + investSideJson + ')');
              for(i in jsonObjArr){
@@ -432,26 +432,30 @@ function investfirmFormatter(value,row){
             investOrg = '名称未知'
          }
          var img = Constants.logoPath +"org/"+row.orgCode+".png"
+         var orgType = "类型未知"
         if(row.orgType){
-            row.orgType= "<span>"+row.orgType+"</span>";
-        }else{
-            row.orgType= "";
+            orgType = row.orgType;
         }
-        if(!row.orgDesc){
-            row.orgDesc = "暂无"
-        }
+        var orgDesc = "暂无";
+        if(row.orgDesc){
+           if(row.orgDesc.length>80){
+               orgDesc = row.orgDesc.substring(0,240)+"...";
+           }else{
+               orgDesc=  row.orgDesc
+           }
+         }
         if(!row.investTotal){
             row.investTotal = 0
         }
     	var html = "<div class='list-item'>"+
    			"<div class='list-item-inner'>"+
    				"<div class='list-item-left'>"+
-   					"<img src='"+img+"'>"+
+   					"<a target='_blank' href='/jg_particulars.html?orgCode="+row.orgCode+"'><img src='"+img+"'></a>"+
    				"</div>"+
    				"<div class='list-item-right'>"+
-   					"<p class='list-item-title institute-title'><a target='_blank' href='/jg_particulars.html?orgCode="+row.code+"'>"+investOrg+"</a>${orgType}</p>"+
+   					"<p class='list-item-title institute-title'><a target='_blank' href='/jg_particulars.html?orgCode="+row.orgCode+"'>"+investOrg+"</a><span>"+orgType+"</span></p>"+
    					"<p class='list-item-case'>投资事件:<span>${investTotal}</span></p>"+
-   					"<p class='list-item-content list-institute-content'>简介:${orgDesc}</p>"
+   					"<p class='list-item-content list-institute-content'>简介:"+orgDesc+"</p>"
    				"</div>"+
    			"</div>"+
    		"</div>"
