@@ -237,25 +237,24 @@ var tableFormate ={
     },
     //并购方-并购列表
     mergeSideJson:function(value, row, index){
+
         var mergeSideJson = row.mergeSideJson
-        var mergeSideTitle = ''
-        if(mergeSideJson==null){
-             mergeSideTitle='未透露'
-            return mergeSideTitle
+        if(!mergeSideJson){
+            return table.empty;
         }
+        var mergeSideTitle = ''
         var jsonObjArr =  JSON.parse(mergeSideJson);
         for(i in jsonObjArr){
             var i = jsonObjArr[i]
             for(j in i){
                 var json = i[j]
-                if(json.title!=''&&j<3){
-                    if(json.id!=0){
+                if(json.title&&j<3){
+                    if(json.code){
                         if(json.type=='invse'){
                             mergeSideTitle+='<center><span class="list_table_td"><a target="_blank" href="/jg_particulars.html?orgCode='+json.code+'">'+json.title+'</a></span></center>';
                         }
                         if(json.type=='com'){
                             mergeSideTitle+='<center><span class="list_table_td"><a target="_blank" href="/project_qy.html?code='+json.code+'">'+json.title+'</a></span></center>';
-
                         }
                     }else{
                         mergeSideTitle+='<center><span class="list_table_td">'+json.title+'</span></center>';
