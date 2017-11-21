@@ -105,8 +105,10 @@ function fillBaseBusinessInfo(data,divList){
             var o = $(this);
             var k = o.attr("data-field")
             var v = data[o.attr("data-field")]
-            if(v){
+            if(v&&v!='-'){
                 o.html(v)
+            }else if(v=='-'){
+                o.html("--")
             }else{
                 o.html("--")
             }
@@ -162,7 +164,7 @@ function projectBusinessChangeListFormatter(data,div){
 
 //对外投资
 function projectInvestOthersFormatter(data,div){
-    var staticTemplate ='<tr> <td>${investDate}</td> <td>${company}</td> <td>${round}</td> <td>${amountStr}</td> <td>${invstorgnames}</td> </tr>'
+    var staticTemplate ='<tr> <td>${investDate}</td> <td>${company}</td> <td>${round}</td> <td>${amountStr}</td> <td>${invstorgnames}</td> <td><a href="/tzsj_particulars.html?eventId=${eventId}">详情</a></td></tr>'
     var temp = staticTemplate;
     var html = "";
     if(data.length>0){
@@ -170,7 +172,10 @@ function projectInvestOthersFormatter(data,div){
          $.each(row,function(k,v){
              while(temp.indexOf("${"+k+"}") > 1){
                  if(!v){
-                     v= "-"
+                     v= "--"
+                 }
+                 if(k=='investDate'){
+                    v=formatDate(v,"yyyy-MM-dd")
                  }
                  temp =temp.replace("${"+k+"}",v)
              }
