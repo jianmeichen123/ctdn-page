@@ -123,7 +123,7 @@ function formatProjectInfo(data,divList){
            }
            else if(k=="bp"|| k =="hqEmail" || k== "hqTel"){
                 if(!v){
-                    v= "-"
+                    v= "--"
                 }
            }else if(k=="weibo"){
                 if(v){
