@@ -11,9 +11,9 @@
 
 //线上
 var Constants = {
-	platformContentURL: "http://ctdndev.gi.com/api/",
-	searchContentURL: "http://ctdndev.gi.com/search/",
-	dataContentURL: "http://ctdndev.gi.com/data/",
+	platformContentURL: "http://ctdnqa.gi.com/api/",
+	searchContentURL: "http://ctdnqa.gi.com/search/",
+	dataContentURL: "http://ctdnqa.gi.com/data/",
     logoPath: "http://static.galaxyinternet.com/"
 }
 var home = {
@@ -61,7 +61,7 @@ var platformUrl = {
 	fileUpload:Constants.platformContentURL+"upload"
 }
 var table ={
-   empty: "-"
+   empty: "--"
 }
 var detail = {
 
