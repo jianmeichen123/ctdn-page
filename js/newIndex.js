@@ -4,6 +4,12 @@
        $(data.data).each(function(k,v){
             if(!v){
                 v="-"
+            }else{
+                for(i in v){
+                    if(i=='invstorgnames'&&!v[i]){
+                        v[i]='--'
+                    }
+                }
             }
        })
        var target = $("#getCTDNEventInfo");
