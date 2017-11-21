@@ -19,6 +19,7 @@ function loadTable(tab){
         sortOrder: "desc",                   //排序方式
         tableDataName:'data',
         queryParams: queryParams, //参数
+        undefinedText:"--",
         tableDataListName:'records',
         tableDataTotalName:'total',
         sidePagination: "server",           //分页方式：client客户端分页，server服务端分页（*）

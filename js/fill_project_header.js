@@ -61,16 +61,16 @@ function formatProjectInfo(data,divList){
 
        }
        if(data["firmDesc"]){
-                  $("#firmDesc").closest(".background_boeder").show()
-                   var right_show =$('#firmDesc').parent().parent().parent().parent().children('.project_t').attr('location_l');
-       			 $('.project_all_r li[location_r='+right_show+']').show();
-       			 $('.project_all_r li[location_r='+right_show+']').addClass('storey_list')
-       			 $('.project_all_l [location_l='+right_show+']').addClass('storey_list')
-                  if(data["firmDesc"].length>60){
-                       $(".project_more").show();
-                  }
-                  $("#firmDesc").html(data["firmDesc"])
-              }
+          $("#firmDesc").closest(".background_boeder").show()
+           var right_show =$('#firmDesc').parent().parent().parent().parent().children('.project_t').attr('location_l');
+         $('.project_all_r li[location_r='+right_show+']').show();
+         $('.project_all_r li[location_r='+right_show+']').addClass('storey_list')
+         $('.project_all_l [location_l='+right_show+']').addClass('storey_list')
+          if(data["firmDesc"].length>60){
+               $(".project_more").show();
+          }
+          $("#firmDesc").html(data["firmDesc"])
+      }
 
     $(divList).each(function(){
         var div = $(this);
@@ -123,7 +123,7 @@ function formatProjectInfo(data,divList){
            }
            else if(k=="bp"|| k =="hqEmail" || k== "hqTel"){
                 if(!v){
-                    v= "--"
+                    v= table.empty;
                 }
            }else if(k=="weibo"){
                 if(v){
