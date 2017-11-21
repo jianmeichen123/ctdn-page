@@ -54,7 +54,7 @@ function formatProjectInfo(data,divList){
              $(".photos").closest(".background_boeder").show()
             var str = "<div class='slider6'>";
             $(data["photos"].split("^$^")).each(function(i,e){
-                 str+= "<div class='slide'><img src='"+e+"'></div>";
+                 str+= "<div class='slide'><img src='"+Constants.logoPath+"product/other/"+e+".png'></div>";
             })
             str += "</div>"
             $(".photos").html(str)

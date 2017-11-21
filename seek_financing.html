@@ -239,14 +239,14 @@
 		add: function (e, data) {
 			var acceptFileTypes = /\/(jpg|jpeg|png|gif)$/i;
 			if(data.originalFiles[0]['type'].length && !acceptFileTypes.test(data.originalFiles[0]['type'])) {
-				$("#projLogoName").text("<font color=red>*</font>您的文件格式不正确")
+				$("#projLogoName").html("<font color=red>*</font>您的文件格式不正确")
 				return;
 			}
-			if(data.files[0].size > 500*1024){
-				$("#projLogoName").text("<font color=red>*</font>您的文件大小超过限制，请控制在500KB之内")
+			if(data.files[0].size > 500*1024*1024){
+				$("#projLogoName").html("<font color=red>*</font>您的文件大小超过限制，请控制在500KB之内")
 				return;
 			}
-			$("#projLogoName").val(data.files[0].name);
+			$("#projLogoName").html(data.files[0].name);
             data.submit();
         },
         messages: {
@@ -322,6 +322,7 @@ function save(){
 					if(data.message == 'OK')
 					{
 						alert('保存成功');
+						//location.href="index.html"
 					}
 					else
 					{

@@ -236,11 +236,9 @@ sendGetRequest(url,function(data){
 
         }
     })
-
-
-    if(!data){
-        $('#projects').hide();
-    }
+//    if(!data){
+//        $('#projects').hide();
+//    }
    $(data.data).each(function(k,v){
         if(!v){
             v="-"
@@ -321,9 +319,16 @@ sendGetRequest(url,function(data){
     		var records = data.data.records;
     		if(records.length>0){
     		    var target = $("#"+dataId)
+    		    for(j in records){
+    		        for(k in records[j]){
+    		            if(k=="logoSmall"){
+    		                records[j][k]=Constants.logoPath+"project/"+records[j].projCode+".png";
+    		            }
+    		        }
+    		    }
     		    target.tmpl(data).appendTo(target.parent())
 				if(pageNo && pageSize){
-				    if(data.data.total<=(pageNo*1+1)*pageSize){
+				    if(data.data.total<=(pageNo*1)*pageSize){
                         more.hide();
                         return;
                     }
