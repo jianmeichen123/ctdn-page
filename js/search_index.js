@@ -75,12 +75,12 @@ $(".info-nav-content").delegate("li","click",function(){
     showContent(tab);
 });
 
-// $("#aaaa").delegate("li","click",function(){
-//  	   var value = $(this).text();
-//  	   $("input[name='keyword']").val(value)
-//  	   firstShow();
-//
-//});
+ $(".search").delegate("li","click",function(){
+  	   var value = $(this).text();
+  	   $("input[name='keyword']").val(value)
+  	   firstShow();
+
+});
 
 function showContent(tab){
       queryTotal();
