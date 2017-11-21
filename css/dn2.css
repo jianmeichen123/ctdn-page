@@ -59,6 +59,7 @@ em,i{font-style:normal;}
 .info-list-name{font-size:18px;border-radius:10px 10px 0 0 ;padding-top:30px;padding-bottom:20px;background:url('../img/dn/prject_name_07.png') no-repeat 23px 32px;background-color:#fff;}
 .info-list-name span{margin-left:60px;font-size:18px;font-weight:bold;}
 .index-project-container{margin-top:-45px;}
+select:focus { outline: none important; }
 
 
 
