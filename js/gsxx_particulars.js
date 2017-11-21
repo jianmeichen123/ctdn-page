@@ -41,7 +41,7 @@ var compLink5={}
 compJson["name"]="企业名字";
 compJson["symbolSize"]=30;
 compJson["draggable"]="true";
-compJson["value"]=10;
+compJson["value"]=30;
 
 compJson1["name"]="项目";
 compJson1["symbolSize"]=15;
@@ -108,7 +108,7 @@ function fillBaseBusinessInfo(data,divList){
             if(v){
                 o.html(v)
             }else{
-                o.html("-")
+                o.html("--")
             }
         })
     })
@@ -225,13 +225,7 @@ sendGetRequest(url,function(data){
             json["value"]=1;
             linkJson["source"]="任职人员";
             linkJson["target"]=$(this)[0].memberName+i;
-//            for(i in array){
-//                for(j in array[i]){
-//                    if(array[i][j].name!=json["name"]){
-//                        array.push(json);
-//                    }
-//                }
-//            }
+            array.push(json);
             linkArr.push(linkJson);
 
 
@@ -397,7 +391,7 @@ sendGetRequest(url,function(data){
 
     var projName = proj.data.projTitle;
     sendGetRequest(detail.queryPorjectBusniessInfo+proj.data.compCode,function(data){
-        projectShareholderInfoList = data.data["projectShareholderInfoList"]
+        projectShareholderInfoList = data.data["projectShareholderInfoList"];
         fillBaseBusinessInfo(data.data,$("div[data-query='businessInfo']"));
         fillList(data.data,$("*[data-query='list']"))
     })
