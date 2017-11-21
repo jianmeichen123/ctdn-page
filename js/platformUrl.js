@@ -9,20 +9,13 @@
 
 
 
+//线上
 var Constants = {
-	platformContentURL: "http://ctdnqa.gi.com/api/",
-	searchContentURL: "http://ctdnqa.gi.com/search/",
-	dataContentURL: "http://ctdnqa.gi.com/data/",
-    logoPath: "http://static.galaxyinternet.com/img/"
+	platformContentURL: "http://ctdndev.gi.com/api/",
+	searchContentURL: "http://ctdndev.gi.com/search/",
+	dataContentURL: "http://ctdndev.gi.com/data/",
+    logoPath: "http://static.galaxyinternet.com/"
 }
-
-////线上
-//var Constants = {
-//	platformContentURL: "http://ctdndev.gi.com/api/",
-//	searchContentURL: "http://ctdndev.gi.com/search/",
-//	dataContentURL: "http://ctdndev.gi.com/data/",
-//    logoPath: "http://static.galaxyinternet.com/"
-//}
 var home = {
 	    index : "http://ctdndev.gi.com"
 	}
