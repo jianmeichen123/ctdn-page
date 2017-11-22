@@ -98,22 +98,26 @@ linkArr.push(compLink4);
 linkArr.push(compLink5);
 
 function fillBaseBusinessInfo(data,divList){
-    $(divList).each(function(){
-        var div = $(this);
-        var ls = div.find("*[data-field]")
-        $(ls).each(function(){
-            var o = $(this);
-            var k = o.attr("data-field")
-            var v = data[o.attr("data-field")]
-            if(v&&v!='-'){
-                o.html(v)
-            }else if(v=='-'){
-                o.html("--")
-            }else{
-                o.html("--")
-            }
+    if(data){
+        $(divList).each(function(){
+            var div = $(this);
+            var ls = div.find("*[data-field]")
+            $(ls).each(function(){
+                var o = $(this);
+                var k = o.attr("data-field")
+                var v = data[o.attr("data-field")]
+                if(v&&v!='-'){
+                    o.html(v)
+                }else if(v=='-'){
+                    o.html("--")
+                }else{
+                    o.html("--")
+                }
+            })
         })
-    })
+    }else{
+        $("#gsxx").hide()
+    }
 }
 
 //股东信息
@@ -121,7 +125,12 @@ function projectShareholderInfoListFormatter(data,div){
    var staticTemplate = '<tr> <td>${shareholderType}</td> <td>${shareholder}</td> <td>${prePayDate}</td><td>${prePayAmountStr}</td> <td>${paidDate}</td><td>${paidPayAmountStr}</td><td>${payType}</td><td>${equityRate}</td></tr>'
    var temp = staticTemplate;
     var html =""
-    if(data.length>0){
+    if(data){
+        if(data.length==0){
+            data=null;
+        }
+    }
+    if(data){
         $(data).each(function(i,row){
              $.each(row,function(k,v){
                  while(temp.indexOf("${"+k+"}") > 1){
@@ -134,7 +143,8 @@ function projectShareholderInfoListFormatter(data,div){
              temp = staticTemplate
         })
     }else{
-        html="<tr> <td colspan='6'><span>暂无数据</span></th></tr>"
+        $("#shareholder").hide();
+//        html="<tr> <td colspan='6'><span>暂无数据</span></th></tr>"
     }
     div.append(html)
 }
@@ -144,7 +154,7 @@ function projectBusinessChangeListFormatter(data,div){
    var staticTemplate = '<tr> <td>${changeItems}</td> <td>${beforeContent}</td> <td>${afterContent}</td><td>${changeDate}</td> </tr>'
    var temp = staticTemplate;
     var html =""
-    if(data.length>0){
+    if(data){
         $(data).each(function(i,row){
              $.each(row,function(k,v){
                  while(temp.indexOf("${"+k+"}") > 1){
@@ -157,7 +167,8 @@ function projectBusinessChangeListFormatter(data,div){
              temp = staticTemplate
         })
     }else{
-        html="<tr> <td colspan='6'><span>暂无数据</span></th></tr>"
+        $('#changes').hide();
+//        html="<tr> <td colspan='6'><span>暂无数据</span></th></tr>"
     }
     div.append(html)
 }
@@ -177,6 +188,14 @@ function projectInvestOthersFormatter(data,div){
                  if(k=='investDate'){
                     v=formatDate(v,"yyyy-MM-dd")
                  }
+                 if(k=='invstorgnames'){
+                       var firm=v.split(",")
+                       var str='';
+                       for(j in firm){
+                           str=str+firm[j]+"<br>";
+                       }
+                       v=str;
+                 }
                  temp =temp.replace("${"+k+"}",v)
              }
          })
@@ -184,7 +203,8 @@ function projectInvestOthersFormatter(data,div){
          temp = staticTemplate
         })
     }else{
-         html="<tr> <td colspan='7'><span>暂无数据</span></th></tr>"
+        $("#dwtz").hide()
+//         html="<tr> <td colspan='7'><span>暂无数据</span></th></tr>"
     }
     div.append(html)
 }
@@ -209,7 +229,8 @@ function projectContactListFormatter(data,div){
          temp = staticTemplate
         })
     }else{
-         html="<tr> <td colspan='7'><span>暂无数据</span></th></tr>"
+        $("#contacts").hide()
+//         html="<tr> <td colspan='7'><span>暂无数据</span></th></tr>"
     }
     div.append(html)
 }
@@ -236,9 +257,9 @@ sendGetRequest(url,function(data){
 
         }
     })
-//    if(!data){
-//        $('#projects').hide();
-//    }
+    if(data.data.length==0){
+        $('#members').hide();
+    }
    $(data.data).each(function(k,v){
         if(!v){
             v="-"
@@ -324,6 +345,11 @@ sendGetRequest(url,function(data){
     		            if(k=="logoSmall"){
     		                records[j][k]=Constants.logoPath+"project/"+records[j].projCode+".png";
     		            }
+    		            if(k=='districtSubName'){
+    		                if(!records[j][k]){
+    		                    records[j][k]='地区未知'
+    		                }
+    		            }
     		        }
     		    }
     		    target.tmpl(data).appendTo(target.parent())
@@ -401,7 +427,7 @@ sendGetRequest(url,function(data){
 
     var projName = proj.data.projTitle;
     sendGetRequest(detail.queryPorjectBusniessInfo+proj.data.compCode,function(data){
-        projectShareholderInfoList = data.data["projectShareholderInfoList"];
+//        projectShareholderInfoList = data.data["projectShareholderInfoList"];
         fillBaseBusinessInfo(data.data,$("div[data-query='businessInfo']"));
         fillList(data.data,$("*[data-query='list']"))
     })
