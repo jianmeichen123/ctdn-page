@@ -151,7 +151,7 @@ function projectShareholderInfoListFormatter(data,div){
 
 //工商变更
 function projectBusinessChangeListFormatter(data,div){
-   var staticTemplate = '<tr> <td>${changeItems}</td> <td>${beforeContent}</td> <td>${afterContent}</td><td>${changeDate}</td> </tr>'
+   var staticTemplate = '<tr> <td>${changeItems}</td> <td>${beforeContent}</td> <td>${afterContent}</td><td class="wid_time">${changeDate}</td> </tr>'
    var temp = staticTemplate;
     var html =""
     if(data){

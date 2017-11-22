@@ -235,10 +235,13 @@ com{color:#f78123;}
 .particulars_ul_one ul li{margin-top:8px; margin-bottom:0px; width: 100%;    overflow: hidden;}
 .particulars_bottom_b{border-bottom:1px solid #f0f0f0;}
 .particulars_black p{ line-height:24px; margin:0}
-.blue_l_b{ border-left:1px solid #63a9ff; margin-left:4px; padding:5px 0; margin-top:5px}
+.blue_l_b{  margin-left:4px; padding:5px 0;}
+.blue_l_b_line{width:1px; top:4px; left:0; height: 100%;background-color:#63a9ff; position:absolute}
+.blue_l_b>ul{position:relative;}
+.blue_l_b>ul>li{margin-bottom:30px;}
 .blue_l_b_three{display:none;}
-.circle_b{display:block; width:10px; height:10px; border:1px solid #61abff; border-radius:5px; background-color:#fff; position:absolute; left:-6px; top:4px;}
-.relative{position:relative; padding-left:10px; line-height:20px; }
+.circle_b{display:block; width:8px; height:8px; border:1px solid #61abff; border-radius:4px; background-color:#fff; position:absolute; left:-4px; top:4px;}
+.relative{position:relative; padding-left:20px; line-height:20px; }
 .ul_display{margin-bottom:0;}
 .ul_display li{width:100%; overflow:hidden; margin-top:10px;}
 .round li{float:left; width:auto; padding:5px 10px; border:1px solid #6ba2fc; color:#6ba2fc; border-radius:12px; margin-right:18px; margin-top:0px;}
@@ -250,7 +253,8 @@ com{color:#f78123;}
 .line_x{width:100%; overflow:hidden;  border-top:1px solid #e6e6e6; margin-top:12px;}
 .particulars_table_list{ width:100%;  border:1px solid #f0f0f0;}
 .particulars_table_list th{background-color:#ecf3ff;  padding:10px 0; color:#666666;    font-weight: normal;  line-height: 28px;text-align:center;}
-.particulars_table_list td{border-bottom:1px solid #f0f0f0; padding:10px 0;  color:#666666;  text-align:center;}
+.particulars_table_list td{border-bottom:1px solid #f0f0f0; padding:10px 0;  color:#666666;  text-indent: 15px;}
+.wid_time{width:120px;}
 #begin_on,#end_on{widh:100px; height:28px; border: 1px solid #cccccc;  border-radius: 4px;  height: 28px;  width: 100px;  text-indent: 5px;  font-size: 12px;}
 .particulars_table_list td .list_table_td li{line-height:20px;}
 .particulars_table_list tbody .list_table_td span.zz{text-indent:0;margin-right:5px;}
@@ -290,7 +294,7 @@ com{color:#f78123;}
 .project_nav ul li span{display: inline-block;  cursor:pointer}
 .project_nav ul li a{color: #333;}
 .project_nav .nav_on{color:#2393f7;}
-.project_t{color:#333; font-size:16px;}
+.project_t{color:#333; font-size:16px;     margin-bottom: 20px;}
 .background_boeder{background-color:#fff; border:1px solid #f0f0f0; overflow: hidden; border-radius:8px; margin-top:10px;     padding-top: 30px;}
 .project_more{float:right; cursor:pointer;}
 .brain_ico_project_crumbs{background-position:-78px -41px;margin-left:0; width:3px; margin-right:10px; height:16px; display:block; float:left;}
@@ -305,7 +309,7 @@ com{color:#f78123;}
 .brain_ico_project_circle{background-position:0 -65px;display: none; top:11px;left: 20px; position:absolute; width:15px;  height:15px;}
 .project_all_r_on .brain_ico_project_circle{display:block;}
 .project_all_r_on,.project_all_r ul li:hover{font-size:14px;}
-.project_all_l_ul li{ overflow:hidden;     margin-top: 20px;}
+.project_all_l_ul li{ overflow:hidden;}
 .project_all_l_ul li .color_666{height:72px; text-overflow:ellipsis; word-wrap: normal;  overflow:hidden;}
 .project_line_x{margin-top:20px; padding-top:20px;border-top: 1px solid #e6e6e6;}
 .project_bj_org{display:inline-block; background-color:#fb7f1c;padding: 0 10px; border-radius:4px; margin-left:10px; color:#fff;}
@@ -361,7 +365,7 @@ com{color:#f78123;}
 .project_click_show:hover .brain_ico_project_more{background-position:-94px -43px;}
 /*工商*/
 .project_all_l_ul_50,.project_all_l_ul_50_div {width:100%; overflow:hidden;}
-.project_all_l_ul_50 li{width:50%; float:left; overflow:hidden; margin-bottom:10px;}
+.project_all_l_ul_50 li{width:50%; float:left; overflow:hidden; margin-bottom:20px;}
 .project_all_l_ul_50_left{width:130px; display:block; float:left; overflow:hidden; color:#666; text-align:right;}
 .project_all_l_ul_50_div span{float:left; max-width:900px;display: block;}
 .particulars_table_list_project th,.particulars_table_list_project td{padding-left:10px;padding-right:10px;}
@@ -380,8 +384,10 @@ com{color:#f78123;}
 .porject_all_black .list-item-right{ width: 958px;}
 /*更多*/
 .dn_ico_more_all{text-align:center; color:#666666; font-size:14px; height:16px; margin-top:20px;}
-.dn_ico_more{     background-position: 0px -64px; width: 15px;     margin-top: 3px; height: 14px;  float:right;  display:block;}
+.dn_ico_more{     background-position: 0px -64px; width: 15px;     margin-top: 3px; height: 15px;  float:right;  display:block;}
 .dn_ico_more_al_divl{width:90px; cursor:pointer; margin-left:auto; margin-right:auto;}
+.dn_ico_more_al_divl:hover {color:#2393f7;}
+.dn_ico_more_al_divl:hover .dn_ico_more{    background-position: 0px -84px;}
 .list_on_fr{float:right; font-size:12px; color:#999999; margin-right:20px;}
 .dn_ico_bj_lc{ background-position: -21px -64px; width: 107px;     margin-top: 3px; height: 88px;  float:left;  display:block;}
 .dn_ico_bj_lc_b{border:1px solid #e6e6e6;  width:843px;       position: relative;   overflow: hidden;   border-radius: 8px;  margin-left: 110px; }
@@ -401,12 +407,14 @@ com{color:#f78123;}
 .particulars_black_rz>.equity_trading_all>ul {    position: relative;}
 .particulars_black_rz .dn_ico_equity_trading_area {margin-left: 0px;     margin-top: 22px; }
 .particulars_black_rz .equity_trading_time {    position: initial; margin-top:40px;    float: left;   margin-top: 15px;}
-.project_t_team{font-size:14px; color:#333333; margin-top:30px;     margin-left: 20px;}
+.project_t_team{font-size:14px; color:#333333;margin-bottom: 20px;     margin-left: 20px;}
 .project_t_team_ul,.project_t_team_cen{ margin-left: 20px;padding-right: 20px; margin-top:10px; width:100%;     overflow: hidden;}
 .project_t_team_ul>li{padding-left:20px; padding-right:20px; height:30px; margin-bottom:10px; line-height:30px; border:1px solid #b4dcff; float:left; margin-right:30px; border-radius:15px;}
 .project_t_team_cen>li{ margin-bottom:10px; color:#666666; font-size:14px;}
 .dn_ico_bj_lc_b_r .lticon{ padding-left:10px; padding-right:10px; background-color:#fa931a; margin-left: 10px; font-size:12px; color:#fff; border-radius:6px;     font-weight: 500;     margin-bottom: 0px;}
 .particulars_black .dn_info_list_show_r{    width: 865px;}
+.particulars_black .dn_info_list_show{padding:0}
+.particulars_black .no_img_project .dn_info_list_show_r{ margin-left:0;   width: 1035px;}
 /*竞争*/
 .ul_all{width:100%; overflow:hidden;}
 .ul_all>li{overflow:hidden;     margin-bottom: 10px;}
