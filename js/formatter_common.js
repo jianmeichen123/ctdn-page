@@ -144,7 +144,7 @@ var tableFormate ={
             img = ""
         }
         if(row.sourceCode){
-            return '<div class="list_table_td"> <a target="_blank" href="/project_qy.html?projCode='+row.sourceCode+'"><img  width="37" src="'+img+'"></a> <ul class="col_999"> <li><a target="_blank" href="/project_qy.html?code='+row.sourceCode+'">'+mergered+'</a></li> <li>'+industrict+'</li> </ul> </div>'
+            return '<div class="list_table_td"> <a target="_blank" href="/project_qy.html?projCode='+row.sourceCode+'"><img  width="37" src="'+img+'"></a> <ul class="col_999"> <li><a target="_blank" href="/project_qy.html?projCode='+row.sourceCode+'">'+mergered+'</a></li> <li>'+industrict+'</li> </ul> </div>'
         }else{
             return '<div class="list_table_td"> <img  width="37" src="'+img+'"> <ul class="col_999"> <li><a class="defalut">'+mergered+'</a></li> <li>'+industrict+'</li> </ul> </div>'
         }
@@ -254,7 +254,7 @@ var tableFormate ={
                             mergeSideTitle+='<center><span class="list_table_td"><a target="_blank" href="/jg_particulars.html?orgCode='+json.code+'">'+json.title+'</a></span></center>';
                         }
                         if(json.type=='com'){
-                            mergeSideTitle+='<center><span class="list_table_td"><a target="_blank" href="/project_qy.html?code='+json.code+'">'+json.title+'</a></span></center>';
+                            mergeSideTitle+='<center><span class="list_table_td"><a target="_blank" href="/project_qy.html?projCode='+json.code+'">'+json.title+'</a></span></center>';
                         }
                     }else{
                         mergeSideTitle+='<center><span class="list_table_td">'+json.title+'</span></center>';
