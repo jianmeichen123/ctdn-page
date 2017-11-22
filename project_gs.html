@@ -25,8 +25,8 @@
 			</div>
 			<!-- 工商信息-->
 			<div class="background_boeder" id="gsxx">
-			<div class="project_t"><span class="brain_ico brain_ico_project_crumbs"></span>工商信息</div>
-			<div class="particulars_black" data-query="businessInfo">
+                <div class="project_t storey_list" location_l="location_gs"><span class="brain_ico brain_ico_project_crumbs"></span>股东信息</div>
+                <div class="particulars_black" data-query="businessInfo">
 				<ul class="project_all_l_ul_50">
 					<li>
 						<span class="project_all_l_ul_50_left">公司全称：</span>
@@ -105,7 +105,7 @@
 			</div>
 			<!-- 股东信息 -->
 			<div class="background_boeder" id="shareholder">
-			<div class="project_t"><span class="brain_ico brain_ico_project_crumbs"></span>股东信息</div>
+			<div class="project_t storey_list" location_l="location_gd"><span class="brain_ico brain_ico_project_crumbs"></span>股东信息</div>
 			<div class="particulars_black">
 				<table class=" particulars_table_list">
 						<thead>
@@ -128,7 +128,7 @@
 			</div>
 			<!-- 工商变更 -->
 			<div class="background_boeder" id="changes">
-			<div class="project_t"><span class="brain_ico brain_ico_project_crumbs"></span>工商变更</div>
+			<div class="project_t storey_list" location_l="location_bg"><span class="brain_ico brain_ico_project_crumbs"></span>工商变更</div>
 			<div class="particulars_black">
 				<table class="particulars_table_list_project particulars_table_list m_t5">
 						<thead>
@@ -148,7 +148,7 @@
 			</div>
 			<!-- 任职人员 -->
 			<div class="background_boeder" id="members">
-				<div class="project_t"><span class="brain_ico brain_ico_project_crumbs"></span> 任职人员</div>
+				<div class="project_t storey_list" location_l="location_rz"><span class="brain_ico brain_ico_project_crumbs"></span> 任职人员</div>
 				<div class="particulars_black">
 					<ul class="job_all">
 						{-raw-}
@@ -170,7 +170,7 @@
 			</div>
 			<!-- 子公司 -->
 			<div class="background_boeder" data-id="getAllCompSubs" data-url="getAllCompSubs">
-				<div class="project_t"><span class="brain_ico brain_ico_project_crumbs"></span>子公司</div>
+				<div class="project_t storey_list" location_l="location_zgs"><span class="brain_ico brain_ico_project_crumbs"></span>子公司</div>
 				<input type="hidden" name = "pageSize" value="8">
 				<input type="hidden" name = "pageNo" value="1">
 				<input type="hidden" name = "compCode" value="fafcecee262f35d997411d56e6ea7338">
@@ -195,7 +195,7 @@
 			</div>
 			<!-- 企业项目 -->
 			<div class="background_boeder" data-id="queryByProjTitle" data-url="queryByProjTitle">
-				<div class="project_t"><span class="brain_ico brain_ico_project_crumbs"></span>企业项目</div>
+				<div class="project_t storey_list" location_l="location_xm"><span class="brain_ico brain_ico_project_crumbs"></span>企业项目</div>
 				<input type="hidden" name = "pageSize1" value="3">
 				<input type="hidden" name = "pageNo" value="1">
 				<input type="hidden" name = "compCode" value="0">
@@ -236,7 +236,7 @@
 			</div>
 			<!-- 对外投资-->
 			<div class="background_boeder" id="dwtz">
-				<div class="project_t" location_l="location_lx"><span class="brain_ico brain_ico_project_crumbs"></span>对外投资</div>
+				<div class="project_t storey_list" location_l="location_dw"><span class="brain_ico brain_ico_project_crumbs"></span>对外投资</div>
 				<div class="particulars_black">
 					<table class=" particulars_table_list">
 					<thead>
@@ -257,7 +257,7 @@
 			</div>
 			<!-- 联系方式 -->
 			<div class="background_boeder" id="contacts">
-				<div class="project_t" location_l="location_lx"><span class="brain_ico brain_ico_project_crumbs"></span>联系方式</div>
+				<div class="project_t storey_list" location_l="location_lx"><span class="brain_ico brain_ico_project_crumbs"></span>联系方式</div>
 				<div class="particulars_black">
 					<table class=" particulars_table_list m_t5">
 						<thead>
@@ -281,17 +281,17 @@
 		</div>
 		<div class="project_all_r">
 			<ul>
-				<li class="project_all_r_on" location_r="location_jb"><span class="brain_ico brain_ico_project_circle"></span>基本信息</li>
-				<li location_r="location_rz"><span class="brain_ico brain_ico_project_circle"></span>融资信息</li>
-				<li location_r="location_cp"><span class="brain_ico brain_ico_project_circle"></span>产品信息 </li>
-				<li location_r="location_td"><span class="brain_ico brain_ico_project_circle"></span>团队信息 </li>
-				<li location_r="location_fz"><span class="brain_ico brain_ico_project_circle"></span>发展历史</li>
-				<li location_r="location_ss"><span class="brain_ico brain_ico_project_circle"></span>上市挂牌</li>
-				<li location_r="location_bg"><span class="brain_ico brain_ico_project_circle"></span>并购事件</li>
+				<!--<li class="project_all_r_on storey_list" location_r="location_jb"><span class="brain_ico brain_ico_project_circle"></span>基本信息</li>-->
+				<li class="storey_list" location_r="location_gs"><span class="brain_ico brain_ico_project_circle"></span>工商信息</li>
+				<li class="storey_list" location_r="location_gd"><span class="brain_ico brain_ico_project_circle"></span>股东信息 </li>
+				<li class="storey_list" location_r="location_bg"><span class="brain_ico brain_ico_project_circle"></span>工商变更 </li>
+				<li class="storey_list" location_r="location_rz"><span class="brain_ico brain_ico_project_circle"></span>任职人员</li>
+				<li class="storey_list" location_r="location_zgs"><span class="brain_ico brain_ico_project_circle"></span>子公司</li>
+				<li class="storey_list" location_r="location_xm"><span class="brain_ico brain_ico_project_circle"></span>企业项目</li>
 			<!--<li location_r="location_tc"><span class="brain_ico brain_ico_project_circle"></span>退出事件</li>
 				<li location_r="location_zgs"><span class="brain_ico brain_ico_project_circle"></span>分支机构</li> -->
-				<li location_r="location_lx"><span class="brain_ico brain_ico_project_circle"></span>联系方式</li>
-				<li location_r="location_xw"><span class="brain_ico brain_ico_project_circle"></span>相关新闻</li>
+                <li class="storey_list" location_r="location_dw"><span class="brain_ico brain_ico_project_circle"></span>对外投资</li>
+                <li class="storey_list" location_r="location_lx"><span class="brain_ico brain_ico_project_circle"></span>联系方式</li>
 			</ul>
 		</div>
 		</div>
@@ -306,35 +306,65 @@
 
 
 <script>
-$(window).scroll(function(){
-var scrollTop=$(window).scrollTop();
-if(scrollTop>305){
-$('.project_nav').addClass('project_nav_top');
-$('.project_nav_top_none').show();
-}else{
-$(".project_nav").removeClass("project_nav_top");
-$('.project_nav_top_none').hide();
-}
-var location_array = new Array()
-for(var i=0; i<$('.project_all_l .storey_list').length; i++){
-var list_all = $('.project_all_l .storey_list').eq(i).attr('location_l');
-location_array.push(list_all);
-}
-var  myArray=new Array();
-for(var i=0; i<location_array.length; i++){
-var obj = {};
-var name = location_array[i];
-obj.name = name;
-obj.value= parseInt($('[location_l="'+location_array[i]+'"]').offset().top -70);
-myArray.push(obj);
-}
-if(scrollTop>=myArray[0].value){
-$('.project_all_r').addClass('project_all_r_top');
-location_on(myArray,scrollTop)
-}else{
-$(".project_all_r").removeClass("project_all_r_top");
-}
+    /* 菜单悬浮 */
+
+ $(window).scroll(function(){
+	 var scrollTop=$(window).scrollTop();
+		if(scrollTop>305){
+			$('.project_nav').addClass('project_nav_top');
+			$('.project_nav_top_none').show();
+		}else{
+			$(".project_nav").removeClass("project_nav_top");
+			$('.project_nav_top_none').hide();
+		}
+	 var location_array = new Array()
+	 for(var i=0; i<$('.project_all_l .storey_list').length; i++){
+	 	var list_all = $('.project_all_l .storey_list').eq(i).attr('location_l');
+	 	location_array.push(list_all);
+	 }
+	var  myArray=new Array();
+	for(var i=0; i<location_array.length; i++){
+		var obj = {};
+		var name = location_array[i];
+		obj.name = name;
+		obj.value= parseInt($('[location_l="'+location_array[i]+'"]').offset().top -70);
+		myArray.push(obj);
+	}
+	if(scrollTop>=myArray[0].value){
+		$('.project_all_r').addClass('project_all_r_top');
+		 location_on(myArray,scrollTop)
+	}else{
+		$(".project_all_r").removeClass("project_all_r_top");
+	}
 });
+function location_on(obj,scrollTop){
+	for(var i=0; i<obj.length; i++){
+		var j =i+1;
+		if(j==obj.length){
+			if(scrollTop >=obj[i].value){
+				$('.project_all_r li').removeClass('project_all_r_on');
+				$('[location_r="'+obj[i].name+'"]').addClass('project_all_r_on');
+			}
+		}else{
+			if(scrollTop >=obj[i].value && scrollTop<obj[j].value){
+				$('.project_all_r li').removeClass('project_all_r_on');
+				$('[location_r="'+obj[i].name+'"]').addClass('project_all_r_on');
+			}
+		}
+
+	}
+}
+//右边浮动
+$('body').delegate('.project_all_r li','click',function(event){
+	var _this=$(this);
+	event.stopPropagation();
+	var location_r = $(this).attr('location_r');
+	var location_value = $('[location_l="'+location_r+'"]').offset().top-50;
+	$("html,body").animate({scrollTop:location_value},300);
+	setTimeout(function(){
+		_this.addClass("project_all_r_on").siblings().removeClass("project_all_r_on")
+	},300)
+})
 nav_locaton('ctsj','qyxm','','gsxx')
 </script>
 </body>

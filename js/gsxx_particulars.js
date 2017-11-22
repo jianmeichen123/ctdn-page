@@ -1,5 +1,5 @@
 //企业信息、工商信息  导航浮动
-$(window).scroll(function(){
+/*$(window).scroll(function(){
 	var scrollTop=$(window).scrollTop();
 	if(scrollTop>305){
 		$('.project_nav').addClass('project_nav_top');
@@ -8,7 +8,7 @@ $(window).scroll(function(){
 		$(".project_nav").removeClass("project_nav_top");
 		$('.project_nav_top_none').hide();
 	}
-});
+});*/
 
 //var projCode = getHrefParamter("projCode");
 ////给tab页a赋参数
@@ -117,6 +117,10 @@ function fillBaseBusinessInfo(data,divList){
         })
     }else{
         $("#gsxx").hide()
+                var location_l = $("#gsxx .project_t").attr('location_l')
+                $('.project_all_r li[location_r="'+location_l+'"]').hide();
+                $('.project_all_r li[location_r="'+location_l+'"]').removeClass('storey_list')
+                $("#gsxx").children().removeClass('storey_list');
     }
 }
 
@@ -144,6 +148,10 @@ function projectShareholderInfoListFormatter(data,div){
         })
     }else{
         $("#shareholder").hide();
+         var location_l = $("#shareholder .project_t").attr('location_l')
+                        $('.project_all_r li[location_r="'+location_l+'"]').hide();
+                        $('.project_all_r li[location_r="'+location_l+'"]').removeClass('storey_list')
+                        $("#shareholder").children().removeClass('storey_list');
 //        html="<tr> <td colspan='6'><span>暂无数据</span></th></tr>"
     }
     div.append(html)
@@ -173,6 +181,10 @@ function projectBusinessChangeListFormatter(data,div){
         })
     }else{
         $('#changes').hide();
+          var location_l = $("#changes .project_t").attr('location_l')
+                                $('.project_all_r li[location_r="'+location_l+'"]').hide();
+                                $('.project_all_r li[location_r="'+location_l+'"]').removeClass('storey_list')
+                                $("#changes").children().removeClass('storey_list');
 //        html="<tr> <td colspan='6'><span>暂无数据</span></th></tr>"
     }
     div.append(html)
@@ -209,6 +221,10 @@ function projectInvestOthersFormatter(data,div){
         })
     }else{
         $("#dwtz").hide()
+        var  location_l = $("#dwtz .project_t").attr('location_l')
+                                                         $('.project_all_r li[location_r="'+location_l+'"]').hide();
+                                                         $('.project_all_r li[location_r="'+location_l+'"]').removeClass('storey_list')
+                                                         $("#dwtz").children().removeClass('storey_list');
 //         html="<tr> <td colspan='7'><span>暂无数据</span></th></tr>"
     }
     div.append(html)
@@ -235,6 +251,9 @@ function projectContactListFormatter(data,div){
         })
     }else{
         $("#contacts").hide()
+        var location_l = $("#contacts .project_t").attr('location_l')
+        $('.project_all_r li[location_r="'+location_l+'"]').removeClass('storey_list')
+        $("#contacts").children().removeClass('storey_list');
 //         html="<tr> <td colspan='7'><span>暂无数据</span></th></tr>"
     }
     div.append(html)
@@ -264,6 +283,10 @@ sendGetRequest(url,function(data){
     })
     if(data.data.length==0){
         $('#members').hide();
+        var location_l = $("#members .project_t").attr('location_l')
+        $('.project_all_r li[location_r="'+location_l+'"]').hide();
+        $('.project_all_r li[location_r="'+location_l+'"]').removeClass('storey_list')
+        $("#members").children().removeClass('storey_list')
     }
    $(data.data).each(function(k,v){
         if(!v){
@@ -368,6 +391,10 @@ sendGetRequest(url,function(data){
 				}
     		}else if(records.length ==0 && pageNo=="1"){
     		    obj.hide();
+    		     var location_l = obj.children('.project_t').attr('location_l')
+                 $('.project_all_r li[location_r="'+location_l+'"]').hide();
+                 $('.project_all_r li[location_r="'+location_l+'"]').removeClass('storey_list')
+                 obj.children().removeClass('storey_list');
     		}
     	})
    }
