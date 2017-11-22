@@ -164,7 +164,7 @@ function projectBusinessChangeListFormatter(data,div){
 
 //对外投资
 function projectInvestOthersFormatter(data,div){
-    var staticTemplate ='<tr> <td>${investDate}</td> <td>${company}</td> <td>${round}</td> <td>${amountStr}</td> <td>${invstorgnames}</td> <td><a href="/tzsj_particulars.html?eventId=${eventId}">详情</a></td></tr>'
+    var staticTemplate ='<tr> <td>${investDate}</td> <td>${company}</td> <td>${round}</td> <td>${amountStr}</td> <td>${invstorgnames}</td> <td><a href="/tzsj_particulars.html?eventId=${eventId}" class="a_color">详情</a></td></tr>'
     var temp = staticTemplate;
     var html = "";
     if(data.length>0){
