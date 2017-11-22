@@ -92,7 +92,7 @@ function formatProjectInfo(data,divList){
                    if(v=='国外'){
                        v='地区未知'
                    }else{
-                       v = '<i class="list-item-address"></i><span>'+v+'</span>'
+                       v = '<span>'+v+'</span>'
                        if(data.districtGrandsonName){
                          v +='<span class="dot">·</span><span>'+data.districtGrandsonName+'</span>'
                        }
