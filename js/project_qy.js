@@ -72,7 +72,6 @@
             }else{
                 if(dataId=="product"){
                     if($("#prodSrv").val() || $("#userMarket").val()){
-                         $(".prodSrv")
                          obj.show();
                     }
                 }else if(dataId="team"){
