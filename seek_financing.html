@@ -121,7 +121,7 @@
 				<li class="seek_show_on">
 					<div class="seek_financing_l"><span class="seek_financing_two">融资金额</span></div>
 					<div class="seek_financing_r">
-						<input class="seek_financing_input" name="projMoney" placeholder="请输入您需要的融资金额"  data-rule-money="true" data-msg-money="请输入数字，最多可填写4位小数">
+						<input class="seek_financing_input" name="projMoney" placeholder="请输入您需要的融资金额" data-rule-intlength="9" data-rule-money="true" data-msg-money="请输入数字，最多可填写4位小数">
 						<div class="seek_financing_absolute">万元　(人民币)</div>
 					</div>
 				</li>
@@ -180,7 +180,7 @@
 	}, "");
 	//验证长度
 	jQuery.validator.addMethod("length1000", function (value, element) {
-		var verify_1000 = /^(?!.{50}|^\s*$)/;
+		var verify_1000 = /^(?!.{1000}|^\s*$)/;
 		return this.optional(element) || (verify_1000.test(value));
 	}, "");
 
@@ -207,11 +207,25 @@
 		return this.optional(element) || (regex.test(value));
 	}, "");
 
+	//验证整数位
+	jQuery.validator.addMethod("intlength", function (value, element) {
+		var intnum ;
+		if(value.indexOf(".")>=0){
+			intnum = value.split(".")[0].length;
+		}else{
+			intnum = value.length;
+		}
+		var length = $.isArray( intnum ) ? intnum.length : this.getLength($.trim(intnum), element);
+		return this.optional(element) || (length <= 9);
+	}, "");
+
 	//验证长度
-	jQuery.validator.addMethod("stock", function (value, element) {
+	jQuery.validator.addMethod("stock", function (value, element, param) {
 		var regex = /^100$|^(\d|[1-9]\d)(\.\d{1,4})*$/;
 		return this.optional(element) || (regex.test(value));
 	}, "");
+
+
 
 	$.fn.serializeJson = function(){
 		var data = {};

@@ -12,9 +12,9 @@ function formatProjectInfo(data,divList){
      $("input[name='keyword']").val(data["projTitle"])
         if(data["teamTags"]){
               $(".teamTags").show()
-              var tags = data["userMarket"].split(",");
+              var tags = data["teamTags"].split("^$^");
               var temp = "";
-              $.each(function(i,e){
+              $.each(tags,function(i,e){
                 temp += "<li>"+e+"</li>"
               })
              $("#teamTags").html(temp)
@@ -22,22 +22,19 @@ function formatProjectInfo(data,divList){
 
         if(data["teamSuper"]){
              $(".teamSuper").show()
-             var tags = data["userMarket"].split(",");
-             var temp = "";
-             $.each(function(i,e){
-               temp += "<li>"+e+"</li>"
-             })
-             $("#teamSuper").html(temp)
+             $("#teamSuper").html(data["teamSuper"])
         }
 
         if(data["userMarket"]){
             $(".userMarket").show()
+            $(".userMarket").closest(".background_boeder").show()
             $("#userMarket").html(data["userMarket"])
         }
 
         if(data["prodSrv"]){
              $(".prodSrv").show()
-            $("#prodSrv").html(data["userMarket"])
+             $(".prodSrv").closest(".background_boeder").show()
+             $("#prodSrv").html(data["prodSrv"])
        }
        if(data["introduce"]){
            $("#introduce").closest(".background_boeder").show()
@@ -95,7 +92,7 @@ function formatProjectInfo(data,divList){
                    if(v=='国外'){
                        v='地区未知'
                    }else{
-                       v = '<span>'+v+'</span>'
+                       v = '<i class="list-item-address"></i><span>'+v+'</span>'
                        if(data.districtGrandsonName){
                          v +='<span class="dot">·</span><span>'+data.districtGrandsonName+'</span>'
                        }
