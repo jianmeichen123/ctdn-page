@@ -144,7 +144,7 @@ var tableFormate ={
             img = ""
         }
         if(row.sourceCode){
-            return '<div class="list_table_td"> <a target="_blank" href="/project_qy.html?projCode='+row.sourceCode+'"><img  width="37" src="'+img+'"></a> <ul class="col_999"> <li><a target="_blank" href="/project_qy.html?code='+row.sourceCode+'">'+mergered+'</a></li> <li>'+industrict+'</li> </ul> </div>'
+            return '<div class="list_table_td"> <a target="_blank" href="/project_qy.html?projCode='+row.sourceCode+'"><img  width="37" src="'+img+'"></a> <ul class="col_999"> <li><a target="_blank" href="/project_qy.html?projCode='+row.sourceCode+'">'+mergered+'</a></li> <li>'+industrict+'</li> </ul> </div>'
         }else{
             return '<div class="list_table_td"> <img  width="37" src="'+img+'"> <ul class="col_999"> <li><a class="defalut">'+mergered+'</a></li> <li>'+industrict+'</li> </ul> </div>'
         }
@@ -254,7 +254,7 @@ var tableFormate ={
                             mergeSideTitle+='<center><span class="list_table_td"><a target="_blank" href="/jg_particulars.html?orgCode='+json.code+'">'+json.title+'</a></span></center>';
                         }
                         if(json.type=='com'){
-                            mergeSideTitle+='<center><span class="list_table_td"><a target="_blank" href="/project_qy.html?code='+json.code+'">'+json.title+'</a></span></center>';
+                            mergeSideTitle+='<center><span class="list_table_td"><a target="_blank" href="/project_qy.html?projCode='+json.code+'">'+json.title+'</a></span></center>';
                         }
                     }else{
                         mergeSideTitle+='<center><span class="list_table_td">'+json.title+'</span></center>';
@@ -378,12 +378,13 @@ function projectFormatter(value,row){
        row.districtSubName ="地址未知"
     }
 
-    if(!row.industryName){
-        row.industryName =' 行业未知'
-    }
-    if (row.industryName&&row.industrySubName){
-        row.industryName=row.industryName +"-" +row.industrySubName
-    }
+   var industryName=""
+   if(row.industryName){
+       industryName ="<i class='list-item-finace'></i>"+row.industryName
+       if(row.industrySubName){
+           industryName+="-" +row.industrySubName
+       }
+   }
 
 	var html = "<div class='list-item'>"+
 			"<div class='list-item-inner'>"+
@@ -393,7 +394,7 @@ function projectFormatter(value,row){
 				"<div class='list-item-right'>"+
 					"<p class='list-item-title'><a target='_blank' href='/project_qy.html?projCode="+row.projCode+"'>"+projectName+"</a>"+tag+"</p>"+
 					"<p class='list-item-content'>简介:${introduce}</p>"+
-					"<p class='list-item-tips'><i class='list-item-address'></i>${districtSubName}<i class='list-item-finace'></i>${industryName}</p>"+
+					"<p class='list-item-tips'><i class='list-item-address'></i>${districtSubName}"+industryName+"</p>"+
 				"</div>"+
 			"</div>"+
 		"</div>"

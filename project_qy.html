@@ -36,9 +36,9 @@
 				</div>
 				</div>
 
-				<!-- 融资信息 -->
+				<!-- 融资历史 -->
 				<div class="background_boeder" data-id="investEvent" data-url="queryProjectInvestEvent" style="display:none">
-				<div class="project_t" location_l="location_rz"><span class="brain_ico brain_ico_project_crumbs"></span>融资信息</div>
+				<div class="project_t" location_l="location_rz"><span class="brain_ico brain_ico_project_crumbs"></span>融资历史</div>
 				<div class="particulars_black_rz" >
 					<input type="hidden" name = "pageSize" value="2">
 					<input type="hidden" name = "pageNo" value="0">
@@ -46,6 +46,8 @@
 					<div class="equity_trading_all list">
 						<ul>
 							<div class="border_equity_trading_l"></div>
+							<li>           <div class="equity_trading_l">            <spn class="dn_ico dn_ico_equity_trading_area"></spn>            <span class="equity_trading_time">2016-12-02</span>           </div>           <div class="equity_trading_r">            <spn class="dn_ico dn_ico_bj_lc"><span class="dn_ico_bj_lc_cen">                         种子轮                        </span></spn>            <div class="dn_ico_bj_lc_b">             <ul>                             <li><span class="dn_ico_bj_lc_b_l">融资金额 </span><span class="dn_ico_bj_lc_b_r">100万美元</span></li>                                           <li><span class="dn_ico_bj_lc_b_l">投资方</span>               <span class="dn_ico_bj_lc_b_r"><a target="_blank" title="500 Startups" href="/jg_particulars.html?orgCode=83f437820d9139c3d6922d95c4bfd8ec">500 Startups</a></span>               </li>                           </ul>             <div class="dn_ico_bj_lc_b_xq"><a href="tzsj_particulars.html?eventId=22706">详情</a></div>            </div>           </div>          </li>
+							<li>           <div class="equity_trading_l">            <spn class="dn_ico dn_ico_equity_trading_area"></spn>            <span class="equity_trading_time">2016-12-02</span>           </div>           <div class="equity_trading_r">            <spn class="dn_ico dn_ico_bj_lc"><span class="dn_ico_bj_lc_cen">                         种子轮                        </span></spn>            <div class="dn_ico_bj_lc_b">             <ul>                             <li><span class="dn_ico_bj_lc_b_l">融资金额 </span><span class="dn_ico_bj_lc_b_r">100万美元</span></li>                                           <li><span class="dn_ico_bj_lc_b_l">投资方</span>               <span class="dn_ico_bj_lc_b_r"><a target="_blank" title="500 Startups" href="/jg_particulars.html?orgCode=83f437820d9139c3d6922d95c4bfd8ec">500 Startups</a></span>               </li>                           </ul>             <div class="dn_ico_bj_lc_b_xq"><a href="tzsj_particulars.html?eventId=22706">详情</a></div>            </div>           </div>          </li>
 							{-raw-}
 							<script id="investEvent" type="text/x-jquery-tmpl">
 								{{each(i,v) data}}
@@ -109,7 +111,7 @@
 						</ul>
 					</div>
 
-					<div class="project_t_team">产品数据</div>
+					<div class="project_t_team" style="display:none">产品数据</div>
 					<ul class="product_list" id="product-ul">
 						{-raw-}
 						<script id="product" type="text/x-jquery-tmpl">
@@ -175,6 +177,7 @@
 					<input type="hidden" name = "type" value="H">
 					<div class="blue_l_b">
 						<ul data-query="list" data-formatter="historyList">
+						<div class="blue_l_b_line"></div>
 							{-raw-}
 							<script id="eventHistory" type="text/x-jquery-tmpl">
 								{{each(i,v) data.records}}
@@ -368,7 +371,7 @@
 		<div class="project_all_r">
 			<ul>
 				<li class="project_all_r_on none" location_r="location_jb"><span class="brain_ico brain_ico_project_circle"></span>项目描述</li>
-				<li class="none" location_r="location_rz"><span class="brain_ico brain_ico_project_circle"></span>融资信息</li>
+				<li class="none" location_r="location_rz"><span class="brain_ico brain_ico_project_circle"></span>融资历史</li>
 				<li class="none" class="none" location_r="location_cp"><span class="brain_ico brain_ico_project_circle"></span>产品信息 </li>
 				<li  class="none" location_r="location_td"><span class="brain_ico brain_ico_project_circle"></span>团队信息 </li>
 				<li  class="none" location_r="location_fz"><span class="brain_ico brain_ico_project_circle"></span>发展历史</li>

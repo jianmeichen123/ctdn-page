@@ -12,9 +12,9 @@ function formatProjectInfo(data,divList){
      $("input[name='keyword']").val(data["projTitle"])
         if(data["teamTags"]){
               $(".teamTags").show()
-              var tags = data["userMarket"].split(",");
+              var tags = data["teamTags"].split("^$^");
               var temp = "";
-              $.each(function(i,e){
+              $.each(tags,function(i,e){
                 temp += "<li>"+e+"</li>"
               })
              $("#teamTags").html(temp)
@@ -22,22 +22,19 @@ function formatProjectInfo(data,divList){
 
         if(data["teamSuper"]){
              $(".teamSuper").show()
-             var tags = data["userMarket"].split(",");
-             var temp = "";
-             $.each(function(i,e){
-               temp += "<li>"+e+"</li>"
-             })
-             $("#teamSuper").html(temp)
+             $("#teamSuper").html(data["teamSuper"])
         }
 
         if(data["userMarket"]){
             $(".userMarket").show()
+            $(".userMarket").closest(".background_boeder").show()
             $("#userMarket").html(data["userMarket"])
         }
 
         if(data["prodSrv"]){
              $(".prodSrv").show()
-            $("#prodSrv").html(data["userMarket"])
+             $(".prodSrv").closest(".background_boeder").show()
+             $("#prodSrv").html(data["prodSrv"])
        }
        if(data["introduce"]){
            $("#introduce").closest(".background_boeder").show()
@@ -51,7 +48,7 @@ function formatProjectInfo(data,divList){
            $("#introduce").html(data["introduce"])
        }
        if(data["photos"]){
-             $(".photos").closest(".background_boeder").show()
+            $(".photos").closest(".background_boeder").show()
             var str = "<div class='slider6'>";
             $(data["photos"].split("^$^")).each(function(i,e){
                  str+= "<div class='slide'><img src='"+Constants.logoPath+"product/other/"+e+".png'></div>";
@@ -66,7 +63,7 @@ function formatProjectInfo(data,divList){
          $('.project_all_r li[location_r='+right_show+']').show();
          $('.project_all_r li[location_r='+right_show+']').addClass('storey_list')
          $('.project_all_l [location_l='+right_show+']').addClass('storey_list')
-          if(data["firmDesc"].length>60){
+          if(data["firmDesc"].length>216){
                $(".project_more").show();
           }
           $("#firmDesc").html(data["firmDesc"])
@@ -95,7 +92,7 @@ function formatProjectInfo(data,divList){
                    if(v=='国外'){
                        v='地区未知'
                    }else{
-                       v = '<span>'+v+'</span>'
+                       v = '<i class="list-item-address"></i><span>'+v+'</span>'
                        if(data.districtGrandsonName){
                          v +='<span class="dot">·</span><span>'+data.districtGrandsonName+'</span>'
                        }

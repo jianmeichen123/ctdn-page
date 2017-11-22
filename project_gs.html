@@ -24,7 +24,7 @@
 			</div>
 			</div>
 			<!-- 工商信息-->
-			<div class="background_boeder">
+			<div class="background_boeder" id="gsxx">
 			<div class="project_t"><span class="brain_ico brain_ico_project_crumbs"></span>工商信息</div>
 			<div class="particulars_black" data-query="businessInfo">
 				<ul class="project_all_l_ul_50">
@@ -104,7 +104,7 @@
 			</div>
 			</div>
 			<!-- 股东信息 -->
-			<div class="background_boeder">
+			<div class="background_boeder" id="shareholder">
 			<div class="project_t"><span class="brain_ico brain_ico_project_crumbs"></span>股东信息</div>
 			<div class="particulars_black">
 				<table class=" particulars_table_list">
@@ -127,7 +127,7 @@
 			</div>
 			</div>
 			<!-- 工商变更 -->
-			<div class="background_boeder">
+			<div class="background_boeder" id="changes">
 			<div class="project_t"><span class="brain_ico brain_ico_project_crumbs"></span>工商变更</div>
 			<div class="particulars_black">
 				<table class="particulars_table_list_project particulars_table_list m_t5">
@@ -136,7 +136,7 @@
 								<th class=""><div>变更事项</div></th>
 								<th><div class="">变更前内容</div></th>
 								<th><div class="">变更后内容</div></th>
-								<th class=""><div class="">变更日期</div></th>
+								<th class="wid_time"><div class="">变更日期</div></th>
 							</tr>
 						</thead>
 						<tbody data-query="list" data-formatter="projectBusinessChangeList">
@@ -147,7 +147,7 @@
 			</div>
 			</div>
 			<!-- 任职人员 -->
-			<div class="background_boeder">
+			<div class="background_boeder" id="members">
 				<div class="project_t"><span class="brain_ico brain_ico_project_crumbs"></span> 任职人员</div>
 				<div class="particulars_black">
 					<ul class="job_all">
@@ -235,7 +235,7 @@
 				</div>
 			</div>
 			<!-- 对外投资-->
-			<div class="background_boeder">
+			<div class="background_boeder" id="dwtz">
 				<div class="project_t" location_l="location_lx"><span class="brain_ico brain_ico_project_crumbs"></span>对外投资</div>
 				<div class="particulars_black">
 					<table class=" particulars_table_list">
@@ -256,7 +256,7 @@
 				</div>
 			</div>
 			<!-- 联系方式 -->
-			<div class="background_boeder">
+			<div class="background_boeder" id="contacts">
 				<div class="project_t" location_l="location_lx"><span class="brain_ico brain_ico_project_crumbs"></span>联系方式</div>
 				<div class="particulars_black">
 					<table class=" particulars_table_list m_t5">
@@ -300,9 +300,42 @@
 <script src="js/jquery.tmpl.js"></script>
 <script src="js/echarts_3.2.3.js"></script>
 <script src="js/fill_project_header.js"></script>
-<script src="js/fillData_common.js"></script>
+<!--<script src="js/fillData_common.js"></script>-->
+<script src="js/gsxx_hide.js"></script>
 <script src="js/gsxx_particulars.js"></script>
 
 
+<script>
+$(window).scroll(function(){
+var scrollTop=$(window).scrollTop();
+if(scrollTop>305){
+$('.project_nav').addClass('project_nav_top');
+$('.project_nav_top_none').show();
+}else{
+$(".project_nav").removeClass("project_nav_top");
+$('.project_nav_top_none').hide();
+}
+var location_array = new Array()
+for(var i=0; i<$('.project_all_l .storey_list').length; i++){
+var list_all = $('.project_all_l .storey_list').eq(i).attr('location_l');
+location_array.push(list_all);
+}
+var  myArray=new Array();
+for(var i=0; i<location_array.length; i++){
+var obj = {};
+var name = location_array[i];
+obj.name = name;
+obj.value= parseInt($('[location_l="'+location_array[i]+'"]').offset().top -70);
+myArray.push(obj);
+}
+if(scrollTop>=myArray[0].value){
+$('.project_all_r').addClass('project_all_r_top');
+location_on(myArray,scrollTop)
+}else{
+$(".project_all_r").removeClass("project_all_r_top");
+}
+});
+nav_locaton('ctsj','qyxm','','gsxx')
+</script>
 </body>
 </html>
