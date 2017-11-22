@@ -48,7 +48,7 @@ function formatProjectInfo(data,divList){
            $("#introduce").html(data["introduce"])
        }
        if(data["photos"]){
-             $(".photos").closest(".background_boeder").show()
+            $(".photos").closest(".background_boeder").show()
             var str = "<div class='slider6'>";
             $(data["photos"].split("^$^")).each(function(i,e){
                  str+= "<div class='slide'><img src='"+Constants.logoPath+"product/other/"+e+".png'></div>";
@@ -63,7 +63,7 @@ function formatProjectInfo(data,divList){
          $('.project_all_r li[location_r='+right_show+']').show();
          $('.project_all_r li[location_r='+right_show+']').addClass('storey_list')
          $('.project_all_l [location_l='+right_show+']').addClass('storey_list')
-          if(data["firmDesc"].length>60){
+          if(data["firmDesc"].length>216){
                $(".project_more").show();
           }
           $("#firmDesc").html(data["firmDesc"])
