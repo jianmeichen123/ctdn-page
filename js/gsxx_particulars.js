@@ -155,6 +155,11 @@ function projectBusinessChangeListFormatter(data,div){
    var temp = staticTemplate;
     var html =""
     if(data){
+        if(data.length==0){
+            data=null;
+        }
+    }
+    if(data){
         $(data).each(function(i,row){
              $.each(row,function(k,v){
                  while(temp.indexOf("${"+k+"}") > 1){
