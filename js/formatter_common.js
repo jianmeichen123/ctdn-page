@@ -394,7 +394,7 @@ function projectFormatter(value,row){
 				"<div class='list-item-right'>"+
 					"<p class='list-item-title'><a target='_blank' href='/project_qy.html?projCode="+row.projCode+"'>"+projectName+"</a>"+tag+"</p>"+
 					"<p class='list-item-content'>简介:${introduce}</p>"+
-					"<p class='list-item-tips'><i class='list-item-address'></i>${districtSubName}"+industrySubName+"</p>"+
+					"<p class='list-item-tips'><i class='list-item-address'></i>${districtSubName}"+industryName+"</p>"+
 				"</div>"+
 			"</div>"+
 		"</div>"

@@ -42,7 +42,7 @@ function formatProjectInfo(data,divList){
 			 $('.project_all_r li[location_r='+right_show+']').show();
 			 $('.project_all_r li[location_r='+right_show+']').addClass('storey_list')
 			 $('.project_all_l [location_l='+right_show+']').addClass('storey_list')
-           if(data["introduce"].length>216){
+           if(data["introduce"].length>60){
                 $(".project_more").show();
            }
            $("#introduce").html(data["introduce"])
@@ -63,7 +63,7 @@ function formatProjectInfo(data,divList){
          $('.project_all_r li[location_r='+right_show+']').show();
          $('.project_all_r li[location_r='+right_show+']').addClass('storey_list')
          $('.project_all_l [location_l='+right_show+']').addClass('storey_list')
-          if(data["firmDesc"].length>60){
+          if(data["firmDesc"].length>216){
                $(".project_more").show();
           }
           $("#firmDesc").html(data["firmDesc"])
