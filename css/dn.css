@@ -91,11 +91,11 @@ ul,ol,dl,dt,dd,p,img{ display:block; border:0;list-style:none; }
 .lable_all>ul{width:100%; padding-right:20px; padding-bottom:30px;     overflow: hidden; }
 .lable_all>ul>li{margin-top:20px; margin-left:20px; float:left;  padding-left:12px; padding-right:12px; cursor:pointer; border:1px solid #b3dbff; height:30px; line-height:30px; border-radius:15px; font-size:12px;}
 .lable_all>ul>li:hover,.lable_all>ul>.lable_on{border:1px solid #2393f7; color:#fff; background-color:#2393f7}
-.equity_trading_all>ul{width:100%; overflow:hidden; padding-bottom:30px;  padding-top: 40px;}
+.equity_trading_all>ul{width:100%; overflow:hidden; padding-bottom:30px;  margin-bottom: 30px;}
 .equity_trading_all>ul>li{padding-left:20px; position:relative;     margin-top: -40px;  overflow:hidden; padding-right:20px; float:none;}
 .equity_trading_l{font-size:12px; color:#999999; border-right:1px solid #cee8ff; float:left; height:80px; width:73px; margin-top: 40px;}
 .equity_trading_time{position:absolute; top: 35px;}
-.equity_trading_r{float:left;  margin-left:12px; margin-top:20px; height:50px; }
+.equity_trading_r{float:left;  margin-left:10px; margin-top:20px; height:50px; }
 .equity_trading_r img{width:50px; height:50px; border:1px solid #f0f0f0; float:left;     overflow: hidden;}
 .equity_trading_r_c{width:154px; margin-left:12px; float:left;}
 .equity_trading_r_tit{font-size:14px; margin-top:5px; }

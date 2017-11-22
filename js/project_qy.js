@@ -72,7 +72,6 @@
             }else{
                 if(dataId=="product"){
                     if($("#prodSrv").val() || $("#userMarket").val()){
-                         $(".prodSrv")
                          obj.show();
                     }
                 }else if(dataId="team"){
@@ -106,6 +105,9 @@
    }
 
    function formatInvestSideJson(v){
+        if(!v.investSideJson){
+            return table.empty
+        }
         var json = eval("(" +  v.investSideJson + ")");
         var ls = json["investSideJson"];
         var firms ="";
