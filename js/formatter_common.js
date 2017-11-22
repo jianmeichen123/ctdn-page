@@ -378,12 +378,13 @@ function projectFormatter(value,row){
        row.districtSubName ="地址未知"
     }
 
-    if(!row.industryName){
-        row.industryName =' 行业未知'
-    }
-    if (row.industryName&&row.industrySubName){
-        row.industryName=row.industryName +"-" +row.industrySubName
-    }
+   var industryName=""
+   if(row.industryName){
+       industryName ="<i class='list-item-finace'></i>"+row.industryName
+       if(row.industrySubName){
+           industryName+="-" +row.industrySubName
+       }
+   }
 
 	var html = "<div class='list-item'>"+
 			"<div class='list-item-inner'>"+
@@ -393,7 +394,7 @@ function projectFormatter(value,row){
 				"<div class='list-item-right'>"+
 					"<p class='list-item-title'><a target='_blank' href='/project_qy.html?projCode="+row.projCode+"'>"+projectName+"</a>"+tag+"</p>"+
 					"<p class='list-item-content'>简介:${introduce}</p>"+
-					"<p class='list-item-tips'><i class='list-item-address'></i>${districtSubName}<i class='list-item-finace'></i>${industryName}</p>"+
+					"<p class='list-item-tips'><i class='list-item-address'></i>${districtSubName}"+industrySubName+"</p>"+
 				"</div>"+
 			"</div>"+
 		"</div>"

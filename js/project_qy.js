@@ -105,6 +105,9 @@
    }
 
    function formatInvestSideJson(v){
+        if(!v.investSideJson){
+            return table.empty
+        }
         var json = eval("(" +  v.investSideJson + ")");
         var ls = json["investSideJson"];
         var firms ="";
