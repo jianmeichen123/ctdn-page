@@ -16,7 +16,7 @@ ul,ol,dl,dt,dd,p,img{ display:block; border:0;list-style:none; }
 .dn_r_all{width:350px; float:right;}
 .dn_l{width:100%; background-color:#fff; border:1px solid #f0f0f0; border-radius:10px; overflow:hidden; }
 .dn_r{width:350px; background-color:#fff; border:1px solid #f0f0f0; border-radius:10px;  }
-.dnsy_tit{border-bottom:1px solid #f0f0f0;height:55px; position:relative;    padding-top: 26px;}
+.dnsy_tit{border-bottom:1px solid #f0f0f0;height:55px; position:relative;   overflow: hidden; padding-top: 26px;}
 .dnsy_tit>ul{ position: absolute;     left: 150px;}
 .dnsy_tit>ul>li{ float:left; margin-right:36px; height:30px; font-size:14px; cursor:pointer;}
 .financing_on,.dnsy_tit>ul>li:hover{border-bottom:3px solid #2393f7; color:#2393f7;}
@@ -25,7 +25,7 @@ ul,ol,dl,dt,dd,p,img{ display:block; border:0;list-style:none; }
 .dnsy_list a:hover{color:#2393f7;}
 .dn_info_list_show{width:100%; overflow: hidden; padding-right:20px;     padding-left: 20px;}
 .dn_info_list_show_l{margin-top:10px; margin-bottom:24px; float:left; width:123px; border:1px solid #eff0f2; border-radius:10px; height:77px}
-.dn_info_list_show_l img{width:121px; height:75px; overflow:hidden;}
+.dn_info_list_show_l img{width:121px; height:75px; overflow:hidden;     border-radius: 3px;}
 .dn_sy_line{border-bottom:1px solid #f0f0f0; width:100%;  height:1px; overflow: hidden;}
 .dn_info_list_show_r{margin-top:0px; margin-left:10px;float:left; width:700px;}
 .no_img .dn_info_list_show_r ,.no_img_index .dn_info_list_show_r{width:100%;     margin-left: 0px;}
@@ -35,7 +35,7 @@ ul,ol,dl,dt,dd,p,img{ display:block; border:0;list-style:none; }
 .dn_info_list_ic{font-size:12px; margin-top:5px;  margin-bottom:24px;  text-align: right; color:#999999}
 .dn_info_list_ic span{padding-left:10px;}
 .dn_info_list_show_noimg{padding-right:20px;}
-.no_border{border:0;}
+.no_border{border:0;     height: auto;}
 .hot_speech{width:255px;     z-index: 98; background-color:#fff; position:absolute; right:0px; top: 48px; border:1px solid #f1f1f1;}
 /*向上*/
 .hot_speech_all{padding-left:20px; overflow:hidden; font-size:12px; padding-right:20px; padding-bottom:20px; }
@@ -61,7 +61,7 @@ ul,ol,dl,dt,dd,p,img{ display:block; border:0;list-style:none; }
 #newsList>li{border-bottom:1px solid #f0f0f0}
 .padding_tb20{padding-top:20px; padding-bottom:20px;}
 .event_img{width:80px; height:80px; border:1px solid #f0f0f0; margin-right:10px;}
-.event_img img{width:79px; height:79px;}
+.event_img img{width:78px; height:78px;}
 .event_tit{width:218px;}
 .event_tit_t{font-size:16px;  margin-top:8px;}
 .event_tit_t a{color:#333;}
@@ -71,14 +71,14 @@ ul,ol,dl,dt,dd,p,img{ display:block; border:0;list-style:none; }
 .event_financing{font-size:14px;margin-left:50px; width:128px; height:80px;display: table; }
 .event_financing>ul{display: table-cell; vertical-align:middle; }
 .event_time{margin-left:8px; margin-top:30px;}
-.dn_sy_line_event{border-bottom:1px solid #f0f0f0; width:100%;  height:1px; margin-left:82px;}
+.dn_sy_line_event{border-bottom:1px solid #f0f0f0; width:100%;  height:1px; margin-left:105px;}
 .subject_all>ul{margin-top:20px}
 .subject_all>ul>li{ padding-left:20px; padding-right:20px; padding-bottom:30px;}
-.subject_img{width:308px; height:179px; border-bottom:1px solid #f0f0f0; border-radius:10px;  position: relative;}
+.subject_img{width:308px; height:179px; border-bottom:1px solid #f0f0f0; border-radius:10px;  position: relative;     overflow: hidden;}
 .subject_img img{width:307px; height:178px;     border-radius: 8px;}
 .subject_tit{font-size:14px; text-align:center;overflow:hidden; height:20px; margin-top:10px; line-height:20px;}
 .subject_tit a{color:#333333;}
-.subject_img_b{ text-align: center;   position: absolute; bottom:0;height:30px; background:#3e4865; width:100%; opacity:0.8; color:#fff; font-size:12px; line-height:30px;}
+.subject_img_b{ text-align: right;     padding-right: 20px;  position: absolute; bottom:0;height:30px; background:#3e4865; width:100%; opacity:0.8; color:#fff; font-size:12px; line-height:30px; border-radius:4px;}
 .report_all>ul{margin-top:20px; padding-bottom:6px;}
 .report_all>ul>li{padding-left:20px; padding-right:20px; margin-bottom:24px; font-size:12px;}
 .report_all>ul>li:before{ content: "　";float:left; background-image: url(../img/dn/dn_ico.png); background-repeat: no-repeat; background-position: -143px -2px; width: 9px; height: 11px;}
