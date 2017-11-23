@@ -127,6 +127,8 @@ function initTable() {
   });
 
   function firstShow(){
+     $(".info-nav-content .search_on").removeClass("search_on");
+     $(".info-nav-content li").first().addClass("search_on")
      var tab = queryTotal();
      triggerTable(tab);
   }
