@@ -88,7 +88,7 @@ input{outline: none;}
 .list_table_bbad a{ color:#333;}
 .list_table_bbad a:hover{ color:#2393f7;}
 .line_h{ line-height:28px;}
-.list_table_td{text-align:left;position:relative;float:left;margin-left:8px; }
+.list_table_td{text-align:left;position:relative;float:left; }
 .number_th .list_table_td {text-align:center;position:relative; float:none; }
 .list_table_td span{ line-height:35px; text-indent: 5px; display: inline-block;float:left;}
 .list_table_td>span{margin-left:37px;}
@@ -223,10 +223,11 @@ com{color:#2393f7;}
 .w_50{width:50%; overflow:hidden;}
 .fl{ float:left;}
 .fr{ float:right;}
-.width_97{width:110px; display:block; text-align:right;}
+.width_97{width:120px; display:block; text-align:right;}
 .particulars_all{    width: 100%; overflow: hidden;  margin-top: 10px; position: relative;}
 .particulars_black{width:100%; height:auto; overflow: hidden;  background-color:#fff; padding-left:20px; padding-right: 20px; margin-bottom: 30px; }
 .particulars_k{width:100%; overflow:hidden;}
+.particulars_k >li{margin-left:20px;}
 .particulars_tit img{ float:left; width:70px; height:70px; border:1px solid #e6e6e6; border-radius:4px; overflow:hidden;}
 .particulars_tit ul{ float:left; margin-left:10px; margin-bottom: 0px;}
 .particulars_tit ul li{ margin-bottom:1px;}
@@ -252,8 +253,9 @@ com{color:#2393f7;}
 .w_155{ width:160px; }
 .line_x{width:100%; overflow:hidden;  border-top:1px solid #e6e6e6; margin-top:12px;}
 .particulars_table_list{ width:100%;  border:1px solid #f0f0f0;}
-.particulars_table_list th{background-color:#ecf3ff;  padding:10px 0; color:#666666;    font-weight: normal;  line-height: 28px;text-align:center;}
-.particulars_table_list td{border-bottom:1px solid #f0f0f0; padding:10px 0;  color:#666666;  text-indent: 15px;}
+.particulars_table_list th{background-color:#ecf3ff;  padding:10px 0; color:#666666;    font-weight: normal;  line-height: 28px;    padding-left: 15px;}
+.particulars_table_list td{border-bottom:1px solid #f0f0f0; padding:10px 0;  color:#666666;      padding-left: 15px;}
+.particulars_table_list tbody{margin-right:-20px;}
 .wid_time{width:120px;}
 #begin_on,#end_on{widh:100px; height:28px; border: 1px solid #cccccc;  border-radius: 4px;  height: 28px;  width: 100px;  text-indent: 5px;  font-size: 12px;}
 .particulars_table_list td .list_table_td li{line-height:20px;}

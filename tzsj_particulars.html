@@ -11,14 +11,14 @@
 {(header.html)}
 <div class="container">
 	<div class="particulars_all">
-		<div class="particulars_black background_boeder" data-query="eventInfo">
+		<div class=" background_boeder" data-query="eventInfo">
 			<div class="particulars_k font_20"><li data-field="investevent"><span class="color_set"></span></li></div>
 			<div class="particulars_k m_t5 particulars_ul particulars_bottom_b">
 				<ul>
 					<li><div class="project_t"><span class="brain_ico brain_ico_project_crumbs"></span>基本信息</div></li>
 				</ul>
 			</div>
-			<div class="particulars_k m_t5 particulars_ul particulars_ul_one">
+			<div class="particulars_k m_t5 particulars_ul particulars_ul_one particulars_black">
 				<ul>
 					<li><span class="fl color_666 width_97">企业：&nbsp;</span><span data-field="company">-</span></li>
 					<li><span class="fl color_666 width_97">地区：&nbsp;</span><span data-field="districtSubName">-</span></span></li>
@@ -34,14 +34,15 @@
 			</div>
 		</div>	
 		<!-- 描述 -->
-		<div class="particulars_black background_boeder m_t20" data-query="eventInfo">
+		<div class=" background_boeder m_t20" data-query="eventInfo">
 			<div class="project_t"><span class="brain_ico brain_ico_project_crumbs"></span>描述</div>
-			<p  class="color_666" data-field="desc">暂无描述</p>
+			<div class="particulars_black"><p  class="color_666 " data-field="desc">暂无描述</p></div>
 		</div>
 		<!-- 投资方信息 -->
-		<div class="particulars_black background_boeder m_t20" data-query="eventInfo">
+		<div class=" background_boeder m_t20" data-query="eventInfo">
 			<div class="project_t" ><span class="brain_ico brain_ico_project_crumbs"></span>投资方信息</div>
-				<table class=" particulars_table_list m_t5">
+				<div class="particulars_black">
+				<table class=" particulars_table_list m_t5 ">
 					<thead>
 						<tr>
 							<th><div>投资方</div></th>
@@ -54,7 +55,7 @@
 							<th><div class="border_l">退出时间</div></th>
 							<th><div class="border_l">退出方式</div></th>
 							<th><div class="border_l">账面回报金额</div></th>
-							<th><div class="border_l">账面回报（倍数）</div></th>
+							<th><div class="border_l">账面回报(倍数)</div></th>
 						</tr>
 					</thead>
 					<tbody data-query="list" data-formatter="eventDetailList" class="tzsj_list">
@@ -74,7 +75,7 @@
 						<!--</tr>-->
 					</tbody>
 				</table>
-				
+				</div>
 			</div>
 
 
