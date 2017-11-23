@@ -185,9 +185,9 @@ function projectBusinessChangeListFormatter(data,div){
     }else{
         $('#changes').hide();
           var location_l = $("#changes .project_t").attr('location_l')
-                                $('.project_all_r li[location_r="'+location_l+'"]').hide();
-                                $('.project_all_r li[location_r="'+location_l+'"]').removeClass('storey_list')
-                                $("#changes").children().removeClass('storey_list');
+            $('.project_all_r li[location_r="'+location_l+'"]').hide();
+            $('.project_all_r li[location_r="'+location_l+'"]').removeClass('storey_list')
+            $("#changes").children().removeClass('storey_list');
 //        html="<tr> <td colspan='6'><span>暂无数据</span></th></tr>"
     }
     div.append(html)
@@ -204,6 +204,39 @@ function projectInvestOthersFormatter(data,div){
              while(temp.indexOf("${"+k+"}") > 1){
                  if(!v){
                      v= "--"
+                 }
+                 if(k=='company'){
+                    var company = v
+                    var industrict = ""
+                    var img = Constants.logoPath+"project/"+row["sourceCode"]+".png"
+                    if(!company){
+                        company='名称未知'
+                        industrict='地区未知'+ ' '+'行业未知'
+                    }
+                    if (row.districtSubName){
+                        if(row.districtSubName!='国外'){
+                            industrict+=row.districtSubName
+                        }else{
+                            industrict+='地区未知'
+                        }
+                    }else{
+                        industrict+='地区未知'
+                    }
+                    if(!row.industryName){
+                        industrict+=' 行业未知'
+                    }
+                    if (row.industryName&&!row.industrySubName){
+                        industrict+=' '+row.industryName
+                    }
+                    if (row.industryName&&row.industrySubName){
+                        industrict+=' '+row.industryName +">" +row.industrySubName
+                    }
+
+                    if(row.sourceCode){
+                        v= '<div class="list_table_td"> <a target="_blank" href="/project_qy.html?projCode='+row.sourceCode+'"><img  width="37" src="'+img+'"> </a><ul class="col_999"> <li><a target="_blank" href="/project_qy.html?projCode='+row.sourceCode+'">'+company+'</a></li> <li>'+industrict+'</li> </ul> </div>'
+                    }else{
+                        v= '<div class="list_table_td"> <img  width="37" src="'+img+'"> <ul class="col_999"> <li><a class="defalut">'+company+'</a></li> <li>'+industrict+'</li> </ul> </div>'
+                    }
                  }
                  if(k=='investDate'){
                     v=formatDate(v,"yyyy-MM-dd")
@@ -262,9 +295,9 @@ function projectInvestOthersFormatter(data,div){
     }else{
         $("#dwtz").hide()
         var  location_l = $("#dwtz .project_t").attr('location_l')
-                                                         $('.project_all_r li[location_r="'+location_l+'"]').hide();
-                                                         $('.project_all_r li[location_r="'+location_l+'"]').removeClass('storey_list')
-                                                         $("#dwtz").children().removeClass('storey_list');
+         $('.project_all_r li[location_r="'+location_l+'"]').hide();
+         $('.project_all_r li[location_r="'+location_l+'"]').removeClass('storey_list')
+         $("#dwtz").children().removeClass('storey_list');
 //         html="<tr> <td colspan='7'><span>暂无数据</span></th></tr>"
     }
     div.append(html)
@@ -292,6 +325,7 @@ function projectContactListFormatter(data,div){
     }else{
         $("#contacts").hide()
         var location_l = $("#contacts .project_t").attr('location_l')
+        $('.project_all_r li[location_r="'+location_l+'"]').hide();
         $('.project_all_r li[location_r="'+location_l+'"]').removeClass('storey_list')
         $("#contacts").children().removeClass('storey_list');
 //         html="<tr> <td colspan='7'><span>暂无数据</span></th></tr>"
