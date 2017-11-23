@@ -10,7 +10,7 @@ function fillBaseEventInfo(data,divList){
             var k = o.attr("data-field")
             var v = data[o.attr("data-field")]
             if(k=='company'){
-                v="<span class='list_table_td'><a href='project_qy.html?code="+data.sourceCode+"'>"+v+"</a></span>"
+                v="<span class='list_table_td'><a href='project_qy.html?projCode="+data.sourceCode+"'>"+v+"</a></span>"
             }
             if(k=='investDate'){
                 v = formatDate(v, "yyyy-MM-dd")
@@ -103,13 +103,13 @@ function eventDetailListFormatter(data,div){
                     if(k=="investor"&&v){
                         var json = eval("(" + v + ")");
                         if(json.type=='invst'&&json.isClick==1){
-                            v= "<span class='list_table_td'><a target='_blank' href = 'jg_particulars.html?orgId="+json.id+"'>"+json.invstor+"</a></span>";
+                            v= "<span class='list_table_td'><a target='_blank' href = 'jg_particulars.html?orgCode="+json.code+"'>"+json.invstor+"</a></span>";
                         }
                         if(json.type=='invst'&&json.isClick==0){
                             v= "<span class='list_table_td'>"+json.invstor+"</span>";
                         }
                         if(json.type=='com'){
-                            v= "<span class='list_table_td'><a target='_blank' href = '/project_qy.html?code="+json.code+"'>"+json.invstor+"</a></span>";
+                            v= "<span class='list_table_td'><a target='_blank' href = '/project_qy.html?projCode="+json.code+"'>"+json.invstor+"</a></span>";
                         }
                         if(json.type=='person'){
                             v = "<center>"+json.invstor+"</center>"
