@@ -51,7 +51,7 @@ function  getNews(){
             return "请稍等，正在加载中...";
         },
         formatNoMatches: function () {  //没有匹配的结果
-            return '抱歉，没有相关的结果';
+            return '<div class="info-error"><img src="../img/error_03.png"></div>';
         },
         onLoadSuccess: function (data) {
 

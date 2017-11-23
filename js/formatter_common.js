@@ -337,7 +337,7 @@ function newsFormatter(value,row){
     var html;
         if (row.imgmd5){
              html = "<dl class='info-list-item'>"
-             row.imgmd5 = "<a href='"+row.imgmd5+"'> <img src='"+Constants.logoPath+"news/"+row.imgmd5+"'> </a>";
+             row.imgmd5 = "<a href='${href}'> <img src='"+Constants.logoPath+"news/"+row.imgmd5+"'> </a>";
         }else {
              html = "<dl class='info-list-item  no_img'>"
              row.imgmd5 = ""
