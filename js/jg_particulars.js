@@ -98,7 +98,7 @@ function eventInfoExtListFormatter(data,div){
                                     if(json.orgCode==orgCode){
                                         firms += json.invstor+"<br>";
                                     }else if(json.orgCode!=orgCode&&json.type=='invst'){
-                                        firms +='<span class="list_table_bbad"><a target="_blank" href="jg_particulars.html?orgCode='+json.orgCode+'">'+json.invstor+'</a></span><br>'
+                                        firms +='<span class="list_table_bbad"><a target="_blank" href="jg_particulars.html?orgCode='+json.code+'">'+json.invstor+'</a></span><br>'
                                     }else{
                                         firms += json.invstor+"<br>";
                                     }
@@ -112,7 +112,7 @@ function eventInfoExtListFormatter(data,div){
                             v = firms
                         }
                         if(k=="company"){
-                            v='<span class="list_table_td"><a target="_blank" href="project_qy.html?code='+row.sourceCode+'">'+v+'</a></span>'
+                            v='<span class="list_table_td"><a target="_blank" href="project_qy.html?projCode='+row.sourceCode+'">'+v+'</a></span>'
                         }
                         if(k == "eventId"){
                              // 跳转事件详情

@@ -171,8 +171,11 @@ function projectBusinessChangeListFormatter(data,div){
         $(data).each(function(i,row){
              $.each(row,function(k,v){
                  while(temp.indexOf("${"+k+"}") > 1){
-
-                    if(!v){ v = "-"}
+                    if(!v){
+                            v = "--"
+                        }else{
+                            v='<div align="left">'+v+'</div>'
+                        }
                     temp = temp.replace("${"+k+"}",v)
                  }
              })
@@ -192,7 +195,7 @@ function projectBusinessChangeListFormatter(data,div){
 
 //对外投资
 function projectInvestOthersFormatter(data,div){
-    var staticTemplate ='<tr> <td>${investDate}</td> <td>${company}</td> <td>${round}</td> <td>${amountStr}</td> <td>${invstorgnames}</td> <td><a href="/tzsj_particulars.html?eventId=${eventId}" class="a_color">详情</a></td></tr>'
+    var staticTemplate ='<tr> <td>${investDate}</td> <td>${company}</td> <td>${round}</td> <td>${amountStr}</td> <td>${investSideJson}</td> <td><a href="/tzsj_particulars.html?eventId=${eventId}" class="a_color">详情</a></td></tr>'
     var temp = staticTemplate;
     var html = "";
     if(data.length>0){
@@ -205,13 +208,50 @@ function projectInvestOthersFormatter(data,div){
                  if(k=='investDate'){
                     v=formatDate(v,"yyyy-MM-dd")
                  }
-                 if(k=='invstorgnames'){
-                       var firm=v.split(",")
-                       var str='';
-                       for(j in firm){
-                           str=str+firm[j]+"<br>";
-                       }
-                       v=str;
+                 if(k=='investSideJson'){
+                         var investSideJson = v
+                         if(!investSideJson){
+                            return table.empty
+                         }else{
+                         var jsonObjArr = eval('(' + investSideJson + ')');
+                         for(m in jsonObjArr){
+                            var m = jsonObjArr[m]
+                            var investTitle = ''
+                            for(j in m){
+                                var json = m[j]
+                                if(json.invstor!=null&&j<3){
+                                   var con=json.invstor;
+                                   /*if(json.invstor.length>10){  //投资方截断显示
+                                       con=json.invstor.substring(0,10)+"..."
+                                   }else{
+                                       con=json.invstor
+                                   }*/
+                                    if(json.id){
+                                        if(json.type=='invst'&&json.isClick==1){
+                                            investTitle+='<center><span class="list_table_bbad"><a target="_blank" href="/jg_particulars.html?orgCode='+json.code+'" title="'+json.invstor.replace("<firm>","").replace("</firm>","")+'" class="invstorName">'+con+'</a></span></center>';
+                                        }
+                                        if(json.type=='invst'&&json.isClick==0){
+                                            investTitle+='<center><span class="list_table_td invstorName" title="'+json.invstor.replace("<firm>","").replace("</firm>","")+'">'+con+'</span></center>';
+                                        }
+                                        if(json.type=='com'){
+                                            investTitle+='<center><span class="list_table_bbad"><a target="_blank" href="/project_qy.html?projCode='+json.code+'"  title="'+json.invstor.replace("<firm>","").replace("</firm>","")+'" class="invstorName">'+con+'</a></span></center>';
+                                        }
+                                        if(json.type!='invst'&&json.type!='com'){
+                                            investTitle+='<center><span class="list_table_td invstorName" title="'+json.invstor.replace("<firm>","").replace("</firm>","")+'">'+con+'</span></center>';
+                                        }
+                                    }else{
+                                        investTitle+='<center><span class="list_table_td invstorName" title="'+json.invstor.replace("<firm>","").replace("</firm>","")+'">'+con+'</span></center>';
+                                    }
+                                }
+                            }
+                            if(investTitle!=''&&investTitle){
+                                v = investTitle
+                            }else{
+                                v='未透露'
+
+                            }
+                         }
+                     }
                  }
                  temp =temp.replace("${"+k+"}",v)
              }
