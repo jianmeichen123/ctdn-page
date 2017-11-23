@@ -378,6 +378,11 @@ sendGetRequest(url,function(data){
     		                    records[j][k]='地区未知'
     		                }
     		            }
+    		            if(k=='introduce'){
+    		                if(!records[j][k]){
+    		                    records[j][k]='暂无简介'
+    		                }
+    		            }
     		        }
     		    }
     		    target.tmpl(data).appendTo(target.parent())
