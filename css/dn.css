@@ -39,12 +39,12 @@ ul,ol,dl,dt,dd,p,img{ display:block; border:0;list-style:none; }
 .hot_speech{width:255px;  box-shadow: 0px 1px 5px #ddd;   z-index: 98; background-color:#fff; position:absolute; right:0px; top: 48px; border:1px solid #f1f1f1;}
 /*向上*/
 .hot_speech_all{padding-left:20px; overflow:hidden; font-size:12px; padding-right:20px; padding-bottom:20px; }
-.hot_speech_all>ul{margin-left:-20px; margin-top:8px;}
+.hot_speech_all>ul{margin-left:-10px; margin-top:8px;}
 .hot_speech_all>ul>li{float:left; margin-left:10px; cursor:pointer; color:#666666; margin-top:12px; height:26px; line-height:26px; padding-left:15px; padding-right:15px; border-radius:13px;border:1px solid #2393f7;}
 .hot_speech_all>ul>li:hover{background-color:#2393f7; color:#fff;}
 .dn_ico_search{background-position: -106px 0px; width: 21px; height: 22px; display: inline-block; cursor:pointer; color:#fff; float:left; margin-top:26px; margin-left: 60px;}
 .info-search .hot_speech{width: 385px; top: 76px;  left: 11px; display:none;}
-.info-search .hot_speech>.tit{color:#666;margin-top:20px; margin-bottom:-10px; margin-left:10px; font-size:12px;}
+.info-search .hot_speech>.tit{color:#666;margin-top:20px; margin-bottom:-10px; margin-left:20px; font-size:12px;}
 .seek_all{background-color:#ff943e; cursor:pointer; color:#fff;height:36px; padding-left:20px; padding-right:20px; float:left; line-height:36px; font-size:16px; margin-top:16px; border-radius:4px;}
 .dn_ico_seek{background-position: -86px 0px; width: 21px; height: 22px; display: inline-block; float:left;    margin-top: 7px;     margin-right: 10px; }
 .dn_ico_report_list{background-position:-51px -39px; width: 21px; height: 22px; display: inline-block; float:left; margin-left:20px;}
@@ -95,7 +95,7 @@ ul,ol,dl,dt,dd,p,img{ display:block; border:0;list-style:none; }
 .equity_trading_all>ul>li{padding-left:20px; position:relative;     margin-top: -40px;  overflow:hidden; padding-right:20px; float:none;}
 .equity_trading_l{font-size:12px; color:#999999; border-right:1px solid #cee8ff; float:left; height:80px; width:73px; margin-top: 40px;}
 .equity_trading_time{position:absolute; top: 35px;}
-.equity_trading_r{float:left;  margin-left:10px; margin-top:20px; height:50px; }
+.equity_trading_r{float:left;  margin-left:10px; margin-top:20px; height:50px;width: 953px; }
 .equity_trading_r img{width:50px; height:50px; border:1px solid #f0f0f0; float:left;     overflow: hidden;}
 .equity_trading_r_c{width:154px; margin-left:12px; float:left;}
 .equity_trading_r_tit{font-size:14px; margin-top:5px; }
