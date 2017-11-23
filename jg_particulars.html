@@ -13,8 +13,8 @@
 {(header.html)}
 <div class="container">
 	<div class="particulars_all">
-		<div class="particulars_black background_boeder" data-query="baseOrgInfo">
-			<div class="particulars_k particulars_tit">
+		<div class=" background_boeder" data-query="baseOrgInfo">
+			<div class="particulars_k particulars_tit particulars_black">
 				<img src="" data-field="logo">
 				<ul>
 					<li class="font_20" data-field="investOrg"></li>
@@ -22,13 +22,17 @@
 					<li class="color_666 font_14" data-field="webUrl"></li>
 				</ul>
 			</div>
-			<div class="particulars_k m_t25 particulars_ul particulars_bottom_b">
+			<div class="particulars_k m_t25 particulars_ul">
 				<ul>
 					<li class="font_14"><div class="project_t"><span class="brain_ico brain_ico_project_crumbs"></span>基本信息</div></li>
+				</ul>
+			</div>
+			<div class="particulars_k particulars_ul particulars_bottom_b particulars_black" >
+				<ul>
 					<li><span class="color_666">简称： </span><span data-field="investOrg"></span></li>
 				</ul>
 			</div>
-			<div class="particulars_k m_t5 particulars_ul particulars_ul_one">
+			<div class="particulars_k m_t5 particulars_ul particulars_ul_one particulars_black">
 				<div class="w_50 fl">
 					<ul>
 						<li><span class="fl color_666 width_97">成立时间：&nbsp;</span><span data-field="foundDateStr"></span></li>
@@ -53,23 +57,24 @@
 			</div>
 		</div>
 		<!-- 机构描述 -->
-		<div class="particulars_black m_t20 background_boeder" data-query="baseOrgInfo">
+		<div class=" m_t20 background_boeder" data-query="baseOrgInfo">
 			<div class="project_t"><span class="brain_ico brain_ico_project_crumbs"></span>机构描述</div>
-			<p  class="color_666" data-field="orgDesc"></p>
+			<div class="particulars_black"><p  class="color_666" data-field="orgDesc"></p></div>
 		</div>
 		<!-- 发展历史/里程碑 -->
-		<div class="particulars_black m_t20 background_boeder">
+		<div class="m_t20 background_boeder">
 			<div class="project_t"><span class="brain_ico brain_ico_project_crumbs"></span>发展历史/里程碑</div>
-			<div class="blue_l_b">
+			<div class="blue_l_b particulars_black">
 				<ul data-query="list" data-formatter="orgHistoryInfoList">
 				</ul>
 			</div>
 		</div>
 
 		<!-- 投资策略 -->
-		<div class="particulars_black m_t20 background_boeder"  data-query="baseOrgInfo">
+		<div class=" m_t20 background_boeder"  data-query="baseOrgInfo">
 			<div class="project_t"><span class="brain_ico brain_ico_project_crumbs"></span>投资策略</div>
-			<ul class="ul_display">
+			<div class="particulars_black">
+			<ul class="ul_display ">
 				<li>
 					<span class="fl color_666 width_97">拟投阶段：</span>
 					<span class="wid_998" data-field="propSatge"></span>
@@ -93,10 +98,12 @@
 				<li><span class="fl color_666 width_97">已投领域/行业：</span><span class="wid_998" data-field="castIndustry"></span></li>
 				<li><span class="fl color_666 width_97">已投地区：</span><span  class="wid_998" data-field="castDistrict"></span></li>
 			</ul>
+			</div>
 		</div>
 		<!-- 机构成员 -->
-		<div class="particulars_black m_t20 background_boeder">
+		<div class="m_t20 background_boeder">
 			<div class="project_t"><span class="brain_ico brain_ico_project_crumbs"></span>机构成员</div>
+				<div class="particulars_black">
 				<table class=" particulars_table_list m_t5">
 					<thead>
 						<tr>
@@ -110,11 +117,12 @@
 					<tbody data-query="list" data-formatter="orgMemberList">
 					</tbody>
 				</table>
-
+				</div>
 			</div>
 			<!-- 投资事件 -->
-			<div class="particulars_black m_t20 background_boeder">
+			<div class="m_t20 background_boeder">
 			<div class="project_t"><span class="brain_ico brain_ico_project_crumbs"></span>投资事件</div>
+				<div class="particulars_black">
 				<table class=" particulars_table_list m_t5">
 					<thead>
 						<tr>
@@ -129,11 +137,12 @@
 					<tbody data-query="list" data-formatter="eventInfoExtList" class="tzsj_eventInfoExtList">
 					</tbody>
 				</table>
-
+				</div>
 			</div>
 			<!-- 相关新闻 -->
-			<div class="particulars_black m_t20 background_boeder">
+			<div class="m_t20 background_boeder">
 			<div class="project_t"><span class="brain_ico brain_ico_project_crumbs"></span>相关新闻</div>
+				<div class="particulars_black">
 				<table class=" particulars_table_list m_t5">
 					<thead>
 						<tr>
@@ -145,11 +154,12 @@
 					<tbody data-query="list" data-formatter="orgMediaInfoList">
 					</tbody>
 				</table>
-
+				</div>
 			</div>
 			<!-- 联系方式 -->
-			<div class="particulars_black m_t20 background_boeder">
+			<div class="m_t20 background_boeder">
 			<div class="project_t"><span class="brain_ico brain_ico_project_crumbs"></span>联系方式</div>
+				<div class="particulars_black">
 				<table class=" particulars_table_list m_t5">
 					<thead>
 						<tr>
@@ -164,7 +174,7 @@
 					<tbody data-query="list" data-formatter="projectContactList">
 					</tbody>
 				</table>
-
+				</div>
 			</div>
 	</div>
 </div>

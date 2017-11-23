@@ -57,11 +57,6 @@ var tableFormate ={
                     var json = i[j]
                     if(json.invstor!=null&&j<3){
                     	var con=json.invstor;
-                    	/*if(json.invstor.length>10){  //投资方截断显示
-                    		con=json.invstor.substring(0,10)+"..."
-                    	}else{
-                    		con=json.invstor
-                    	}*/
                         if(json.id){
                             if(json.type=='invst'&&json.isClick==1){
                                 investTitle+='<center><span class="list_table_bbad"><a target="_blank" href="/jg_particulars.html?orgCode='+json.code+'" title="'+json.invstor.replace("<firm>","").replace("</firm>","")+'" class="invstorName">'+con+'</a></span></center>';
