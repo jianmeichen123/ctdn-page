@@ -128,14 +128,14 @@ input{outline: none;}
 #one_industry,#two_industry{overflow-y: auto; overflow-x: hidden; height:290px; float: left;}
 .industry_list #two_industry{width:173px;}
 .none{ display:none;}
-#two_industry .click_class ,#one_industry .click_class,#three_industry .click_class{ color:#f78123;}
-#one_industry li:hover ,#two_industry li:hover ,#three_industry li:hover{ background-color:#f78123; color:#fff;}
+#two_industry .click_class ,#one_industry .click_class,#three_industry .click_class{ color:#2493f7;}
+#one_industry li:hover ,#two_industry li:hover ,#three_industry li:hover{ background-color:#2493f7; color:#fff;}
 .industry_list{ display:none;}
 .block_industry{ width:100%;}
 .switch_condition{ display:none;}
 .type_name{ float:left;margin-left: 88px; line-height:26px; margin-top: 10px;}
 .pick_on_color{ color:#1ed2ff}
-.industry_li_on{background-color:#f78123; color:#fff !important;}
+.industry_li_on{background-color:#2493f7; color:#fff !important;}
 .no_two_industry .industry_list{width:131px;}
 /*导航*/
 .nav_bj{ background-color:#2d3245; height:68px;    position: relative; width:100%;}
@@ -194,7 +194,7 @@ com{color:#f78123;}
 .list_click_ul li{ line-height:36px;background-color:#3e4e63; height:36px; width:112px; color:#fff; text-align: center;  cursor:pointer;}
 .list_click_ul a{display: block; color: #fff; text-decoration: none;}
 .list_click_ul a:hover{color: #f78123; }
-.condition_all_ul li:hover{ color:#f78123; cursor:pointer;}
+.condition_all_ul li:hover{ color:#2493f7; cursor:pointer;}
 .condition_all_ul .pick_on:hover{ color:#fff}
 .brain_ico_name_on{background-position: -94px -14px; margin-top:-5px;}
 .number_th{width:99px;}
