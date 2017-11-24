@@ -591,11 +591,11 @@ white-space: nowrap; text-align:center; height:25px; line-height:25px; margin-t
 .particulars_table_list a:hover ,.project_new a:hover{ color:#2393f7; text-decoration: none;}
 /* 微信二维码 */
 .weixin{position:relative;}
-.project_tit_r .weixin_ewm{display:none;position:absolute;z-index:9;width:140px;padding:10px 20px 4px;background-color:rgba(0,0,0,.8);border-top:15px solid #fff;color:#fff;}
-.project_tit_r .wx_img{width:100px;display:block;}
+.project_tit_r .weixin_ewm{display:none;position:absolute;z-index:9;width:200px; height:33px;color:#333333; font-size:12px;     text-align: center;}
+.project_tit_r .wx_img{   padding-left: 10px;  padding-right: 10px; background-color:#f0f0f0; margin-left:auto; margin-right:auto; text-align: center; line-height:33px;display: inline-block;;}
 .project_tit_r .wx_img img{width:100%}
 .project_tit_r .wx_img span{;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;padding:5px 0 0;text-align:center;}
-.project_tit_r .weixin_ewm:after{content:"";display:block;width:0;height:0;border-left:10px solid transparent;border-right:10px solid transparent;border-bottom:10px solid rgba(0,0,0,.8);position:absolute;top:-10px;left:60px;}
+.project_tit_r .weixin_ewm:after{content:"";display:block;width:0;height:0;border-left:10px solid transparent;border-right:10px solid transparent;border-bottom:10px solid #f0f0f0;position:absolute;top:-10px;left:50%; margin-left: -9px;}
 /*预览*/
 .yl_bj{background-color:#f4f9ff; width:100%; overflow:hidden; border-top:1px solid #e6e6e6; margin-top:20px; border-bottom:1px solid #e6e6e6;}
 .yl_bj .container {padding-top:25px; padding-bottom:5px;}
