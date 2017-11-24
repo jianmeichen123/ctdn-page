@@ -145,7 +145,7 @@
 			}
 			ret = jQuery.isArray( data ) ?
 				jQuery.map( data, function( dataItem ,index) {
-				    if(dataItem){$index = index}
+				    if(dataItem){dataItem.$index = index}
 					return dataItem ? newTmplItem( options, parentItem, tmpl, dataItem ) : null;
 				}) :
 				[ newTmplItem( options, parentItem, tmpl, data ) ];

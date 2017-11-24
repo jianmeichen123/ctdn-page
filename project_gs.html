@@ -178,15 +178,9 @@
 					<ul class="company_all_qy">
 						{-raw-}
 						<script id="getAllCompSubs" type="text/x-jquery-tmpl">
-							{{if data.records.length >0}}
-								{{each(i,v) data.records}}
 									<li>
-									<span class="job_bj">${i+1+(data.pageNo)*(data.pageSize)}</span><span class="company_all_qy_r">${v.compSubFulltitle}</span>
+									<span class="job_bj">${$index+1}</span><span class="company_all_qy_r">${compSubFulltitle}</span>
 									</li>
-								{{/each}}
-							{{else}}
-								<span>暂无数据</span>
-							{{/if}}
 							</script>
 						{-raw-}
 					</ul>
@@ -204,30 +198,24 @@
                         <ul>
 							{-raw-}
 							<script id="queryByProjTitle" type="text/x-jquery-tmpl">
-								{{if data.records.length >0}}
-									{{each(i,v) data.records}}
 										<li>
 										<div class="list-item-inner">
-										<div class="list-item-left"><a href="/project_qy.html?projCode=${v.projCode}"><img src="${v.logoSmall}"></a></div>
+										<div class="list-item-left"><a href="/project_qy.html?projCode=${projCode}"><img src="${logoSmall}"></a></div>
 										<div class="list-item-right">
-											<p class="list-item-title"><a target="_blank" href="/project_qy.html?projCode=${v.projCode}"><comp>${v.projTitle}</comp></a>
-											{{if v.latestFinanceRound}}
-												<span>${v.latestFinanceRound}</span></p>
+											<p class="list-item-title"><a target="_blank" href="/project_qy.html?projCode=${projCode}"><comp>${projTitle}</comp></a>
+											{{if latestFinanceRound}}
+												<span>${latestFinanceRound}</span></p>
 											{{/if}}
-											<p class="list-item-content">简介:${v.introduce}</p><p class="list-item-tips"><i class="list-item-address"></i>${v.districtSubName}
-											 {{if v.industryName}}
+											<p class="list-item-content">简介:{{html introduce}}</p><p class="list-item-tips"><i class="list-item-address"></i>${districtSubName}
+											 {{if industryName}}
 											 	<i class="list-item-finace"></i>
-											    ${v.industryName}>
+											    ${industryName}>
 											  {{/if}}
-											 ${v.industrySubName}
+											 ${industrySubName}
 											</p>
 										</div>
 										</div>
 										<li>
-									{{/each}}
-								{{else}}
-									<span>暂无数据</span>
-								{{/if}}
 								</script>
 							{-raw-}
                         </ul>
@@ -298,6 +286,7 @@
 		</div>
 	</div>
 </div>
+{(dn_foot.html)}
 <script src="js/jquery.tmpl.js"></script>
 <script src="js/echarts_3.2.3.js"></script>
 <script src="js/fill_project_header.js"></script>

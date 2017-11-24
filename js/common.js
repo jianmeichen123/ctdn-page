@@ -564,7 +564,7 @@ function formatNewsTime(time){
       else if(minC>=1){
          result= parseInt(minC) +"分钟前";
       }else{
-         result="刚刚发表";
+         result="1分钟前";
       }
       return result;
 }

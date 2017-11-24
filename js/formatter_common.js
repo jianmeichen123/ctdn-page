@@ -143,6 +143,28 @@ var tableFormate ={
         }
         return amountStr
     },
+    //并购方-并购列表（未用）
+    mergerSide:function(value,row,index){
+        var mergerSideJson = row.mergeSideJson
+        var mergerSideArr = eval('('+mergerSideJson+')')
+        for(i in mergerSideArr){
+            var mergerSides = mergerSideArr[i]
+            var mergerSideTitle = ''
+            for(j in mergerSides){
+                var json = mergerSides[j]
+                if(json.title != ''){
+//                    mergerSideTitle+='<div class="w_200_spot">'+json.title+'</div>';
+                    mergerSideTitle+='<div class="list_table_td"><center><span class="col_999"><a target="_blank" href="/jg_particulars.html?orgCode='+json.sourceCode+'">'+json.title+'</a></span></center></div>';
+                }
+            }
+            if(mergerSideTitle!=''){
+                return mergerSideTitle
+            }else{
+                mergerSideTitle = '未透露'
+                return mergerSideTitle
+            }
+        }
+    },
     //投资机构-投资机构列表
     org:function(value,row,index){
         var investOrg = row.investOrg
@@ -213,7 +235,7 @@ var tableFormate ={
             var json = jsonObjArr[i]
             if(json.title){
                 if(json.code){
-                    if(json.type=='invse'){
+                    if(json.type=='invst'){
                         mergeSideTitle+='<center><span class="list_table_td"><a target="_blank" href="/jg_particulars.html?orgCode='+json.code+'">'+json.title+'</a></span></center>';
                     }
                     if(json.type=='com'){

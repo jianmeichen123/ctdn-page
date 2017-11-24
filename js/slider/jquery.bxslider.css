@@ -58,7 +58,6 @@
 
 .bx-wrapper .bx-loading {
 	min-height: 50px;
-	background: url(../images/bx_loader.gif) center center no-repeat #fff;
 	height: 100%;
 	width: 100%;
 	position: absolute;
@@ -131,7 +130,7 @@
 	width: 43px;
 	height: 43px;
 	text-indent: -9999px;
-	z-index: 9999;
+	z-index: 99;
 }
 
 .bx-wrapper .bx-controls-direction a.disabled {

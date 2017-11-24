@@ -37,7 +37,7 @@ em,i{font-style:normal;}
 .list-item-tips{color:#999;}
 .list-item-inner:after{content:'\0020';display:block;height:0;clear:both;}
 .list-item-title{margin-top:23px;color:#323232;}
-.list-item-title a{ color:#323232}
+.list-item-title a{ color:#323232;     font-size: 16px;}
 .list-item-title span{display:inline-block;height:20px;border-radius:20px;border:1px solid #999999;padding:0px 10px;;margin-left:9px;color:#333333; line-height:20px;font-size:12px;}
 .list-item-content{color:#666666;font-size:14px; max-height: 60px;}
 .list-item-address{display:inline-block;width:14px;height:16px;vertical-align:middle;margin-right:9px;background:url('../img/dn/address_03.png') no-repeat;}
