@@ -50,95 +50,30 @@ var tableFormate ={
             return table.empty
          }else{
              var jsonObjArr = eval('(' + investSideJson + ')');
-             for(i in jsonObjArr){
-                var i = jsonObjArr[i]
-                var investTitle = ''
-                for(j in i){
-                    var json = i[j]
-                    if(investSideJson.indexOf("<firm>")>=0){
-                        if(json.invstor.indexOf("<firm>")>=0){
-                            var con=json.invstor;
-                            /*if(json.invstor.length>10){  //投资方截断显示
-                                con=json.invstor.substring(0,10)+"..."
-                            }else{
-                                con=json.invstor
-                            }*/
-                            if(json.code){
-                                if(json.type=='invst'&&json.isClick==1){
-                                    investTitle+='<center><span class="list_table_bbad"><a target="_blank" href="/jg_particulars.html?orgCode='+json.code+'" title="'+json.invstor.replace("<firm>","").replace("</firm>","")+'" class="invstorName">'+con+'</a></span></center>';
-                                }
-                                if(json.type=='invst'&&json.isClick==0){
-                                    investTitle+='<center><span class="list_table_td invstorName" title="'+json.invstor.replace("<firm>","").replace("</firm>","")+'">'+con+'</span></center>';
-                                }
-                                if(json.type=='com'){
-                                    investTitle+='<center><span class="list_table_bbad"><a target="_blank" href="/project_qy.html?projCode='+json.code+'"  title="'+json.invstor.replace("<firm>","").replace("</firm>","")+'" class="invstorName">'+con+'</a></span></center>';
-                                }
-                                if(json.type!='invst'&&json.type!='com'){
-                                    investTitle+='<center><span class="list_table_td invstorName" title="'+json.invstor.replace("<firm>","").replace("</firm>","")+'">'+con+'</span></center>';
-                                }
-                            }else{
+             var investTitle = ''
+             for(var i in jsonObjArr){
+                var json = jsonObjArr[i]
+                    if(json.invstor){
+                    	var con=json.invstor;
+                        if(json.code){
+                            if(json.type=='invst'&&json.isClick==1){
+                                investTitle+='<center><span class="list_table_bbad"><a target="_blank" href="/jg_particulars.html?orgCode='+json.code+'" title="'+json.invstor.replace("<firm>","").replace("</firm>","")+'" class="invstorName">'+con+'</a></span></center>';
+                            }
+                            if(json.type=='invst'&&json.isClick==0){
+                                investTitle+='<center><span class="list_table_td invstorName" title="'+json.invstor.replace("<firm>","").replace("</firm>","")+'">'+con+'</span></center>';
+                            }
+                            if(json.type=='com'){
+                                investTitle+='<center><span class="list_table_bbad"><a target="_blank" href="/project_qy.html?projCode='+json.code+'"  title="'+json.invstor.replace("<firm>","").replace("</firm>","")+'" class="invstorName">'+con+'</a></span></center>';
+                            }
+                            if(json.type!='invst'&&json.type!='com'){
                                 investTitle+='<center><span class="list_table_td invstorName" title="'+json.invstor.replace("<firm>","").replace("</firm>","")+'">'+con+'</span></center>';
                             }
                         }else{
-                            if(json.invstor!=null&&j<2){
-                                var con=json.invstor;
-                                /*if(json.invstor.length>10){  //投资方截断显示
-                                    con=json.invstor.substring(0,10)+"..."
-                                }else{
-                                    con=json.invstor
-                                }*/
-                                if(json.code){
-                                    if(json.type=='invst'&&json.isClick==1){
-                                        investTitle+='<center><span class="list_table_bbad"><a target="_blank" href="/jg_particulars.html?orgCode='+json.code+'" title="'+json.invstor.replace("<firm>","").replace("</firm>","")+'" class="invstorName">'+con+'</a></span></center>';
-                                    }
-                                    if(json.type=='invst'&&json.isClick==0){
-                                        investTitle+='<center><span class="list_table_td invstorName" title="'+json.invstor.replace("<firm>","").replace("</firm>","")+'">'+con+'</span></center>';
-                                    }
-                                    if(json.type=='com'){
-                                        investTitle+='<center><span class="list_table_bbad"><a target="_blank" href="/project_qy.html?projCode='+json.code+'"  title="'+json.invstor.replace("<firm>","").replace("</firm>","")+'" class="invstorName">'+con+'</a></span></center>';
-                                    }
-                                    if(json.type!='invst'&&json.type!='com'){
-                                        investTitle+='<center><span class="list_table_td invstorName" title="'+json.invstor.replace("<firm>","").replace("</firm>","")+'">'+con+'</span></center>';
-                                    }
-                                }else{
-                                    investTitle+='<center><span class="list_table_td invstorName" title="'+json.invstor.replace("<firm>","").replace("</firm>","")+'">'+con+'</span></center>';
-                                }
-                            }
-                        }
-                    }else{
-                        if(json.invstor!=null&&j<3){
-                            var con=json.invstor;
-                            /*if(json.invstor.length>10){  //投资方截断显示
-                                con=json.invstor.substring(0,10)+"..."
-                            }else{
-                                con=json.invstor
-                            }*/
-                            if(json.code){
-                                if(json.type=='invst'&&json.isClick==1){
-                                    investTitle+='<center><span class="list_table_bbad"><a target="_blank" href="/jg_particulars.html?orgCode='+json.code+'" title="'+json.invstor.replace("<firm>","").replace("</firm>","")+'" class="invstorName">'+con+'</a></span></center>';
-                                }
-                                if(json.type=='invst'&&json.isClick==0){
-                                    investTitle+='<center><span class="list_table_td invstorName" title="'+json.invstor.replace("<firm>","").replace("</firm>","")+'">'+con+'</span></center>';
-                                }
-                                if(json.type=='com'){
-                                    investTitle+='<center><span class="list_table_bbad"><a target="_blank" href="/project_qy.html?projCode='+json.code+'"  title="'+json.invstor.replace("<firm>","").replace("</firm>","")+'" class="invstorName">'+con+'</a></span></center>';
-                                }
-                                if(json.type!='invst'&&json.type!='com'){
-                                    investTitle+='<center><span class="list_table_td invstorName" title="'+json.invstor.replace("<firm>","").replace("</firm>","")+'">'+con+'</span></center>';
-                                }
-                            }else{
-                                investTitle+='<center><span class="list_table_td invstorName" title="'+json.invstor.replace("<firm>","").replace("</firm>","")+'">'+con+'</span></center>';
-                            }
+                            investTitle+='<center><span class="list_table_td invstorName" title="'+json.invstor.replace("<firm>","").replace("</firm>","")+'">'+con+'</span></center>';
                         }
                     }
-                }
-                if(investTitle!=''&&investTitle){
-                    return investTitle
-                }else{
-                    investTitle='未透露'
-                    return investTitle
-                }
              }
+             return investTitle
          }
     },
     //融资公司/投资列表
@@ -296,25 +231,22 @@ var tableFormate ={
         }
         var mergeSideTitle = ''
         var jsonObjArr =  JSON.parse(mergeSideJson);
-        for(i in jsonObjArr){
-            var i = jsonObjArr[i]
-            for(j in i){
-                var json = i[j]
-                if(json.title&&j<3){
-                    if(json.code){
-                        if(json.type=='invse'){
-                            mergeSideTitle+='<center><span class="list_table_td"><a target="_blank" href="/jg_particulars.html?orgCode='+json.code+'">'+json.title+'</a></span></center><br>';
-                        }
-                        if(json.type=='com'){
-                            mergeSideTitle+='<center><span class="list_table_td"><a target="_blank" href="/project_qy.html?projCode='+json.code+'">'+json.title+'</a></span></center><br>';
-                        }
-                    }else{
-                        mergeSideTitle+='<center><span class="list_table_td">'+json.title+'</span></center><br>';
+        for(var i in jsonObjArr){
+            var json = jsonObjArr[i]
+            if(json.title){
+                if(json.code){
+                    if(json.type=='invse'){
+                        mergeSideTitle+='<center><span class="list_table_td"><a target="_blank" href="/jg_particulars.html?orgCode='+json.code+'">'+json.title+'</a></span></center>';
                     }
+                    if(json.type=='com'){
+                        mergeSideTitle+='<center><span class="list_table_td"><a target="_blank" href="/project_qy.html?projCode='+json.code+'">'+json.title+'</a></span></center>';
+                    }
+                }else{
+                    mergeSideTitle+='<center><span class="list_table_td">'+json.title+'</span></center>';
                 }
             }
-            return mergeSideTitle
         }
+        return mergeSideTitle
     },
     //并购详情
     paticulars:function(value, row, index){
@@ -389,7 +321,7 @@ function newsFormatter(value,row){
     var html;
         if (row.imgmd5){
              html = "<dl class='info-list-item'>"
-             row.imgmd5 = "<a href='${href}'> <img src='"+Constants.logoPath+"news/"+row.imgmd5+"'> </a>";
+             row.imgmd5 = "<a href='${href}'> <img src='"+Constants.logoPath+"news/"+row.imgmd5+".PNG'> </a>";
         }else {
              html = "<dl class='info-list-item  no_img'>"
              row.imgmd5 = ""
