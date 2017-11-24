@@ -49,6 +49,10 @@ function formatProjectInfo(data,divList){
        }
        if(data["photos"]){
             $(".photos").closest(".background_boeder").show()
+            var right_show = $(".photos").closest(".background_boeder").children('.project_t').attr('location_l');
+            $('.project_all_r li[location_r='+right_show+']').show();
+            $('.project_all_r li[location_r='+right_show+']').addClass('storey_list')
+            $('.project_all_l [location_l='+right_show+']').addClass('storey_list')
             var str = "<div class='slider6'>";
             $(data["photos"].split("^$^")).each(function(i,e){
                  str+= "<div class='slide'><img src='"+Constants.logoPath+"product/other/"+e+".png'></div>";
@@ -59,7 +63,7 @@ function formatProjectInfo(data,divList){
        }
        if(data["firmDesc"]){
           $("#firmDesc").closest(".background_boeder").show()
-           var right_show =$('#firmDesc').parent().parent().parent().parent().children('.project_t').attr('location_l');
+           var right_show =$("#firmDesc").closest(".background_boeder").children('.project_t').attr('location_l');
          $('.project_all_r li[location_r='+right_show+']').show();
          $('.project_all_r li[location_r='+right_show+']').addClass('storey_list')
          $('.project_all_l [location_l='+right_show+']').addClass('storey_list')
