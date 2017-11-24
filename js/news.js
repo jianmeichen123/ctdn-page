@@ -125,7 +125,7 @@ function newsFormatter(value,row){
    var html = "<li>";
    if (row.imgmd5){
         html +=  '<div class="dn_info_list_show">'
-        row.imgmd5 = "<div class='dn_info_list_show_l'><a href='"+row.href+"'> <img src='"+Constants.logoPath +"news/"+row.imgmd5+"'> </a></div>";
+        row.imgmd5 = "<div class='dn_info_list_show_l'><a href='"+row.href+"'> <img src='"+Constants.logoPath +"news/"+row.imgmd5+".PNG'> </a></div>";
    }else {
         html +=  '<div class="dn_info_list_show no_img">'
         row.imgmd5 = ""
