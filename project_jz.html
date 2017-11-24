@@ -37,6 +37,16 @@
 <script src="js/fill_project_header.js"></script>
 <script src="js/fillData_common.js"></script>
 <script>
+$(window).scroll(function(){
+	 var scrollTop=$(window).scrollTop();
+		if(scrollTop>305){
+			$('.project_nav').addClass('project_nav_top');
+			$('.project_nav_top_none').show();
+		}else{
+			$(".project_nav").removeClass("project_nav_top");
+			$('.project_nav_top_none').hide();
+		}
+});
 	//给tab页a赋参数
   $(".tzf").each(function(){   //去掉最后一个分隔符
 	  if($(this).children("span:last-child").html()==","){

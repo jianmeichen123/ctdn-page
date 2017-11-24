@@ -394,7 +394,7 @@ com{color:#2393f7;}
 .dn_ico_bj_lc{ background-position: -21px -64px; width: 107px;     margin-top: 3px; height: 88px;  float:left;  display:block;}
 .dn_ico_bj_lc_b{border:1px solid #e6e6e6;  width:843px;       position: relative;   overflow: hidden;   border-radius: 8px;  margin-left: 110px; }
 .particulars_black_rz .equity_trading_r{height:auto;}
-.equity_trading_r{width:953px;}
+.equity_trading_all .equity_trading_r{width:225px;}
 .dn_ico_bj_lc_b_l{color:#999999;margin-right:10px;display:block; float:left;}
 .dn_ico_bj_lc_b_r{color:#333333; margin-right:40px; display:block; float:left; margin-bottom:10px;}
 .dn_ico_bj_lc_b_r a{color:#333333;}
@@ -421,7 +421,7 @@ com{color:#2393f7;}
 .ul_all{width:100%; overflow:hidden;}
 .ul_all>li{overflow:hidden;     margin-bottom: 10px;}
 .xian_t{border-top:1px solid #f0f0f0; margin-top:10px; padding-top:10px;}
-.project_jz_l{width:780px; float:left;}
+.project_jz_l{width:880px; float:left;}
 .project_jz_l>ul>li{ float:left;}
 .project_jz_l .project_absolute_blue{ padding:5px 10px; border-radius:15px; display: inline;}
 .project_jz_span span{background-color:#f2f2f2;  border-radius:15px; display:block; float:left; margin-right:15px; color:#999;}
@@ -429,7 +429,7 @@ com{color:#2393f7;}
 .project_jz_l img { float: left;   width: 78px;   position:absolute;top:50%;transform:translateY(-50%)}
 /* .project_jz_l img{ border:1px solid #e6e6e6; width:78px; height:78px; float:left; margin-right:10px;} */
 .project_jz_l_n_3{margin-top:27px; margin-left:20px; width:100px;}
-.project_jz_l_n_2{margin-top:27px; margin-left:20px;}
+.project_jz_l_n_2{margin-top:27px; margin-left:20px;     width: 96px;}
 .project_jz_l_n_ul li{margin-bottom:5px; width:435px; overflow:hidden; white-space:nowrap; text-overflow:ellipsis;}
 .project_jz_l_n_ul li a{color:#333;}
 .project_jz_l_n_ul li a:hover{color:#2393f7;}
