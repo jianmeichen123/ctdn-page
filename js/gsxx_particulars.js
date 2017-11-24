@@ -459,7 +459,7 @@ sendGetRequest(url,function(data){
     		            }
     		        }
     		    }
-    		    target.tmpl(data).appendTo(target.parent())
+    		    target.tmpl(records).appendTo(target.parent())
 				if(pageNo && pageSize){
 				    if(data.data.total<=(pageNo*1)*pageSize){
                         more.hide();
