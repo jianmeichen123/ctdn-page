@@ -994,7 +994,10 @@ $.extend($.validator, {
 
 		// http://docs.jquery.com/Plugins/Validation/Methods/required
 		required: function( value, element, param ) {
-		    value = value.replace(/(^\s+)|(\s+$)/g,"");
+		    if(value){
+		        value = value.replace(/(^\s+)|(\s+$)/g,"");
+		    }
+
 			// check if dependency is met
 			if ( !this.depend(param, element) ) {
 				return "dependency-mismatch";

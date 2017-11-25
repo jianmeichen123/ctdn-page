@@ -169,10 +169,10 @@
 				<div class="background_boeder" data-id="eventHistory" data-url="queryProjectMediaInfoByCode" style="display:none">
 				<div class="project_t" location_l="location_fz"><span class="brain_ico brain_ico_project_crumbs"></span>发展历史</div>
 				<div class="particulars_black">
-					<input type="hidden" name = "pageSize" value="3">
-					<input type="hidden" name = "pageNo" value="1">
-					<input type="hidden" name = "projectCode" >
-					<input type="hidden" name = "type" value="H">
+					<input type="hidden" autocomplete="off" name = "pageSize" value="3">
+					<input type="hidden" autocomplete="off" name = "pageNo" value="1">
+					<input type="hidden" autocomplete="off" name = "projectCode" >
+					<input type="hidden" autocomplete="off" name = "type" value="H">
 					<div class="blue_l_b">
 						<ul data-query="list" data-formatter="historyList">
 						<div class="blue_l_b_line"></div>
@@ -322,12 +322,13 @@
 						</table>
 				</div>
 				</div>
+
 				<!-- 相关新闻 -->
 				<div class="background_boeder" data-id = "news" data-url="news" style="display:none">
 				<div class="project_t" location_l="location_xw"><span class="brain_ico brain_ico_project_crumbs"></span>相关新闻</div>
 				<div class="particulars_black">
 					<input type="hidden" name = "pageSize" value="2">
-					<input type="hidden" name = "pageNo" value="1">
+					<input type="hidden" autocomplete="off" name = "pageNo" value="1">
 					<input type="hidden" name = "typeId" value="0">
 					<input type="hidden" name = "keyword"  value="">
 					<div class="dn_info_list">
@@ -342,7 +343,7 @@
 									{{/if}}
 									<div class="dn_info_list_tit"><a href = "${v.href}"  target="_blank" k>{{html v.title}}</a></div>
 									{{if v.imgmd5}}
-										<div class="dn_info_list_show_l"><img src="{{html Constants.logoPath+"news/"+v.imgmd5}}"></div>
+										<div class="dn_info_list_show_l"><img src="{{html Constants.logoPath+"news/"+v.imgmd5+".PNG"}}"></div>
 									{{/if}}
 									<div class="dn_info_list_show_r">
 										<ul>
@@ -419,37 +420,6 @@ $(function(){
 		 $(this).find("li:last").text(con)
 	 }
  })
- //新闻超过10条显示滚动条
- $(".project_new").each(function(){
-		var len=$(this).find("li").length;
-		var sum=0;
-		if(len>9){
-			for(var i=0;i<10;i++){
-				sum+=$(this).find("li").eq(i).height()+15;
-			}
-			$(this).css({"overflow-y":"auto"});
-		}else{
-			for(var i=0;i<len;i++){
-				sum+=$(this).find("li").eq(i).height()+15;
-			}
-			$(this).css({"overflow-y":"hidden"});
-		}
-		$(this).css({"height":sum});
-	})
-	//超过10条显示滚动条
-	$(".particulars_table_list").each(function(){
-		var len=$(this).find("tbody tr").length;
-		var sum=0;
-		for(var i=0;i<10;i++){
-			sum+=$(this).find("tbody tr").eq(i).height();
-		}
-		$(this).find("tbody").css({"height":sum});
-		if(len<10){
-			$(this).find("tbody").css({"overflow-y":"hidden"});
-		}else{
-			$(this).find("tbody").css({"overflow-y":"auto"});
-		}
-	})
 	//融资信息过长截断显示
 	$(".invstorName").each(function(){
 		var len=$(this).text().length;
@@ -532,7 +502,6 @@ $('body').delegate('.project_more','click',function(event){
 	$(this).hide();
 	$(this).parent().children('.color_666').css('height','auto')
 })
-//project_click_show发展历史
 
 $('body').delegate('.project_click_show','click',function(event){
 	event.stopPropagation();
