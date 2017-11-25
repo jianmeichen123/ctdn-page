@@ -24,7 +24,7 @@
 				<li>
 					<div class="seek_financing_l"><span class="seek_financing_two">所在地区</span><span class="seek_financing_one">*</span></div>
 					<div class="seek_financing_r">
-						<select class="seek_financing_select" name="projDistrictId" data-item="parent" data-field="district"  data-rule-select="true" data-msg-select="<font color=red>*</font>必选字段" >
+						<select class="seek_financing_select " name="projDistrictId" data-item="parent" data-field="district"  data-rule-select="true" data-msg-select="<font color=red>*</font>必选字段" >
 							<option  selected = "selected" disabled="true">选择所在省/市</option>
 						</select>
 						<select class="seek_financing_select  seek_financing_select_lef" data-item="son" name="projSubDistrictId" data-rule-select="true" data-msg-select="<font color=red>*</font>必选字段" >
@@ -147,7 +147,9 @@
 <script type="text/javascript" src="js/jquery.fileupload-validate.js"></script>
 <script>
 	$(function(){
-		//jquery.validate
+		//表单清空
+	 	$("#form")[0].reset();
+	 	//表单验证
 		$("#form").validate({
 			submitHandler: function() {
 				var pb = $("input[name='projPb']").val();
@@ -159,7 +161,6 @@
 				//验证通过后 的js代码写在这里
 			}
 		})
-
 	})
 	//验证手机号
     jQuery.validator.addMethod("phone", function (value, element) {
@@ -351,43 +352,6 @@ $("#save-btn").click(function(event){
 
 	$("#form").submit();
 })
-	<!--$("#save-btn").click(function(event){-->
-		<!--event.preventDefault();-->
-		<!--var projDistrict =  $("select[name='projDistrictId']").find("option:selected").text();-->
-		<!--var projSubDistrict =  $("select[name='projSubDistrictId']").find("option:selected").text();-->
-		<!--var projIndustry =  $("select[name='projIndustryId']").find("option:selected").text();-->
-		<!--var projSubIndustry =  $("select[name='projSubIndustryId']").find("option:selected").text();-->
-		<!--var projRound =  $("select[name='projRoundId']").find("option:selected").text();-->
-
-		<!--$("input[name='projDistrict']").val(projDistrict)-->
-		<!--$("input[name='projSubDistrict']").val(projSubDistrict)-->
-		<!--$("input[name='projIndustry']").val(projIndustry)-->
-		<!--$("input[name='projSubIndustry']").val(projSubIndustry)-->
-		<!--$("input[name='projRound']").val(projRound)-->
-
-		<!--if($("#form").validate().form())-->
-		<!--{-->
-			<!--var url =detail.insertProject-->
-			<!--var data = JSON.stringify($("#form").serializeJson());-->
-			<!--$.ajax({-->
-				<!--type: "POST",-->
-				<!--url:url,-->
-				<!--contentType:'application/json;charset=UTF-8',-->
-				<!--data:data,-->
-				<!--success:function(data){-->
-					<!--if(data.message == 'OK')-->
-					<!--{-->
-						<!--alert('保存成功');-->
-					<!--}-->
-					<!--else-->
-					<!--{-->
-						<!--alert(data.message);-->
-					<!--}-->
-				<!--}-->
-			<!--})-->
-		<!--}-->
-	<!--});-->
-
 	var list ={} ;
 	sendGetRequest(platformUrl.allQuery,function(data){
 		list["district"] = data.data.district[0].children;
@@ -406,21 +370,36 @@ $("#save-btn").click(function(event){
 		parent.append(html);
 	})
 
-	$.each(parents,function(){
+	$("select[name='projDistrictId']").change(function(){
 		var parent = $(this);
-		parent.change(function(){
-			var son =parent.next()
-			 // 先清空第二个
-			son.empty();
-			//var id =parent.val();
-			var field=parent.attr("data-field")
-			var data =list[field][(parent[0].selectedIndex)-1].children;
-			var html = ""
-			$.each(data,function(i,e){
-				html += "<option value ="+e.id+" >"+e.name+"</option>"
-			})
-			son.append(html);
+		var son =$("select[name='projSubDistrictId']")
+		getOption(parent,son)
+	})
+
+	$("select[name='projIndustryId']").change(function(){
+		var parent = $(this);
+		var son =$("select[name='projSubIndustryId']")
+		getOption(parent,son)
+	})
+
+	function getOption(parent,son){
+		// 先清空二级
+		son.empty();
+		var field=parent.attr("data-field")
+		var index;
+		if(parent[0].selectedIndex ==0 ){
+			index = 0;
+		}else{
+			index= parent[0].selectedIndex-1
+		}
+		var parentData = list[field][index];
+		var data =parentData.children;
+		var html = ""
+		son.val(data[0].id)
+		$.each(data,function(i,e){
+			html += "<option value ="+e.id+" >"+e.name+"</option>"
 		})
-	});
+		son.append(html);
+	}
 </script>
 </html>
