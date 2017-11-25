@@ -225,7 +225,17 @@ function formatCompany(company,sourceCode,districtSubName,industryName,industryS
         }
         return v;
 }
-
+function formateFinanceAmount(latestFinanceAmountStr,latestFinanceRound){
+    var tag =""
+    if(latestFinanceRound && (!latestFinanceAmountStr || latestFinanceAmountStr=="未透露")){
+        tag =  "<span>"+latestFinanceRound+"/金额未知</span>"
+    }else if(!latestFinanceRound && latestFinanceAmountStr){
+        tag =  "<span>轮次未知/"+latestFinanceAmountStr+"</span>"
+    }else if(latestFinanceRound && latestFinanceAmountStr){
+        tag =  "<span>"+latestFinanceRound+"/"+latestFinanceAmountStr+"</span>"
+    }
+    return tag;
+}
 function formatInvestSide(investSideJson){
      var investTitle ="";
      if(!investSideJson){

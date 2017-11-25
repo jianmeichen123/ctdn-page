@@ -203,12 +203,7 @@
 										<div class="list-item-left"><a href="/project_qy.html?projCode=${projCode}"><img src="${logoSmall}"></a></div>
 										<div class="list-item-right">
 											<p class="list-item-title"><a target="_blank" href="/project_qy.html?projCode=${projCode}"><comp>${projTitle}</comp></a>
-											{{if latestFinanceRound}}
-												<span>${latestFinanceRound}</span>
-											{{/if}}
-											{{if latestFinanceAmountStr}}
-											      <span>${latestFinanceAmountStr}</span></p>
-											{{/if}}
+											{{html formateFinanceAmount(latestFinanceAmountStr,latestFinanceRound)}}</p>
 											<p class="list-item-content">简介:{{html introduce}}</p><p class="list-item-tips"><i class="list-item-address"></i>${districtSubName}
 											 {{if industryName}}
 											 	<i class="list-item-finace"></i>
