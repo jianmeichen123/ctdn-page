@@ -67,8 +67,8 @@
 													{{if v.amountStr}}
 														<li><span class="dn_ico_bj_lc_b_l">融资金额 </span><span class="dn_ico_bj_lc_b_r">${v.amountStr}</span></li>
 													{{/if}}
+													<li><span class="dn_ico_bj_lc_b_l">投资方</span>
 													{{if v.investSideJson != null}}
-														<li><span class="dn_ico_bj_lc_b_l">投资方</span>
 														{{html
 															formatInvestSideJson(v)
 														}}

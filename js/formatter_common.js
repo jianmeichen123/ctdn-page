@@ -235,7 +235,7 @@ var tableFormate ={
             var json = jsonObjArr[i]
             if(json.title){
                 if(json.code){
-                    if(json.type=='invse'){
+                    if(json.type=='invst'){
                         mergeSideTitle+='<center><span class="list_table_td"><a target="_blank" href="/jg_particulars.html?orgCode='+json.code+'">'+json.title+'</a></span></center>';
                     }
                     if(json.type=='com'){
