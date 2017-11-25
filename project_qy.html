@@ -178,15 +178,13 @@
 						<div class="blue_l_b_line"></div>
 							{-raw-}
 							<script id="eventHistory" type="text/x-jquery-tmpl">
-								{{each(i,v) data.records}}
 									<li>
 										<div class="relative m_t5">
 											<span class="circle_b"></span>
-											<span>${v.content}</span>
+											<span>${content}</span>
 										</div>
-										<div class="color_999 relative">${v.date}</div>
+										<div class="color_999 relative">${date}</div>
 									</li>
-								{{/each}}
 							</script>
 							{-raw-}
 						</ul>
@@ -334,26 +332,24 @@
 					<div class="dn_info_list">
 						{-raw-}
 						<script id="news" type="text/x-jquery-tmpl">
-								{{each(i,v) data.records}}
 								<li>
-									{{if v.imgmd5}}
+									{{if imgmd5}}
 										<div class="dn_info_list_show">
 									{{else}}
 										<div class="dn_info_list_show no_img_project">
 									{{/if}}
-									<div class="dn_info_list_tit"><a href = "${v.href}"  target="_blank" k>{{html v.title}}</a></div>
-									{{if v.imgmd5}}
-										<div class="dn_info_list_show_l"><img src="{{html Constants.logoPath+"news/"+v.imgmd5+".PNG"}}"></div>
+									<div class="dn_info_list_tit"><a href = "${href}"  target="_blank" k>{{html title}}</a></div>
+									{{if imgmd5}}
+										<div class="dn_info_list_show_l"><img src="{{html Constants.logoPath+"news/"+imgmd5+".PNG"}}"></div>
 									{{/if}}
 									<div class="dn_info_list_show_r">
 										<ul>
-											<li class="dn_info_list_cen">{{html v.overview}}</li>
-											<li class="dn_info_list_ic"><span>${formatNewsTime(v.orderTime)}</span><span>来源：</span><span>${v.auther}</span></li>
+											<li class="dn_info_list_cen">{{html overview}}</li>
+											<li class="dn_info_list_ic"><span>${formatNewsTime(orderTime)}</span><span>来源：</span><span>${auther}</span></li>
 										</ul>
 									</div>
 									</div>
 								</li>
-								{{/each}}
 							</script>
 						{-raw-}
 					</div>

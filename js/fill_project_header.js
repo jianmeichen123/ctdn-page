@@ -151,4 +151,14 @@ function formatProjectInfo(data,divList){
         })
     })
 }
-sendGetRequest(detail.queryProject+"/"+getHrefParamter("projCode"),function(data){proj=data;name = data.data.projTitle;formatProjectInfo(data.data,$("div[data-query='projectBase']"))})
+sendGetRequest(detail.queryProject+"/"+getHrefParamter("projCode"),
+function(data){
+    if(data.data){
+        proj=data;
+            name = data.data.projTitle;
+            formatProjectInfo(data.data,$("div[data-query='projectBase']"))
+    }else{
+        location.href ="test.html"
+    }
+
+})
