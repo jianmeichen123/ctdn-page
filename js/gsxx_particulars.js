@@ -399,8 +399,10 @@ sendGetRequest(url,function(data){
         var dataId = obj.attr("data-id");
         url = getUrl(dataId,url);
 		var json = getJson(obj);
-    	var pageNo = $("input[name='pageNo']").val();
-    	var pageSize = $("input[name='pageSize']").val();
+//    	var pageNo = $("input[name='pageNo']").val();
+//    	var pageSize = $("input[name='pageSize']").val();
+    	var pageNo   = obj.find("input[name='pageNo']").val();
+        var pageSize =obj.find("input[name='pageSize']").val();
     	var html="";
     	sendPostRequestByJsonObj(url,json,function(data){
     	    if(dataId=='queryByProjTitle'){
