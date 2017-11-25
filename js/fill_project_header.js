@@ -10,6 +10,7 @@ function formatProjectInfo(data,divList){
      $("input[name='sourceCode']").val(data["projCode"])
      $("input[name='code']").val(data["projCode"])
      $("input[name='keyword']").val(data["projTitle"])
+     $("input[name='company']").val(data["projTitle"])
         if(data["teamTags"]){
               $(".teamTags").show()
               var tags = data["teamTags"].split("^$^");

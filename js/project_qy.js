@@ -38,7 +38,7 @@
                  $('.project_all_r li[location_r='+right_show+']').addClass('storey_list')
                  obj.children('.project_t').addClass('storey_list');
     		    var target = $("#"+dataId)
-    		    target.tmpl(data).appendTo(target.parent())
+    		    target.tmpl(records).appendTo(target.parent())
 				if(pageNo && pageSize){
 				    if(data.data.total<=(pageNo*1)*pageSize){
                         more.hide();

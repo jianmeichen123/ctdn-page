@@ -193,115 +193,148 @@ function projectBusinessChangeListFormatter(data,div){
     div.append(html)
 }
 
-//对外投资
-function projectInvestOthersFormatter(data,div){
-    var staticTemplate ='<tr> <td>${investDate}</td> <td>${company}</td> <td>${round}</td> <td>${amountStr}</td> <td>${investSideJson}</td> <td><a href="/tzsj_particulars.html?eventId=${eventId}" class="a_color">详情</a></td></tr>'
-    var temp = staticTemplate;
-    var html = "";
-    if(data.length>0){
-        $(data).each(function(i,row){
-         $.each(row,function(k,v){
-             while(temp.indexOf("${"+k+"}") > 1){
-                 if(!v){
-                     v= "--"
-                 }
-                 if(k=='company'){
-                    var company = v
-                    var industrict = ""
-                    var img = Constants.logoPath+"project/"+row["sourceCode"]+".png"
-                    if(!company){
-                        company='名称未知'
-                        industrict='地区未知'+ ' '+'行业未知'
-                    }
-                    if (row.districtSubName){
-                        if(row.districtSubName!='国外'){
-                            industrict+=row.districtSubName
-                        }else{
-                            industrict+='地区未知'
+function formatCompany(company,sourceCode,districtSubName,industryName,industrySubName){
+        var industrict = ""
+        var img = Constants.logoPath+"project/"+sourceCode+".png"
+        if(!company){
+            company='名称未知'
+            industrict='地区未知'+ ' '+'行业未知'
+        }
+        if (districtSubName){
+            if(districtSubName!='国外'){
+                industrict+=districtSubName
+            }else{
+                industrict+='地区未知'
+            }
+        }else{
+            industrict+='地区未知'
+        }
+        if(!industryName){
+            industrict+=' 行业未知'
+        }
+        if (industryName&&!industrySubName){
+            industrict+=' '+industryName
+        }
+        if (industryName&&industrySubName){
+            industrict+=' '+industryName +">" +industrySubName
+        }
+        if(sourceCode){
+            v= '<div class="list_table_td"> <a target="_blank" href="/project_qy.html?projCode='+sourceCode+'"><img  width="37" src="'+img+'"> </a><ul class="col_999"> <li><a target="_blank" href="/project_qy.html?projCode='+sourceCode+'">'+company+'</a></li> <li>'+industrict+'</li> </ul> </div>'
+        }else{
+            v= '<div class="list_table_td"> <img  width="37" src="'+img+'"> <ul class="col_999"> <li><a class="defalut">'+company+'</a></li> <li>'+industrict+'</li> </ul> </div>'
+        }
+        return v;
+}
+
+function formatInvestSide(investSideJson){
+     var investTitle ="";
+     if(!investSideJson){
+        return table.empty
+     }else{
+         var jsonObjArr = eval('(' + investSideJson + ')');
+         for(m in jsonObjArr){
+            var m = jsonObjArr[m]
+            var investTitle = ''
+            for(j in m){
+                var json = m[j]
+                if(json.invstor!=null&&j<3){
+                   var con=json.invstor;
+                    if(json.id){
+                        if(json.type=='invst'&&json.isClick==1){
+                            investTitle+='<center><span class="list_table_bbad"><a target="_blank" href="/jg_particulars.html?orgCode='+json.code+'" title="'+json.invstor.replace("<firm>","").replace("</firm>","")+'" class="invstorName">'+con+'</a></span></center>';
+                        }
+                        if(json.type=='invst'&&json.isClick==0){
+                            investTitle+='<center><span class="list_table_td invstorName" title="'+json.invstor.replace("<firm>","").replace("</firm>","")+'">'+con+'</span></center>';
+                        }
+                        if(json.type=='com'){
+                            investTitle+='<center><span class="list_table_bbad"><a target="_blank" href="/project_qy.html?projCode='+json.code+'"  title="'+json.invstor.replace("<firm>","").replace("</firm>","")+'" class="invstorName">'+con+'</a></span></center>';
+                        }
+                        if(json.type!='invst'&&json.type!='com'){
+                            investTitle+='<center><span class="list_table_td invstorName" title="'+json.invstor.replace("<firm>","").replace("</firm>","")+'">'+con+'</span></center>';
                         }
                     }else{
-                        industrict+='地区未知'
+                        investTitle+='<center><span class="list_table_td invstorName" title="'+json.invstor.replace("<firm>","").replace("</firm>","")+'">'+con+'</span></center>';
                     }
-                    if(!row.industryName){
-                        industrict+=' 行业未知'
-                    }
-                    if (row.industryName&&!row.industrySubName){
-                        industrict+=' '+row.industryName
-                    }
-                    if (row.industryName&&row.industrySubName){
-                        industrict+=' '+row.industryName +">" +row.industrySubName
-                    }
-
-                    if(row.sourceCode){
-                        v= '<div class="list_table_td"> <a target="_blank" href="/project_qy.html?projCode='+row.sourceCode+'"><img  width="37" src="'+img+'"> </a><ul class="col_999"> <li><a target="_blank" href="/project_qy.html?projCode='+row.sourceCode+'">'+company+'</a></li> <li>'+industrict+'</li> </ul> </div>'
-                    }else{
-                        v= '<div class="list_table_td"> <img  width="37" src="'+img+'"> <ul class="col_999"> <li><a class="defalut">'+company+'</a></li> <li>'+industrict+'</li> </ul> </div>'
-                    }
-                 }
-                 if(k=='investDate'){
-                    v=formatDate(v,"yyyy-MM-dd")
-                 }
-                 if(k=='investSideJson'){
-                         var investSideJson = v
-                         if(!investSideJson){
-                            return table.empty
-                         }else{
-                         var jsonObjArr = eval('(' + investSideJson + ')');
-                         for(m in jsonObjArr){
-                            var m = jsonObjArr[m]
-                            var investTitle = ''
-                            for(j in m){
-                                var json = m[j]
-                                if(json.invstor!=null&&j<3){
-                                   var con=json.invstor;
-                                   /*if(json.invstor.length>10){  //投资方截断显示
-                                       con=json.invstor.substring(0,10)+"..."
-                                   }else{
-                                       con=json.invstor
-                                   }*/
-                                    if(json.id){
-                                        if(json.type=='invst'&&json.isClick==1){
-                                            investTitle+='<center><span class="list_table_bbad"><a target="_blank" href="/jg_particulars.html?orgCode='+json.code+'" title="'+json.invstor.replace("<firm>","").replace("</firm>","")+'" class="invstorName">'+con+'</a></span></center>';
-                                        }
-                                        if(json.type=='invst'&&json.isClick==0){
-                                            investTitle+='<center><span class="list_table_td invstorName" title="'+json.invstor.replace("<firm>","").replace("</firm>","")+'">'+con+'</span></center>';
-                                        }
-                                        if(json.type=='com'){
-                                            investTitle+='<center><span class="list_table_bbad"><a target="_blank" href="/project_qy.html?projCode='+json.code+'"  title="'+json.invstor.replace("<firm>","").replace("</firm>","")+'" class="invstorName">'+con+'</a></span></center>';
-                                        }
-                                        if(json.type!='invst'&&json.type!='com'){
-                                            investTitle+='<center><span class="list_table_td invstorName" title="'+json.invstor.replace("<firm>","").replace("</firm>","")+'">'+con+'</span></center>';
-                                        }
-                                    }else{
-                                        investTitle+='<center><span class="list_table_td invstorName" title="'+json.invstor.replace("<firm>","").replace("</firm>","")+'">'+con+'</span></center>';
-                                    }
-                                }
-                            }
-                            if(investTitle!=''&&investTitle){
-                                v = investTitle
-                            }else{
-                                v='未透露'
-
-                            }
-                         }
-                     }
-                 }
-                 temp =temp.replace("${"+k+"}",v)
-             }
-         })
-         html += temp;
-         temp = staticTemplate
-        })
-    }else{
-        $("#dwtz").hide()
-        var  location_l = $("#dwtz .project_t").attr('location_l')
-         $('.project_all_r li[location_r="'+location_l+'"]').hide();
-         $('.project_all_r li[location_r="'+location_l+'"]').removeClass('storey_list')
-         $("#dwtz").children().removeClass('storey_list');
-//         html="<tr> <td colspan='7'><span>暂无数据</span></th></tr>"
+                }
+            }
+         }
     }
-    div.append(html)
+    return investTitle;
 }
+
+//对外投资
+//function projectInvestOthersFormatter(data,div){
+//    var staticTemplate ='<tr> <td>${investDate}</td> <td>${company}</td> <td>${round}</td> <td>${amountStr}</td> <td>${investSideJson}</td> <td><a href="/tzsj_particulars.html?eventId=${eventId}" class="a_color">详情</a></td></tr>'
+//    var temp = staticTemplate;
+//    var html = "";
+//    if(data.length>0){
+//        $(data).each(function(i,row){
+//         $.each(row,function(k,v){
+//             while(temp.indexOf("${"+k+"}") > 1){
+//                 if(!v){
+//                     v= "--"
+//                 }
+//                 if(k=='investSideJson'){
+//                         var investSideJson = v
+//                         if(!investSideJson){
+//                            return table.empty
+//                         }else{
+//                         var jsonObjArr = eval('(' + investSideJson + ')');
+//                         for(m in jsonObjArr){
+//                            var m = jsonObjArr[m]
+//                            var investTitle = ''
+//                            for(j in m){
+//                                var json = m[j]
+//                                if(json.invstor!=null&&j<3){
+//                                   var con=json.invstor;
+//                                   /*if(json.invstor.length>10){  //投资方截断显示
+//                                       con=json.invstor.substring(0,10)+"..."
+//                                   }else{
+//                                       con=json.invstor
+//                                   }*/
+//                                    if(json.id){
+//                                        if(json.type=='invst'&&json.isClick==1){
+//                                            investTitle+='<center><span class="list_table_bbad"><a target="_blank" href="/jg_particulars.html?orgCode='+json.code+'" title="'+json.invstor.replace("<firm>","").replace("</firm>","")+'" class="invstorName">'+con+'</a></span></center>';
+//                                        }
+//                                        if(json.type=='invst'&&json.isClick==0){
+//                                            investTitle+='<center><span class="list_table_td invstorName" title="'+json.invstor.replace("<firm>","").replace("</firm>","")+'">'+con+'</span></center>';
+//                                        }
+//                                        if(json.type=='com'){
+//                                            investTitle+='<center><span class="list_table_bbad"><a target="_blank" href="/project_qy.html?projCode='+json.code+'"  title="'+json.invstor.replace("<firm>","").replace("</firm>","")+'" class="invstorName">'+con+'</a></span></center>';
+//                                        }
+//                                        if(json.type!='invst'&&json.type!='com'){
+//                                            investTitle+='<center><span class="list_table_td invstorName" title="'+json.invstor.replace("<firm>","").replace("</firm>","")+'">'+con+'</span></center>';
+//                                        }
+//                                    }else{
+//                                        investTitle+='<center><span class="list_table_td invstorName" title="'+json.invstor.replace("<firm>","").replace("</firm>","")+'">'+con+'</span></center>';
+//                                    }
+//                                }
+//                            }
+//                            if(investTitle!=''&&investTitle){
+//                                v = investTitle
+//                            }else{
+//                                v='未透露'
+//
+//                            }
+//                         }
+//                     }
+//                 }
+//                 temp =temp.replace("${"+k+"}",v)
+//             }
+//         })
+//         html += temp;
+//         temp = staticTemplate
+//        })
+//    }else{
+//         $("#dwtz").hide()
+//         var  location_l = $("#dwtz .project_t").attr('location_l')
+//         $('.project_all_r li[location_r="'+location_l+'"]').hide();
+//         $('.project_all_r li[location_r="'+location_l+'"]').removeClass('storey_list')
+//         $("#dwtz").children().removeClass('storey_list');
+////         html="<tr> <td colspan='7'><span>暂无数据</span></th></tr>"
+//    }
+//    div.append(html)
+//}
 
 
 //联系方式
@@ -399,10 +432,8 @@ sendGetRequest(url,function(data){
         var dataId = obj.attr("data-id");
         url = getUrl(dataId,url);
 		var json = getJson(obj);
-//    	var pageNo = $("input[name='pageNo']").val();
-//    	var pageSize = $("input[name='pageSize']").val();
-    	var pageNo   = obj.find("input[name='pageNo']").val();
-        var pageSize =obj.find("input[name='pageSize']").val();
+    	var pageNo = obj.find("input[name='pageNo']").val();
+        var pageSize = obj.find("input[name='pageSize']").val();
     	var html="";
     	sendPostRequestByJsonObj(url,json,function(data){
     	    if(dataId=='queryByProjTitle'){
@@ -543,10 +574,6 @@ sendGetRequest(url,function(data){
 //        projectShareholderInfoList = data.data["projectShareholderInfoList"];
         fillBaseBusinessInfo(data.data,$("div[data-query='businessInfo']"));
         fillList(data.data,$("*[data-query='list']"))
-    })
-    sendGetRequest(detail.getListByCompany+name,function(data){
-    dwList = data.data;
-    projectInvestOthersFormatter(data.data,$("*[data-query='lists']"))
     })
     sendGetRequest(detail.getListByProjCode+proj.data.projCode,function(data){
         projectContactListFormatter(data.data,$("*[data-query='listes']"))
