@@ -136,8 +136,8 @@ function eventInfoExtListFormatter(data,div){
      div.append(html)
 }
 //相关新闻
-function orgMediaInfoListFormatter(data,div){
-   var staticTemplate = '<tr> <td class="one">${title}</td> <td class="two">${content}</td> <td class="three">${eventDate}</td></tr>'
+function orgNewsListFormatter(data,div){
+   var staticTemplate = '<tr> <td class="one">${newsTitle}</td> <td class="two">${newsSource}</td> <td class="three">${newsReportDate}</td></tr>'
    var temp = staticTemplate;
     var html =""
 
@@ -145,13 +145,18 @@ function orgMediaInfoListFormatter(data,div){
         $(data).each(function(i,row){
              $.each(row,function(k,v){
                  while(temp.indexOf("${"+k+"}") > 1){
-                    if(k =="eventDate"){
+                    if(k =="newsReportDate"){
+                        v = v*1000
                         v = formatDate(v, "yyyy-MM-dd")
                     }
 
-                    if(k=='title'){
-                        if(row.link)
-                        v='<span class="list_table_td"><a target="_blank" href="'+row.link+'">'+v+'</a></span>'
+                    if(k=='newsTitle'){
+                        if(row.newsAddress){
+                            if(row.newsOverview.length>28){
+                                v=v.substring(0,28)+"..."
+                                v='<span class="list_table_td"><a target="_blank" href="'+row.newsAddress+'">'+v+'</a></span>'
+                            }
+                        }
                     }
 
                     if(!v){ v = table.empty}
@@ -212,7 +217,7 @@ function projectContactListFormatter(data,div){
              while(temp.indexOf("${"+k+"}") > 1){
 
                  if(!v){
-                     v= table.empty
+                     v= table.empty;
                  }
                  temp =temp.replace("${"+k+"}",v)
              }
