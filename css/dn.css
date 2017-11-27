@@ -210,4 +210,4 @@ ul,ol,dl,dt,dd,p,img{ display:block; border:0;list-style:none; }
 .dn_info_list  .fixed-table-container{border:0 !important;}
 .dn_info_list  .fixed-table-pagination{    padding-left: 20px;  padding-right: 20px;}
 
-.hotKeyword .tit{margin-left:10px;}
+.hotKeyword .tit{margin-left:10px; color:#333;}
