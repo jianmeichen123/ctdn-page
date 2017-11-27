@@ -32,7 +32,7 @@ function fillBaseInfo(data,divList){
                 if(v){
                     o.html(v)
                 }else{
-                    o.html("-")
+                    o.html(table.empty)
                 }
            }
         })
@@ -122,7 +122,7 @@ function eventInfoExtListFormatter(data,div){
                             v = formatDate(v, "yyyy-MM-dd")
                         }
                     }else{
-                        v= "-"
+                        v= table.empty
                     }
                     temp =temp.replace("${"+k+"}",v)
                 }
@@ -154,7 +154,7 @@ function orgMediaInfoListFormatter(data,div){
                         v='<span class="list_table_td"><a target="_blank" href="'+row.link+'">'+v+'</a></span>'
                     }
 
-                    if(!v){ v = "-"}
+                    if(!v){ v = table.empty}
                     temp = temp.replace("${"+k+"}",v)
                  }
              })
@@ -189,7 +189,7 @@ function orgMemberListFormatter(data,div){
 //                    		v=v
 //                    	}
                     }
-                    if(!v){ v = "-"}
+                    if(!v){ v = table.empty}
                     temp = temp.replace("${"+k+"}",v)
                  }
              })
@@ -212,7 +212,7 @@ function projectContactListFormatter(data,div){
              while(temp.indexOf("${"+k+"}") > 1){
 
                  if(!v){
-                     v= "-"
+                     v= table.empty
                  }
                  temp =temp.replace("${"+k+"}",v)
              }
