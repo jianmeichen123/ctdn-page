@@ -109,9 +109,9 @@ function fillBaseBusinessInfo(data,divList){
                 if(v&&v!='-'){
                     o.html(v)
                 }else if(v=='-'){
-                    o.html("--")
+                    o.html(table.empty)
                 }else{
-                    o.html("--")
+                    o.html(table.empty)
                 }
             })
         })
@@ -139,7 +139,14 @@ function projectShareholderInfoListFormatter(data,div){
              $.each(row,function(k,v){
                  while(temp.indexOf("${"+k+"}") > 1){
 
-                    if(!v){ v = "-"}
+                    if(!v){
+                        v = table.empty
+                    }else{
+                        if(v=='-'){
+                            v=table.empty;
+                        }
+                    }
+
                     temp = temp.replace("${"+k+"}",v)
                  }
              })
@@ -172,7 +179,7 @@ function projectBusinessChangeListFormatter(data,div){
              $.each(row,function(k,v){
                  while(temp.indexOf("${"+k+"}") > 1){
                     if(!v){
-                            v = "--"
+                            v = table.empty;
                         }else{
                             v='<div align="left">'+v+'</div>'
                         }
@@ -357,7 +364,7 @@ function projectContactListFormatter(data,div){
          $.each(row,function(k,v){
              while(temp.indexOf("${"+k+"}") > 1){
                  if(!v){
-                     v= "-"
+                     v= table.empty;
                  }
                  temp =temp.replace("${"+k+"}",v)
              }
@@ -407,7 +414,7 @@ sendGetRequest(url,function(data){
     }
    $(data.data).each(function(k,v){
         if(!v){
-            v="-"
+            v=table.empty;
         }
    })
    var target = $("#getAllCompMember");
