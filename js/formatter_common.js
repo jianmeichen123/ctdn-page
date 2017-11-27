@@ -321,13 +321,13 @@ function newsFormatter(value,row){
     var html;
         if (row.imgmd5){
              html = "<dl class='info-list-item'>"
-             row.imgmd5 = "<a href='${href}'> <img src='"+Constants.logoPath+"news/"+row.imgmd5+".PNG'> </a>";
+             row.imgmd5 = "<a href='${href}' target='_blank'> <img src='"+Constants.logoPath+"news/"+row.imgmd5+".PNG'> </a>";
         }else {
              html = "<dl class='info-list-item  no_img'>"
              row.imgmd5 = ""
         }
     	html +="<dt>"+
-    			"<h3><a href='${href}' style='blr:expression(this.onFocus=this.blur()); /* IE Opera */ outline:none; /* FF Opera */ '> ${title}</a></h3>"+
+    			"<h3><a href='${href}' target='_blank' style='blr:expression(this.onFocus=this.blur()); /* IE Opera */ outline:none; /* FF Opera */ '> ${title}</a></h3>"+
     			"</dt>"+
     			"<dd>"+
     			"${imgmd5}"+
