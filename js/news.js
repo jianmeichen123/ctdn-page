@@ -125,13 +125,13 @@ function newsFormatter(value,row){
    var html = "<li>";
    if (row.imgmd5){
         html +=  '<div class="dn_info_list_show">'
-        row.imgmd5 = "<div class='dn_info_list_show_l'><a href='"+row.href+"'> <img src='"+Constants.logoPath +"news/"+row.imgmd5+".PNG'> </a></div>";
+        row.imgmd5 = "<div class='dn_info_list_show_l'><a href='"+row.href+"' target='_blank'> <img src='"+Constants.logoPath +"news/"+row.imgmd5+".PNG'> </a></div>";
    }else {
         html +=  '<div class="dn_info_list_show no_img">'
         row.imgmd5 = ""
    }
    row.orderTime =  formatNewsTime(row.orderTime);
-   html += '<div class="dn_info_list_tit"><a href="${href}">${title}</a></div>'+
+   html += '<div class="dn_info_list_tit"><a href="${href}" target="_blank">${title}</a></div>'+
         '${imgmd5}'+
         '<div class="dn_info_list_show_r">'+
             "<ul>"+
