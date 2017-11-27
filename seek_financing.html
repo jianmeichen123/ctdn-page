@@ -121,7 +121,7 @@
 				<li class="seek_show_on">
 					<div class="seek_financing_l"><span class="seek_financing_two">融资金额</span></div>
 					<div class="seek_financing_r">
-						<input class="seek_financing_input" name="projMoney" placeholder="请输入您需要的融资金额" data-rule-intlength="9" data-rule-money="true" data-msg-money="请输入数字，最多可填写4位小数">
+						<input class="seek_financing_input" name="projMoney" placeholder="请输入您需要的融资金额"  data-rule-money="true" data-msg-money="请输入数字，最多可填写4位小数">
 						<div class="seek_financing_absolute">万元　(人民币)</div>
 					</div>
 				</li>
@@ -226,7 +226,24 @@
 		return this.optional(element) || (regex.test(value));
 	}, "");
 
-
+	$("input[name='projMoney']").bind("input propertychange", function() {
+		var value=$(this).val();
+		var intnum ;
+		var decimalnum;
+		if(value.indexOf(".")>=0){
+			intnum = value.split(".")[0].length;
+			decimalnum = value.split(".")[1].length;
+		}else{
+			intnum = value.length;
+		}
+		if(intnum>9){
+			$(this).val($(this).val().substr(0,9));
+			return;
+		}
+		if(decimalnum>4){
+			$(this).val($(this).val().substr(0,14));
+		}
+	});
 
 	$.fn.serializeJson = function(){
 		var data = {};
