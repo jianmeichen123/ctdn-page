@@ -220,3 +220,5 @@ ul,ol,dl,dt,dd,p,img{ display:block; border:0;list-style:none; }
 .foot_ce{color:#999999; font-size:14px; text-align:center; border-top:1px solid #e6e6e6; line-height:40px;}
 .dn_info_list  .fixed-table-container{border:0 !important;}
 .dn_info_list  .fixed-table-pagination{    padding-left: 20px;  padding-right: 20px;}
+
+.hotKeyword .tit{margin-left:10px;}

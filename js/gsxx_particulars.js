@@ -246,6 +246,16 @@ function formateFinanceAmount(latestFinanceAmountStr,latestFinanceRound){
     }
     return tag;
 }
+
+/*简介只显示两行*/
+function formateIntroduce(introduce){
+    var len=introduce.length
+    if(len>134){
+        introduce=introduce.substr(0,130)+"..."
+    }
+    return introduce
+}
+
 function formatInvestSide(investSideJson){
      var investTitle ="";
      if(!investSideJson){
