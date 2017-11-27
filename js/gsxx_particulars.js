@@ -235,16 +235,18 @@ function formatCompany(company,sourceCode,districtSubName,industryName,industryS
         }
         return v;
 }
+
 function formateFinanceAmount(latestFinanceAmountStr,latestFinanceRound){
-    var tag =""
-    if(latestFinanceRound && (!latestFinanceAmountStr || latestFinanceAmountStr=="未透露")){
-        tag =  "<span>"+latestFinanceRound+"/金额未知</span>"
-    }else if(!latestFinanceRound && latestFinanceAmountStr){
-        tag =  "<span>轮次未知/"+latestFinanceAmountStr+"</span>"
-    }else if(latestFinanceRound && latestFinanceAmountStr){
-        tag =  "<span>"+latestFinanceRound+"/"+latestFinanceAmountStr+"</span>"
+    if(latestFinanceRound =="尚未获投" && (!latestFinanceAmountStr || latestFinanceAmountStr=="未透露")){
+        return "";
     }
-    return tag;
+    if(latestFinanceRound =="尚未获投"){
+        latestFinanceRound = "轮次未知"
+    }
+    if(!latestFinanceAmountStr || latestFinanceAmountStr == "未透露"){
+        latestFinanceAmountStr == "金额未知"
+    }
+    return "<span>"+latestFinanceRound+"/"+latestFinanceAmountStr+"</span>"
 }
 
 /*简介只显示两行*/
