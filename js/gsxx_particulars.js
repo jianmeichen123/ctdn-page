@@ -248,7 +248,7 @@ function formateFinanceAmount(latestFinanceAmountStr,latestFinanceRound){
 function formateIntroduce(introduce){
     var len=introduce.length
     if(len>134){
-        introduce=introduce.substr(0,134)+"..."
+        introduce=introduce.substr(0,130)+"..."
     }
     return introduce
 }
