@@ -29,7 +29,7 @@ function fillSsBaseInfo(data,divList){
                     v = formatDate(v,'yyyy-MM-dd')
                 }
                 if(k=='amountStr'){
-                    v='-'
+                    v=table.empty;
                 }
                 if(k=='listedEvent'&&!v){
                     v='暂未披露'
@@ -47,7 +47,7 @@ function fillSsBaseInfo(data,divList){
                 if(v){
                     o.html(v)
                 }else{
-                    o.html("-")
+                    o.html(table.empty)
                 }
            }
         })

@@ -37,7 +37,7 @@ function fillBgBaseInfo(data,divList){
                 if(v){
                     o.html(v)
                 }else{
-                    o.html("-")
+                    o.html(table.empty)
                 }
            }
         })
@@ -82,7 +82,7 @@ function mergeSideListFormatter(data,div){
                         if(k=="districtSubName"){
                            if(v){
                                if(v=='国外'){
-                                    v='-'
+                                    v=table.empty;
                                }else{
                                    v = '<span>'+v+'</span>'
                                    if(row.districtGrandsonName){
@@ -100,7 +100,7 @@ function mergeSideListFormatter(data,div){
                                 v = v+'>'+row.industrySubName
                             }
                         }
-                        if(!v){ v = "-"}
+                        if(!v){ v = table.empty}
                         temp = temp.replace("${"+k+"}",v)
                      }
                  })
@@ -147,7 +147,7 @@ function beenMergeSideListFormatter(data,div){
                     if(k=="districtSubName"){
                        if(v){
                            if(v=='国外'){
-                                v='-'
+                                v=table.empty;
                            }else{
                                v = '<span>'+v+'</span>'
                                if(row.districtGrandsonName&&row.districtGrandsonName!='0'){
@@ -163,7 +163,7 @@ function beenMergeSideListFormatter(data,div){
                     if(k=='industrySubname'&&!v){
                         v = ' '
                     }
-                    if(!v){ v = "-"}
+                    if(!v){ v = table.empty}
                     temp = temp.replace("${"+k+"}",v)
                  }
              })
