@@ -169,8 +169,6 @@
 				<div class="background_boeder" data-id="eventHistory" data-url="queryProjectMediaInfoByCode" style="display:none">
 				<div class="project_t" location_l="location_fz"><span class="brain_ico brain_ico_project_crumbs"></span>发展历史</div>
 				<div class="particulars_black">
-					<input type="hidden" autocomplete="off" name = "pageSize" value="3">
-					<input type="hidden" autocomplete="off" name = "pageNo" value="1">
 					<input type="hidden" autocomplete="off" name = "projectCode" >
 					<input type="hidden" autocomplete="off" name = "type" value="H">
 					<div class="blue_l_b">
@@ -178,18 +176,20 @@
 						<div class="blue_l_b_line"></div>
 							{-raw-}
 							<script id="eventHistory" type="text/x-jquery-tmpl">
+								{{each(i,v) data}}
 									<li>
 										<div class="relative m_t5">
 											<span class="circle_b"></span>
-											<span>${content}</span>
+											<span>${v.content}</span>
 										</div>
-										<div class="color_999 relative">${date}</div>
+										<div class="color_999 relative">${v.date}</div>
 									</li>
+								{{/each}}
 							</script>
 							{-raw-}
 						</ul>
 					</div>
-					<div class="dn_ico_more_all"><div class="dn_ico_more_al_divl">加载更多<span class="dn_ico dn_ico_more"></span></div></div>
+					<div class="project_more"><div class="project_more">加载更多<span class="dn_ico dn_ico_more"></span></div></div>
 				</div>
 				</div>
 				<!-- 上市挂牌 -->
