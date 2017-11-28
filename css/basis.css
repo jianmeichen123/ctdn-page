@@ -387,7 +387,7 @@ com{color:#2393f7;}
 .porject_all_black .list-item-right{ width: 958px;}
 /*更多*/
 .dn_ico_more_all{text-align:center; color:#666666; font-size:14px; height:16px; margin-top:20px;}
-.dn_ico_more_all_click{text-align:center; color:#666666; font-size:14px; height:16px; margin-top:20px;}
+.dn_ico_more_all_click,.dn_ico_more_all_click_show{text-align:center; color:#666666; font-size:14px; height:16px; margin-top:20px;}
 .dn_ico_more{     background-position: 0px -64px; width: 15px;     margin-top: 3px; height: 15px;  float:right;  display:block;}
 .dn_ico_more_show {background-position: 0px -125px; width: 15px;     margin-top: 3px; height: 15px;  float:right;  display:block;}
 .dn_ico_more_al_divl{width:90px; cursor:pointer; margin-left:auto; margin-right:auto;}
