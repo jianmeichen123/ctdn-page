@@ -116,7 +116,7 @@ function eventInfoExtListFormatter(data,div){
                         }
                         if(k == "eventId"){
                              // 跳转事件详情
-                             v = "<center><span class='list_table_td'><a target='_blank' href='/tzsj_particulars.html?eventId="+v+"'>详情</a><span><center>"
+                             v = "<span class='list_table_td'><a target='_blank' href='/tzsj_particulars.html?eventId="+v+"'>详情</a><span>"
                         }
                         if(k =="investDate"){
                             v = formatDate(v, "yyyy-MM-dd")

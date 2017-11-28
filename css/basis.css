@@ -258,7 +258,7 @@ com{color:#2393f7;}
 .particulars_table_list{ width:100%;  border:1px solid #f0f0f0;}
 .particulars_table_list th{background-color:#ecf3ff;  padding:10px 0; color:#666666;    font-weight: normal;  line-height: 28px;    padding-left: 15px;}
 .particulars_table_list td{border-bottom:1px solid #f0f0f0; padding:10px 0;  color:#666666;      padding-left: 15px;}
-/* .particulars_table_list tbody{margin-right:-20px;} */
+.m_r_20_no{margin-right:-20px;}
 .wid_time{width:120px;}
 #begin_on,#end_on{widh:100px; height:28px; border: 1px solid #cccccc;  border-radius: 4px;  height: 28px;  width: 100px;  text-indent: 5px;  font-size: 12px;}
 .particulars_table_list td .list_table_td li{line-height:20px;}
