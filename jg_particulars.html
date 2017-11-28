@@ -203,6 +203,8 @@ $(function(){
 
 		$('body').delegate('.dn_ico_more_all .dn_ico_more_al_divl','click', function(event){
 			event.stopPropagation();
+			$(this).hide()
+            $('.blue_l_b .blue_l_b_three').show();
 		})
 	})
 
