@@ -291,7 +291,7 @@ function projectContactListFormatter(data,div){
 var url = detail["getAllCompMember"]+proj.data.compCode;
 sendGetRequest(url,function(data){
     perJson=data.data;
-    if(perJson){
+    if(perJson&&perJson[0].memberName){
         dataArr.push("任职人员")
         compJson5["name"]="任职人员";
         compJson5["symbolSize"]=15;
@@ -328,7 +328,7 @@ sendGetRequest(url,function(data){
             }
         })
     }
-    if(data.data.length==0){
+    if(data.data.length==0||!data.data[0].memberName){
         $('#members').hide();
         var location_l = $("#members .project_t").attr('location_l')
         $('.project_all_r li[location_r="'+location_l+'"]').hide();
