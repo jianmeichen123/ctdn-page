@@ -204,8 +204,8 @@ function formateFinanceAmount(latestFinanceAmountStr,latestFinanceRound){
     if(latestFinanceRound =="尚未获投"){
         latestFinanceRound = "轮次未知"
     }
-    if(!latestFinanceAmountStr || latestFinanceAmountStr == "未透露"){
-        latestFinanceAmountStr == "金额未知"
+    if(!latestFinanceAmountStr || !latestFinanceAmountStr.indexOf("未透露")>0){
+        latestFinanceAmountStr = "金额未知"
     }
     return "<span>"+latestFinanceRound+"/"+latestFinanceAmountStr+"</span>"
 }
