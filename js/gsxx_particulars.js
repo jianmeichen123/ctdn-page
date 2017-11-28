@@ -40,7 +40,12 @@ var compLink4={}
 var compLink5={}
 var projName = proj.data.projTitle;
 var regName = proj.data.regName;
-dataArr.push(regName)
+if(regName){
+    dataArr.push(regName)
+}else{
+    regName=projName
+    dataArr.push(regName)
+}
 
 compJson["name"]=regName;
 compJson["symbolSize"]=30;
@@ -291,42 +296,46 @@ function projectContactListFormatter(data,div){
 var url = detail["getAllCompMember"]+proj.data.compCode;
 sendGetRequest(url,function(data){
     perJson=data.data;
-    if(perJson&&perJson[0].memberName){
-        dataArr.push("任职人员")
-        compJson5["name"]="任职人员";
-        compJson5["symbolSize"]=15;
-        compJson5["category"]="任职人员";
-        compJson5["draggable"]="true";
-        compJson5["value"]=perJson.length;
-        array.push(compJson5);
+    if(perJson.length>0){
+        if(perJson[0].memberName){
+            dataArr.push("任职人员")
+            compJson5["name"]="任职人员";
+            compJson5["symbolSize"]=15;
+            compJson5["category"]="任职人员";
+            compJson5["draggable"]="true";
+            compJson5["value"]=perJson.length;
+            array.push(compJson5);
 
-        compLink3["source"]=regName;
-        compLink3["target"]="任职人员";
-        linkArr.push(compLink3);
+            compLink3["source"]=regName;
+            compLink3["target"]="任职人员";
+            linkArr.push(compLink3);
 
-        $(perJson).each(function(i){
-            if(i<5){
-                var json ={}
-                var linkJson={}
-                if($(this)[0].compJob){
-                    json["name"]=$(this)[0].memberName+"/"+$(this)[0].compJob;
-                }else{
-                    json["name"]=$(this)[0].memberName;
+            $(perJson).each(function(i){
+                if(i<5){
+                    var json ={}
+                    var linkJson={}
+                    if($(this)[0].memberName!=''){
+                        if($(this)[0].compJob){
+                            json["name"]=$(this)[0].memberName+"/"+$(this)[0].compJob;
+                        }else{
+                            json["name"]=$(this)[0].memberName;
+                        }
+                        json["symbolSize"]=10;
+                        json["category"]="任职人员";
+                        json["draggable"]="true";
+                        json["value"]=1;
+                        linkJson["source"]="任职人员";
+                        if($(this)[0].compJob){
+                            linkJson["target"]=$(this)[0].memberName+"/"+$(this)[0].compJob;
+                        }else{
+                            linkJson["target"]=$(this)[0].memberName;
+                        }
+                        array.push(json);
+                        linkArr.push(linkJson);
+                    }
                 }
-                json["symbolSize"]=10;
-                json["category"]="任职人员";
-                json["draggable"]="true";
-                json["value"]=1;
-                linkJson["source"]="任职人员";
-                if($(this)[0].compJob){
-                    linkJson["target"]=$(this)[0].memberName+"/"+$(this)[0].compJob;
-                }else{
-                    linkJson["target"]=$(this)[0].memberName;
-                }
-                array.push(json);
-                linkArr.push(linkJson);
-            }
-        })
+            })
+        }
     }
     if(data.data.length==0||!data.data[0].memberName){
         $('#members').hide();
@@ -580,13 +589,21 @@ sendGetRequest(url,function(data){
                 if(i<5){
                     var json ={}
                     var linkJson={}
-                    json["name"]=projectShareholderInfoList[i].shareholder+"/"+projectShareholderInfoList[i].equityRate;
+                    if(!projectShareholderInfoList[i].equityRate.indexOf('-')==0){
+                        json["name"]=projectShareholderInfoList[i].shareholder+"/"+projectShareholderInfoList[i].equityRate;
+                    }else{
+                        json["name"]=projectShareholderInfoList[i].shareholder
+                    }
                     json["value"]=1;
                     json["symbolSize"]=10;
                     json["category"]="股东";
                     json["draggable"]="true";
                     linkJson["source"]="股东";
-                    linkJson["target"]=projectShareholderInfoList[i].shareholder+"/"+projectShareholderInfoList[i].equityRate;
+                    if(!projectShareholderInfoList[i].equityRate.indexOf('-')==0){
+                        linkJson["target"]=projectShareholderInfoList[i].shareholder+"/"+projectShareholderInfoList[i].equityRate;
+                    }else{
+                        linkJson["target"]=projectShareholderInfoList[i].shareholder
+                    }
                     array.push(json)
                     linkArr.push(linkJson)
                 }
