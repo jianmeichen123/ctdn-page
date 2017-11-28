@@ -349,14 +349,27 @@ function projectFormatter(value,row){
 
     if(!row.introduce) row.introduce="暂无"
 
-    var tag =""
-    if(row.latestFinanceRound &&(!row.latestFinanceAmountStr ||row.latestFinanceAmountStr=="未透露")){
-        tag =  "<span>"+row.latestFinanceRound+"/金额未知</span>"
-    }else if(!row.latestFinanceRound && row.latestFinanceAmountStr){
-        tag =  "<span>轮次未知/"+row.latestFinanceAmountStr+"</span>"
-    }else if(row.latestFinanceRound && row.latestFinanceAmountStr){
-        tag =  "<span>"+row.latestFinanceRound+"/"+row.latestFinanceAmountStr+"</span>"
+
+//    if(row.latestFinanceRound &&(!row.latestFinanceAmountStr ||row.latestFinanceAmountStr=="未透露")){
+//        tag =  "<span>"+row.latestFinanceRound+"/金额未知</span>"
+//    }else if(!row.latestFinanceRound && row.latestFinanceAmountStr){
+//        tag =  "<span>轮次未知/"+row.latestFinanceAmountStr+"</span>"
+//    }else if(row.latestFinanceRound && row.latestFinanceAmountStr){
+//        tag =  "<span>"+row.latestFinanceRound+"/"+row.latestFinanceAmountStr+"</span>"
+//    }
+    var tag ="" ;
+    if(row.latestFinanceRound =="尚未获投" && (!row.latestFinanceAmountStr || row.latestFinanceAmountStr=="未透露")){
+       tag="";
+    }else{
+       if(row.latestFinanceRound =="尚未获投"){
+        row.latestFinanceRound = "轮次未知"
+        }
+        if(!row.latestFinanceAmountStr || !row.latestFinanceAmountStr.indexOf("未透露")>0){
+            row.latestFinanceAmountStr = "金额未知"
+        }
+        tag= "<span>"+row.latestFinanceRound+"/"+row.latestFinanceAmountStr+"</span>"
     }
+
 
     if (!row.districtSubName){
        row.districtSubName ="地址未知"
