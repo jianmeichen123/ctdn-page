@@ -33,8 +33,6 @@
 							<div class="project_more" style="display:none">更多<span class="brain_ico brain_ico_project_more"></span></div>
 						</li>
 					</ul>
-					<div class="dn_ico_more_all_click"><div class="dn_ico_more_al_divl">加载更多<span class="dn_ico dn_ico_more"></span></div></div>
-				<div class="dn_ico_more_all_click_show"><div class="dn_ico_more_al_divl">点击收起<span class="dn_ico dn_ico_more_show"></span></div></div>
 				</div>
 				</div>
 
@@ -173,25 +171,25 @@
 				<div class="particulars_black">
 					<input type="hidden" autocomplete="off" name = "projectCode" >
 					<input type="hidden" autocomplete="off" name = "type" value="H">
+					<input type="hidden" name = "pageSize" value="2">
+					<input type="hidden" autocomplete="off" name = "pageNo" value="1">
 					<div class="blue_l_b">
 						<ul data-query="list" data-formatter="historyList">
 						<div class="blue_l_b_line"></div>
 							{-raw-}
 							<script id="eventHistory" type="text/x-jquery-tmpl">
-								{{each(i,v) data}}
 									<li>
 										<div class="relative m_t5">
 											<span class="circle_b"></span>
-											<span>${v.content}</span>
+											<span>${content}</span>
 										</div>
-										<div class="color_999 relative">${v.date}</div>
+										<div class="color_999 relative">${date}</div>
 									</li>
-								{{/each}}
 							</script>
 							{-raw-}
 						</ul>
 					</div>
-					<div class="project_more"><div class="project_more">加载更多<span class="dn_ico dn_ico_more"></span></div></div>
+					<div class="dn_ico_more_all"><div class="dn_ico_more_al_divl">加载更多<span class="dn_ico dn_ico_more"></span></div></div>
 				</div>
 				</div>
 				<!-- 上市挂牌 -->
@@ -328,7 +326,6 @@
 					<input type="hidden" name = "typeId" value="0">
 					<input type="hidden" name = "keyword"  value="">
 					<div class="dn_info_list">
-						<ul class="m_on_t">
 						{-raw-}
 						<script id="news" type="text/x-jquery-tmpl">
 								<li>
@@ -351,7 +348,6 @@
 								</li>
 							</script>
 						{-raw-}
-						</ul>
 					</div>
 					<div class="dn_ico_more_all"><div class="dn_ico_more_al_divl">加载更多<span class="dn_ico dn_ico_more"></span></div></div>
 					<ul class="project_new" data-query="list" data-formatter="newsList">
