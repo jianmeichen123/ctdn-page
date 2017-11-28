@@ -16,7 +16,7 @@ ul,ol,dl,dt,dd,p,img{ display:block; border:0;list-style:none; }
 .dn_r_all{width:350px; float:right;}
 .dn_l{width:100%; background-color:#fff; border:1px solid #f0f0f0; border-radius:10px; overflow:hidden; }
 .dn_r{width:350px; background-color:#fff; border:1px solid #f0f0f0; border-radius:10px;  }
-.dnsy_tit{border-bottom:1px solid #f0f0f0;height:55px; position:relative;   overflow: hidden; padding-top: 26px;}
+.dnsy_tit{border-bottom:1px solid #f0f0f0;height:55px; position:relative;   padding-top: 26px;}
 .dnsy_tit>ul{ position: absolute;     left: 150px;}
 .dnsy_tit>ul>li{ float:left; margin-right:36px; height:30px; font-size:14px; cursor:pointer;}
 .financing_on,.dnsy_tit>ul>li:hover{border-bottom:3px solid #2393f7; color:#2393f7;}
@@ -27,7 +27,7 @@ ul,ol,dl,dt,dd,p,img{ display:block; border:0;list-style:none; }
 .dn_info_list_show_l{margin-top:10px; margin-bottom:24px; float:left; width:123px; border:1px solid #eff0f2; border-radius:10px; height:77px}
 .dn_info_list_show_l img{width:121px; height:75px; overflow:hidden;     border-radius: 3px;}
 .dn_sy_line{border-bottom:1px solid #f0f0f0; width:100%;  height:1px; overflow: hidden;}
-.dn_info_list_show_r{margin-top:0px; margin-left:10px;float:left; width:700px;}
+.dn_info_list_show_r{margin-top:0px; margin-left:10px;float:left; width:707px;}
 .no_img .dn_info_list_show_r ,.no_img_index .dn_info_list_show_r{width:100%;     margin-left: 0px;}
 .dn_info_list_tit{font-size:16px; font-weight: bold; padding-top:24px;}
 .dn_info_list_tit a{color:#333}
@@ -35,7 +35,7 @@ ul,ol,dl,dt,dd,p,img{ display:block; border:0;list-style:none; }
 .dn_info_list_ic{font-size:12px; margin-top:5px;  margin-bottom:24px;  text-align: right; color:#999999}
 .dn_info_list_ic span{padding-left:10px;}
 .dn_info_list_show_noimg{padding-right:20px;}
-.no_border{border:0;     height: auto;}
+.no_border{border:0;    overflow: hidden;  height: auto;}
 .hot_speech{width:255px;  box-shadow: 0px 1px 5px #ddd;   z-index: 98; background-color:#fff; position:absolute; right:0px; top: 48px; border:1px solid #f1f1f1;}
 /*向上*/
 .hot_speech_all{padding-left:20px; overflow:hidden; font-size:12px; padding-right:20px; padding-bottom:20px; }

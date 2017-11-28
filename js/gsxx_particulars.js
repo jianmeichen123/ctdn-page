@@ -39,9 +39,10 @@ var compLink3={}
 var compLink4={}
 var compLink5={}
 var projName = proj.data.projTitle;
-dataArr.push(projName)
+var regName = proj.data.regName;
+dataArr.push(regName)
 
-compJson["name"]=projName;
+compJson["name"]=regName;
 compJson["symbolSize"]=30;
 compJson["draggable"]="true";
 compJson["value"]='';
@@ -93,7 +94,7 @@ function projectShareholderInfoListFormatter(data,div){
         compJson2["value"]=data.length;
         array.push(compJson2);
 
-        compLink4["source"]=projName;
+        compLink4["source"]=regName;
         compLink4["target"]="股东";
         linkArr.push(compLink4);
 
@@ -203,8 +204,8 @@ function formateFinanceAmount(latestFinanceAmountStr,latestFinanceRound){
     if(latestFinanceRound =="尚未获投"){
         latestFinanceRound = "轮次未知"
     }
-    if(!latestFinanceAmountStr || latestFinanceAmountStr == "未透露"){
-        latestFinanceAmountStr == "金额未知"
+    if(!latestFinanceAmountStr || !latestFinanceAmountStr.indexOf("未透露")>0){
+        latestFinanceAmountStr = "金额未知"
     }
     return "<span>"+latestFinanceRound+"/"+latestFinanceAmountStr+"</span>"
 }
@@ -290,7 +291,7 @@ function projectContactListFormatter(data,div){
 var url = detail["getAllCompMember"]+proj.data.compCode;
 sendGetRequest(url,function(data){
     perJson=data.data;
-    if(perJson){
+    if(perJson&&perJson[0].memberName){
         dataArr.push("任职人员")
         compJson5["name"]="任职人员";
         compJson5["symbolSize"]=15;
@@ -299,7 +300,7 @@ sendGetRequest(url,function(data){
         compJson5["value"]=perJson.length;
         array.push(compJson5);
 
-        compLink3["source"]=projName;
+        compLink3["source"]=regName;
         compLink3["target"]="任职人员";
         linkArr.push(compLink3);
 
@@ -327,7 +328,7 @@ sendGetRequest(url,function(data){
             }
         })
     }
-    if(data.data.length==0){
+    if(data.data.length==0||!data.data[0].memberName){
         $('#members').hide();
         var location_l = $("#members .project_t").attr('location_l')
         $('.project_all_r li[location_r="'+location_l+'"]').hide();
@@ -387,7 +388,7 @@ sendGetRequest(url,function(data){
                     compJson1["value"]=projJson.length;
                     array.push(compJson1);
 
-                    compLink1["source"]=projName;
+                    compLink1["source"]=regName;
                     compLink1["target"]="项目";
                     linkArr.push(compLink1);
 
@@ -421,7 +422,7 @@ sendGetRequest(url,function(data){
                     compJson3["value"]=subJson.length;
                     array.push(compJson3);
 
-                    compLink2["source"]=projName;
+                    compLink2["source"]=regName;
                     compLink2["target"]="子公司";
                     linkArr.push(compLink2);
                     $(subJson).each(function(i){
@@ -449,10 +450,10 @@ sendGetRequest(url,function(data){
                     compJson4["symbolSize"]=15;
                     compJson4["category"]="对外投资";
                     compJson4["draggable"]="true";
-                    compJson4["value"]=dwList.length;
+                    compJson4["value"]=data.data.total;
                     array.push(compJson4);
 
-                    compLink5["source"]=projName;
+                    compLink5["source"]=regName;
                     compLink5["target"]="对外投资";
                     linkArr.push(compLink5);
 
@@ -576,17 +577,19 @@ sendGetRequest(url,function(data){
         if(data.data){
             projectShareholderInfoList = data.data["projectShareholderInfoList"];
             for(i in projectShareholderInfoList){
-                var json ={}
-                var linkJson={}
-                json["name"]=projectShareholderInfoList[i].shareholder+"/"+projectShareholderInfoList[i].equityRate;
-                json["value"]=1;
-                json["symbolSize"]=10;
-                json["category"]="股东";
-                json["draggable"]="true";
-                linkJson["source"]="股东";
-                linkJson["target"]=projectShareholderInfoList[i].shareholder+"/"+projectShareholderInfoList[i].equityRate;
-                array.push(json)
-                linkArr.push(linkJson)
+                if(i<5){
+                    var json ={}
+                    var linkJson={}
+                    json["name"]=projectShareholderInfoList[i].shareholder+"/"+projectShareholderInfoList[i].equityRate;
+                    json["value"]=1;
+                    json["symbolSize"]=10;
+                    json["category"]="股东";
+                    json["draggable"]="true";
+                    linkJson["source"]="股东";
+                    linkJson["target"]=projectShareholderInfoList[i].shareholder+"/"+projectShareholderInfoList[i].equityRate;
+                    array.push(json)
+                    linkArr.push(linkJson)
+                }
             }
         }
         fillBaseBusinessInfo(data.data,$("div[data-query='businessInfo']"));
@@ -631,7 +634,7 @@ var option = {
       animationDuration: 1000,
       animationEasingUpdate: 'quinticInOut',
       series: [{
-          name: projName,
+          name: regName,
           type: 'graph',
           layout: 'force',
 
@@ -641,7 +644,7 @@ var option = {
           data: array,
           links: linkArr,
           categories: [{
-              'name': projName
+              'name': regName
           },{
               'name': '项目'
           }, {

@@ -136,7 +136,7 @@ function newsFormatter(value,row){
         '<div class="dn_info_list_show_r">'+
             "<ul>"+
                 '<li class="dn_info_list_cen">${overview}</li>'+
-                '<li class="dn_info_list_ic"><span>${orderTime}</span><span>来源：</span><span>${auther}</span></li>'+
+                '<li class="dn_info_list_ic"><span>${orderTime}</span><span>来源:</span><span>${auther}</span></li>'+
             "</ul>"+
         "</div>"+
         "</div>"+
