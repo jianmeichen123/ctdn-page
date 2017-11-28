@@ -328,6 +328,7 @@
 					<input type="hidden" name = "typeId" value="0">
 					<input type="hidden" name = "keyword"  value="">
 					<div class="dn_info_list">
+						<ul class="m_on_t">
 						{-raw-}
 						<script id="news" type="text/x-jquery-tmpl">
 								<li>
@@ -343,13 +344,14 @@
 									<div class="dn_info_list_show_r">
 										<ul>
 											<li class="dn_info_list_cen">{{html overview}}</li>
-											<li class="dn_info_list_ic"><span>${formatNewsTime(orderTime)}</span><span>来源：</span><span>${auther}</span></li>
+											<li class="dn_info_list_ic"><span>${formatNewsTime(orderTime)}</span><span>来源:</span><span>${auther}</span></li>
 										</ul>
 									</div>
 									</div>
 								</li>
 							</script>
 						{-raw-}
+						</ul>
 					</div>
 					<div class="dn_ico_more_all"><div class="dn_ico_more_al_divl">加载更多<span class="dn_ico dn_ico_more"></span></div></div>
 					<ul class="project_new" data-query="list" data-formatter="newsList">

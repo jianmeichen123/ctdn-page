@@ -28,7 +28,7 @@
 }
 
 .pc-banner {
-	width: 100%; height:580px; margin-top:50px;
+	width: 100%; height:578px;
 }
 
 .swiper-container {
@@ -97,12 +97,13 @@
 
 <body>
 {(header.html)}
+<div style="height:50px; overflow:hidden; width:100%"></div>
 <div class="pc-banner">
 	<div class="swiper-container swiper-container-horizontal">
         <div class="swiper-wrapper" >
-            <div class="swiper-slide swiper-slide-prev" data-swiper-slide-index="2"><a href="javascript:void(0)"><img src="img/dn/b_1.jpg" /></a></div>
-            <div class="swiper-slide swiper-slide-active" data-swiper-slide-index="1"><a href="javascript:void(0)"><img src="img/dn/b_2.jpg" /></a></div>
-            <div class="swiper-slide swiper-slide-next" data-swiper-slide-index="3"><a href="javascript:void(0)"><img src="img/dn/b_3.jpg" /></a></div>
+            <div class="swiper-slide swiper-slide-prev" data-swiper-slide-index="2"><a href="news.html" target="_blank"><img src="img/dn/b_1.jpg" /></a></div>
+            <div class="swiper-slide swiper-slide-active" data-swiper-slide-index="1"><a href="report_list.html" target="_blank"><img src="img/dn/b_2.jpg" /></a></div>
+            <div class="swiper-slide swiper-slide-next" data-swiper-slide-index="3"><a href="project_evaluating.html" target="_blank"><img src="img/dn/b_3.jpg" /></a></div>
 		</div>
         
     </div>
@@ -142,7 +143,7 @@
 										<ul>
 
 											<li class="dn_info_list_cen">${v.overview}</li>
-											<li class="dn_info_list_ic"><span>${v.orderTime}</span><span>来源：</span><span>${v.auther}</span></li>
+											<li class="dn_info_list_ic"><span>${v.orderTime}</span><span>来源:</span><span>${v.auther}</span></li>
 										</ul>
 									</div>
 									</div>
