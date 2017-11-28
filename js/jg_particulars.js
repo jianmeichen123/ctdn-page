@@ -72,7 +72,7 @@ function orgHistoryInfoListFormatter(data,div){
     }
     div.append(html)
     if(data.length>10){
-        div.parent().append('<div class="block project_click_show color_666" >展开全部<span data-field="length">'+data.length+'</span>条<span class="brain_ico brain_ico_project_more"></span></div>')
+        div.parent().append('<div class="dn_ico_more_all"><div class="dn_ico_more_al_divl">加载更多<span class="dn_ico dn_ico_more"></span></div></div>')
     }
 }
 var orgCode = getHrefParamter("orgCode")
