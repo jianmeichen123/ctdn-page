@@ -19,6 +19,7 @@
 //    nav_locaton('ctsj','qyxm','','gsxx')
 //})
 //图谱
+var arrJson=[];
 var projectShareholderInfoList ;
 var dwList={} ;
 var subJson={};
@@ -353,6 +354,7 @@ sendGetRequest(url,function(data){
          	if(obj.find(".dn_ico_more_all").length>0){
          		var more = obj.find(".dn_ico_more_all");
          		loadMore(more,obj)
+         		myChart.setOption(option);
             }else{
                 //不带分页
                 loadNoPage(obj);
@@ -377,7 +379,6 @@ sendGetRequest(url,function(data){
     	sendPostRequestByJsonObj(url,json,function(data){
     	    if(dataId=='queryByProjTitle'){
                 projJson=data.data.records
-                console.log("projJson:",projJson)
     	        if(projJson.length>0){
     	            compJson1["name"]="项目";
                     compJson1["symbolSize"]=15;
@@ -391,17 +392,18 @@ sendGetRequest(url,function(data){
                     linkArr.push(compLink1);
 
     	            dataArr.push("项目")
+
                     $(projJson).each(function(i){
                         if(i<5){
                             var json ={}
                             var linkJson={}
-                            json["name"]=$(this)[0].projTitle;
+                            json["name"]=$(this)[0].projTitle+i;
                             json["symbolSize"]=10;
                             json["category"]="项目";
                             json["draggable"]="true";
                             json["value"]=1;
                             linkJson["source"]="项目";
-                            linkJson["target"]=$(this)[0].projTitle;
+                            linkJson["target"]=$(this)[0].projTitle+i;
                             array.push(json)
                             linkArr.push(linkJson)
                         }
@@ -422,18 +424,18 @@ sendGetRequest(url,function(data){
                     compLink2["source"]=projName;
                     compLink2["target"]="子公司";
                     linkArr.push(compLink2);
-
+                    console.log(subJson)
                     $(subJson).each(function(i){
                         if(i<5){
                             var json ={}
                             var linkJson={}
-                            json["name"]=$(this)[0].compFulltitle;
+                            json["name"]=$(this)[0].compSubFulltitle;
                             json["symbolSize"]=15;
                             json["category"]="子公司";
                             json["draggable"]="true";
                             json["value"]=5;
                             linkJson["source"]="子公司";
-                            linkJson["target"]=$(this)[0].compFulltitle;
+                            linkJson["target"]=$(this)[0].compSubFulltitle;
                             array.push(json)
                             linkArr.push(linkJson)
                         }
@@ -472,6 +474,7 @@ sendGetRequest(url,function(data){
                     })
                 }
             }
+
     		var records = data.data.records;
     		if(records.length>0){
     		    var target = $("#"+dataId)
@@ -508,7 +511,7 @@ sendGetRequest(url,function(data){
                  $('.project_all_r li[location_r="'+location_l+'"]').removeClass('storey_list')
                  obj.children().removeClass('storey_list');
     		}
-    	})
+    	},"arrJson")
    }
 
    //没有分页的请求
@@ -671,7 +674,7 @@ var option = {
       }]
   };
 var myChart = echarts.init(document.getElementById('eacharts_in'));
-myChart.setOption(option);
+
 
 
 
