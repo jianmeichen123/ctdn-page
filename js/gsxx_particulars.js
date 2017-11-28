@@ -44,7 +44,7 @@ dataArr.push(projName)
 compJson["name"]=projName;
 compJson["symbolSize"]=30;
 compJson["draggable"]="true";
-compJson["value"]=30;
+compJson["value"]='';
 array.push(compJson);
 
 function fillBaseBusinessInfo(data,divList){
@@ -90,7 +90,7 @@ function projectShareholderInfoListFormatter(data,div){
         compJson2["symbolSize"]=15;
         compJson2["category"]="股东";
         compJson2["draggable"]="true";
-        compJson2["value"]=0;
+        compJson2["value"]=data.length;
         array.push(compJson2);
 
         compLink4["source"]=projName;
@@ -296,7 +296,7 @@ sendGetRequest(url,function(data){
         compJson5["symbolSize"]=15;
         compJson5["category"]="任职人员";
         compJson5["draggable"]="true";
-        compJson5["value"]=5;
+        compJson5["value"]=perJson.length;
         array.push(compJson5);
 
         compLink3["source"]=projName;
@@ -354,6 +354,7 @@ sendGetRequest(url,function(data){
          		var more = obj.find(".dn_ico_more_all");
          		loadMore(more,obj)
          		myChart.setOption(option);
+
             }else{
                 //不带分页
                 loadNoPage(obj);
@@ -383,7 +384,7 @@ sendGetRequest(url,function(data){
                     compJson1["symbolSize"]=15;
                     compJson1["category"]="项目";
                     compJson1["draggable"]="true";
-                    compJson1["value"]=0;
+                    compJson1["value"]=projJson.length;
                     array.push(compJson1);
 
                     compLink1["source"]=projName;
@@ -417,7 +418,7 @@ sendGetRequest(url,function(data){
                     compJson3["symbolSize"]=15;
                     compJson3["category"]="子公司";
                     compJson3["draggable"]="true";
-                    compJson3["value"]=0;
+                    compJson3["value"]=subJson.length;
                     array.push(compJson3);
 
                     compLink2["source"]=projName;
@@ -428,10 +429,10 @@ sendGetRequest(url,function(data){
                             var json ={}
                             var linkJson={}
                             json["name"]=$(this)[0].compSubFulltitle;
-                            json["symbolSize"]=15;
+                            json["symbolSize"]=10;
                             json["category"]="子公司";
                             json["draggable"]="true";
-                            json["value"]=5;
+                            json["value"]=1;
                             linkJson["source"]="子公司";
                             linkJson["target"]=$(this)[0].compSubFulltitle;
                             array.push(json)
@@ -448,7 +449,7 @@ sendGetRequest(url,function(data){
                     compJson4["symbolSize"]=15;
                     compJson4["category"]="对外投资";
                     compJson4["draggable"]="true";
-                    compJson4["value"]=0;
+                    compJson4["value"]=dwList.length;
                     array.push(compJson4);
 
                     compLink5["source"]=projName;
@@ -463,7 +464,7 @@ sendGetRequest(url,function(data){
                             json["symbolSize"]=15;
                             json["category"]="对外投资";
                             json["draggable"]="true";
-                            json["value"]=5;
+                            json["value"]=1;
                             linkJson["source"]="对外投资";
                             linkJson["target"]=$(this)[0].company;
                             array.push(json)
@@ -578,7 +579,7 @@ sendGetRequest(url,function(data){
                 var json ={}
                 var linkJson={}
                 json["name"]=projectShareholderInfoList[i].shareholder+"/"+projectShareholderInfoList[i].equityRate;
-                json["value"]=5;
+                json["value"]=1;
                 json["symbolSize"]=10;
                 json["category"]="股东";
                 json["draggable"]="true";
