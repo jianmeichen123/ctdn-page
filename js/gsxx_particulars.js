@@ -577,17 +577,19 @@ sendGetRequest(url,function(data){
         if(data.data){
             projectShareholderInfoList = data.data["projectShareholderInfoList"];
             for(i in projectShareholderInfoList){
-                var json ={}
-                var linkJson={}
-                json["name"]=projectShareholderInfoList[i].shareholder+"/"+projectShareholderInfoList[i].equityRate;
-                json["value"]=1;
-                json["symbolSize"]=10;
-                json["category"]="股东";
-                json["draggable"]="true";
-                linkJson["source"]="股东";
-                linkJson["target"]=projectShareholderInfoList[i].shareholder+"/"+projectShareholderInfoList[i].equityRate;
-                array.push(json)
-                linkArr.push(linkJson)
+                if(i<5){
+                    var json ={}
+                    var linkJson={}
+                    json["name"]=projectShareholderInfoList[i].shareholder+"/"+projectShareholderInfoList[i].equityRate;
+                    json["value"]=1;
+                    json["symbolSize"]=10;
+                    json["category"]="股东";
+                    json["draggable"]="true";
+                    linkJson["source"]="股东";
+                    linkJson["target"]=projectShareholderInfoList[i].shareholder+"/"+projectShareholderInfoList[i].equityRate;
+                    array.push(json)
+                    linkArr.push(linkJson)
+                }
             }
         }
         fillBaseBusinessInfo(data.data,$("div[data-query='businessInfo']"));
