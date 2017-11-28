@@ -30,9 +30,13 @@
 						<li>
 							<div class="font_14"></div>
 							<p  class="color_666" id="firmDesc"></p>
-							<div class="project_more" style="display:none">更多<span class="brain_ico brain_ico_project_more"></span></div>
+							<div class="project_more" style="display:none">
+								<div class="dn_ico_more_all_click"><div class="dn_ico_more_al_divl" >加载更多<span class="dn_ico dn_ico_more"></span></div></div>
+								<div class="dn_ico_more_all_click_show" style="display: none;"><div class="dn_ico_more_al_divl">点击收起<span class="dn_ico dn_ico_more_show"></span></div></div>
+							</div>
 						</li>
 					</ul>
+
 				</div>
 				</div>
 
@@ -490,10 +494,18 @@ $('body').delegate('.project_all_r li','click',function(event){
 	},300)
 })
 //更多
-$('body').delegate('.project_more','click',function(event){
+$('body').delegate('.project_more .dn_ico_more_all_click','click',function(event){
 	event.stopPropagation();
 	$(this).hide();
-	$(this).parent().children('.color_666').css('height','auto')
+	$("#firmDesc").css('height','auto')
+	$('.project_more .dn_ico_more_all_click_show').show();
+})
+//更多
+$('body').delegate('.project_more .dn_ico_more_all_click_show','click',function(event){
+	event.stopPropagation();
+	$(this).hide();
+	$("#firmDesc").css('height','72px')
+	$('.project_more .dn_ico_more_all_click').show();
 })
 
 $('body').delegate('.project_click_show','click',function(event){

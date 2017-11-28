@@ -301,7 +301,7 @@ com{color:#2393f7;}
 .project_nav .nav_on{color:#2393f7;}
 .project_t{color:#333; font-size:16px;     margin-bottom: 20px;}
 .background_boeder{background-color:#fff; border:1px solid #f0f0f0; overflow: hidden; border-radius:8px; margin-top:10px;     padding-top: 30px;}
-.project_more{float:right; cursor:pointer;}
+.project_more{ cursor:pointer;}
 .brain_ico_project_crumbs{background-position:-78px -41px;margin-left:0; width:3px; margin-right:10px; height:16px; display:block; float:left;}
 .brain_ico_project_more{background-position:-81px -43px;display: inline-block; width:13px; height:10px;}
 .project_more:hover{color:#1ed2ff;}
