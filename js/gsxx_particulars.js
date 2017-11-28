@@ -26,6 +26,7 @@ var projJson={};
 var perJson;
 var array=[];
 var linkArr=[]
+var dataArr=[]
 var compJson={}
 var compJson1={}
 var compJson2={}
@@ -38,66 +39,13 @@ var compLink3={}
 var compLink4={}
 var compLink5={}
 var projName = proj.data.projTitle;
+dataArr.push(projName)
 
 compJson["name"]=projName;
 compJson["symbolSize"]=30;
 compJson["draggable"]="true";
 compJson["value"]=30;
-
-compJson1["name"]="项目";
-compJson1["symbolSize"]=15;
-compJson1["category"]="项目";
-compJson1["draggable"]="true";
-compJson1["value"]=0;
-
-compJson2["name"]="股东";
-compJson2["symbolSize"]=15;
-compJson2["category"]="股东";
-compJson2["draggable"]="true";
-compJson2["value"]=0;
-
-compJson3["name"]="子公司";
-compJson3["symbolSize"]=15;
-compJson3["category"]="子公司";
-compJson3["draggable"]="true";
-compJson3["value"]=0;
-
-compJson4["name"]="对外投资";
-compJson4["symbolSize"]=15;
-compJson4["category"]="对外投资";
-compJson4["draggable"]="true";
-compJson4["value"]=0;
-
-compJson5["name"]="任职人员";
-compJson5["symbolSize"]=15;
-compJson5["category"]="任职人员";
-compJson5["draggable"]="true";
-compJson5["value"]=5;
-
 array.push(compJson);
-array.push(compJson1);
-array.push(compJson2);
-array.push(compJson3);
-array.push(compJson4);
-array.push(compJson5);
-
-compLink1["source"]=projName;
-compLink1["target"]="项目";
-compLink2["source"]=projName;
-compLink2["target"]="子公司";
-compLink3["source"]=projName;
-compLink3["target"]="任职人员";
-compLink4["source"]=projName;
-compLink4["target"]="股东";
-compLink5["source"]=projName;
-compLink5["target"]="对外投资";
-
-linkArr.push(compLink1);
-linkArr.push(compLink2);
-linkArr.push(compLink3);
-linkArr.push(compLink4);
-linkArr.push(compLink5);
-
 
 function fillBaseBusinessInfo(data,divList){
     if(data){
@@ -137,6 +85,18 @@ function projectShareholderInfoListFormatter(data,div){
         }
     }
     if(data){
+        dataArr.push("股东")
+        compJson2["name"]="股东";
+        compJson2["symbolSize"]=15;
+        compJson2["category"]="股东";
+        compJson2["draggable"]="true";
+        compJson2["value"]=0;
+        array.push(compJson2);
+
+        compLink4["source"]=projName;
+        compLink4["target"]="股东";
+        linkArr.push(compLink4);
+
         $(data).each(function(i,row){
              $.each(row,function(k,v){
                  while(temp.indexOf("${"+k+"}") > 1){
@@ -330,21 +290,43 @@ function projectContactListFormatter(data,div){
 var url = detail["getAllCompMember"]+proj.data.compCode;
 sendGetRequest(url,function(data){
     perJson=data.data;
-    $(perJson).each(function(i){
-        if(i<5){
-            var json ={}
-            var linkJson={}
-            json["name"]=$(this)[0].memberName+"/"+$(this)[0].compJob;
-            json["symbolSize"]=10;
-            json["category"]="任职人员";
-            json["draggable"]="true";
-            json["value"]=1;
-            linkJson["source"]="任职人员";
-            linkJson["target"]=$(this)[0].memberName+"/"+$(this)[0].compJob;
-            array.push(json);
-            linkArr.push(linkJson);
-        }
-    })
+    if(perJson){
+        dataArr.push("任职人员")
+        compJson5["name"]="任职人员";
+        compJson5["symbolSize"]=15;
+        compJson5["category"]="任职人员";
+        compJson5["draggable"]="true";
+        compJson5["value"]=5;
+        array.push(compJson5);
+
+        compLink3["source"]=projName;
+        compLink3["target"]="任职人员";
+        linkArr.push(compLink3);
+
+        $(perJson).each(function(i){
+            if(i<5){
+                var json ={}
+                var linkJson={}
+                if($(this)[0].compJob){
+                    json["name"]=$(this)[0].memberName+"/"+$(this)[0].compJob;
+                }else{
+                    json["name"]=$(this)[0].memberName;
+                }
+                json["symbolSize"]=10;
+                json["category"]="任职人员";
+                json["draggable"]="true";
+                json["value"]=1;
+                linkJson["source"]="任职人员";
+                if($(this)[0].compJob){
+                    linkJson["target"]=$(this)[0].memberName+"/"+$(this)[0].compJob;
+                }else{
+                    linkJson["target"]=$(this)[0].memberName;
+                }
+                array.push(json);
+                linkArr.push(linkJson);
+            }
+        })
+    }
     if(data.data.length==0){
         $('#members').hide();
         var location_l = $("#members .project_t").attr('location_l')
@@ -394,58 +376,101 @@ sendGetRequest(url,function(data){
     	var html="";
     	sendPostRequestByJsonObj(url,json,function(data){
     	    if(dataId=='queryByProjTitle'){
-    	        projJson=data.data.records
-    	        $(projJson).each(function(i){
-    	            if(i<5){
-                        var json ={}
-                        var linkJson={}
-                        json["name"]=$(this)[0].projTitle;
-                        json["symbolSize"]=10;
-                        json["category"]="项目";
-                        json["draggable"]="true";
-                        json["value"]=1;
-                        linkJson["source"]="项目";
-                        linkJson["target"]=$(this)[0].projTitle;
-                        array.push(json)
-                        linkArr.push(linkJson)
-    	            }
-    	        })
+                projJson=data.data.records
+                console.log("projJson:",projJson)
+    	        if(projJson.length>0){
+    	            compJson1["name"]="项目";
+                    compJson1["symbolSize"]=15;
+                    compJson1["category"]="项目";
+                    compJson1["draggable"]="true";
+                    compJson1["value"]=0;
+                    array.push(compJson1);
+
+                    compLink1["source"]=projName;
+                    compLink1["target"]="项目";
+                    linkArr.push(compLink1);
+
+    	            dataArr.push("项目")
+                    $(projJson).each(function(i){
+                        if(i<5){
+                            var json ={}
+                            var linkJson={}
+                            json["name"]=$(this)[0].projTitle;
+                            json["symbolSize"]=10;
+                            json["category"]="项目";
+                            json["draggable"]="true";
+                            json["value"]=1;
+                            linkJson["source"]="项目";
+                            linkJson["target"]=$(this)[0].projTitle;
+                            array.push(json)
+                            linkArr.push(linkJson)
+                        }
+                    })
+    	        }
             }
     	    if(dataId=='getAllCompSubs'){
     	        subJson=data.data.records;
-    	        $(subJson).each(function(i){
-                    if(i<5){
-                        var json ={}
-                        var linkJson={}
-                        json["name"]=$(this)[0].compFulltitle;
-                        json["symbolSize"]=15;
-                        json["category"]="子公司";
-                        json["draggable"]="true";
-                        json["value"]=5;
-                        linkJson["source"]="子公司";
-                        linkJson["target"]=$(this)[0].compFulltitle;
-                        array.push(json)
-                        linkArr.push(linkJson)
-                    }
-                })
+    	        if(subJson.length>0){
+    	            dataArr.push("子公司")
+    	            compJson3["name"]="子公司";
+                    compJson3["symbolSize"]=15;
+                    compJson3["category"]="子公司";
+                    compJson3["draggable"]="true";
+                    compJson3["value"]=0;
+                    array.push(compJson3);
+
+                    compLink2["source"]=projName;
+                    compLink2["target"]="子公司";
+                    linkArr.push(compLink2);
+
+                    $(subJson).each(function(i){
+                        if(i<5){
+                            var json ={}
+                            var linkJson={}
+                            json["name"]=$(this)[0].compFulltitle;
+                            json["symbolSize"]=15;
+                            json["category"]="子公司";
+                            json["draggable"]="true";
+                            json["value"]=5;
+                            linkJson["source"]="子公司";
+                            linkJson["target"]=$(this)[0].compFulltitle;
+                            array.push(json)
+                            linkArr.push(linkJson)
+                        }
+                    })
+    	        }
     	    }
     	    if(dataId=='dwtz'){
                 dwList=data.data.records;
-                $(dwList).each(function(i){
-                    if(i<5){
-                        var json ={}
-                        var linkJson={}
-                        json["name"]=$(this)[0].company;
-                        json["symbolSize"]=15;
-                        json["category"]="对外投资";
-                        json["draggable"]="true";
-                        json["value"]=5;
-                        linkJson["source"]="对外投资";
-                        linkJson["target"]=$(this)[0].company;
-                        array.push(json)
-                        linkArr.push(linkJson)
-                    }
-                })
+                if(dwList.length>0){
+                    dataArr.push("对外投资")
+                    compJson4["name"]="对外投资";
+                    compJson4["symbolSize"]=15;
+                    compJson4["category"]="对外投资";
+                    compJson4["draggable"]="true";
+                    compJson4["value"]=0;
+                    array.push(compJson4);
+
+                    compLink5["source"]=projName;
+                    compLink5["target"]="对外投资";
+                    linkArr.push(compLink5);
+
+                    $(dwList).each(function(i){
+                        if(i<5){
+                            var json ={}
+                            var linkJson={}
+                            json["name"]=$(this)[0].company;
+                            json["symbolSize"]=15;
+                            json["category"]="对外投资";
+                            json["draggable"]="true";
+                            json["value"]=5;
+                            linkJson["source"]="对外投资";
+                            linkJson["target"]=$(this)[0].company;
+                            array.push(json)
+                            linkArr.push(linkJson)
+                        }
+                    })
+                }
             }
     		var records = data.data.records;
     		if(records.length>0){
@@ -591,7 +616,7 @@ var option = {
     },
           selectedMode: 'false',
           bottom: 20,
-          data: [projName,'项目', '股东', '子公司', '对外投资', '任职人员']
+          data: dataArr
       }],
       toolbox: {
         show : false,
