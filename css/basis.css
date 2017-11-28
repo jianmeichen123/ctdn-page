@@ -89,6 +89,8 @@ input{outline: none;}
 .list_table_bbad a:hover{ color:#2393f7;}
 .line_h{ line-height:28px;}
 .list_table_td{text-align:left;position:relative;float:left; }
+.list_table_td_block{display:block; text-align:center;}
+.list_table_td_block a{color:#333;}
 center .list_table_td{text-align:center;   float: none;}
 .number_th .list_table_td {text-align:center;position:relative; float:none; }
 .list_table_td span{ line-height:35px; text-indent: 5px; display: inline-block;float:left;}
