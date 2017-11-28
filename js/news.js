@@ -67,9 +67,11 @@ function  getNews(){
           if(keyword){
             data["keyword"]=keyword;
           }
-          var typeId = $("input[name='typeId']").val();
-          if(typeId){
-            data["typeId"]= typeId;
+          if(!keyword){
+              var typeId = $("input[name='typeId']").val();
+              if(typeId){
+                data["typeId"]= typeId;
+              }
           }
         return data;
     }
@@ -123,16 +125,16 @@ function newsFormatter(value,row){
         row.overview = row.overview.substring(0,80)+"...";
    }
    var html = "<li>";
+   var img = "";
    if (row.imgmd5){
         html +=  '<div class="dn_info_list_show">'
-        row.imgmd5 = "<div class='dn_info_list_show_l'><a href='"+row.href+"' target='_blank'> <img src='"+Constants.logoPath +"news/"+row.imgmd5+".PNG'> </a></div>";
+        img = "<div class='dn_info_list_show_l'><a href='"+row.href+"' target='_blank'> <img src='"+Constants.logoPath +"news/"+row.imgmd5+".PNG'> </a></div>";
    }else {
         html +=  '<div class="dn_info_list_show no_img">'
-        row.imgmd5 = ""
    }
    row.orderTime =  formatNewsTime(row.orderTime);
    html += '<div class="dn_info_list_tit"><a href="${href}" target="_blank">${title}</a></div>'+
-        '${imgmd5}'+
+        img+
         '<div class="dn_info_list_show_r">'+
             "<ul>"+
                 '<li class="dn_info_list_cen">${overview}</li>'+

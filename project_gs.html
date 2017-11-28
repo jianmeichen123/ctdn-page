@@ -155,9 +155,11 @@
 							<script id="getAllCompMember" type="text/x-jquery-tmpl">
 							{{if data.length >0}}
 								{{each(i,v) data}}
+									{{if v.memberName}}
 									<li>
 									<span class="job_bj">${v.compJob}</span><span>${v.memberName}</span>
 									</li>
+									{{/if}}
 								{{/each}}
 							{{else}}
 								<span>暂无数据</span>
