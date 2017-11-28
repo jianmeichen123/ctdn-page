@@ -19,7 +19,6 @@
 //    nav_locaton('ctsj','qyxm','','gsxx')
 //})
 //图谱
-var arrJson=[];
 var projectShareholderInfoList ;
 var dwList={} ;
 var subJson={};
@@ -397,13 +396,13 @@ sendGetRequest(url,function(data){
                         if(i<5){
                             var json ={}
                             var linkJson={}
-                            json["name"]=$(this)[0].projTitle+i;
+                            json["name"]=i+1+'.'+$(this)[0].projTitle;
                             json["symbolSize"]=10;
                             json["category"]="项目";
                             json["draggable"]="true";
                             json["value"]=1;
                             linkJson["source"]="项目";
-                            linkJson["target"]=$(this)[0].projTitle+i;
+                            linkJson["target"]=i+1+'.'+$(this)[0].projTitle;
                             array.push(json)
                             linkArr.push(linkJson)
                         }
@@ -511,7 +510,7 @@ sendGetRequest(url,function(data){
                  $('.project_all_r li[location_r="'+location_l+'"]').removeClass('storey_list')
                  obj.children().removeClass('storey_list');
     		}
-    	},"arrJson")
+    	})
    }
 
    //没有分页的请求
