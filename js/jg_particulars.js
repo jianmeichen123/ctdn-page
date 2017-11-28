@@ -51,8 +51,6 @@ function orgHistoryInfoListFormatter(data,div){
                     if(k =="eventDate"){
                         if(!v){
                             v= "日期未知"
-                        }else{
-                            v=formatDate(v,"yyyy-MM-dd")
                         }
                     }
                     temp =temp.replace("${"+k+"}",v)
