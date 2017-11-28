@@ -194,7 +194,7 @@ ul,ol,dl,dt,dd,p,img{ display:block; border:0;list-style:none; }
 .evaluting_r>ul>li,.evaluting_l>ul>li{ margin-top:20px;}
 .evaluting_r img,.evaluting_l img{padding-top:38px}
 .evaluting_tit{font-size:26px; color:#333;}
-.evaluting_tit2{font-size:24px; color:#333;}
+.evaluting_tit2{font-size:16px; color:#333;}
 .evaluting_all_2{position:relative; background-image:url(../img/dn/bbb.png);     background-repeat: repeat-x;}
 .evaluting_all_2 .evaluting_tit,.evaluting_all_2 .evaluting_tit2{color:#fff;}
 .evaluting_all_2_bj{top:0; right:0; position:absolute;}
