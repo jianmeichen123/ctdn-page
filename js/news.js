@@ -67,9 +67,11 @@ function  getNews(){
           if(keyword){
             data["keyword"]=keyword;
           }
-          var typeId = $("input[name='typeId']").val();
-          if(typeId){
-            data["typeId"]= typeId;
+          if(!keyword){
+              var typeId = $("input[name='typeId']").val();
+              if(typeId){
+                data["typeId"]= typeId;
+              }
           }
         return data;
     }
