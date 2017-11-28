@@ -423,7 +423,6 @@ sendGetRequest(url,function(data){
                     compLink2["source"]=projName;
                     compLink2["target"]="子公司";
                     linkArr.push(compLink2);
-                    console.log(subJson)
                     $(subJson).each(function(i){
                         if(i<5){
                             var json ={}
