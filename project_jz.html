@@ -176,7 +176,7 @@ $(window).scroll(function(){
 	   div.append(html)
 	}
 	else{
-		div.closet(".background_boeder").hide()
+		div.closest(".background_boeder").hide()
 	}
 	}
 	sendGetRequest(detail.queryCompetationlist+getHrefParamter("projCode"),function(data){fillList(data.data,$("*[data-query='list']"))})
