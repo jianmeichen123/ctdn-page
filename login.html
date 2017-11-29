@@ -1,0 +1,55 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>全局搜索</title>
+	<!--basis-->
+	{(dn_basis.html)}
+	<link rel='style/sheet'/>
+</head>
+<style>
+
+</style>
+<body>
+{(header.html)}
+<div class='login'>
+<div class='login-left'><img src='../img/login/login_03.jpg'/></div>
+<div class='login-right'>
+	<ul>
+		<li>密码登录</li>
+		<li class='li-last'>验证码登录</li>
+	</ul>
+	<div class='login-right-content'>
+		
+	
+	</div>
+
+
+
+
+
+
+</div>
+
+
+
+
+</div>
+
+
+
+
+
+
+<!-- {(dn_foot.html)} -->
+</body>
+<script>
+$('.login-right ul li').click(function(){
+	$(this).addClass('clicked').siblings().removeClass('clicked');
+})
+</script>
+<script src="js/platformUrl.js?t=20170523"></script>
+<script src="js/common.js"></script>
+<script src="js/formatter_common.js"></script>
+<script src="js/search_index.js"></script>
+</html>

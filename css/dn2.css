@@ -64,11 +64,14 @@ em,i{font-style:normal;}
 .info-list-name span{margin-left:60px;font-size:18px;font-weight:bold;}
 .index-project-container{margin-top:-45px;}
 select:focus { outline: none important; }
-
-
-
-
-
-
-
+/* login */
+.login{width:912px;height:100%;border:1px solid;margin:0 auto;position:relative;margin-top:80px;}
+.login:after{content:'';display:block;clear:both;}
+.login-left{width:655px;height:367px;float:left;}
+.login-right{width:301px;height:100%;border:1px solid;position:absolute;right:0px;font-family:'Microsoft YaHei';}
+.login-right ul{border-bottom:1px solid #e6e6e6;padding:0px 28px;height:26px;}
+.login-right ul:after{content:'';display:block;clear:both;}
+.login-right ul li{float:left;font-size:14px;font-family:'Microsoft YaHei';height:26px;cursor:pointer;}
+.li-last{margin-left:110px;}
+.login-right ul li.clicked{border-bottom:3px solid #2393f7;color:#2393f7;}
 
