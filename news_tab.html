@@ -8,3 +8,13 @@
     <li data-tab="news" value="6" class="">行业</li>
     <li data-tab="" value="7" class="">新产品</li>
 </ul>
+<script>
+    //鍒囨崲tab 璇锋眰鏁版嵁
+    $(".news_li").delegate("li","click",function(){
+        var tab = $(this).attr("value");
+        $(".news_li li").removeClass('financing_on')
+        $(this).addClass('financing_on')
+        $("input[name='typeId']").val(tab);
+        getNews();
+    });
+    </script>
