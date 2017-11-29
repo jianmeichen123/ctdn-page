@@ -1,6 +1,8 @@
 <!doctype html>
 <html>
 <head>
+<meta content="webkit" name="renderer" />
+<meta http-equiv="X-UA-Compatible" content="IE=Edge">
 	<meta charset="utf-8">
 	<title>寻求融资</title>
 	<!--basis-->
@@ -300,7 +302,7 @@
 			}
 		},
 		always:function(e,data){
-			$("#save-btn").attr("disabled",true)
+			$("#save-btn").prop("disabled",true)
 		}
 	});
 	$("#projPb").fileupload({
@@ -326,7 +328,7 @@
 			}
 		},
 		always:function(e,data){
-				$("#save-btn").attr("disabled",true)
+				$("#save-btn").prop("disabled",true)
 		}
 	});
 </script>
