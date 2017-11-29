@@ -536,6 +536,7 @@ $(document).bind('click', function(e) {
 })*/
 $(".news_li").delegate("li","click",function(){
 	 var tab = $(this).attr("value");
+	 alert(tab)
 	$(".news_li li").removeClass('financing_on')
 	$(this).addClass('financing_on')
 	$("input[name='typeId']").val(tab);
