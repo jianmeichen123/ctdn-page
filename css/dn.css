@@ -149,7 +149,7 @@ ul,ol,dl,dt,dd,p,img{ display:block; border:0;list-style:none; }
 .error_file{color:#d2100b}
 .seek_put{width:140px; overflow: hidden; background-color:#f0f0f0; border:1px solid #cccccc; height:50px; float: left; position: relative; line-height:50px; text-align:center; border-radius:6px;}
 .seek_put:hover{background-color:#2393f7; border:1px solid #2393f7; color:#fff;}
-.logo_posi{position: absolute; width: 140px; height:50px; top:0;}
+.logo_posi{position: absolute; width: 140px; height:50px; top:0; z-index:444;}
 .tit_span{float:left; margin-left:20px; margin-top:20px;}
 .dn_ico_seek_pur1{background-position: -100px -42px; width: 14px; height: 15px; display: inline-block;      margin-right: 6px;}
 .dn_ico_seek_pur2{background-position: -129px -41px; width: 14px; height: 15px;  display: inline-block;      margin-right: 6px;}
