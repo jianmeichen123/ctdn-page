@@ -1,6 +1,10 @@
 //项目基本信息formatter
 function formatProjectInfo(data,divList){
      projCode = data["projCode"]
+     compCode = data["compCode"]
+     if(!compCode){
+        $("#qyxx").hide()
+     }
      $(".oo a").each(function(){
      	var href= $(this).attr("data-href")
         $(this).attr("href",href+projCode)

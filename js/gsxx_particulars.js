@@ -51,7 +51,6 @@ compJson["value"]='';
 array.push(compJson);
 
 function fillBaseBusinessInfo(data,divList){
-    console.log(data)
     if(data){
         $(divList).each(function(){
             var div = $(this);
