@@ -17,8 +17,8 @@
 
 	<div class='login-right'>
 		<ul>
-			<li class='clicked'>密码登录</li>
-			<li class='li-last'>验证码登录</li>
+			<li class='clicked' data-num='1'>密码登录</li>
+			<li class='li-last' data-num='2'>验证码登录</li>
 		</ul>
 		<div class='login-right-content password'>
 			<input class='login-input input-first' type='text' placeholder='请输入登录用户名/手机号'/><label class='login-tips'>*你输入的账号不存在</label>
@@ -58,6 +58,14 @@
 <script>
 $('.login-right ul li').click(function(){
 	$(this).addClass('clicked').siblings().removeClass('clicked');
+	var num = $(this).attr('data-num');
+	console.log(num)
+	if(num == 1){
+		$(this).closest('.login-right').find('.password').show().siblings('.vertifiaction-code').hide();
+	}else if(num == 2){
+		$(this).closest('.login-right').find('.vertifiaction-code').show().siblings('.password').hide();
+	}
+	
 })
 </script>
 <script src="js/platformUrl.js?t=20170523"></script>
