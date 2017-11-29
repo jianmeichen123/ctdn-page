@@ -210,7 +210,7 @@ var tableFormate ={
 
                 var json = i[j]
                 if(json.invstor!=null&&j<3){
-                    investProj+='<span class="list_table_td"><a target="_blank" href="/project_qy.html?projCode='+json.code+'">'+json.invstor+"</a></span><br>"
+                    investProj+='<span class="list_table_td_block"><a target="_blank" href="/project_qy.html?projCode='+json.code+'">'+json.invstor+"</a></span>"
                 }
             }
             if(investProj!=''){
@@ -321,13 +321,13 @@ function newsFormatter(value,row){
     var html;
         if (row.imgmd5){
              html = "<dl class='info-list-item'>"
-             row.imgmd5 = "<a href='${href}'> <img src='"+Constants.logoPath+"news/"+row.imgmd5+".PNG'> </a>";
+             row.imgmd5 = "<a href='${href}' target='_blank'> <img src='"+Constants.logoPath+"news/"+row.imgmd5+".PNG'> </a>";
         }else {
              html = "<dl class='info-list-item  no_img'>"
              row.imgmd5 = ""
         }
     	html +="<dt>"+
-    			"<h3><a href='${href}' style='blr:expression(this.onFocus=this.blur()); /* IE Opera */ outline:none; /* FF Opera */ '> ${title}</a></h3>"+
+    			"<h3><a href='${href}' target='_blank' style='blr:expression(this.onFocus=this.blur()); /* IE Opera */ outline:none; /* FF Opera */ '> ${title}</a></h3>"+
     			"</dt>"+
     			"<dd>"+
     			"${imgmd5}"+
@@ -349,13 +349,17 @@ function projectFormatter(value,row){
 
     if(!row.introduce) row.introduce="暂无"
 
-    var tag =""
-    if(row.latestFinanceRound && !row.latestFinanceAmountStr){
-        tag =  "<span>"+row.latestFinanceRound+"/金额未知</span>"
-    }else if(!row.latestFinanceRound && row.latestFinanceAmountStr){
-        tag =  "<span>轮次未知/"+row.latestFinanceAmountStr+"</span>"
-    }else if(row.latestFinanceRound && row.latestFinanceAmountStr){
-        tag =  "<span>"+row.latestFinanceRound+"/"+row.latestFinanceAmountStr+"</span>"
+    var tag ="" ;
+    if(row.latestFinanceRound =="尚未获投" && (!row.latestFinanceAmountStr || row.latestFinanceAmountStr=="未透露")){
+       tag="";
+    }else{
+       if(row.latestFinanceRound =="尚未获投"){
+        row.latestFinanceRound = "轮次未知"
+        }
+        if(!row.latestFinanceAmountStr || !row.latestFinanceAmountStr.indexOf("未透露")>0){
+            row.latestFinanceAmountStr = "金额未知"
+        }
+        tag= "<span>"+row.latestFinanceRound+"/"+row.latestFinanceAmountStr+"</span>"
     }
 
     if (!row.districtSubName){

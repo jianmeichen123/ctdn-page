@@ -69,7 +69,7 @@ function fillBaseEventInfo(data,divList){
             if(v){
                 o.html(v)
             }else{
-                o.html("-")
+                o.html(table.empty)
             }
         })
     })
@@ -92,7 +92,7 @@ function eventDetailListFormatter(data,div){
                         v = formatDate(v, "yyyy-MM-dd")
                     }
                     if(k=="role"&&v!='领投'){
-                        v="-"
+                        v=table.empty;
                     }
                     if(k=="stock"&&!v){
                         v="未透露"
@@ -120,7 +120,7 @@ function eventDetailListFormatter(data,div){
     //                    v='<div class="list_table_td"><center><span class="col_999"><a href="/jg_particulars.html?orgId='+eventId+'">'+v+'</a></span></center></div>'
     //                    v='<a href="#">'+v+'</a>'
                     }
-                    if(!v){ v = "-"}
+                    if(!v){ v = table.empty}
                     temp = temp.replace("${"+k+"}",v)
                  }
              })

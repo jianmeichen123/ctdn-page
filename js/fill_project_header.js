@@ -10,6 +10,7 @@ function formatProjectInfo(data,divList){
      $("input[name='sourceCode']").val(data["projCode"])
      $("input[name='code']").val(data["projCode"])
      $("input[name='keyword']").val(data["projTitle"])
+     $("input[name='company']").val(data["projTitle"])
         if(data["teamTags"]){
               $(".teamTags").show()
               var tags = data["teamTags"].split("^$^");
@@ -150,4 +151,14 @@ function formatProjectInfo(data,divList){
         })
     })
 }
-sendGetRequest(detail.queryProject+"/"+getHrefParamter("projCode"),function(data){proj=data;name = data.data.projTitle;formatProjectInfo(data.data,$("div[data-query='projectBase']"))})
+sendGetRequest(detail.queryProject+"/"+getHrefParamter("projCode"),
+function(data){
+    if(data.data){
+        proj=data;
+            name = data.data.projTitle;
+            formatProjectInfo(data.data,$("div[data-query='projectBase']"))
+    }else{
+        location.href ="test.html"
+    }
+
+})

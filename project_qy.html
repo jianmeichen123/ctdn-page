@@ -30,9 +30,13 @@
 						<li>
 							<div class="font_14"></div>
 							<p  class="color_666" id="firmDesc"></p>
-							<div class="project_more" style="display:none">更多<span class="brain_ico brain_ico_project_more"></span></div>
+							<div class="project_more" style="display:none">
+								<div class="dn_ico_more_all_click"><div class="dn_ico_more_al_divl" >加载更多<span class="dn_ico dn_ico_more"></span></div></div>
+								<div class="dn_ico_more_all_click_show" style="display: none;"><div class="dn_ico_more_al_divl">点击收起<span class="dn_ico dn_ico_more_show"></span></div></div>
+							</div>
 						</li>
 					</ul>
+
 				</div>
 				</div>
 
@@ -146,7 +150,7 @@
 						<script id="team" type="text/x-jquery-tmpl">
 						{{each(i,v) data}}
 							<li>
-								<div class="product_list_team_img_bj"><img src="${Constants.logoPath}${v.personCode}.png"/></div>
+								<div class="product_list_team_img_bj"><img src="${Constants.logoPath}person/${v.personCode}.png"/></div>
 								<ul class="product_list_team_ul">
 								 	<li class="team_color_font_3">${v.name}<span class="zw">${v.job}</span>
 								 	{{if state ==0}}
@@ -155,7 +159,9 @@
 								 		<span class="zw _no">离职</span>
 								 	{{/if}}
 								 	</li>
-								 	<li class="team_color_font" >${v.college}<span>${v.edu}</span></li>
+								 	{{if v.college || v.edu}}
+								 		<li class="team_color_font" >${v.college}<span>${v.edu}</span></li>
+								 	{{/if}}
 								 	<li class="team_color_font_2" >{{html v.introduction}}</li>
 								 </ul>
 						    </li>
@@ -169,24 +175,22 @@
 				<div class="background_boeder" data-id="eventHistory" data-url="queryProjectMediaInfoByCode" style="display:none">
 				<div class="project_t" location_l="location_fz"><span class="brain_ico brain_ico_project_crumbs"></span>发展历史</div>
 				<div class="particulars_black">
-					<input type="hidden" autocomplete="off" name = "pageSize" value="3">
-					<input type="hidden" autocomplete="off" name = "pageNo" value="1">
 					<input type="hidden" autocomplete="off" name = "projectCode" >
 					<input type="hidden" autocomplete="off" name = "type" value="H">
+					<input type="hidden" name = "pageSize" value="2">
+					<input type="hidden" autocomplete="off" name = "pageNo" value="1">
 					<div class="blue_l_b">
 						<ul data-query="list" data-formatter="historyList">
 						<div class="blue_l_b_line"></div>
 							{-raw-}
 							<script id="eventHistory" type="text/x-jquery-tmpl">
-								{{each(i,v) data.records}}
 									<li>
 										<div class="relative m_t5">
 											<span class="circle_b"></span>
-											<span>${v.content}</span>
+											<span>${content}</span>
 										</div>
-										<div class="color_999 relative">${v.date}</div>
+										<div class="color_999 relative">${date}</div>
 									</li>
-								{{/each}}
 							</script>
 							{-raw-}
 						</ul>
@@ -219,7 +223,7 @@
 											<div class="list_table_td">
 												<span>
 													{{if v.logo}}
-														<img height="37" width="37" src="{{html Constants.logoPath+v.logo }}">
+														<img height="37" width="37" src="{{html Constants.logoPath +"project/"+v.sourceCode +".png"}}">
 													{{else}}
 														<img height="37" width="37" src="img/default.gif">
 													{{/if}}
@@ -282,11 +286,7 @@
 										<td style="width:30%">
 											<div class="list_table_td">
 												<span>
-													{{if v.logo}}
-														<img height="37" width="37" src="{{html Constants.logoPath+v.logo }}">
-													{{else}}
-														<img height="37" width="37" src="img/default.gif">
-													{{/if}}
+													<img height="37" width="37" src="{{html Constants.logoPath+"project/"+v.sourceCode+".png" }}">
 												</span>
 												<ul class="col_999">
 													<li><a href="#">${projTitle}</a></li>
@@ -334,26 +334,24 @@
 					<div class="dn_info_list">
 						{-raw-}
 						<script id="news" type="text/x-jquery-tmpl">
-								{{each(i,v) data.records}}
 								<li>
-									{{if v.imgmd5}}
+									{{if imgmd5}}
 										<div class="dn_info_list_show">
 									{{else}}
 										<div class="dn_info_list_show no_img_project">
 									{{/if}}
-									<div class="dn_info_list_tit"><a href = "${v.href}"  target="_blank" k>{{html v.title}}</a></div>
-									{{if v.imgmd5}}
-										<div class="dn_info_list_show_l"><img src="{{html Constants.logoPath+"news/"+v.imgmd5+".PNG"}}"></div>
+									<div class="dn_info_list_tit"><a href = "${href}"  target="_blank" k>{{html title}}</a></div>
+									{{if imgmd5}}
+										<div class="dn_info_list_show_l"><img src="{{html Constants.logoPath+"news/"+imgmd5+".PNG"}}"></div>
 									{{/if}}
 									<div class="dn_info_list_show_r">
 										<ul>
-											<li class="dn_info_list_cen">{{html v.overview}}</li>
-											<li class="dn_info_list_ic"><span>${formatNewsTime(v.orderTime)}</span><span>来源：</span><span>${v.auther}</span></li>
+											<li class="dn_info_list_cen">{{html overview}}</li>
+											<li class="dn_info_list_ic"><span>${formatNewsTime(orderTime)}</span><span>来源:</span><span>${auther}</span></li>
 										</ul>
 									</div>
 									</div>
 								</li>
-								{{/each}}
 							</script>
 						{-raw-}
 					</div>
@@ -364,6 +362,7 @@
 				</div>
 				</div>
 				<!-- z end -->
+				
 			</div>
 
 		
@@ -497,10 +496,18 @@ $('body').delegate('.project_all_r li','click',function(event){
 	},300)
 })
 //更多
-$('body').delegate('.project_more','click',function(event){
+$('body').delegate('.project_more .dn_ico_more_all_click','click',function(event){
 	event.stopPropagation();
 	$(this).hide();
-	$(this).parent().children('.color_666').css('height','auto')
+	$("#firmDesc").css('height','auto')
+	$('.project_more .dn_ico_more_all_click_show').show();
+})
+//更多
+$('body').delegate('.project_more .dn_ico_more_all_click_show','click',function(event){
+	event.stopPropagation();
+	$(this).hide();
+	$("#firmDesc").css('height','72px')
+	$('.project_more .dn_ico_more_all_click').show();
 })
 
 $('body').delegate('.project_click_show','click',function(event){

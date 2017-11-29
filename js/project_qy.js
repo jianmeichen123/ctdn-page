@@ -38,7 +38,7 @@
                  $('.project_all_r li[location_r='+right_show+']').addClass('storey_list')
                  obj.children('.project_t').addClass('storey_list');
     		    var target = $("#"+dataId)
-    		    target.tmpl(data).appendTo(target.parent())
+    		    target.tmpl(records).appendTo(target.parent())
 				if(pageNo && pageSize){
 				    if(data.data.total<=(pageNo*1)*pageSize){
                         more.hide();
@@ -148,13 +148,13 @@
         if(data.title &&i<3){
               if(data.code){
                   if(data.type=='invse'){
-                      mergeSideTitle+='<center><span class="list_table_td"><a href="/jg_particulars.html?orgCode='+data.code+'">'+data.title+'</a></span></center>';
+                      mergeSideTitle+='<span class="list_table_td"><a href="/jg_particulars.html?orgCode='+data.code+'">'+data.title+'</a></span>';
                   }
                   if(data.type=='com'){
-                      mergeSideTitle+='<center><span class="list_table_td"><a href="/project_qy.html?projCode='+data.code+'">'+data.title+'</a></span></center>';
+                      mergeSideTitle+='<span class="list_table_td"><a href="/project_qy.html?projCode='+data.code+'">'+data.title+'</a></span>';
                   }
               }else{
-                  mergeSideTitle+='<center><span class="list_table_td">'+data.title+'</span></center>';
+                  mergeSideTitle+='<span class="list_table_td">'+data.title+'</span>';
               }
           }
      })

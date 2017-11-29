@@ -89,6 +89,9 @@ input{outline: none;}
 .list_table_bbad a:hover{ color:#2393f7;}
 .line_h{ line-height:28px;}
 .list_table_td{text-align:left;position:relative;float:left; }
+.list_table_td_block{display:block; text-align:center;}
+.list_table_td_block a{color:#333;}
+center .list_table_td{text-align:center;   float: none;}
 .number_th .list_table_td {text-align:center;position:relative; float:none; }
 .list_table_td span{ line-height:35px; text-indent: 5px; display: inline-block;float:left;}
 .list_table_td>span{margin-left:37px;}
@@ -255,7 +258,7 @@ com{color:#2393f7;}
 .particulars_table_list{ width:100%;  border:1px solid #f0f0f0;}
 .particulars_table_list th{background-color:#ecf3ff;  padding:10px 0; color:#666666;    font-weight: normal;  line-height: 28px;    padding-left: 15px;}
 .particulars_table_list td{border-bottom:1px solid #f0f0f0; padding:10px 0;  color:#666666;      padding-left: 15px;}
-/* .particulars_table_list tbody{margin-right:-20px;} */
+.m_r_20_no{margin-right:-20px;}
 .wid_time{width:120px;}
 #begin_on,#end_on{widh:100px; height:28px; border: 1px solid #cccccc;  border-radius: 4px;  height: 28px;  width: 100px;  text-indent: 5px;  font-size: 12px;}
 .particulars_table_list td .list_table_td li{line-height:20px;}
@@ -298,7 +301,7 @@ com{color:#2393f7;}
 .project_nav .nav_on{color:#2393f7;}
 .project_t{color:#333; font-size:16px;     margin-bottom: 20px;}
 .background_boeder{background-color:#fff; border:1px solid #f0f0f0; overflow: hidden; border-radius:8px; margin-top:10px;     padding-top: 30px;}
-.project_more{float:right; cursor:pointer;}
+.project_more{ cursor:pointer;}
 .brain_ico_project_crumbs{background-position:-78px -41px;margin-left:0; width:3px; margin-right:10px; height:16px; display:block; float:left;}
 .brain_ico_project_more{background-position:-81px -43px;display: inline-block; width:13px; height:10px;}
 .project_more:hover{color:#1ed2ff;}
@@ -386,15 +389,18 @@ com{color:#2393f7;}
 .porject_all_black .list-item-right{ width: 958px;}
 /*更多*/
 .dn_ico_more_all{text-align:center; color:#666666; font-size:14px; height:16px; margin-top:20px;}
+.dn_ico_more_all_click,.dn_ico_more_all_click_show{text-align:center; color:#666666; font-size:14px; height:16px; margin-top:20px;}
 .dn_ico_more{     background-position: 0px -64px; width: 15px;     margin-top: 3px; height: 15px;  float:right;  display:block;}
+.dn_ico_more_show {background-position: 0px -125px; width: 15px;     margin-top: 3px; height: 15px;  float:right;  display:block;}
 .dn_ico_more_al_divl{width:90px; cursor:pointer; margin-left:auto; margin-right:auto;}
 .dn_ico_more_al_divl:hover {color:#2393f7;}
 .dn_ico_more_al_divl:hover .dn_ico_more{    background-position: 0px -84px;}
+.dn_ico_more_al_divl:hover .dn_ico_more_show{    background-position: 0px -105px;}
 .list_on_fr{float:right; font-size:12px; color:#999999; margin-right:20px;}
 .dn_ico_bj_lc{ background-position: -21px -64px; width: 107px;     margin-top: 3px; height: 88px;  float:left;  display:block;}
 .dn_ico_bj_lc_b{border:1px solid #e6e6e6;  width:843px;       position: relative;   overflow: hidden;   border-radius: 8px;  margin-left: 110px; }
 .particulars_black_rz .equity_trading_r{height:auto;}
-.no_border .equity_trading_r{width:225px;}
+.dn_r .equity_trading_r{width:225px;}
 #teamSuper{margin-bottom:20px;}
 .dn_ico_bj_lc_b_l{color:#999999;margin-right:10px;display:block; float:left;}
 .dn_ico_bj_lc_b_r{color:#333333; margin-right:40px; display:block; float:left; margin-bottom:10px;}
@@ -415,7 +421,9 @@ com{color:#2393f7;}
 .project_t_team_ul>li{padding-left:20px; padding-right:20px; height:30px; margin-bottom:10px; line-height:30px; border:1px solid #b4dcff; float:left; margin-right:30px; border-radius:15px;}
 .project_t_team_cen>li{ margin-bottom:10px; color:#666666; font-size:14px;}
 .dn_ico_bj_lc_b_r .lticon{ padding-left:10px; padding-right:10px; background-color:#fa931a; margin-left: 10px; font-size:12px; color:#fff; border-radius:6px;     font-weight: 500;     margin-bottom: 0px;}
-.particulars_black .dn_info_list_show_r{    width: 865px;}
+.project_all_l .dn_info_list_show_r{    width: 902px;}
+.project_all_l .m_on_t{margin-top:-20px;}
+.project_all_l .dn_info_list>ul>li{border-bottom:1px solid #f0f0f0;}
 .particulars_black .dn_info_list_show{padding:0}
 .particulars_black .no_img_project .dn_info_list_show_r{ margin-left:0;   width: 1035px;}
 /*竞争*/
