@@ -323,26 +323,28 @@
 				$("#save-btn").attr("disabled",true)
 		}
 	});
-
-
-
 </script>
 <script>
-
-
 function save(){
 		var projDistrict =  $("select[name='projDistrictId']").find("option:selected").text();
 		var projSubDistrict =  $("select[name='projSubDistrictId']").find("option:selected").text();
-		var projIndustry =  $("select[name='projIndustryId']").find("option:selected").text();
-		var projSubIndustry =  $("select[name='projSubIndustryId']").find("option:selected").text();
-		var projRound =  $("select[name='projRoundId']").find("option:selected").text();
-
 		$("input[name='projDistrict']").val(projDistrict)
 		$("input[name='projSubDistrict']").val(projSubDistrict)
-		$("input[name='projIndustry']").val(projIndustry)
-		$("input[name='projSubIndustry']").val(projSubIndustry)
-		$("input[name='projRound']").val(projRound)
 
+		if($("select[name='projIndustryId']").val()){
+			var projIndustry =  $("select[name='projIndustryId']").find("option:selected").text();
+			$("input[name='projIndustry']").val(projIndustry)
+		}
+
+		if($("select[name='projSubIndustryId']").val()){
+			var projSubIndustry =  $("select[name='projSubIndustryId']").find("option:selected").text();
+			$("input[name='projSubIndustry']").val(projSubIndustry)
+		}
+
+		if($("select[name='projRoundId']").val()){
+			var projRound =  $("select[name='projRoundId']").find("option:selected").text();
+			$("input[name='projRound']").val(projRound)
+		}
 		var url =detail.insertProject
 			var data = JSON.stringify($("#form").serializeJson());
 			$.ajax({
