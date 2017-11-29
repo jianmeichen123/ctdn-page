@@ -42,9 +42,6 @@ var projName = proj.data.projTitle;
 var regName = proj.data.regName;
 if(regName){
     dataArr.push(regName)
-}else{
-    regName=projName
-    dataArr.push(regName)
 }
 
 compJson["name"]=regName;
@@ -54,6 +51,7 @@ compJson["value"]='';
 array.push(compJson);
 
 function fillBaseBusinessInfo(data,divList){
+    console.log(data)
     if(data){
         $(divList).each(function(){
             var div = $(this);
@@ -293,65 +291,73 @@ function projectContactListFormatter(data,div){
 
 
 //任职人员
-var url = detail["getAllCompMember"]+proj.data.compCode;
-sendGetRequest(url,function(data){
-    perJson=data.data;
-    if(perJson.length>0){
-        if(perJson[0].memberName){
-            dataArr.push("任职人员")
-            compJson5["name"]="任职人员";
-            compJson5["symbolSize"]=15;
-            compJson5["category"]="任职人员";
-            compJson5["draggable"]="true";
-            compJson5["value"]=perJson.length;
-            array.push(compJson5);
+if(proj.data.compCode){
+    var url = detail["getAllCompMember"]+proj.data.compCode;
+    sendGetRequest(url,function(data){
+        perJson=data.data;
+        if(perJson.length>0){
+            if(perJson[0].memberName){
+                dataArr.push("任职人员")
+                compJson5["name"]="任职人员";
+                compJson5["symbolSize"]=15;
+                compJson5["category"]="任职人员";
+                compJson5["draggable"]="true";
+                compJson5["value"]=perJson.length;
+                array.push(compJson5);
 
-            compLink3["source"]=regName;
-            compLink3["target"]="任职人员";
-            linkArr.push(compLink3);
+                compLink3["source"]=regName;
+                compLink3["target"]="任职人员";
+                linkArr.push(compLink3);
 
-            $(perJson).each(function(i){
-                if(i<5){
-                    var json ={}
-                    var linkJson={}
-                    if($(this)[0].memberName!=''){
-                        if($(this)[0].compJob){
-                            json["name"]=$(this)[0].memberName+"/"+$(this)[0].compJob;
-                        }else{
-                            json["name"]=$(this)[0].memberName;
+                $(perJson).each(function(i){
+                    if(i<5){
+                        var json ={}
+                        var linkJson={}
+                        if($(this)[0].memberName!=''){
+                            if($(this)[0].compJob){
+                                json["name"]=$(this)[0].memberName+"/"+$(this)[0].compJob;
+                            }else{
+                                json["name"]=$(this)[0].memberName;
+                            }
+                            json["symbolSize"]=10;
+                            json["category"]="任职人员";
+                            json["draggable"]="true";
+                            json["value"]=1;
+                            linkJson["source"]="任职人员";
+                            if($(this)[0].compJob){
+                                linkJson["target"]=$(this)[0].memberName+"/"+$(this)[0].compJob;
+                            }else{
+                                linkJson["target"]=$(this)[0].memberName;
+                            }
+                            array.push(json);
+                            linkArr.push(linkJson);
                         }
-                        json["symbolSize"]=10;
-                        json["category"]="任职人员";
-                        json["draggable"]="true";
-                        json["value"]=1;
-                        linkJson["source"]="任职人员";
-                        if($(this)[0].compJob){
-                            linkJson["target"]=$(this)[0].memberName+"/"+$(this)[0].compJob;
-                        }else{
-                            linkJson["target"]=$(this)[0].memberName;
-                        }
-                        array.push(json);
-                        linkArr.push(linkJson);
                     }
-                }
-            })
+                })
+            }
         }
-    }
-    if(data.data.length==0||!data.data[0].memberName){
-        $('#members').hide();
-        var location_l = $("#members .project_t").attr('location_l')
-        $('.project_all_r li[location_r="'+location_l+'"]').hide();
-        $('.project_all_r li[location_r="'+location_l+'"]').removeClass('storey_list')
-        $("#members").children().removeClass('storey_list')
-    }
-   $(data.data).each(function(k,v){
-        if(!v){
-            v=table.empty;
+        if(data.data.length==0||!data.data[0].memberName){
+            $('#members').hide();
+            var location_l = $("#members .project_t").attr('location_l')
+            $('.project_all_r li[location_r="'+location_l+'"]').hide();
+            $('.project_all_r li[location_r="'+location_l+'"]').removeClass('storey_list')
+            $("#members").children().removeClass('storey_list')
         }
-   })
-   var target = $("#getAllCompMember");
-   target.tmpl(data).appendTo(target.parent())
-})
+       $(data.data).each(function(k,v){
+            if(!v){
+                v=table.empty;
+            }
+       })
+       var target = $("#getAllCompMember");
+       target.tmpl(data).appendTo(target.parent())
+    })
+}else{
+    $('#members').hide();
+    var location_l = $("#members .project_t").attr('location_l')
+    $('.project_all_r li[location_r="'+location_l+'"]').hide();
+    $('.project_all_r li[location_r="'+location_l+'"]').removeClass('storey_list')
+    $("#members").children().removeClass('storey_list')
+}
 
 
 
@@ -363,7 +369,9 @@ sendGetRequest(url,function(data){
          	if(obj.find(".dn_ico_more_all").length>0){
          		var more = obj.find(".dn_ico_more_all");
          		loadMore(more,obj)
-         		myChart.setOption(option);
+         		if(proj.data.compCode){
+         		    myChart.setOption(option);
+         		}
 
             }else{
                 //不带分页
@@ -386,11 +394,11 @@ sendGetRequest(url,function(data){
     	var pageNo = obj.find("input[name='pageNo']").val();
         var pageSize = obj.find("input[name='pageSize']").val();
     	var html="";
-    	sendPostRequestByJsonObj(url,json,function(data){
-    	    if(dataId=='queryByProjTitle'){
+        sendPostRequestByJsonObj(url,json,function(data){
+            if(dataId=='queryByProjTitle'){
                 projJson=data.data.records
-    	        if(projJson.length>0){
-    	            compJson1["name"]="项目";
+                if(projJson.length>0){
+                    compJson1["name"]="项目";
                     compJson1["symbolSize"]=15;
                     compJson1["category"]="项目";
                     compJson1["draggable"]="true";
@@ -401,7 +409,7 @@ sendGetRequest(url,function(data){
                     compLink1["target"]="项目";
                     linkArr.push(compLink1);
 
-    	            dataArr.push("项目")
+                    dataArr.push("项目")
 
                     $(projJson).each(function(i){
                         if(i<5){
@@ -418,13 +426,13 @@ sendGetRequest(url,function(data){
                             linkArr.push(linkJson)
                         }
                     })
-    	        }
+                }
             }
-    	    if(dataId=='getAllCompSubs'){
-    	        subJson=data.data.records;
-    	        if(subJson.length>0){
-    	            dataArr.push("子公司")
-    	            compJson3["name"]="子公司";
+            if(dataId=='getAllCompSubs'){
+                subJson=data.data.records;
+                if(subJson.length>0){
+                    dataArr.push("子公司")
+                    compJson3["name"]="子公司";
                     compJson3["symbolSize"]=15;
                     compJson3["category"]="子公司";
                     compJson3["draggable"]="true";
@@ -449,9 +457,9 @@ sendGetRequest(url,function(data){
                             linkArr.push(linkJson)
                         }
                     })
-    	        }
-    	    }
-    	    if(dataId=='dwtz'){
+                }
+            }
+            if(dataId=='dwtz'){
                 dwList=data.data.records;
                 if(dwList.length>0){
                     dataArr.push("对外投资")
@@ -484,43 +492,43 @@ sendGetRequest(url,function(data){
                 }
             }
 
-    		var records = data.data.records;
-    		if(records.length>0){
-    		    var target = $("#"+dataId)
-    		    for(j in records){
-    		        for(k in records[j]){
-    		            if(k=="logoSmall"){
-    		                records[j][k]=Constants.logoPath+"project/"+records[j].projCode+".png";
-    		            }
-    		            if(k=='districtSubName'){
-    		                if(!records[j][k]){
-    		                    records[j][k]='地区未知'
-    		                }
-    		            }
-    		            if(k=='introduce'){
-    		                if(!records[j][k]){
-    		                    records[j][k]='暂无简介'
-    		                }
-    		            }
-    		        }
-    		    }
-    		    target.tmpl(records).appendTo(target.parent())
-				if(pageNo && pageSize){
-				    if(data.data.total<=(pageNo*1)*pageSize){
+            var records = data.data.records;
+            if(records.length>0){
+                var target = $("#"+dataId)
+                for(j in records){
+                    for(k in records[j]){
+                        if(k=="logoSmall"){
+                            records[j][k]=Constants.logoPath+"project/"+records[j].projCode+".png";
+                        }
+                        if(k=='districtSubName'){
+                            if(!records[j][k]){
+                                records[j][k]='地区未知'
+                            }
+                        }
+                        if(k=='introduce'){
+                            if(!records[j][k]){
+                                records[j][k]='暂无简介'
+                            }
+                        }
+                    }
+                }
+                target.tmpl(records).appendTo(target.parent())
+                if(pageNo && pageSize){
+                    if(data.data.total<=(pageNo*1)*pageSize){
                         more.hide();
                         return;
                     }
                     pageNo = pageNo*1+1
                     obj.find("input[name='pageNo']").val(pageNo)
-				}
-    		}else if(records.length ==0 && pageNo=="1"){
-    		    obj.hide();
-    		     var location_l = obj.children('.project_t').attr('location_l')
+                }
+            }else if(records.length ==0 && pageNo=="1"){
+                obj.hide();
+                 var location_l = obj.children('.project_t').attr('location_l')
                  $('.project_all_r li[location_r="'+location_l+'"]').hide();
                  $('.project_all_r li[location_r="'+location_l+'"]').removeClass('storey_list')
                  obj.children().removeClass('storey_list');
-    		}
-    	})
+            }
+        })
    }
 
    //没有分页的请求
@@ -581,118 +589,144 @@ sendGetRequest(url,function(data){
         return json;
    }
 
-
-    sendGetRequest(detail.queryPorjectBusniessInfo+proj.data.compCode,function(data){
-        if(data.data){
-            projectShareholderInfoList = data.data["projectShareholderInfoList"];
-            for(i in projectShareholderInfoList){
-                if(i<5){
-                    var json ={}
-                    var linkJson={}
-                    if(!projectShareholderInfoList[i].equityRate.indexOf('-')==0){
-                        json["name"]=projectShareholderInfoList[i].shareholder+"/"+projectShareholderInfoList[i].equityRate;
-                    }else{
-                        json["name"]=projectShareholderInfoList[i].shareholder
+    if(proj.data.compCode){
+        sendGetRequest(detail.queryPorjectBusniessInfo+proj.data.compCode,function(data){
+            if(data.data){
+                projectShareholderInfoList = data.data["projectShareholderInfoList"];
+                for(i in projectShareholderInfoList){
+                    if(i<5){
+                        var json ={}
+                        var linkJson={}
+                        if(!projectShareholderInfoList[i].equityRate.indexOf('-')==0){
+                            json["name"]=projectShareholderInfoList[i].shareholder+"/"+projectShareholderInfoList[i].equityRate;
+                        }else{
+                            json["name"]=projectShareholderInfoList[i].shareholder
+                        }
+                        json["value"]=1;
+                        json["symbolSize"]=10;
+                        json["category"]="股东";
+                        json["draggable"]="true";
+                        linkJson["source"]="股东";
+                        if(!projectShareholderInfoList[i].equityRate.indexOf('-')==0){
+                            linkJson["target"]=projectShareholderInfoList[i].shareholder+"/"+projectShareholderInfoList[i].equityRate;
+                        }else{
+                            linkJson["target"]=projectShareholderInfoList[i].shareholder
+                        }
+                        array.push(json)
+                        linkArr.push(linkJson)
                     }
-                    json["value"]=1;
-                    json["symbolSize"]=10;
-                    json["category"]="股东";
-                    json["draggable"]="true";
-                    linkJson["source"]="股东";
-                    if(!projectShareholderInfoList[i].equityRate.indexOf('-')==0){
-                        linkJson["target"]=projectShareholderInfoList[i].shareholder+"/"+projectShareholderInfoList[i].equityRate;
-                    }else{
-                        linkJson["target"]=projectShareholderInfoList[i].shareholder
-                    }
-                    array.push(json)
-                    linkArr.push(linkJson)
                 }
             }
-        }
-        fillBaseBusinessInfo(data.data,$("div[data-query='businessInfo']"));
-        fillList(data.data,$("*[data-query='list']"))
-    })
+            fillBaseBusinessInfo(data.data,$("div[data-query='businessInfo']"));
+            fillList(data.data,$("*[data-query='list']"))
+        })
+    }else{
+         $('#shareholder').hide();
+         $('#changes').hide();
+         $('#gsxx').hide();
+         var location_l = $("#shareholder .project_t").attr('location_l')
+         $('.project_all_r li[location_r="'+location_l+'"]').hide();
+         $('.project_all_r li[location_r="'+location_l+'"]').removeClass('storey_list')
+         var location_l1 = $("#changes .project_t").attr('location_l')
+         $('.project_all_r li[location_r="'+location_l1+'"]').hide();
+         $('.project_all_r li[location_r="'+location_l1+'"]').removeClass('storey_list')
+         var location_l2 = $("#gsxx .project_t").attr('location_l')
+         $('.project_all_r li[location_r="'+location_l2+'"]').hide();
+         $('.project_all_r li[location_r="'+location_l2+'"]').removeClass('storey_list')
+         $("#shareholder").children().removeClass('storey_list')
+         $("#changes").children().removeClass('storey_list')
+         $("#gsxx").children().removeClass('storey_list')
+     }
+
     sendGetRequest(detail.getListByProjCode+proj.data.projCode,function(data){
         projectContactListFormatter(data.data,$("*[data-query='listes']"))
         })
 
-   //企业图谱
-var option = {
-    /* backgroundColor: new echarts.graphic.RadialGradient(0.3, 0.3, 0.8, [{
-        offset: 0,
-        color: '#f7f8fa'
-    }, {
-        offset: 1,
-        color: '#cdd0d5'
-    }]), */
-       title:{
-    },
-      tooltip: {},
-      color:['#3e50b4','#2095f2','#8bc24a','#fdk107','#f44236','#da8267'],
-      legend: [{
-          formatter: function (name) {
-        return echarts.format.truncateText(name, 100, '14px Microsoft Yahei', '…');
-    },
-    tooltip: {
-        show: true
-    },
-          selectedMode: 'false',
-          bottom: 20,
-          data: dataArr
-      }],
-      toolbox: {
-        show : false,
-        feature : {
-            dataView : {show: true, readOnly: true},
-            restore : {show: true},
-            saveAsImage : {show: true}
-        }
-    },
-      animationDuration: 1000,
-      animationEasingUpdate: 'quinticInOut',
-      series: [{
-          name: regName,
-          type: 'graph',
-          layout: 'force',
-
-          force: {
-              repulsion: 500
-          },
-          data: array,
-          links: linkArr,
-          categories: [{
-              'name': regName
-          },{
-              'name': '项目'
-          }, {
-              'name': '股东'
-          }, {
-              'name': '子公司'
-          }, {
-              'name': '对外投资'
-          }, {
-              'name': '任职人员'
+if(proj.data.compCode){
+       //企业图谱
+    var option = {
+        /* backgroundColor: new echarts.graphic.RadialGradient(0.3, 0.3, 0.8, [{
+            offset: 0,
+            color: '#f7f8fa'
+        }, {
+            offset: 1,
+            color: '#cdd0d5'
+        }]), */
+           title:{
+        },
+          tooltip: {},
+          color:['#3e50b4','#2095f2','#8bc24a','#fdk107','#f44236','#da8267'],
+          legend: [{
+              formatter: function (name) {
+            return echarts.format.truncateText(name, 100, '14px Microsoft Yahei', '…');
+        },
+        tooltip: {
+            show: true
+        },
+              selectedMode: 'false',
+              bottom: 20,
+              data: dataArr
           }],
-          focusNodeAdjacency: true,
-          roam: true,
-          label: {
-              normal: {
+          toolbox: {
+            show : false,
+            feature : {
+                dataView : {show: true, readOnly: true},
+                restore : {show: true},
+                saveAsImage : {show: true}
+            }
+        },
+          animationDuration: 1000,
+          animationEasingUpdate: 'quinticInOut',
+          series: [{
+              name: regName,
+              type: 'graph',
+              layout: 'force',
 
-                  show: true,
-                  position: 'top',
+              force: {
+                  repulsion: 500
+              },
+              data: array,
+              links: linkArr,
+              categories: [{
+                  'name': regName
+              },{
+                  'name': '项目'
+              }, {
+                  'name': '股东'
+              }, {
+                  'name': '子公司'
+              }, {
+                  'name': '对外投资'
+              }, {
+                  'name': '任职人员'
+              }],
+              focusNodeAdjacency: true,
+              roam: true,
+              label: {
+                  normal: {
 
+                      show: true,
+                      position: 'top',
+
+                  }
+              },
+              lineStyle: {
+                  normal: {
+                      color: 'source',
+                      curveness: 0,
+                      type: "solid"
+                  }
               }
-          },
-          lineStyle: {
-              normal: {
-                  color: 'source',
-                  curveness: 0,
-                  type: "solid"
-              }
-          }
-      }]
-  };
-var myChart = echarts.init(document.getElementById('eacharts_in'));
+          }]
+      };
+    var myChart = echarts.init(document.getElementById('eacharts_in'));
+}else{
+    $('#qytp').hide();
+    var location_l = $("#qytp .project_t").attr('location_l')
+    $('.project_all_r li[location_r="'+location_l+'"]').hide();
+    $('.project_all_r li[location_r="'+location_l+'"]').removeClass('storey_list')
+    $("#qytp").children().removeClass('storey_list')
+}
 
 
 

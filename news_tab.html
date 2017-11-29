@@ -1,15 +1,15 @@
 <input type="hidden" name="typeId"  >
 <ul class="news_li">
     <li class="financing_on">全部</li>
-    <li data-tab="news" value="1">机构</li>
-    <li data-tab="news" value="2">大公司</li>
-    <li data-tab="news" value="3">事件</li>
-    <li data-tab="news" value="4">人物</li>
-    <li data-tab="news" value="6">行业</li>
-    <li data-tab="" value="7">新产品</li>
+    <li data-tab="news" value="1" class="">机构</li>
+    <li data-tab="news" value="2" class="">大公司</li>
+    <li data-tab="news" value="3" class="">事件</li>
+    <li data-tab="news" value="4" class="">人物</li>
+    <li data-tab="news" value="6" class="">行业</li>
+    <li data-tab="" value="7" class="">新产品</li>
 </ul>
 <script>
-    //切换tab 请求数据
+    //鍒囨崲tab 璇锋眰鏁版嵁
     $(".news_li").delegate("li","click",function(){
         var tab = $(this).attr("value");
         $(".news_li li").removeClass('financing_on')
