@@ -14,22 +14,34 @@
 {(header.html)}
 <div class='login'>
 <div class='login-left'><img src='../img/login/login_03.jpg'/></div>
-<div class='login-right'>
-	<ul>
-		<li>密码登录</li>
-		<li class='li-last'>验证码登录</li>
-	</ul>
-	<div class='login-right-content'>
-		
-	
+
+	<div class='login-right'>
+		<ul>
+			<li class='clicked'>密码登录</li>
+			<li class='li-last'>验证码登录</li>
+		</ul>
+		<div class='login-right-content password'>
+			<input class='login-input input-first' type='text' placeholder='请输入登录用户名/手机号'/><label class='login-tips'>*你输入的账号不存在</label>
+			<input class='login-input input-last' type='text' placeholder='请输入登录密码'/><span class='login-eye'></span>
+			<p class='forgot'>
+				<input type='checkbox' ><span class='serven-day'>七天自动登录</span>
+				<a href='javascript:;' class='forget-password'>忘记密码</a>
+			</p>
+			<span class='to-login'>登录</span>
+			<p class='to-register'>还没有账号？<a href='javascript:;'>注册新用户<span cass=''><img src='../img/login/to-register_03.jpg'/></span></a></p>
+		</div>
+		<!--验证码登录  -->
+		<div class='login-right-content vertifiaction-code'>
+			<input class='login-input input-first telphone' type='text' placeholder='请输入登录用户名/手机号'/><label class='login-tips'>*你输入的手机号格式不正确</label>
+			<input class='login-input input-code' type='text' placeholder='请输入验证码'/><span class='login-send-code'>发送验证码</span>
+			<p class='forgot'>
+				<input type='checkbox' ><span class='serven-day'>七天自动登录</span>
+				<a href='javascript:;' class='forget-password'>忘记密码</a>
+			</p>
+			<span class='to-login'>登录</span>
+			<p class='to-register'>还没有账号？<a href='javascript:;'>注册新用户<span cass=''><img src='../img/login/to-register_03.jpg'/></span></a></p>
+		</div>
 	</div>
-
-
-
-
-
-
-</div>
 
 
 

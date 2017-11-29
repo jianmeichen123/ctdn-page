@@ -65,13 +65,45 @@ em,i{font-style:normal;}
 .index-project-container{margin-top:-45px;}
 select:focus { outline: none important; }
 /* login */
-.login{width:912px;height:100%;border:1px solid;margin:0 auto;position:relative;margin-top:80px;}
+.login{width:1054px;height:100%;margin:0 auto;position:relative;margin-top:80px;}
 .login:after{content:'';display:block;clear:both;}
 .login-left{width:655px;height:367px;float:left;}
-.login-right{width:301px;height:100%;border:1px solid;position:absolute;right:0px;font-family:'Microsoft YaHei';}
-.login-right ul{border-bottom:1px solid #e6e6e6;padding:0px 28px;height:26px;}
+.login-right{width:450px;height:100%;position:absolute;right:0px;font-family:'Microsoft YaHei';z-index:10;}
+.login-right ul{width:299px;border-bottom:1px solid #e6e6e6;padding:0px 28px;height:26px;}
 .login-right ul:after{content:'';display:block;clear:both;}
 .login-right ul li{float:left;font-size:14px;font-family:'Microsoft YaHei';height:26px;cursor:pointer;}
 .li-last{margin-left:110px;}
 .login-right ul li.clicked{border-bottom:3px solid #2393f7;color:#2393f7;}
+.login-input{width:302px;height:48px;border-radius:5px;border:1px solid #e6e6e6;padding-left:44px;}
+.input-first{margin-top:30px;}
+.input-last{margin-top:20px;}
+.input-first{background:url('../img/login/login-icon_03.jpg') no-repeat 15px center ;background-color:#fff;}
+.login-right-content input::-webkit-input-placeholder { /* WebKit browsers */  color:#999999;font-size:14px;}
+.login-right-content input::-moz-input-placeholder { /* WebKit browsers */  color:#999999;font-size:14px;  }  
+.login-right-content input::-ms-input-placeholder { /* WebKit browsers */  color:#999999;font-size:14px;  } 
+.input-last{background-image:url('../img/login/login-icon_07.jpg');background-repeat:no-repeat;background-position:15px center;}
+.login-eye{display:inline-block;width:16px;cursor:pointer;height:13px;position:absolute;top: 116px;right:167px;background:url('../img/login/login-icon_10.jpg')}
+.login-right-content{position:relative;}
+.login-eye:hover{}
+.forget-password{float:right;color:#2393f7;margin-right:152px;}
+.serven-day{vertical-align:text-top;color:#666666;font-size:12px;margin-left:11px;}
+.forgot{margin-top:10px;}
+.to-login{width:298px;height:49px;margin-top:20px;text-align:center;cursor:pointer;border-radius:5px;line-height:49px;color:#fff;display:inline-block;background-color:#2393f7;}
+.to-register{margin-top:20px;margin-left:70px;font-size:14px;}
+.to-register span img{display:inline-block;margin-left:11px;margin-top:-3px;}
+.to-register a{color:#2393f7;}
+.login-tips{font-weight:normal;color:#ff5853;font-size:12px;margin-left:11px;display:none;}
+.password{display:none;}
+.telphone{background: url(../img/login/tel_03.jpg) no-repeat 15px center;background-color: #fff;}
+.input-code{width:178px;margin-top:20px;padding-left:19px;}
+.login-send-code{display:inline-block;width:115px;height:45px;cursor:pointer;background:#2393f7;line-height:45px;text-align:center;border-radius:5px;color:#fff;font-size:14px;margin-left:10px;}
+.login-send-code-gray{background:#e6e6e6;}
 
+
+
+
+
+
+
+
+   
