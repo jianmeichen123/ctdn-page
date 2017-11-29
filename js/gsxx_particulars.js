@@ -54,6 +54,7 @@ compJson["value"]='';
 array.push(compJson);
 
 function fillBaseBusinessInfo(data,divList){
+    console.log(data)
     if(data){
         $(divList).each(function(){
             var div = $(this);
@@ -293,65 +294,73 @@ function projectContactListFormatter(data,div){
 
 
 //任职人员
-var url = detail["getAllCompMember"]+proj.data.compCode;
-sendGetRequest(url,function(data){
-    perJson=data.data;
-    if(perJson.length>0){
-        if(perJson[0].memberName){
-            dataArr.push("任职人员")
-            compJson5["name"]="任职人员";
-            compJson5["symbolSize"]=15;
-            compJson5["category"]="任职人员";
-            compJson5["draggable"]="true";
-            compJson5["value"]=perJson.length;
-            array.push(compJson5);
+if(proj.data.compCode){
+    var url = detail["getAllCompMember"]+proj.data.compCode;
+    sendGetRequest(url,function(data){
+        perJson=data.data;
+        if(perJson.length>0){
+            if(perJson[0].memberName){
+                dataArr.push("任职人员")
+                compJson5["name"]="任职人员";
+                compJson5["symbolSize"]=15;
+                compJson5["category"]="任职人员";
+                compJson5["draggable"]="true";
+                compJson5["value"]=perJson.length;
+                array.push(compJson5);
 
-            compLink3["source"]=regName;
-            compLink3["target"]="任职人员";
-            linkArr.push(compLink3);
+                compLink3["source"]=regName;
+                compLink3["target"]="任职人员";
+                linkArr.push(compLink3);
 
-            $(perJson).each(function(i){
-                if(i<5){
-                    var json ={}
-                    var linkJson={}
-                    if($(this)[0].memberName!=''){
-                        if($(this)[0].compJob){
-                            json["name"]=$(this)[0].memberName+"/"+$(this)[0].compJob;
-                        }else{
-                            json["name"]=$(this)[0].memberName;
+                $(perJson).each(function(i){
+                    if(i<5){
+                        var json ={}
+                        var linkJson={}
+                        if($(this)[0].memberName!=''){
+                            if($(this)[0].compJob){
+                                json["name"]=$(this)[0].memberName+"/"+$(this)[0].compJob;
+                            }else{
+                                json["name"]=$(this)[0].memberName;
+                            }
+                            json["symbolSize"]=10;
+                            json["category"]="任职人员";
+                            json["draggable"]="true";
+                            json["value"]=1;
+                            linkJson["source"]="任职人员";
+                            if($(this)[0].compJob){
+                                linkJson["target"]=$(this)[0].memberName+"/"+$(this)[0].compJob;
+                            }else{
+                                linkJson["target"]=$(this)[0].memberName;
+                            }
+                            array.push(json);
+                            linkArr.push(linkJson);
                         }
-                        json["symbolSize"]=10;
-                        json["category"]="任职人员";
-                        json["draggable"]="true";
-                        json["value"]=1;
-                        linkJson["source"]="任职人员";
-                        if($(this)[0].compJob){
-                            linkJson["target"]=$(this)[0].memberName+"/"+$(this)[0].compJob;
-                        }else{
-                            linkJson["target"]=$(this)[0].memberName;
-                        }
-                        array.push(json);
-                        linkArr.push(linkJson);
                     }
-                }
-            })
+                })
+            }
         }
-    }
-    if(data.data.length==0||!data.data[0].memberName){
-        $('#members').hide();
-        var location_l = $("#members .project_t").attr('location_l')
-        $('.project_all_r li[location_r="'+location_l+'"]').hide();
-        $('.project_all_r li[location_r="'+location_l+'"]').removeClass('storey_list')
-        $("#members").children().removeClass('storey_list')
-    }
-   $(data.data).each(function(k,v){
-        if(!v){
-            v=table.empty;
+        if(data.data.length==0||!data.data[0].memberName){
+            $('#members').hide();
+            var location_l = $("#members .project_t").attr('location_l')
+            $('.project_all_r li[location_r="'+location_l+'"]').hide();
+            $('.project_all_r li[location_r="'+location_l+'"]').removeClass('storey_list')
+            $("#members").children().removeClass('storey_list')
         }
-   })
-   var target = $("#getAllCompMember");
-   target.tmpl(data).appendTo(target.parent())
-})
+       $(data.data).each(function(k,v){
+            if(!v){
+                v=table.empty;
+            }
+       })
+       var target = $("#getAllCompMember");
+       target.tmpl(data).appendTo(target.parent())
+    })
+}else{
+    $('#members').hide();
+    var location_l = $("#members .project_t").attr('location_l')
+    $('.project_all_r li[location_r="'+location_l+'"]').hide();
+    $('.project_all_r li[location_r="'+location_l+'"]').removeClass('storey_list')
+    $("#members").children().removeClass('storey_list')
+}
 
 
 
@@ -581,37 +590,55 @@ sendGetRequest(url,function(data){
         return json;
    }
 
-
-    sendGetRequest(detail.queryPorjectBusniessInfo+proj.data.compCode,function(data){
-        if(data.data){
-            projectShareholderInfoList = data.data["projectShareholderInfoList"];
-            for(i in projectShareholderInfoList){
-                if(i<5){
-                    var json ={}
-                    var linkJson={}
-                    if(!projectShareholderInfoList[i].equityRate.indexOf('-')==0){
-                        json["name"]=projectShareholderInfoList[i].shareholder+"/"+projectShareholderInfoList[i].equityRate;
-                    }else{
-                        json["name"]=projectShareholderInfoList[i].shareholder
+    if(proj.data.compCode){
+        sendGetRequest(detail.queryPorjectBusniessInfo+proj.data.compCode,function(data){
+            if(data.data){
+                projectShareholderInfoList = data.data["projectShareholderInfoList"];
+                for(i in projectShareholderInfoList){
+                    if(i<5){
+                        var json ={}
+                        var linkJson={}
+                        if(!projectShareholderInfoList[i].equityRate.indexOf('-')==0){
+                            json["name"]=projectShareholderInfoList[i].shareholder+"/"+projectShareholderInfoList[i].equityRate;
+                        }else{
+                            json["name"]=projectShareholderInfoList[i].shareholder
+                        }
+                        json["value"]=1;
+                        json["symbolSize"]=10;
+                        json["category"]="股东";
+                        json["draggable"]="true";
+                        linkJson["source"]="股东";
+                        if(!projectShareholderInfoList[i].equityRate.indexOf('-')==0){
+                            linkJson["target"]=projectShareholderInfoList[i].shareholder+"/"+projectShareholderInfoList[i].equityRate;
+                        }else{
+                            linkJson["target"]=projectShareholderInfoList[i].shareholder
+                        }
+                        array.push(json)
+                        linkArr.push(linkJson)
                     }
-                    json["value"]=1;
-                    json["symbolSize"]=10;
-                    json["category"]="股东";
-                    json["draggable"]="true";
-                    linkJson["source"]="股东";
-                    if(!projectShareholderInfoList[i].equityRate.indexOf('-')==0){
-                        linkJson["target"]=projectShareholderInfoList[i].shareholder+"/"+projectShareholderInfoList[i].equityRate;
-                    }else{
-                        linkJson["target"]=projectShareholderInfoList[i].shareholder
-                    }
-                    array.push(json)
-                    linkArr.push(linkJson)
                 }
             }
-        }
-        fillBaseBusinessInfo(data.data,$("div[data-query='businessInfo']"));
-        fillList(data.data,$("*[data-query='list']"))
-    })
+            fillBaseBusinessInfo(data.data,$("div[data-query='businessInfo']"));
+            fillList(data.data,$("*[data-query='list']"))
+        })
+    }else{
+         $('#shareholder').hide();
+         $('#changes').hide();
+         $('#gsxx').hide();
+         var location_l = $("#shareholder .project_t").attr('location_l')
+         $('.project_all_r li[location_r="'+location_l+'"]').hide();
+         $('.project_all_r li[location_r="'+location_l+'"]').removeClass('storey_list')
+         var location_l1 = $("#changes .project_t").attr('location_l')
+         $('.project_all_r li[location_r="'+location_l1+'"]').hide();
+         $('.project_all_r li[location_r="'+location_l1+'"]').removeClass('storey_list')
+         var location_l2 = $("#gsxx .project_t").attr('location_l')
+         $('.project_all_r li[location_r="'+location_l2+'"]').hide();
+         $('.project_all_r li[location_r="'+location_l2+'"]').removeClass('storey_list')
+         $("#shareholder").children().removeClass('storey_list')
+         $("#changes").children().removeClass('storey_list')
+         $("#gsxx").children().removeClass('storey_list')
+     }
+
     sendGetRequest(detail.getListByProjCode+proj.data.projCode,function(data){
         projectContactListFormatter(data.data,$("*[data-query='listes']"))
         })
