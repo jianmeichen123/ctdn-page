@@ -159,7 +159,9 @@
 								 		<span class="zw _no">离职</span>
 								 	{{/if}}
 								 	</li>
-								 	<li class="team_color_font" >${v.college}<span>${v.edu}</span></li>
+								 	{{if v.college || v.edu}}
+								 		<li class="team_color_font" >${v.college}<span>${v.edu}</span></li>
+								 	{{/if}}
 								 	<li class="team_color_font_2" >{{html v.introduction}}</li>
 								 </ul>
 						    </li>
