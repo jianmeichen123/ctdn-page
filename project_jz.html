@@ -36,6 +36,7 @@
 {(dn_foot.html)}
 <script src="js/fill_project_header.js"></script>
 <script src="js/fillData_common.js"></script>
+</body>
 <script>
 $(window).scroll(function(){
 	 var scrollTop=$(window).scrollTop();
@@ -76,6 +77,7 @@ $(window).scroll(function(){
 				  			var json = eval("(" + v + ")");
 							var ls = json["investSideJson"];
 							var firms = "";
+
 							$(ls).each(function(i,e){
 							   //待修改 没加领投
 							   if(i<3){
@@ -88,7 +90,7 @@ $(window).scroll(function(){
 							})
 							v = firms
 				  		}else{
-				  			v="-"
+				  			v=table.empty
 				  		}
 				  }
 				  if(k=="industryName"){
@@ -104,34 +106,31 @@ $(window).scroll(function(){
 					  }
 				  }
                	 if(k=="logoSmall"){
+               	 	var str='<a href="project_qy.html?projCode='+row["projCode"]+'">'
 					if (v && v!=""){
 						<!--v= '<img src="'+Constants.logoPath+img+'">'-->
-						v= '<img src="'+Constants.logoPath+'project/'+row["projCode"]+'.png">'
+						str += '<img src="'+Constants.logoPath+'project/'+row["projCode"]+'.png">'
 					}else{
-					    v= '<img src="img/default.gif">'
+					    str += '<img src="img/default.gif">'
 					}
+					str+='</a>'
+					v=str
 				 }
 				 if(k=="projTitle"){
 				 	if(v){
 				 		v ='<a href="project_qy.html?projCode='+row["projCode"]+'">'+v+'</a>'
 				 	}
 				 }
-               	 <!--if(k=="labels"){-->
-               	 	<!--if(v){-->
-               	 		<!--var str = "";-->
-						<!--$(v.split(","),function(i,e){-->
-						   <!--str.append("<span class='project_lable'>");-->
-						   <!--str.append(e);-->
-						   <!--str.append("</span>");-->
-						<!--})-->
-						<!--v = str-->
-               	 	<!--}else{-->
-               	 		<!--v=""-->
-               	 	<!--}-->
-               	 <!--}-->
+
                	 if(k=="latestFinanceRound" && !v){v ="尚未获投"}
-               	 if(k=="firmDesc" && !v){v="暂无描述"}
-               	 if(k=="setupDT" && !v){v="成立时间未知"}
+               	 if(k=="firmDesc" ){
+               	 	if(v ){
+               	 		v=v.replace(/(<\/?.+?>)|(&nbsp;)/g,"")
+               	 	}else{
+               	 		v="暂无描述"
+               	 	}
+               	 }
+               	 if(k=="setupDT" && !v){v=table.empty}
                	 if(k=="districtSubName" && !v){v="地区未知"}
 
 				 if(k=="labels"){
@@ -141,11 +140,12 @@ $(window).scroll(function(){
 							 str+= "<span class='project_lable'>"+e+"</span>";
 						})
 						v = str
+					}else{
+						v = ""
 					}
 			     }
                	 if(k=="similarity"){
-
-               	 	 if(v){
+               	 	 if(v&&v!=0){
 						 var tmp = "";
 						 for(var i = 0; i< parseInt(v*100); i++){
 							tmp += "<li></li>"
@@ -157,9 +157,14 @@ $(window).scroll(function(){
 			     	  	 v ="相似度未知"
 			     	 }
 			     }
-			     if(k=="latestFinanceAmountStr" && !v){v="-"}
-			     if(k=="latestFinanceDT"){
-			     	if(!v){v="-"}else{v =formatDate(v)}
+			     if(k=="latestFinanceAmountStr" && !v){v=table.empty}
+					 if(k=="latestFinanceDT"){
+						if(!v){
+							v=table.empty
+						}
+						else{
+						v =formatDate(v)
+					}
 			     }
 			  	 temp =temp.replace("${"+k+"}",v)
 			  }
@@ -177,5 +182,4 @@ $(window).scroll(function(){
 
 	nav_locaton('ctsj','qyxm','','jzds')
 </script>
-</body>
 </html>
