@@ -7,7 +7,7 @@
          		loadMore(more,obj)
             }else{
                 //不带分页
-                if(obj.children("input[name]").length>0){
+                 if(obj.attr("data-id") !="none"){
                     loadNoPage(obj);
                 }
             }
@@ -63,8 +63,7 @@
         url = getUrl(dataId,url);
         var json = getJson(obj);
         sendPostRequestByJsonObj(url,json,function(data){
-
-            if(data && data.data.length>0){
+            if(data.data && data.data.length>0){
                 var target = $("#"+dataId)
                 target.tmpl(data).appendTo(target.parent())
                 obj.show();
