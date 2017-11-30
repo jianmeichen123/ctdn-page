@@ -82,9 +82,9 @@ select:focus { outline: none important; }
 .login-right-content input::-moz-input-placeholder { /* WebKit browsers */  color:#999999;font-size:14px;  }  
 .login-right-content input::-ms-input-placeholder { /* WebKit browsers */  color:#999999;font-size:14px;  } 
 .input-last{background-image:url('../img/login/login-icon_07.jpg');background-repeat:no-repeat;background-position:15px center;}
-.login-eye{display:inline-block;width:16px;cursor:pointer;height:13px;position:absolute;top: 116px;right:167px;background:url('../img/login/login-icon_10.jpg')}
+.login-eye{display:inline-block;width:16px;cursor:pointer;height:13px;position:absolute;top: 2px;right:10px;background:url('../img/login/login-icon_10.jpg')}
 .login-right-content{position:relative;}
-.login-eye:hover{}
+.login-eye:hover{background:url('../img/login/eye-blue_03.jpg')}
 .forget-password{float:right;color:#2393f7;margin-right:152px;}
 .serven-day{vertical-align:text-top;color:#666666;font-size:12px;margin-left:11px;}
 .forgot{margin-top:10px;}
@@ -98,8 +98,6 @@ select:focus { outline: none important; }
 .input-code{width:178px;margin-top:20px;padding-left:19px;}
 .login-send-code{display:inline-block;width:115px;height:45px;cursor:pointer;background:#2393f7;line-height:45px;text-align:center;border-radius:5px;color:#fff;font-size:14px;margin-left:10px;}
 .login-send-code-gray{background:#e6e6e6;}
-.set-pass{top:210px;}
-.set-pass-again{top:278px;}
 .find-back-pass ul.find-pass-title span{color:#333333;font-size:14px;}
 .find-pass-bottom{margin-top:20px !important;border-bottom:0px solid !important;padding:0px !important;margin:0 auto;}
 .find-pass-bottom li{height:auto !important;color:#2393f7;padding-bottom:6px;border-bottom:1px solid #2393f7;margin-left:30px;}
@@ -107,3 +105,4 @@ select:focus { outline: none important; }
 .find-back-pass{display:none;}
 .find-pass-title{text-align:center;}
 .register-content{display:none;}
+.eye-box{position:relative;}
