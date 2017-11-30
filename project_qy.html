@@ -309,7 +309,7 @@
 												</ul>
 											</div>
 										</td>
-										<td>{{if v.equityRate}} ${v.equityRate}{{else}}未透露{{/if}}</td>
+										<td>{{if v.equityRate}} ${v.equityRate+'%'}{{else}}未透露{{/if}}</td>
 										<td>{{if v.amountStr}} ${v.amountStr}{{else}}未透露{{/if}}</td>
 										<td>{{if v.mergeSideJson}} {{html formatMergeSideJson(v) }}{{else}}--{{/if}}</td>
 										<td>{{if v.mergeDate}} {{html formatDate(v.mergeDate, "yyyy-MM-dd") }}{{else}}--{{/if}}</td>
