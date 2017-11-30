@@ -236,19 +236,19 @@ function formatInvestSide(investSideJson){
                    var con=json.invstor;
                     if(json.id){
                         if(json.type=='invst'&&json.isClick==1){
-                            investTitle+='<span class="list_table_bbad"><a target="_blank" href="/jg_particulars.html?orgCode='+json.code+'" title="'+json.invstor.replace("<firm>","").replace("</firm>","")+'" class="invstorName">'+con+'</a></span>';
+                            investTitle+='<div class="list_table_bbad"><a target="_blank" href="/jg_particulars.html?orgCode='+json.code+'" title="'+json.invstor.replace("<firm>","").replace("</firm>","")+'" class="invstorName">'+con+'</a></div>';
                         }
                         if(json.type=='invst'&&json.isClick==0){
-                            investTitle+='<span class="list_table_td invstorName" title="'+json.invstor.replace("<firm>","").replace("</firm>","")+'">'+con+'</span>';
+                            investTitle+='<div class="list_table_td invstorName" title="'+json.invstor.replace("<firm>","").replace("</firm>","")+'">'+con+'</div>';
                         }
                         if(json.type=='com'){
-                            investTitle+='<span class="list_table_bbad"><a target="_blank" href="/project_qy.html?projCode='+json.code+'"  title="'+json.invstor.replace("<firm>","").replace("</firm>","")+'" class="invstorName">'+con+'</a></span>';
+                            investTitle+='<div class="list_table_bbad"><a target="_blank" href="/project_qy.html?projCode='+json.code+'"  title="'+json.invstor.replace("<firm>","").replace("</firm>","")+'" class="invstorName">'+con+'</a></div>';
                         }
                         if(json.type!='invst'&&json.type!='com'){
-                            investTitle+='<span class="list_table_td invstorName" title="'+json.invstor.replace("<firm>","").replace("</firm>","")+'">'+con+'</span>';
+                            investTitle+='<div class="list_table_td invstorName" title="'+json.invstor.replace("<firm>","").replace("</firm>","")+'">'+con+'</div>';
                         }
                     }else{
-                        investTitle+='<span class="list_table_td invstorName" title="'+json.invstor.replace("<firm>","").replace("</firm>","")+'">'+con+'</span>';
+                        investTitle+='<div class="list_table_td invstorName" title="'+json.invstor.replace("<firm>","").replace("</firm>","")+'">'+con+'</div>';
                     }
                 }
             }
