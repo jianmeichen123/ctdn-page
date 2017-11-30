@@ -2,7 +2,6 @@
 <html>
 <head>
 <meta content="webkit" name="renderer" />
-<meta http-equiv="X-UA-Compatible" content="IE=Edge">
 	<meta charset="utf-8">
 	<title>寻求融资</title>
 	<!--basis-->
@@ -278,11 +277,11 @@
 		add: function (e, data) {
 			var acceptFileTypes = /\/(jpg|jpeg|png|gif)$/i;
 			if(data.originalFiles[0]['type'].length && !acceptFileTypes.test(data.originalFiles[0]['type'])) {
-				$("#projLogoName").html("<font color='red'>*</font>您的文件格式不正确")
+				$("#projLogoName").html("<font color='red'>*您的文件格式不正确</font>")
 				return;
 			}
 			if(data.files[0].size > 500*1024*1024){
-				$("#projLogoName").html("<font color='red'>*</font>您的文件大小超过限制，请控制在500KB之内")
+				$("#projLogoName").html("<font color='red'>*您的文件大小超过限制，请控制在500KB之内</font>")
 				return;
 			}
 			$("#projLogoName").html(data.files[0].name);
@@ -300,9 +299,6 @@
 			{
 				$("#projLogoName").text(data.result.message);
 			}
-		},
-		always:function(e,data){
-			$("#save-btn").prop("disabled",true)
 		}
 	});
 	$("#projPb").fileupload({
@@ -310,6 +306,7 @@
 		formData:{},
 		add: function (e, data) {
 			if(data.files[0].size > 25*1024*1024){
+				$("#projPbName").text("上传商业计划书，文件大小请限制在25M之内")
 				$("#projPbName").addClass("red")
 				return;
 			}
@@ -326,9 +323,6 @@
 			{
 				$("#projPbName").text(data.result.message);
 			}
-		},
-		always:function(e,data){
-				$("#save-btn").prop("disabled",true)
 		}
 	});
 </script>
@@ -375,8 +369,9 @@ function save(){
 				}
 			})
 }
-$("#save-btn").click(function(event){
-
+$('body').delegate('#save-btn','click', function(event){
+ 	event.stopPropagation();
+ console.log('ddddd')
 	$("#form").submit();
 })
 	var list ={} ;
