@@ -1,1 +1,12 @@
-header{width:100%;height:90px;border:1px solid;}
+header{position:fixed;top:0px;left:0px;width:100%;height:90px;line-height:90px;background:#74829a;font-family:'Microsoft YaHei';color:#fff;}
+.fl{float:left;margin-left:52px;font-size:24px;}
+.fr{float:right;margin-right:33px;font-size:14px;}
+.content-box{width:100%;height:auto;margin-top:90px;border:1px solid;}
+.menu{background:#ffffff;border:1px solid #cccccc;width:138px;height:300px;}
+.menu ul li a{font-size:16px;color:#66b8f5;font-family:'Microsoft YaHei'}
+/*登录页面*/
+.login-content{width:100%;height:auto;margin-top:90px;}
+.login-content form input{border:1px solid #cccccc;border-radius:4px;width:334px;height:54px;padding-left:14px;margin-top:22px;}
+.login-form{width:350px;margin:0 auto;margin-top:155px;}
+.to-login{font-family:'Microsoft YaHei';cursor:pointer;background:#66b8f5;border-radius:4px;width:350px;height:56px;display:inline-block;line-height:56px;text-align:center;font-size:24px;color:#ffffff;margin-top:52px;}
+.login-form label{display:inline-block;}
