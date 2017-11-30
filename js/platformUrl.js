@@ -11,13 +11,13 @@
 
 //线上
 var Constants = {
-	platformContentURL: "http://ctdnrc.galaxyinternet.com/api/",
-	searchContentURL: "http://ctdnrc.galaxyinternet.com/search/",
-	dataContentURL: "http://ctdnrc.galaxyinternet.com/data/",
+	platformContentURL: "http://ctdn.galaxyinternet.com/api/",
+	searchContentURL: "http://ctdn.galaxyinternet.com/search/",
+	dataContentURL: "http://ctdn.galaxyinternet.com/data/",
     logoPath: "http://static.galaxyinternet.com/img/"
 }
 var home = {
-	    index : "http://ctdnrc.galaxyinternet.com"
+	    index : "http://ctdn.galaxyinternet.com"
 	}
 var docUrl = {
 
