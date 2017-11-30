@@ -72,7 +72,7 @@ function formatProjectInfo(data,divList){
          $('.project_all_r li[location_r='+right_show+']').show();
          $('.project_all_r li[location_r='+right_show+']').addClass('storey_list')
          $('.project_all_l [location_l='+right_show+']').addClass('storey_list')
-          if(data["firmDesc"].length>250&&data["firmDesc"].indexOf("nbsp")==0){
+          if(data["firmDesc"].length>250&&data["firmDesc"].indexOf("nbsp")== -1){
                $(".project_more").show();
           }
           $("#firmDesc").html(data["firmDesc"])
