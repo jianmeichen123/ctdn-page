@@ -374,8 +374,9 @@ function save(){
 				}
 			})
 }
-$("#save-btn").click(function(event){
-
+$('body').delegate('#save-btn','click', function(event){
+ 	event.stopPropagation();
+ console.log('ddddd')
 	$("#form").submit();
 })
 	var list ={} ;
