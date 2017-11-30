@@ -236,19 +236,19 @@ function formatInvestSide(investSideJson){
                    var con=json.invstor;
                     if(json.id){
                         if(json.type=='invst'&&json.isClick==1){
-                            investTitle+='<span class="list_table_bbad"><a target="_blank" href="/jg_particulars.html?orgCode='+json.code+'" title="'+json.invstor.replace("<firm>","").replace("</firm>","")+'" class="invstorName">'+con+'</a></span>';
+                            investTitle+='<div class="list_table_bbad"><a target="_blank" href="/jg_particulars.html?orgCode='+json.code+'" title="'+json.invstor.replace("<firm>","").replace("</firm>","")+'" class="invstorName">'+con+'</a></div>';
                         }
                         if(json.type=='invst'&&json.isClick==0){
-                            investTitle+='<span class="list_table_td invstorName" title="'+json.invstor.replace("<firm>","").replace("</firm>","")+'">'+con+'</span>';
+                            investTitle+='<div class="list_table_td invstorName" title="'+json.invstor.replace("<firm>","").replace("</firm>","")+'">'+con+'</div>';
                         }
                         if(json.type=='com'){
-                            investTitle+='<span class="list_table_bbad"><a target="_blank" href="/project_qy.html?projCode='+json.code+'"  title="'+json.invstor.replace("<firm>","").replace("</firm>","")+'" class="invstorName">'+con+'</a></span>';
+                            investTitle+='<div class="list_table_bbad"><a target="_blank" href="/project_qy.html?projCode='+json.code+'"  title="'+json.invstor.replace("<firm>","").replace("</firm>","")+'" class="invstorName">'+con+'</a></div>';
                         }
                         if(json.type!='invst'&&json.type!='com'){
-                            investTitle+='<span class="list_table_td invstorName" title="'+json.invstor.replace("<firm>","").replace("</firm>","")+'">'+con+'</span>';
+                            investTitle+='<div class="list_table_td invstorName" title="'+json.invstor.replace("<firm>","").replace("</firm>","")+'">'+con+'</div>';
                         }
                     }else{
-                        investTitle+='<span class="list_table_td invstorName" title="'+json.invstor.replace("<firm>","").replace("</firm>","")+'">'+con+'</span>';
+                        investTitle+='<div class="list_table_td invstorName" title="'+json.invstor.replace("<firm>","").replace("</firm>","")+'">'+con+'</div>';
                     }
                 }
             }
@@ -460,7 +460,7 @@ if(proj.data.compCode){
             }
             if(dataId=='dwtz'){
                 dwList=data.data.records;
-                if(dwList.length>0){
+                if(dwList && dwList.length>0){
                     dataArr.push("对外投资")
                     compJson4["name"]="对外投资";
                     compJson4["symbolSize"]=15;
@@ -492,7 +492,7 @@ if(proj.data.compCode){
             }
 
             var records = data.data.records;
-            if(records.length>0){
+            if(records && records && records.length>0){
                 var target = $("#"+dataId)
                 for(j in records){
                     for(k in records[j]){
@@ -520,8 +520,8 @@ if(proj.data.compCode){
                     pageNo = pageNo*1+1
                     obj.find("input[name='pageNo']").val(pageNo)
                 }
-            }else if(records.length ==0 && pageNo=="1"){
-                obj.hide();
+            }else if(!records ||( records.length ==0 && pageNo=="1")){
+                 obj.hide();
                  var location_l = obj.children('.project_t').attr('location_l')
                  $('.project_all_r li[location_r="'+location_l+'"]').hide();
                  $('.project_all_r li[location_r="'+location_l+'"]').removeClass('storey_list')
