@@ -1,11 +1,18 @@
 <!doctype html>
 <html>
 <head>
+<meta content="webkit" name="renderer" />
+<meta http-equiv="X-UA-Compatible" content="IE=Edge">
 	<meta charset="utf-8">
 	<title>寻求融资</title>
 	<!--basis-->
 	{(dn_basis.html)}
 </head>
+<style>
+		.red{
+			color:red
+		}
+</style>
 
 <body>
 {(header.html)}
@@ -24,10 +31,10 @@
 				<li>
 					<div class="seek_financing_l"><span class="seek_financing_two">所在地区</span><span class="seek_financing_one">*</span></div>
 					<div class="seek_financing_r">
-						<select class="seek_financing_select " name="projDistrictId" data-item="parent" data-field="district"  data-rule-select="true" data-msg-select="<font color=red>*</font>必选字段" >
+						<select class="seek_financing_select " name="projDistrictId" data-item="parent" data-field="district"  data-rule-select="true" data-msg-select="<font color=red>*</font>必选项" >
 							<option  selected = "selected" disabled="true">选择所在省/市</option>
 						</select>
-						<select class="seek_financing_select  seek_financing_select_lef" data-item="son" name="projSubDistrictId" data-rule-select="true" data-msg-select="<font color=red>*</font>必选字段" >
+						<select class="seek_financing_select  seek_financing_select_lef" data-item="son" name="projSubDistrictId" data-rule-select="true" data-msg-select="<font color=red>*</font>必选项" >
 							<option selected= "selected" disabled="true">选择所在市/区</option>
 						</select>
 					</div>
@@ -57,7 +64,7 @@
 					<div class="seek_financing_r">
 
 						<div class="seek_put">
-							<div class="logo_posi"><input type="file" name="file" id="projPb" style="opacity: 0;"/>
+							<div class="logo_posi"><input type="file" name="file" id="projPb" style="opacity: 0; width: 140px;height: 50px;"/>
 								<input type="hidden" name="projPb">
 							</div>
 							<span class="dn_ico dn_ico_seek_pur1"></span>上传文件
@@ -71,7 +78,7 @@
 					<div class="seek_financing_l"><span class="seek_financing_two">项目LOGO</span></div>
 					<div class="seek_financing_r">
 						<div class="seek_put">
-							<div class="logo_posi"><input type="file" name="file" id="projLogo" style="opacity: 0;">
+							<div class="logo_posi"><input type="file" name="file" id="projLogo" style="opacity: 0; width: 140px; height: 50px;">
 								<input type="hidden" name="projLogo"></div>
 							<span class="dn_ico dn_ico_seek_pur2"></span>上传logo
 						</div>
@@ -154,7 +161,7 @@
 			submitHandler: function() {
 				var pb = $("input[name='projPb']").val();
 				if(!pb){
-					$("#projPbName").text("<font color=red>*</font>请上传文件")
+					$("#projPbName").addClass("red")
 					return;
 				}
 				save()
@@ -271,11 +278,11 @@
 		add: function (e, data) {
 			var acceptFileTypes = /\/(jpg|jpeg|png|gif)$/i;
 			if(data.originalFiles[0]['type'].length && !acceptFileTypes.test(data.originalFiles[0]['type'])) {
-				$("#projLogoName").html("<font color=red>*</font>您的文件格式不正确")
+				$("#projLogoName").html("<font color='red'>*</font>您的文件格式不正确")
 				return;
 			}
 			if(data.files[0].size > 500*1024*1024){
-				$("#projLogoName").html("<font color=red>*</font>您的文件大小超过限制，请控制在500KB之内")
+				$("#projLogoName").html("<font color='red'>*</font>您的文件大小超过限制，请控制在500KB之内")
 				return;
 			}
 			$("#projLogoName").html(data.files[0].name);
@@ -295,7 +302,7 @@
 			}
 		},
 		always:function(e,data){
-			$("#save-btn").attr("disabled",true)
+			$("#save-btn").prop("disabled",true)
 		}
 	});
 	$("#projPb").fileupload({
@@ -303,9 +310,10 @@
 		formData:{},
 		add: function (e, data) {
 			if(data.files[0].size > 25*1024*1024){
-				$("#projPbName").text("<font color=red>*</font>您的文件大小超过限制，请控制在25M之内")
+				$("#projPbName").addClass("red")
 				return;
 			}
+			$("#projPbName").removeClass("red")
 			$("#projPbName").text(data.files[0].name);
             data.submit();
         },
@@ -320,29 +328,31 @@
 			}
 		},
 		always:function(e,data){
-				$("#save-btn").attr("disabled",true)
+				$("#save-btn").prop("disabled",true)
 		}
 	});
-
-
-
 </script>
 <script>
-
-
 function save(){
 		var projDistrict =  $("select[name='projDistrictId']").find("option:selected").text();
 		var projSubDistrict =  $("select[name='projSubDistrictId']").find("option:selected").text();
-		var projIndustry =  $("select[name='projIndustryId']").find("option:selected").text();
-		var projSubIndustry =  $("select[name='projSubIndustryId']").find("option:selected").text();
-		var projRound =  $("select[name='projRoundId']").find("option:selected").text();
-
 		$("input[name='projDistrict']").val(projDistrict)
 		$("input[name='projSubDistrict']").val(projSubDistrict)
-		$("input[name='projIndustry']").val(projIndustry)
-		$("input[name='projSubIndustry']").val(projSubIndustry)
-		$("input[name='projRound']").val(projRound)
 
+		if($("select[name='projIndustryId']").val()){
+			var projIndustry =  $("select[name='projIndustryId']").find("option:selected").text();
+			$("input[name='projIndustry']").val(projIndustry)
+		}
+
+		if($("select[name='projSubIndustryId']").val()){
+			var projSubIndustry =  $("select[name='projSubIndustryId']").find("option:selected").text();
+			$("input[name='projSubIndustry']").val(projSubIndustry)
+		}
+
+		if($("select[name='projRoundId']").val()){
+			var projRound =  $("select[name='projRoundId']").find("option:selected").text();
+			$("input[name='projRound']").val(projRound)
+		}
 		var url =detail.insertProject
 			var data = JSON.stringify($("#form").serializeJson());
 			$.ajax({

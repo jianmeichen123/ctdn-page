@@ -1,6 +1,10 @@
 //项目基本信息formatter
 function formatProjectInfo(data,divList){
      projCode = data["projCode"]
+     compCode = data["compCode"]
+     if(!compCode){
+        $("#qyxx").hide()
+     }
      $(".oo a").each(function(){
      	var href= $(this).attr("data-href")
         $(this).attr("href",href+projCode)
@@ -153,12 +157,7 @@ function formatProjectInfo(data,divList){
 }
 sendGetRequest(detail.queryProject+"/"+getHrefParamter("projCode"),
 function(data){
-    if(data.data){
-        proj=data;
-            name = data.data.projTitle;
-            formatProjectInfo(data.data,$("div[data-query='projectBase']"))
-    }else{
-        location.href ="test.html"
-    }
-
+    proj=data;
+    name = data.data.projTitle;
+    formatProjectInfo(data.data,$("div[data-query='projectBase']"))
 })

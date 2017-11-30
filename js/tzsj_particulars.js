@@ -4,11 +4,13 @@ function fillBaseEventInfo(data,divList){
         var div = $(this);
         var ls = div.find("*[data-field]")
 
-
         $(ls).each(function(){
             var o = $(this);
             var k = o.attr("data-field")
             var v = data[o.attr("data-field")]
+            if(k=='stock'){
+                v=v+'%'
+            }
             if(k=='company'){
                 v="<span class='list_table_td'><a href='project_qy.html?projCode="+data.sourceCode+"'>"+v+"</a></span>"
             }

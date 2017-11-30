@@ -12,6 +12,9 @@ $(function () {
                 v="-"
             }else{
                 for(i in v){
+                    if(i=='logo'){
+                        v[i]=Constants.logoPath+"project/"+v.sourceCode+".png"
+                    }
                     if(i=="investDate"){
                         v[i] = formatDate(v[i],"yyyy-MM-dd")
                     }
