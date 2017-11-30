@@ -7,7 +7,9 @@
          		loadMore(more,obj)
             }else{
                 //不带分页
-                loadNoPage(obj);
+                if(obj.children("input[name]").length>0){
+                    loadNoPage(obj);
+                }
             }
          })
     })
