@@ -14,7 +14,7 @@ function fillBaseInfo(data,divList){
                     window[func](v,o)
                 }
            }else{
-                if(k=='logo'){
+                if(k=='orgCode'){
                     o.attr('src',Constants.logoPath+'org/'+data["orgCode"]+".png")
                 }
                 if(k=='webUrl'){
