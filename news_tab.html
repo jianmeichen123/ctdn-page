@@ -12,7 +12,7 @@
     //鍒囨崲tab 璇锋眰鏁版嵁
     $("#tr_index").delegate("li","click",function(){
         var tab = $(this).attr("value");
-        $(".news_li li").removeClass('financing_on')
+        $("#tr_index li").removeClass('financing_on')
         $(this).addClass('financing_on')
         $("input[name='typeId']").val(tab);
         getNews();
