@@ -1,4 +1,4 @@
-header{position:fixed;top:0px;left:0px;width:100%;height:90px;line-height:90px;background:#74829a;font-family:'Microsoft YaHei';color:#fff;}
+header{position:fixed;min-width:647px;top:0px;left:0px;width:100%;height:90px;line-height:90px;background:#74829a;font-family:'Microsoft YaHei';color:#fff;}
 .fl{float:left;}
 .fr{float:right;}
 .head-fl{margin-left:52px;font-size:24px;padding-left:46px;background:url('../img/header.png') no-repeat 0px 27px;;}
@@ -43,15 +43,30 @@ header{position:fixed;top:0px;left:0px;width:100%;height:90px;line-height:90px;b
 .publish-report-span{cursor:pointer;background:#66b8f5;border-radius:4px;width:112px;height:40px;line-height:40px;text-align:center;font-size:16px;display:inline-block;margin-left:30px;color:#ffffff;}
 .publish-time{background:#ffffff;border:1px solid #cccccc;border-radius:4px;width:226px;margin-left:10px;height:38px;}
 .publish-origin{margin-left:101px;}
+.publish-origin em{color: #d0021b;}
 .publish ul li{margin-top:19px;}
 .preview{background:#fff;color:#66b8f5;border:1px solid #66b8f5;cursor:pointer;}
 .publish-file{opacity:0;filter:alpha(opacity=0)}
 .author-label{background:#ffffff;margin-left: 9px;color:#66b8f5;border:1px solid #cccccc;border-radius:4px;width:226px;font-size:14px;vertical-align:top;line-height:38px;text-align:center;height:38px;}
 .author-label em{font-size:14px;color:#999999;margin-left:7px;}
-.author-span{margin-left:117px;}
+.author-span{margin-left:82px;}
 .publish-user{margin-left:34px;}
 .publish-user-detail{vertical-align:top;}
 .publish-user-textarea{border:1px solid #cccccc;border-radius:4px;width:598px;margin-left: 15px;height:118px;}
+.publish-textarea-top{background:#f7f7f7;border:1px solid #cccccc;border-bottom:0px solid;border-radius:4px 4px 4px 0;width:685px;height:38px;}
+.publish-textarea-content{border-radius:4px;width:684px;height:440px;margin-left:70px;}
+.publish-textarea-content textarea{height:402px;width:100%;border:1px solid #cccccc;}
+.publish input[type="text"],textarea{padding-left:10px;}
+.publish textarea{padding-top:10px;}
+.publish-content-box{margin-top:140px;margin-left:260px;}
+.publish{min-width:850px;}
+.publish-time-row{background:url('../img/row.png') no-repeat right 7px center;cursor:pointer;}
+
+
+
+
+
+
 
 
 
