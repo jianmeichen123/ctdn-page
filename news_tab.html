@@ -1,5 +1,5 @@
 <input type="hidden" name="typeId"  >
-<ul class="news_li">
+<ul class="news_li" id="tr_index">
     <li class="financing_on">全部</li>
     <li data-tab="news" value="1" class="">机构</li>
     <li data-tab="news" value="2" class="">大公司</li>
@@ -10,7 +10,7 @@
 </ul>
 <script>
     //鍒囨崲tab 璇锋眰鏁版嵁
-    $(".news_li").delegate("li","click",function(){
+    $("#tr_index").delegate("li","click",function(){
         var tab = $(this).attr("value");
         $(".news_li li").removeClass('financing_on')
         $(this).addClass('financing_on')
