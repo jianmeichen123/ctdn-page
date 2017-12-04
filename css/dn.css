@@ -1,4 +1,4 @@
-﻿﻿@charset "utf-8";
+﻿﻿﻿@charset "utf-8";
 /*css-reset*/
 button {outline: none !important;}
 html,body,div,ul,ol,li,dl,dt,dd,p,span,em,strong,b,i,h1,h2,h3,h4,form,input,button,textarea,select,option,img,a{ margin:0; padding:0}
@@ -255,12 +255,3 @@ ul,ol,dl,dt,dd,p,img{ display:block; border:0;list-style:none; }
 .trade_pop_but>ul>li{padding-left:44px; border-radius:8px; color:#fff; margin-left: 30px;padding-right:44px; height:40px; line-height:40px; border:1px solid #fff;   display:inline-block;}
 .trade_pop_but>ul>li:hover{background-color:#fff; color:#2393f7}
 .dn_ico_trade_triangle{background-position: -136px -170px; width: 23px;  height: 12px;display: block; margin-top: -11px; float: right;   margin-right: 37px; }
-/**/
-.head_login_all{float:right; width:145px;}
-.head_login{  width: 120px;  float: right;  margin-top: 24px;}
-.head_login>ul{margin-right:-20px;overflow: hidden;}
-.head_login>ul>li{float:left; height:18px; width:70px; line-height:18px; font-size:14px; text-align:center;}
-.head_login>ul>li a{color:#fff;     padding-left: 0px;  padding-right:0px;  padding-top: 0px;  display: inline-block;  height: auto; }
-.head_login>ul>li a:hover{}
-.head_login_border{border-right:1px solid #787f8f;}
-.dn_ico_loginimg{ background-position: -136px -189px; width: 24px;height: 24px;display:block; float:left;margin-top: 18px;}

@@ -395,7 +395,7 @@ if(proj.data.compCode){
     	var html="";
         sendPostRequestByJsonObj(url,json,function(data){
             if(dataId=='queryByProjTitle'){
-                projJson=data.data.records
+                projJson=data.page.records
                 if(projJson.length>0){
                     compJson1["name"]="项目";
                     compJson1["symbolSize"]=15;
@@ -428,7 +428,7 @@ if(proj.data.compCode){
                 }
             }
             if(dataId=='getAllCompSubs'){
-                subJson=data.data.records;
+                subJson=data.page.records;
                 if(subJson.length>0){
                     dataArr.push("子公司")
                     compJson3["name"]="子公司";
@@ -459,14 +459,14 @@ if(proj.data.compCode){
                 }
             }
             if(dataId=='dwtz'){
-                dwList=data.data.records;
+                dwList=data.page.records;
                 if(dwList && dwList.length>0){
                     dataArr.push("对外投资")
                     compJson4["name"]="对外投资";
                     compJson4["symbolSize"]=15;
                     compJson4["category"]="对外投资";
                     compJson4["draggable"]="true";
-                    compJson4["value"]=data.data.total;
+                    compJson4["value"]=data.page.total;
                     array.push(compJson4);
 
                     compLink5["source"]=regName;
@@ -491,7 +491,7 @@ if(proj.data.compCode){
                 }
             }
 
-            var records = data.data.records;
+            var records = data.page.records;
             if(records && records && records.length>0){
                 var target = $("#"+dataId)
                 for(j in records){
@@ -513,7 +513,7 @@ if(proj.data.compCode){
                 }
                 target.tmpl(records).appendTo(target.parent())
                 if(pageNo && pageSize){
-                    if(data.data.total<=(pageNo*1)*pageSize){
+                    if(data.page.total<=(pageNo*1)*pageSize){
                         more.hide();
                         return;
                     }

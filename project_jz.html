@@ -27,7 +27,6 @@
 			<div class="particulars_black">
 				<ul  class="ul_all" data-query="list" data-formatter="indirectCompetationlist">
 				</ul>
-				
 			</div>
 			</div>
 	</div>
@@ -64,7 +63,7 @@ $(window).scroll(function(){
 	}
 
 	function aa(data,div){
-	   var staticTemplate= '<li> <div class="project_jz_l"> <ul> <li><span class=\'img_parent\'>${logoSmall}</span></li> <li> <ul class="project_jz_l_n_ul"> <li class="font_16">${projTitle}</li> <li class="color_666 ">${firmDesc}</li> <li class="color_666 "><span>${industryName}</span></li> <li class="project_jz_span">${labels}</li> </ul> </li> <li class="project_jz_l_n_3"><div class="project_absolute_blue">${latestFinanceRound}</div></li> <li class="project_jz_l_n_2">${setupDT}</li> <li class="project_jz_l_n_2">${districtSubName}</li> </ul> </div> <div class="project_jz_r"> <div class="project_jz_r_l"> <div class="project_jz_r_l_tit">融资信息</div> <ul> <li> <span class="brain_ico brain_ico_project_time"></span> <span>${latestFinanceDT}</span> </li> <li> <span class="brain_ico brain_ico_project_money"></span> <span>${latestFinanceAmountStr}</span> </li> <li> <span class="brain_ico brain_ico_project_site"></span> <span class="tzf">${investSideJson}</span> </li> </ul> </div> <div class="project_jz_r_r">${similarity} </div> </div> </li>';
+	   var staticTemplate= '<li> <div class="project_jz_l"> <ul> <li><span class=\'img_parent\'>${projCode}</span></li> <li> <ul class="project_jz_l_n_ul"> <li class="font_16">${projTitle}</li> <li class="color_666 ">${firmDesc}</li> <li class="color_666 "><span>${industryName}</span></li> <li class="project_jz_span">${labels}</li> </ul> </li> <li class="project_jz_l_n_3"><div class="project_absolute_blue">${latestFinanceRound}</div></li> <li class="project_jz_l_n_2">${setupDT}</li> <li class="project_jz_l_n_2">${districtSubName}</li> </ul> </div> <div class="project_jz_r"> <div class="project_jz_r_l"> <div class="project_jz_r_l_tit">融资信息</div> <ul> <li> <span class="brain_ico brain_ico_project_time"></span> <span>${latestFinanceDT}</span> </li> <li> <span class="brain_ico brain_ico_project_money"></span> <span>${latestFinanceAmountStr}</span> </li> <li> <span class="brain_ico brain_ico_project_site"></span> <span class="tzf">${investSideJson}</span> </li> </ul> </div> <div class="project_jz_r_r">${similarity} </div> </div> </li>';
 	   var temp = staticTemplate;
 	   var html = "";
 	   if(data.length>0){
@@ -105,15 +104,9 @@ $(window).scroll(function(){
 						 v =  "行业未知";
 					  }
 				  }
-               	 if(k=="logoSmall"){
-               	 	var str='<a href="project_qy.html?projCode='+row["projCode"]+'">'
-					if (v && v!=""){
-						<!--v= '<img src="'+Constants.logoPath+img+'">'-->
-						str += '<img src="'+Constants.logoPath+'project/'+row["projCode"]+'.png">'
-					}else{
-					    str += '<img src="img/default.gif">'
-					}
-					str+='</a>'
+               	 if(k=="projCode"){
+               	 	var img = Constants.logoPath+"project/"+row["projCode"]+".png"
+               	 	var str='<a href="project_qy.html?projCode='+row["projCode"]+'"><img width="37" src="'+img+'"></a>'
 					v=str
 				 }
 				 if(k=="projTitle"){
@@ -151,8 +144,9 @@ $(window).scroll(function(){
 						 for(var i = 0; i< parseInt(v*100); i++){
 							tmp += "<li></li>"
 						 }
+
                	 	 	 v = parseInt(v*100)+'%'
-               	 	 	 similarity += '<ul class="on_project_jz_r_r"> <li><span class="font_30">'+v+'</span></li> <li>相似度</li> </ul><ul class="ul">'+temp+' </ul>'
+               	 	 	 similarity += '<ul class="on_project_jz_r_r"> <li><span class="font_30">'+v+'</span></li> <li>相似度</li> </ul><ul class="ul">'+tmp+' </ul>'
                	 	 }else{
 			     	  	 similarity ='<ul class="on_project_jz_r_r"> <li><span >相似度未知</span></li></ul>'
 			     	 }

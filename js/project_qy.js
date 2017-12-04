@@ -7,7 +7,7 @@
          		loadMore(more,obj)
             }else{
                 //不带分页
-                if(obj.children("input[name]").length>0){
+                 if(obj.attr("data-id") !="none"){
                     loadNoPage(obj);
                 }
             }
@@ -32,7 +32,7 @@
     	var pageSize = obj.find("input[name='pageSize']").val();
     	var html="";
     	sendPostRequestByJsonObj(url,json,function(data){
-    		var records = data.data.records;
+    		var records = data.page.records;
     		if(records.length>0 ){
     		     obj.show();
     		     var right_show =obj.children('.project_t').attr('location_l');
@@ -42,7 +42,7 @@
     		    var target = $("#"+dataId)
     		    target.tmpl(records).appendTo(target.parent())
 				if(pageNo && pageSize){
-				    if(data.data.total<=(pageNo*1)*pageSize){
+				    if(data.page.total<=(pageNo*1)*pageSize){
                         more.hide();
                         return;
                     }
@@ -63,8 +63,7 @@
         url = getUrl(dataId,url);
         var json = getJson(obj);
         sendPostRequestByJsonObj(url,json,function(data){
-
-            if(data && data.data.length>0){
+            if(data.data && data.data.length>0){
                 var target = $("#"+dataId)
                 target.tmpl(data).appendTo(target.parent())
                 obj.show();

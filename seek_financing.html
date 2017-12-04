@@ -310,13 +310,15 @@
 				$("#projPbName").addClass("red")
 				return;
 			}
+			$("#projPbName").text("正在上传文件...")
 			$("#projPbName").removeClass("red")
-			$("#projPbName").text(data.files[0].name);
             data.submit();
         },
 		done: function (e, data) {
 			if(data.result.message == 'OK')
 			{
+				$("#projPbName").removeClass("red")
+				$("#projPbName").text(data.files[0].name);
 				$("input[name='projPb']").val(data.result.data)
 			}
 			else
