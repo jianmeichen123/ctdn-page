@@ -268,7 +268,13 @@
 <script>
 $('.person-bookmark-content ul li').click(function(){
 	$(this).addClass('underline').siblings().removeClass('underline');
+});
+$('.person-book-close').click(function(){
+	$(this).parent().remove();
 })
+
+
+
 </script>
 <script src="js/platformUrl.js?t=20170523"></script>
 <script src="js/common.js"></script>

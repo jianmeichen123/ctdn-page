@@ -117,6 +117,9 @@
 <script>
 $('.person-bookmark-content ul li').click(function(){
 	$(this).addClass('underline').siblings().removeClass('underline');
+});
+$('.person-book-close').click(function(){
+	$(this).parent().remove();
 })
 </script>
 
