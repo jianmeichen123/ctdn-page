@@ -42,7 +42,7 @@ function  getNews(){
         pagination: true,                   //是否显示分页（*）
         sortable: true,                     //是否启用排序
         sortOrder: "desc",                   //排序方式
-        tableDataName:'data',
+        tableDataName:'page',
         queryParams: queryParams, //参数
         tableDataListName:'records',
         tableDataTotalName:'total',
