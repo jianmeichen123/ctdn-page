@@ -1,4 +1,4 @@
-﻿﻿﻿@charset "utf-8";
+﻿﻿@charset "utf-8";
 /*css-reset*/
 button {outline: none !important;}
 html,body,div,ul,ol,li,dl,dt,dd,p,span,em,strong,b,i,h1,h2,h3,h4,form,input,button,textarea,select,option,img,a{ margin:0; padding:0}
@@ -255,3 +255,38 @@ ul,ol,dl,dt,dd,p,img{ display:block; border:0;list-style:none; }
 .trade_pop_but>ul>li{padding-left:44px; border-radius:8px; color:#fff; margin-left: 30px;padding-right:44px; height:40px; line-height:40px; border:1px solid #fff;   display:inline-block;}
 .trade_pop_but>ul>li:hover{background-color:#fff; color:#2393f7}
 .dn_ico_trade_triangle{background-position: -136px -170px; width: 23px;  height: 12px;display: block; margin-top: -11px; float: right;   margin-right: 37px; }
+/**/
+.head_login_all{float:right; width:145px;}
+.head_login{  width: 120px;  float: right;  margin-top: 24px;}
+.head_login>ul{margin-right:-20px;overflow: hidden;}
+.head_login>ul>li{float:left; height:18px; width:70px; line-height:18px; font-size:14px; text-align:center;}
+.head_login>ul>li a{color:#fff;     padding-left: 0px;  padding-right:0px;  padding-top: 0px;  display: inline-block;  height: auto; }
+.head_login>ul>li a:hover{}
+.head_login_border{border-right:1px solid #787f8f;}
+.dn_ico_loginimg{ background-position: -136px -189px; width: 24px;height: 24px;display:block; float:left;margin-top: 18px;}
+/*高管*/
+.dn_ico_executive{  background-position: -136px -223px; width: 24px; height: 23px;display: inline-block; float: left; margin-left: 20px;}
+.executive_div{padding-left:20px; position:relative; margin-bottom: 30px; overflow: hidden;}
+.executive_line{border-left:1px solid #cee8ff; width:1px; background-color:#cee8ff; position:absolute;left:95px; top:31px; height:100%;}
+.executive_list_show{ margin-left:82px; padding-left:23px; position:relative;}
+.executive_div .dn_info_list_show_r{width:602px;}
+.executive_div .no_img_index .dn_info_list_show_r{width:735px;}
+.executive_ul>li{width:100%;   overflow: hidden;}
+.executive_time{font-size:12px; position:absolute; top:26px; color:#999999; left:-83px;}
+.executive_b_line{width:100%; overflow:hidden; height:1px; background-color:#f0f0f0;}
+.executive_time_y{border:1px solid #48a5f8; width:8px;    margin-left: 12px;  background-color: #fff; border-radius:4px;     display: inline-block;  height: 8px;}
+.dn_ico_rivalry{  background-position: -136px -249px; width: 24px; height: 23px;display: inline-block; float: left; margin-left: 20px;}
+.rivalry_div>ul{margin-top:20px; margin-bottom:-30px;}
+.rivalry_div>ul>li{padding-left:20px; padding-right:20px; margin-bottom:60px;     overflow: hidden;}
+.rivalry_div_l{width:160px; float:left; border-right:1px solid #e6e6e6; padding-right:20px;}
+.rivalry_div_l img{border:1px solid #f0f0f0; border-radius:8px; width:80px; height:80px; margin-left:auto; margin-right:auto;}
+.rivalry_div_r{width:658px;display: table; height:162px; float:right; overflow:hidden;}
+.rivalry_div_num{font-size:12px; color:#999999;}
+.rivalry_div_tit{width:100%;     font-weight: bold; margin-top:20px;overflow:hidden; color:#333333; font-size:16px; text-overflow:ellipsis; white-space:nowrap;     text-align: center;}
+.rivalry_div_num{text-align:center; margin-top:5px;}
+.rivalry_div_num .rivalry_div_num_span{color:#207dd0; font-size:24px;}
+.rivalry_div_r_cen{width:656px; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;     display: inline-block;} 
+.rivalry_div_r_time{font-size:12px; color:#999999;}
+.rivalry_div_r>ul{  display: table-cell; vertical-align: middle;}
+.rivalry_div_r>ul>li{padding-bottom:20px;}
+.background_boeder_indx{background-color: #fff;  border: 1px solid #f0f0f0;  overflow: hidden; margin-bottom:10px;  border-radius: 8px;   padding-top: 30px;}

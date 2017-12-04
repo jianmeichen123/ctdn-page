@@ -16,7 +16,7 @@ textarea{resize: none;outline: none}
 input{outline: none;}
 .col_999{ color:#999;}
 .col_666{ color:#666;}
-.col_pink{color:#f9893e;}
+.col_pink{color:#333333;}
 .m_t_10{ margin-top:10px;}
 .m_t_20{ margin-top:20px;}
 .page_title{ width:100%; margin-top:15px;}
@@ -613,8 +613,8 @@ white-space: nowrap; text-align:center; height:25px; line-height:25px; margin-t
 .index_l_center{ padding-right: 15px;  padding-left: 15px;   margin-right: auto; margin-left: auto;}
 .yl_ul li{width:90px; border:1px solid #e6e6e6;  margin-bottom:20px; text-align:center; border-radius:4px; line-height:28px; background-color:#fff; float:left; margin-left:20px;}
 .yl_ul .yl_ul_on{border:1px solid #1ed2ff; color:#fff; background-color:#1ed2ff;}
-.table_yl{width:80%; margin-left:17%;    margin-top:5px; margin-bottom:5px; overflow:hidden;}
-.table_yl td{ padding-top:10px; padding-bottom:10px;}
+.table_yl{width:100%; overflow:hidden;font-size: 14px; color: #666666;}
+.table_yl td{ padding-top:10px; padding-bottom:10px; text-align: center;}
 .index_r_title{font-size:16px; color:#333333; padding-left:15px; line-height:35px;      padding-top: 5px;}
 .index_r_title .fr a{font-size:12px; color:#f76900; padding-right:10px;}
 .yl_tit{font-size:16px; color:#3e4d69; line-height:50px;}
@@ -640,5 +640,5 @@ white-space: nowrap; text-align:center; height:25px; line-height:25px; margin-t
 .eachrst_tit .fl span{display:block; float:left; margin-right:15px; color:#666666;}
 .eachrst_tit .fl .eachrst_tit_b{color:#e6e6e6;}
 .eachrst_tit .fr span{border:1px solid #e6e6e6; line-height:30px; border-radius:4px; display:block; float:right; margin-left:40px; padding:0 15px; background-color:#f5f5f5}
-.eachrst_tit .fr .eachrst_tit_on{ border:1px solid #e6e6e6; background-color:#1ed2ff; color:#fff;}
+.eachrst_tit .fr .eachrst_tit_on{ border:1px solid #2393f7; background-color:#2393f7; color:#fff;}
 .eachrst_tit .fl .eachrst_tit_on{color:#1ed2ff; border-bottom:1px solid #1ed2ff;}
