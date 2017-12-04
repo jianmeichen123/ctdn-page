@@ -27,16 +27,17 @@ header{position:fixed;min-width:647px;top:0px;left:0px;width:100%;height:90px;li
 .index-table-content{margin-top:10px;}
 .index-table-content table thead th{text-align:center;}
 .index-table-content table tbody tr td{text-align:center;vertical-align:middle;}
-.index-table-content table tbody tr td:nth-child(1) img{display:inline-block;}
+.index-table-content table tbody tr td:nth-child(1) img{display:inline-block;width: 121px;height: 75px;}
 .index-table-content table tbody tr td:nth-child(1) span{width:223px;display:inline-block;margin-left:18px;vertical-align: middle;}
 .index-table-content table tbody tr td:nth-child(1){text-align:left;}
 .index-table-content table thead th:nth-child(1){text-align:left;padding-left:25px !important;}
 .on-use{border:1px solid #66b8f5;border-radius:4px;width:64px;height:28px;line-height:28px;text-align:center;display:inline-block;font-size:14px;color:#66b8f5;cursor:pointer;}
 .on-over{border:1px solid #66b8f5;border-radius:4px;width:64px;height:28px;line-height:28px;text-align:center;display:inline-block;font-size:14px;color:#ffffff;background:#66b8f5;cursor:pointer;}
 .index-tetail{font-size:14px;color:#66b8f5;}
-.index-table-content table{border-spacing: 0;border-collapse: collapse;}
+.index-table-content table{border-spacing:0;border-collapse:collapse;border:0px solid #fff !important;}
 .index-table-content table tbody tr td{border:0px solid #fff;border-bottom:1px solid #ececec;;}
 .index-table-content table thead th{border:0px solid #fff;border-bottom:0px solid #ececec;}
+.index-table-content table tbody tr{border:0px solid #fff;}
 .publish-title{font-size:14px;font-family:'Microsoft YaHei'}
 .publish-title em{color:#d0021b;}
 .publish-input{border:1px solid #cccccc;border-radius:4px;width:598px;margin-left:10px;height:38px;}

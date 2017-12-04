@@ -106,3 +106,100 @@ select:focus { outline: none important; }
 .find-pass-title{text-align:center;}
 .register-content{display:none;}
 .eye-box{position:relative;}
+/*person center*/
+.person-center-container{width:1024px;height:720px;margin:20px auto;}
+.person-left{width:184px;height:100%;background:#555f7b;border-radius:5px;}
+.fl{float:left;}
+.fr{float:right;}
+.person-right{width:838px;height:100%;background:#fff;}
+.person-head-pic{width:68px;height:99px;margin: 40px auto;}
+.person-head-pic p{margin-top:14px;color:#fff;}
+.person-menu{text-align:center;}
+.person-menu li{padding:20px 0px;cursor:pointer;color:#fff;font-size:14px;font-family:'Microsoft YaHei'}
+.person-menu li span{display:inline-block;width:14px;height:14px;vertical-align:text-bottom;margin-right:11px;}
+.person-menu li:hover{background:#454d63;color:#2393f7;}
+.person-li-item span{margin-left:-15px;}
+.person-item-project span{background:url('../img/person_center/person_07.png') no-repeat;}
+.person-item-industry span{background:url('../img/person_center/person_10.png') no-repeat;}
+.person-li-item span{background:url('../img/person_center/person_12.png') no-repeat;}
+.person-change-password span{background:url('../img/person_center/person_14.png') no-repeat;}
+.person-project-list{width:798px;height:auto;margin:20px auto;}
+.person-upload-project{width:244px;height:54px;border-radius:5px;color:#fff;line-height:54px;padding-left:110px;margin:80px auto;cursor:pointer;font-size:14px;background:url('../img/person_center/person-upload_03.png') no-repeat  62px 14px;background-color:#2393f7;}
+.person-project-list table thead tr th{color:#666666;border:0px solid #fff;background:#f3f6ff;text-align:center;}
+.person-project-list table thead tr th{height:50px;line-height:50px;    padding-bottom: 5px !important;}
+.person-project-list table tbody tr td{color:#333333;height:72px;line-height:72px;border:0px solid #fff;text-align:center;border-bottom: 1px solid #f2f2f2;;}
+.person-project-list table tbody tr td:nth-child(5){color:#2393f7;cursor:pointer;}
+.person-upload-project{width:244px;height:54px;border-radius:5px;color:#fff;line-height:54px;padding-left:110px;margin:80px auto;cursor:pointer;font-size:14px;background:url('../img/person_center/person-upload_03.png') no-repeat  62px 14px;background-color:#2393f7;}
+.person-project-list table thead tr th:nth-child(1){text-align:left;padding-left:50px;width:214px;}
+.person-project-list table tbody tr td:nth-child(1){text-align:left;padding-left:30px !important;}
+.person-project-list table{border-radius:0px !important;}
+.person-bookmark-content{border:1px solid #f0f0f0;border-radius:5px;}
+.person-bookmark-content ul{width:100%;height:auto;border-bottom:1px solid #d9d9d9;margin-top:30px;}
+.person-bookmark-content ul li{float:left;margin-left:42px;cursor:pointer;font-size:14px;color:#323232;padding-bottom:10px;color:#2393f7}
+.person-bookmark-content ul li.underline{border-bottom:3px solid #2393f7;}
+.person-project-items{width:775px;border:1px solid #f0f0f0;margin:20px auto;height:auto;display:none;}
+.person-project-left{width:80px;margin-left:10px;margin-top:10px;}
+.person-project-left img{vertical-align:middle;}
+.person-project-right{width:635px;margin-left:20px;margin-top:8px;color:#666666;font-size:14px;}
+.person-mark-item-title{width:auto;padding-left:12px;padding-right:12px;height:20px;line-height:20px;border:1px solid #999;border-radius:10px;display:inline-block;color:#333;font-size:12px;text-align:center;margin-left:10px;}
+.person-book-red em{color:#ff0f00;}
+.person-book-red {color:#323333;}
+.person-book-city{width:auto;height:16px;padding-left: 26px;display:inline-block;line-height:16px;text-align:right;background:url('../img/person_center/person-book_03.jpg') no-repeat ;}
+.person-book-industry{width:auto;padding-left:27px;height:16px;margin-left:20px;display:inline-block;line-height:16px;text-align:right;background:url('../img/person_center/person-book_05.jpg') no-repeat ;}
+.person-book-shortdescription{width:635px;display: -webkit-box;-webkit-box-orient: vertical;-webkit-line-clamp:2;overflow: hidden;padding-right:10px;}
+.person-project-item {position:relative;margin-left:20px;border-bottom:1px solid #f0f0f0;padding-top:20px;padding-bottom:20px;}
+.person-project-institute{display:none;}
+.person-institute-incident{color:#333;}
+.person-incident-num{margin-right:30px;}
+.person-start-person{display:none;}
+.person-start-img{margin-top:27px;}
+.person-start-address{background:url('../img/person_center/person-book_03.jpg') no-repeat;padding-left:20px;margin-left:38px;}
+.person-start-line{padding-right:14px;border-right:1px solid #cccccc;}
+.person-dutity{padding:0px 15px;border-right:1px solid #cccccc;}
+.person-start-univercity{padding-left:15px;}
+.person-start-univercity em{padding-left:11px;}
+.person-book-invest{display:none;}
+.preson-book-no-border{border-right:none;}
+.person-book-close{display:inline-block;width:13px;height:13px;cursor:pointer;position:absolute;top:10px;right:10px;background:url('../img/person_center/person-close_06.jpg') no-repeat;}
+.person-book-close:hover{background:url('../img/person_center/person-close_03.jpg') no-repeat;}
+.person-book-report{display:block;}
+.person-report-img{width:121px;height:75px;border-radius:3px;margin-top:13px;}
+.person-report-right{width:600px;}
+.person-report-right h3{margin-top:0px;color:#333333;font-size:16px;}
+.person-report-smalltitle{color:#999;font-size:12px;}
+.person-report-author{margin-left:22px;}
+.person-report-origin{margin-left:10px;}
+.person-report-description{width:600px;}
+.person-reset-password{width:388px;height:auto;margin:80px auto;}
+.person-reset-password ul li input{width:300px;height:50px;border:1px solid #cccccc;border-radius:5px;padding-left:20px;margin-left:20px;;}
+.person-reset-password ul li {margin-top:20px;position:relative;}
+.person-pass-confirm{margin-left:-13px;}
+.person-save-password{width:300px;height:50px;line-height:50px;text-align:center;color:#fff;border-radius:5px;background:#2393f7;margin-left:65px;cursor:pointer;margin-top:30px !important;}
+.person-book-eye{display:inline-block;width:17px;height:16px;right:-30px;position:absolute;right: 36px;top: 19px;background:url('../img/login/login-icon_10.jpg') no-repeat;cursor:pointer;}
+.person-book-eye:hover{background:url('../img/login/eye-blue_03.jpg') no-repeat;}
+.concern-industry-content{width:779px;margin:30px auto;}
+.industry-title{background:#f3f6ff;text-align:center;padding:9px 0px;border-radius:5px;color:#666666;font-size:12px;}
+.industry-concern{text-align:center;padding-top:33px;padding-bottom:20px;border-bottom:1px solid #ccc;font-size:16px;color:#333;}
+.industry-concern ul li{float:left;color:#2393f7;font-size:12px;cursor:pointer;}
+.industry-concern ul li:nth-child(2){padding-left:21px;border-left:1px solid #cccccc;}
+.industry-concern ul li:nth-child(1){padding-right:21px;}
+.industry-span-content{width:100%;margin-top:31px;}
+.industry-span-content ul li{float:left;border:1px solid #b2dbff;padding:9px 12px;border-radius:18px;cursor:pointer;font-size:12px;margin-top:10px;margin-left:20px;}
+.industry-span-content ul li.concern-clicked{background:#2393f7;color:#fff;}
+.concern-industry-save span{cursor:pointer;display:inline-block;width:110px;height:40px;line-height:40px;text-align:center;color:#fff;font-size:14px;background:#2393f7;border-radius:5px;}
+.concern-industry-save{margin:82px auto;text-align:center;}
+.concern-industry-reset{margin-left:80px;}
+.concern-industry-save span:hover{background:#1c7acf;}
+
+
+
+
+
+
+
+
+
+
+
+
+
