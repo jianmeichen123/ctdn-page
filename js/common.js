@@ -509,11 +509,22 @@ $('body').delegate('.dn_ico_search','click', function(event){
  	$('.nav_all_seek').hide();
  	$('.nav_all_input').show();
  	$('#nav_all_input').focus();
+ 	$("#executive_pop").hide();
+ 	$("#trade_pop").hide();
+})
+ //全部行业
+$('body').delegate('#executive_click','click', function(event){
+ 	event.stopPropagation();
+ 	$("#executive_pop").show();
+    $('.nav_all_seek').show();
+	$('.nav_all_input').hide();
 })
  //关注行业
-$('body').delegate('.index_trade_c','click', function(event){
+$('body').delegate('#trade_click','click', function(event){
  	event.stopPropagation();
  	$("#trade_pop").show();
+    $('.nav_all_seek').show();
+	$('.nav_all_input').hide();
 })
 $(document).bind('click', function(e) {  
 	var e = e || window.event; //浏览器兼容性   
@@ -529,11 +540,16 @@ $(document).bind('click', function(e) {
         }else if(elem.id && elem.id == 'trade_pop'){
         	$('.nav_all_seek').hide();
         	return;  
-        }  
+        } 
+        else if(elem.id && elem.id == 'executive_pop'){
+        	$('.nav_all_seek').hide();
+        	return;  
+        }
         elem = elem.parentNode;  
     }  
     $('.nav_all_seek').show();
  	$('.nav_all_input').hide();
+ 	$('#executive_pop').hide();
  	$(".info-search .hot_speech").hide();
  	$("#trade_pop").hide();
        

@@ -254,7 +254,13 @@ ul,ol,dl,dt,dd,p,img{ display:block; border:0;list-style:none; }
 .trade_pop_but>ul{    display: table-cell; line-height:72px;   display:inline; margin-left: -30px;  list-style:none; text-align:center; vertical-align: middle;}
 .trade_pop_but>ul>li{padding-left:44px; border-radius:8px; color:#fff; margin-left: 30px;padding-right:44px; height:40px; line-height:40px; border:1px solid #fff;   display:inline-block;}
 .trade_pop_but>ul>li:hover{background-color:#fff; color:#2393f7}
-.dn_ico_trade_triangle{background-position: -136px -170px; width: 23px;  height: 12px;display: block; margin-top: -11px; float: right;   margin-right: 37px; }
+.dn_ico_trade_triangle{background-position: -136px -170px; width: 23px;  height: 12px;display: block; margin-top: -11px; float: right;   margin-right: 45px; }
+/*全部行业*/
+.executive_pop{width:114px;background-color:#fff; border:1px solid #f0f0f0; position: absolute; right: 19px;top: 76px; z-index: 9988;}
+.executive_pop_ul{ overflow:hidden;    height: 290px;    width: 112px;  position: relative;}
+.executive_pop_ul>ul{margin-top: -14px; overflow: hidden; height: 290px;overflow-y: auto; position: absolute; width: 110px;   top: 0;  right: -10px;}
+.executive_pop_ul>ul>li{text-align:center;     margin-left: -10px; margin-bottom:-14px; cursor:pointer;margin-top: 34px;}
+.executive_pop_ul>ul>li:hover{color:#2393f7;}
 /**/
 .head_login_all{float:right; width:145px;}
 .head_login{  width: 120px;  float: right;  margin-top: 24px;}
