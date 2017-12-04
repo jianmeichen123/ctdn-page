@@ -194,9 +194,9 @@ select:focus { outline: none important; }
 .concern-industry-save{margin:82px auto;text-align:center;}
 .concern-industry-reset{margin-left:80px;}
 .concern-industry-save span:hover{background:#1c7acf;}
-
-
-
+.person-edit-save{width:108px;height:40px;display:inline-block;line-height:40px;text-align:center;color:#fff;background:#bddefd;font-size:14px;border-radius:5px;cursor:pointer;}
+.person-edit-content{text-align:center;margin-top:40px;}
+.person_edit_return{color:#2393f7;font-size:14px;margin-right:70px;}
 
 
 
