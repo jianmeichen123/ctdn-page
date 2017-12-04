@@ -197,7 +197,7 @@ select:focus { outline: none important; }
 .person-edit-save{width:108px;height:40px;display:inline-block;line-height:40px;text-align:center;color:#fff;background:#bddefd;font-size:14px;border-radius:5px;cursor:pointer;}
 .person-edit-content{text-align:center;margin-top:40px;}
 .person_edit_return{color:#2393f7;font-size:14px;margin-right:70px;}
-
+.head_login{width:auto;}
 
 
 
