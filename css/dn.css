@@ -167,7 +167,7 @@ ul,ol,dl,dt,dd,p,img{ display:block; border:0;list-style:none; }
 .bootstrap-table .table_white_search td{border:0 !important}
 
 /*轮播图*/
-.pc-banner .i_btn{display:block;position:absolute;top:100px;z-index:999993; height:400px;    opacity: 0;}
+.pc-banner .i_btn{display:block;position:absolute;top:100px;z-index:93; height:400px;    opacity: 0;}
 .pc-banner .prev_L{    right: 50%;
     width: 700px;
     background-color: #000;
@@ -317,7 +317,7 @@ ul,ol,dl,dt,dd,p,img{ display:block; border:0;list-style:none; }
 .contrast_four>ul{margin-top:10px; margin-bottom:20px; overflow:hidden;}
 .contrast_ul>.contrast_ul_li_postion{border:0}
 .contrast_ul .contrast_ul_li_postion>div,.contrast_ul .contrast_ul_li_postion>div ul li{border:0; font-weight: inherit; width:180px; text-align: right; color:#fff; background-color:rgba(0,0,0,0.0); padding-right:16px;}
-.Floating_box{position:fixed; bottom:20px; right:20px; border-radius:5px; width:232px; overflow: hidden;}
+.Floating_box{position:fixed; z-index:95; bottom:20px; right:20px; border-radius:5px; width:232px; overflow: hidden;}
 .Floating_box_a{height:50px; background-color:#2393f7; color:#fff; line-height:50px; position:relative; padding-left: 46px; cursor: pointer;}
 .Floating_box_a span{font-size:24px;}
 .dn_ico_box{background-position: -136px -337px; width: 21px; height: 21px; display: inline-block;margin-left: 10px;  position:absolute; top: 15px;}
