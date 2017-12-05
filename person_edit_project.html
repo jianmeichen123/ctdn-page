@@ -32,7 +32,7 @@
 
 	<form  action="#" id="form" enctype="multipart/form-data" class='person-right fl person-edit-project-content'>
 		<div>
-			<div class="seek_financing_tit">编辑项目</div>
+			<div class="seek_financing_tit personEditTitle">编辑项目</div>
 			<ul class='clearfix person_edit_ul'>
 				<li>
 					<div class="seek_financing_l seek_finacing_left"><span class="seek_financing_two">项目名称</span><span class="seek_financing_one">*</span></div>
@@ -43,12 +43,16 @@
 				<li>
 					<div class="seek_financing_l seek_finacing_left"><span class="seek_financing_two">所在地区</span><span class="seek_financing_one">*</span></div>
 					<div class="seek_financing_r person_finacing_right">
-						<select class="seek_financing_select " name="projDistrictId" data-item="parent" data-field="district"  data-rule-select="true" data-msg-select="<font color=red>*</font>必选项" >
-							<option  selected = "selected" disabled="true">选择所在省/市</option>
-						</select>
-						<select class="seek_financing_select  seek_financing_select_lef" data-item="son" name="projSubDistrictId" data-rule-select="true" data-msg-select="<font color=red>*</font>必选项" >
-							<option selected= "selected" disabled="true">选择所在市/区</option>
-						</select>
+					   <div class='fl'>
+							<select class="seek_financing_select " name="projDistrictId" data-item="parent" data-field="district"  data-rule-select="true" data-msg-select="<font color=red>*</font>必选项" >
+								<option  selected = "selected" disabled="true">选择所在省/市</option>
+							</select>
+						</div>
+						<div class='fr'>
+							<select class="seek_financing_select  seek_financing_select_lef" data-item="son" name="projSubDistrictId" data-rule-select="true" data-msg-select="<font color=red>*</font>必选项" >
+								<option selected= "selected" disabled="true">选择所在市/区</option>
+							</select>
+						</div>
 					</div>
 					<input type="hidden" name="projDistrict">
 					<input type="hidden" name="projSubDistrict">
@@ -122,6 +126,35 @@
 						<input class="seek_financing_input" name="projCompName" maxlength="40" placeholder="请输入工商注册公司全称，不超过40个字">
 					</div>
 				</li>
+				<li class="seek_show_on seek_show_block editShowLeft">
+					<div class="seek_financing_l seek_finacing_left"><span class="seek_financing_two">公司地址</span></div>
+					<div class="seek_financing_r person_finacing_right">
+						<input class="seek_financing_input" name="projCompAddr"  maxlength="500"   placeholder="公司地址">
+					</div>
+				</li>
+				<li class="seek_show_on seek_show_block editShowLeft">
+					<div class="seek_financing_l seek_finacing_left"><span class="seek_financing_two">融资轮次</span></div>
+					<input type="hidden" name="projRound">
+					<div class="seek_financing_r person_finacing_right">
+						<select class="seek_financing_select" name="projRoundId"  data-item="parent" data-field="round" >
+							<option  selected= "selected" disabled="true" >选择融资轮次</option>
+						</select>
+					</div>
+				</li>
+				<li class="seek_show_on seek_show_block editShowLeft">
+					<div class="seek_financing_l seek_finacing_left"><span class="seek_financing_two">融资金额</span></div>
+					<div class="seek_financing_r person_finacing_right">
+						<input class="seek_financing_input" name="projMoney" placeholder="请输入您需要的融资金额"  data-rule-money="true" data-msg-money="请输入数字，最多可填写4位小数">
+						<div class="seek_financing_absolute personInputUnit">万元　(人民币)</div>
+					</div>
+				</li>
+				<li class="seek_show_on seek_show_block editShowLeft">
+					<div class="seek_financing_l seek_finacing_left"><span class="seek_financing_two">出让股份</span></div>
+					<div class="seek_financing_r person_finacing_right">
+						<input class="seek_financing_input" name="projStock" placeholder="请输入出让的股份（百分比）" data-rule-stock="true" data-msg-stock="请输入0-100之间的数字，最多可填写4位小数" >
+						<div class="seek_financing_absolute personInputUnit">%</div>
+					</div>
+				</li>
 			</ul>
 			<div class='person-edit-content'><span class='person_edit_return'>返回</span><span class='person-edit-save' id="save-btn">保存</span></div>
 		</div>
@@ -145,6 +178,7 @@
 			submitHandler: function() {
 				var pb = $("input[name='projPb']").val();
 				if(!pb){
+					alert('cccc')
 					$("#projPbName").addClass("red")
 					return;
 				}
@@ -304,6 +338,7 @@
 </script>
 <script>
 function save(){
+	//把值全部存在在input的vlaue中
 		var projDistrict =  $("select[name='projDistrictId']").find("option:selected").text();
 		var projSubDistrict =  $("select[name='projSubDistrictId']").find("option:selected").text();
 		$("input[name='projDistrict']").val(projDistrict)
@@ -347,7 +382,7 @@ function save(){
 }
 $('body').delegate('#save-btn','click', function(event){
  	event.stopPropagation();
- console.log('ddddd')
+	 console.log('ddddd')
 	$("#form").submit();
 })
 	var list ={} ;

@@ -196,8 +196,8 @@ select:focus { outline: none important; }
 .concern-industry-reset{margin-left:80px;}
 .concern-industry-save span:hover{background:#1c7acf;}
 .person-edit-save{width:108px;height:40px;display:inline-block;line-height:40px;text-align:center;color:#fff;background:#bddefd;font-size:14px;border-radius:5px;cursor:pointer;}
-.person-edit-content{text-align:center;margin-top:40px;}
-.person_edit_return{color:#2393f7;font-size:14px;margin-right:70px;}
+.person-edit-content{text-align:center;margin-top:40px;margin-bottom:30px;}
+.person_edit_return{color:#2393f7;font-size:14px;margin-right:70px;cursor:pointer;}
 .head_login{width:auto;}
 .person_tab{width: 100%;height: auto;border-bottom: 1px solid #d9d9d9;margin-top: 30px;}
 .person_tab li{float: left;margin-left: 42px;cursor: pointer;font-size: 14px;color: #323232;padding-bottom: 10px;}
@@ -211,3 +211,8 @@ select:focus { outline: none important; }
 .projectEidtContaier{height:auto;background: #fff;}
 .personEditLinkName{margin-left:-14px;}
 .seeShowLeft{margin-left:16px;}
+.personEditTitle{font-weight:bold;}
+.person_finacing_right label{width:auto;display:block;}
+.editShowLeft{margin-left:18px;}
+.red{color:#d2100b;}
+.personInputUnit{right:10px;}
