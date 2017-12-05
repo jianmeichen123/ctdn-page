@@ -296,3 +296,24 @@ ul,ol,dl,dt,dd,p,img{ display:block; border:0;list-style:none; }
 .rivalry_div_r>ul{  display: table-cell; vertical-align: middle;}
 .rivalry_div_r>ul>li{padding-bottom:20px;}
 .background_boeder_indx{background-color: #fff;  border: 1px solid #f0f0f0;  overflow: hidden; margin-bottom:10px;  border-radius: 8px;   padding-top: 30px;}
+/*对比*/
+.contrast_all{width:1020px; position:relative; margin-left:auto; margin-right:auto; margin-top:20px;}
+.contrast_all_bj{background-color:#555f7b; height:100%; width:180px; top:0; left:0; position: absolute;}
+.contrast_ul_li_postion{position: absolute;     left: -22px;}
+.contrast_ul{margin-left:-20px; margin-bottom:110px; overflow:hidden; margin-left: 180px;}
+.contrast_ul>li{width:184px; min-height:395px; float:left; margin-left:20px; border:1px solid #f0f0f0; overflow:hidden;}
+.contrast_tit{font-size:30px; text-align:center; color:#333; margin-left:184px; margin-top:40px; margin-bottom:30px;  overflow:hidden;}
+.contrast_img{background-color:#f3f6ff; height:50px; line-height:50px;}
+.contrast_img img{float:left; width:28px; height:28px; border:1px solid #fcfbfc; margin-left:10px; margin-top:11px;}
+.contrast_name{font-size:14px; color:#666666; float:left; width:107px; margin-left:10px;}
+.dn_ico_contrast{background-position: -136px -276px; width: 10px; height: 10px;display:block; margin-top:20px; float: left; margin-right: 13px; cursor:pointer;}
+.contrast_two>ul{margin-top:20px; overflow:hidden;}
+.contrast_two>ul>li{text-align:center; overflow:hidden; margin-bottom:10px; color:#333;}
+.contrast_three>ul{margin-top:10px; overflow:hidden;}
+.contrast_time{font-size:14px; color:#333; text-align:center; margin-top:10px;}
+.contrast_money{font-size:14px; color:#2d3345;  font-weight: bold; text-align:center; margin-top:10px;}
+.contrast_three>ul>li{height:44px; line-height:44px; background-color:#f8f8f8; color:#2d3345;     font-weight: bold; margin-bottom:1px; text-align:center; overflow:hidden; }
+.contrast_four>ul>li{ color:#333333; margin-bottom:10px; text-align:center; overflow:hidden; }
+.contrast_four>ul{margin-top:10px; margin-bottom:20px; overflow:hidden;}
+.contrast_ul>.contrast_ul_li_postion{border:0}
+.contrast_ul .contrast_ul_li_postion>div,.contrast_ul .contrast_ul_li_postion>div ul li{border:0; font-weight: inherit; width:180px; text-align: right; color:#fff; background-color:rgba(0,0,0,0.0); padding-right:16px;}
