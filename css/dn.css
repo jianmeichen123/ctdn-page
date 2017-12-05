@@ -307,6 +307,10 @@ ul,ol,dl,dt,dd,p,img{ display:block; border:0;list-style:none; }
 .contrast_img img{float:left; width:28px; height:28px; border:1px solid #fcfbfc; margin-left:10px; margin-top:11px;}
 .contrast_name{font-size:14px; color:#666666; float:left; width:107px; margin-left:10px;}
 .dn_ico_contrast{background-position: -136px -276px; width: 10px; height: 10px;display:block; margin-top:20px; float: left; margin-right: 13px; cursor:pointer;}
+.dn_ico_list_contrast{background-position:0 -286px; width: 19px; height: 19px; display: inline-block; cursor:pointer;}
+.dn_ico_list_contrast_on{background-position: -20px -286px;}
+.dn_ico_list_collect{background-position:-40px -286px; width: 19px; height: 19px;  display: inline-block;  cursor:pointer;}
+.dn_ico_list_collect_on{background-position: -59px -286px;}
 .contrast_two>ul{margin-top:20px; overflow:hidden;}
 .contrast_two>ul>li{text-align:center; overflow:hidden; margin-bottom:10px; color:#333;}
 .contrast_three>ul{margin-top:10px; overflow:hidden;}
@@ -322,10 +326,10 @@ ul,ol,dl,dt,dd,p,img{ display:block; border:0;list-style:none; }
 .Floating_box_a span{font-size:24px;}
 .dn_ico_box{background-position: -136px -337px; width: 21px; height: 21px; display: inline-block;margin-left: 10px;  position:absolute; top: 15px;}
 .dn_ico_box_show{background-position: -136px -310px;}
-.Floating_box_b{background-color:#fff; overflow: hidden;}
+.Floating_box_b{background-color:#fff; overflow: hidden; border-left:1px solid #f3f3f3; border-bottom:1px solid #f3f3f3; border-right:1px solid #f3f3f3;}
 .Floating_box_b>ul{width:206px; margin-left:auto; margin-right:auto; margin-bottom:20px;  overflow: hidden;}
 .Floating_box_b>ul>li{border-bottom:1px solid #f0f0f0; overflow: hidden;}
-.Floating_box_b>ul>li img{ width:28px; height:28px; border:1px solid #faf9fa; margin-left:10px; float:left; margin-top:10px; margin-bottom:10px;}
+.Floating_box_b>ul>li img{ width:28px; height:28px; border:1px solid #f0f0f0; margin-left:10px; float:left; margin-top:10px; margin-bottom:10px;}
 .Floating_box_href{background-color:#2393f7; color:#fff; height:40px; border-radius:5px; margin-bottom:20px; line-height:40px; text-align:center; width:186px; margin-left:auto; margin-right:auto;}
 .Floating_box_b_name{font-size:14px; width:128px; overflow:hidden; text-overflow: ellipsis; white-space: nowrap; color:#666666; float:left; margin-left:10px;  margin-top: 14px;}
 .Floating_box_b .dn_ico_contrast{ margin-top: 19px;    float: right; margin-right: 10px; cursor: pointer;}

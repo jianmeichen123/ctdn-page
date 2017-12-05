@@ -452,8 +452,15 @@ function investfirmFormatter(value,row){
 }
 
 function projectOption(){
-    return "<span>对比</span> <span>收藏</span>"
+    return "<span class='dn_ico dn_ico_list_contrast'></span> <span class='dn_ico dn_ico_list_collect'></span>"
 }
-
-
+//绑定收藏和对比
+$('body').delegate('.dn_ico_list_contrast','click', function(event){
+	event.stopPropagation();
+	$(this).toggleClass('dn_ico_list_contrast_on');
+})
+$('body').delegate('.dn_ico_list_collect','click', function(event){
+	event.stopPropagation();
+	$(this).toggleClass('dn_ico_list_collect_on');
+})
 
