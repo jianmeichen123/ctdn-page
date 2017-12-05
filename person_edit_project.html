@@ -388,15 +388,15 @@ function save(){
 }
 $('body').delegate('#save-btn','click', function(event){
  	event.stopPropagation();
-	 console.log('ddddd')
 	$("#form").submit();
 })
-	var list ={} ;
+	var list ={};
 	sendGetRequest(platformUrl.allQuery,function(data){
 		list["district"] = data.data.district[0].children;
 		list["industry"] = data.data.industry;
 		list["round"] = data.data.round;
-	})
+	});
+	console.log(list)
 	var parents = $("select[data-item='parent']");
 	$.each(parents,function(){
 		var parent = $(this);

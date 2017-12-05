@@ -212,13 +212,13 @@ select:focus { outline: none important; }
 .personEditLinkName{margin-left:-14px;}
 .seeShowLeft{margin-left:16px;}
 .personEditTitle{font-weight:bold;}
-.person_finacing_right label{width:auto;display:block;}
+.person_finacing_right label{width:auto;display:block;padding-top: 12px;margin-bottom: -3px;margin-left:-10px;}
 .editShowLeft{margin-left:18px;}
 .red{color:#d2100b;}
 .personInputUnit{right:10px;}
 .uploadBtnDanger{background:#ffd7d6;border:1px solid #ff5f5b;color:#d2100b;}
 .uploadSpanPic{background: url(../img/dn/person_danger.png) no-repeat;}
-
+.person_finacing_right .fr label{margin-left:10px;}
 
 
 
