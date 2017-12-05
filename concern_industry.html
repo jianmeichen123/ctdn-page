@@ -9,7 +9,6 @@
 </head>
 <style>
 
-
 </style>
 <body>
 {(header.html)}
@@ -24,74 +23,32 @@
 			<li class='person-item-industry'><span></span>关注行业</li>
 			<li class='person-li-item'><span></span>收藏夹</li>
 			<li class='person-change-password'><span></span>修改密码</li>
-			
 		</ul>
 	</div>
 	<div class='person-right fl'>
 		<div class='concern-industry-content'>
 			<p class='industry-title'>我们会根据您关注的行业领域，为您推荐适合的项目和新闻</p>
-			<div class='industry-concern'>关注行业<ul class='fr'><li>全选</li><li>清空</li></ul></div>
+			<div class='industry-concern'>关注行业<ul class='fr'><li id="allClick">全选</li><li id="clear">清空</li></ul></div>
 			<div class='industry-span-content clearfix'>
 				<ul>
-					<li>供应链管理</li>
-					<li>供应</li>
-					<li>供应链</li>
-					<li>供应链管理</li>
-					<li>供应链管理</li>
-					<li>供应链管理</li>
-					<li>供应链管理</li>
-					<li>供应链管理</li>
-					<li>供应链管理</li>
-					<li>供应链管理</li>
-					<li>供应链管理</li>
-					<li>供应链管理</li>
-					<li>供应链管理</li>
-					<li>供应链管理</li>
-					<li>供应链管理</li>
-					<li>供应链管理</li>
-					<li>供应链管理</li>
-					<li>供应链管理</li>
-					<li>供应链管理</li>
-					<li>供应链管理</li>
-					<li>供应链管理</li>
-					<li>供应链管理</li>
-					<li>供应链管理</li>
-					<li>供应链管理</li>
 				</ul>
 			</div>
 			<div class='concern-industry-save'>
-				<span>保存</span>
+				<span onclick="saveIndustry()">保存</span>
 				<span class='concern-industry-reset'>重置</span>
 			</div>
 		</div>
-		
-	
 	</div>
-
-
-
 </div>
-
-
-
-
-
-
-
-
-
-<!-- {(dn_foot.html)} -->
+<script src="js/user_focus.js"></script>
+ {(dn_foot.html)}
 </body>
 <script>
 $('.industry-span-content ul li').click(function(){
 	$(this).toggleClass('concern-clicked')
 })
-
-
-
+<!--$('#allClick').click(function(){-->
+	<!--$(".industry-span-content ul li").toggleClass('concern-clicked')-->
+<!--})-->
 </script>
-<script src="js/platformUrl.js?t=20170523"></script>
-<script src="js/common.js"></script>
-<script src="js/formatter_common.js"></script>
-<script src="js/search_index.js"></script>
 </html>
