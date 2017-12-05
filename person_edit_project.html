@@ -3,7 +3,7 @@
 <head>
 <meta content="webkit" name="renderer" />
 	<meta charset="utf-8">
-	<title>寻求融资</title>
+	<title>编辑项目</title>
 	<!--basis-->
 	{(dn_basis.html)}
 </head>
@@ -79,11 +79,11 @@
 					<div class="seek_financing_l seek_finacing_left"><span class="seek_financing_two">商业计划书</span><span class="seek_financing_one">*</span></div>
 					<div class="seek_financing_r person_finacing_right">
 
-						<div class="seek_put">
+						<div class="seek_put person-upload-bp">
 							<div class="logo_posi"><input type="file" name="file" id="projPb" style="opacity: 0; width: 140px;height: 50px;"/>
 								<input type="hidden" name="projPb">
 							</div>
-							<span class="dn_ico dn_ico_seek_pur1"></span>上传文件
+							<span class="dn_ico dn_ico_seek_pur1 personUploadPic"></span>上传文件
 
 						</div>
 						<span class="tit_span" id="projPbName">上传商业计划书，文件大小请限制在25M之内</span>
@@ -174,12 +174,15 @@
 		//表单清空
 	 	$("#form")[0].reset();
 	 	//表单验证
+	 	//debugger
 		$("#form").validate({
 			submitHandler: function() {
 				var pb = $("input[name='projPb']").val();
 				if(!pb){
 					alert('cccc')
-					$("#projPbName").addClass("red")
+					$("#projPbName").addClass("red");
+					$('.person-upload-bp').addClass('uploadBtnDanger');
+					//$('.personUploadPic').addClass('uploadSpanPic')
 					return;
 				}
 				save()
@@ -319,13 +322,16 @@
 				return;
 			}
 			$("#projPbName").text("正在上传文件...")
-			$("#projPbName").removeClass("red")
+			$("#projPbName").removeClass("red");
+			$('.person-upload-bp').removeClass('uploadBtnDanger');
+			
             data.submit();
         },
 		done: function (e, data) {
 			if(data.result.message == 'OK')
 			{
-				$("#projPbName").removeClass("red")
+				$("#projPbName").removeClass("red");
+				$('.person-upload-bp').removeClass('uploadBtnDanger');	
 				$("#projPbName").text(data.files[0].name);
 				$("input[name='projPb']").val(data.result.data)
 			}
