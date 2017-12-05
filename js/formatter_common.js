@@ -451,5 +451,9 @@ function investfirmFormatter(value,row){
     return injectValues(html,row);
 }
 
+function projectOption(){
+    return "<span>对比</span> <span>收藏</span>"
+}
+
 
 
