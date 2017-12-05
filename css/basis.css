@@ -1,6 +1,6 @@
 ﻿﻿@charset "utf-8";
 /* CSS Document */
-body{font-size:14px; font-family:"微软雅黑" !important;background-color: #f7f7f7; color:#333;}
+body{font-size:14px; font-family:"微软雅黑" !important;background-color: #f7f7f7; color:#333;     position: relative;}
 /*css-reset*/
 button {outline: none !important;}
 html,body,div,ul,ol,li,dl,dt,dd,p,span,em,strong,b,i,h1,h2,h3,h4,form,input,button,textarea,select,option,img,a{ margin:0; padding:0}

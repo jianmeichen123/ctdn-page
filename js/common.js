@@ -512,6 +512,16 @@ $('body').delegate('.dn_ico_search','click', function(event){
  	$("#executive_pop").hide();
  	$("#trade_pop").hide();
 })
+ //比较浮框
+$('body').delegate('.Floating_box_a','click', function(event){
+ 	event.stopPropagation();
+ 	$('.Floating_box_a .dn_ico_box').toggleClass('dn_ico_box_show');
+ 	if($('.Floating_box_a .dn_ico_box').hasClass('dn_ico_box_show')){
+ 		$('.Floating_box  .Floating_box_b').show()
+ 	}else{
+ 		$('.Floating_box  .Floating_box_b').hide()
+ 	}
+})
  //全部行业
 $('body').delegate('#executive_click','click', function(event){
  	event.stopPropagation();

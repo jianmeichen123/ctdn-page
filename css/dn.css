@@ -317,3 +317,15 @@ ul,ol,dl,dt,dd,p,img{ display:block; border:0;list-style:none; }
 .contrast_four>ul{margin-top:10px; margin-bottom:20px; overflow:hidden;}
 .contrast_ul>.contrast_ul_li_postion{border:0}
 .contrast_ul .contrast_ul_li_postion>div,.contrast_ul .contrast_ul_li_postion>div ul li{border:0; font-weight: inherit; width:180px; text-align: right; color:#fff; background-color:rgba(0,0,0,0.0); padding-right:16px;}
+.Floating_box{position:fixed; bottom:20px; right:20px; border-radius:5px; width:232px; overflow: hidden;}
+.Floating_box_a{height:50px; background-color:#2393f7; color:#fff; line-height:50px; position:relative; padding-left: 46px; cursor: pointer;}
+.Floating_box_a span{font-size:24px;}
+.dn_ico_box{background-position: -136px -337px; width: 21px; height: 21px; display: inline-block;margin-left: 10px;  position:absolute; top: 15px;}
+.dn_ico_box_show{background-position: -136px -310px;}
+.Floating_box_b{background-color:#fff; overflow: hidden;}
+.Floating_box_b>ul{width:206px; margin-left:auto; margin-right:auto; margin-bottom:20px;  overflow: hidden;}
+.Floating_box_b>ul>li{border-bottom:1px solid #f0f0f0; overflow: hidden;}
+.Floating_box_b>ul>li img{ width:28px; height:28px; border:1px solid #faf9fa; margin-left:10px; float:left; margin-top:10px; margin-bottom:10px;}
+.Floating_box_href{background-color:#2393f7; color:#fff; height:40px; border-radius:5px; margin-bottom:20px; line-height:40px; text-align:center; width:186px; margin-left:auto; margin-right:auto;}
+.Floating_box_b_name{font-size:14px; width:128px; overflow:hidden; text-overflow: ellipsis; white-space: nowrap; color:#666666; float:left; margin-left:10px;  margin-top: 14px;}
+.Floating_box_b .dn_ico_contrast{ margin-top: 19px;    float: right; margin-right: 10px; cursor: pointer;}
