@@ -12,7 +12,7 @@
 </style>
 <body>
 {(header.html)}
-<div class='person-center-container'>
+<div class='person-center-container clearfix'>
 	<div class='person-left fl'>
 		<div class='person-head-pic'>
 			<img src='../img/person_center/person_03.png'/>
@@ -27,8 +27,12 @@
 		</ul>
 	</div>
 	<div class='person-right fl'>
-		<div class='person-project-list'>
-				<table data-toggle='table'>
+		<ul class='clearfix person_tab'>
+			<li class='person-tab-underline'>审核中</li>
+			<li>已审核</li>
+		</ul>
+		<div class='person-project-list person_checking'>
+				<table  data-toggle='table'>
 					<thead>
 						<tr>
 							<th>项目名称</th>
@@ -44,21 +48,21 @@
 							<td>北京<span>></span>海淀</td>
 							<td>张三</td>
 							<td>1888888888</td>
-							<td>编辑</td>
+							<td><a href='javascript:;'>编辑</a></td>
 						</tr>
 						<tr>
 							<td>大象协管的了健康蓝精灵</td>
 							<td>北京<span>></span>海淀</td>
 							<td>张三</td>
 							<td>1888888888</td>
-							<td>编辑</td>
+							<td><a href='javascript:;'>编辑</a></td>
 						</tr>
 						<tr>
 							<td>大象协管的了健康蓝精灵</td>
 							<td>北京<span>></span>海淀</td>
 							<td>张三</td>
 							<td>1888888888</td>
-							<td>编辑</td>
+							<td><a href='javascript:;'>编辑</a></td>
 						</tr>
 					
 					
@@ -66,11 +70,51 @@
 					</tbody>
 				
 				</table>
+				
 		</div>
-		<div class='person-upload-project'>
-				上传新的项目		
-		</div>
-	
+		
+		<!-- 审核完 -->
+		<div class='person-project-list person_checked-list'>
+			<table data-toggle='table'>
+					<thead>
+						<tr>
+							<th>项目名称</th>
+							<th>所属地区</th>
+							<th>联系人</th>
+							<th>电话</th>
+							<th></th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>大象协管的了健康蓝精灵</td>
+							<td>北京<span>></span>海淀</td>
+							<td>张三</td>
+							<td>1888888888</td>
+							<td><a href='javascript:;'>查看</a></td>
+						</tr>
+						<tr>
+							<td>大象协管的了健康蓝精灵</td>
+							<td>北京<span>></span>海淀</td>
+							<td>张三</td>
+							<td>1888888888</td>
+							<td><a href='javascript:;'>查看</a></td>
+						</tr>
+						<tr>
+							<td>大象协管的了健康蓝精灵</td>
+							<td>北京<span>></span>海淀</td>
+							<td>张三</td>
+							<td>1888888888</td>
+							<td><a href='javascript:;'>查看</a></td>
+						</tr>
+					
+					</tbody>
+				
+					</table>
+			</div>
+				<div class='person-upload-project'>
+					上传新的项目		
+				</div>
 	</div>
 
 
@@ -88,7 +132,19 @@
 <!-- {(dn_foot.html)} -->
 </body>
 <script>
-
+$('.person_tab li').click(function(){
+	$(this).addClass('person-tab-underline').siblings().removeClass('person-tab-underline');
+	var index = $(this).index();
+	if(index==0){
+		$('.person_checking').show();
+		$('.person_checked-list').hide();
+	}else if(index==1){
+		$('.person_checking').hide();
+		$('.person_checked-list').show();
+	}
+	
+	
+});
 </script>
 <script src="js/platformUrl.js?t=20170523"></script>
 <script src="js/common.js"></script>

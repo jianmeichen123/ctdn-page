@@ -15,20 +15,34 @@
 
 <body>
 {(header.html)}
-<div class="container">
-	<form  action="#" id="form" enctype="multipart/form-data">
-		<div class="seek_financing">
+<div class='person-center-container projectEidtContaier clearfix'>
+<div class='person-left fl'>
+		<div class='person-head-pic'>
+			<img src='../img/person_center/person_03.png'/>
+			<p>136434***</p>
+		</div>
+		<ul class='person-menu'>
+			<li class='person-item-project'><span></span>我的项目</li>
+			<li class='person-item-industry'><span></span>关注行业</li>
+			<li class='person-li-item'><span></span>收藏夹</li>
+			<li class='person-change-password'><span></span>修改密码</li>
+			
+		</ul>
+	</div>
+
+	<form  action="#" id="form" enctype="multipart/form-data" class='person-right fl person-edit-project-content'>
+		<div>
 			<div class="seek_financing_tit">编辑项目</div>
-			<ul>
+			<ul class='clearfix person_edit_ul'>
 				<li>
-					<div class="seek_financing_l"><span class="seek_financing_two">项目名称</span><span class="seek_financing_one">*</span></div>
-					<div class="seek_financing_r">
+					<div class="seek_financing_l seek_finacing_left"><span class="seek_financing_two">项目名称</span><span class="seek_financing_one">*</span></div>
+					<div class="seek_financing_r person_finacing_right">
 						<input class="seek_financing_input" name="projName"  required data-rule-length20="true"  maxlength="20"  data-msg-length20="<span class='dn_ico dn_ico_error'></span>不超过20个字"  placeholder="请输入公司核心产品名称，不超过20个字">
 					</div>
 				</li>
 				<li>
-					<div class="seek_financing_l"><span class="seek_financing_two">所在地区</span><span class="seek_financing_one">*</span></div>
-					<div class="seek_financing_r">
+					<div class="seek_financing_l seek_finacing_left"><span class="seek_financing_two">所在地区</span><span class="seek_financing_one">*</span></div>
+					<div class="seek_financing_r person_finacing_right">
 						<select class="seek_financing_select " name="projDistrictId" data-item="parent" data-field="district"  data-rule-select="true" data-msg-select="<font color=red>*</font>必选项" >
 							<option  selected = "selected" disabled="true">选择所在省/市</option>
 						</select>
@@ -40,26 +54,26 @@
 					<input type="hidden" name="projSubDistrict">
 				</li>
 				<li>
-					<div class="seek_financing_l"><span class="seek_financing_two">项目介绍</span><span class="seek_financing_one">*</span></div>
-					<div class="seek_financing_r">
+					<div class="seek_financing_l seek_finacing_left"><span class="seek_financing_two">项目介绍</span><span class="seek_financing_one">*</span></div>
+					<div class="seek_financing_r person_finacing_right">
 						<textarea class="seek_financing_textarea" name="projDesc" required maxlength="1000" placeholder="产品描述、用户群体、项目愿景、竞争对手等方面详细描述，不超过1000个字"  required data-rule-length1000="true" data-msg-length1000="<span class='dn_ico dn_ico_error'></span>不超过1000个字"></textarea>
 					</div>
 				</li>
-				<li>
-					<div class="seek_financing_l"><span class="seek_financing_two">联系人姓名</span><span class="seek_financing_one">*</span></div>
-					<div class="seek_financing_r">
+				<li class='personEditLinkName'>
+					<div class="seek_financing_l seek_finacing_left"><span class="seek_financing_two">联系人姓名</span><span class="seek_financing_one">*</span></div>
+					<div class="seek_financing_r person_finacing_right">
 						<input class="seek_financing_input" name="projLinkman" required  maxlength="50"  placeholder="联系人姓名"  required data-rule-length50="true" data-msg-length50="<span class='dn_ico dn_ico_error'></span>不超过50个字">
 					</div>
 				</li>
-				<li>
-					<div class="seek_financing_l"><span class="seek_financing_two">联系人电话</span><span class="seek_financing_one">*</span></div>
-					<div class="seek_financing_r">
+				<li class='personEditLinkName'>
+					<div class="seek_financing_l seek_finacing_left"><span class="seek_financing_two">联系人电话</span><span class="seek_financing_one">*</span></div>
+					<div class="seek_financing_r person_finacing_right">
 						<input class="seek_financing_input" name="projLinktel" required  data-rule-phone="true"   maxlength="40" placeholder="联系人电话"  data-msg-phone="<span class='dn_ico dn_ico_error'></span>联系电话格式不正确">
 					</div>
 				</li>
-				<li>
-					<div class="seek_financing_l"><span class="seek_financing_two">商业计划书</span><span class="seek_financing_one">*</span></div>
-					<div class="seek_financing_r">
+				<li class='personEditLinkName'>
+					<div class="seek_financing_l seek_finacing_left"><span class="seek_financing_two">商业计划书</span><span class="seek_financing_one">*</span></div>
+					<div class="seek_financing_r person_finacing_right">
 
 						<div class="seek_put">
 							<div class="logo_posi"><input type="file" name="file" id="projPb" style="opacity: 0; width: 140px;height: 50px;"/>
@@ -72,9 +86,9 @@
 					</div>
 				</li>
 
-				<li class="seek_show_on">
-					<div class="seek_financing_l"><span class="seek_financing_two">项目LOGO</span></div>
-					<div class="seek_financing_r">
+				<li class="seek_show_on seek_show_block">
+					<div class="seek_financing_l seek_finacing_left"><span class="seek_financing_two">项目LOGO</span></div>
+					<div class="seek_financing_r person_finacing_right">
 						<div class="seek_put">
 							<div class="logo_posi"><input type="file" name="file" id="projLogo" style="opacity: 0; width: 140px; height: 50px;">
 								<input type="hidden" name="projLogo"></div>
@@ -83,11 +97,11 @@
 						<span class="tit_span" id="projLogoName">请上传项目logo，建议图片尺寸300*300 文件大小请限制在500k内</span>
 					</div>
 				</li>
-				<li class="seek_show_on">
-					<div class="seek_financing_l"><span class="seek_financing_two">所属领域</span></div>
+				<li class="seek_show_on seek_show_block seeShowLeft">
+					<div class="seek_financing_l seek_finacing_left"><span class="seek_financing_two">所属领域</span></div>
 					<input type="hidden" name="projIndustry">
 					<input type="hidden" name="projSubIndustry">
-					<div class="seek_financing_r">
+					<div class="seek_financing_r person_finacing_right">
 						<select class="seek_financing_select" name="projIndustryId" data-item="parent" data-field="industry" >
 							<option  selected= "selected" disabled="true" >选择一级行业</option>
 						</select>
@@ -96,23 +110,23 @@
 						</select>
 					</div>
 				</li>
-				<li class="seek_show_on">
-					<div class="seek_financing_l"><span class="seek_financing_two">产品网址</span></div>
-					<div class="seek_financing_r">
+				<li class="seek_show_on seek_show_block seeShowLeft">
+					<div class="seek_financing_l seek_finacing_left"><span class="seek_financing_two">产品网址</span></div>
+					<div class="seek_financing_r person_finacing_right">
 						<input class="seek_financing_input" name="projWebaddress" placeholder="产品网址" data-rule-url="true" data-msg-url="<font color=red>*</font>网址格式不正确">
 					</div>
 				</li>
-				<li class="seek_show_on">
-					<div class="seek_financing_l"><span class="seek_financing_two">公司全称</span></div>
-					<div class="seek_financing_r">
+				<li class="seek_show_on seek_show_block seeShowLeft">
+					<div class="seek_financing_l seek_finacing_left"><span class="seek_financing_two">公司全称</span></div>
+					<div class="seek_financing_r person_finacing_right">
 						<input class="seek_financing_input" name="projCompName" maxlength="40" placeholder="请输入工商注册公司全称，不超过40个字">
 					</div>
 				</li>
 			</ul>
-			<div class="seek_show"><span class="seek_show_open"><span class="seek_show_blue">完善信息　</span>可以加速融资进度哦~<span class="dn_ico dn_ico_seek_open"></span></span><span class="seek_show_off"><span class="seek_show_blue">收起</span><span class="dn_ico dn_ico_seek_off"></span></span></div>
 			<div class='person-edit-content'><span class='person_edit_return'>返回</span><span class='person-edit-save' id="save-btn">保存</span></div>
 		</div>
 	</form>
+
 </div>
 {(dn_foot.html)}
 </body>
@@ -230,17 +244,6 @@
 		})
 		return data;
 	}
-
-	$('.seek_show_open').click(function(event){
-		$(this).hide();
-		$('.seek_show_on').show();
-		$('.seek_show_off').show();
-	})
-	$('.seek_show_off').click(function(event){
-		$(this).hide();
-		$('.seek_show_on').hide();
-		$('.seek_show_open').show();
-	})
 
 	$("#projLogo").fileupload({
 		url:platformUrl.fileUpload,
