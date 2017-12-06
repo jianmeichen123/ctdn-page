@@ -451,16 +451,32 @@ function investfirmFormatter(value,row){
     return injectValues(html,row);
 }
 
-function projectOption(){
-    return "<span class='dn_ico dn_ico_list_contrast'></span> <span class='dn_ico dn_ico_list_collect'></span>"
+function option(value,row,index){
+    var type = $("table[data-url]").attr("type");
+    var code ;
+    if(type ==0){
+        code = row.projCode; //项目
+    }else if(type ==1){
+        code = row.orgCode; //机构
+    }else if(type ==2){
+        code = row.code;    //投资人
+    }else if(type ==3){
+        code = row.code;    //创业者
+    }else if(type == 4){
+        code = row.id;      //
+    }
+    return "<span class='dn_ico dn_ico_list_contrast'></span> <span class='dn_ico dn_ico_list_collect' type='"+type+"' code='"+code+"'></span>"
 }
-//绑定收藏和对比
+//绑定对比
 $('body').delegate('.dn_ico_list_contrast','click', function(event){
 	event.stopPropagation();
 	$(this).toggleClass('dn_ico_list_contrast_on');
 })
+//绑定收藏
 $('body').delegate('.dn_ico_list_collect','click', function(event){
 	event.stopPropagation();
 	$(this).toggleClass('dn_ico_list_collect_on');
+	var type = $(this).attr("type");
+    //sendPostRequestByJsonObj(user.collectOne,{"userId":1,"type":type,""})
 })
 
