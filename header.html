@@ -13,6 +13,8 @@
 						<a href="list_page_com.html" ><li page_tab="qyxm"  tab="com">项目</li></a>
 						<a href="list_page_rz.html" ><li  page_tab="rzdt" tab="trdt">投融动态</li></a>
 						<a href="list_page_org.html" ><li page_tab="tzjg" tab="org">投资机构</li></a>
+						<a href="list_page_startup.html" ><li page_tab="cyz" tab="startUp">创业者</li></a>
+						<a href="list_page_investor.html" ><li page_tab="tzr" tab="investor">投资人</li></a>
 					</ul>
 				</div>
 			</li>
@@ -94,6 +96,19 @@
 					<div class="nav_nav_name_x total-org"></div>
 				</li>
 			</a>
+
+			<a href="list_page_startup.html" >
+				<li page_tab="cyz" tab="startup">
+					<div class="nav_nav_name">创业者</div>
+					<div class="nav_nav_name_x total-startup"></div>
+				</li>
+			</a>
+			<a href="list_page_investor.html" >
+				<li page_tab="tzr" tab="investor">
+					<div class="nav_nav_name">投资人</div>
+					<div class="nav_nav_name_x total-investor"></div>
+				</li>
+			</a>
 			<!--<a href="####" >-->
 			<!--<li page_tab="jj">-->
 			<!--<div class="nav_nav_name">基金</div>-->
@@ -123,6 +138,8 @@ sendPostRequest(platformUrl.queryIndexHeaderStat,function(data){
     $(".total-project").text(data.data.projectNum)
     $(".total-org").text(data.data.orgNum)
     $(".total-investevent").text(data.data.eventNum)
+    $(".total-startup").text(data.data.startUpNum)
+    $(".total-investor").text(data.data.investorNum)
 })
  $("#globalsearch_index").on("click",function(){
            var value = $("input[data-search='globalsearch_index']").val()
