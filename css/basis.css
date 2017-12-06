@@ -283,8 +283,8 @@ com{color:#2393f7;}
 .project_absolute_lan{ color:#a987ff; border:1px solid #a987ff;}
 .project_lable{background-color:#f2f2f2; color:#999999; display:block; padding-left:13px; padding-right:13px; float:left; border-radius:13px; margin-right:10px; margin-top:5px; height:26px; line-height:26px;}
 .project_tit_r{width:375px; float:right; border-left:1px solid #e6e6e6; }
-.project_tit_r ul{margin-left:30px;}
-.project_tit_r ul li{ line-height:26px;     margin-bottom: 20px;}
+.project_tit_r ul{margin-left:30px;  margin-bottom: 6px; overflow: hidden;}
+.project_tit_r>ul>li{ line-height:16px;     margin-bottom: 14px;}
 .brain_ico_project_1{ background-position:0 -41px; width: 23px;  height: 20px; display: inline-block; float:right;}
 .brain_ico_project_2{ background-position:-59px -65px; width: 23px;  height: 20px; display: inline-block; float:right;}
 .brain_ico_project_3{ background-position:-54px -41px; width: 23px;  height: 20px; display: inline-block; float:right;}
