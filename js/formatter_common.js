@@ -455,7 +455,7 @@ function investfirmFormatter(value,row){
 }
 
 function option(value,row,index){
-    var type = $("table[data-url]").attr("type");
+    var type = $("table[data-url]").attr("data-type");
     var code ;
     if(type ==0){
         code = row.projCode; //项目
@@ -480,5 +480,19 @@ $('body').delegate('.dn_ico_list_collect','click', function(event){
 	event.stopPropagation();
 	$(this).toggleClass('dn_ico_list_collect_on');
 	var type = $(this).attr("type");
-    //sendPostRequestByJsonObj(user.collectOne,{"userId":1,"type":type,""})
+	var code = $(this).attr("code");
+	var userId =1;
+	if($(this).hasClass("dn_ico_list_collect_on")){
+	   collectOne(userId,type,code)
+	}else{
+	   cancelOneCol(userId,type,code)
+	}
 })
+
+function collectOne(userId,type,code){
+    sendPostRequestByJsonObj(user.collectOne,{"userId":1,"type":type,"code":code},null)
+}
+
+function cancelOneCol(userId,type,code){
+    sendPostRequestByJsonObj(user.cancelOneCol,{"userId":1,"type":type,"code":code},null)
+}
