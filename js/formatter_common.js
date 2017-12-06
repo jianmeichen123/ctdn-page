@@ -479,4 +479,3 @@ $('body').delegate('.dn_ico_list_collect','click', function(event){
 	var type = $(this).attr("type");
     //sendPostRequestByJsonObj(user.collectOne,{"userId":1,"type":type,""})
 })
-
