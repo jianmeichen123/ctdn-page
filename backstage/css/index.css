@@ -82,7 +82,34 @@ header{position:fixed;min-width:647px;top:0px;left:0px;width:100%;height:90px;li
 .login-form{width:350px;margin:0 auto;margin-top:155px;}
 .to-login{font-family:'Microsoft YaHei';cursor:pointer;background:#66b8f5;border-radius:4px;width:350px;height:56px;display:inline-block;line-height:56px;text-align:center;font-size:24px;color:#ffffff;margin-top:52px;}
 .login-form label{display:inline-block;}
+.back-login-tips{display:inline-block;width:350px;text-align:center;height:42px;background:#fedbbd;color:#d98267;border-radius:5px;line-height:42px;}
+
+
+
 /*欢迎页面*/
 .login-welcome{width:350px;position:fixed;left:50%;top:50%;transform:translateY(-50%) translateX(-50%)}
 .login-welcome p{font-size:20px;color:#8c98ab;}
 .login-welcome span{float:left;}
+/* 表单验证不通过placeholder颜色 */
+.invalid:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+	 color: red;
+	 opacity: 1;
+ }
+.invalid::-moz-placeholder { /* Mozilla Firefox 19+ */
+    color: red;
+    opacity: 1;
+}
+
+input.invalid:-ms-input-placeholder{
+    color: red;
+}
+input.invalid::-webkit-input-placeholder {
+    color: red;
+}
+textarea.invalid::-webkit-input-placeholder {
+    color: red;
+}
+textarea.invalid::-ms-input-placeholder {
+    color: red;
+}
+.inputDanger{border:1px solid #ff4e49; box-shadow:1px 1px 5px #fff2f2;}

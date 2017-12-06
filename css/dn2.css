@@ -219,6 +219,30 @@ select:focus { outline: none important; }
 .uploadBtnDanger{background:#ffd7d6;border:1px solid #ff5f5b;color:#d2100b;}
 .uploadSpanPic{background: url(../img/dn/person_danger.png) no-repeat;}
 .person_finacing_right .fr label{margin-left:10px;}
+.projectDanger{border:1px solid #ff4e49;}
+/* 表单验证不通过placeholder颜色 */
+.invalid:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+	 color: red;
+	 opacity: 1;
+ }
+.invalid::-moz-placeholder { /* Mozilla Firefox 19+ */
+    color: red;
+    opacity: 1;
+}
+
+input.invalid:-ms-input-placeholder{
+    color: red;
+}
+input.invalid::-webkit-input-placeholder {
+    color: red;
+}
+textarea.invalid::-webkit-input-placeholder {
+    color: red;
+}
+textarea.invalid::-ms-input-placeholder {
+    color: red;
+}
+.inputDanger{border:1px solid #ff4e49; box-shadow:1px 1px 5px #fff2f2;}
 
 
 
