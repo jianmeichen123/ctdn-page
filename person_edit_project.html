@@ -198,7 +198,6 @@
 	
 	//单独进行验证，高亮
 	$('.editRequireInput').blur(function(){
-		console.log($(this));
 		var _this = $(this);
 		_this.addClass('inputDanger');
 		_this.addClass('invalid');
@@ -208,7 +207,6 @@
 		}
 	});
 	$('.editRequireInput').focus(function(){
-		console.log($(this));
 		var _this = $(this);
 		_this.removeClass('inputDanger');
 		_this.removeClass('invalid');
