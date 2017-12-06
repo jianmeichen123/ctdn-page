@@ -179,14 +179,13 @@
 			submitHandler: function() {
 				var pb = $("input[name='projPb']").val();
 				if(!pb){
-					alert('cccc')
 					$("#projPbName").addClass("red");
 					$('.person-upload-bp').addClass('uploadBtnDanger');
 					//$('.personUploadPic').addClass('uploadSpanPic')
 					return;
 				}
 				save()
-				//验证通过后 的js代码写在这里
+				//验证通过后的js代码写在这里
 			}
 		})
 	})
