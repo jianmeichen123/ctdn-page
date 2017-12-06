@@ -374,7 +374,7 @@ function projectFormatter(value,row){
        }
    }
 
-	var html = "<div class='list-item'>"+
+	var html = "<div class='list-item porject_search_w'>"+
 			"<div class='list-item-inner'>"+
 				"<div class='list-item-left'>"+
 					"<a target='_blank' href='/project_qy.html?projCode="+row.projCode+"'><img src='"+img+"'></a>"+
@@ -383,6 +383,8 @@ function projectFormatter(value,row){
 					"<p class='list-item-title'><a target='_blank' href='/project_qy.html?projCode="+row.projCode+"'>"+projectName+"</a>"+tag+"</p>"+
 					"<p class='list-item-content'>简介:${introduce}</p>"+
 					"<p class='list-item-tips'><i class='list-item-address'></i>${districtSubName}"+industryName+"</p>"+
+					"<div class='search_collect'><span class='dn_ico dn_ico_list_collect_search'></span>收藏</div>"+
+					"<div class='search_contrast'><span class='dn_ico dn_ico_list_search_contrast'></span>对比</div>"+
 				"</div>"+
 			"</div>"+
 		"</div>"
@@ -443,7 +445,8 @@ function investfirmFormatter(value,row){
    				"<div class='list-item-right'>"+
    					"<p class='list-item-title institute-title'><a target='_blank' href='/jg_particulars.html?orgCode="+row.orgCode+"'>"+investOrg+"</a><span>"+orgType+"</span></p>"+
    					"<p class='list-item-case'>投资事件:<span>${investTotal}</span></p>"+
-   					"<p class='list-item-content list-institute-content'>简介:"+orgDesc+"</p>"
+   					"<p class='list-item-content list-institute-content'>简介:"+orgDesc+"</p>"+
+   					"<div class='search_collect'><span class='dn_ico dn_ico_list_collect_search'></span>收藏</div>"
    				"</div>"+
    			"</div>"+
    		"</div>"
