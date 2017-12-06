@@ -2,27 +2,20 @@
 
 //var Constants = {
 //	platformContentURL: "http://127.0.0.1:8081/api/",
-//	searchContentURL: "http://127.0.0.1:8089/search/",
+//	searchContentURL: "http://ctdndev.gi.com/search/",
 //	dataContentURL: "http://127.0.0.1:8085/data/",
 //	logoPath: "http://static.galaxyinternet.com/img/"
 //}
-//dve
+
+//线上
 var Constants = {
 	platformContentURL: "http://ctdndev.gi.com/api/",
 	searchContentURL: "http://ctdndev.gi.com/search/",
 	dataContentURL: "http://ctdndev.gi.com/data/",
     logoPath: "http://static.galaxyinternet.com/img/"
 }
-
-//线上
-/*var Constants = {
-	platformContentURL: "http://ctdn.galaxyinternet.com/api/",
-	searchContentURL: "http://ctdn.galaxyinternet.com/search/",
-	dataContentURL: "http://ctdnr.galaxyinternet.com/data/",
-    logoPath: "http://static.galaxyinternet.com/img/"
-}*/
 var home = {
-	    index : "http://ctdn.galaxyinternet.com"
+	    index : "http://ctdndev.gi.com"
 	}
 var docUrl = {
 
