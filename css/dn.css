@@ -333,7 +333,7 @@ ul,ol,dl,dt,dd,p,img{ display:block; border:0;list-style:none; }
 .Floating_box_href{background-color:#2393f7; color:#fff; height:40px; border-radius:5px; margin-bottom:20px; line-height:40px; text-align:center; width:186px; margin-left:auto; margin-right:auto;}
 .Floating_box_b_name{font-size:14px; width:128px; overflow:hidden; text-overflow: ellipsis; white-space: nowrap; color:#666666; float:left; margin-left:10px;  margin-top: 14px;}
 .Floating_box_b .dn_ico_contrast{ margin-top: 19px;    float: right; margin-right: 10px; cursor: pointer;}
-/*全局搜索*/
+/*全局搜索-收藏对比*/
 .search_collect,.search_contrast{position:absolute; width:92px; height:30px; border:1px solid #999999; color:#999999; cursor: pointer;    line-height: 28px; font-size:14px; border-radius: 5px; right: 0; top: 20px;}
 .search_collect .dn_ico_list_collect_search{margin-top:4px; float:left;  margin-right: 5px;   float: left;    margin-left: 20px;}
 .search_collect_on{border:1px solid #d19626; color:#d19626;}
@@ -354,3 +354,5 @@ ul,ol,dl,dt,dd,p,img{ display:block; border:0;list-style:none; }
 .search_list_people_list_r{border-left:1px solid #cccccc;float:left;padding-left:10px; }
 .search_list_people_list>ul>li span{margin-left:20px;}
 .search_list_people_all{background-color:#fff; margin-bottom:30px; margin-top:10px;      padding-bottom: 30px;  overflow: hidden;}
+.project_tit_r_co{width:100%; height:30px; margin-left:30px;margin-bottom:20px;}
+.project_tit_r_co .search_collect ,.project_tit_r_co .search_contrast{  top:0;  position: relative; margin-right:20px; float:left; margin-top:0;}
