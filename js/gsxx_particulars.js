@@ -314,9 +314,9 @@ if(proj.data.compCode){
                         var linkJson={}
                         if($(this)[0].memberName!=''){
                             if($(this)[0].compJob){
-                                json["name"]=$(this)[0].memberName+"/"+$(this)[0].compJob;
+                                json["name"]=i+1+"."+$(this)[0].memberName+"/"+$(this)[0].compJob;
                             }else{
-                                json["name"]=$(this)[0].memberName;
+                                json["name"]=i+1+"."+$(this)[0].memberName;
                             }
                             json["symbolSize"]=10;
                             json["category"]="任职人员";
@@ -324,9 +324,9 @@ if(proj.data.compCode){
                             json["value"]=1;
                             linkJson["source"]="任职人员";
                             if($(this)[0].compJob){
-                                linkJson["target"]=$(this)[0].memberName+"/"+$(this)[0].compJob;
+                                linkJson["target"]=i+1+"."+$(this)[0].memberName+"/"+$(this)[0].compJob;
                             }else{
-                                linkJson["target"]=$(this)[0].memberName;
+                                linkJson["target"]=i+1+"."+$(this)[0].memberName;
                             }
                             array.push(json);
                             linkArr.push(linkJson);
@@ -394,7 +394,7 @@ if(proj.data.compCode){
         var pageSize = obj.find("input[name='pageSize']").val();
     	var html="";
         sendPostRequestByJsonObj(url,json,function(data){
-            if(dataId=='queryByProjTitle'){
+            if(dataId=='queryByCompCode'){
                 projJson=data.page.records
                 if(projJson.length>0){
                     compJson1["name"]="项目";

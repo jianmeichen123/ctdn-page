@@ -94,7 +94,7 @@ var detail = {
     getCTDNEventInfo:Constants.platformContentURL+"/eventInfo/getCtdnEventInfo/",
     getNewsByLabels:Constants.platformContentURL+"/news/getByLabels/",
     getNewsByLabel:Constants.platformContentURL+"/news/getNewsByLabel/",
-    queryByProjTitle:Constants.platformContentURL+"/projectList/queryByProjTitle/",
+    queryByCompCode:Constants.platformContentURL+"/projectList/queryByCompCode/",
     getListByCompany:Constants.platformContentURL+"/eventInfo/getListByCompany/",
     getListByRegName:Constants.platformContentURL+"/businessInfo/getListByRegName/",
     getAllCompMember:Constants.platformContentURL+"/compMember/getAllCompMember/",
