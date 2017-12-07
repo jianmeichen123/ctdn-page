@@ -357,7 +357,7 @@ ul,ol,dl,dt,dd,p,img{ display:block; border:0;list-style:none; }
 .project_tit_r_co{width:100%; height:30px; margin-left:30px;margin-bottom:20px;}
 .project_tit_r_co .search_collect ,.project_tit_r_co .search_contrast{  top:0;  position: relative; margin-right:20px; float:left; margin-top:0;}
 /*创业者 投资人*/
-.startup_xq{background-color:#fff; padding-left:20px; padding-right:20px;     margin-top: 10px;}
+.startup_xq{background-color:#fff; padding-left:20px; padding-right:20px; border-radius: 8px;    margin-top: 10px;}
 .startup_xq .list-item-inner{border:0;}
 .startup_xq ,.search_collect{top:35px;}
 .startup_list span{margin-right:10px;}
