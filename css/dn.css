@@ -356,3 +356,40 @@ ul,ol,dl,dt,dd,p,img{ display:block; border:0;list-style:none; }
 .search_list_people_all{background-color:#fff; margin-bottom:30px; margin-top:10px;      padding-bottom: 30px;  overflow: hidden;}
 .project_tit_r_co{width:100%; height:30px; margin-left:30px;margin-bottom:20px;}
 .project_tit_r_co .search_collect ,.project_tit_r_co .search_contrast{  top:0;  position: relative; margin-right:20px; float:left; margin-top:0;}
+/*创业者 投资人*/
+.startup_xq{background-color:#fff; padding-left:20px; padding-right:20px;     margin-top: 10px;}
+.startup_xq .list-item-inner{border:0;}
+.startup_xq ,.search_collect{top:35px;}
+.startup_list span{margin-right:10px;}
+.startup_list .startup_time{margin-right:20px;}
+.investor_ul>li{width:100%; overflow:hidden; margin-bottom:20px;} 
+.investor_ul_tit{color:#666666;float:left; font-size:14px;  height:30px; line-height:30px; }
+.investor_ul_1,.investor_ul_2{float:left;}
+.investor_ul_1>li{float:left; margin-left:20px; padding-left:10px; padding-right:10px; border:1px solid #b2dbff; height:30px; line-height:30px; font-size:12px; border-radius:15px;}
+.investor_ul_2>li{float:left; margin-left:20px; padding-left:10px; padding-right:10px; border:1px solid #666666; height:30px; line-height:30px; font-size:12px; border-radius:15px;}
+.investor_ul_c{width:1118px; float:left;height:30px; line-height:30px;}
+.investor_case{ overflow:hidden;margin-left:-20px;margin-right:-20px;}
+.investor_case>li{float:left; margin-left:20px; width: 588px;; margin-bottom:20px; border:1px solid #e6e6e6; height:160px;}
+.investor_case_ul{padding-left:20px; padding-right:20px; margin-top:20px; margin-bottom:5px; overflow:hidden;}
+.investor_case_ul>li{margin-bottom:10px; width:100%; overflow:hidden;}
+.investor_case_ul_img{float:left;}
+.investor_case_ul_img img{width:70px; height:70px; border:1px solid #f0f0f0;}
+.investor_case_ul_cen{width:460px; float:right; position:relative;}
+.investor_case_ul_div{font-size:14px; color:#666; height:40px; overflow:hidden;}
+.investor_case_ul_cen_1{font-size:16px; color:#333333;}
+.investor_case_ul_cen_2{font-size:12px; color:#666; margin-top:5px;}
+.investor_case_ul_cen_3 span{flot:left; color:#666; margin-top:5px; display:inline-block; padding-left:10px; border-radius:10px; padding-right:10px; height:20px; line-height:20px; border:1px solid #b2dbff; margin-right:20px; font-size:12px;}
+.investor_case_ul_cen_time{position:absolute; right:0;top:0; font-size:12px; color:#999999;}
+.startup_come_ul{margin-bottom:-50px;}
+.startup_come_ul>li{margin-bottom:50px;}
+.startup_come_ul_tit{font-size:16px; color:#333333;}
+.startup_come_ul_img{width:80px; float:left;}
+.startup_come_ul_img img{width:80px; height:80px; border:1px solid #f0f0f0;}
+.startup_come_ul_all{width:100%; overflow:hidden;margin-top:20px;}
+.startup_come_ul_cen{float:right; width:1098px;}
+.startup_come_w a{color:#2393f7}
+.startup_come_m{font-size:14px; color:#666666; margin-top:30px;}
+.startup_come_left{font-size:14px; color:#666666; margin-top:12px;}
+.startup_come_left span{display:inline-block;}
+.span_startup{width:220px;}
+.color_startup{color:#2393f7;}
