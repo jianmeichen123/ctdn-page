@@ -54,6 +54,35 @@
 			<li data-tab="launchEvent"><span>上市事件</span>(<span></span>)</li>
 		</ul>
 	</div>
+	<!-- 样式new -->
+	<div class="search_list_bj">
+		<ul>
+			<li class="search_list_on">投资人（1）</li>
+			<li>投资人（1）</li>
+		</ul>
+		<div class="search_list_bj_r">共搜索到 <span>10</span>条内容中含有 "<span>滴滴</span>" 的创投人物</div>
+	</div>
+	<div class="search_list_people_all">
+		<div class="list-item search_list_people">
+			<div class="list-item-inner">
+				<div class="list-item-left"><a target="_blank" href="/jg_particulars.html?orgCode=7eb60c84b891fd0c76f4defb686f617a"><img src="http://static.galaxyinternet.com/img/org/7eb60c84b891fd0c76f4defb686f617a.png"></a></div>
+				<div class="list-item-right">
+					<div class="list-item-title"><a target="_blank" href="/jg_particulars.html?orgCode=7eb60c84b891fd0c76f4defb686f617a">林海棠</a></div>
+					<div class="search_list_people_wn">Haitang Ling</div>
+					<div class="search_list_people_list">
+						<ul>
+							<li>一号家具网</li>		
+							<li><div class="search_list_people_list_r">CEO</div></li>				
+							<li><span><i class="list-item-address"></i>天津</span></li>
+						</ul>
+						
+					</div>
+					<div class="search_collect"><span class="dn_ico dn_ico_list_collect_search"></span>收藏</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- 样式new end-->
 	<div class='info-list info-list-container'>
 		<div class="info-list-title">
 			<span id ="tip"></span>
@@ -139,9 +168,19 @@ $(".info-search input").focus(function(){
 })/* .blur(function(){
     $(".info-search .hot_speech").hide();
 }); */
+
+
+//收藏对比
+$('body').delegate('.search_collect','click', function(event){
+ 	event.stopPropagation();
+ 	$(this).toggleClass('search_collect_on');
+})
+$('body').delegate('.search_contrast','click', function(event){
+ 	event.stopPropagation();
+ 	$(this).toggleClass('search_contrast_on');
+})
 </script>
 <script src="js/platformUrl.js?t=20170523"></script>
-<script src="js/common.js"></script>
 <script src="js/formatter_common.js"></script>
 <script src="js/search_index.js"></script>
 </html>

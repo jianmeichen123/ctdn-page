@@ -374,7 +374,7 @@ function projectFormatter(value,row){
        }
    }
 
-	var html = "<div class='list-item'>"+
+	var html = "<div class='list-item porject_search_w'>"+
 			"<div class='list-item-inner'>"+
 				"<div class='list-item-left'>"+
 					"<a target='_blank' href='/project_qy.html?projCode="+row.projCode+"'><img src='"+img+"'></a>"+
@@ -383,6 +383,8 @@ function projectFormatter(value,row){
 					"<p class='list-item-title'><a target='_blank' href='/project_qy.html?projCode="+row.projCode+"'>"+projectName+"</a>"+tag+"</p>"+
 					"<p class='list-item-content'>简介:${introduce}</p>"+
 					"<p class='list-item-tips'><i class='list-item-address'></i>${districtSubName}"+industryName+"</p>"+
+					"<div class='search_collect'><span class='dn_ico dn_ico_list_collect_search'></span>收藏</div>"+
+					"<div class='search_contrast'><span class='dn_ico dn_ico_list_search_contrast'></span>对比</div>"+
 				"</div>"+
 			"</div>"+
 		"</div>"
@@ -443,7 +445,8 @@ function investfirmFormatter(value,row){
    				"<div class='list-item-right'>"+
    					"<p class='list-item-title institute-title'><a target='_blank' href='/jg_particulars.html?orgCode="+row.orgCode+"'>"+investOrg+"</a><span>"+orgType+"</span></p>"+
    					"<p class='list-item-case'>投资事件:<span>${investTotal}</span></p>"+
-   					"<p class='list-item-content list-institute-content'>简介:"+orgDesc+"</p>"
+   					"<p class='list-item-content list-institute-content'>简介:"+orgDesc+"</p>"+
+   					"<div class='search_collect'><span class='dn_ico dn_ico_list_collect_search'></span>收藏</div>"
    				"</div>"+
    			"</div>"+
    		"</div>"
@@ -451,16 +454,45 @@ function investfirmFormatter(value,row){
     return injectValues(html,row);
 }
 
-function projectOption(){
-    return "<span class='dn_ico dn_ico_list_contrast'></span> <span class='dn_ico dn_ico_list_collect'></span>"
+function option(value,row,index){
+    var type = $("table[data-url]").attr("data-type");
+    var code ;
+    if(type ==0){
+        code = row.projCode; //项目
+    }else if(type ==1){
+        code = row.orgCode; //机构
+    }else if(type ==2){
+        code = row.code;    //投资人
+    }else if(type ==3){
+        code = row.code;    //创业者
+    }else if(type == 4){
+        code = row.id;      //
+    }
+    return "<span class='dn_ico dn_ico_list_contrast'></span> <span class='dn_ico dn_ico_list_collect' type='"+type+"' code='"+code+"'></span>"
 }
-//绑定收藏和对比
+//绑定对比
 $('body').delegate('.dn_ico_list_contrast','click', function(event){
 	event.stopPropagation();
 	$(this).toggleClass('dn_ico_list_contrast_on');
 })
+//绑定收藏
 $('body').delegate('.dn_ico_list_collect','click', function(event){
 	event.stopPropagation();
 	$(this).toggleClass('dn_ico_list_collect_on');
+	var type = $(this).attr("type");
+	var code = $(this).attr("code");
+	var userId =1;
+	if($(this).hasClass("dn_ico_list_collect_on")){
+	   collectOne(userId,type,code)
+	}else{
+	   cancelOneCol(userId,type,code)
+	}
 })
 
+function collectOne(userId,type,code){
+    sendPostRequestByJsonObj(user.collectOne,{"userId":1,"type":type,"code":code},null)
+}
+
+function cancelOneCol(userId,type,code){
+    sendPostRequestByJsonObj(user.cancelOneCol,{"userId":1,"type":type,"code":code},null)
+}

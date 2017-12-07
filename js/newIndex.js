@@ -70,7 +70,7 @@ function getNews(){
     json["pageSize"]=6;
     json["pageNo"]=0;
      sendPostRequestByJsonObj(searchUrl["news"],json,function(data){
-           $(data.data).each(function(k,v){
+           $(data.page.records).each(function(k,v){
                 if(!v){
                     v="-"
                 }else{
@@ -87,7 +87,7 @@ function getNews(){
                 }
            })
            $("#newsList").html("");
-           $("#getAllnews").tmpl(data).appendTo($("#newsList"))
+           $("#getAllnews").tmpl(data.page).appendTo($("#newsList"))
         })
 }
 

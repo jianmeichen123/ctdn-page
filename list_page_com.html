@@ -85,7 +85,7 @@
 				<div class="table_seek"><input data-field="projTitle" id = "projTitle" type="text" onkeydown="entersearch()" placeholder="结果中搜索"/><span class="brain_ico brain_ico_seek" onclick="_query()"></span></div>
 			</div>
 			<div class="block m_t_10 boder_all">
-				<table class="table bj_fff table_style" data-url="project" >
+				<table class="table bj_fff table_style" data-url="project" data-type=0>
 				   <thead>
 					  <tr>
 						 <th data-formatter="tableFormate.projectName" ><div>项目名称</div></th>
@@ -95,7 +95,7 @@
 						 <th data-sortable="true" data-field="latestFinanceDT" class="number_th_12"><div  class="border_l">最新融资时间</div></th>
 						  <th data-field="latestFinanceRound" class="number_th_12"><div class="border_l">最新融资轮次</div></th>
 						  <th data-field="latestFinanceAmountStr" class="number_th_10"><div  class="border_l">最新融金额</div></th>
-						  <th data-formatter="projectOption" class="number_th_10">操作</th>
+						  <th data-formatter="option" class="number_th_10">操作</th>
 					  </tr>
 				   </thead>
 				   <tbody>
