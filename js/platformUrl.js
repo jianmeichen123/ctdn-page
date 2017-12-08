@@ -103,6 +103,13 @@ var detail = {
     getAllCompSubs:Constants.platformContentURL+"/compSub/getAllCompSubs/",
     insertProject:Constants.platformContentURL+"/appProjectDemandInfo/insert",
     getListByProjCode:Constants.platformContentURL+"/projectContact/getListByProjCode/",
+    queryLastestLoadProject:Constants.platformContentURL+"/index/queryLastestLoadProject/",
+    queryLastestFinanceProject:Constants.platformContentURL+"/index/queryLastestFinanceProject/",
+    queryLastestOrg:Constants.platformContentURL+"/index/queryLastestOrg/",
+    getParentIndustrys:Constants.platformContentURL+"/index/getParentIndustrys/",
+    saveOrUpdateUerIndustry:Constants.platformContentURL+"/index/saveOrUpdateUerIndustry/",
+    userIndustry:Constants.platformContentURL+"/index/userIndustry/",
+    getCompeteInfo:Constants.platformContentURL+"/index/getCompeteInfo/",
 }
 /**
  * how to use? location.href = platformUrl.login
