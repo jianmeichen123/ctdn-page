@@ -603,3 +603,66 @@ function formatNewsTime(time){
       }
       return result;
 }
+/**
+ * 
+ */
+var default_user_industry = ''
+function getParentIndustrys(){
+	sendPostRequestByJsonStr(detail.getParentIndustrys,null,function(data){
+		if(data.success){
+			var data_list = data.data
+			default_user_industry = data.data
+			show_user_industry(data_list)
+			console.log(default_user_industry + 'save')
+		}
+	})
+}
+function show_user_industry(data_list){
+	var html = ''
+	for(var i=0;i<data_list.length;i++){
+		var entity = data_list[i]
+		var flag = entity.flag
+		var css = ''
+		if(flag == '1'){ //选中
+			css = 'trade_pop_c_ul_on'
+		}
+		html +='<li class="'+ css +'" lang="'+entity.id+'">' +entity.name+'</li>'
+   }
+	$('#concern_industry').html(html)
+	$("#concern_industry li").click(function(){
+		$(this).toggleClass('trade_pop_c_ul_on')
+	})
+}
+function save_user_industry(){
+	var ids = new Array()
+	var names= new Array()
+	$('#concern_industry li').each(function(){
+		if($(this).hasClass('trade_pop_c_ul_on')){
+			var id = $(this).attr('lang')
+			var name = $(this).text()
+			ids.push(id)
+			names.push(name)
+		}
+	})
+	var sss = {"industryNames":names.join(','),
+		       "industryIds":ids.join(','),
+		       "userId":1}
+	sendPostRequestByJsonObj(detail.saveOrUpdateUerIndustry,sss,function(data){
+		if(data.success){
+			cancle_user_industry()
+		}
+	})
+	
+}
+function reset_user_industry(){
+	show_user_industry(default_user_industry)
+}
+function cancle_user_industry(){
+	$("#trade_pop").hide();
+}
+function select_all(){
+	$("#concern_industry li").addClass('trade_pop_c_ul_on')
+}
+function unselect_all(){
+	$("#concern_industry li").removeClass('trade_pop_c_ul_on')
+}

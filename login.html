@@ -21,14 +21,14 @@
 			<li class='li-last' data-num='2'>验证码登录</li>
 		</ul>
 		<div class='login-right-content password'>
-			<input class='login-input input-first' type='text' placeholder='请输入登录用户名/手机号'/><label class='login-tips'>*你输入的账号不存在</label>
-			<span class='eye-box'><input class='login-input input-last' type='text' placeholder='请输入登录密码'/><span class='login-eye'></span></span>
+			<input class='login-input input-first' type='text' placeholder='请输入登录用户名/手机号' id="nickName"/><label class='login-tips' id="nickname_tip">*你输入的账号不存在</label>
+			<span class='eye-box'><input class='login-input input-last' type='text' placeholder='请输入登录密码' id="password"/><label class='login-tips' id="password_tip">*你输入的账号不存在</label><span class='login-eye'></span></span>
 			<p class='forgot'>
-				<input type='checkbox' ><span class='serven-day'>七天自动登录</span>
+				<input id="autoLogin" type="checkbox" value="checkbox" ><span class='serven-day'>七天自动登录</span>
 				<a href='javascript:;' class='forget-password'>忘记密码</a>
 			</p>
-			<span class='to-login'>登录</span>
-			<p class='to-register'>还没有账号？<a class='to-new-register' href='javascript:;'>注册新用户<span cass=''><img src='../img/login/to-register_03.jpg'/></span></a></p>
+			<span class='to-login' onclick="login()">登录</span>
+			<p class='to-register'>还没有账号？<a class='to-new-register' href='/register.html'>注册新用户<span cass=''><img src='../img/login/to-register_03.jpg'/></span></a></p>
 		</div>
 		<!--验证码登录  -->
 		<div class='login-right-content vertifiaction-code'>
@@ -38,7 +38,7 @@
 				<input type='checkbox' ><span class='serven-day'>七天自动登录</span>
 				<a href='javascript:;' class='forget-password'>忘记密码</a>
 			</p>
-			<span class='to-login'>登录</span>
+			<span class='to-login' >登录</span>
 			<p class='to-register'>还没有账号？<a class='code-to-register' href='javascript:;'>注册新用户<span cass=''><img src='../img/login/to-register_03.jpg'/></span></a></p>
 		</div>
 		<!--找回密码  -->
@@ -117,11 +117,11 @@ $('.register-to-login').click(function(){
 	$('.login-click').show();
 })
 //
-$('.to-new-register').click(function(){
-	$('.password').hide();
-	$('.register-content').show();
-	$('.login-click').hide();
-})
+// $('.to-new-register').click(function(){
+// 	$('.password').hide();
+// 	$('.register-content').show();
+// 	$('.login-click').hide();
+// })
 
 //验证码登录，点击注册
 $('.code-to-register').click(function(){
@@ -135,4 +135,6 @@ $('.code-to-register').click(function(){
 <script src="js/common.js"></script>
 <script src="js/formatter_common.js"></script>
 <script src="js/search_index.js"></script>
+<script src="js/login.js"></script>
+<script src="js/base64.js"></script>
 </html>

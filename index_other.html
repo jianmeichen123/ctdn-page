@@ -1,0 +1,594 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>首页</title>
+	<!-- 外部创业者/其他内部用户 -->
+	<!--basis-->
+	{(dn_basis.html)}
+<link rel="stylesheet" type="text/css" href="js/jquery_slide/swiper.css">
+	<style>
+	.nav_nav{display:none;}
+	.nav_bj{  
+     /*  filter:alpha(opacity=50);  
+      -moz-opacity:0.5;  
+      -khtml-opacity: 0.5;  
+      opacity: 0.5;   */
+      /* background-color: rgba(0,0,0,0.0);z-index: 998; */
+    width: 100%;
+} 
+	.nav_bj .container { position: relative;  color: #FFFFFF;
+	}
+	</style>
+<style>
+   body {
+	    overflow: hidden;
+    overflow-y: auto;
+}
+.bjimg{background: url(img/dn/indx.jpg) no-repeat center 0; width:100%; height:50px;     position: absolute;    z-index: -1;}
+.pc-banner {
+	background: url(img/dn/indx.jpg) no-repeat center top/100% auto; 
+	width: 100%;
+	float: left;
+}
+
+@media screen and (max-width: 668px) {
+	.pc-banner {
+		background-size: auto 100%;
+	}
+}
+
+.swiper-container {
+	width: 100%;
+	margin: 35px 0;
+}
+
+@media screen and (max-width: 668px) {
+	.swiper-container {
+		margin: 20px 0 15px;
+	}
+}
+
+.swiper-slide {
+	-webkit-transition: transform 1.0s;
+	-moz-transition: transform 1.0s;
+	-ms-transition: transform 1.0s;
+	-o-transition: transform 1.0s;
+	-webkit-transform: scale(0.7);
+	transform: scale(0.7);
+}
+
+@media screen and (max-width: 668px) {
+	.swiper-slide {
+		-webkit-transform: scale(0.97);
+		transform: scale(0.97);
+	}
+}
+
+.swiper-slide-active,.swiper-slide-duplicate-active {
+	-webkit-transform: scale(1);
+	transform: scale(1);
+}
+
+@media screen and (max-width: 668px) {
+	.swiper-slide-active,.swiper-slide-duplicate-active {
+		-webkit-transform: scale(0.97);
+		transform: scale(0.97);
+	}
+}
+
+
+.swiper-slide {
+	-webkit-transition: transform 1.0s;
+	-moz-transition: transform 1.0s;
+	-ms-transition: transform 1.0s;
+	-o-transition: transform 1.0s;
+	-webkit-transform: scale(0.8);
+	transform: scale(0.73);
+}
+.swiper-slide-active,.swiper-slide-duplicate-active {
+	-webkit-transform: scale(1);
+	transform: scale(1);
+}
+
+.none-effect {
+	-webkit-transition: none;
+	-moz-transition: none;
+	-ms-transition: none;
+	-o-transition: none;
+}
+
+.swiper-slide a {
+	display: block
+	border-radius: 14px;
+}
+
+.swiper-slide-active a:after {
+	background: none;
+}
+
+
+.swiper-slide img {
+	width: 100%;
+	border-radius: 14px;
+	display: block;
+}
+
+.swiper-pagination {
+	position: relative;
+}
+
+.swiper-pagination-bullet {
+	background: #00a0e9;
+	margin-left: 4px;
+	margin-right: 4px;
+	width: 17px;
+	height: 17px;
+	opacity: 1;
+	margin-bottom: 4px;
+}
+
+.swiper-pagination-bullet-active {
+	width: 13px;
+	height: 13px;
+	background: #ccc;
+	margin-bottom: 0;
+}	
+    </style>
+<script type="text/javascript" src="js/jquery_slide/swiper.min.js"></script>
+</head>
+
+<body>
+{(header.html)}
+<div style="overflow:hidden;">
+<div class="pc-banner">
+	<div class="swiper-container swiper-container-horizontal">
+        <div class="swiper-wrapper" >
+            <div class="swiper-slide swiper-slide-prev" data-swiper-slide-index="2"><a href="list_page_com.html" target="_blank"><img src="img/dn/b_1.jpg" /></a></div>
+            <div class="swiper-slide swiper-slide-active" data-swiper-slide-index="1"><a href="report_list.html" target="_blank"><img src="img/dn/b_2.jpg" /></a></div>
+            <div class="swiper-slide swiper-slide-next" data-swiper-slide-index="3"><a href="project_evaluating.html" target="_blank"><img src="img/dn/b_3.jpg" /></a></div>
+		</div>
+        
+    </div>
+    
+	<a href="javascript:void(0)" tip="0" class="i_btn prev_L swiper-button-prev"></a>
+	<a href="javascript:void(0)" tip="1" class="i_btn next_R swiper-button-next"></a>
+    <!-- <div class="swiper-pagination swiper-pagination-clickable swiper-pagination-bullets"></div> -->
+</div>
+</div>
+<div style="position: relative;">	
+<div class="bjimg"></div>
+
+	<div class="container" >
+	
+		<div class="dn_l_all">
+			<!--关注行业-->
+			<div class="index_trade" id="trade_click"><div class="index_trade_c">关注行业<span class="dn_ico dn_ico_tradex"></span></div></div>
+			<!--关注行业弹出-->
+			<div class="trade_pop" id="trade_pop">
+				<div class="dn_ico dn_ico_trade_triangle"></div>
+				<div class="trade_pop_c">
+					<div class="trade_pop_tit">关注行业
+						<ul class="trade_pop_tit_r">
+							<li class="trade_pop_tit_r_b" onclick="select_all()">全选</li>
+							<li onclick="unselect_all()">清空</li>
+						</ul>
+					</div>
+					<ul class="trade_pop_c_ul" id="concern_industry">
+						<li class="trade_pop_c_ul_on">消费生活</li>
+						<li>消费生活</li>
+						<li>消费生活</li>
+						<li>消费生活</li>
+						<li>消费生活</li>
+						<li>消费生活</li>
+					</ul>
+				</div>
+				<div class="trade_pop_but">
+					<ul>
+						<li onclick="save_user_industry()">保存</li>
+						<li onclick="reset_user_industry()">重置</li>
+						<li onclick="cancle_user_industry()">取消</li>
+					</ul>
+				</div>
+			</div>
+			<!--项目速递-->
+<!-- 			<div class="dn_l"> -->
+<!-- 				<div  class="dnsy_tit"> -->
+<!-- 					<div><span class="dn_ico dn_ico_project"></span><span class="dnsy_tit_size">项目速递</span></div> -->
+<!-- 					<ul class="news_li" id="lastestPro"> -->
+<!-- 					    <li class="financing_on" value="0">新发现项目</li> -->
+<!-- 					    <li data-tab="news" value="1" class="">最新获投项目</li> -->
+<!-- 					</ul> -->
+<!-- 				</div> -->
+<!-- 				<div class="dn_info_list"> -->
+<!-- 					<ul  class="index_project"> -->
+<!-- 						<li> -->
+<!-- 							<div class="index_project_cen"> -->
+<!-- 								<ul> -->
+<!-- 									<li> -->
+<!-- 										<div class="index_project_img"><a href="####" target="_blank"><img src="http://static.galaxyinternet.com/img/project/f16d630dd4a46243780d99739bf4444b.png"></a></div> -->
+<!-- 										<div class="index_project_img_r"> -->
+<!-- 											<div class="index_project_img_r_1"><a href="####" target="_blank">飞天影业</a></div> -->
+<!-- 											<div class="index_project_img_r_2">种子轮/100万元</div> -->
+<!-- 											<div class="index_project_img_r_3"> -->
+<!-- 												<span>文娱传媒</span> -->
+<!-- 											</div> -->
+<!-- 										</div> -->
+<!-- 									</li> -->
+<!-- 									<li class="index_project_img_r_c"> -->
+<!-- 										<div class="index_project_img_r_c_l">获投时间：</div> -->
+<!-- 										<div class="index_project_img_r_c_r">2017.11.15</div> -->
+<!-- 									</li> -->
+<!-- 									<li> -->
+<!-- 										<div class="index_project_img_r_c_l">投资机构：</div> -->
+<!-- 										<div class="index_project_img_r_c_r">IDE资本，九鼎投资，真格基金，基石资本，招商银行，招行银行</div> -->
+<!-- 									</li> -->
+<!-- 								</ul> -->
+<!-- 							</div> -->
+<!-- 						</li> -->
+<!-- 						<li> -->
+<!-- 							<div class="index_project_cen"> -->
+<!-- 								<ul> -->
+<!-- 									<li> -->
+<!-- 										<div class="index_project_img"><a href="####" target="_blank"><img src="http://static.galaxyinternet.com/img/project/f16d630dd4a46243780d99739bf4444b.png"></a></div> -->
+<!-- 										<div class="index_project_img_r"> -->
+<!-- 											<div class="index_project_img_r_1"><a href="####" target="_blank">飞天影业</a></div> -->
+<!-- 											<div class="index_project_img_r_2">种子轮/100万元</div> -->
+<!-- 											<div class="index_project_img_r_3"> -->
+<!-- 												<span>文娱传媒</span> -->
+<!-- 											</div> -->
+<!-- 										</div> -->
+<!-- 									</li> -->
+<!-- 									<li class="index_project_img_r_c"> -->
+<!-- 										<div class="index_project_img_r_c_l">获投时间：</div> -->
+<!-- 										<div class="index_project_img_r_c_r">2017.11.15</div> -->
+<!-- 									</li> -->
+<!-- 									<li> -->
+<!-- 										<div class="index_project_img_r_c_l">投资机构：</div> -->
+<!-- 										<div class="index_project_img_r_c_r">IDE资本，九鼎投资，真格基金，基石资本，招商银行，招行银行</div> -->
+<!-- 									</li> -->
+<!-- 								</ul> -->
+<!-- 							</div> -->
+<!-- 						</li> -->
+<!-- 						<li> -->
+<!-- 							<div class="index_project_cen"> -->
+<!-- 								<ul> -->
+<!-- 									<li> -->
+<!-- 										<div class="index_project_img"><a href="####" target="_blank"><img src="http://static.galaxyinternet.com/img/project/f16d630dd4a46243780d99739bf4444b.png"></a></div> -->
+<!-- 										<div class="index_project_img_r"> -->
+<!-- 											<div class="index_project_img_r_1"><a href="####" target="_blank">飞天影业</a></div> -->
+<!-- 											<div class="index_project_img_r_2">种子轮/100万元</div> -->
+<!-- 											<div class="index_project_img_r_3"> -->
+<!-- 												<span>文娱传媒</span> -->
+<!-- 											</div> -->
+<!-- 										</div> -->
+<!-- 									</li> -->
+<!-- 									<li class="index_project_img_r_c"> -->
+<!-- 										<div class="index_project_img_r_c_l">获投时间：</div> -->
+<!-- 										<div class="index_project_img_r_c_r">2017.11.15</div> -->
+<!-- 									</li> -->
+<!-- 									<li> -->
+<!-- 										<div class="index_project_img_r_c_l">投资机构：</div> -->
+<!-- 										<div class="index_project_img_r_c_r">IDE资本，九鼎投资，真格基金，基石资本，招商银行，招行银行</div> -->
+<!-- 									</li> -->
+<!-- 								</ul> -->
+<!-- 							</div> -->
+<!-- 						</li> -->
+<!-- 						<li> -->
+<!-- 							<div class="index_project_cen"> -->
+<!-- 								<ul> -->
+<!-- 									<li> -->
+<!-- 										<div class="index_project_img"><a href="####" target="_blank"><img src="http://static.galaxyinternet.com/img/project/f16d630dd4a46243780d99739bf4444b.png"></a></div> -->
+<!-- 										<div class="index_project_img_r"> -->
+<!-- 											<div class="index_project_img_r_1"><a href="####" target="_blank">飞天影业</a></div> -->
+<!-- 											<div class="index_project_img_r_2">种子轮/100万元</div> -->
+<!-- 											<div class="index_project_img_r_3"> -->
+<!-- 												<span>文娱传媒</span> -->
+<!-- 											</div> -->
+<!-- 										</div> -->
+<!-- 									</li> -->
+<!-- 									<li class="index_project_img_r_c"> -->
+<!-- 										<div class="index_project_img_r_c_l">获投时间：</div> -->
+<!-- 										<div class="index_project_img_r_c_r">2017.11.15</div> -->
+<!-- 									</li> -->
+<!-- 									<li> -->
+<!-- 										<div class="index_project_img_r_c_l">投资机构：</div> -->
+<!-- 										<div class="index_project_img_r_c_r">IDE资本，九鼎投资，真格基金，基石资本，招商银行，招行银行</div> -->
+<!-- 									</li> -->
+<!-- 								</ul> -->
+<!-- 							</div> -->
+<!-- 						</li> -->
+<!-- 						<li> -->
+<!-- 							<div class="index_project_cen"> -->
+<!-- 								<ul> -->
+<!-- 									<li> -->
+<!-- 										<div class="index_project_img"><a href="####" target="_blank"><img src="http://static.galaxyinternet.com/img/project/f16d630dd4a46243780d99739bf4444b.png"></a></div> -->
+<!-- 										<div class="index_project_img_r"> -->
+<!-- 											<div class="index_project_img_r_1"><a href="####" target="_blank">飞天影业</a></div> -->
+<!-- 											<div class="index_project_img_r_2">种子轮/100万元</div> -->
+<!-- 											<div class="index_project_img_r_3"> -->
+<!-- 												<span>文娱传媒</span> -->
+<!-- 											</div> -->
+<!-- 										</div> -->
+<!-- 									</li> -->
+<!-- 									<li class="index_project_img_r_c"> -->
+<!-- 										<div class="index_project_img_r_c_l">获投时间：</div> -->
+<!-- 										<div class="index_project_img_r_c_r">2017.11.15</div> -->
+<!-- 									</li> -->
+<!-- 									<li> -->
+<!-- 										<div class="index_project_img_r_c_l">投资机构：</div> -->
+<!-- 										<div class="index_project_img_r_c_r">IDE资本，九鼎投资，真格基金，基石资本，招商银行，招行银行</div> -->
+<!-- 									</li> -->
+<!-- 								</ul> -->
+<!-- 							</div> -->
+<!-- 						</li> -->
+<!-- 					</ul> -->
+<!-- 				</div> -->
+<!-- 			</div> -->
+			<div class="dn_l">
+				<div  class="dnsy_tit">
+					<div><span class="dn_ico dn_ico_financing"></span><span class="dnsy_tit_size">投融快讯</span></div>
+					{(news_tab.html)}
+					<div class="dnsy_list"><a href="/news.html">更多</a></div>
+				</div>
+				<div class="dn_info_list">
+					<ul id="newsList">
+					</ul>
+					{-raw-}
+					<script id="getAllnews" type="text/x-jquery-tmpl">
+							{{if data.records.length >0}}
+								{{each(i,v) data.records}}
+								<li>
+									{{if v.imgmd5}}
+										<div class="dn_info_list_show">
+									{{else}}
+										<div class="dn_info_list_show no_img_index">
+									{{/if}}
+									<div class="dn_info_list_tit"><a href="${v.href}" target="_blank">${v.title}</a></div>
+									{{if v.imgmd5}}
+										<div class="dn_info_list_show_l"><img src={{html Constants.logoPath +"news/"+v.imgmd5+".PNG"}}></div>
+									{{/if}}
+									<div class="dn_info_list_show_r">
+										<ul>
+
+											<li class="dn_info_list_cen">${v.overview}</li>
+											<li class="dn_info_list_ic"><span>${v.orderTime}</span><span>来源:</span><span>${v.auther}</span></li>
+										</ul>
+									</div>
+									</div>
+								</li>
+								{{/each}}
+							{{else}}
+								<span>暂无数据</span>
+							{{/if}}
+							</script>
+					{-raw-}
+				</div>
+			</div>
+			<!-- 投融事件 -->
+			<div class="dn_l">
+				<div  class="dnsy_tit no_border">
+					<div><span class="dn_ico dn_ico_event"></span><span class="dnsy_tit_size">投融事件</span></div>
+					<div class="dnsy_list"><a href="/list_page_rz.html">更多</a></div>
+				</div>
+				<div class="dn_info_list" data-block="getCTDNEventInfo">
+	
+					<ul>
+						{-raw-}
+	
+								<script id="getCTDNEventInfo" type="text/x-jquery-tmpl">
+							{{if data.length >0}}
+								{{each(i,v) data}}
+								<li>
+									<div class="dn_info_list_show padding_tb20">
+									<ul>
+										<li class="event_img"><a href="/project_qy.html?projCode=${v.sourceCode}" target="_blank"><img src="{{html Constants.logoPath +"project/"+v.sourceCode+".png"}}"></a></li>
+										<li class="event_tit">
+											<div class="event_tit_t"><a href="/project_qy.html?projCode=${v.sourceCode}" target="_blank">${v.company}</a></div>
+											<div class="event_tit_c">${v.desc}</div>
+										</li>
+										<li class="event_turn">${v.round}</li>
+										<li class="event_money">${v.amountStr}</li>
+										<li class="event_financing">
+											<ul>
+												<li>{{html v.investSideJson}}</li>
+											</ul>
+										</li>
+										<li class="event_time">{{html formatDate(v.investDate,"yyyy-MM-dd") }}</li>
+									</ul>
+									</div>
+
+									<div class="dn_sy_line_event"></div>
+								</li>
+								{{/each}}
+							{{else}}
+								<span>暂无数据</span>
+							{{/if}}
+							</script>
+	
+						{-raw-}
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="dn_r_all">
+			<div class="dn_r">
+				<div  class="dnsy_tit no_border">
+					<div><span class="dn_ico dn_ico_institution"></span><span class="dnsy_tit_size">上个月活跃机构</span></div>
+					<div class="dnsy_list"><a href="/list_page_org.html">更多</a></div>
+				</div>
+				<div class="index_institution">
+					<ul>
+						<li>
+							<div class="index_institution_img"><a href="####" target="_blank"><img src="http://static.galaxyinternet.com/img/project/f16d630dd4a46243780d99739bf4444b.png"></a></div>
+							<div class="index_institution_name"><a href="####" target="_blank">飞天影业</a></div>
+							<div class="index_institution_num"><span>30</span>笔</div>
+						</li>
+						<li>
+							<div class="index_institution_img"><a href="####" target="_blank"><img src="http://static.galaxyinternet.com/img/project/f16d630dd4a46243780d99739bf4444b.png"></a></div>
+							<div class="index_institution_name"><a href="####" target="_blank">飞天影业</a></div>
+							<div class="index_institution_num"><span>30</span>笔</div>
+						</li>
+						<li>
+							<div class="index_institution_img"><a href="####" target="_blank"><img src="http://static.galaxyinternet.com/img/project/f16d630dd4a46243780d99739bf4444b.png"></a></div>
+							<div class="index_institution_name"><a href="####" target="_blank">飞天影业</a></div>
+							<div class="index_institution_num"><span>30</span>笔</div>
+						</li>
+						<li>
+							<div class="index_institution_img"><a href="####" target="_blank"><img src="http://static.galaxyinternet.com/img/project/f16d630dd4a46243780d99739bf4444b.png"></a></div>
+							<div class="index_institution_name"><a href="####" target="_blank">飞天影业</a></div>
+							<div class="index_institution_num"><span>30</span>笔</div>
+						</li>
+						<li>
+							<div class="index_institution_img"><a href="####" target="_blank"><img src="http://static.galaxyinternet.com/img/project/f16d630dd4a46243780d99739bf4444b.png"></a></div>
+							<div class="index_institution_name"><a href="####" target="_blank">飞天影业</a></div>
+							<div class="index_institution_num"><span>30</span>笔</div>
+						</li>
+						<li>
+							<div class="index_institution_img"><a href="####" target="_blank"><img src="http://static.galaxyinternet.com/img/project/f16d630dd4a46243780d99739bf4444b.png"></a></div>
+							<div class="index_institution_name"><a href="####" target="_blank">飞天影业</a></div>
+							<div class="index_institution_num"><span>30</span>笔</div>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<div class="dn_r">
+				<div  class="dnsy_tit no_border">
+					<div><span class="dn_ico dn_ico_subject"></span><span class="dnsy_tit_size">专题</span></div>
+					<!-- <div class="dnsy_list"><a href="/index_project.html">更多</a></div> -->
+				</div>
+				<div class="subject_all">
+					<ul>
+						<li>
+							<div class="subject_img">
+								<a href="index_project_01.html" target="_blank">
+								<img src="img/dn/zj_i1.jpg">
+								<div class="subject_img_b">
+									<span class="dn_ico dn_ico_conpany"></span><span class="m_r20">9家公司</span>
+									<span class="dn_ico dn_ico_time"></span><span>更新于2017-9-28</span>
+								</div>
+								</a>
+							</div>
+							<div class="subject_tit"><a href="index_project_01.html" target="_blank">未来的物流机器人</a></div>
+						</li>
+						<li>
+							<div class="subject_img">
+								<a href="index_project_03.html" target="_blank">
+								<img src="img/dn/zj_i2.jpg">
+								<div class="subject_img_b">
+									<span class="dn_ico dn_ico_conpany"></span><span class="m_r20">16家公司</span>
+									<span class="dn_ico dn_ico_time"></span><span>更新于2017-9-28</span>
+								</div>
+								</a>
+							</div>
+							<div class="subject_tit"><a href="index_project_02.html" target="_blank">共享经济还剩哪些可以做？</a></div>
+						</li>
+						<li>
+							<div class="subject_img">
+								<a href="index_project_02.html" target="_blank">
+								<img src="img/dn/zj_i3.jpg">
+								<div class="subject_img_b">
+									<span class="dn_ico dn_ico_conpany"></span><span class="m_r20">14家公司</span>
+									<span class="dn_ico dn_ico_time"></span><span>更新于2017-9-28</span>
+								</div>
+								</a>
+							</div>
+							<div class="subject_tit"><a href="index_project_03.html" target="_blank">红杉资本在生命科技领域的布局</a></div>
+						</li>
+						<li>
+							<div class="subject_img">
+								<a href="index_project_04.html" target="_blank">
+								<img src="img/dn/zj_i4.jpg">
+								<div class="subject_img_b">
+									<span class="dn_ico dn_ico_conpany"></span><span class="m_r20">12家公司</span>
+									<span class="dn_ico dn_ico_time"></span><span>更新于2017-9-28</span>
+								</div>
+								</a>
+							</div>
+							<div class="subject_tit"><a href="index_project_04.html" target="_blank">下一部获奥斯卡的VR电影可能是谁？</a></div>
+						</li>
+					</ul>
+				</div>
+			</div>
+			
+			<div class="dn_r">
+				<div  class="dnsy_tit no_border">
+					<div><span class="dn_ico dn_ico_report"></span><span class="dnsy_tit_size">行研报告</span></div>
+					<div class="dnsy_list"><a href="/report_list.html" target="_blank">更多</a></div>
+				</div>
+				<div class="report_all">
+					<ul>
+						<li>
+							<p><a href="report_detailed_1.html" target="_blank">独家丨还在玩命找风口？这份［创投指数］报告，泄露了投资背后的数据逻辑</a></p>
+						</li>
+						<li>
+							<p><a href="report_detailed_2.html" target="_blank">研究丨理财保险双「陨落」、区块链大热，你管好自己的钱袋子了吗？</a></p>
+						</li>
+						<li>
+							<p><a href="report_detailed_3.html" target="_blank">这个行业雇佣全球超40%人口，有7.8万亿美元市场，创新却最慢【星河研究院】</a></p>
+						</li>
+						<li>
+							<p><a href="report_detailed_4.html" target="_blank">基因测序成本从1000万美元降到1000美元，创业风口来了吗？【星河研究院】</a></p>
+						</li>
+						<li>
+							<p><a href="report_detailed_5.html" target="_blank">《王者荣耀》卖皮肤日流水1.5亿 中国玩家正把全球游戏产业带入转折点【星河研究院】</a></p>
+						</li>
+						<li>
+							<p><a href="report_detailed_6.html" target="_blank">研究丨癌症治愈不再遥不可及，这些医疗技术创新正在改变世界【星河研究院】</a></p>
+						</li>
+	                    <li>
+	                        <p><a href="report_detailed_7.html" target="_blank">互联网保险现实骨感未来丰满 ，保险巨头加入创投行列【星河研究院】</a></p>
+	                    </li>
+	                    <li>
+	                        <p><a href="report_detailed_8.html" target="_blank">用AI防御威胁全球的网络病毒，美国中央情报局成背后最大庄家【星河研究院】</a></p>
+	                    </li>
+	                    <li>
+	                        <p><a href="report_detailed_9.html" target="_blank">无人驾驶热度已超过了AR/VR，但这只是汽车科技变化的冰山一角【星河研究院】</a></p>
+	                    </li>
+	                    <li>
+	                        <p><a href="report_detailed_10.html" target="_blank">从风口到鸡肋，可穿戴设备亟待解决哪些问题？【星河研究院】</a></p>
+	                    </li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	
+	</div>
+
+</div>
+{(dn_foot.html)}
+<script type="text/javascript">
+
+$(function(){
+	nav_locaton('index','ee','','')
+	var swiper = new Swiper('.swiper-container',{
+		autoplay:3000,
+		speed:1000,
+		autoplayDisableOnInteraction : false,
+		loop:true,
+		centeredSlides : true,
+		slidesPerView:2,
+        pagination : '.swiper-pagination',
+		paginationClickable:true,
+		prevButton:'.swiper-button-prev',
+        nextButton:'.swiper-button-next',
+		onInit:function(swiper){
+			swiper.slides[2].className="swiper-slide swiper-slide-active";//第一次打开不要动画
+			},
+        breakpoints: { 
+                840: {
+                    slidesPerView: 1,
+                 }
+            }
+		});
+});
+</script>
+<script src="js/jquery.tmpl.js"></script>
+<!-- <script src="js/newIndex.js"></script> -->
+<script src="js/index_common.js"></script>
+</body>
+<script>
+$('#trade_pop').hide()
+getParentIndustrys()
+</script>
+</html>

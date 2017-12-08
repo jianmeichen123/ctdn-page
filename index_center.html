@@ -6,8 +6,7 @@
 	<!--basis-->
 	{(dn_basis.html)}
 <link rel="stylesheet" type="text/css" href="js/jquery_slide/swiper.css">
-<link rel="stylesheet" type="text/css" href="js/jquery_slide/index_carousel.css">
-<style>
+	<style>
 	.nav_nav{display:none;}
 	.nav_bj{  
      /*  filter:alpha(opacity=50);  
@@ -19,317 +18,162 @@
 } 
 	.nav_bj .container { position: relative;  color: #FFFFFF;
 	}
-	body {
+	</style>
+<style>
+   body {
 	    overflow: hidden;
     overflow-y: auto;
 }
-</style>
+.bjimg{background: url(img/dn/indx.jpg) no-repeat center 0; width:100%; height:50px;     position: absolute;    z-index: -1;}
+.pc-banner {
+	background: url(img/dn/indx.jpg) no-repeat center top/100% auto; 
+	width: 100%;
+	float: left;
+}
+
+@media screen and (max-width: 668px) {
+	.pc-banner {
+		background-size: auto 100%;
+	}
+}
+
+.swiper-container {
+	width: 100%;
+	margin: 35px 0;
+}
+
+@media screen and (max-width: 668px) {
+	.swiper-container {
+		margin: 20px 0 15px;
+	}
+}
+
+.swiper-slide {
+	-webkit-transition: transform 1.0s;
+	-moz-transition: transform 1.0s;
+	-ms-transition: transform 1.0s;
+	-o-transition: transform 1.0s;
+	-webkit-transform: scale(0.7);
+	transform: scale(0.7);
+}
+
+@media screen and (max-width: 668px) {
+	.swiper-slide {
+		-webkit-transform: scale(0.97);
+		transform: scale(0.97);
+	}
+}
+
+.swiper-slide-active,.swiper-slide-duplicate-active {
+	-webkit-transform: scale(1);
+	transform: scale(1);
+}
+
+@media screen and (max-width: 668px) {
+	.swiper-slide-active,.swiper-slide-duplicate-active {
+		-webkit-transform: scale(0.97);
+		transform: scale(0.97);
+	}
+}
+
+
+.swiper-slide {
+	-webkit-transition: transform 1.0s;
+	-moz-transition: transform 1.0s;
+	-ms-transition: transform 1.0s;
+	-o-transition: transform 1.0s;
+	-webkit-transform: scale(0.8);
+	transform: scale(0.73);
+}
+.swiper-slide-active,.swiper-slide-duplicate-active {
+	-webkit-transform: scale(1);
+	transform: scale(1);
+}
+
+.none-effect {
+	-webkit-transition: none;
+	-moz-transition: none;
+	-ms-transition: none;
+	-o-transition: none;
+}
+
+.swiper-slide a {
+	display: block
+	border-radius: 14px;
+}
+
+.swiper-slide-active a:after {
+	background: none;
+}
+
+
+.swiper-slide img {
+	width: 100%;
+	border-radius: 14px;
+	display: block;
+}
+
+.swiper-pagination {
+	position: relative;
+}
+
+.swiper-pagination-bullet {
+	background: #00a0e9;
+	margin-left: 4px;
+	margin-right: 4px;
+	width: 17px;
+	height: 17px;
+	opacity: 1;
+	margin-bottom: 4px;
+}
+
+.swiper-pagination-bullet-active {
+	width: 13px;
+	height: 13px;
+	background: #ccc;
+	margin-bottom: 0;
+}	
+    </style>
 <script type="text/javascript" src="js/jquery_slide/swiper.min.js"></script>
 </head>
 
 <body>
 {(header.html)}
 <div style="overflow:hidden;">
-	<div class="pc-banner">
-		<div class="swiper-container swiper-container-horizontal">
-	        <div class="swiper-wrapper" >
-	            <div class="swiper-slide swiper-slide-prev" data-swiper-slide-index="2"><a href="list_page_com.html" target="_blank"><img src="img/dn/b_1.jpg" /></a></div>
-	            <div class="swiper-slide swiper-slide-active" data-swiper-slide-index="1"><a href="report_list.html" target="_blank"><img src="img/dn/b_2.jpg" /></a></div>
-	            <div class="swiper-slide swiper-slide-next" data-swiper-slide-index="3"><a href="project_evaluating.html" target="_blank"><img src="img/dn/b_3.jpg" /></a></div>
-			</div>
-	        
-	    </div>
-	    
-		<a href="javascript:void(0)" tip="0" class="i_btn prev_L swiper-button-prev"></a>
-		<a href="javascript:void(0)" tip="1" class="i_btn next_R swiper-button-next"></a>
-	    <!-- <div class="swiper-pagination swiper-pagination-clickable swiper-pagination-bullets"></div> -->
-	</div>
+<div class="pc-banner">
+	<div class="swiper-container swiper-container-horizontal">
+        <div class="swiper-wrapper" >
+            <div class="swiper-slide swiper-slide-prev" data-swiper-slide-index="2"><a href="list_page_com.html" target="_blank"><img src="img/dn/b_1.jpg" /></a></div>
+            <div class="swiper-slide swiper-slide-active" data-swiper-slide-index="1"><a href="report_list.html" target="_blank"><img src="img/dn/b_2.jpg" /></a></div>
+            <div class="swiper-slide swiper-slide-next" data-swiper-slide-index="3"><a href="project_evaluating.html" target="_blank"><img src="img/dn/b_3.jpg" /></a></div>
+		</div>
+        
+    </div>
+    
+	<a href="javascript:void(0)" tip="0" class="i_btn prev_L swiper-button-prev"></a>
+	<a href="javascript:void(0)" tip="1" class="i_btn next_R swiper-button-next"></a>
+    <!-- <div class="swiper-pagination swiper-pagination-clickable swiper-pagination-bullets"></div> -->
+</div>
 </div>
 <div style="position: relative;">	
 <div class="bjimg"></div>
 
 	<div class="container" >
-		<!-- 高管数据 -->
-		<div class="background_boeder_indx">
-			<div class="particulars_black" >
-				<table class="table_yl">
-					<tbody>
-						<tr>
-							<td>&nbsp;</td>
-							<td>收录公司总数</td>
-							<td>获投公司总数</td>
-							<td>融资总笔数</td>
-							<td>融资总额</td>
-						</tr>
-						<tr>
-							<td>历史累计</td>
-							<td class="col_pink"><span class="size22">48353</span></td>
-							<td class="col_pink"><span class="size22">48353</span></td>
-							<td class="col_pink"><span class="size22">48353</span></td>
-							<td class="col_pink"><span class="size22">48353</span><span>亿元</span></td>
-						</tr>
-						<tr>
-							<td>本月新增</td>
-							<td class="col_pink"><span class="size22">48353</span></td>
-							<td class="col_pink"><span class="size22">48353</span></td>
-							<td class="col_pink"><span class="size22">48353</span></td>
-							<td class="col_pink"><span class="size22">48353</span><span>亿元</span></td>
-						</tr>
-					</tbody>
-				</table>
-			</div>
-		</div>
-		<!-- 高管数据 end-->
-		<!-- 高管图表 -->
-		<div class="background_boeder_indx">
-			<div class="particulars_black" >
-				<div style="height:500px;">
-					<div class="eachrst_tit">
-						<div class="fl">
-							<span class="eachrst_tit_on" cmd="yl_tit" name="one">行业融资趋势</span>
-							<span class="eachrst_tit_b">|</span>
-							<span cmd="yl_tit" name="two">行业融资对比（本季度）</span>
-						</div>
-						<div class="fr">
-							<span class="eachrst_tit_on">按融资笔数</span>
-							<span>按融资金额</span>
-						</div>
-						
-						
-					</div>
-					<div id="main_yl" style="height: 440px;"></div>
-					<div id="main_yl_db" style="height: 440px;"></div>
-				</div>
-			</div>
-		</div>
-		<!-- 高管图表 end-->
-		<div class="dn_l_all">
-			<!--全部行业-->
-			<div class="index_trade"><div class="index_trade_c" id="executive_click">全部行业<span class="dn_ico dn_ico_tradex"></span></div></div>
-			<!--全部行业弹出-->
-			<div class="executive_pop none" id="executive_pop">
-				<div class="dn_ico dn_ico_trade_triangle"></div>
-				<div class="executive_pop_ul">
-					<ul>
-						<li>媒体营销1</li>
-						<li>媒体营销2</li>
-						<li>媒体营销3</li>
-						<li>媒体营销4</li>
-						<li>媒体营销5</li>
-						<li>媒体营销</li>
-						<li>媒体营销</li>
-						<li>媒体营销</li>
-						<li>媒体营销</li>
-						<li>媒体营销</li>
-						<li>媒体营销</li>
-						<li>媒体营销</li>
-						<li>媒体营销</li>
-						<li>媒体营销</li>
-						<li>媒体营销</li>
-						<li>媒体营销</li>
-						<li>媒体营销</li>
-						<li>媒体营销</li>
-						<li>媒体营销</li>
-						<li>媒体营销</li>
-						<li>媒体营销</li>
-						<li>媒体营销</li>
-						<li>媒体营销6</li>
-						<li>媒体营销7</li>
-						<li>媒体营销8</li>
-						<li>媒体营销9</li>
-					</ul>
-				</div>				
-			</div>
-			<!--关注行业弹出end-->
-			<!--  行业大事件 -->
-			<div class="dn_l">
-				<div class="dnsy_tit no_border">
-					<div><span class="dn_ico dn_ico_executive"></span><span class="dnsy_tit_size">行业大事件</span></div>
-					
-				</div>
-				<div class="executive_div">
-					<div class="executive_line"></div>
-					<ul class="executive_ul" id="newsList1">
-						<li>
-							<div class="executive_list_show">   
-								<div class="executive_time">2017-11-01<span class="executive_time_y"></span></div>                 
-								<div class="dn_info_list_tit"><a href="http://display.ofweek.com/2017-12/ART-8321304-8110-30178776.html" target="_blank">国产京东方OLED刘海屏现身:6.18英寸 2K分辨率</a></div>                     
-								<div class="dn_info_list_show_l"><img src="http://static.galaxyinternet.com/img/news/0a774e8b565b117f41c7caa274e27a7a.PNG"></div>                    
-								<div class="dn_info_list_show_r">           
-									<ul>             
-										<li class="dn_info_list_cen">好消息是,除了三星之外,国内屏幕厂商也在发力刘海屏,京东方就拿出了自家的成果。 从网友@熊本科技曝光的图片来看,京东方日前展出了旗下的6.18英寸刘海屏,其分辨率达...  </li>            <li class="dn_info_list_ic"><span>53分钟前</span><span>来源:</span><span>OFweek</span></li>           
-									</ul>          
-								</div>  
-								<div class="executive_b_line"></div>        
-							</div>  
-						</li>
-						<li>                     
-							<div class="executive_list_show no_img_index">      
-								<div class="executive_time">2017-11-01<span class="executive_time_y"></span></div>               
-								<div class="dn_info_list_tit"><a href="http://ent.ynet.com/2017/12/04/726718t1254.html" target="_blank">嘻哈意味着全部 陌陌迎《中国有嘻哈》吴肇辉-辉子</a></div>                    
-								<div class="dn_info_list_show_r">           
-									<ul>             
-										<li class="dn_info_list_cen">12月1日,这位有些痞气,有些不羁的嘻哈Rapper吴肇辉-辉子来到泛社交泛娱乐平台陌陌与广大网友畅快互动,在直播中他表示,嘻哈对他来说就意味着全部。 自谦是新人 要...  </li>            
-										<li class="dn_info_list_ic"><span>32分钟前</span><span>来源:</span><span>北青网</span></li>           
-									</ul>          
-								</div>  									
-								<div class="executive_b_line"></div>          
-							</div>         
-						</li>
-					</ul>
-					{-raw-}
-					<script id="getAllnews" type="text/x-jquery-tmpl">
-							{{if data.records.length >0}}
-								{{each(i,v) data.records}}
-								<li>
-									{{if v.imgmd5}}
-										<div class="executive_list_show">
-									{{else}}
-										<div class="executive_list_show no_img_index">
-									{{/if}}
-									<div class="executive_time">${v.orderTime}<span class="executive_time_y"></span></div>
-									<div class="dn_info_list_tit"><a href="${v.href}" target="_blank">${v.title}</a></div>
-									{{if v.imgmd5}}
-										<div class="dn_info_list_show_l"><img src={{html Constants.logoPath +"news/"+v.imgmd5+".PNG"}}></div>
-									{{/if}}
-									<div class="dn_info_list_show_r">
-										<ul>
-
-											<li class="dn_info_list_cen">${v.overview}</li>
-											<li class="dn_info_list_ic"><span>${v.orderTime}</span><span>来源:</span><span>${v.auther}</span></li>
-										</ul>
-									</div>
-									<div class="executive_b_line"></div>
-									</div>
-								</li>
-								{{/each}}
-							{{else}}
-								<span>暂无数据</span>
-							{{/if}}
-							</script>
-					{-raw-}
-				</div>
-			</div>
-			
-			<!--  行业大事件 end-->
-			<!-- 竞争动态 -->
-			<div class="dn_l">
-				<div class="dnsy_tit no_border">
-					<div><span class="dn_ico dn_ico_rivalry"></span><span class="dnsy_tit_size">竞争动态</span></div>					
-				</div>
-				<div class="rivalry_div" >
-					<ul id="compete"> 
-						<li>
-							<div class="rivalry_div_l">
-								<img src="http://static.galaxyinternet.com/img/project/f16d630dd4a46243780d99739bf4444b.png">
-								<div class="rivalry_div_tit">九鼎投资九鼎投资...</div>
-								<div class="rivalry_div_num">上个月<span class="rivalry_div_num_span">2</span>笔</div>
-							</div>
-							<div class="rivalry_div_r">
-								<ul>
-									<li>
-										<span class="rivalry_div_r_cen">明码科技完成2.4亿美元B+轮美元B+轮美元B+轮融资；车和家获得6.2亿元A3轮融资；明码科技完成明码科技完成明码科技完...</span>
-										<span class="rivalry_div_r_time">2017-09-16</span>
-									</li>
-								</ul>
-							</div>
-						</li>
-						<li>
-							<div class="rivalry_div_l">
-								<img src="http://static.galaxyinternet.com/img/project/f16d630dd4a46243780d99739bf4444b.png">
-								<div class="rivalry_div_tit">九鼎投资九鼎投资...</div>
-								<div class="rivalry_div_num">上个月<span class="rivalry_div_num_span">2</span>笔</div>
-							</div>
-							<div class="rivalry_div_r">
-								<ul>
-									<li>
-										<span class="rivalry_div_r_cen">明码科技完成2.4亿美元B+轮美元B+轮美元B+轮融资；车和家获得6.2亿元A3轮融资；明码科技完成明码科技完成明码科技完...</span>
-										<span class="rivalry_div_r_time">2017-09-16</span>
-									</li>
-									<li>
-										<span class="rivalry_div_r_cen">明码科技完成2.4亿美元B+轮美元B+轮美元B+轮融资；车和家获得6.2亿元A3轮融资；明码科技完成明码科技完成明码科技完...</span>
-										<span class="rivalry_div_r_time">2017-09-16</span>
-									</li>
-								</ul>
-							</div>
-						</li>
-						<li>
-							<div class="rivalry_div_l">
-								<img src="http://static.galaxyinternet.com/img/project/f16d630dd4a46243780d99739bf4444b.png">
-								<div class="rivalry_div_tit">九鼎投资九鼎投资...</div>
-								<div class="rivalry_div_num">上个月<span class="rivalry_div_num_span">2</span>笔</div>
-							</div>
-							<div class="rivalry_div_r">
-								<ul>
-									<li>
-										<span class="rivalry_div_r_cen">明码科技完成2.4亿美元B+轮美元B+轮美元B+轮融资；车和家获得6.2亿元A3轮融资；明码科技完成明码科技完成明码科技完...</span>
-										<span class="rivalry_div_r_time">2017-09-16</span>
-									</li>
-									<li>
-										<span class="rivalry_div_r_cen">明码科技完成2.4亿美元B+轮美元B+轮美元B+轮融资；车和家获得6.2亿元A3轮融资；明码科技完成明码科技完成明码科技完...</span>
-										<span class="rivalry_div_r_time">2017-09-16</span>
-									</li>
-									<li>
-										<span class="rivalry_div_r_cen">明码科技完成2.4亿美元B+轮美元B+轮美元B+轮融资；车和家获得6.2亿元A3轮融资；明码科技完成明码科技完成明码科技完...</span>
-										<span class="rivalry_div_r_time">2017-09-16</span>
-									</li>
-								</ul>
-							</div>
-						</li>
-					</ul>
-					{-raw-}
-						<script type="text/x-jquery-tmpl" id="compete_script">
-	{{if data.length >0}}
-	{{each(i,v) data}}
-	<li>
-							<div class="rivalry_div_l">
-								<img src={{html Constants.logoPath +"news/"+v.orgCode+".PNG"}}>
-								<div class="rivalry_div_tit">${v.investOrg}</div>
-								<div class="rivalry_div_num">上个月<span class="rivalry_div_num_span">2</span>笔</div>
-							</div>
-							<div class="rivalry_div_r">
-								<ul>
-									{{if data.orgMediaInfoList}}
-								{{if data.orgMediaInfoList.length >0}}
-									{{each(j,w) data.orgMediaInfoList}}
-									<li>
-										<span class="rivalry_div_r_cen">${w.title}</span>
-										<span class="rivalry_div_r_time">${w.eventDate}</span>
-									</li>
-									{{/each}}{{/if}}		
-								{{else}}<span>暂无数据</span>{{/if}}
-									
-
-								</ul>
-							</div>
-						</li>
-		{{/each}}
-		{{else}}
-		<span>暂无数据</span>
-		{{/if}}
 	
-	</script>{-raw-}
-				</div>
-			</div>
-			<!-- 竞争动态 end-->
-		
-		
-		
-		
-		
+		<div class="dn_l_all">
 			<!--关注行业-->
-			<div class="index_trade none"><div class="index_trade_c" id="trade_click">关注行业<span class="dn_ico dn_ico_tradex"></span></div></div>
+			<div class="index_trade" id="trade_click"><div class="index_trade_c">关注行业<span class="dn_ico dn_ico_tradex"></span></div></div>
 			<!--关注行业弹出-->
-			<div class="trade_pop none" id="trade_pop">
+			<div class="trade_pop" id="trade_pop">
 				<div class="dn_ico dn_ico_trade_triangle"></div>
 				<div class="trade_pop_c">
 					<div class="trade_pop_tit">关注行业
 						<ul class="trade_pop_tit_r">
-							<li class="trade_pop_tit_r_b">全选</li>
-							<li>清空</li>
+							<li class="trade_pop_tit_r_b" onclick="select_all()">全选</li>
+							<li onclick="unselect_all()">清空</li>
 						</ul>
 					</div>
-					<ul class="trade_pop_c_ul">
+					<ul class="trade_pop_c_ul" id="concern_industry">
 						<li class="trade_pop_c_ul_on">消费生活</li>
 						<li>消费生活</li>
 						<li>消费生活</li>
@@ -340,19 +184,18 @@
 				</div>
 				<div class="trade_pop_but">
 					<ul>
-						<li>保存</li>
-						<li>重置</li>
-						<li>取消</li>
+						<li onclick="save_user_industry()">保存</li>
+						<li onclick="reset_user_industry()">重置</li>
+						<li onclick="cancle_user_industry()">取消</li>
 					</ul>
 				</div>
 			</div>
-			<!--关注行业弹出end-->
 			<!--项目速递-->
 			<div class="dn_l">
 				<div  class="dnsy_tit">
 					<div><span class="dn_ico dn_ico_project"></span><span class="dnsy_tit_size">项目速递</span></div>
-					<ul class="news_li">
-					    <li class="financing_on">新发现项目</li>
+					<ul class="news_li" id="lastestPro">
+					    <li class="financing_on" value="0">新发现项目</li>
 					    <li data-tab="news" value="1" class="">最新获投项目</li>
 					</ul>
 				</div>
@@ -480,11 +323,7 @@
 						</li>
 					</ul>
 				</div>
-			</div>			
-			<!--项目速递end-->
-			
-			
-			<!--投融快讯-->
+			</div>
 			<div class="dn_l">
 				<div  class="dnsy_tit">
 					<div><span class="dn_ico dn_ico_financing"></span><span class="dnsy_tit_size">投融快讯</span></div>
@@ -496,8 +335,8 @@
 					</ul>
 					{-raw-}
 					<script id="getAllnews" type="text/x-jquery-tmpl">
-							{{if records.length >0}}
-								{{each(i,v) records}}
+							{{if data.records.length >0}}
+								{{each(i,v) data.records}}
 								<li>
 									{{if v.imgmd5}}
 										<div class="dn_info_list_show">
@@ -524,9 +363,7 @@
 							</script>
 					{-raw-}
 				</div>
-			</div>			
-			<!--投融快讯end-->
-			
+			</div>
 			<!-- 投融事件 -->
 			<div class="dn_l">
 				<div  class="dnsy_tit no_border">
@@ -571,15 +408,13 @@
 						{-raw-}
 					</ul>
 				</div>
-			</div>			
-			<!-- 投融事件end -->
+			</div>
 		</div>
 		<div class="dn_r_all">
-			<!-- 上个月活跃机构 -->
 			<div class="dn_r">
 				<div  class="dnsy_tit no_border">
 					<div><span class="dn_ico dn_ico_institution"></span><span class="dnsy_tit_size">上个月活跃机构</span></div>
-					<div class="dnsy_list"><a href="/index_project.html">更多</a></div>
+					<div class="dnsy_list"><a href="/list_page_org.html">更多</a></div>
 				</div>
 				<div class="index_institution">
 					<ul>
@@ -616,9 +451,6 @@
 					</ul>
 				</div>
 			</div>
-			<!-- 上个月活跃机构 end -->
-			
-			<!-- 专题 -->
 			<div class="dn_r">
 				<div  class="dnsy_tit no_border">
 					<div><span class="dn_ico dn_ico_subject"></span><span class="dnsy_tit_size">专题</span></div>
@@ -677,8 +509,7 @@
 					</ul>
 				</div>
 			</div>
-			<!-- 专题end  -->
-			<!-- 行研报告 -->
+			
 			<div class="dn_r">
 				<div  class="dnsy_tit no_border">
 					<div><span class="dn_ico dn_ico_report"></span><span class="dnsy_tit_size">行研报告</span></div>
@@ -718,8 +549,7 @@
 	                    </li>
 					</ul>
 				</div>
-			</div>			
-			<!-- 行研报告 end-->
+			</div>
 		</div>
 	
 	</div>
@@ -754,12 +584,7 @@ $(function(){
 </script>
 <script src="js/jquery.tmpl.js"></script>
 <script src="js/newIndex.js"></script>
-
-<!-- 高管图表 -->
-<script src="js/echarts.min.js"></script>
-<script src="js/index_ylecharts.js"></script>
-<!-- 高管图表 end-->
-
+<script src="js/index_common.js"></script>
 </body>
 
 </html>
