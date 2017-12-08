@@ -31,7 +31,7 @@
 	</div>
 	<div class='index-table-title'>
 	 <span class='fl index-result'>共删选出<em>234</em>个报告</span>
-	 <span class='publish-report fr'>+发布报告</span>
+	 <a href="publish.html" class='publish-report fr'>+发布报告</a>
 	</div>
 	<div class='index-table-content'>
 		<table data-toggle='table' class='index-table'>
@@ -136,7 +136,6 @@ $(function(){
     	  pickerPosition:'bottom-right'
       }).on('changeDate',function(ev){
     	 var startTime = $('#publish_time_start').val();
-    	/*  $('#publish_time_end').datetimepicker('setStartDate',startTime);//给结束日期设置一个开始日期
     	 $('#publish_time_start').datetimepicker('hide'); */
     	 var startTime = $('#publish_time_start').val();
    	 	 var endTime = $('#publish_time_end').val();
@@ -160,19 +159,6 @@ $(function(){
     	  	if(startTime!=""&&endTime!=""){
      	 		beTimeCompare(startTime,endTime)
      	 	}
-    		/*   if(startTime!=""&&endTime!=""){
-    		  if(!beTimeCompare(startTime,endTime)){
-    			  $('#publish_time_end').val('');
-    			  alert('开始时间不能大于结束时间')
-    			  return
-    		  }
-    		  
-    		  
-    	  } */ 
-    	  
-    	  /* $('#publish_time_start').datetimepicker('setEndDate',endTime);
-    	  $('#publish_time_start').datetimepicker('hide'); */
-    	  
       });
       
      
