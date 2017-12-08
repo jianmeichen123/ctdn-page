@@ -1,14 +1,11 @@
 //本地
 
-//本地
-
 var Constants = {
 	platformContentURL: "http://127.0.0.1:8081/api/",
 	//searchContentURL: "http://127.0.0.1:8089/search/",
 	dataContentURL: "http://127.0.0.1:8085/data/",
 	logoPath: "http://static.galaxyinternet.com/img/"
 }
-
 
 
 
@@ -54,10 +51,7 @@ var dataUrl = {
 }
 
 var platformUrl = {
-	me:Constants.userContentURL+"userlogin/me",
-    login:Constants.userContentURL+"/userlogin/login",
-    register:Constants.userContentURL+"/userlogin/register",
-    loginByCode:Constants.userContentURL+"/userlogin/loginByCode",
+//	me:Constants.userContentURL+"userlogin/me",
 	allQuery:Constants.platformContentURL+"common/allQuery",
 	industry:Constants.platformContentURL+"common/industry",
 	userIndustry:Constants.platformContentURL+"index/userIndustry/",
@@ -109,14 +103,6 @@ var detail = {
     getAllCompSubs:Constants.platformContentURL+"/compSub/getAllCompSubs/",
     insertProject:Constants.platformContentURL+"/appProjectDemandInfo/insert",
     getListByProjCode:Constants.platformContentURL+"/projectContact/getListByProjCode/",
-    queryLastestLoadProject:Constants.platformContentURL+"/index/queryLastestLoadProject/",
-    queryLastestFinanceProject:Constants.platformContentURL+"/index/queryLastestFinanceProject/",
-    queryLastestOrg:Constants.platformContentURL+"/index/queryLastestOrg/",
-    getParentIndustrys:Constants.platformContentURL+"/index/getParentIndustrys/",
-    saveOrUpdateUerIndustry:Constants.platformContentURL+"/index/saveOrUpdateUerIndustry/",
-    userIndustry:Constants.platformContentURL+"/index/userIndustry/",
-    getCompeteInfo:Constants.platformContentURL+"/index/getCompeteInfo/",
-    checkUserExists:Constants.platformContentURL+"/checkUserExists/",
 }
 /**
  * how to use? location.href = platformUrl.login
