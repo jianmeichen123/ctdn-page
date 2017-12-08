@@ -15,6 +15,7 @@
 	<div class='fl head-fl'>创投大脑后台管理系统</div>
 	<div class='fr head-fr'><span class='user-name'></span>您好，YANHAO</div>
 </header>
+<div style='width:100%;height:90px'></div>
 <div class='menu index-menu'>
 	<ul>
 		<li><span class="menu-icon"></span><a href='javascript:;'>行研报告</a></li>
@@ -25,12 +26,12 @@
 	<div class='index-nav'>
 	 	<span class='index-search'>搜索</span>
 		<input class='index-nav-title' type="text" placeholder='报告标题'/>
-		<span class='index-span-time'>发布时间</span><input class='index-nav-time' type='text'/><span class='index-line'>—</span><input class='index-nav-time' type='text'/>
+		<span class='index-span-time'>发布时间</span><input id='publish_time_start' class='index-nav-time' type='text'  readonly='readonly'/><span class='index-line'>—</span><input id='publish_time_end' class='index-nav-time' type='text' readonly='readonly'/>
 		<span class='index-nav-confirm fr'>确定</span>
 	</div>
 	<div class='index-table-title'>
 	 <span class='fl index-result'>共删选出<em>234</em>个报告</span>
-	 <span class='publish-report fr'>+发布报告</span>
+	 <a href="publish.html" class='publish-report fr'>+发布报告</a>
 	</div>
 	<div class='index-table-content'>
 		<table data-toggle='table' class='index-table'>
@@ -124,7 +125,62 @@
 /* $('#index-table').bootstrapTable({
 	
 }) */
-
+$(function(){
+      $('#publish_time_start').datetimepicker({
+    	  format:'yyyy-mm-dd',
+    	  autoclose:true,
+    	  minView:'month',
+    	  language:'zh-CN',
+    	  todayBtn:1,
+    	  todayHightlight:true,
+    	  pickerPosition:'bottom-right'
+      }).on('changeDate',function(ev){
+    	 /* var startTime = $('#publish_time_start').val();
+    	 $('#publish_time_start').datetimepicker('hide'); */
+    	 var startTime = $('#publish_time_start').val();
+   	 	 var endTime = $('#publish_time_end').val();
+   	 		if(startTime!=""&&endTime!=""){
+   	 		beTimeCompare(startTime,endTime)
+   	 	}
+    	 
+      });
+     
+      $('#publish_time_end').datetimepicker({
+    	  format:'yyyy-mm-dd',
+    	  autoclose:true,
+    	  minView:'month',
+    	  language:'zh-CN',
+    	  todayBtn:1,
+    	  todayHightlight:true,
+    	  pickerPosition:'bottom-right'
+      }).on('changeDate',function(ev){
+    	  var startTime = $('#publish_time_start').val();
+    	  var endTime = $('#publish_time_end').val();
+    	  	if(startTime!=""&&endTime!=""){
+     	 		beTimeCompare(startTime,endTime)
+     	 	}
+      });
+      
+     
+     
+     
+})
+function beTimeCompare(btime,etime){
+	if(btime && etime){
+		var startTime = (new Date(btime)).getTime();		
+		var endTime = (new Date(etime)).getTime();
+		if(startTime > endTime){
+			layer.msg("结束时间不能早于开始时间");
+			return false;
+		}
+		//兼容safari
+		if(btime>etime){
+			layer.msg("结束时间不能早于开始时间");
+			return false;
+		}
+	}
+	return true;
+}
 
 
 </script>
