@@ -152,6 +152,11 @@ center .list_table_td{text-align:center;   float: none;}
 .nav_all ul a{color:#fff; padding-left:24px; padding-right:24px; padding-top: 24px; display: block;  height:68px;}
 .nav_all ul a:hover{ text-decoration:none}
 .nav_nav ul li{ float:left; height:65px; text-align:center; width:75px; margin-left:60px;}
+.list_click_ul>li a{padding-left: 0px;
+    padding-right: 0px;
+    padding-top: 0px;
+    display: block;line-height: 36px;
+    height: 36px;}
 .nav_nav{border-bottom:1px solid #d9d9d9; height:66px; background-color:#ffffff; display:none;}
 .nav_nav_name{ font-size:16px; color:#333333; margin-top:15px;}
 .nav_nav_name_x{ font-size:12px; color:#999;}
@@ -174,7 +179,7 @@ center .list_table_td{text-align:center;   float: none;}
 .gz_ul li{width:50%; height:50px; float:left; line-height:50px; color:#fff; font-size:16px; text-align:center;}
 .gz_ul .gz_ul_on{color:#1ed2ff; background-color:#1a3a76;}
 .block_list{display:none; }
-#id_name{display: block; text-align: right;  padding-right: 5px; width: 130px;  overflow: hidden;  height: 15px; float: left;  text-overflow: ellipsis; white-space: nowrap;}
+#id_name{display: block; text-align: right;  padding-right: 5px; width: 105px;  overflow: hidden;  height: 15px; float: left;  text-overflow: ellipsis; white-space: nowrap;}
 #global_list .condition_all_ul{ margin-left:134px; width:1000px; }
 .type_name_all .condition_all_ul{ margin-left:10px !important; float: left;  width: 935px !important; }
 .brain_ico_up_arrows{background-position: -44px -21px; width: 17px; height: 16px;  display: inline-block;}
