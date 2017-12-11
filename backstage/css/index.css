@@ -113,4 +113,4 @@ textarea.invalid::-webkit-input-placeholder {
 textarea.invalid::-ms-input-placeholder {
     color: red;
 }
-.inputDanger{border:1px solid #ff4e49; box-shadow:1px 1px 5px #fff2f2;}
+.inputDanger{border:1px solid #ff4e49 !important; box-shadow:1px 1px 5px #fff2f2;}
