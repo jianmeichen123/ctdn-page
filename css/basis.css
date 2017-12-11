@@ -10,6 +10,7 @@ ul,ol,dl,dt,dd,p,img{ display:block; border:0}
 ::-moz-placeholder { /* Mozilla Firefox 19+ */color:#ccc;}
 :-ms-input-placeholder { /* Internet Explorer 10+ */color:#ccc;}
 a:focus{ -moz-outline-style: none; /* FF */ } 
+a{    text-decoration: none;}
 .a_color{color:#2393f7 !important;}
 li{ display:block; list-style:none}
 textarea{resize: none;outline: none}
@@ -643,3 +644,6 @@ white-space: nowrap; text-align:center; height:25px; line-height:25px; margin-t
 .eachrst_tit .fr span{border:1px solid #e6e6e6; line-height:30px; border-radius:4px; display:block; float:right; margin-left:40px; padding:0 15px; background-color:#f5f5f5}
 .eachrst_tit .fr .eachrst_tit_on{ border:1px solid #2393f7; background-color:#2393f7; color:#fff;}
 .eachrst_tit .fl .eachrst_tit_on{color:#1ed2ff; border-bottom:1px solid #1ed2ff;}
+/*弹窗提示*/
+.a_button{ margin-left:auto; margin-right:auto;height:40px;  margin-top:45px; width:150px; background-color:#2d95f4; text-align:center; line-height:40px; border-radius:5px; color:#fff;}
+.tips_cen{margin-left:auto; margin-right:auto; margin-top:70px; text-align:center}
