@@ -512,16 +512,169 @@ $('body').delegate('.dn_ico_search','click', function(event){
  	$("#executive_pop").hide();
  	$("#trade_pop").hide();
 })
+
+function getCookie(c_name)
+{
+	if (document.cookie.length>0)
+	{
+		c_start=document.cookie.indexOf(c_name + "=")
+		if (c_start!=-1)
+		{
+            c_start=c_start + c_name.length+1
+            c_end=document.cookie.indexOf(";",c_start)
+            if (c_end==-1) c_end=document.cookie.length
+            return unescape(document.cookie.substring(c_start,c_end))
+        }
+	}
+	return ""
+}
+
+function setCookie(c_name,value,expiredays)
+{
+    var exdate=new Date()
+    exdate.setDate(exdate.getDate()+expiredays)
+    document.cookie=c_name+ "=" +escape(value)+
+    ((expiredays==null) ? "" : ";expires="+exdate.toGMTString())
+}
+
+function removeCookie(c_name){
+  setCookie(c_name, 1, -1);
+}
+
+function cancelCompare(code,title){
+    var jsonArray = "";
+    if(getCookie("ctdn-compare")){
+        jsonArray = eval('(' + getCookie("ctdn-compare") + ')');
+    }
+    if(jsonArray || jsonArray.length > 0){
+        for(var i= 0;i<jsonArray.length ;i++){
+            if(jsonArray[i].code == code){
+                jsonArray.splice(i,1)
+            }
+        }
+        setCookie("ctdn-compare",JSON.stringify(jsonArray))
+        if(jsonArray.length==0){
+           $(".Floating_box").hide();
+        }else{
+           refreshCompare();
+           $(".Floating_box_a .inside").text(jsonArray.length);
+        }
+    }
+    $("#"+code).toggleClass('dn_ico_list_contrast_on');
+}
+function isCompare(code){
+     var flag = false;
+     var jsonArray =  getCookie("ctdn-compare")
+     if(jsonArray){
+             jsonArray = eval('(' + getCookie("ctdn-compare") + ')');
+             for(var i = 0; i<jsonArray.length;i++){
+                if(code == jsonArray[i].code){
+                    flag = true;
+                }
+             }
+      }
+      return flag;
+}
+
+function compare(code,title){
+        var json={};
+        var flag = false;
+        json["code"]=code;
+        json["title"]=title;
+        var jsonArray =  getCookie("ctdn-compare")
+        if(!jsonArray){
+            jsonArray = [];
+        }else{
+            jsonArray = eval('(' + getCookie("ctdn-compare") + ')');
+        }
+        if(jsonArray.length < 4){
+            jsonArray.push(json);
+            setCookie("ctdn-compare", JSON.stringify(jsonArray));
+            refreshCompare();
+            flag = true;
+        }
+        var num=jsonArray.length;
+        $(".Floating_box_a .inside").text(num);
+        return flag;
+}
+
+
  //比较浮框
 $('body').delegate('.Floating_box_a','click', function(event){
  	event.stopPropagation();
  	$('.Floating_box_a .dn_ico_box').toggleClass('dn_ico_box_show');
  	if($('.Floating_box_a .dn_ico_box').hasClass('dn_ico_box_show')){
- 		$('.Floating_box  .Floating_box_b').show()
+ 	    var jsonArray = eval('(' + getCookie("ctdn-compare") + ')');
+ 	    if(jsonArray){
+ 	        var html = refreshCompare();
+           	$('.Floating_box  .Floating_box_b').show()
+ 	    }
  	}else{
  		$('.Floating_box  .Floating_box_b').hide()
  	}
 })
+
+//绑定对比
+$('body').delegate('.click_contrast','click', function(event){
+	event.stopPropagation();
+	var title = $(this).attr("title");
+    var code = $(this).attr("code");
+    if($(this).hasClass("dn_ico_list_contrast_on")){
+       cancelCompare(code,title)
+    }else{
+       var flag = compare(code,title)
+       if(!flag){
+            layer.tips('最多可以对比4个项目', $(this), {
+              tips: [1, '#3595CC'],
+              time: 1000
+            });
+       }else{
+         $("#"+code).toggleClass('dn_ico_list_contrast_on');
+         $(".Floating_box").show();
+       }
+    }
+})
+
+//绑定收藏
+$('body').delegate('.dn_ico_list_collect','click', function(event){
+	event.stopPropagation();
+	$(this).toggleClass('dn_ico_list_collect_on');
+	var type = $(this).attr("type");
+	var code = $(this).attr("code");
+	var userId =1;
+	if($(this).hasClass("dn_ico_list_collect_on")){
+	   collectOne(userId,type,code)
+	}else{
+	   cancelOneCol(userId,type,code)
+	}
+})
+function refreshCompare(){
+        var html =""
+        if(getCookie("ctdn-compare") ){
+            var jsonArray = eval('(' + getCookie("ctdn-compare") + ')');
+            if(jsonArray){
+                for(var i = 0; i<jsonArray.length;i++){
+                    var code = jsonArray[i].code
+                    var title = jsonArray[i].title
+                    html +=  "<li>"+
+                                "<img src='"+Constants.logoPath+"project/"+code+".png'>"+
+                                "<div class='Floating_box_b_name'>"+title+"</div>"+
+                                "<div class='dn_ico dn_ico_contrast' onclick=cancelCompare('"+code+"','"+title+"')></div>"+
+                            "</li>"
+                }
+            }
+            $('.Floating_box  .Floating_box_b ul').html(html);
+        }
+}
+//获取userId
+var userId= 1;
+function collectOne(type,code){
+    sendPostRequestByJsonObj(user.collectOne,{"userId":userId,"type":type,"code":code},null)
+}
+
+function cancelOneCol(type,code){
+    sendPostRequestByJsonObj(user.cancelOneCol,{"userId":userId,"type":type,"code":code},null)
+}
  //全部行业
 $('body').delegate('#executive_click','click', function(event){
  	event.stopPropagation();

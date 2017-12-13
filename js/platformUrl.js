@@ -116,6 +116,13 @@ var detail = {
     userIndustry:Constants.platformContentURL+"/index/userIndustry/",
     getCompeteInfo:Constants.platformContentURL+"/index/getCompeteInfo/",
 }
+var user = {
+    collectOne:Constants.platformContentURL+"/userCollection/collectOne",
+    cancelOneCol:Constants.platformContentURL+"/userCollection/cancelOneCol/",
+    countNum:Constants.platformContentURL+"/userCollection/countNum/",
+    getCodeList:Constants.platformContentURL+"/userCollection/getCodeList/",
+    getColList:Constants.platformContentURL+"/userCollection/getColList/"
+}
 /**
  * how to use? location.href = platformUrl.login
  */

@@ -454,11 +454,13 @@ function investfirmFormatter(value,row){
     return injectValues(html,row);
 }
 
-function option(value,row,index){
+function option(value,row){
     var type = $("table[data-url]").attr("data-type");
     var code ;
+    var title ;
     if(type ==0){
         code = row.projCode; //项目
+        title = row.projTitle
     }else if(type ==1){
         code = row.orgCode; //机构
     }else if(type ==2){
@@ -468,31 +470,44 @@ function option(value,row,index){
     }else if(type == 4){
         code = row.id;      //
     }
-    return "<span class='dn_ico dn_ico_list_contrast'></span> <span class='dn_ico dn_ico_list_collect' type='"+type+"' code='"+code+"'></span>"
-}
-//绑定对比
-$('body').delegate('.dn_ico_list_contrast','click', function(event){
-	event.stopPropagation();
-	$(this).toggleClass('dn_ico_list_contrast_on');
-})
-//绑定收藏
-$('body').delegate('.dn_ico_list_collect','click', function(event){
-	event.stopPropagation();
-	$(this).toggleClass('dn_ico_list_collect_on');
-	var type = $(this).attr("type");
-	var code = $(this).attr("code");
-	var userId =1;
-	if($(this).hasClass("dn_ico_list_collect_on")){
-	   collectOne(userId,type,code)
-	}else{
-	   cancelOneCol(userId,type,code)
-	}
-})
-
-function collectOne(userId,type,code){
-    sendPostRequestByJsonObj(user.collectOne,{"userId":1,"type":type,"code":code},null)
+    if(isCompare(code)){
+        return "<span id="+code+" class='click_contrast dn_ico dn_ico_list_contrast dn_ico_list_contrast_on'  code="+code+" title='"+title+"' ></span> <span class='dn_ico dn_ico_list_collect' type="+type+" code='"+code+"'></span>"
+    }else{
+        return "<span  id="+code+" class='click_contrast dn_ico dn_ico_list_contrast'  code="+code+" title='"+title+"'></span> <span class='dn_ico dn_ico_list_collect' type="+type+" code='"+code+"'></span>"
+    }
 }
 
-function cancelOneCol(userId,type,code){
-    sendPostRequestByJsonObj(user.cancelOneCol,{"userId":1,"type":type,"code":code},null)
+
+
+
+
+
+//创业者
+function startupFormatter(){
+    var html = "";
+//    <div class="search_list_people_all">
+//    		<div class="list-item search_list_people">
+//    			<div class="list-item-inner">
+//    				<div class="list-item-left"><a target="_blank" href="/jg_particulars.html?orgCode=7eb60c84b891fd0c76f4defb686f617a"><img src="http://static.galaxyinternet.com/img/org/7eb60c84b891fd0c76f4defb686f617a.png"></a></div>
+//    				<div class="list-item-right">
+//    					<div class="list-item-title"><a target="_blank" href="/jg_particulars.html?orgCode=7eb60c84b891fd0c76f4defb686f617a">林海棠</a></div>
+//    					<div class="search_list_people_wn">Haitang Ling</div>
+//    					<div class="search_list_people_list">
+//    						<ul>
+//    							<li>一号家具网</li>
+//    							<li><div class="search_list_people_list_r">CEO</div></li>
+//    							<li><span><i class="list-item-address"></i>天津</span></li>
+//    						</ul>
+//
+//    					</div>
+//    					<div class="search_collect"><span class="dn_ico dn_ico_list_collect_search"></span>收藏</div>
+//    				</div>
+//    			</div>
+//    		</div>
+//    	</div>
+}
+
+//创业者
+function startupFormatter(){
+
 }

@@ -2,7 +2,7 @@
 <html>
 <head>
 	<meta charset="utf-8">
-	<title>全局搜索</title>
+	<title>收藏夹</title>
 	<!--basis-->
 	{(dn_basis.html)}
 	<link rel='style/sheet'/>
@@ -27,15 +27,59 @@
 		</ul>
 	</div>
 	<div class='person-right fl person-bookmark-content'>
-		<ul class='clearfix'>
-			<li>项目<span>(3)</span></li>
-			<li>机构<span>(26)</span></li>
-			<li class='underline'>创业者<span>(3)</span></li>
-			<li>投资人<span>(3)</span></li>
-			<li>报告<span>(5)</span></li>
+		<ul class='clearfix info-nav-content'>
+			<li data-type=0><span>项目</span>(<span ></span>)</li>
+			<li data-type=1><span>机构</span>(<span ></span>)</li>
+			<li data-type=2><span>创业者</span>(<span ></span>)</li>
+			<li data-type=3><span>投资人</span>(<span ></span>)</li>
+			<li data-type=4><span>报告</span>(<span ></span>)</li>
 		</ul>
 		<div class='person-project-container'>
+			<!--项目列表 -->
+			<table  class="table table_white_search" data-type=0 style="display:none">
+				<thead>
+				<tr>
+					<th class="data-input" style=""  data-formatter="projectFormatter"></th>
+				</tr>
+				</thead>
+			</table>
+
+			<!--机构列表 -->
+			<table  class="table table_white_search" data-type=1  style="display:none" >
+				<thead>
+				<tr>
+					<th class="data-input" style="" data-item="0" data-formatter="investfirmFormatter"></th>
+				</tr>
+				</thead>
+			</table>
+
 			<!--创业者  -->
+			<table  class="table table_white_search" data-type=2  style="display:none" >
+				<thead>
+				<tr>
+					<th class="data-input" style="" data-item="0" data-formatter="startupFormatter"></th>
+				</tr>
+				</thead>
+			</table>
+
+			<!--投资人  -->
+			<table  class="table table_white_search" data-type=3  style="display:none" >
+				<thead>
+				<tr>
+					<th class="data-input" style="" data-item="0" data-formatter="investorFormatter"></th>
+				</tr>
+				</thead>
+			</table>
+
+			<!--报告  -->
+			<table  class="table table_white_search" data-type=4  style="display:none" >
+				<thead>
+				<tr>
+					<th class="data-input" style="" data-item="0" data-formatter="reportFormatter"></th>
+				</tr>
+				</thead>
+			</table>
+
 				<div class='person-project-items'>
 					<div class='person-project-item clearfix'>
 					<span class='person-book-close'></span>
@@ -45,7 +89,6 @@
 								<p>林海棠</p>
 								<p>Haitang Lin</p>
 							</div>
-							
 							<p>
 								<span class='person-start-line'>一号家居网</span>
 								<span class='person-dutity'>CEO</span>
@@ -102,5 +145,5 @@ $('.person-book-close').click(function(){
 <script src="js/platformUrl.js?t=20170523"></script>
 <script src="js/common.js"></script>
 <script src="js/formatter_common.js"></script>
-<script src="js/search_index.js"></script>
+<script src="js/collection.js"></script>
 </html>

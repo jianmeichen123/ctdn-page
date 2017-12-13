@@ -25,9 +25,9 @@
         var dataId = obj.attr("data-id");
         url = getUrl(dataId,url);
 		var json = getJson(obj);
-		if(dataId=="news"){
-		    json["pageNo"] = json["pageNo"]-1
-		}
+//		if(dataId=="news"){
+//		    json["pageNo"] = json["pageNo"]-1
+//		}
     	var pageNo = obj.find("input[name='pageNo']").val();
     	var pageSize = obj.find("input[name='pageSize']").val();
     	var html="";

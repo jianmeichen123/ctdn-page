@@ -1,5 +1,12 @@
 //项目基本信息formatter
 function formatProjectInfo(data,divList){
+     $(".dn_ico_list_collect_search").attr("code",data["projCode"])
+     $(".click_contrast").attr("code",data["projCode"])
+     $(".click_contrast").attr("title",data["projTitle"])
+     $(".click_contrast").attr("id",data["projCode"])
+     if(isCompare(data["projCode"])){
+         $(".click_contrast").toggleClass('dn_ico_list_contrast_on');
+     }
      projCode = data["projCode"]
      compCode = data["compCode"]
      if(!compCode){
