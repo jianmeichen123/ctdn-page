@@ -342,7 +342,7 @@ ul,ol,dl,dt,dd,p,img{ display:block; border:0;list-style:none; }
 .dn_ico_list_search_contrast{ background-position: -77px -286px; width: 21px; height: 19px; margin-top: 4px; margin-right: 5px; float: left;  margin-left: 20px;display: inline-block; cursor: pointer;}
 .dn_ico_list_contrast_on .dn_ico_list_search_contrast{ background-position: -99px -286px;}
 .dn_ico_list_contrast_on{border:1px solid #2ec8cd; color:#2ec8cd;}
-td .dn_ico_list_contrast_on{border:0;}
+td>.dn_ico_list_contrast_on{border:0;}
 .porject_search_w .list-item-content{width:990px}
 .search_list_bj{width:100%; height:50px; background-color:#e2f1ff;}
 .search_list_bj>ul>li{float:left; padding-left:20px; padding-right:20px; line-height:50px; font-size:14px; color:#333;}
