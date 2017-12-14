@@ -50,25 +50,31 @@
 					{{if setupDT}}
 						<li>${setupDT}</li>
 					{{else}}
-						<li>--</li>
+						<li>{{html table.empty}}</li>
 					{{/if}}
 					{{if districtSubName}}
 						<li>${districtSubName}</li>
 					{{else}}
-						<li>--</li>
+						<li>{{html table.empty}}</li>
 					{{/if}}
-					<li>2012-07</li>
+					<li>{{html table.empty}}</li>
 				</ul>
 			</div>
 			<div class="contrast_three">
 				<ul>
-					<li>300亿美元</li>
+					<li>{{html table.empty}}</li>
 					<li>222</li>
 					<li>${latestFinanceRound}</li>
 				</ul>
 			</div>
 			<div class="contrast_time">{{html formatDate(latestFinanceDT)}}</div>
-			<div class="contrast_money">${latestFinanceAmountStr}</div>
+
+			{{if latestFinanceAmountStr}}
+			    <div class="contrast_money">${latestFinanceAmountStr}</div>
+			{{else}}
+                <div >{{html table.empty}}</div>
+            {{/if}}
+
 			<div class="contrast_four">
 				<ul>
 					{{html formatInvestSide(investSideJson)}}
@@ -77,106 +83,6 @@
 		</li>
 		</script>
 		{-raw-}
-		<!--<li>-->
-			<!--<div class="contrast_img">-->
-				<!--<img src="http://static.galaxyinternet.com/img/project/f16d630dd4a46243780d99739bf4444b.png">-->
-				<!--<div class="contrast_name">滴滴出行</div>-->
-				<!--<div class="dn_ico dn_ico_contrast"></div>-->
-			<!--</div>-->
-			<!--<div class="contrast_two">-->
-				<!--<ul>-->
-					<!--<li>2012-07</li>-->
-					<!--<li>2012-07</li>-->
-					<!--<li>2012-07</li>-->
-				<!--</ul>-->
-			<!--</div>-->
-			<!--<div class="contrast_three">-->
-				<!--<ul>-->
-					<!--<li>300亿美元</li>-->
-					<!--<li>305.87亿人民币</li>-->
-					<!--<li>F轮-上市前</li>-->
-				<!--</ul>-->
-			<!--</div>-->
-			<!--<div class="contrast_time">2017-04</div>-->
-			<!--<div class="contrast_money">55亿美元</div>-->
-			<!--<div class="contrast_four">-->
-				<!--<ul>-->
-					<!--<li>软银中国</li>-->
-					<!--<li>软银中国</li>-->
-					<!--<li>软银中国</li>-->
-					<!--<li>软银中国</li>-->
-					<!--<li>软银中国</li>-->
-					<!--<li>软银中国</li>-->
-					<!--<li>软银中国</li>-->
-					<!--<li>软银中国</li>-->
-					<!--<li>软银中国</li>-->
-					<!--<li>软银中国</li>-->
-					<!--<li>软银中国</li>-->
-					<!--<li>软银中国</li>-->
-					<!--<li>软银中国</li>-->
-				<!--</ul>-->
-			<!--</div>-->
-		<!--</li>-->
-		<!--<li>-->
-			<!--<div class="contrast_img">-->
-				<!--<img src="http://static.galaxyinternet.com/img/project/f16d630dd4a46243780d99739bf4444b.png">-->
-				<!--<div class="contrast_name">滴滴出行</div>-->
-				<!--<div class="dn_ico dn_ico_contrast"></div>-->
-			<!--</div>-->
-			<!--<div class="contrast_two">-->
-				<!--<ul>-->
-					<!--<li>2012-07</li>-->
-					<!--<li>2012-07</li>-->
-					<!--<li>2012-07</li>-->
-				<!--</ul>-->
-			<!--</div>-->
-			<!--<div class="contrast_three">-->
-				<!--<ul>-->
-					<!--<li>300亿美元</li>-->
-					<!--<li>305.87亿人民币</li>-->
-					<!--<li>F轮-上市前</li>-->
-				<!--</ul>-->
-			<!--</div>-->
-			<!--<div class="contrast_time">2017-04</div>-->
-			<!--<div class="contrast_money">55亿美元</div>-->
-			<!--<div class="contrast_four">-->
-				<!--<ul>-->
-					<!--<li>软银中国</li>-->
-					<!--<li>软银中国</li>-->
-					<!--<li>软银中国</li>-->
-				<!--</ul>-->
-			<!--</div>-->
-		<!--</li>-->
-		<!--<li>-->
-			<!--<div class="contrast_img">-->
-				<!--<img src="http://static.galaxyinternet.com/img/project/f16d630dd4a46243780d99739bf4444b.png">-->
-				<!--<div class="contrast_name">滴滴出行</div>-->
-				<!--<div class="dn_ico dn_ico_contrast"></div>-->
-			<!--</div>-->
-			<!--<div class="contrast_two">-->
-				<!--<ul>-->
-					<!--<li>2012-07</li>-->
-					<!--<li>2012-07</li>-->
-					<!--<li>2012-07</li>-->
-				<!--</ul>-->
-			<!--</div>-->
-			<!--<div class="contrast_three">-->
-				<!--<ul>-->
-					<!--<li>300亿美元</li>-->
-					<!--<li>305.87亿人民币</li>-->
-					<!--<li>F轮-上市前</li>-->
-				<!--</ul>-->
-			<!--</div>-->
-			<!--<div class="contrast_time">2017-04</div>-->
-			<!--<div class="contrast_money">55亿美元</div>-->
-			<!--<div class="contrast_four">-->
-				<!--<ul>-->
-					<!--<li>软银中国</li>-->
-					<!--<li>软银中国</li>-->
-					<!--<li>软银中国</li>-->
-				<!--</ul>-->
-			<!--</div>-->
-		<!--</li>-->
 	</ul>
 </div>	
 
@@ -212,7 +118,7 @@
 	//对比项目投资方
 	function formatInvestSide(investSideJson){
      if(!investSideJson){
-        return table.empty
+        return "<li>"+table.empty+"</li>"
      }else{
          var jsonObjArr = eval('(' + investSideJson + ')');
          var html;
@@ -221,7 +127,6 @@
          }
         return html;
      }
-
 }
 </script>
 </html>

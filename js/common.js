@@ -220,7 +220,7 @@ return true;
 
 function formatDate(date, format) {   
     if (!date) {
-        return "-"
+        return table.empty
     }
     if (!format) format = "yyyy-MM-dd";   
     switch(typeof date) {   
@@ -624,7 +624,7 @@ $('body').delegate('.click_contrast','click', function(event){
     }else{
        var flag = compare(code,title)
        if(!flag){
-            layer.tips('最多可以对比4个项目', $(this), {
+            layer.tips('最多可选择4个项目进行对比!', $(this), {
               tips: [1, '#3595CC'],
               time: 1000
             });
