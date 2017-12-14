@@ -620,7 +620,7 @@ $('body').delegate('.click_contrast','click', function(event){
 	var title = $(this).attr("title");
     var code = $(this).attr("code");
     if($(this).hasClass("dn_ico_list_contrast_on")){
-       cancelCompare(code,title)
+       cancelCompare(code)
     }else{
        var flag = compare(code,title)
        if(!flag){
@@ -659,7 +659,7 @@ function refreshCompare(){
                     html +=  "<li>"+
                                 "<img src='"+Constants.logoPath+"project/"+code+".png'>"+
                                 "<div class='Floating_box_b_name'>"+title+"</div>"+
-                                "<div class='dn_ico dn_ico_contrast' onclick=cancelCompare('"+code+"','"+title+"')></div>"+
+                                "<div class='dn_ico dn_ico_contrast' onclick=cancelCompare('"+code+"')></div>"+
                             "</li>"
                 }
             }

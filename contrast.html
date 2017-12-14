@@ -39,11 +39,11 @@
 		</li>
 		{-raw-}
 		<script id="compareList" type="text/x-jquery-tmpl">
-		<li>
+		<li id=${projCode}>
 			<div class="contrast_img">
 				<img src="{{html Constants.logoPath}}project/${projCode}.png">
 				<div class="contrast_name">${projTitle}</div>
-				<div class="dn_ico dn_ico_contrast divcom"  code="${projCode}" title="${title}")></div>
+				<div class="dn_ico dn_ico_contrast divcom"  code="${projCode}")></div>
 			</div>
 			<div class="contrast_two">
 				<ul>
@@ -93,8 +93,11 @@
 </body>
 <script src="js/jquery.tmpl.js"></script>
 <script>
-	var array=[];
-	if(getCookie("ctdn-compare")){
+    $(".Floating_box").hide();
+    refresh();
+    function refresh(){
+        var array=[];
+        if(getCookie("ctdn-compare")){
 		var jsonArray = eval('(' + getCookie("ctdn-compare") + ')');
 		for(var i = 0;i<jsonArray.length;i++){
 			array.push(jsonArray[i].code);
@@ -103,16 +106,16 @@
 		sendGetRequest(detail.queryByCodeList+codes,function(data){
 			var target =$("#compareList")
 			target.tmpl(data.data).appendTo(target.parent())
-
 			  //删除对比
 			 $("body").delegate(".divcom","click",function(){
 				$(this).closest("li").remove();
 				var code= $(this).attr("code");
-				var title= $(this).attr("title");
-				cancelCompare(code,title)
+				cancelCompare(code)
 			 })
 		})
 	}
+    }
+
 
 
 	//对比项目投资方
