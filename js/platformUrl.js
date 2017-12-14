@@ -58,6 +58,7 @@ var dataUrl = {
 var platformUrl = {
 //	me:Constants.userContentURL+"userlogin/me",
 	allQuery:Constants.platformContentURL+"common/allQuery",
+	comQuery:Constants.platformContentURL+"common/comQuery",
 	industry:Constants.platformContentURL+"common/industry",
 	userIndustry:Constants.platformContentURL+"index/userIndustry/",
 	updateUserIndustry:Constants.platformContentURL+"index/updateUserIndustry",
@@ -115,6 +116,7 @@ var detail = {
     saveOrUpdateUerIndustry:Constants.platformContentURL+"/index/saveOrUpdateUerIndustry/",
     userIndustry:Constants.platformContentURL+"/index/userIndustry/",
     getCompeteInfo:Constants.platformContentURL+"/index/getCompeteInfo/",
+    queryByCodeList:Constants.platformContentURL+"/projectList/queryByCodeList/",
 }
 var user = {
     collectOne:Constants.platformContentURL+"/userCollection/collectOne",

@@ -376,7 +376,7 @@ $('body').delegate('#save-btn','click', function(event){
 	$("#form").submit();
 })
 	var list ={} ;
-	sendGetRequest(platformUrl.allQuery,function(data){
+	sendGetRequest(platformUrl.comQuery,function(data){
 		list["district"] = data.data.district[0].children;
 		list["industry"] = data.data.industry;
 		list["round"] = data.data.round;

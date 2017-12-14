@@ -37,136 +37,146 @@
 				</ul>
 			</div>
 		</li>
+		{-raw-}
+		<script id="compareList" type="text/x-jquery-tmpl">
 		<li>
 			<div class="contrast_img">
-				<img src="http://static.galaxyinternet.com/img/project/f16d630dd4a46243780d99739bf4444b.png">
-				<div class="contrast_name">滴滴出行</div>
-				<div class="dn_ico dn_ico_contrast"></div>
+				<img src="{{html Constants.logoPath}}project/${projCode}.png">
+				<div class="contrast_name">${projTitle}</div>
+				<div class="dn_ico dn_ico_contrast divcom"  code="${projCode}" title="${title}")></div>
 			</div>
 			<div class="contrast_two">
 				<ul>
-					<li>2012-07</li>
-					<li>2012-07</li>
+					{{if setupDT}}
+						<li>${setupDT}</li>
+					{{else}}
+						<li>--</li>
+					{{/if}}
+					{{if districtSubName}}
+						<li>${districtSubName}</li>
+					{{else}}
+						<li>--</li>
+					{{/if}}
 					<li>2012-07</li>
 				</ul>
 			</div>
 			<div class="contrast_three">
 				<ul>
 					<li>300亿美元</li>
-					<li>305.87亿人民币</li>
-					<li>F轮-上市前</li>
+					<li>222</li>
+					<li>${latestFinanceRound}</li>
 				</ul>
 			</div>
-			<div class="contrast_time">2017-04</div>
-			<div class="contrast_money">55亿美元</div>
+			<div class="contrast_time">{{html formatDate(latestFinanceDT)}}</div>
+			<div class="contrast_money">${latestFinanceAmountStr}</div>
 			<div class="contrast_four">
 				<ul>
-					<li>软银中国</li>
-					<li>软银中国</li>
-					<li>软银中国</li>
+					{{html formatInvestSide(investSideJson)}}
 				</ul>
 			</div>
 		</li>
-		<li>
-			<div class="contrast_img">
-				<img src="http://static.galaxyinternet.com/img/project/f16d630dd4a46243780d99739bf4444b.png">
-				<div class="contrast_name">滴滴出行</div>
-				<div class="dn_ico dn_ico_contrast"></div>
-			</div>
-			<div class="contrast_two">
-				<ul>
-					<li>2012-07</li>
-					<li>2012-07</li>
-					<li>2012-07</li>
-				</ul>
-			</div>
-			<div class="contrast_three">
-				<ul>
-					<li>300亿美元</li>
-					<li>305.87亿人民币</li>
-					<li>F轮-上市前</li>
-				</ul>
-			</div>
-			<div class="contrast_time">2017-04</div>
-			<div class="contrast_money">55亿美元</div>
-			<div class="contrast_four">
-				<ul>
-					<li>软银中国</li>
-					<li>软银中国</li>
-					<li>软银中国</li>
-					<li>软银中国</li>
-					<li>软银中国</li>
-					<li>软银中国</li>
-					<li>软银中国</li>
-					<li>软银中国</li>
-					<li>软银中国</li>
-					<li>软银中国</li>
-					<li>软银中国</li>
-					<li>软银中国</li>
-					<li>软银中国</li>
-				</ul>
-			</div>
-		</li>
-		<li>
-			<div class="contrast_img">
-				<img src="http://static.galaxyinternet.com/img/project/f16d630dd4a46243780d99739bf4444b.png">
-				<div class="contrast_name">滴滴出行</div>
-				<div class="dn_ico dn_ico_contrast"></div>
-			</div>
-			<div class="contrast_two">
-				<ul>
-					<li>2012-07</li>
-					<li>2012-07</li>
-					<li>2012-07</li>
-				</ul>
-			</div>
-			<div class="contrast_three">
-				<ul>
-					<li>300亿美元</li>
-					<li>305.87亿人民币</li>
-					<li>F轮-上市前</li>
-				</ul>
-			</div>
-			<div class="contrast_time">2017-04</div>
-			<div class="contrast_money">55亿美元</div>
-			<div class="contrast_four">
-				<ul>
-					<li>软银中国</li>
-					<li>软银中国</li>
-					<li>软银中国</li>
-				</ul>
-			</div>
-		</li>
-		<li>
-			<div class="contrast_img">
-				<img src="http://static.galaxyinternet.com/img/project/f16d630dd4a46243780d99739bf4444b.png">
-				<div class="contrast_name">滴滴出行</div>
-				<div class="dn_ico dn_ico_contrast"></div>
-			</div>
-			<div class="contrast_two">
-				<ul>
-					<li>2012-07</li>
-					<li>2012-07</li>
-					<li>2012-07</li>
-				</ul>
-			</div>
-			<div class="contrast_three">
-				<ul>
-					<li>300亿美元</li>
-					<li>305.87亿人民币</li>
-					<li>F轮-上市前</li>
-				</ul>
-			</div>
-			<div class="contrast_time">2017-04</div>
-			<div class="contrast_money">55亿美元</div>
-			<div class="contrast_four">
-				<ul>
-					<li>软银中国</li>
-					<li>软银中国</li>
-					<li>软银中国</li>
-				</ul>
-			</div>
-		</li>
+		</script>
+		{-raw-}
+		<!--<li>-->
+			<!--<div class="contrast_img">-->
+				<!--<img src="http://static.galaxyinternet.com/img/project/f16d630dd4a46243780d99739bf4444b.png">-->
+				<!--<div class="contrast_name">滴滴出行</div>-->
+				<!--<div class="dn_ico dn_ico_contrast"></div>-->
+			<!--</div>-->
+			<!--<div class="contrast_two">-->
+				<!--<ul>-->
+					<!--<li>2012-07</li>-->
+					<!--<li>2012-07</li>-->
+					<!--<li>2012-07</li>-->
+				<!--</ul>-->
+			<!--</div>-->
+			<!--<div class="contrast_three">-->
+				<!--<ul>-->
+					<!--<li>300亿美元</li>-->
+					<!--<li>305.87亿人民币</li>-->
+					<!--<li>F轮-上市前</li>-->
+				<!--</ul>-->
+			<!--</div>-->
+			<!--<div class="contrast_time">2017-04</div>-->
+			<!--<div class="contrast_money">55亿美元</div>-->
+			<!--<div class="contrast_four">-->
+				<!--<ul>-->
+					<!--<li>软银中国</li>-->
+					<!--<li>软银中国</li>-->
+					<!--<li>软银中国</li>-->
+					<!--<li>软银中国</li>-->
+					<!--<li>软银中国</li>-->
+					<!--<li>软银中国</li>-->
+					<!--<li>软银中国</li>-->
+					<!--<li>软银中国</li>-->
+					<!--<li>软银中国</li>-->
+					<!--<li>软银中国</li>-->
+					<!--<li>软银中国</li>-->
+					<!--<li>软银中国</li>-->
+					<!--<li>软银中国</li>-->
+				<!--</ul>-->
+			<!--</div>-->
+		<!--</li>-->
+		<!--<li>-->
+			<!--<div class="contrast_img">-->
+				<!--<img src="http://static.galaxyinternet.com/img/project/f16d630dd4a46243780d99739bf4444b.png">-->
+				<!--<div class="contrast_name">滴滴出行</div>-->
+				<!--<div class="dn_ico dn_ico_contrast"></div>-->
+			<!--</div>-->
+			<!--<div class="contrast_two">-->
+				<!--<ul>-->
+					<!--<li>2012-07</li>-->
+					<!--<li>2012-07</li>-->
+					<!--<li>2012-07</li>-->
+				<!--</ul>-->
+			<!--</div>-->
+			<!--<div class="contrast_three">-->
+				<!--<ul>-->
+					<!--<li>300亿美元</li>-->
+					<!--<li>305.87亿人民币</li>-->
+					<!--<li>F轮-上市前</li>-->
+				<!--</ul>-->
+			<!--</div>-->
+			<!--<div class="contrast_time">2017-04</div>-->
+			<!--<div class="contrast_money">55亿美元</div>-->
+			<!--<div class="contrast_four">-->
+				<!--<ul>-->
+					<!--<li>软银中国</li>-->
+					<!--<li>软银中国</li>-->
+					<!--<li>软银中国</li>-->
+				<!--</ul>-->
+			<!--</div>-->
+		<!--</li>-->
+		<!--<li>-->
+			<!--<div class="contrast_img">-->
+				<!--<img src="http://static.galaxyinternet.com/img/project/f16d630dd4a46243780d99739bf4444b.png">-->
+				<!--<div class="contrast_name">滴滴出行</div>-->
+				<!--<div class="dn_ico dn_ico_contrast"></div>-->
+			<!--</div>-->
+			<!--<div class="contrast_two">-->
+				<!--<ul>-->
+					<!--<li>2012-07</li>-->
+					<!--<li>2012-07</li>-->
+					<!--<li>2012-07</li>-->
+				<!--</ul>-->
+			<!--</div>-->
+			<!--<div class="contrast_three">-->
+				<!--<ul>-->
+					<!--<li>300亿美元</li>-->
+					<!--<li>305.87亿人民币</li>-->
+					<!--<li>F轮-上市前</li>-->
+				<!--</ul>-->
+			<!--</div>-->
+			<!--<div class="contrast_time">2017-04</div>-->
+			<!--<div class="contrast_money">55亿美元</div>-->
+			<!--<div class="contrast_four">-->
+				<!--<ul>-->
+					<!--<li>软银中国</li>-->
+					<!--<li>软银中国</li>-->
+					<!--<li>软银中国</li>-->
+				<!--</ul>-->
+			<!--</div>-->
+		<!--</li>-->
 	</ul>
 </div>	
 
@@ -175,5 +185,43 @@
 
 
 </body>
+<script src="js/jquery.tmpl.js"></script>
+<script>
+	var array=[];
+	if(getCookie("ctdn-compare")){
+		var jsonArray = eval('(' + getCookie("ctdn-compare") + ')');
+		for(var i = 0;i<jsonArray.length;i++){
+			array.push(jsonArray[i].code);
+		}
+		var codes =  array.join(",");
+		sendGetRequest(detail.queryByCodeList+codes,function(data){
+			var target =$("#compareList")
+			target.tmpl(data.data).appendTo(target.parent())
 
+			  //删除对比
+			 $("body").delegate(".divcom","click",function(){
+				$(this).closest("li").remove();
+				var code= $(this).attr("code");
+				var title= $(this).attr("title");
+				cancelCompare(code,title)
+			 })
+		})
+	}
+
+
+	//对比项目投资方
+	function formatInvestSide(investSideJson){
+     if(!investSideJson){
+        return table.empty
+     }else{
+         var jsonObjArr = eval('(' + investSideJson + ')');
+         var html;
+         for(var i in jsonObjArr){
+            html += "<li>"+jsonObjArr[i].invstor+"</li>"
+         }
+        return html;
+     }
+
+}
+</script>
 </html>
