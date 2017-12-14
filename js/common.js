@@ -620,11 +620,11 @@ $('body').delegate('.click_contrast','click', function(event){
 	var title = $(this).attr("title");
     var code = $(this).attr("code");
     if($(this).hasClass("dn_ico_list_contrast_on")){
-       cancelCompare(code)
+       cancelCompare(code,title)
     }else{
        var flag = compare(code,title)
        if(!flag){
-            layer.tips('最多可选择4个项目进行对比!', $(this), {
+            layer.tips('最多可以对比4个项目', $(this), {
               tips: [1, '#3595CC'],
               time: 1000
             });
@@ -643,9 +643,9 @@ $('body').delegate('.dn_ico_list_collect','click', function(event){
 	var code = $(this).attr("code");
 	var userId =1;
 	if($(this).hasClass("dn_ico_list_collect_on")){
-	   collectOne(userId,type,code)
+	   collectOne(type,code)
 	}else{
-	   cancelOneCol(userId,type,code)
+	   cancelOneCol(type,code)
 	}
 })
 function refreshCompare(){

@@ -477,37 +477,57 @@ function option(value,row){
     }
 }
 
-
-
-
-
-
 //创业者
-function startupFormatter(){
-    var html = "";
-//    <div class="search_list_people_all">
-//    		<div class="list-item search_list_people">
-//    			<div class="list-item-inner">
-//    				<div class="list-item-left"><a target="_blank" href="/jg_particulars.html?orgCode=7eb60c84b891fd0c76f4defb686f617a"><img src="http://static.galaxyinternet.com/img/org/7eb60c84b891fd0c76f4defb686f617a.png"></a></div>
-//    				<div class="list-item-right">
-//    					<div class="list-item-title"><a target="_blank" href="/jg_particulars.html?orgCode=7eb60c84b891fd0c76f4defb686f617a">林海棠</a></div>
-//    					<div class="search_list_people_wn">Haitang Ling</div>
-//    					<div class="search_list_people_list">
-//    						<ul>
-//    							<li>一号家具网</li>
-//    							<li><div class="search_list_people_list_r">CEO</div></li>
-//    							<li><span><i class="list-item-address"></i>天津</span></li>
-//    						</ul>
-//
-//    					</div>
-//    					<div class="search_collect"><span class="dn_ico dn_ico_list_collect_search"></span>收藏</div>
-//    				</div>
-//    			</div>
-//    		</div>
-//    	</div>
+function startupFormatter(value,row){
+    var html =
+        "<div class='person-project-item clearfix'>"+
+                "<span class='person-book-close'></span>"+
+                    "<div class='person-project-left person-start-img fl'><img src='../img/person_center/person-start_03.jpg'/></div>"+
+                    "<div class='person-project-right fr'>"+
+                        "<div>"+
+                            "<p>"+row.zhName+"</p>"+
+                            "<p>"+row.enName+"</p>"+
+                        "</div>"+
+                        "<p>"+
+                            "<span class='person-start-line'>"+row.workLife+"</span>"+
+                            "<span class='person-dutity'>"+row.job+"</span>"+
+                            "<span class='person-start-univercity'>"+row.colleage+"<em>"+row.degree+"</em></span>"+
+                            "<span class='person-start-address'>"+row.districtSubName+"</span>"+
+                        "</p>"+
+                    "</div>"+
+                "</div>"
+      return html;
+}
+//投资人
+function investorFormatter(value,row){
+  var html ='<li>'+
+             '<div class="report_list_img"><img src="'+row.listPic+'"></div>'+
+             '<div class="report_list_cen">'+
+                 '<ul>'+
+                     '<li class="report_list_cen_tit"><a href="report_detailed_1.html?id='+row.id+'" target="_blank">'+row.title+'</a></li>'+
+                     '<li class="report_list_cen_time"><span>'+row.publishDate+'</span><span></span><span>来源：'+row.source+'</span></li>'+
+                     '<li class="report_list_cen_c">'+row.reportDesc+'</li>'+
+                 '</ul>'+
+                 '<div class="search_collect"><span class="dn_ico dn_ico_list_collect_search dn_ico_list_collect" type=4 code='+row.id+'></span>收藏</div>'+
+             '</div>'+
+             '<div class="dn_sy_line"></div>'+
+         '</li>'
+    return html;
 }
 
 //创业者
-function startupFormatter(){
-
+function reportFormatter(value,row){
+    var html ='<li>'+
+            '<div class="report_list_img"><img src="'+row.listPic+'"></div>'+
+            '<div class="report_list_cen">'+
+                '<ul>'+
+                    '<li class="report_list_cen_tit"><a href="report_detailed_1.html?id='+row.id+'" target="_blank">'+row.title+'</a></li>'+
+                    '<li class="report_list_cen_time"><span>'+row.publishDate+'</span><span></span><span>来源：'+row.source+'</span></li>'+
+                    '<li class="report_list_cen_c">'+row.reportDesc+'</li>'+
+                '</ul>'+
+                '<div class="search_collect"><span class="dn_ico dn_ico_list_collect_search dn_ico_list_collect" type=4 code='+row.id+'></span>收藏</div>'+
+            '</div>'+
+            '<div class="dn_sy_line"></div>'+
+        '</li>'
+   return html;
 }

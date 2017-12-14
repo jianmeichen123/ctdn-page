@@ -102,8 +102,7 @@
 		for(var i = 0;i<jsonArray.length;i++){
 			array.push(jsonArray[i].code);
 		}
-		var codes =  array.join(",");
-		sendGetRequest(detail.queryByCodeList+codes,function(data){
+		sendGetRequest(detail.queryProListByCodeList,{"code":array},function(data){
 			var target =$("#compareList")
 			target.tmpl(data.data).appendTo(target.parent())
 			  //删除对比

@@ -116,14 +116,16 @@ var detail = {
     saveOrUpdateUerIndustry:Constants.platformContentURL+"/index/saveOrUpdateUerIndustry/",
     userIndustry:Constants.platformContentURL+"/index/userIndustry/",
     getCompeteInfo:Constants.platformContentURL+"/index/getCompeteInfo/",
-    queryByCodeList:Constants.platformContentURL+"/projectList/queryByCodeList/",
+    queryProListByCodeList:Constants.platformContentURL+"/projectList/queryByCodeList/",
+    queryReportByPage:Constants.platformContentURL+"/report/queryReportByPage/",
 }
 var user = {
     collectOne:Constants.platformContentURL+"/userCollection/collectOne",
     cancelOneCol:Constants.platformContentURL+"/userCollection/cancelOneCol/",
     countNum:Constants.platformContentURL+"/userCollection/countNum/",
     getCodeList:Constants.platformContentURL+"/userCollection/getCodeList/",
-    getColList:Constants.platformContentURL+"/userCollection/getColList/"
+    getColList:Constants.platformContentURL+"/userCollection/getColList/",
+    queryProPageByCodeList:Constants.platformContentURL+"projectList/queryByCodeList/"
 }
 /**
  * how to use? location.href = platformUrl.login
