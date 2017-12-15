@@ -20,11 +20,10 @@ function initVar(){
 function initIndex(){
     initFocusIndustry();
     initAllIndustry();
-    //initSelectOptions();
 }
 //所有行业初始化
 function initAllIndustry(){
-    sendPostRequest(platformUrl.industry,function(data){
+    sendGetRequest(platformUrl.industry,function(data){
         var ls = data.data;
         $(ls).each(function(){
             var id =$(this)[0].id;
@@ -43,6 +42,25 @@ function initAllIndustry(){
         })
     })
 }
+
+function reset(){
+    $(ls).each(function(){
+        var id =$(this)[0].id;
+        var name = $(this)[0].name;
+        allIndustryIds.push(id)
+        allIndustryNames.push(name)
+        if($.inArray(id, focusIndustryIds)>-1){
+            popIndustryHtml += "<li value= "+id+" class='concern-clicked' >"+name+"</li>"
+        }else{
+            popIndustryHtml += "<li value= "+id+">"+name+"</li>"
+        }
+    })
+    $(".industry-span-content ul").html(popIndustryHtml)
+    $('.industry-span-content ul li').click(function(){
+        $(this).toggleClass('concern-clicked')
+    })
+}
+
 //查询用户关注行业
 function initFocusIndustry(){
      sendGetRequest(platformUrl.userIndustry+userId,function(data){
@@ -71,12 +89,8 @@ function saveIndustry(){
 }
 
 function reset(userId){
-    sendPostRequestByJsonObj(platformUrl.updateUserIndustry,userIndustry,function(data){
-        alert(11)
-        //initIndex(); //重新加载主页
-    })
+    initFocusIndustry()
 }
-
 //select options初始化
 //function initSelectOptions(){
 //    var options = "";

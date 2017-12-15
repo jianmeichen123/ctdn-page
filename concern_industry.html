@@ -24,7 +24,7 @@
 			</div>
 			<div class='concern-industry-save'>
 				<span onclick="saveIndustry()">保存</span>
-				<span class='concern-industry-reset'>重置</span>
+				<span class='concern-industry-reset' onclick="reset()">重置</span>
 			</div>
 		</div>
 	</div>
@@ -36,8 +36,11 @@
 $('.industry-span-content ul li').click(function(){
 	$(this).toggleClass('concern-clicked')
 })
-<!--$('#allClick').click(function(){-->
-	<!--$(".industry-span-content ul li").toggleClass('concern-clicked')-->
-<!--})-->
+$('#allClick').click(function(){
+	$(".industry-span-content ul li").addClass('concern-clicked')
+})
+$('#clear').click(function(){
+	$(".industry-span-content ul li").removeClass('concern-clicked')
+})
 </script>
 </html>
