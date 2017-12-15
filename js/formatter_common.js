@@ -388,7 +388,6 @@ function projectFormatter(value,row){
 				"</div>"+
 			"</div>"+
 		"</div>"
-
    return injectValues(html,row);
 }
 //投资机构
@@ -458,10 +457,7 @@ function option(value,row){
     var type = $("table[data-url]").attr("data-type");
     var code ;
     var title ;
-    if(type ==0){
-        code = row.projCode; //项目
-        title = row.projTitle
-    }else if(type ==1){
+    if(type ==1){
         code = row.orgCode; //机构
     }else if(type ==2){
         code = row.code;    //投资人
@@ -470,34 +466,35 @@ function option(value,row){
     }else if(type == 4){
         code = row.id;      //
     }
-    if(isCompare(code)){
-        return "<span id="+code+" class='click_contrast dn_ico dn_ico_list_contrast dn_ico_list_contrast_on'  code="+code+" title='"+title+"' ></span> <span class='dn_ico dn_ico_list_collect' type="+type+" code='"+code+"'></span>"
+    var html;
+    if(codeList && codeList.indexOf(code)>=0){
+        html = "<span class='dn_ico dn_ico_list_collect dn_ico_list_collect_on' type="+type+" code='"+code+"'></span>"
     }else{
-        return "<span  id="+code+" class='click_contrast dn_ico dn_ico_list_contrast'  code="+code+" title='"+title+"'></span> <span class='dn_ico dn_ico_list_collect' type="+type+" code='"+code+"'></span>"
+        html ="<span class='dn_ico dn_ico_list_collect ' type="+type+" code='"+code+"'></span>"
     }
+    return html;
 }
 
-//创业者
-function startupFormatter(value,row){
-    var html =
-        "<div class='person-project-item clearfix'>"+
-                "<span class='person-book-close'></span>"+
-                    "<div class='person-project-left person-start-img fl'><img src='../img/person_center/person-start_03.jpg'/></div>"+
-                    "<div class='person-project-right fr'>"+
-                        "<div>"+
-                            "<p>"+row.zhName+"</p>"+
-                            "<p>"+row.enName+"</p>"+
-                        "</div>"+
-                        "<p>"+
-                            "<span class='person-start-line'>"+row.workLife+"</span>"+
-                            "<span class='person-dutity'>"+row.job+"</span>"+
-                            "<span class='person-start-univercity'>"+row.colleage+"<em>"+row.degree+"</em></span>"+
-                            "<span class='person-start-address'>"+row.districtSubName+"</span>"+
-                        "</p>"+
-                    "</div>"+
-                "</div>"
-      return html;
+function option_project(value,row){
+    var type = $("table[data-url]").attr("data-type");
+    var code = row.projCode; //项目
+    var title = row.projTitle
+    var html;
+    if(isCompare(code)){
+        html="<span id="+code+" class='click_contrast dn_ico dn_ico_list_contrast dn_ico_list_contrast_on'  code="+code+" title='"+title+"' ></span> "
+    }else{
+        html="<span  id="+code+" class='click_contrast dn_ico dn_ico_list_contrast'  code="+code+" title='"+title+"'></span> "
+    }
+    if(codeList && codeList.indexOf(code)>=0){
+        html += "<span class='dn_ico dn_ico_list_collect dn_ico_list_collect_on' type="+type+" code='"+code+"'></span>"
+    }else{
+        html +="<span class='dn_ico dn_ico_list_collect ' type="+type+" code='"+code+"'></span>"
+    }
+    return html;
 }
+
+
+
 //投资人
 function investorFormatter(value,row){
   var html ='<li>'+
@@ -531,3 +528,5 @@ function reportFormatter(value,row){
         '</li>'
    return html;
 }
+
+

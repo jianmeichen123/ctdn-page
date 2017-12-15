@@ -13,18 +13,7 @@
 <body>
 {(header.html)}
 <div class='person-center-container clearfix'>
-	<div class='person-left fl'>
-		<div class='person-head-pic'>
-			<img src='../img/person_center/person_03.png'/>
-			<p>136434***</p>
-		</div>
-		<ul class='person-menu'>
-			<li class='person-item-project'><span></span>我的项目</li>
-			<li class='person-item-industry'><span></span>关注行业</li>
-			<li class='person-li-item'><span></span>收藏夹</li>
-			<li class='person-change-password'><span></span>修改密码</li>
-		</ul>
-	</div>
+	{(person_center_header.html)}
 	<div class='person-right fl person-bookmark-content'>
 		<ul class='clearfix info-nav-content'>
 			<li data-type=0><span>项目</span>(<span >0</span>)</li>
@@ -38,7 +27,7 @@
 			<table  class="table table_white_search" data-type=0 style="display:none">
 				<thead>
 				<tr>
-					<th class="data-input" style=""  data-formatter="projectFormatter"></th>
+					<th class="data-input" style=""  data-formatter="proColFormatter"></th>
 				</tr>
 				</thead>
 			</table>
@@ -47,7 +36,7 @@
 			<table  class="table table_white_search" data-type=1  style="display:none" >
 				<thead>
 				<tr>
-					<th class="data-input" style="" data-item="0" data-formatter="investfirmFormatter"></th>
+					<th class="data-input" style="" data-item="0" data-formatter="orgColFormatter"></th>
 				</tr>
 				</thead>
 			</table>
@@ -65,7 +54,7 @@
 			<table  class="table table_white_search" data-type=3  style="display:none" >
 				<thead>
 				<tr>
-					<th class="data-input" style="" data-item="0" data-formatter="investorFormatter"></th>
+					<th class="data-input" style="" data-item="0" data-formatter="invColFormatter"></th>
 				</tr>
 				</thead>
 			</table>
@@ -74,7 +63,7 @@
 			<table  class="table table_white_search" data-type=4  style="display:none" >
 				<thead>
 				<tr>
-					<th class="data-input" style="" data-item="0" data-formatter="reportFormatter"></th>
+					<th class="data-input" style="" data-item="0" data-formatter="reColFormatter"></th>
 				</tr>
 				</thead>
 			</table>

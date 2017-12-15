@@ -819,3 +819,22 @@ function select_all(){
 function unselect_all(){
 	$("#concern_industry li").removeClass('trade_pop_c_ul_on')
 }
+//获得用户的收藏codeList
+
+function getCodeList (type){
+    var codeList;
+    sendGetRequest(user.getCodeList+"/"+userId+"/"+type,function(data){
+        codeList = data.data;
+    })
+    return codeList;
+}
+
+//判断是否包含收藏
+function idCollection(type,code){
+    var codeList = getCodeList(type);
+    if(codeList && codeList.indexOf(code)){
+        return true;
+    }else{
+        return false;
+    }
+}

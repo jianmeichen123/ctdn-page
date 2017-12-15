@@ -3,8 +3,13 @@ function formatProjectInfo(data,divList){
      $(".dn_ico_list_collect_search").attr("code",data["projCode"])
      $(".click_contrast").attr("code",data["projCode"])
      $(".click_contrast").attr("id",data["projCode"])
+     //判断是否对比
      if(isCompare(data["projCode"])){
          $(".click_contrast").toggleClass('dn_ico_list_contrast_on');
+     }
+     //判断是否收藏
+     if(idCollection(0)){
+         $(".dn_ico_list_collect_search").toggleClass('dn_ico_list_collect_search_on');
      }
      projCode = data["projCode"]
      compCode = data["compCode"]
