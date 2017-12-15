@@ -14,6 +14,34 @@ var tableFormate ={
         var img = Constants.logoPath+"project/"+row["projCode"]+".png"
         return '<div class="list_table_td"> <img width="37" src="'+img+'"> <span class="col_999"><a target="_blank" href="/project_qy.html?projCode='+row.projCode+'">'+projectName+'</a></span> </div>'
     },
+    personProjectName:function(value, row, index){
+            var projectName = row.projTitle
+            var img = ""
+            if(projectName==null){
+                projectName='名称未知'
+            }
+            var img = Constants.logoPath+"project/"+row["projCode"]+".png"
+            return '<div class="list_table_td">  <span class="col_999"><a target="_blank" href="/project_qy.html?projCode='+row.projCode+'">'+projectName+'</a></span> </div>'
+    },
+
+    investorName:function(value, row, index){
+           var zhName = row.zhName
+           var img = ""
+           if(zhName==null){
+               zhName='名称未知'
+           }
+           var img = Constants.logoPath+"person/"+row["code"]+".png"
+           return '<div class="list_table_td"> <img width="37" src="'+img+'"> <span class="col_999"><a target="_blank" href="/investor_xq.html?code='+row.code+'">'+zhName+'</a></span> </div>'
+    },
+    startUpName:function(value, row, index){
+           var zhName = row.zhName
+           var img = ""
+           if(zhName==null){
+               zhName='名称未知'
+           }
+           var img = Constants.logoPath+"person/"+row["code"]+".png"
+           return '<div class="list_table_td"> <img width="37" src="'+img+'"> <span class="col_999"><a target="_blank" href="/startup_xq.html?code='+row.code+'">'+zhName+'</a></span> </div>'
+    },
     //上市列表
     listedProjectName:function(value, row, index){
             var projectName = row.projTitle
@@ -453,11 +481,12 @@ function investfirmFormatter(value,row){
     return injectValues(html,row);
 }
 
-function option(value,row){
+function option(value,row,index){
     var type = $("table[data-url]").attr("data-type");
     var code ;
-    var title ;
-    if(type ==1){
+    if(type ==0){
+        code = row.projCode; //项目
+    }else if(type ==1){
         code = row.orgCode; //机构
     }else if(type ==2){
         code = row.code;    //投资人

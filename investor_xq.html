@@ -19,29 +19,44 @@ comp {
 	{(header.html)}
 	<div class="container">
 		<div class="particulars_all">
+			<div id="header">
+			</div>
+			{-raw-}
+			<script  id="person_basic" type="text/x-jquery-tmpl">
 			<div class="startup_xq search_list_people">
 				<div class="list-item-inner">
 					<div class="list-item-left">
-						<a target="_blank"
-							href="/jg_particulars.html?orgCode=7eb60c84b891fd0c76f4defb686f617a"><img
-							src="http://static.galaxyinternet.com/img/org/7eb60c84b891fd0c76f4defb686f617a.png"></a>
+						<img src="${Constants.logoPath}person/${code}.png"/>
 					</div>
 					<div class="list-item-right">
 						<div class="list-item-title">
 							<a target="_blank"
-								href="/jg_particulars.html?orgCode=7eb60c84b891fd0c76f4defb686f617a">林海棠</a>
+							   href="/investor_xq.html?code=${code}">${zhName}</a>
 						</div>
-						<div class="search_list_people_wn">Haitang Ling</div>
+						<div class="search_list_people_wn">${enName}</div>
 						<div class="search_list_people_list">
 							<ul>
-								<li>一号家具网</li>
-								<li><div class="search_list_people_list_r">CEO</div></li>
-								<li><div class="search_list_people_list_r">
-										<em>清华大学</em> <em>硕士</em>
-									</div></li>
-								<li><span><i class="list-item-address"></i>天津</span></li>
+								{{if projTitle}}
+								<li>
+									<div class="search_list_people_list_r">
+										<a target="_blank" href="/project_qy.html/?projCode=${projCode}">${projTitle}</a>
+									</div>
+								</li>
+								{{/if}}
+								{{if job}}
+									<li>${job}</li>
+								{{/if}}
+								<li>
+									<div class="search_list_people_list_r">
+										<em>${colleage}</em> <em>${degree}</em>
+									</div>
+								</li>
+								{{if districtSubName}}
+								<li>
+									<span><i class="list-item-address"></i>${districtSubName}</span>
+								</li>
+								{{/if}}
 							</ul>
-
 						</div>
 						<div class="search_collect">
 							<span class="dn_ico dn_ico_list_collect_search"></span>收藏
@@ -58,8 +73,7 @@ comp {
 					<li><span>教育经历</span></li>
 				</ul>
 			</div>
-
-			<div class="background_boeder">
+			<div class="background_boeder" style="display:none" data-id="none">
 				<div class="project_t storey_list">
 					<span class="brain_ico brain_ico_project_crumbs"></span>投资人简介
 				</div>
@@ -67,9 +81,9 @@ comp {
 					<ul class="project_all_l_ul">
 						<li>
 							<div class="font_14"></div>
-							<p class="color_666">美丽说是国内最大的新款发布平台，用户主要为年龄在18岁到35岁的年轻女性，注册用户已超过1亿。徐易容先生于2009年创立美丽说，开创了社会化电商导购模式。2013年11月，美丽说开始搭建电商交易平台，为用户提供多品类的精选、优质的时尚货品，成为女性时尚垂直品类电商时尚新款发布平台。创立至今，美丽说已获得四轮风险投资，分别来自纪源资本、红杉资本、高瓴资本、蓝驰创投、腾讯和清科创投等知名机构和公司的投资。2015年，美丽说签约鹿晗为全球品牌代言人。近期，美丽说宣布旗下全球时尚网购平台美丽说HIGO获得《奔跑吧兄弟》第三季总冠名权，美丽说将重启时尚新款发布平台战略。</p>
+							<p class="color_666" id="personIntro">${introduce}</p>
 							<div class="project_more">
-								<div class="dn_ico_more_all_click">
+								<div class="dn_ico_more_all_click" style="display: none;">
 									<div class="dn_ico_more_al_divl">
 										加载更多<span class="dn_ico dn_ico_more"></span>
 									</div>
@@ -85,128 +99,97 @@ comp {
 
 				</div>
 			</div>
+			</script>
+			{-raw-}
 
-			<div class="background_boeder">
+			<div class="background_boeder" data-id="investor_policy" data-url="queryInvestPolicyInfo" style="display:none">
 				<div class="project_t storey_list">
 					<span class="brain_ico brain_ico_project_crumbs"></span>投资策略
 				</div>
 				<div class="particulars_black">
+				<input type="hidden" name = "type" value="I">
 					<ul class="investor_ul">
+					{-raw-}
+					<script id="investor_policy" type="text/x-jquery-tmpl">
 						<li>
 							<div class="investor_ul_tit">关注行业：</div>
 							<ul class="investor_ul_1">
-								<li>互联网教育</li>
-								<li>互联网教育</li>
-								<li>互联网教育</li>
+
+							{{html investPolicy(fields)}}
 							</ul>
 						</li>
 						<li>
 							<div class="investor_ul_tit">投资阶段：</div>
 							<ul class="investor_ul_2">
-								<li>天使轮</li>
-								<li>天使轮</li>
-								<li>互联网教育</li>
+							{{html investPolicy(rounds)}}
 							</ul>
 						</li>
 						<li>
 							<div class="investor_ul_tit">投资计划：</div>
-							<div class="investor_ul_c">1年计划投资10个项目</div>
+							<div class="investor_ul_c">
+							{{if plan}}
+								${plan}
+							{{else}}
+								--
+							{{/if}}
+							</div>
 						</li>
 						<li>
 							<div class="investor_ul_tit">投资金额：</div>
-							<div class="investor_ul_c">500-1000万元</div>
+							<div class="investor_ul_c">
+							{{if singleStroke}}
+								${singleStroke}
+							{{else}}
+								--
+							{{/if}}
+							</div>
 						</li>
+						</script>
+					{-raw-}
 					</ul>
-
 				</div>
 			</div>
-
-			<div class="background_boeder">
+			<div class="background_boeder" data-id="person_com_expr" data-url="queryPersonComExpr" >
 				<div class="project_t storey_list">
 					<span class="brain_ico brain_ico_project_crumbs"></span>投资案例
 				</div>
 				<div class="particulars_black">
+					<input type="hidden" name = "type" value="I">
+					<input type="hidden" name = "pageSize" value="4">
+					<input type="hidden" name = "pageNo" value="0">
 					<ul class="investor_case">
+						{-raw-}
+						<script id="person_com_expr" type="text/x-jquery-tmpl">
+						{{each(i,v) data}}
 						<li>
 							<ul class="investor_case_ul">
 								<li>
 									<div class="investor_case_ul_img">
 										<a target="_blank"
-											href="/jg_particulars.html?orgCode=7eb60c84b891fd0c76f4defb686f617a"><img
-											src="http://static.galaxyinternet.com/img/org/7eb60c84b891fd0c76f4defb686f617a.png"></a>
+											href="/project_qy.html?projCode=${projCode}"><img
+											src="${Constants.logoPath}project/${projCode}.png""></a>
 									</div>
 									<div class="investor_case_ul_cen">
-										<div class="investor_case_ul_cen_1">飞天影业</div>
-										<div class="investor_case_ul_cen_2">种子轮/1500万人民币</div>
-										<div class="investor_case_ul_cen_3"><span>文娱传媒</span></div>
-										<div class="investor_case_ul_cen_time">2015-08-01</div>
+										<div class="investor_case_ul_cen_1">${projTitle}</div>
+										<div class="investor_case_ul_cen_2">${latestFinanceRound}/${latestFinanceAmountStr}</div>
+										<div class="investor_case_ul_cen_3"><span>${industryName}</span></div>
+										<div class="investor_case_ul_cen_time">${projSetUpDT}</div>
 									</div>
 								</li>
-								<li><div class="investor_case_ul_div">动力外骨骼机器人，动力外骨骼机器人动力外骨骼机器人动力。动力外骨骼机器人，动力外骨骼机器人动力外骨骼机器人动力。</div></li>
+								<li><div class="investor_case_ul_div">${projIntroduce}</div></li>
 							</ul>
 						</li>
-						<li>
-							<ul class="investor_case_ul">
-								<li>
-									<div class="investor_case_ul_img">
-										<a target="_blank"
-											href="/jg_particulars.html?orgCode=7eb60c84b891fd0c76f4defb686f617a"><img
-											src="http://static.galaxyinternet.com/img/org/7eb60c84b891fd0c76f4defb686f617a.png"></a>
-									</div>
-									<div class="investor_case_ul_cen">
-										<div class="investor_case_ul_cen_1">飞天影业</div>
-										<div class="investor_case_ul_cen_2">种子轮/1500万人民币</div>
-										<div class="investor_case_ul_cen_3"><span>文娱传媒</span></div>
-										<div class="investor_case_ul_cen_time">2015-08-01</div>
-									</div>
-								</li>
-								<li><div class="investor_case_ul_div">动力外骨骼机器人，动力外骨骼机器人动力外骨骼机器人动力。动力外骨骼机器人，动力外骨骼机器人动力外骨骼机器人动力。</div></li>
-							</ul>
-						</li>
-						<li>
-							<ul class="investor_case_ul">
-								<li>
-									<div class="investor_case_ul_img">
-										<a target="_blank"
-											href="/jg_particulars.html?orgCode=7eb60c84b891fd0c76f4defb686f617a"><img
-											src="http://static.galaxyinternet.com/img/org/7eb60c84b891fd0c76f4defb686f617a.png"></a>
-									</div>
-									<div class="investor_case_ul_cen">
-										<div class="investor_case_ul_cen_1">飞天影业</div>
-										<div class="investor_case_ul_cen_2">种子轮/1500万人民币</div>
-										<div class="investor_case_ul_cen_3"><span>文娱传媒</span></div>
-										<div class="investor_case_ul_cen_time">2015-08-01</div>
-									</div>
-								</li>
-								<li><div class="investor_case_ul_div">动力外骨骼机器人，动力外骨骼机器人动力外骨骼机器人动力。动力外骨骼机器人，动力外骨骼机器人动力外骨骼机器人动力。</div></li>
-							</ul>
-						</li>
-						<li>
-							<ul class="investor_case_ul">
-								<li>
-									<div class="investor_case_ul_img">
-										<a target="_blank"
-											href="/jg_particulars.html?orgCode=7eb60c84b891fd0c76f4defb686f617a"><img
-											src="http://static.galaxyinternet.com/img/org/7eb60c84b891fd0c76f4defb686f617a.png"></a>
-									</div>
-									<div class="investor_case_ul_cen">
-										<div class="investor_case_ul_cen_1">飞天影业</div>
-										<div class="investor_case_ul_cen_2">种子轮/1500万人民币</div>
-										<div class="investor_case_ul_cen_3"><span>文娱传媒</span></div>
-										<div class="investor_case_ul_cen_time">2015-08-01</div>
-									</div>
-								</li>
-								<li><div class="investor_case_ul_div">动力外骨骼机器人，动力外骨骼机器人动力外骨骼机器人动力。动力外骨骼机器人，动力外骨骼机器人动力外骨骼机器人动力。</div></li>
-							</ul>
-						</li>
+						{{/each}}
+						</script>
+						{-raw-}
 					</ul>
 					<div class="project_more">
-						<div class="dn_ico_more_all_click">
-							<div class="dn_ico_more_al_divl">
+						<div class="dn_ico_more_all_click" style="display:none">
+							<div class="dn_ico_more_al_divl" >
 								加载更多<span class="dn_ico dn_ico_more"></span>
 							</div>
 						</div>
-						<div class="dn_ico_more_all_click_show" style="display: none;">
+						<div class="dn_ico_more_all_click_show" style="display:none">
 							<div class="dn_ico_more_al_divl">
 								点击收起<span class="dn_ico dn_ico_more_show"></span>
 							</div>
@@ -215,70 +198,103 @@ comp {
 				</div>
 			</div>
 
-			<div class="background_boeder">
+			<div class="background_boeder" data-id="person_work_expr" data-url="queryPersonWorkExpr" >
 				<div class="project_t storey_list">
 					<span class="brain_ico brain_ico_project_crumbs"></span>工作经历
 				</div>
 				<div class="particulars_black">
+					<input type="hidden" name = "type" value="I">
 					<div class="blue_l_b startup_list">
 						<ul>
+							{-raw-}
+							<script id="person_work_expr" type="text/x-jquery-tmpl">
+							{{each(i,v) data}}
 							<div class="blue_l_b_line"></div>
-
 							<li>
 								<div class="relative m_t5">
-									<span class="circle_b"></span><span class="startup_time">2015年</span><span>一号家居网</span><span>|</span><span>CEO</span>
+									<span class="circle_b"></span>
+									<span class="startup_time">${period}</span>
+									<span>${projTitle}</span>
+									{{if job}}
+									<span>|</span>
+									{{/if}}
+									<span>${job}</span>
 								</div>
 							</li>
-							<li>
-								<div class="relative m_t5">
-									<span class="circle_b"></span><span class="startup_time">2014年-2015年</span><span>一号家居网</span><span>|</span><span>CEO</span>
-								</div>
-							</li>
+							{{/each}}
+							</script>
+							{-raw-}
 						</ul>
 					</div>
-					<div class="dn_ico_more_all">
+					<!--<div class="dn_ico_more_all">
 						<div class="dn_ico_more_al_divl">
 							加载更多<span class="dn_ico dn_ico_more"></span>
 						</div>
-					</div>
+					</div>-->
 				</div>
 			</div>
 
-			<div class="background_boeder">
+			<div class="background_boeder" data-id="person_edu_expr" data-url="queryPersonEduExpr" >
 				<div class="project_t storey_list">
 					<span class="brain_ico brain_ico_project_crumbs"></span>教育经历
 				</div>
 				<div class="particulars_black">
+					<input type="hidden" name = "type" value="I">
 					<div class="blue_l_b startup_list">
 						<ul>
+							{-raw-}
+							<script id="person_edu_expr" type="text/x-jquery-tmpl">
+							{{each(i,v) data}}
 							<div class="blue_l_b_line"></div>
-
 							<li>
 								<div class="relative m_t5">
-									<span class="circle_b"></span><span class="startup_time">2015年</span><span>北京大学</span><span>|</span><span>MBA</span><span>|</span><span>硕士</span>
+									<span class="circle_b"></span>
+									<span class="startup_time">${v.period}</span>
+									<span>${v.colleage}</span>
+									{{if v.major}}
+									<span>|</span>
+									{{/if}}
+									<span>${v.major}</span>
+									{{if v.degree}}
+									<span>|</span>
+									{{/if}}
+									<span>${v.degree}</span>
 								</div>
 							</li>
-							<li>
-								<div class="relative m_t5">
-									<span class="circle_b"></span><span class="startup_time">2014年-2015年</span><span>北京大学</span><span>|</span><span>MBA</span><span>|</span><span>硕士</span>
-								</div>
-							</li>
+							{{/each}}
+							</script>
+							{-raw-}
 						</ul>
 					</div>
-					<div class="dn_ico_more_all">
+				<!--	<div class="dn_ico_more_all">
 						<div class="dn_ico_more_al_divl">
 							加载更多<span class="dn_ico dn_ico_more"></span>
 						</div>
-					</div>
+					</div>-->
 				</div>
 			</div>
-
 		</div>
 	</div>
 	{(dn_foot.html)}
 
-	<script>
-	nav_locaton('ctsj','cyz','','')
+
+<script src="js/jquery.tmpl.js"></script>
+<script src="js/formatter_common.js"></script>
+<script src="js/person_particulars.js"></script>
+<script>
+sendGetRequest(detail.queryInvestorBaseInfo+"/"+getHrefParamter("code"),
+function(data){
+    $('#person_basic').tmpl(data.data).appendTo($("#header"))
+    var intro=data.data.introduce
+    if(intro){
+	  $("#personIntro").closest(".background_boeder").show()
+	  if(intro.length>100&&intro.indexOf("nbsp")==-1){
+		 $(".project_more").display='none';
+	  }
+	   	 $("#personIntro").html(intro)
+    }
+})
+nav_locaton('ctsj','tzr','','')
 </script>
 </body>
 </html>

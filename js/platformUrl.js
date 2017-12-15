@@ -44,7 +44,9 @@ var searchUrl = {
     launchEvent:Constants.searchContentURL+"launchEvent",
     investfirms:Constants.searchContentURL+"investfirms",
     news:Constants.searchContentURL+"news",
-    total:Constants.searchContentURL+"total"
+    total:Constants.searchContentURL+"total",
+    startUp:Constants.searchContentURL+"startUp",
+    investor:Constants.searchContentURL+"investor",
 }
 var dataUrl = {
     products:Constants.dataContentURL+"op/is/",
@@ -118,6 +120,14 @@ var detail = {
     getCompeteInfo:Constants.platformContentURL+"/index/getCompeteInfo/",
     queryProListByCodeList:Constants.platformContentURL+"/projectList/queryByCodeList/",
     queryReportByPage:Constants.platformContentURL+"/report/queryReportByPage/",
+
+//  创业者/投资人
+    queryPersonComExpr:Constants.platformContentURL+"/person/queryPersonComExpr/",
+    queryPersonEduExpr:Constants.platformContentURL+"/person/queryPersonEduExpr/",
+    queryPersonWorkExpr:Constants.platformContentURL+"/person/queryPersonWorkExpr/",
+    queryStartUpBaseInfo:Constants.platformContentURL+"/person/queryStartUpBaseInfo/",
+    queryInvestorBaseInfo:Constants.platformContentURL+"/person/queryInvestorBaseInfo/",
+    queryInvestPolicyInfo:Constants.platformContentURL+"/person/queryInvestPolicyInfo/",
 }
 var user = {
     collectOne:Constants.platformContentURL+"/userCollection/collectOne",
