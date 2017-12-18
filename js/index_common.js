@@ -17,7 +17,7 @@ function getNews(){
     if(type == '2' || type == '6' || type == '7' || type==''){
     	json["industryNames"] = industryNames
     }
-    console.log(json)
+    console.log(searchUrl["news"])
     sendPostRequestByJsonObj(searchUrl["news"],json,function(data){
            $(data.data).each(function(k,v){
                 if(!v){
@@ -109,6 +109,9 @@ function getOrgs(){
 		if(data.success){
 			var data_list = data.data
 			var html = ''
+			if(data_list == null || data_list.length ==0){
+				html = '<span>暂无数据</span>'
+			}
 			for(var i=0;i<data_list.length;i++){
 				var entity = data_list[i]
 				var logo = ''

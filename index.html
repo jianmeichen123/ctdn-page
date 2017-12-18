@@ -63,17 +63,17 @@
 						</tr>
 						<tr>
 							<td>历史累计</td>
-							<td class="col_pink"><span class="size22">48353</span></td>
-							<td class="col_pink"><span class="size22">48353</span></td>
-							<td class="col_pink"><span class="size22">48353</span></td>
-							<td class="col_pink"><span class="size22">48353</span><span>亿元</span></td>
+							<td class="col_pink"><span class="size22" id="projectNum_total">48353</span>家</td>
+							<td class="col_pink"><span class="size22" id="investedProjNum_total">48353</span>家</td>
+							<td class="col_pink"><span class="size22" id="eventNum_total">48353</span>笔</td>
+							<td class="col_pink"><span class="size22" id="amount_total">48353</span><span>亿元</span></td>
 						</tr>
 						<tr>
 							<td>本月新增</td>
-							<td class="col_pink"><span class="size22">48353</span></td>
-							<td class="col_pink"><span class="size22">48353</span></td>
-							<td class="col_pink"><span class="size22">48353</span></td>
-							<td class="col_pink"><span class="size22">48353</span><span>亿元</span></td>
+							<td class="col_pink"><span class="size22" id="projectNum_curmonth" style="color:orange;">48353</span>家</td>
+							<td class="col_pink"><span class="size22" id="investedProjNum_curmonth" style="color:orange;">48353</span>家</td>
+							<td class="col_pink"><span class="size22" id="eventNum_curmonth" style="color:orange;">48353</span>笔</td>
+							<td class="col_pink"><span class="size22" id="amount_curmonth" style="color:orange;">48353</span><span>亿元</span></td>
 						</tr>
 					</tbody>
 				</table>
@@ -88,11 +88,11 @@
 						<div class="fl">
 							<span class="eachrst_tit_on" cmd="yl_tit" name="one">行业融资趋势</span>
 							<span class="eachrst_tit_b">|</span>
-							<span cmd="yl_tit" name="two">行业融资对比（本季度）</span>
+							<span cmd="yl_tit" name="two">行业融资对比</span>
 						</div>
-						<div class="fr">
-							<span class="eachrst_tit_on">按融资笔数</span>
-							<span>按融资金额</span>
+						<div class="fr" id="num_or_money">
+							<span class="eachrst_tit_on" lang="1">按融资笔数</span>
+							<span lang="2">按融资金额</span>
 						</div>
 						
 						
@@ -203,29 +203,33 @@
 					</ul>
 					{-raw-}
 					<script id="getAllnews" type="text/x-jquery-tmpl">
-							{{if data.records.length >0}}
-								{{each(i,v) data.records}}
-								<li>
-									{{if v.imgmd5}}
+							{{if data.recordList.length >0}}
+								{{each(i,v) data.recordList}}
+										{{each(j,w) v}}
+											<li>
+										{{if w.imgmd5}}
 										<div class="executive_list_show">
 									{{else}}
 										<div class="executive_list_show no_img_index">
 									{{/if}}
-									<div class="executive_time">${v.orderTime}<span class="executive_time_y"></span></div>
-									<div class="dn_info_list_tit"><a href="${v.href}" target="_blank">${v.title}</a></div>
-									{{if v.imgmd5}}
-										<div class="dn_info_list_show_l"><img src={{html Constants.logoPath +"news/"+v.imgmd5+".PNG"}}></div>
+									{{if j == 0}}
+										<div class="executive_time">{{html formatDate(w.orderTime*1000,'yyyy-MM-dd')}}<span class="executive_time_y"></span></div>
+									{{/if}}
+									<div class="dn_info_list_tit"><a href="${w.href}" target="_blank">${w.title}</a></div>
+									{{if w.imgmd5}}
+										<div class="dn_info_list_show_l"><img src={{html Constants.logoPath +"news/"+w.imgmd5+".PNG"}}></div>
 									{{/if}}
 									<div class="dn_info_list_show_r">
 										<ul>
 
-											<li class="dn_info_list_cen">${v.overview}</li>
-											<li class="dn_info_list_ic"><span>${v.orderTime}</span><span>来源:</span><span>${v.auther}</span></li>
+											<li class="dn_info_list_cen">${w.overview}</li>
+											<li class="dn_info_list_ic"><span>{{html formatNewsTime(w.orderTime*1000,'yyyy-MM-dd')}}</span><span>来源:</span><span>${w.auther}</span></li>
 										</ul>
 									</div>
 									<div class="executive_b_line"></div>
 									</div>
-								</li>
+								</li>	
+										{{/each}}
 								{{/each}}
 							{{else}}
 								<span>暂无数据</span>
@@ -307,15 +311,15 @@
 	{{each(i,v) data}}
 	<li>
 							<div class="rivalry_div_l">
-								<img src={{html Constants.logoPath +"news/"+v.orgCode+".PNG"}}>
-								<div class="rivalry_div_tit">${v.investOrg}</div>
+								<a href="{{html "/jg_particulars.html?orgCode="+v.orgCode}}"><img src={{html Constants.logoPath +"news/"+v.orgCode+".PNG"}}></a>
+								<div class="rivalry_div_tit"><a href="{{html "/jg_particulars.html?orgCode="+v.orgCode}}">${v.investOrg}</a></div>
 								<div class="rivalry_div_num">上个月<span class="rivalry_div_num_span">2</span>笔</div>
 							</div>
 							<div class="rivalry_div_r">
 								<ul>
-									{{if data.orgMediaInfoList}}
-								{{if data.orgMediaInfoList.length >0}}
-									{{each(j,w) data.orgMediaInfoList}}
+									{{if v.orgMediaInfos}}
+								{{if v.orgMediaInfos.length >0}}
+									{{each(j,w) v.orgMediaInfos}}
 									<li>
 										<span class="rivalry_div_r_cen">${w.title}</span>
 										<span class="rivalry_div_r_time">${w.eventDate}</span>
@@ -372,230 +376,16 @@
 			</div>
 			<!--关注行业弹出end-->
 			<!--项目速递-->
-			<div class="dn_l">
-				<div  class="dnsy_tit">
-					<div><span class="dn_ico dn_ico_project"></span><span class="dnsy_tit_size">项目速递</span></div>
-					<ul class="news_li">
-					    <li class="financing_on">新发现项目</li>
-					    <li data-tab="news" value="1" class="">最新获投项目</li>
-					</ul>
-				</div>
-				<div class="dn_info_list">
-					<ul  class="index_project">
-						<li>
-							<div class="index_project_cen">
-								<ul>
-									<li>
-										<div class="index_project_img"><a href="####" target="_blank"><img src="http://static.galaxyinternet.com/img/project/f16d630dd4a46243780d99739bf4444b.png"></a></div>
-										<div class="index_project_img_r">
-											<div class="index_project_img_r_1"><a href="####" target="_blank">飞天影业</a></div>
-											<div class="index_project_img_r_2">种子轮/100万元</div>
-											<div class="index_project_img_r_3">
-												<span>文娱传媒</span>
-											</div>
-										</div>
-									</li>
-									<li class="index_project_img_r_c">
-										<div class="index_project_img_r_c_l">获投时间：</div>
-										<div class="index_project_img_r_c_r">2017.11.15</div>
-									</li>
-									<li>
-										<div class="index_project_img_r_c_l">投资机构：</div>
-										<div class="index_project_img_r_c_r">IDE资本，九鼎投资，真格基金，基石资本，招商银行，招行银行</div>
-									</li>
-								</ul>
-							</div>
-						</li>
-						<li>
-							<div class="index_project_cen">
-								<ul>
-									<li>
-										<div class="index_project_img"><a href="####" target="_blank"><img src="http://static.galaxyinternet.com/img/project/f16d630dd4a46243780d99739bf4444b.png"></a></div>
-										<div class="index_project_img_r">
-											<div class="index_project_img_r_1"><a href="####" target="_blank">飞天影业</a></div>
-											<div class="index_project_img_r_2">种子轮/100万元</div>
-											<div class="index_project_img_r_3">
-												<span>文娱传媒</span>
-											</div>
-										</div>
-									</li>
-									<li class="index_project_img_r_c">
-										<div class="index_project_img_r_c_l">获投时间：</div>
-										<div class="index_project_img_r_c_r">2017.11.15</div>
-									</li>
-									<li>
-										<div class="index_project_img_r_c_l">投资机构：</div>
-										<div class="index_project_img_r_c_r">IDE资本，九鼎投资，真格基金，基石资本，招商银行，招行银行</div>
-									</li>
-								</ul>
-							</div>
-						</li>
-						<li>
-							<div class="index_project_cen">
-								<ul>
-									<li>
-										<div class="index_project_img"><a href="####" target="_blank"><img src="http://static.galaxyinternet.com/img/project/f16d630dd4a46243780d99739bf4444b.png"></a></div>
-										<div class="index_project_img_r">
-											<div class="index_project_img_r_1"><a href="####" target="_blank">飞天影业</a></div>
-											<div class="index_project_img_r_2">种子轮/100万元</div>
-											<div class="index_project_img_r_3">
-												<span>文娱传媒</span>
-											</div>
-										</div>
-									</li>
-									<li class="index_project_img_r_c">
-										<div class="index_project_img_r_c_l">获投时间：</div>
-										<div class="index_project_img_r_c_r">2017.11.15</div>
-									</li>
-									<li>
-										<div class="index_project_img_r_c_l">投资机构：</div>
-										<div class="index_project_img_r_c_r">IDE资本，九鼎投资，真格基金，基石资本，招商银行，招行银行</div>
-									</li>
-								</ul>
-							</div>
-						</li>
-						<li>
-							<div class="index_project_cen">
-								<ul>
-									<li>
-										<div class="index_project_img"><a href="####" target="_blank"><img src="http://static.galaxyinternet.com/img/project/f16d630dd4a46243780d99739bf4444b.png"></a></div>
-										<div class="index_project_img_r">
-											<div class="index_project_img_r_1"><a href="####" target="_blank">飞天影业</a></div>
-											<div class="index_project_img_r_2">种子轮/100万元</div>
-											<div class="index_project_img_r_3">
-												<span>文娱传媒</span>
-											</div>
-										</div>
-									</li>
-									<li class="index_project_img_r_c">
-										<div class="index_project_img_r_c_l">获投时间：</div>
-										<div class="index_project_img_r_c_r">2017.11.15</div>
-									</li>
-									<li>
-										<div class="index_project_img_r_c_l">投资机构：</div>
-										<div class="index_project_img_r_c_r">IDE资本，九鼎投资，真格基金，基石资本，招商银行，招行银行</div>
-									</li>
-								</ul>
-							</div>
-						</li>
-						<li>
-							<div class="index_project_cen">
-								<ul>
-									<li>
-										<div class="index_project_img"><a href="####" target="_blank"><img src="http://static.galaxyinternet.com/img/project/f16d630dd4a46243780d99739bf4444b.png"></a></div>
-										<div class="index_project_img_r">
-											<div class="index_project_img_r_1"><a href="####" target="_blank">飞天影业</a></div>
-											<div class="index_project_img_r_2">种子轮/100万元</div>
-											<div class="index_project_img_r_3">
-												<span>文娱传媒</span>
-											</div>
-										</div>
-									</li>
-									<li class="index_project_img_r_c">
-										<div class="index_project_img_r_c_l">获投时间：</div>
-										<div class="index_project_img_r_c_r">2017.11.15</div>
-									</li>
-									<li>
-										<div class="index_project_img_r_c_l">投资机构：</div>
-										<div class="index_project_img_r_c_r">IDE资本，九鼎投资，真格基金，基石资本，招商银行，招行银行</div>
-									</li>
-								</ul>
-							</div>
-						</li>
-					</ul>
-				</div>
-			</div>			
+				
 			<!--项目速递end-->
 			
 			
 			<!--投融快讯-->
-			<div class="dn_l">
-				<div  class="dnsy_tit">
-					<div><span class="dn_ico dn_ico_financing"></span><span class="dnsy_tit_size">投融快讯</span></div>
-					{(news_tab.html)}
-					<div class="dnsy_list"><a href="/news.html">更多</a></div>
-				</div>
-				<div class="dn_info_list">
-					<ul id="newsList">
-					</ul>
-					{-raw-}
-					<script id="getAllnews" type="text/x-jquery-tmpl">
-							{{if records.length >0}}
-								{{each(i,v) records}}
-								<li>
-									{{if v.imgmd5}}
-										<div class="dn_info_list_show">
-									{{else}}
-										<div class="dn_info_list_show no_img_index">
-									{{/if}}
-									<div class="dn_info_list_tit"><a href="${v.href}" target="_blank">${v.title}</a></div>
-									{{if v.imgmd5}}
-										<div class="dn_info_list_show_l"><img src={{html Constants.logoPath +"news/"+v.imgmd5+".PNG"}}></div>
-									{{/if}}
-									<div class="dn_info_list_show_r">
-										<ul>
-
-											<li class="dn_info_list_cen">${v.overview}</li>
-											<li class="dn_info_list_ic"><span>${v.orderTime}</span><span>来源:</span><span>${v.auther}</span></li>
-										</ul>
-									</div>
-									</div>
-								</li>
-								{{/each}}
-							{{else}}
-								<span>暂无数据</span>
-							{{/if}}
-							</script>
-					{-raw-}
-				</div>
-			</div>			
+			
 			<!--投融快讯end-->
 			
 			<!-- 投融事件 -->
-			<div class="dn_l">
-				<div  class="dnsy_tit no_border">
-					<div><span class="dn_ico dn_ico_event"></span><span class="dnsy_tit_size">投融事件</span></div>
-					<div class="dnsy_list"><a href="/list_page_rz.html">更多</a></div>
-				</div>
-				<div class="dn_info_list" data-block="getCTDNEventInfo">
-	
-					<ul>
-						{-raw-}
-	
-								<script id="getCTDNEventInfo" type="text/x-jquery-tmpl">
-							{{if data.length >0}}
-								{{each(i,v) data}}
-								<li>
-									<div class="dn_info_list_show padding_tb20">
-									<ul>
-										<li class="event_img"><a href="/project_qy.html?projCode=${v.sourceCode}" target="_blank"><img src="{{html Constants.logoPath +"project/"+v.sourceCode+".png"}}"></a></li>
-										<li class="event_tit">
-											<div class="event_tit_t"><a href="/project_qy.html?projCode=${v.sourceCode}" target="_blank">${v.company}</a></div>
-											<div class="event_tit_c">${v.desc}</div>
-										</li>
-										<li class="event_turn">${v.round}</li>
-										<li class="event_money">${v.amountStr}</li>
-										<li class="event_financing">
-											<ul>
-												<li>{{html v.investSideJson}}</li>
-											</ul>
-										</li>
-										<li class="event_time">{{html formatDate(v.investDate,"yyyy-MM-dd") }}</li>
-									</ul>
-									</div>
-
-									<div class="dn_sy_line_event"></div>
-								</li>
-								{{/each}}
-							{{else}}
-								<span>暂无数据</span>
-							{{/if}}
-							</script>
-	
-						{-raw-}
-					</ul>
-				</div>
-			</div>			
+			
 			<!-- 投融事件end -->
 		</div>
 		<div class="dn_r_all">
@@ -603,7 +393,7 @@
 			<div class="dn_r">
 				<div  class="dnsy_tit no_border">
 					<div><span class="dn_ico dn_ico_institution"></span><span class="dnsy_tit_size">上个月活跃机构</span></div>
-					<div class="dnsy_list"><a href="/index_project.html">更多</a></div>
+					<div class="dnsy_list"><a href="/list_page_org.html">更多</a></div>
 				</div>
 				<div class="index_institution">
 					<ul>
@@ -777,13 +567,102 @@ $(function(){
 });
 </script>
 <script src="js/jquery.tmpl.js"></script>
-<script src="js/newIndex.js"></script>
+<!-- <script src="js/newIndex.js"></script> -->
 
 <!-- 高管图表 -->
 <script src="js/echarts.min.js"></script>
 <script src="js/index_ylecharts.js"></script>
 <!-- 高管图表 end-->
+<script>
+$(function(){
+	querytotalheader()
+	querycurmontheader()
+	getGG_news()
+	getOrgs()
+})
+function querytotalheader(){
+	sendPostRequest(detail.queryGGTotalHeaderStat,function(data){
+	    $("#projectNum_total").text(data.data.projectNum)
+	    $("#investedProjNum_total").text(data.data.investedProjNum)
+	    $("#eventNum_total").text(data.data.eventNum)
+	    $("#amount_total").text(data.data.amount)
+	})
+}
+function querycurmontheader(){
+	sendPostRequest(detail.queryGGCurMonthHeaderStat,function(data){
+	    $("#projectNum_curmonth").text(data.data.projectNum)
+	    $("#investedProjNum_curmonth").text(data.data.investedProjNum)
+	    $("#eventNum_curmonth").text(data.data.eventNum)
+	    $("#amount_curmonth").text(data.data.amount)
+	})
+}
+function getGG_news(){
+    var json={};
+    json["typeId"] =6;
+    json["pageSize"]=6;
+    json["pageNo"]=0;
+    json["industryNames"] = ""
+    console.log(json)
+    sendPostRequestByJsonObj("http://fx.local.galaxyinternet.com/search/ggnews",json,function(data){
+           $(data.data).each(function(k,v){
+                if(!v){
+                    v="-"
+                }else{
+                    for(i in v){
+                        if(i=="records"){
+                            for(j in v[i]){
+                               if(v[i][j].overview.length>150){
+                                   v[i][j].overview=v[i][j].overview.substring(0,150)+'...'
+                               }
+                                v[i][j].orderTime= formatDate(v[i][j].orderTime*1000,'yyyy-MM-dd')
+                           }
+                        }
+                    }
+                }
+           })
+           $("#newsList1").html("");
+           $("#getAllnews").tmpl(data).appendTo($("#newsList1"))
+        })
+}
+function getOrgs(){
+	sendPostRequestByJsonStr(detail.queryLastestOrg,null,function(data){
+		if(data.success){
+			var data_list = data.data
+			var html = ''
+			for(var i=0;i<data_list.length;i++){
+				var entity = data_list[i]
+				var logo = ''
+			    logo = Constants.logoPath+'org/'+entity.orgCode+".png"
+				var investOrg = '名称未知'
+				if(entity.investOrg){
+					investOrg = entity.investOrg
+				}
+				html += '<li>'
+					+'<div class="index_institution_img"><a href="/jg_particulars.html?orgCode='+entity.orgCode+'" target="_blank"><img src="'+logo+'"></a></div>'
+					+'<div class="index_institution_name"><a href="/jg_particulars.html?orgCode='+entity.orgCode+'" target="_blank">'+investOrg+'</a></div>'
+					+'<div class="index_institution_num"><span>'+entity.investTotal+'</span>笔</div>'
+					+'</li>'
+			}
+			$('.index_institution ul').html(html)
+		}
+	});
+}
+getCompeteInfo()
+function getCompeteInfo(){
+	sendPostRequestByJsonStr(detail.getCompeteInfo,null,function(data){
+		if(data.success){
+			$("#compete").html("");
+	        $("#compete_script").tmpl(data).appendTo($("#compete"))
+		}else{
+			
+		}
+	});
+}
+getIndustryMonth()
+function getIndustryMonth(){
 
+}
+</script>
 </body>
 
 </html>

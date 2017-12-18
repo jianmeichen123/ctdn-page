@@ -105,7 +105,7 @@ $(function () {
 	getPorjects(1);
     var href = GetUrlRelativePath()
     if(href == 'index'){
-    	getGG_news()
+//    	getGG_news()
     }else{
     	getNews();
     }

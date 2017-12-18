@@ -1,6 +1,24 @@
+//图标切换标识 (1、行业融资趋势 2、行业融资对比) 默认行业融资
+var echarts_flag = 1
+//图表按投资笔数或融资金额显示 按融资笔数(1) 按融资金额(2) 默认融资笔数
+var query_flag = 1
 //基于准备好的dom，初始化echarts实例
 var myChart = echarts.init(document.getElementById('main_yl'));
-
+var industry_data = null
+var round_data = null
+var yAxis_name = '按融资笔数'
+var myChart_default_industry_num = 10
+var myChartDB_default_industry_num = 10
+var markLine ={}
+var avg_data = new Array()
+var data1 = {}
+data1['type'] = 'average'
+data1['name'] = '平均值'
+var normal = {}
+normal['color'] = 'black'
+data1['itemStyle'] = normal
+avg_data[0] = data1
+markLine['data'] = avg_data
 // 指定图表的配置项和数据
 var option = {
     title: {
@@ -22,7 +40,7 @@ var option = {
     legend: {
     	 x : 'right',
          y : 'bottom',
-        data:['邮件营销','联盟广告','视频广告','直接访问','搜索引擎']
+        data:['邮件营销','联盟广告']
     },
     grid: {
         left: '3%',
@@ -119,31 +137,22 @@ var option = {
             type:'line',
             symbol:'circle',
             data:[220, 182, 191, 234, 290, 330, 310]
-        },
-        {
-            name:'视频广告',
-            type:'line',
-            symbol:'circle',
-            data:[150, 232, 201, 154, 190, 330, 410]
-        },
-        {
-            name:'直接访问',
-            type:'line',
-            symbol:'circle',
-            data:[320, 332, 301, 334, 390, 330, 320]
-        },
-        {
-            name:'搜索引擎',
-            type:'line',
-            symbol:'circle',
-            data:[820, 932, 901, 934, 1290, 1330, 1320]
         }
     ]
 };
+sendPostRequestByJsonStr(detail.queryIndustryMonthForEchart,null,function(data){
+	if(data.success){
+		industry_data = data
+		showEcharts()
+	}
+});
 
-
-// 使用刚指定的配置项和数据显示图表。
-myChart.setOption(option);
+sendPostRequestByJsonStr(detail.queryIndustryMonthMergerForEchart,null,function(data){
+	if(data.success){
+		round_data = data
+		showEcharts()
+	}
+});
 
 //行业融资对比
 
@@ -155,11 +164,11 @@ var option_db = {
             type : 'none'        // 默认为直线，可选为：'line' | 'shadow'
         }
     },
-    color:['#ea4322','#ff722d','#ff975e','#ffc470','#e9e612','#c7ff66'],
+    color:['#ea4322','#ff722d','#ff975e','#ffc470','#e9e612'],
     legend: {
     	 x : '630',
          y : '400',
-        data:['种子/天使/PreA轮', 'A轮','B轮','C轮','D轮','D轮以上']
+        data:[ 'A轮','B轮','C轮','D轮','D轮以上']
     },
     grid: {
         left: '3%',
@@ -250,13 +259,6 @@ var option_db = {
             data:[150, 212, 201, 154, 190, 330, 410]
         },
         {
-            name:'D轮',
-            type:'bar',
-            stack: '总量',
-            barWidth : 15,//柱图宽度
-            data:[820, 832, 901, 934, 1290, 1330, 1320]
-        },
-        {
             name:'D轮以上',
             type:'bar',
             stack: '总量',
@@ -266,7 +268,6 @@ var option_db = {
     ]
 };
 
-myChart_db.setOption(option_db);
 $('#main_yl_db').hide();
 $('.eachrst_tit [cmd="yl_tit"]').click(function(){
 	var name = $(this).attr('name');
@@ -274,12 +275,95 @@ $('.eachrst_tit [cmd="yl_tit"]').click(function(){
 	$(this).addClass('eachrst_tit_on');
 	//$('#main_yl').html('')
 	if(name=='one'){
+		echarts_flag = 1
 		$('#main_yl').show()
 		$('#main_yl_db').hide();
 	}else{
+		echarts_flag = 2
 		$('#main_yl_db').show();
 		$('#main_yl').hide();
-
-		myChart_db.setOption(option_db)
 	}
+	showEcharts()
+})
+//按融资笔数(1) 按融资金额(2) 切换
+$('#num_or_money span').click(function(){
+	yAxis_name = $(this).text()
+	$('#num_or_money span').removeClass('eachrst_tit_on')
+	$(this).addClass('eachrst_tit_on')
+	var lang = $(this).attr('lang')
+	query_flag = lang
+	showEcharts()
+})
+function showEcharts(){
+	if(echarts_flag == 1 ){ //图表1
+		option.xAxis[0].data = industry_data.data.xAxis
+		option.legend.data=industry_data.data.legend.slice(0,myChart_default_industry_num)
+		var series =  industry_data.data.series.slice(0,myChart_default_industry_num)
+		option.yAxis[0].name = yAxis_name
+		var y_data =  new Array()
+		for(var i=0;i<series.length;i++){
+			var entity = series[i]
+			var json = {}
+			json['name'] = entity.industryName
+			if(query_flag == 1){
+				json['data'] = entity.investedNumStrList
+			}
+			if(query_flag == 2){
+				json['data'] = entity.investedAmountStrList
+			}
+			json['type'] = 'line'
+//				  symbol:'circle',
+			json['symbol'] = 'circle'
+			y_data.push(json)
+		}
+		option.series = y_data
+		myChart.setOption(option,true); //true  防止多次请求，数据重叠
+		console.log(myChart)
+	}
+	if(echarts_flag == 2) { //图表2
+		option_db.xAxis[0].data = round_data.data.xAxis.slice(0,myChartDB_default_industry_num)
+		option_db.legend.data=round_data.data.legend
+		option_db.yAxis[0].name = yAxis_name
+		var series =  round_data.data.series.slice(0,myChartDB_default_industry_num)
+		var y_data =  new Array()
+		for(var i=0;i<series.length;i++){
+			var entity = series[i]
+			var json = {}
+			json['name'] = entity.roundName
+			if(query_flag == 1){
+				json['data'] = entity.investedNumList
+			}
+			if(query_flag == 2){
+				json['data'] = entity.investedAmountList
+			}
+			json['type'] = 'bar'
+			json['barWidth']=15
+			json[ 'stack' ] = '总量'
+			y_data.push(json)
+		}
+		option_db.series = y_data
+		console.log(option_db)
+		myChart_db.setOption(option_db,true);
+	}
+}
+var myChart_click_count = 1
+var myChartDB_click_count =1
+myChart.on('click',function(){
+	if(myChart_click_count % 2 == 0){
+		myChart_default_industry_num = 10
+	}else{
+		myChart_default_industry_num = 29
+	}
+	showEcharts()
+	myChart_click_count ++;
+})
+myChart_db.on('click',function(){
+	if(myChartDB_click_count % 2 == 0){
+		myChartDB_default_industry_num = 10
+	}else{
+		myChartDB_default_industry_num = 29
+	}
+	showEcharts()
+	myChartDB_click_count ++;
+	showEcharts()
 })
