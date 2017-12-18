@@ -498,8 +498,10 @@ $.extend($,{
 //导航位置定位
  function nav_locaton(first_level,second_level,three_level,four_level){
 	 $('.nav_all [page_tab='+first_level+']').addClass("nav_on");
-	 $('.nav_two [page_tab='+second_level+']').addClass("nav_on");
-	 $('.nav_list_data [page_tab='+second_level+']').addClass("nav_on");
+	 if(second_level !=''){
+		 $('.nav_two [page_tab='+second_level+']').addClass("nav_on");
+		 $('.nav_list_data [page_tab='+second_level+']').addClass("nav_on");		 
+	 }
 	 if(three_level !=''){
 		 $('.column_ul [page_tab='+three_level+']').addClass("nav_on");
 	 }
