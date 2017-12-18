@@ -46,7 +46,6 @@ comp {
 								{{if job}}
 									<li>${job}</li>
 								{{/if}}
-
 								<li>
 									<div class="search_list_people_list_r">
 										<em>${colleage}</em> <em>${degree}</em>
@@ -60,7 +59,7 @@ comp {
 							</ul>
 						</div>
 						<div class="search_collect">
-							<span class="dn_ico dn_ico_list_collect_search"></span>收藏
+								{{html isFav}}
 						</div>
 					</div>
 				</div>
@@ -296,6 +295,16 @@ function(data){
 	   	 $("#personIntro").html(intro)
     }
 })
+function isFav(){
+	var isFav=getHrefParamter("isFav")
+	var fav_html=""
+	if(isFav==1){
+		fav_html+="<span class='dn_ico dn_ico_list_collect_search dn_ico_list_collect_on'></span>收藏"
+	}else{
+		fav_html+="<span class='dn_ico dn_ico_list_collect_search'></span>收藏"
+	}
+	return fav_html
+}
 nav_locaton('ctsj','cyz','','')
 </script>
 </body>

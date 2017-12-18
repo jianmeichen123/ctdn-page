@@ -31,7 +31,11 @@ var tableFormate ={
                zhName='名称未知'
            }
            var img = Constants.logoPath+"person/"+row["code"]+".png"
-           return '<div class="list_table_td"> <img width="37" src="'+img+'"> <span class="col_999"><a target="_blank" href="/investor_xq.html?code='+row.code+'">'+zhName+'</a></span> </div>'
+           var isFav=0
+           if(codeList && codeList.indexOf(row.code)>=0){
+               isFav=1
+           }
+           return '<div class="list_table_td"> <img width="37" src="'+img+'"> <span class="col_999"><a target="_blank" href="/investor_xq.html?code='+row.code+'&isFav='+isFav+'">'+zhName+'</a></span> </div>'
     },
     startUpName:function(value, row, index){
            var zhName = row.zhName
@@ -40,7 +44,11 @@ var tableFormate ={
                zhName='名称未知'
            }
            var img = Constants.logoPath+"person/"+row["code"]+".png"
-           return '<div class="list_table_td"> <img width="37" src="'+img+'"> <span class="col_999"><a target="_blank" href="/startup_xq.html?code='+row.code+'">'+zhName+'</a></span> </div>'
+           var isFav=0
+           if(codeList && codeList.indexOf(row.code)>=0){
+               isFav=1
+           }
+           return '<div class="list_table_td"> <img width="37" src="'+img+'"> <span class="col_999"><a target="_blank" href="/startup_xq.html?code='+row.code+'&isFav='+isFav+'">'+zhName+'</a></span> </div>'
     },
     //上市列表
     listedProjectName:function(value, row, index){
@@ -481,6 +489,109 @@ function investfirmFormatter(value,row){
     return injectValues(html,row);
 }
 
+
+function personFormatter(value,row){
+        var img = Constants.logoPath +"person/"+row.code+".png"
+        var id=0
+        var person_html=
+        "<div class='search_list_people_all'>"+
+        "<div class='list-item search_list_people'>"+
+        "<div class='list-item-inner'>"+
+        "<div class='list-item-left'><a target='_blank' href='/startup_xq.html?code="+row.code+"'><img src='"+img+"'></a></div>"+
+        "<div class='list-item-right'>"+
+        "<div class='list-item-title'><a target='_blank' href='/startup_xq.html?code="+row.code+"'>"+row.zhName+"</a></div>";
+        if(row.enName){
+            person_html+="<div class='search_list_people_wn'>"+row.enName+"</div>"
+        }
+            person_html+="<div class='search_list_people_list'>"+"<ul>";
+        if(row.gender){
+            person_html+="<li><div class='search_list_people_list_r' id"+ ++id +">"+row.gender+"</div"+id+"></li>";
+        }
+        if(row.age){
+            person_html+="<li><div class='search_list_people_list_r' id"+ ++id +">"+row.age+"</div"+id+"></li>";
+        }
+        if(row.colleage){
+            person_html+="<li><div class='search_list_people_list_r' id"+ ++id +">"+row.colleage+"</div"+id+"></li>";
+        }
+        if(row.degree){
+            person_html+="<li><div class='search_list_people_list_r' id"+ ++id +">"+row.degree+"</div"+id+"></li>";
+        }
+        if(row.workLife){
+            person_html+="<li><div class='search_list_people_list_r' id"+ ++id +">"+row.workLife+"</div"+id+"></li>"
+        }
+        if(row.projTitle){
+            person_html+="<li><div class='search_list_people_list_r' id"+ ++id +">"+row.projTitle+"</div"+id+"></li>"
+        }
+        if(row.job){
+            person_html+="<li><div class='search_list_people_list_r' id"+ ++id +">"+row.job+"</div"+id+"></li>"
+        }
+        if(row.districtSubName){
+            person_html+="<li><span><li class='list-item-address'></li>"+row.districtSubName+"</span></li>"
+        }
+        person_html+="</ul>"+
+                     "</div>"+
+                     "<div class='search_collect'><span class='dn_ico dn_ico_list_collect_search'></span>收藏</div>"+
+                     "</div>"+
+                     "</div>"+
+                     "</div>"+
+                     "</div>"
+        person_html=person_html.replace("<div class='search_list_people_list_r' id1>","")
+                               .replace("</div1>","")
+                               .replace("/id[0-9]/g","")
+                               .replace("</divid[0-9]>","")
+       return injectValues(person_html,row);
+}
+
+
+/*function investorFormatter(value,row){
+        var img = Constants.logoPath +"person/"+row.code+".png"
+        var html=
+        "<div class='search_list_people_all'>"+
+        "<div class='list-item search_list_people'>"+
+        "<div class='list-item-inner'>"+
+        "<div class='list-item-left'><a target='_blank' href='/investor_xq.html?code="+row.code+"'><img src='"+img+"'></a></div>"+
+        "<div class='list-item-right'>"+
+        "<div class='list-item-title'><a target='_blank' href='/investor_xq.html?code="+row.code+"'>"+row.zhName+"</a></div>"+
+        "<div class='search_list_people_wn'>"+row.enName+"</div>"+
+        "<div class='search_list_people_list'>"+
+                "<ul>"+
+                "<li>"+row.gender+"</li>"+
+                "<li>"+row.age+"</li>"+
+                "<li><div class='search_list_people_list_r'>"+row.colleage+"</div></li>"+
+                "<li>"+row.degree+"</li>"+
+                "<li><div class='search_list_people_list_r'>"+row.workLife+"</div></li>"+
+                 "<li><div class='search_list_people_list_r'>"+row.projTitle+"</div></li>"+
+                "<li><div class='search_list_people_list_r'>"+row.job+"</div></li>"+
+                "<li><span><i class='list-item-address'></i>"+row.districtSubName+"</span></li>"+
+                "</ul>"+
+        "</div>"+
+        "<div class='search_collect'><span class='dn_ico dn_ico_list_collect_search'></span>收藏</div>"+
+        "</div>"+
+        "</div>"+
+        "</div>"+
+        "</div>"
+       return injectValues(html,row);
+}*/
+
+function investPolicy(v){
+
+    var inds_html=""
+    if(v){
+        var inds=v.split(',')
+        if(inds.length>0){
+            for(var i=0;i<inds.length;i++){
+                inds_html+="<li>"+inds[i]+"</li>"
+            }
+        }else{
+            inds_html=table.empty
+        }
+    }else{
+            inds_html=table.empty
+    }
+    return inds_html
+}
+
+
 function option(value,row,index){
     var type = $("table[data-url]").attr("data-type");
     var code ;
@@ -489,9 +600,9 @@ function option(value,row,index){
     }else if(type ==1){
         code = row.orgCode; //机构
     }else if(type ==2){
-        code = row.code;    //投资人
-    }else if(type ==3){
         code = row.code;    //创业者
+    }else if(type ==3){
+        code = row.code;    //投资人
     }else if(type == 4){
         code = row.id;      //
     }

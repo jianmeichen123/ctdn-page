@@ -59,7 +59,7 @@ comp {
 							</ul>
 						</div>
 						<div class="search_collect">
-							<span class="dn_ico dn_ico_list_collect_search"></span>收藏
+							{{html isFav}}
 						</div>
 					</div>
 				</div>
@@ -295,6 +295,17 @@ function(data){
     }
 })
 nav_locaton('ctsj','tzr','','')
+
+function isFav(){
+	var isFav=getHrefParamter("isFav")
+	var fav_html=""
+	if(isFav==1){
+		fav_html+="<span class='dn_ico dn_ico_list_collect_search dn_ico_list_collect_on'></span>收藏"
+	}else{
+		fav_html+="<span class='dn_ico dn_ico_list_collect_search'></span>收藏"
+	}
+	return fav_html
+}
 </script>
 </body>
 </html>

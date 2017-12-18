@@ -18,9 +18,9 @@
 		
         <div class="page_all">
 
-			<div class="condition_all_no">
+			<div class="condition_all_no no_two_industry">
 				<div class="block_industry">
-					<span class="classify">创业领域</span>
+					<span class="classify">关注领域</span>
 					<ul class="condition_all_ul">
 						<li class="pick_on" id="industry_one">全部</li>
 						<li class="click_industry_show">选择行业 <span class="brain_ico brain_ico_arrow"></span>
@@ -30,15 +30,9 @@
 								</ul>
 								<ul id="two_industry">
 								</ul>
-<!--								<ul id="three_industry">
-									<li>教育</li>
-									<li>教育</li>
-									<li>教育</li>
-									<li>教育</li>
-								</ul>-->
 							</div>
 						</li>
-						<div id="click_list" data-industry-name="industry" data-query="industryIds:nor">
+						<div id="click_list" data-industry-name="investorIndustry" data-query="industryIds:nor">
 						</div>
 					</ul>
 				</div>
@@ -69,7 +63,7 @@
 				<div class="table_seek"><input data-field="startUp"  id = "projTitle" type="text" onkeydown="entersearch()" placeholder="结果中搜索"/><span class="brain_ico brain_ico_seek" onclick="_query()"></span></div>
 			</div>
 			<div class="block m_t_10 boder_all">
-				<table class="table bj_fff table_style" data-url="startUp">
+				<table class="table bj_fff table_style" data-url="startUp" data-type=2>
 				   <thead>
 					  <tr>
 						  <th data-field="zhName" class="number_th_10" data-formatter="tableFormate.startUpName"><div>创业者</div></th>
@@ -77,7 +71,7 @@
 						  <th data-field="job" class="number_th"><div class="border_l">职位</div></th>
 						  <th data-field="fields" class="number_th_20"><div class="border_l">创业领域</div></th>
 						  <th data-field="districtSubName"  class="number_th_10"><div class="border_l">地区</div></th>
-						  <th class="number_th_20"><div class="border_l">收藏</div></th>
+						  <th data-formatter="option" class="number_th_20"><div class="border_l">收藏</div></th>
 					  </tr>
 				   </thead>
 				   <tbody>
@@ -86,9 +80,14 @@
 			</div>
 		</div>
     </div>
+<script>
+//common.js 获取当前用户收藏codeList
+var codeList = getCodeList(2);
+</script>
 {(dn_foot.html)}
 {(footer.html)}
 <script>
+
 nav_locaton('ctsj','cyz','','')
 </script>
 </body>
