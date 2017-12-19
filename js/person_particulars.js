@@ -58,16 +58,19 @@
         url = getUrl(dataId,url);
         var json = getJson(obj);
         sendPostRequestByJsonObj(url,json,function(data){
-            if(data.data !=''){
+            if(data.data !='' && data.data!=null){
                 var target = $("#"+dataId)
-                target.tmpl(data).appendTo(target.parent())
+                if(dataId=='investor_policy'){
+                    target.tmpl(data.data).appendTo(target.parent())
+                }else{
+                    target.tmpl(data).appendTo(target.parent())
+                }
                 obj.show();
                 obj.addClass('storey_list');
                 var scroll_on = obj.attr('scroll_on');
                 $('.project_nav [scroll_on="'+scroll_on+'"]').addClass('scroll_on');
                 $('.project_nav [scroll_on="'+scroll_on+'"]').show();
                 $('.project_nav').show();
-                
             }
             if(data.data instanceof Array && data.data.length==0){
                 obj.hide();
