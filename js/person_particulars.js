@@ -60,10 +60,10 @@
         sendPostRequestByJsonObj(url,json,function(data){
             if(data.data !='' && data.data!=null){
                 var target = $("#"+dataId)
-                if(dataId=='investor_policy'){
-                    target.tmpl(data.data).appendTo(target.parent())
-                }else{
+               if(data.data instanceof Array){
                     target.tmpl(data).appendTo(target.parent())
+                }else{
+                    target.tmpl(data.data).appendTo(target.parent())
                 }
                 obj.show();
                 obj.addClass('storey_list');
