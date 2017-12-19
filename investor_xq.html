@@ -38,19 +38,27 @@ comp {
 							<ul>
 								{{if projTitle}}
 								<li>
-									<div class="search_list_people_list_r">
+									<div >
 										<a target="_blank" href="/project_qy.html/?projCode=${projCode}">${projTitle}</a>
 									</div>
 								</li>
 								{{/if}}
 								{{if job}}
-									<li>${job}</li>
+								   {{if projTitle}}
+										<div class="search_list_people_list_r">
+											<li>${job}</li>
+										</div>
+									{{else}}
+										<div>
+											<li>${job}</li>
+										</div>
+									{{/if}}
 								{{/if}}
-								<li>
+								<!--<li>
 									<div class="search_list_people_list_r">
 										<em>${colleage}</em> <em>${degree}</em>
 									</div>
-								</li>
+								</li>-->
 								{{if districtSubName}}
 								<li>
 									<span><i class="list-item-address"></i>${districtSubName}</span>
@@ -64,16 +72,20 @@ comp {
 					</div>
 				</div>
 			</div>
+			</script>
+			{-raw-}
+
+
 			<div class="project_nav">
 				<ul>
-					<li class="nav_on"><span　>投资人简介</span></li>
+					<li class="nav_on"><span>投资人简介</span></li>
 					<li><span>投资策略</span></li>
 					<li><span>投资案例</span></li>
 					<li><span>工作经历</span></li>
 					<li><span>教育经历</span></li>
 				</ul>
 			</div>
-			<div class="background_boeder" style="display:none" data-id="none">
+			<div class="background_boeder none"  data-id="none"  id="person_intro_div">
 				<div class="project_t storey_list">
 					<span class="brain_ico brain_ico_project_crumbs"></span>投资人简介
 				</div>
@@ -81,7 +93,7 @@ comp {
 					<ul class="project_all_l_ul">
 						<li>
 							<div class="font_14"></div>
-							<p class="color_666" id="personIntro">${introduce}</p>
+							<p class="color_666" id="personIntro"></p>
 							<div class="project_more">
 								<div class="dn_ico_more_all_click" style="display: none;">
 									<div class="dn_ico_more_al_divl">
@@ -99,8 +111,6 @@ comp {
 
 				</div>
 			</div>
-			</script>
-			{-raw-}
 
 			<div class="background_boeder" data-id="investor_policy" data-url="queryInvestPolicyInfo" style="display:none">
 				<div class="project_t storey_list">
@@ -284,10 +294,10 @@ comp {
 <script>
 sendGetRequest(detail.queryInvestorBaseInfo+"/"+getHrefParamter("code"),
 function(data){
-    $('#person_basic').tmpl(data.data).appendTo($("#header"))
+ 	$('#person_basic').tmpl(data.data).appendTo($('#header'))
     var intro=data.data.introduce
-    if(intro){
-	  $("#personIntro").closest(".background_boeder").show()
+    if(intro !=''){
+	  $("#person_intro_div").closest(".background_boeder").show()
 	  if(intro.length>100&&intro.indexOf("nbsp")==-1){
 		 $(".project_more").display='none';
 	  }
@@ -297,9 +307,9 @@ function(data){
 nav_locaton('ctsj','tzr','','')
 
 function isFav(){
-	var isFav=getHrefParamter("isFav")
-	var fav_html=""
-	if(isFav==1){
+	var isFav=idCollection(3,getHrefParamter('code'))
+	var fav_html=''
+	if(isFav==true){
 		fav_html+="<span class='dn_ico dn_ico_list_collect_search dn_ico_list_collect_on'></span>收藏"
 	}else{
 		fav_html+="<span class='dn_ico dn_ico_list_collect_search'></span>收藏"

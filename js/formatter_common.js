@@ -31,11 +31,11 @@ var tableFormate ={
                zhName='名称未知'
            }
            var img = Constants.logoPath+"person/"+row["code"]+".png"
-           var isFav=0
+          /* var isFav=0
            if(codeList && codeList.indexOf(row.code)>=0){
                isFav=1
-           }
-           return '<div class="list_table_td"> <img width="37" src="'+img+'"> <span class="col_999"><a target="_blank" href="/investor_xq.html?code='+row.code+'&isFav='+isFav+'">'+zhName+'</a></span> </div>'
+           }*/
+           return '<div class="list_table_td"> <img width="37" src="'+img+'"> <span class="col_999"><a target="_blank" href="/investor_xq.html?code='+row.code+'">'+zhName+'</a></span> </div>'
     },
     startUpName:function(value, row, index){
            var zhName = row.zhName
@@ -44,11 +44,11 @@ var tableFormate ={
                zhName='名称未知'
            }
            var img = Constants.logoPath+"person/"+row["code"]+".png"
-           var isFav=0
+           /*var isFav=0
            if(codeList && codeList.indexOf(row.code)>=0){
                isFav=1
-           }
-           return '<div class="list_table_td"> <img width="37" src="'+img+'"> <span class="col_999"><a target="_blank" href="/startup_xq.html?code='+row.code+'&isFav='+isFav+'">'+zhName+'</a></span> </div>'
+           }*/
+           return '<div class="list_table_td"> <img width="37" src="'+img+'"> <span class="col_999"><a target="_blank" href="/startup_xq.html?code='+row.code+'">'+zhName+'</a></span> </div>'
     },
     //上市列表
     listedProjectName:function(value, row, index){

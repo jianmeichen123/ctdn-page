@@ -38,19 +38,27 @@ comp {
 							<ul>
 								{{if projTitle}}
 								<li>
-									<div class="search_list_people_list_r">
+									<div >
 										<a target="_blank" href="/project_qy.html/?projCode=${projCode}">${projTitle}</a>
 									</div>
 								</li>
 								{{/if}}
 								{{if job}}
-									<li>${job}</li>
+								   {{if projTitle}}
+										<div class="search_list_people_list_r">
+											<li>${job}</li>
+										</div>
+									{{else}}
+										<div>
+											<li>${job}</li>
+										</div>
+									{{/if}}
 								{{/if}}
-								<li>
+								<!--<li>
 									<div class="search_list_people_list_r">
 										<em>${colleage}</em> <em>${degree}</em>
 									</div>
-								</li>
+								</li>-->
 								{{if districtSubName}}
 								<li>
 									<span><i class="list-item-address"></i>${districtSubName}</span>
@@ -65,6 +73,10 @@ comp {
 				</div>
 
 			</div>
+
+			</script>
+			{-raw-}
+
 			<div class="project_nav">
 				<ul>
 					<li class="nav_on"><span>创业者简历</span></li>
@@ -74,7 +86,7 @@ comp {
 				</ul>
 			</div>
 
-			<div class="background_boeder"  >
+			<div class="background_boeder none"  id="person_intro_div">
 				<div class="project_t storey_list">
 					<span class="brain_ico brain_ico_project_crumbs"></span>创业者简介
 				</div>
@@ -82,7 +94,7 @@ comp {
 					<ul class="project_all_l_ul">
 						<li>
 							<div class="font_14"></div>
-							<p class="color_666" id="personIntro">${introduce}</p>
+							<p class="color_666" id="personIntro"></p>
 							<div class="project_more">
 								<div class="dn_ico_more_all_click"  style="display: none;">
 									<div class="dn_ico_more_al_divl">
@@ -99,8 +111,7 @@ comp {
 					</ul>
 				</div>
 			</div>
-			</script>
-			{-raw-}
+
 			<div class="background_boeder" data-id="person_com_expr" data-url="queryPersonComExpr">
 				<div class="project_t storey_list">
 					<span class="brain_ico brain_ico_project_crumbs"></span>创业经历
@@ -124,13 +135,11 @@ comp {
 								<div class="startup_come_ul_img"><a target="_blank" href="/project_qy.html?projCode=${v.projCode}"><img src="${Constants.logoPath}project/${v.projCode}.png"></a></div>
 								<div class="startup_come_ul_cen">
 									<div class="startup_come_w">
-										<a target="_blank" href="###">
 											{{if v.projUrl}}
-												${v.projUrl}
+												<a target="_blank" href="${v.projUrl}">${v.projUrl}</a>
 											{{else}}
 												--
 											{{/if}}
-										</a>
 									</div>
 									<div class="startup_come_left">
 										<span>行业：</span>
@@ -287,8 +296,8 @@ sendGetRequest(detail.queryStartUpBaseInfo+"/"+getHrefParamter("code"),
 function(data){
     $('#person_basic').tmpl(data.data).appendTo($('#header'))
     var intro=data.data.introduce
-    if(intro){
-	  $("#personIntro").closest(".background_boeder").show()
+    if(intro !=''){
+	  $("#person_intro_div").closest(".background_boeder").show()
 	  if(intro.length>100&&intro.indexOf("nbsp")==-1){
 		 $(".project_more").display='none';
 	  }
@@ -296,9 +305,9 @@ function(data){
     }
 })
 function isFav(){
-	var isFav=getHrefParamter("isFav")
-	var fav_html=""
-	if(isFav==1){
+	var isFav=idCollection(2,getHrefParamter('code'))
+	var fav_html=''
+	if(isFav==true){
 		fav_html+="<span class='dn_ico dn_ico_list_collect_search dn_ico_list_collect_on'></span>收藏"
 	}else{
 		fav_html+="<span class='dn_ico dn_ico_list_collect_search'></span>收藏"
