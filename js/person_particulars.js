@@ -58,13 +58,19 @@
         url = getUrl(dataId,url);
         var json = getJson(obj);
         sendPostRequestByJsonObj(url,json,function(data){
-            if(data.data){
+            if(data.data !=''){
                 var target = $("#"+dataId)
                 target.tmpl(data).appendTo(target.parent())
                 obj.show();
-                if(data.data instanceof Array && data.data.length==0){
-                    obj.hide();
-                }
+                obj.addClass('storey_list');
+                var scroll_on = obj.attr('scroll_on');
+                $('.project_nav [scroll_on="'+scroll_on+'"]').addClass('scroll_on');
+                $('.project_nav [scroll_on="'+scroll_on+'"]').show();
+                $('.project_nav').show();
+                
+            }
+            if(data.data instanceof Array && data.data.length==0){
+                obj.hide();
             }
         })
    }

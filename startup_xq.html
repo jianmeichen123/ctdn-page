@@ -10,7 +10,7 @@
 .highlight {
 	color: #1ac4d3
 }
-
+.project_nav,.project_nav>ul>li{display:none;}
 comp {
 	color: #1ac4d3
 }
@@ -79,15 +79,15 @@ comp {
 
 			<div class="project_nav">
 				<ul>
-					<li class="nav_on"><span>创业者简历</span></li>
-					<li><span>创业经历</span></li>
-					<li><span>工作经历</span></li>
-					<li><span>教育经历</span></li>
+					<li class="nav_on" scroll_on="jj"><span>创业者简历</span></li>
+					<li scroll_on="cy"><span>创业经历</span></li>
+					<li scroll_on="gz"><span>工作经历</span></li>
+					<li scroll_on="jy"><span>教育经历</span></li>
 				</ul>
 			</div>
 
-			<div class="background_boeder none"  id="person_intro_div">
-				<div class="project_t storey_list">
+			<div class="background_boeder none" scroll_on="jj"  id="person_intro_div">
+				<div class="project_t">
 					<span class="brain_ico brain_ico_project_crumbs"></span>创业者简介
 				</div>
 				<div class="particulars_black">
@@ -112,8 +112,8 @@ comp {
 				</div>
 			</div>
 
-			<div class="background_boeder" data-id="person_com_expr" data-url="queryPersonComExpr">
-				<div class="project_t storey_list">
+			<div class="background_boeder" data-id="person_com_expr" scroll_on="cy" data-url="queryPersonComExpr">
+				<div class="project_t">
 					<span class="brain_ico brain_ico_project_crumbs"></span>创业经历
 				</div>
 				<div class="particulars_black">
@@ -208,8 +208,8 @@ comp {
 				</div>
 			</div>
 
-			<div class="background_boeder" data-id="person_work_expr" data-url="queryPersonWorkExpr" >
-				<div class="project_t storey_list">
+			<div class="background_boeder" data-id="person_work_expr" scroll_on="cz" data-url="queryPersonWorkExpr" >
+				<div class="project_t">
 					<span class="brain_ico brain_ico_project_crumbs"></span>工作经历
 				</div>
 				<div class="particulars_black">
@@ -244,8 +244,8 @@ comp {
 				</div>
 			</div>
 
-			<div class="background_boeder" data-id="person_edu_expr" data-url="queryPersonEduExpr">
-				<div class="project_t storey_list">
+			<div class="background_boeder" data-id="person_edu_expr" scroll_on="jy" data-url="queryPersonEduExpr">
+				<div class="project_t">
 					<span class="brain_ico brain_ico_project_crumbs"></span>教育经历
 				</div>
 				<div class="particulars_black">
@@ -298,6 +298,10 @@ function(data){
     var intro=data.data.introduce
     if(intro !=''){
 	  $("#person_intro_div").closest(".background_boeder").show()
+	  $('.project_nav').show();
+	   $("#person_intro_div").addClass('storey_list');
+	  $('.project_nav [scroll_on="jj"]').addClass('scroll_on');
+	  $('.project_nav [scroll_on="jj"]').show();
 	  if(intro.length>100&&intro.indexOf("nbsp")==-1){
 		 $(".project_more").display='none';
 	  }
@@ -315,6 +319,63 @@ function isFav(){
 	return fav_html
 }
 nav_locaton('ctsj','cyz','','')
+  /* 菜单悬浮 */
+
+$(window).scroll(function(){
+	var scrollTop=$(window).scrollTop();
+	if(scrollTop>200){
+		$('.project_nav').addClass('project_nav_top');
+	}else{
+		$(".project_nav").removeClass("project_nav_top");
+	}
+	 var location_array = new Array()
+	 for(var i=0; i<$('.storey_list').length; i++){
+	 	var list_all = $('.storey_list').eq(i).attr('scroll_on');
+	 	location_array.push(list_all);
+	 }
+	var  myArray=new Array();
+	for(var i=0; i<location_array.length; i++){
+		var obj = {};
+		var name = location_array[i];
+		obj.name = name;
+		obj.value= parseInt($('div[scroll_on="'+location_array[i]+'"]').offset().top -70);
+		myArray.push(obj);
+	}
+	 if(scrollTop>=myArray[0].value){
+		 $('.project_nav').addClass('project_nav_top');
+		 location_on(myArray,scrollTop)
+	}else{
+		$('.project_nav').removeClass("project_all_r_top");
+	} 
+});
+function location_on(obj,scrollTop){
+	for(var i=0; i<obj.length; i++){
+		var j =i+1;
+		if(j==obj.length){
+			if(scrollTop >=obj[i].value){
+				$('.project_nav li').removeClass('nav_on');
+				$('.project_nav [scroll_on="'+obj[i].name+'"]').addClass('nav_on');
+			}
+		}else{
+			if(scrollTop >=obj[i].value && scrollTop<obj[j].value){
+				$('.project_nav li').removeClass('nav_on');
+				$('.project_nav [scroll_on="'+obj[i].name+'"]').addClass('nav_on');
+			}
+		}
+
+	}
+}
+//点击滚动
+$('body').delegate('.project_nav li','click',function(event){
+	var _this=$(this);
+	event.stopPropagation();
+	var location_r = $(this).attr('scroll_on');
+	var location_value = $('div[scroll_on="'+location_r+'"]').offset().top-50;
+	$("html,body").animate({scrollTop:location_value},300);
+	setTimeout(function(){
+		_this.addClass("nav_on").siblings().removeClass("nav_on")
+	},300)
+})
 </script>
 </body>
 </html>
