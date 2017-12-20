@@ -1,6 +1,3 @@
-//初始化table
-var oTable = new TableInit();
-oTable.Init();
 var TableInit = function () {
     var oTableInit = new Object();
     //初始化Table
@@ -33,3 +30,7 @@ var TableInit = function () {
     };
     return oTableInit;
 };
+
+//初始化table
+var oTable = new TableInit();
+oTable.Init();
