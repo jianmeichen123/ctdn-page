@@ -367,7 +367,6 @@ function fmoney3(s){
     }
     return t.split('').reverse().join('') ;
   }
-
 $(function(){
 	function setName(data){
 	    if(!data&&data.length < 100){
@@ -382,7 +381,6 @@ $(function(){
             $('#login_model').css('display','none')
 	    	$('#logined_model').css('display','block')
 	    }
-
 	}
 
     function me(){
@@ -404,7 +402,7 @@ $(function(){
             }
         });
     }
-     me()
+    me()
     /* $("ul[tab='header']").on("click","li",function(){
     	 
     	 var o = $(this)
@@ -669,7 +667,6 @@ $('body').delegate('.dn_ico_list_collect','click', function(event){
 	$(this).toggleClass('dn_ico_list_collect_on');
 	var type = $(this).attr("type");
 	var code = $(this).attr("code");
-	var userId =1;
 	if($(this).hasClass("dn_ico_list_collect_on")){
 	   collectOne(type,code)
 	}else{
@@ -694,14 +691,14 @@ function refreshCompare(){
             $('.Floating_box  .Floating_box_b ul').html(html);
         }
 }
-//获取userId
-var userId= 1;
+//获取userCode
+var userCode= getCookie("_usercode_")
 function collectOne(type,code){
-    sendPostRequestByJsonObj(user.collectOne,{"userId":userId,"type":type,"code":code},null)
+    sendPostRequestByJsonObj(user.collectOne,{"userCode":userCode,"type":type,"code":code},null)
 }
 
 function cancelOneCol(type,code){
-    sendPostRequestByJsonObj(user.cancelOneCol,{"userId":userId,"type":type,"code":code},null)
+    sendPostRequestByJsonObj(user.cancelOneCol,{"userCode":userCode,"type":type,"code":code},null)
 }
  //全部行业
 $('body').delegate('#executive_click','click', function(event){
@@ -851,7 +848,7 @@ function unselect_all(){
 
 function getCodeList (type){
     var codeList;
-    sendGetRequest(user.getCodeList+"/"+userId+"/"+type,function(data){
+    sendGetRequest(user.getCodeList+"/"+userCode+"/"+type,function(data){
         codeList = data.data;
     })
     return codeList;

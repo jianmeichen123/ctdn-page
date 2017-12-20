@@ -2,7 +2,7 @@
 <html>
 <head>
 	<meta charset="utf-8">
-	<title>全局搜索</title>
+	<title>个人中心</title>
 	<!--basis-->
 	{(dn_basis.html)}
 	<link rel='style/sheet'/>
@@ -15,19 +15,19 @@
 <div class='person-center-container clearfix'>
 	{(person_center_header.html)}
 	<div class='person-right fl'>
-		<ul class='clearfix person_tab'>
-			<li class='person-tab-underline'>审核中</li>
-			<li>已审核</li>
-		</ul>
+		<!--<ul class='clearfix person_tab'>-->
+			<!--<li class='person-tab-underline'>审核中</li>-->
+			<!--<li>已审核</li>-->
+		<!--</ul>-->
 		<div class='person-project-list person_checking'>
-				<table  data-toggle='table'>
+				<table  data-toggle='table' data-url>
 					<thead>
 						<tr>
-							<th>项目名称</th>
-							<th>所属地区</th>
-							<th>联系人</th>
-							<th>电话</th>
-							<th></th>
+							<th data-formatter="titleFormatter">项目名称</th>
+							<th data-formatter="districtFormatter">所属地区</th>
+							<th data-field="link">联系人</th>
+							<th data-field="phone">电话</th>
+							<th data-formatter="option"></th>
 						</tr>
 					</thead>
 					<tbody>
@@ -52,15 +52,9 @@
 							<td>1888888888</td>
 							<td><a href='javascript:;'>编辑</a></td>
 						</tr>
-					
-					
-					
 					</tbody>
-				
 				</table>
-				
 		</div>
-		
 		<!-- 审核完 -->
 		<div class='person-project-list person_checked-list'>
 			<table data-toggle='table'>
@@ -100,42 +94,48 @@
 				
 					</table>
 			</div>
-				<div class='person-upload-project'>
+				<a href="seek_financing.html"><div class='person-upload-project'>
 					上传新的项目		
-				</div>
+				</div></a>
 	</div>
-
-
-
 </div>
-
-
-
-
-
-
-
-
-
-<!-- {(dn_foot.html)} -->
+ {(dn_foot.html)}
 </body>
+<script src="js/table-init.js"></script>
 <script>
-$('.person_tab li').click(function(){
-	$(this).addClass('person-tab-underline').siblings().removeClass('person-tab-underline');
-	var index = $(this).index();
-	if(index==0){
-		$('.person_checking').show();
-		$('.person_checked-list').hide();
-	}else if(index==1){
-		$('.person_checking').hide();
-		$('.person_checked-list').show();
-	}
-	
-	
+var userId=1;
+<!--$('.person_tab li').click(function(){-->
+	<!--$(this).addClass('person-tab-underline').siblings().removeClass('person-tab-underline');-->
+	<!--var index = $(this).index();-->
+	<!--if(index==0){-->
+		<!--$('.person_checking').show();-->
+		<!--$('.person_checked-list').hide();-->
+	<!--}else if(index==1){-->
+		<!--$('.person_checking').hide();-->
+		<!--$('.person_checked-list').show();-->
+	<!--}-->
+<!--});-->
+
+$("table[data-url]").bootstrapTable("refreshOptions",{
+        url: user.getColList,         //请求后台的URL（*）
+        queryParams: function queryParams(params) {   //设置查询参数
+			var param = {
+					"pageSize":params.pageSize,   //页面大小
+					"pageNo":params.pageNumber,  //页码
+					"userId":userId,
+					"source":0
+			};
+			return param;//参数
+        }
 });
+function titleFormatter(value,row){
+	return "<a href='person_edit_project.html?id=1'>"+value+"</a>"
+}
+function districtFormatter(value,row){
+	return row.districtName+"<span>></span>"+row.districtSubName;
+}
+function option(value){
+	return "<a href='person_edit_project.html?id=1' >编辑</a>"
+}
 </script>
-<script src="js/platformUrl.js?t=20170523"></script>
-<script src="js/common.js"></script>
-<script src="js/formatter_common.js"></script>
-<script src="js/search_index.js"></script>
 </html>

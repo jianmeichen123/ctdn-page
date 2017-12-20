@@ -2,9 +2,6 @@ var popIndustryHtml;  //弹出层行业html
 var allIndustryIds;
 var allIndustryNames;
 var focusIndustryIds;
-var focusIndustryNames;
-var userId;
-
 $(function(){
     initVar();
     initIndex();
@@ -14,8 +11,6 @@ function initVar(){
      allIndustryIds = [];
      allIndustryNames = [];
      focusIndustryIds = [];
-     focusIndustryNames = [];
-     userId ="1"
 }
 function initIndex(){
     initFocusIndustry();
@@ -43,53 +38,59 @@ function initAllIndustry(){
     })
 }
 
-function reset(){
-    $(ls).each(function(){
-        var id =$(this)[0].id;
-        var name = $(this)[0].name;
-        allIndustryIds.push(id)
-        allIndustryNames.push(name)
-        if($.inArray(id, focusIndustryIds)>-1){
-            popIndustryHtml += "<li value= "+id+" class='concern-clicked' >"+name+"</li>"
-        }else{
-            popIndustryHtml += "<li value= "+id+">"+name+"</li>"
-        }
-    })
-    $(".industry-span-content ul").html(popIndustryHtml)
-    $('.industry-span-content ul li').click(function(){
-        $(this).toggleClass('concern-clicked')
-    })
-}
+//function reset(){
+//    $(ls).each(function(){
+//        var id =$(this)[0].id;
+//        var name = $(this)[0].name;
+//        allIndustryIds.push(id)
+//        allIndustryNames.push(name)
+//        if($.inArray(id, focusIndustryIds)>-1){
+//            popIndustryHtml += "<li value= "+id+" class='concern-clicked' >"+name+"</li>"
+//        }else{
+//            popIndustryHtml += "<li value= "+id+">"+name+"</li>"
+//        }
+//    })
+//    $(".industry-span-content ul").html(popIndustryHtml)
+//    $('.industry-span-content ul li').click(function(){
+//        $(this).toggleClass('concern-clicked')
+//    })
+//}
 
 //查询用户关注行业
 function initFocusIndustry(){
-     sendGetRequest(platformUrl.userIndustry+userId,function(data){
+     sendGetRequest(platformUrl.userIndustry+userCode,function(data){
         var entity = data.data;
         if(entity){
-            focusIndustryIds = entity.industryIdList
-            focusIndustryNames = entity.industryNameList
+            focusIndustryIds = entity
         }
     })
 }
 function saveIndustry(){
 		initVar();
-		var clicked = $(".industry-span-content ul li").find(".on");
+		var clicked = $("ul li.concern-clicked");
 		$(clicked).each(function(){
 			focusIndustryIds.push($(this).attr("value"))
-			focusIndustryNames.push($(this).text())
 		})
 		var userIndustry ={};
-		userIndustry.userId =userId;
-		userIndustry.industryIds = focusIndustryIds.join(",");
-		userIndustry.industryNames = focusIndustryNames.join(",");
+		//userCode 在common.js赋值s
+		userIndustry.userCode =userCode;
+		userIndustry.industryIdList = focusIndustryIds;
 		sendPostRequestByJsonObj(platformUrl.updateUserIndustry,userIndustry,function(data){
-		    //alert(11)
-			//initIndex(); //重新加载主页
+		    alert("设置成功!")
 		})
 }
 
-function reset(userId){
-    initFocusIndustry()
+function reset(){
+    sendGetRequest(platformUrl.resetUserIndustry+userCode,function(data){
+           var entity = data.data;
+           if(entity){
+               focusIndustryIds = entity
+               $("ul li").removeClass("concern-clicked")
+               $(focusIndustryIds).each(function(i,e){
+                    $("ul li[value='"+e+"']").addClass('concern-clicked')
+               })
+           }
+       })
 }
 //select options初始化
 //function initSelectOptions(){

@@ -24,7 +24,7 @@ var Constants = {
 //    logoPath: "http://static.galaxyinternet.com/img/"
 //}
 var home = {
-	    index : "http://ctdnrc.galaxyinternet.com"
+	    index : "http://ctdndev.galaxyinternet.com"
 	}
 var docUrl = {
 
@@ -67,8 +67,9 @@ var platformUrl = {
 	allQuery:Constants.platformContentURL+"common/allQuery",
 	comQuery:Constants.platformContentURL+"common/comQuery",
 	industry:Constants.platformContentURL+"common/industry",
-	userIndustry:Constants.platformContentURL+"index/userIndustry/",
-	updateUserIndustry:Constants.platformContentURL+"index/updateUserIndustry",
+	userIndustry:Constants.platformContentURL+"index/queryUserIndustry/",
+	updateUserIndustry:Constants.platformContentURL+"index/saveUserIndustry",
+	resetUserIndustry:Constants.platformContentURL+"index/resetUserIndustry/",
 	eventIndustryMonth:Constants.platformContentURL+"eventIndustryMonth/query",
 	queryIndexHeaderStat:Constants.platformContentURL+"index/queryIndexHeaderStat",
 	fileUpload:Constants.platformContentURL+"upload"
@@ -120,14 +121,12 @@ var detail = {
     queryLastestFinanceProject:Constants.platformContentURL+"index/queryLastestFinanceProject/",
     queryLastestOrg:Constants.platformContentURL+"index/queryLastestOrg/",
     getParentIndustrys:Constants.platformContentURL+"index/getParentIndustrys/",
-    saveOrUpdateUerIndustry:Constants.platformContentURL+"index/saveOrUpdateUerIndustry/",
-    userIndustry:Constants.platformContentURL+"index/userIndustry/",
     getCompeteInfo:Constants.platformContentURL+"index/getCompeteInfo/",
     queryGGTotalHeaderStat:Constants.platformContentURL+"index/queryGGTotalHeaderStat",
     queryGGCurMonthHeaderStat:Constants.platformContentURL+"index/queryGGCurMonthHeaderStat",
     queryIndustryMonthForEchart:Constants.platformContentURL+"index/queryIndustryMonthForEchart",
     queryIndustryMonthMergerForEchart:Constants.platformContentURL+"index/queryIndustryMonthMergerForEchart",
-    queryProListByCodeList:Constants.platformContentURL+"projectList/queryByCodeList/",
+    queryByCodeList:Constants.platformContentURL+"projectList/queryByCodeList/",
     queryReportByPage:Constants.platformContentURL+"report/queryReportByPage/",
 
 //  创业者/投资人
