@@ -404,9 +404,9 @@ $('body').delegate('#save-btn','click', function(event){
 })
 	var list ={};
 	sendGetRequest(platformUrl.allQuery,function(data){
-		list["district"] = data.data.district[0].children;
-		list["industry"] = data.data.industry;
-		list["round"] = data.data.round;
+		list["district"] = data["district"];
+		list["industry"] = data["industry"];
+		list["round"] = data["round"];
 	});
 	var parents = $("select[data-item='parent']");
 	$.each(parents,function(){
@@ -443,14 +443,14 @@ $('body').delegate('#save-btn','click', function(event){
 			index= parent[0].selectedIndex-1
 		}
 		var parentData = list[field][index];
-		var data =parentData.children;
+		var data =parentData.child;
 		var html = ""
 		son.val(data[0].id)
 		$.each(data,function(i,e){
 			if(id && id == e.id){
-				html += "<option value ="+e.id+" selected='selected' >"+e.name+"</option>"
+				html += "<option value ="+e.dictName+" selected='selected' >"+e.dictName+"</option>"
 			}else{
-				html += "<option value ="+e.id+" >"+e.name+"</option>"
+				html += "<option value ="+e.dictName+" >"+e.dictName+"</option>"
 			}
 		})
 		son.append(html);
