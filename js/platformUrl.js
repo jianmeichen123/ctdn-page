@@ -49,6 +49,8 @@ var searchUrl = {
     total:Constants.searchContentURL+"total",
     startUp:Constants.searchContentURL+"startUp",
     investor:Constants.searchContentURL+"investor",
+    getGGNews:Constants.searchContentURL+"getGGNews",
+    getGGCompeteInfo:Constants.searchContentURL+"getGGCompeteInfo",
 }
 var dataUrl = {
     products:Constants.dataContentURL+"op/is/",
@@ -129,6 +131,8 @@ var detail = {
     queryGGCurMonthHeaderStat:Constants.platformContentURL+"index/queryGGCurMonthHeaderStat",
     queryIndustryMonthForEchart:Constants.platformContentURL+"index/queryIndustryMonthForEchart",
     queryIndustryMonthMergerForEchart:Constants.platformContentURL+"index/queryIndustryMonthMergerForEchart",
+    getBusinessLineMappingIndustry:Constants.platformContentURL+"index/getBusinessLineMappingIndustry",
+    getUserIndustry:Constants.platformContentURL+"index/getUserIndustry",
     queryByCodeList:Constants.platformContentURL+"projectList/queryByCodeList/",
     queryReportByPage:Constants.platformContentURL+"report/queryReportByPage/",
 

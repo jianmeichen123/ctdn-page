@@ -374,10 +374,14 @@ $(function(){
 	    	$('#logined_model').css('display','none')
 //	         location.href = platformUrl.toLogin
 	    }else{
-	        var obj = JSON.parse(data)
-            var name = obj['realName']
-	        var mobile = obj['mobile']
-            $("#id_name").html(name + "欢迎来到创投大脑")
+	    	var obj = JSON.parse(data)
+	        if(!obj.roleCode){
+	        	var mobile = obj['mobile']
+	        	$("#id_name").html(mobile.substring(0,5)+'******')
+	        }else{
+	        	var name = obj['realName']
+	        	$("#id_name").html(name + "欢迎来到创投大脑")
+	        }
             $('#login_model').css('display','none')
 	    	$('#logined_model').css('display','block')
 	    }
@@ -397,7 +401,7 @@ $(function(){
 //                location.href = platformUrl.toLogin
             },
             success : function(data) {
-               console.log(data)
+               console.log(data +"common")
             	setName(decodeURIComponent(data))
             }
         });
@@ -701,14 +705,17 @@ function cancelOneCol(type,code){
     sendPostRequestByJsonObj(user.cancelOneCol,{"userCode":userCode,"type":type,"code":code},null)
 }
  //全部行业
-$('body').delegate('#executive_click','click', function(event){
+
+ //关注行业
+$('body').delegate('#trade_click','click', function(event){
+	alert('s')
  	event.stopPropagation();
- 	$("#executive_pop").show();
+ 	$("#trade_pop").show();
     $('.nav_all_seek').show();
 	$('.nav_all_input').hide();
 })
- //关注行业
-$('body').delegate('#trade_click','click', function(event){
+$('#trade_click').click(function(){
+	alert('s')
  	event.stopPropagation();
  	$("#trade_pop").show();
     $('.nav_all_seek').show();
@@ -784,17 +791,7 @@ function formatNewsTime(time){
 /**
  * 
  */
-var default_user_industry = ''
-function getParentIndustrys(){
-	sendPostRequestByJsonStr(detail.getParentIndustrys,null,function(data){
-		if(data.success){
-			var data_list = data.data
-			default_user_industry = data.data
-			show_user_industry(data_list)
-			console.log(default_user_industry + 'save')
-		}
-	})
-}
+
 function show_user_industry(data_list){
 	var html = ''
 	for(var i=0;i<data_list.length;i++){
@@ -893,28 +890,7 @@ function show_user_industry(data_list){
 		$(this).toggleClass('trade_pop_c_ul_on')
 	})
 }
-function save_user_industry(){
-	var ids = new Array()
-	var names= new Array()
-	$('#concern_industry li').each(function(){
-		if($(this).hasClass('trade_pop_c_ul_on')){
-			var id = $(this).attr('lang')
-			var name = $(this).text()
-			ids.push(id)
-			names.push(name)
-		}
-	})
-	var sss = {"industryNames":names.join(','),
-		       "industryIds":ids.join(','),
-		       "userId":1}
-	sendPostRequestByJsonObj(detail.saveOrUpdateUerIndustry,sss,function(data){
-		if(data.success){
-//			cancle_user_industry()
-			location.reload()
-		}
-	})
-	
-}
+
 function reset_user_industry(){
 	show_user_industry(default_user_industry)
 }
