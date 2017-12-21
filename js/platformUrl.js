@@ -4,6 +4,7 @@ var Constants = {
 	platformContentURL: "http://ctdn.local.galaxyinternet.com/api/",
 	searchContentURL: "http://ctdn.local.galaxyinternet.com/search/",
 	dataContentURL: "http://ctdn.local.galaxyinternet.com/data/",
+	uploadURL: "http://ctdn.local.galaxyinternet.com/cloudstorage/",
 	logoPath: "http://static.galaxyinternet.com/img/",
 	userContentURL:"http://ctdn.local.galaxyinternet.com/user/"
 }
@@ -79,9 +80,16 @@ var platformUrl = {
 var table ={
    empty: "--"
 }
+
 var publicsea = {
-	comQuery:Constants.platformContentURL+"publicsea/comQuery"
+	comQuery:Constants.platformContentURL+"publicsea/comQuery",
+	upload:Constants.uploadURL+"/upload/image",
+	insertProject:Constants.platformContentURL+"/publicsea/insertProject",
+	editProject:Constants.platformContentURL+"/publicsea/editProject",
+	queryProjectById:Constants.platformContentURL+"/publicsea/queryPubSeaById",
+	queryPubSeaList:Constants.platformContentURL+"/publicsea/queryPubSeaList"
 }
+
 var detail = {
 
     queryProject:Constants.platformContentURL+"projectList/queryProjectByCode/",

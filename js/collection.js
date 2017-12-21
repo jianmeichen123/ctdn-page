@@ -172,7 +172,7 @@ function initTable() {
           introduce ="暂无"
      }
       var html ="<div class='person-project-item clearfix'>"+
-      "<span class='person-book-close' onclick=cancelOneCol(0,'"+row.projCode+"')></span>"+
+      "<span class='person-book-close' onclick=cancel(0,'"+row.projCode+"')></span>"+
           "<div class='person-project-left fl'>"+
           "<img src='"+img+"'/></div>"+
           "<div class='person-project-right fr'>"+
@@ -205,7 +205,7 @@ function initTable() {
         row.investTotal = 0
     }
     var html ="<div class='person-project-item clearfix'>"+
-              "<span class='person-book-close' onclick=cancelOneCol(1,'"+row.orgCode+"') ></span>"+
+              "<span class='person-book-close' onclick=cancel(1,'"+row.orgCode+"') ></span>"+
                   "<div class='person-project-left fl'><a target='_blank' href='/jg_particulars.html?orgCode="+row.orgCode+"'><img src='"+img+"'/></a></div>"+
                   "<div class='person-project-right fr'>"+
                       "<p><span class='person-book-red'>"+row.investOrg+"</span><span class='person-mark-item-title'>"+orgType+"</span></p>"+
@@ -221,7 +221,7 @@ function initTable() {
       var logo = Constants.logoPath+"person/"+row.code+".png"
       var html =
           "<div class='person-project-item clearfix'>"+
-                  "<span class='person-book-close'  onclick=cancelOneCol(2,'"+row.code+"')></span>"+
+                  "<span class='person-book-close'  onclick=cancel(2,'"+row.code+"')></span>"+
                       "<div class='person-project-left person-start-img fl'><img src='"+logo+"'/></div>"+
                       "<div class='person-project-right fr'>"+
                           "<div><p>"+row.zhName+"</p>";
@@ -248,7 +248,7 @@ function initTable() {
   function invColFormatter(value,row){
       var html =
           "<div class='person-project-item clearfix'>"+
-                  "<span class='person-book-close'  onclick=cancelOneCol(3,'"+row.code+"')></span>"+
+                  "<span class='person-book-close'  onclick=cancel(3,'"+row.code+"')></span>"+
                       "<div class='person-project-left person-start-img fl'><img src='../img/person_center/person-start_03.jpg'/></div>"+
                       "<div class='person-project-right fr'>"+
                           "<div>"+
@@ -279,4 +279,5 @@ function reColFormatter(value,row){
 
 function cancel(type,code){
     cancelOneCol(type,code);
+    location.reload()
 }

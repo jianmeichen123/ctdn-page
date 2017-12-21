@@ -30,15 +30,13 @@
 				<li>
 					<div class="seek_financing_l"><span class="seek_financing_two">所在地区</span><span class="seek_financing_one">*</span></div>
 					<div class="seek_financing_r">
-						<select class="seek_financing_select " name="area1" data-item="parent" data-field="district"  data-rule-select="true" data-msg-select="<font color=red>*</font>必选项" >
+						<select class="seek_financing_select " name="area1Name" data-item="parent" data-field="district"  data-rule-select="true" data-msg-select="<font color=red>*</font>必选项" >
 							<option  selected = "selected" disabled="true">选择所在省/市</option>
 						</select>
-						<select class="seek_financing_select  seek_financing_select_lef" data-item="son" name="area2" data-rule-select="true" data-msg-select="<font color=red>*</font>必选项" >
+						<select class="seek_financing_select  seek_financing_select_lef" data-item="son" name="area2Name" data-rule-select="true" data-msg-select="<font color=red>*</font>必选项" >
 							<option selected= "selected" disabled="true">选择所在市/区</option>
 						</select>
 					</div>
-					<input type="hidden" name="projDistrict">
-					<input type="hidden" name="projSubDistrict">
 				</li>
 				<li>
 					<div class="seek_financing_l"><span class="seek_financing_two">项目介绍</span><span class="seek_financing_one">*</span></div>
@@ -49,7 +47,7 @@
 				<li>
 					<div class="seek_financing_l"><span class="seek_financing_two">联系人姓名</span><span class="seek_financing_one">*</span></div>
 					<div class="seek_financing_r">
-						<input class="seek_financing_input" name="linkName" required  maxlength="50"  placeholder="联系人姓名"  required data-rule-length50="true" data-msg-length50="<span class='dn_ico dn_ico_error'></span>不超过50个字">
+						<input class="seek_financing_input" name="linkMan" required  maxlength="50"  placeholder="联系人姓名"  required data-rule-length50="true" data-msg-length50="<span class='dn_ico dn_ico_error'></span>不超过50个字">
 					</div>
 				</li>
 				<li>
@@ -65,6 +63,9 @@
 						<div class="seek_put">
 							<div class="logo_posi"><input type="file" name="file" id="projPb" style="opacity: 0; width: 140px;height: 50px;"/>
 								<input type="hidden" name="fileName">
+								<input type="hidden" name="fileSize">
+								<input type="hidden" name="fileUrl">
+								<input type="hidden" name="fileKey">
 							</div>
 							<span class="dn_ico dn_ico_seek_pur1"></span>上传文件
 
@@ -78,7 +79,8 @@
 					<div class="seek_financing_r">
 						<div class="seek_put">
 							<div class="logo_posi"><input type="file" name="file" id="projLogo" style="opacity: 0; width: 140px; height: 50px;">
-								<input type="hidden" name="projectLogo"></div>
+								<input type="hidden" name="projectLogo">
+							</div>
 							<span class="dn_ico dn_ico_seek_pur2"></span>上传logo
 						</div>
 						<span class="tit_span" id="projLogoName">请上传项目logo，建议图片尺寸300*300 文件大小请限制在500k内</span>
@@ -86,13 +88,11 @@
 				</li>
 				<li class="seek_show_on">
 					<div class="seek_financing_l"><span class="seek_financing_two">所属领域</span></div>
-					<input type="hidden" name="projIndustry">
-					<input type="hidden" name="projSubIndustry">
 					<div class="seek_financing_r">
-						<select class="seek_financing_select" name="industry1" data-item="parent" data-field="industry" >
+						<select class="seek_financing_select" name="industry1Name" data-item="parent" data-field="industry" >
 							<option  selected= "selected" disabled="true" >选择一级行业</option>
 						</select>
-						<select class="seek_financing_select seek_financing_select_lef" name="industry2" data-item="son" >
+						<select class="seek_financing_select seek_financing_select_lef" name="industry2Name" data-item="son" >
 							<option  selected= "selected" disabled="true" >选择二级行业</option>
 						</select>
 					</div>
@@ -100,7 +100,7 @@
 				<li class="seek_show_on">
 					<div class="seek_financing_l"><span class="seek_financing_two">产品网址</span></div>
 					<div class="seek_financing_r">
-						<input class="seek_financing_input" name="projWebaddress" placeholder="产品网址" data-rule-url="true" data-msg-url="<font color=red>*</font>网址格式不正确">
+						<input class="seek_financing_input" name="productUrl" placeholder="产品网址" data-rule-url="true" data-msg-url="<font color=red>*</font>网址格式不正确">
 					</div>
 				</li>
 				<li class="seek_show_on">
@@ -117,9 +117,8 @@
 				</li>
 				<li class="seek_show_on">
 					<div class="seek_financing_l"><span class="seek_financing_two">融资轮次</span></div>
-					<!--<input type="hidden" name="projRound">-->
 					<div class="seek_financing_r">
-						<select class="seek_financing_select" name="projectLunci"  data-item="parent" data-field="round" >
+						<select class="seek_financing_select" name="projectLunciTxt"  data-item="parent" data-field="round" >
 							<option  selected= "selected" disabled="true" >选择融资轮次</option>
 						</select>
 					</div>
@@ -147,6 +146,7 @@
 {(dn_foot.html)}
 </body>
 <script src="js/jquery.validate.js" type="text/javascript"></script>
+<script src="layer/layer.js" type="text/javascript"></script>
 <script src="js/messages_zh.min.js" type="text/javascript"></script>
 <script type="text/javascript" src="js/jquery.ui.widget.js"></script>
 <script type="text/javascript" src="js/jquery.fileupload.js"></script>
@@ -158,11 +158,11 @@
 	 	//表单验证
 		$("#form").validate({
 			submitHandler: function() {
-				<!--var pb = $("input[name='projPb']").val();-->
-				<!--if(!pb){-->
-					<!--$("#projPbName").addClass("red")-->
-					<!--return;-->
-				<!--}-->
+				var pb = $("input[name='fileName']").val();
+				if(!pb){
+					$("#projPbName").addClass("red")
+					return;
+				}
 				save()
 				//验证通过后 的js代码写在这里
 			}
@@ -232,7 +232,7 @@
 		return this.optional(element) || (regex.test(value));
 	}, "");
 
-	$("input[name='projMoney']").bind("input propertychange", function() {
+	$("input[name='projectContribution']").bind("input propertychange", function() {
 		var value=$(this).val();
 		var intnum ;
 		var decimalnum;
@@ -257,7 +257,8 @@
 		$.each(array,function(){
 			data[this.name]=this.value.replace(/(^\s+)|(\s+$)/g,"");
 		})
-		return data;
+		data["userId"] = getCookie("_usercode_")
+ 		return data;
 	}
 
 	$('.seek_show_open').click(function(event){
@@ -272,7 +273,7 @@
 	})
 
 	$("#projLogo").fileupload({
-		url:'http://ctdndev.gi.com/cloudstorage/upload/image',
+		url:publicsea.upload,
 		formData:{},
 		add: function (e, data) {
 			var acceptFileTypes = /\/(jpg|jpeg|png|gif)$/i;
@@ -291,20 +292,20 @@
 			maxFileSize: 'File exceeds maximum allowed size of 5b'
 		},
 		done: function (e, data) {
-			if(data.result.message == 'OK')
+			if(data.result.success)
 			{
-				$("input[name='projectLogo']").val(data.result.data)
+				$("input[name='projectLogo']").val(data.result.uploadFiles[0].url)
 			}
 			else
 			{
-				$("#projLogoName").text(data.result.message);
+				$("#projLogoName").text(data.result.msg);
 			}
 		}
 	});
 	$("#projPb").fileupload({
-		url:'http://ctdndev.gi.com/cloudstorage/upload/image',
+		url:publicsea.upload,
 		formData:{},
-		 headers:{
+		headers:{
          '_uid_':getCookie('_uid_'),
          's_':getCookie('s_'),
         },
@@ -319,41 +320,25 @@
             data.submit();
         },
 		done: function (e, data) {
-			if(data.result.message == 'OK')
+			if(data.result.success)
 			{
 				$("#projPbName").removeClass("red")
-				$("#projPbName").text(data.files[0].name);
-				$("input[name='fileName']").val(data.result.data)
+				$("#projPbName").text(data.result.uploadFiles[0].fileName);
+				$("input[name='fileName']").val(data.result.uploadFiles[0].fileName)
+				$("input[name='fileKey']").val(data.result.uploadFiles[0].fileUploadName)
+				$("input[name='fileUrl']").val(data.result.uploadFiles[0].url)
+				$("input[name='fileSize']").val(data.result.uploadFiles[0].fileLength)
 			}
 			else
 			{
-				$("#projPbName").text(data.result.message);
+				$("#projPbName").text(data.msg);
 			}
 		}
 	});
 </script>
 <script>
 function save(){
-		<!--var projDistrict =  $("select[name='area1']").find("option:selected").text();-->
-		<!--var projSubDistrict =  $("select[name='area2']").find("option:selected").text();-->
-		<!--$("input[name='projDistrict']").val(projDistrict)-->
-		<!--$("input[name='projSubDistrict']").val(projSubDistrict)-->
-
-		<!--if($("select[name='projIndustryId']").val()){-->
-			<!--var projIndustry =  $("select[name='projIndustryId']").find("option:selected").text();-->
-			<!--$("input[name='projIndustry']").val(projIndustry)-->
-		<!--}-->
-
-		<!--if($("select[name='projSubIndustryId']").val()){-->
-			<!--var projSubIndustry =  $("select[name='projSubIndustryId']").find("option:selected").text();-->
-			<!--$("input[name='projSubIndustry']").val(projSubIndustry)-->
-		<!--}-->
-
-		<!--if($("select[name='projRoundId']").val()){-->
-			<!--var projRound =  $("select[name='projRoundId']").find("option:selected").text();-->
-			<!--$("input[name='projRound']").val(projRound)-->
-		<!--}-->
-		var url =detail.insertProject
+			var url =publicsea.insertProject
 			var data = JSON.stringify($("#form").serializeJson());
 			$.ajax({
 				type: "POST",
@@ -397,15 +382,15 @@ $('body').delegate('#save-btn','click', function(event){
 		parent.append(html);
 	})
 
-	$("select[name='area1']").change(function(){
+	$("select[name='area1Name']").change(function(){
 		var parent = $(this);
-		var son =$("select[name='area2']")
+		var son =$("select[name='area2Name']")
 		getOption(parent,son)
 	})
 
-	$("select[name='industry1']").change(function(){
+	$("select[name='industry1Name']").change(function(){
 		var parent = $(this);
-		var son =$("select[name='industry2']")
+		var son =$("select[name='industry2Name']")
 		getOption(parent,son)
 	})
 
