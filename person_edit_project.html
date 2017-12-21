@@ -16,20 +16,7 @@
 <body>
 {(header.html)}
 <div class='person-center-container projectEidtContaier clearfix'>
-<div class='person-left fl'>
-		<div class='person-head-pic'>
-			<img src='../img/person_center/person_03.png'/>
-			<p>136434***</p>
-		</div>
-		<ul class='person-menu'>
-			<li class='person-item-project'><span></span>我的项目</li>
-			<li class='person-item-industry'><span></span>关注行业</li>
-			<li class='person-li-item'><span></span>收藏夹</li>
-			<li class='person-change-password'><span></span>修改密码</li>
-			
-		</ul>
-	</div>
-
+	{(person_center_header.html)}
 	<form  action="#" id="form" enctype="multipart/form-data" class='person-right fl person-edit-project-content'>
 		<div>
 			<div class="seek_financing_tit personEditTitle">编辑项目</div>
@@ -37,9 +24,10 @@
 				<li>
 					<div class="seek_financing_l seek_finacing_left"><span class="seek_financing_two">项目名称</span><span class="seek_financing_one">*</span></div>
 					<div class="seek_financing_r person_finacing_right">
-						<input class="seek_financing_input editRequireInput" name="projName"  required data-rule-length20="true"  maxlength="20"  data-msg-length20="<span class='dn_ico dn_ico_error'></span>不超过20个字"  placeholder="请输入公司核心产品名称，不超过20个字">
+						<input class="seek_financing_input editRequireInput" name="projName"  value required data-rule-length20="true"  maxlength="20"  data-msg-length20="<span class='dn_ico dn_ico_error'></span>不超过20个字"  placeholder="请输入公司核心产品名称，不超过20个字">
 					</div>
 				</li>
+
 				<li>
 					<div class="seek_financing_l seek_finacing_left"><span class="seek_financing_two">所在地区</span><span class="seek_financing_one">*</span></div>
 					<div class="seek_financing_r person_finacing_right">
@@ -156,7 +144,7 @@
 					</div>
 				</li>
 			</ul>
-			<div class='person-edit-content'><span class='person_edit_return'>返回</span><span class='person-edit-save' id="save-btn">保存</span></div>
+			<div class='person-edit-content'><a href="person_center_myproject.html"><span class='person_edit_return'>返回</span></a><span class='person-edit-save' id="save-btn">保存</span></div>
 		</div>
 	</form>
 
@@ -172,7 +160,7 @@
 <script>
 	$(function(){
 		//表单清空
-	 	$("#form")[0].reset();
+	 	//$("#form")[0].reset();
 	 	//表单验证
 	 	//debugger
 		$("#form").validate({
@@ -180,7 +168,7 @@
 				var pb = $("input[name='projPb']").val();
 				if(!pb){
 					$("#projPbName").addClass("red");
-					$('.person-upload-bp').addClass('uploadBtnDanger');
+					$('.plllslslslslslslslslslerson-upload-bp').addClass('uploadBtnDanger');
 					//$('.personUploadPic').addClass('uploadSpanPic')
 					return;
 				}
@@ -191,11 +179,11 @@
 				$(element).valid();
 			},
 			onfocusin:function(){
-				
+
 			}
 		})
 	})
-	
+
 	//单独进行验证，高亮
 	$('.editRequireInput').blur(function(){
 		var _this = $(this);
@@ -211,9 +199,9 @@
 		_this.removeClass('inputDanger');
 		_this.removeClass('invalid');
 	});
-	
-	
-	
+
+
+
 	//验证手机号
     jQuery.validator.addMethod("phone", function (value, element) {
      var phone = /^[\+\-\(\)0-9]{0,40}$/;
@@ -225,7 +213,7 @@
 		var verify_20 = /^(?!.{20}|^\s*$)/;
 		return this.optional(element) || (verify_20.test(value));
 	}, "");
-	
+
 	//验证长度
 	jQuery.validator.addMethod("length50", function (value, element) {
 		var verify_50 = /^(?!.{50}|^\s*$)/;
@@ -348,14 +336,14 @@
 			$("#projPbName").text("正在上传文件...")
 			$("#projPbName").removeClass("red");
 			$('.person-upload-bp').removeClass('uploadBtnDanger');
-			
+
             data.submit();
         },
 		done: function (e, data) {
 			if(data.result.message == 'OK')
 			{
 				$("#projPbName").removeClass("red");
-				$('.person-upload-bp').removeClass('uploadBtnDanger');	
+				$('.person-upload-bp').removeClass('uploadBtnDanger');
 				$("#projPbName").text(data.files[0].name);
 				$("input[name='projPb']").val(data.result.data)
 			}
@@ -416,11 +404,10 @@ $('body').delegate('#save-btn','click', function(event){
 })
 	var list ={};
 	sendGetRequest(platformUrl.allQuery,function(data){
-		list["district"] = data.data.district[0].children;
-		list["industry"] = data.data.industry;
-		list["round"] = data.data.round;
+		list["district"] = data["district"];
+		list["industry"] = data["industry"];
+		list["round"] = data["round"];
 	});
-	console.log(list)
 	var parents = $("select[data-item='parent']");
 	$.each(parents,function(){
 		var parent = $(this);
@@ -436,16 +423,16 @@ $('body').delegate('#save-btn','click', function(event){
 	$("select[name='projDistrictId']").change(function(){
 		var parent = $(this);
 		var son =$("select[name='projSubDistrictId']")
-		getOption(parent,son)
+		getOption(parent,son,null)
 	})
 
 	$("select[name='projIndustryId']").change(function(){
 		var parent = $(this);
 		var son =$("select[name='projSubIndustryId']")
-		getOption(parent,son)
+		getOption(parent,son,null)
 	})
 
-	function getOption(parent,son){
+	function getOption(parent,son,id){
 		// 先清空二级
 		son.empty();
 		var field=parent.attr("data-field")
@@ -456,14 +443,45 @@ $('body').delegate('#save-btn','click', function(event){
 			index= parent[0].selectedIndex-1
 		}
 		var parentData = list[field][index];
-		var data =parentData.children;
+		var data =parentData.child;
 		var html = ""
 		son.val(data[0].id)
 		$.each(data,function(i,e){
-			html += "<option value ="+e.id+" >"+e.name+"</option>"
+			if(id && id == e.id){
+				html += "<option value ="+e.dictName+" selected='selected' >"+e.dictName+"</option>"
+			}else{
+				html += "<option value ="+e.dictName+" >"+e.dictName+"</option>"
+			}
 		})
 		son.append(html);
 		son.click();
 	}
+</script>
+<script>
+	sendGetRequest("http://127.0.0.1:8081/api/appProjectDemandInfo/getOneById/16",function(data){
+		var ls = $("#form").find("*[name]");
+		$(ls).each(function(i,e){
+			var tagName = e.tagName;
+			var value=data.data[$(this).attr("name")]
+			if(tagName == "INPUT" || tagName=="TEXTAREA"){
+				$(this).val(value)
+			}
+			if(tagName=="SELECT" && ($(this).attr("data-item")=="parent")){
+				$(this).find("option[value='"+value+"']").attr("selected",true);
+			}
+			if($(this).attr("name")=='projSubDistrictId'){
+				getOption($("select[name='projDistrictId']"),$("select[name='projSubDistrictId']"),value)
+			}
+			if($(this).attr("name")=='projSubIndustryId'){
+				getOption($("select[name='projIndustryId']"),$("select[name='projSubIndustryId']"),value)
+			}
+		})
+		if(data.data["projPb"]){
+			$("#projPbName").html(data.data["projPb"])
+		}
+		if(data.data["projLogo"]){
+			$("#projLogoName").html(data.data["projLogo"])
+		}
+	})
 </script>
 </html>

@@ -1,0 +1,81 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>行业报告详情</title>
+	<!--basis-->
+	{(dn_basis.html)}
+</head>
+
+<body>
+{(header.html)}
+<div class="container m_t20">
+	<div class="dn_l_all">
+		<div class="dn_l">
+			<div  class="dnsy_tit">
+				<div class="news_click"><span><a href="index.html">首页</a></span>><span><a href="report_list.html">行研报告</a></span>><span class="news_click_on">正文</span></div>
+			</div>
+			<div class="report_detailed" id="detail" data-query="getReport">
+
+				<div class="report_detailed_tit"><span data-field="title"></span></div>
+				<div class="report_detailed_time"><span data-field="publishDate"></span><span></span><span>来源：<span data-field="source"></span></span></div>
+			
+				<ul>
+					<li data-field="reportBody"></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<div class="dn_r_all">
+				
+		<div class="dn_r">
+			<div  class="dnsy_tit no_border">
+				<div><span class="dn_ico dn_ico_report_list"></span><span class="dnsy_tit_size">更多报告</span></div>
+			</div>
+			<div class="report_all">
+				<ul id="ul"></ul>
+					{-raw-}
+				<script id="report_particulars" type="text/x-jquery-tmpl">
+						<li>
+							<span><a href="report_detailed.html?id=${id}">${title}</a></span>
+						</li>
+					</script>
+				{-raw-}
+
+				<!--<ul>-->
+				<!--<li>-->
+				<!--<p><a href="report_detailed_1.html">独家丨还在玩命找风口？这份［创投指数］报告，泄露了投资背后的数据逻辑</a></p>-->
+				<!--</li>-->
+					<!--<li>-->
+						<!--<p><a href="report_detailed_2.html">研究丨理财保险双「陨落」、区块链大热，你管好自己的钱袋子了吗？</a></p>-->
+					<!--</li>-->
+					<!--<li>-->
+						<!--<p><a href="report_detailed_3.html">这个行业雇佣全球超40%人口，有7.8万亿美元市场，创新却最慢【星河研究院】</a></p>-->
+					<!--</li>-->
+					<!--<li>-->
+						<!--<p><a href="report_detailed_4.html">基因测序成本从1000万美元降到1000美元，创业风口来了吗？【星河研究院】</a></p>-->
+					<!--</li>-->
+					<!--<li>-->
+						<!--<p><a href="report_detailed_5.html">《王者荣耀》卖皮肤日流水1.5亿 中国玩家正把全球游戏产业带入转折点【星河研究院】</a></p>-->
+					<!--</li>-->
+					<!--<li>-->
+						<!--<p><a href="report_detailed_6.html">研究丨癌症治愈不再遥不可及，这些医疗技术创新正在改变世界【星河研究院】</a></p>-->
+					<!--</li>-->
+				<!--</ul>-->
+			</div>
+		</div>
+	</div>
+
+</div>
+
+{(dn_foot.html)}
+<script src="js/jquery.tmpl.js"></script>
+<script src="js/report.js"></script>
+<script>
+nav_locaton('hybg','','','')
+</script>
+</body>
+
+
+
+</html>

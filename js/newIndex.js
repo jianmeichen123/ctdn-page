@@ -1,9 +1,3 @@
-var industryNames = ''
-sendGetRequest(detail.userIndustry+'1',function(data){
-	if(data.success){
-		industryNames = data.data.industryNames
-	}
-})
     var url = detail['getCTDNEventInfo'];
     sendPostRequestByJsonObj(url,{"pageSize":5},function(data){
        $(data.data).each(function(k,v){
@@ -74,9 +68,6 @@ function getNews(){
     json["typeId"] = $("input[name='typeId']").val();
     json["pageSize"]=6;
     json["pageNo"]=0;
-    if(type == '2' || type == '6' || type == '7' || type==''){
-    	json["industryNames"] = industryNames
-    }
      sendPostRequestByJsonObj(searchUrl["news"],json,function(data){
            $(data.page.records).each(function(k,v){
                 if(!v){
@@ -95,120 +86,14 @@ function getNews(){
                 }
            })
            $("#newsList").html("");
-           $("#getAllnews").tmpl(data.page).appendTo($("#newsList"))
+           $("#getAllnews").tmpl(data).appendTo($("#newsList"))
         })
 }
 
 
 $(function () {
-	$("#trade_pop").hide();
-	getPorjects(1);
-    var href = GetUrlRelativePath()
-    if(href == 'index'){
-//    	getGG_news()
-    }else{
     	getNews();
-    }
-    getOrgs();
-    getParentIndustrys();
 })
-$("#lastestPro").delegate("li","click",function(){
-	var tab = $(this).attr("value");
-	$("#lastestPro li").removeClass('financing_on')
-	$(this).addClass('financing_on')
-	getPorjects(tab);
-}); 
-function getPorjects(tab){
-	var url = ''
-	if(tab == 0){
-		url = detail.queryLastestLoadProject
-	}
-	if(tab == 1){
-		url = detail.queryLastestFinanceProject
-	}
-	sendPostRequestByJsonStr(url,null,function(data){
-		if(data.success){
-			var data_list = data.data
-			var html = ''
-			for(var i=0;i<data_list.length;i++){
-				var entity = data_list[i]
-				var amount = '金额未透露'
-				var round = '轮次未知'
-				if(entity.latestFinanceAmountNum){
-					amount = entity.latestFinanceAmountNum
-				}
-				if(entity.latestFinanceRound){
-					round = entity.latestFinanceRound
-				}
-				var invst =  entity.investSideJson 
-				
-				var orgs = ''
-				if(invst){
-					invst = JSON.parse(entity.investSideJson)
-					var org_jarr = invst.investSideJson
-					for(var j=0;j<org_jarr.length;j++){
-						var org_json = org_jarr[j]
-						orgs +=org_json['title']
-						if(j!=org_jarr.length-1){
-							orgs+=','
-						}
-					}
-				}else{
-					orgs = '名称未知'
-				}
-			    var date =formatDate(entity.latestFinanceDT,'yyyy-MM-dd')
-			    var logo = Constants.logoPath+'project/'+entity.projCode+".png"
-				html +='<li>'
-					+'<div class="index_project_cen">'
-					+'<ul>'
-					+'<li>'
-					+'<div class="index_project_img"><a href="/project_qy.html?projCode='+entity.projCode+'" target="_blank"><img src="'+logo+'"></a></div>'
-					+'<div class="index_project_img_r">'
-					+'<div class="index_project_img_r_1"><a href="/project_qy.html?projCode='+entity.projCode+'" target="_blank">'+entity.projTitle+'</a></div>'
-					+'<div class="index_project_img_r_2">'+round+'/'+amount+'</div>'
-					+'<div class="index_project_img_r_3">'
-					+'<span>'+entity.industryName+'</span>'
-					+'</div>'
-					+'</div>'
-					+'</li>'
-					+'<li class="index_project_img_r_c">'
-					+'	<div class="index_project_img_r_c_l">获投时间：</div>'
-					+'<div class="index_project_img_r_c_r">'+date+'</div>'
-					+'</li>'
-					+'<li>'
-					+'<div class="index_project_img_r_c_l">投资机构：</div>'
-					+'<div class="index_project_img_r_c_r">'+orgs+'</div>'
-					+'</li>'
-					+'</ul>'
-					+'</div>'
-					+'</li>'
-			}
-			$('.index_project').html(html)
-		}
-	})
-}
-function getOrgs(){
-	sendPostRequestByJsonStr(detail.queryLastestOrg,null,function(data){
-		if(data.success){
-			var data_list = data.data
-			var html = ''
-			for(var i=0;i<data_list.length;i++){
-				var entity = data_list[i]
-				var logo = ''
-			    logo = Constants.logoPath+'org/'+entity.orgCode+".png"
-				var investOrg = '名称未知'
-				if(entity.investOrg){
-					investOrg = entity.investOrg
-				}
-				html += '<li>'
-					+'<div class="index_institution_img"><a href="/jg_particulars.html?orgCode='+entity.orgCode+'" target="_blank"><img src="'+logo+'"></a></div>'
-					+'<div class="index_institution_name"><a href="/jg_particulars.html?orgCode='+entity.orgCode+'" target="_blank">'+investOrg+'</a></div>'
-					+'<div class="index_institution_num"><span>'+entity.investTotal+'</span>笔</div>'
-					+'</li>'
-			}
-			$('.index_institution ul').html(html)
-		}
-	});
-}
+
 
 

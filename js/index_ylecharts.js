@@ -297,9 +297,40 @@ $('#num_or_money span').click(function(){
 function showEcharts(){
 	if(echarts_flag == 1 ){ //图表1
 		option.xAxis[0].data = industry_data.data.xAxis
-		option.legend.data=industry_data.data.legend.slice(0,myChart_default_industry_num)
-		var series =  industry_data.data.series.slice(0,myChart_default_industry_num)
 		option.yAxis[0].name = yAxis_name
+		var legend = industry_data.data.legend.slice(0,myChart_default_industry_num)
+		legend.push('平均值')
+		option.legend.data=legend
+		var series =  industry_data.data.series.slice(0,myChart_default_industry_num)
+		var num_array = [0,0,0,0,0,0,0,0,0,0,0,0]
+		for(var j=0;j<series.length;j++){
+			var entity = series[j]
+			var json = {}
+			if(query_flag == 1){
+				for(var m = 0;m<num_array.length;m++){
+					num_array[m] = parseInt(entity.investedNumStrList[m]) + num_array[m] 
+				}
+			}
+			if(query_flag == 2){
+				for(var m = 0;m<num_array.length;m++){
+					num_array[m] = parseInt(entity.investedAmountStrList[m]) + num_array[m] 
+				}
+			}
+		}
+		for(var n =0;n<num_array.length;n++){
+			num_array[n] = (num_array[n]/myChart_default_industry_num).toFixed(2)
+		}
+		console.log(num_array)
+		var avg_json = {}
+		avg_json['industryName'] = '平均值'
+		if(query_flag == 1){
+			avg_json['investedNumStrList'] = num_array
+		}
+		if(query_flag == 2){
+			avg_json['investedAmountStrList'] = num_array
+		}
+		
+		series.push(avg_json)
 		var y_data =  new Array()
 		for(var i=0;i<series.length;i++){
 			var entity = series[i]
@@ -312,13 +343,11 @@ function showEcharts(){
 				json['data'] = entity.investedAmountStrList
 			}
 			json['type'] = 'line'
-//				  symbol:'circle',
 			json['symbol'] = 'circle'
 			y_data.push(json)
 		}
 		option.series = y_data
 		myChart.setOption(option,true); //true  防止多次请求，数据重叠
-		console.log(myChart)
 	}
 	if(echarts_flag == 2) { //图表2
 		option_db.xAxis[0].data = round_data.data.xAxis.slice(0,myChartDB_default_industry_num)
@@ -348,7 +377,8 @@ function showEcharts(){
 }
 var myChart_click_count = 1
 var myChartDB_click_count =1
-myChart.on('click',function(){
+myChart.on('click',function(params){
+//	console.log(params.componentType)
 	if(myChart_click_count % 2 == 0){
 		myChart_default_industry_num = 10
 	}else{

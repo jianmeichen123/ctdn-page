@@ -335,8 +335,8 @@
 					</ul>
 					{-raw-}
 					<script id="getAllnews" type="text/x-jquery-tmpl">
-							{{if data.records.length >0}}
-								{{each(i,v) data.records}}
+							{{if page.records.length >0}}
+								{{each(i,v) page.records}}
 								<li>
 									{{if v.imgmd5}}
 										<div class="dn_info_list_show">
@@ -542,58 +542,72 @@ $(function(){
 </script>
 <script src="js/jquery.tmpl.js"></script>
 <!-- <script src="js/newIndex.js"></script> -->
-<!-- <script src="js/index_common.js"></script> -->
+<script src="layer/layer.js"></script>
+<script src="js/index_common.js"></script>
 <script>
+$('#trade_click').click(function(){
+ 	event.stopPropagation();
+ 	$("#trade_pop").show();
+    $('.nav_all_seek').show();
+	$('.nav_all_input').hide();
+	getParentIndustrys()
+})
 $("#trade_pop").hide();
 getOrgs();
-getParentIndustrys();
+getParentIndustrys()
 var industryNames = null
 var industryIdList = null
-sendPostRequestByJsonObj(detail.userIndustry+"1",null,function(data){
-	if(data.success){
-		industryNames = data.data.industryNames
-		industryIdList=data.data.industryIdList
+var userCode = null
+var user_json = null
+loadUserIndustry()
+function loadUserIndustry(){
+	if(isLogin() ){
+		$.ajax({
+			url :platformUrl.me,
+			type : "GET",
+			cache : false,
+			contentType : "application/json; charset=UTF-8",
+			async : false,
+			error : function(request) {
+			     location.href =  platformUrl.toLogin
+			},
+			success : function(data) {
+				user_json = JSON.parse(decodeURIComponent(data))
+	 			if(!user_json){
+	 				location.href=  platformUrl.toLogin
+	 				return
+	 			}
+				var roleCode = user_json['roleCode']
+	 			if(roleCode == 10000){
+	 				userCode = user_json['userCode']
+					sendPostRequestByJsonObj(detail.getUserIndustry,{"userCode":userCode},function(data){
+						if(data.success){
+							industryNames = data.data.industryNames
+							industryIdList=data.data.industryIdList
+							getNews() //投融快讯
+							getActiveOrgs() //活跃机构
+						}
+					});	
+	 			}else{
+	 				location.href= home.index + '/index_normal.html'
+ 					return
+	 			}
+				
+			}
+		});
+	}else{
+		location.href = platformUrl.toLogin
 	}
-});
+}
+
 $("#lastestPro").delegate("li","click",function(){
 	var tab = $(this).attr("value");
 	$("#lastestPro li").removeClass('financing_on')
 	$(this).addClass('financing_on')
 	getPorjects(tab);
 }); 
-getNews()
 getPorjects(0)
-function getNews(){
-    var json={};
-    var type = $("input[name='typeId']").val()
-    json["typeId"] =type;
-    json["pageSize"]=6;
-    json["pageNo"]=0;
-    if(type == '2' || type == '6' || type == '7' || type==''){
-    	json["industryNames"] = industryNames
-    }
-    console.log(searchUrl["news"])
-    sendPostRequestByJsonObj(searchUrl["news"],json,function(data){
-           $(data.data).each(function(k,v){
-                if(!v){
-                    v="-"
-                }else{
-                    for(i in v){
-                        if(i=="records"){
-                            for(j in v[i]){
-                               if(v[i][j].overview.length>150){
-                                   v[i][j].overview=v[i][j].overview.substring(0,150)+'...'
-                               }
-                                v[i][j].orderTime= formatNewsTime(v[i][j].orderTime)
-                           }
-                        }
-                    }
-                }
-           })
-           $("#newsList").html("");
-           $("#getAllnews").tmpl(data).appendTo($("#newsList"))
-        })
-}
+
 function getPorjects(tab){
 	var url = ''
 	if(tab == 0){
@@ -618,7 +632,7 @@ function getPorjects(tab){
 					industryName = entity.industryName
 				}
 				if(entity.latestFinanceAmountNum){
-					amount = entity.latestFinanceAmountNum
+					amount = entity.latestFinanceAmountStr
 				}
 				if(entity.latestFinanceRound){
 					round = entity.latestFinanceRound
@@ -628,10 +642,11 @@ function getPorjects(tab){
 				var orgs = ''
 				if(invst){
 					invst = JSON.parse(entity.investSideJson)
+					console.log(invst)
 					var org_jarr = invst.investSideJson
 					for(var j=0;j<org_jarr.length;j++){
 						var org_json = org_jarr[j]
-						orgs +=org_json['title']
+						orgs +=org_json['invstor']
 						if(j!=org_jarr.length-1){
 							orgs+=','
 						}
@@ -650,7 +665,7 @@ function getPorjects(tab){
 					+'<div class="index_project_img_r_1"><a href="/project_qy.html?projCode='+entity.projCode+'" target="_blank">'+entity.projTitle+'</a></div>'
 					+'<div class="index_project_img_r_2">'+round+'/'+amount+'</div>'
 					+'<div class="index_project_img_r_3">'
-					+'<span>'+entity.industryName+'</span>'
+					+'<span>'+industryName+'</span>'
 					+'</div>'
 					+'</div>'
 					+'</li>'
@@ -689,7 +704,7 @@ function getOrgs(){
 				html += '<li>'
 					+'<div class="index_institution_img"><a href="/jg_particulars.html?orgCode='+entity.orgCode+'" target="_blank"><img src="'+logo+'"></a></div>'
 					+'<div class="index_institution_name"><a href="/jg_particulars.html?orgCode='+entity.orgCode+'" target="_blank">'+investOrg+'</a></div>'
-					+'<div class="index_institution_num"><span>'+entity.investTotal+'</span>笔</div>'
+					+'<div class="index_institution_num"><span>'+entity.lastMonthInvestNum+'</span>笔</div>'
 					+'</li>'
 			}
 			$('.index_institution ul').html(html)

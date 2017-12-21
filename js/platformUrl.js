@@ -1,20 +1,20 @@
 //本地
 //
-//var Constants = {
-//	platformContentURL: "http://127.0.0.1:8081/api/",
-//	searchContentURL: "http://127.0.0.1:8089/search/",
-//	dataContentURL: "http://127.0.0.1:8085/data/",
-//	logoPath: "http://static.galaxyinternet.com/img/",
-//	userContentURL:"http://127.0.0.1:8082/user/"
-//}
-
 var Constants = {
-		platformContentURL: "http://ctdndev.gi.com/api/",
-		searchContentURL: "http://ctdndev.gi.com/search/",
-		dataContentURL: "http://ctdndev.gi.com/data/",
-	    logoPath: "http://static.galaxyinternet.com/img/",
-	    userContentURL:"http://ctdndev.gi.com/user/"
-	}
+	platformContentURL: "http://ctdn.local.galaxyinternet.com/api/",
+	searchContentURL: "http://ctdn.local.galaxyinternet.com/search/",
+	dataContentURL: "http://ctdn.local.galaxyinternet.com/data/",
+	logoPath: "http://static.galaxyinternet.com/img/",
+	userContentURL:"http://ctdn.local.galaxyinternet.com/user/"
+}
+
+//var Constants = {
+//		platformContentURL: "http://ctdndev.gi.com/api/",
+//		searchContentURL: "http://ctdndev.gi.com/search/",
+//		dataContentURL: "http://ctdndev.gi.com/data/",
+//	    logoPath: "http://static.galaxyinternet.com/img/",
+//	    userContentURL:"http://ctdndev.gi.com/user/"
+//	}
 
 //线上
 //var Constants = {
@@ -24,7 +24,7 @@ var Constants = {
 //    logoPath: "http://static.galaxyinternet.com/img/"
 //}
 var home = {
-	    index : "http://ctdnrc.galaxyinternet.com"
+	    index : "http://ctdndev.galaxyinternet.com"
 	}
 var docUrl = {
 
@@ -49,6 +49,8 @@ var searchUrl = {
     total:Constants.searchContentURL+"total",
     startUp:Constants.searchContentURL+"startUp",
     investor:Constants.searchContentURL+"investor",
+    getGGNews:Constants.searchContentURL+"getGGNews",
+    getGGCompeteInfo:Constants.searchContentURL+"getGGCompeteInfo",
 }
 var dataUrl = {
     products:Constants.dataContentURL+"op/is/",
@@ -67,14 +69,18 @@ var platformUrl = {
 	allQuery:Constants.platformContentURL+"common/allQuery",
 	comQuery:Constants.platformContentURL+"common/comQuery",
 	industry:Constants.platformContentURL+"common/industry",
-	userIndustry:Constants.platformContentURL+"index/userIndustry/",
-	updateUserIndustry:Constants.platformContentURL+"index/updateUserIndustry",
+	userIndustry:Constants.platformContentURL+"index/queryUserIndustry/",
+	updateUserIndustry:Constants.platformContentURL+"index/saveUserIndustry",
+	resetUserIndustry:Constants.platformContentURL+"index/resetUserIndustry/",
 	eventIndustryMonth:Constants.platformContentURL+"eventIndustryMonth/query",
 	queryIndexHeaderStat:Constants.platformContentURL+"index/queryIndexHeaderStat",
 	fileUpload:Constants.platformContentURL+"upload"
 }
 var table ={
    empty: "--"
+}
+var publicsea = {
+	comQuery:Constants.platformContentURL+"publicsea/comQuery"
 }
 var detail = {
 
@@ -120,15 +126,17 @@ var detail = {
     queryLastestFinanceProject:Constants.platformContentURL+"index/queryLastestFinanceProject/",
     queryLastestOrg:Constants.platformContentURL+"index/queryLastestOrg/",
     getParentIndustrys:Constants.platformContentURL+"index/getParentIndustrys/",
-    saveOrUpdateUerIndustry:Constants.platformContentURL+"index/saveOrUpdateUerIndustry/",
-    userIndustry:Constants.platformContentURL+"index/userIndustry/",
     getCompeteInfo:Constants.platformContentURL+"index/getCompeteInfo/",
     queryGGTotalHeaderStat:Constants.platformContentURL+"index/queryGGTotalHeaderStat",
     queryGGCurMonthHeaderStat:Constants.platformContentURL+"index/queryGGCurMonthHeaderStat",
     queryIndustryMonthForEchart:Constants.platformContentURL+"index/queryIndustryMonthForEchart",
     queryIndustryMonthMergerForEchart:Constants.platformContentURL+"index/queryIndustryMonthMergerForEchart",
-    queryProListByCodeList:Constants.platformContentURL+"projectList/queryByCodeList/",
+    getBusinessLineMappingIndustry:Constants.platformContentURL+"index/getBusinessLineMappingIndustry",
+    getUserIndustry:Constants.platformContentURL+"index/getUserIndustry",
+    queryByCodeList:Constants.platformContentURL+"projectList/queryByCodeList/",
     queryReportByPage:Constants.platformContentURL+"report/queryReportByPage/",
+    queryReports:Constants.platformContentURL+"report/queryReports/",
+    getReport:Constants.platformContentURL+"report/getReport/",
 
 //  创业者/投资人
     queryPersonComExpr:Constants.platformContentURL+"person/queryPersonComExpr/",

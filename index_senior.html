@@ -88,7 +88,7 @@
 						<div class="fl">
 							<span class="eachrst_tit_on" cmd="yl_tit" name="one">行业融资趋势</span>
 							<span class="eachrst_tit_b">|</span>
-							<span cmd="yl_tit" name="two">行业融资对比</span>
+							<span cmd="yl_tit" name="two">行业融资对比(本季度)</span>
 						</div>
 						<div class="fr" id="num_or_money">
 							<span class="eachrst_tit_on" lang="1">按融资笔数</span>
@@ -108,36 +108,21 @@
 			<div class="index_trade"><div class="index_trade_c" id="executive_click">全部行业<span class="dn_ico dn_ico_tradex"></span></div></div>
 			<!--全部行业弹出-->
 			<div class="executive_pop none" id="executive_pop">
-				<div class="dn_ico dn_ico_trade_triangle"></div>
-				<div class="executive_pop_ul">
+				<div class="dn_ico dn_ico_trade_triangle" ></div>
+				<div class="executive_pop_ul" id="business_line">
 					<ul>
-						<li>媒体营销1</li>
-						<li>媒体营销2</li>
-						<li>媒体营销3</li>
-						<li>媒体营销4</li>
-						<li>媒体营销5</li>
-						<li>媒体营销</li>
-						<li>媒体营销</li>
-						<li>媒体营销</li>
-						<li>媒体营销</li>
-						<li>媒体营销</li>
-						<li>媒体营销</li>
-						<li>媒体营销</li>
-						<li>媒体营销</li>
-						<li>媒体营销</li>
-						<li>媒体营销</li>
-						<li>媒体营销</li>
-						<li>媒体营销</li>
-						<li>媒体营销</li>
-						<li>媒体营销</li>
-						<li>媒体营销</li>
-						<li>媒体营销</li>
-						<li>媒体营销</li>
-						<li>媒体营销6</li>
-						<li>媒体营销7</li>
-						<li>媒体营销8</li>
-						<li>媒体营销9</li>
 					</ul>
+						{-raw-}
+					<script id="business_line_script" type="text/x-jquery-tmpl">
+							{{if data.length >0}}
+								{{each(i,v) data}}
+									<li  onclick="getGG_news('${v.industryNames}')">${v.name}</li>
+								{{/each}}
+							{{else}}
+								<span>暂无数据</span>
+							{{/if}}
+							</script>
+					{-raw-}
 				</div>				
 			</div>
 			<!--关注行业弹出end-->
@@ -203,8 +188,8 @@
 					</ul>
 					{-raw-}
 					<script id="getAllnews" type="text/x-jquery-tmpl">
-							{{if data.recordList.length >0}}
-								{{each(i,v) data.recordList}}
+							{{if page.recordList.length >0}}
+								{{each(i,v) page.recordList}}
 										{{each(j,w) v}}
 											<li>
 										{{if w.imgmd5}}
@@ -305,7 +290,7 @@
 							</div>
 						</li>
 					</ul>
-					{-raw-}
+								{-raw-}
 						<script type="text/x-jquery-tmpl" id="compete_script">
 	{{if data.length >0}}
 	{{each(i,v) data}}
@@ -313,18 +298,17 @@
 							<div class="rivalry_div_l">
 								<a href="{{html "/jg_particulars.html?orgCode="+v.orgCode}}"><img src={{html Constants.logoPath +"news/"+v.orgCode+".PNG"}}></a>
 								<div class="rivalry_div_tit"><a href="{{html "/jg_particulars.html?orgCode="+v.orgCode}}">${v.investOrg}</a></div>
-								<div class="rivalry_div_num">上个月<span class="rivalry_div_num_span">2</span>笔</div>
+								<div class="rivalry_div_num">上个月<span class="rivalry_div_num_span">${v.lastMonthInvestNum}</span>笔</div>
 							</div>
 							<div class="rivalry_div_r">
 								<ul>
-									{{if v.orgMediaInfos}}
-								{{if v.orgMediaInfos.length >0}}
-									{{each(j,w) v.orgMediaInfos}}
+								{{if v.records.length >0}}
+									{{each(j,w) v.records}}
 									<li>
-										<span class="rivalry_div_r_cen">${w.title}</span>
-										<span class="rivalry_div_r_time">${w.eventDate}</span>
+										<span class="rivalry_div_r_cen"><a href="${w.href}">${w.title}</a></span>
+										<span class="rivalry_div_r_time">{{html formatDate(w.orderTime*1000,'yyyy-MM-dd')}}</span>
 									</li>
-									{{/each}}{{/if}}		
+									{{/each}}	
 								{{else}}<span>暂无数据</span>{{/if}}
 									
 
@@ -390,46 +374,7 @@
 		</div>
 		<div class="dn_r_all">
 			<!-- 上个月活跃机构 -->
-			<div class="dn_r">
-				<div  class="dnsy_tit no_border">
-					<div><span class="dn_ico dn_ico_institution"></span><span class="dnsy_tit_size">上个月活跃机构</span></div>
-					<div class="dnsy_list"><a href="/list_page_org.html">更多</a></div>
-				</div>
-				<div class="index_institution">
-					<ul>
-						<li>
-							<div class="index_institution_img"><a href="####" target="_blank"><img src="http://static.galaxyinternet.com/img/project/f16d630dd4a46243780d99739bf4444b.png"></a></div>
-							<div class="index_institution_name"><a href="####" target="_blank">飞天影业</a></div>
-							<div class="index_institution_num"><span>30</span>笔</div>
-						</li>
-						<li>
-							<div class="index_institution_img"><a href="####" target="_blank"><img src="http://static.galaxyinternet.com/img/project/f16d630dd4a46243780d99739bf4444b.png"></a></div>
-							<div class="index_institution_name"><a href="####" target="_blank">飞天影业</a></div>
-							<div class="index_institution_num"><span>30</span>笔</div>
-						</li>
-						<li>
-							<div class="index_institution_img"><a href="####" target="_blank"><img src="http://static.galaxyinternet.com/img/project/f16d630dd4a46243780d99739bf4444b.png"></a></div>
-							<div class="index_institution_name"><a href="####" target="_blank">飞天影业</a></div>
-							<div class="index_institution_num"><span>30</span>笔</div>
-						</li>
-						<li>
-							<div class="index_institution_img"><a href="####" target="_blank"><img src="http://static.galaxyinternet.com/img/project/f16d630dd4a46243780d99739bf4444b.png"></a></div>
-							<div class="index_institution_name"><a href="####" target="_blank">飞天影业</a></div>
-							<div class="index_institution_num"><span>30</span>笔</div>
-						</li>
-						<li>
-							<div class="index_institution_img"><a href="####" target="_blank"><img src="http://static.galaxyinternet.com/img/project/f16d630dd4a46243780d99739bf4444b.png"></a></div>
-							<div class="index_institution_name"><a href="####" target="_blank">飞天影业</a></div>
-							<div class="index_institution_num"><span>30</span>笔</div>
-						</li>
-						<li>
-							<div class="index_institution_img"><a href="####" target="_blank"><img src="http://static.galaxyinternet.com/img/project/f16d630dd4a46243780d99739bf4444b.png"></a></div>
-							<div class="index_institution_name"><a href="####" target="_blank">飞天影业</a></div>
-							<div class="index_institution_num"><span>30</span>笔</div>
-						</li>
-					</ul>
-				</div>
-			</div>
+		
 			<!-- 上个月活跃机构 end -->
 			
 			<!-- 专题 -->
@@ -571,14 +516,48 @@ $(function(){
 
 <!-- 高管图表 -->
 <script src="js/echarts.min.js"></script>
+<script src="js/index_common.js"></script>
 <script src="js/index_ylecharts.js"></script>
 <!-- 高管图表 end-->
 <script>
+$('body').delegate('#executive_click','click', function(event){
+ 	event.stopPropagation();
+ 	$("#executive_pop").show();
+    $('.nav_all_seek').show();
+	$('.nav_all_input').hide();
+})
 $(function(){
-	querytotalheader()
-	querycurmontheader()
-	getGG_news()
-	getOrgs()
+	if(!isLogin()){ //未登录
+		location.href = platformUrl.toLogin
+	}else{
+		$.ajax({
+			url :platformUrl.me,
+			type : "GET",
+			cache : false,
+			contentType : "application/json; charset=UTF-8",
+			async : false,
+			error : function(request) {
+			     location.href =  platformUrl.toLogin
+			},
+			success : function(data) {
+				user_json = JSON.parse(decodeURIComponent(data))
+				if(!user_json){
+					location.href=  platformUrl.toLogin
+					return
+				}
+				var roleCode = user_json['roleCode']
+				if(roleCode == 20000){
+					querytotalheader()
+					querycurmontheader()
+					getGG_news('')
+				}else{
+					location.href= home.index + '/index_normal.html'
+					return
+				}
+				
+			}
+		});
+	}
 })
 function querytotalheader(){
 	sendPostRequest(detail.queryGGTotalHeaderStat,function(data){
@@ -596,15 +575,17 @@ function querycurmontheader(){
 	    $("#amount_curmonth").text(data.data.amount)
 	})
 }
-function getGG_news(){
+function getGG_news(params){
+	$("#executive_pop").hide();
     var json={};
     json["typeId"] =6;
     json["pageSize"]=6;
     json["pageNo"]=0;
-    json["industryNames"] = ""
+    json["industryNames"] = params
     console.log(json)
-    sendPostRequestByJsonObj("http://fx.local.galaxyinternet.com/search/ggnews",json,function(data){
-           $(data.data).each(function(k,v){
+    sendPostRequestByJsonObj(searchUrl.getGGNews,json,function(data){
+   
+           $(data.page).each(function(k,v){
                 if(!v){
                     v="-"
                 }else{
@@ -640,7 +621,7 @@ function getOrgs(){
 				html += '<li>'
 					+'<div class="index_institution_img"><a href="/jg_particulars.html?orgCode='+entity.orgCode+'" target="_blank"><img src="'+logo+'"></a></div>'
 					+'<div class="index_institution_name"><a href="/jg_particulars.html?orgCode='+entity.orgCode+'" target="_blank">'+investOrg+'</a></div>'
-					+'<div class="index_institution_num"><span>'+entity.investTotal+'</span>笔</div>'
+					+'<div class="index_institution_num"><span>'+entity.lastMonthInvestNum+'</span>笔</div>'
 					+'</li>'
 			}
 			$('.index_institution ul').html(html)
@@ -648,20 +629,39 @@ function getOrgs(){
 	});
 }
 getCompeteInfo()
+var i;
 function getCompeteInfo(){
 	sendPostRequestByJsonStr(detail.getCompeteInfo,null,function(data){
 		if(data.success){
+			for(i =0;i<data.data.length;i++){
+				var list = data.data[i]
+				var json={};
+			    json["industryNames"] = data.data[i].investOrg 
+			    sendPostRequestByJsonObj(searchUrl.getGGCompeteInfo,json,function(res){
+					if(res.status == 10000){
+						console.log(res.page.records)
+						list['records'] = res.page.records
+						console.log(list)
+					}
+				});
+			}
 			$("#compete").html("");
 	        $("#compete_script").tmpl(data).appendTo($("#compete"))
 		}else{
 			
 		}
 	});
+	
 }
-getIndustryMonth()
-function getIndustryMonth(){
 
-}
+sendPostRequestByJsonStr(detail.getBusinessLineMappingIndustry,null,function(data){
+	if(data.success){
+		$("#business_line ul").html("");
+		$("#business_line_script").tmpl(data).appendTo($("#business_line ul"))
+	}else{
+		
+	}
+});
 </script>
 </body>
 
