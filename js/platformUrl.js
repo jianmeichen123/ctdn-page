@@ -135,6 +135,8 @@ var detail = {
     getUserIndustry:Constants.platformContentURL+"index/getUserIndustry",
     queryByCodeList:Constants.platformContentURL+"projectList/queryByCodeList/",
     queryReportByPage:Constants.platformContentURL+"report/queryReportByPage/",
+    queryReports:Constants.platformContentURL+"report/queryReports/",
+    getReport:Constants.platformContentURL+"report/getReport/",
 
 //  创业者/投资人
     queryPersonComExpr:Constants.platformContentURL+"person/queryPersonComExpr/",
