@@ -516,6 +516,7 @@ $(function(){
 
 <!-- 高管图表 -->
 <script src="js/echarts.min.js"></script>
+<script src="js/index_common.js"></script>
 <script src="js/index_ylecharts.js"></script>
 <!-- 高管图表 end-->
 <script>
@@ -526,10 +527,37 @@ $('body').delegate('#executive_click','click', function(event){
 	$('.nav_all_input').hide();
 })
 $(function(){
-	querytotalheader()
-	querycurmontheader()
-	getGG_news('')
-// 	getOrgs()
+	if(!isLogin()){ //未登录
+		location.href = platformUrl.toLogin
+	}else{
+		$.ajax({
+			url :platformUrl.me,
+			type : "GET",
+			cache : false,
+			contentType : "application/json; charset=UTF-8",
+			async : false,
+			error : function(request) {
+			     location.href =  platformUrl.toLogin
+			},
+			success : function(data) {
+				user_json = JSON.parse(decodeURIComponent(data))
+				if(!user_json){
+					location.href=  platformUrl.toLogin
+					return
+				}
+				var roleCode = user_json['roleCode']
+				if(roleCode == 20000){
+					querytotalheader()
+					querycurmontheader()
+					getGG_news('')
+				}else{
+					location.href= home.index + '/index_normal.html'
+					return
+				}
+				
+			}
+		});
+	}
 })
 function querytotalheader(){
 	sendPostRequest(detail.queryGGTotalHeaderStat,function(data){

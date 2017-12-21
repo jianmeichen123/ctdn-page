@@ -584,6 +584,7 @@ $(function(){
 </script>
 <script src="js/jquery.tmpl.js"></script>
 <!-- <script src="js/newIndex.js"></script> -->
+<script src="layer/layer.js"></script>
 <script src="js/index_common.js"></script>
 </body>
 <script>
@@ -602,6 +603,10 @@ var userCode = null
 var user_json = null
 loadUserIndustry()
 function loadUserIndustry(){
+	if(!isLogin()){
+		location.href = platformUrl.toLogin
+		return
+	}
 	$.ajax({
 		url :platformUrl.me,
 		type : "GET",
@@ -609,24 +614,18 @@ function loadUserIndustry(){
 		contentType : "application/json; charset=UTF-8",
 		async : false,
 		error : function(request) {
-		     location.href = home.index + '/index_normal.html'
+		     location.href =  platformUrl.toLogin
 		},
 		success : function(data) {
 			user_json = JSON.parse(decodeURIComponent(data))
 			if(!user_json){
-				location.href= home.index + '/index_normal.html'
+				location.href=  platformUrl.toLogin
 				return
 			}
-			if(user_json && user_json['roleCode']){
-				var role_code = user_json['roleCode']
-				if(role_code == 10000){ //投资经理
-					location.href= home.index + '/index_manager.html'
-					return
-				}
-				if(role_code == 20000){ //高管
-					location.href= home.index + '/index_senior.html'
-					return
-				}
+			var roleCode = user_json['roleCode']
+			if(roleCode){
+				location.href= home.index + '/index_normal.html'
+				return
 			}
 			var status = user_json['status']
 			var password = user_json['password']

@@ -542,6 +542,7 @@ $(function(){
 </script>
 <script src="js/jquery.tmpl.js"></script>
 <!-- <script src="js/newIndex.js"></script> -->
+<script src="layer/layer.js"></script>
 <script src="js/index_common.js"></script>
 <script>
 $('#trade_click').click(function(){
@@ -560,44 +561,45 @@ var userCode = null
 var user_json = null
 loadUserIndustry()
 function loadUserIndustry(){
-	$.ajax({
-		url :platformUrl.me,
-		type : "GET",
-		cache : false,
-		contentType : "application/json; charset=UTF-8",
-		async : false,
-		error : function(request) {
-		     location.href = home.index + '/index_normal.html'
-		},
-		success : function(data) {
-			user_json = JSON.parse(decodeURIComponent(data))
-// 			if(!user_json){
-// 				location.href= home.index + '/index_normal.html'
-// 				return
-// 			}
-// 			if(user_json && user_json['roleCode']){
-// 				var role_code = user_json['roleCode']
-// 				if(role_code == 30000){ //投资经理
-// 					location.href= home.index + '/index_external.html'
-// 					return
-// 				}
-// 				if(role_code == 20000){ //高管
-// 					location.href= home.index + '/index_senior.html'
-// 					return
-// 				}
-// 			}
-			userCode = user_json['userCode']
-			sendPostRequestByJsonObj(detail.getUserIndustry,{"userCode":userCode},function(data){
-				if(data.success){
-					industryNames = data.data.industryNames
-					industryIdList=data.data.industryIdList
-					getNews() //投融快讯
-					getActiveOrgs() //活跃机构
-				}
-			});
-		}
-	});
+	if(isLogin() ){
+		$.ajax({
+			url :platformUrl.me,
+			type : "GET",
+			cache : false,
+			contentType : "application/json; charset=UTF-8",
+			async : false,
+			error : function(request) {
+			     location.href =  platformUrl.toLogin
+			},
+			success : function(data) {
+				user_json = JSON.parse(decodeURIComponent(data))
+	 			if(!user_json){
+	 				location.href=  platformUrl.toLogin
+	 				return
+	 			}
+				var roleCode = user_json['roleCode']
+	 			if(roleCode == 10000){
+	 				userCode = user_json['userCode']
+					sendPostRequestByJsonObj(detail.getUserIndustry,{"userCode":userCode},function(data){
+						if(data.success){
+							industryNames = data.data.industryNames
+							industryIdList=data.data.industryIdList
+							getNews() //投融快讯
+							getActiveOrgs() //活跃机构
+						}
+					});	
+	 			}else{
+	 				location.href= home.index + '/index_normal.html'
+ 					return
+	 			}
+				
+			}
+		});
+	}else{
+		location.href = platformUrl.toLogin
+	}
 }
+
 $("#lastestPro").delegate("li","click",function(){
 	var tab = $(this).attr("value");
 	$("#lastestPro li").removeClass('financing_on')
@@ -605,6 +607,7 @@ $("#lastestPro").delegate("li","click",function(){
 	getPorjects(tab);
 }); 
 getPorjects(0)
+
 function getPorjects(tab){
 	var url = ''
 	if(tab == 0){

@@ -157,3 +157,58 @@ var default_user_industry = ''
 			}
 		})
 	}
+function reset_user_industry(){
+	sendPostRequestByJsonStr(platformUrl.resetUserIndustry +"/" + userCode,null,function(data){
+		if(data.success){
+			var entity = data.data
+			var a = [1,2,3,4]
+			var html = ''
+		    for(var i=0;i<default_user_industry.length;i++){
+				var entity = default_user_industry[i]
+				var flag = 0;
+				if($.inArray(entity.id, a)==-1){
+					flag = 0
+				}else{
+					flag = 1
+				}
+				var css = ''
+				if(flag == '1'){ //选中
+					css = 'trade_pop_c_ul_on'
+				}
+				html +='<li class="'+ css +'" lang="'+entity.id+'">' +entity.name+'</li>'
+			}
+			$('#concern_industry').html(html)
+			$("#concern_industry li").click(function(){
+				$(this).toggleClass('trade_pop_c_ul_on')
+			})
+		}else{
+			layer.msg('系统繁忙，请稍候重试')
+		}
+	});
+}
+
+//从cookie取值判断是否已经登录
+function isLogin(){
+	var cookie=document.cookie
+	if(cookie == null){
+		return
+	}
+	var _uid_ = null
+	var s_ = null
+	var cookie_arr = document.cookie.split("; ")
+	for(var i=0;i<cookie_arr.length;i++){
+		var temp = cookie_arr[i].split("=");
+		if(temp[0] == '_uid_') {
+			_uid_ = temp[1]
+			continue
+		}
+		if(temp[0] == 's_') {
+			s_ = temp[1]
+			continue
+		}
+	}
+	if(_uid_ && s_){
+		return true
+	}
+	return false
+}
