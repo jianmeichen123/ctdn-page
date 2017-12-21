@@ -45,47 +45,34 @@
 </div>
 <div class="container block">
 	<div class='info-nav'>
-		<ul  class='info-nav-content'>
-			<li data-tab="news" class="search_on"><span>资讯</span>(<span></span>)</li>
-			<li data-tab="project"><span>项目</span>(<span ></span>)</li>
-			<li data-tab="investfirms"><span>机构</span>(<span ></span>)</li>
-			<li data-tab="investEvent"><span>投资事件</span>(<span></span>)</li>
-			<li data-tab="mergeEvent"><span>并购事件</span>(<span></span>)</li>
-			<li data-tab="launchEvent"><span>上市事件</span>(<span></span>)</li>
-			<li data-tab="startUp"><span>创业者</span>(<span></span>)</li>
-			<li data-tab="investor"><span>投资人</span>(<span></span>)</li>
+		<ul class='info-nav-content'>
+			<li data-tab="news"  class="search_on"><span>资讯</span>(<span></span>)</li>
+			<li data-tab="project" ><span>项目</span>(<span ></span>)</li>
+			<li data-tab="investfirms" ><span>机构</span>(<span ></span>)</li>
+			<li data-tab="event" ><span>事件</span>(<span ></span>)</li>
+			<li data-tab="person" ><span>创投人物</span>(<span></span>)</li>
+			<li data-tab="report" ><span>行业报告</span>(<span></span>)</li>
 		</ul>
 	</div>
 	<!-- 样式new -->
-	<!--<div class="search_list_bj">
+	<div class="search_list_bj" id="person" style="display:none">
 		<ul>
-			<li class="search_list_on">投资人（1）</li>
-			<li>投资人（1）</li>
+			<li class="search_list_on" data-li="startUp"><span>创业者</span>(<span></span>)</li>
+			<li data-li="investor"><span>投资人</span>(<span></span>)</li>
 		</ul>
-		<div class="search_list_bj_r">共搜索到 <span>10</span>条内容中含有 "<span>滴滴</span>" 的创投人物</div>
-	</div>-->
-	<!--<div class="search_list_people_all">
-		<div class="list-item search_list_people">
-			<div class="list-item-inner">
-				<div class="list-item-left"><a target="_blank" href="/jg_particulars.html?orgCode=7eb60c84b891fd0c76f4defb686f617a"><img src="http://static.galaxyinternet.com/img/org/7eb60c84b891fd0c76f4defb686f617a.png"></a></div>
-				<div class="list-item-right">
-					<div class="list-item-title"><a target="_blank" href="/jg_particulars.html?orgCode=7eb60c84b891fd0c76f4defb686f617a">林海棠</a></div>
-					<div class="search_list_people_wn">Haitang Ling</div>
-					<div class="search_list_people_list">
-						<ul>
-							<li>一号家具网</li>
-							<li><div class="search_list_people_list_r">CEO</div></li>
-							<li><span><i class="list-item-address"></i>天津</span></li>
-						</ul>
+		<!--<div class="search_list_bj_r">共搜索到 <span>10</span>条内容中含有 "<span>滴滴</span>" 的创投人物</div>-->
+	</div>
 
-					</div>
-					<div class="search_collect"><span class="dn_ico dn_ico_list_collect_search"></span>收藏</div>
-				</div>
-			</div>
-		</div>
-	</div>-->
+	<div class="search_list_bj" id="event" style="display:none">
+		<ul>
+			<li class="search_list_on" data-li="investEvent"><span>投资事件</span>(<span></span>)</li>
+			<li data-li="mergeEvent"><span>并购事件</span>(<span></span>)</li>
+			<li data-li="launchEvent"><span>上市事件</span>(<span></span>)</li>
+		</ul>
+		<!--<div class="search_list_bj_r">共搜索到 <span>10</span>条内容中含有 "<span>滴滴</span>" 的创投人物</div>-->
+	</div>
 	<!-- 行业报告 -->
-	<!--<div class="report_list_all">
+	<!--<div class="report_list_all" style="display:none">
 		<ul>
 			<li>
 				<div class="report_list_img"><img src="img/hy/l.png"></div>
@@ -189,6 +176,14 @@
 			<thead>
 			<tr>
 				<th class="data-input" style="" data-item="0" data-formatter="personFormatter"></th>
+			</tr>
+			</thead>
+		</table>
+
+		<table  class="table table_white_search" data-item="report" style="display:none">
+			<thead>
+			<tr>
+				<th class="data-input" style="" data-item="0" data-formatter="reportFormatter"></th>
 			</tr>
 			</thead>
 		</table>

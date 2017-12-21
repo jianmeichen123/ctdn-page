@@ -53,29 +53,42 @@ function loadTable(tab){
 /*
 *tab页上的数字
 */
+var globalSearchStatData;
 function queryTotal(){
-    var trigger_tab = "news"
+    var trigger_tab ="";
     sendPostRequestByJsonObj(searchUrl.total,{"keyword":$("input[name='keyword']").val()},function(data){
         $('.info-nav-content li').each(function(){
             var tab = $(this).attr('data-tab');
-            $(this).children().next().html(data.numMap[tab])
+            $(this).children().next().html(data.resultMap[tab])
         })
-
-        var map = data.numMap;
-        for(key in map){
-            if(map[key]>0){
-                trigger_tab = key;
-                break;
-            }
-        }
+        globalSearchStatData=data
+        trigger_tab=data.resultMap["all:active"]
     })
     return trigger_tab;
 }
 $(".info-nav-content").delegate("li","click",function(){
     var tab = $(this).attr("data-tab");
-    $('.info-nav-content li').removeClass('search_on')
+    $('.info-nav-content li').removeClass('search_on');
     $(this).addClass('search_on');
-    showContent(tab);
+//    var subtab=$(this).attr('tab-default');
+    var subtab=$('#'+tab).find('ul li:first').attr('data-li')
+    //sub tab
+        if(typeof($('#'+tab))!="undefined"){
+            $('#'+tab).find('ul li').removeClass('search_list_on');
+            $('#'+tab).find("ul li[data-li='"+subtab+"']").addClass('search_list_on');
+            //绑定前先取消绑定 否则会造成重复绑定
+            $('#'+tab).find('ul li').unbind("click");
+            $('#'+tab).find('ul li').bind("click",function(){
+                       $('#'+tab).find('ul li').removeClass('search_list_on');
+                       $(this).addClass('search_list_on');
+                       var subtab=$(this).attr('data-li');
+                       var target=tab+":"+subtab;
+                       showContent(target);
+                       return
+            })
+        }
+    var target=tab+":"+subtab;
+    showContent(target);
 });
 
  $(".search").delegate("li","click",function(){
@@ -83,7 +96,6 @@ $(".info-nav-content").delegate("li","click",function(){
   	   var value = $(this).text();
   	   $("input[name='keyword']").val(value)
   	   firstShow();
-
 });
 
 function showContent(tab){
@@ -127,20 +139,36 @@ function initTable() {
   });
 
   function firstShow(){
-
      var tab = queryTotal();
+     var tabs= tab.split(':');
+
      $(".info-nav-content .search_on").removeClass("search_on");
-     $(".info-nav-content li[data-tab='"+tab+"']").addClass("search_on")
+     $(".info-nav-content li[data-tab='"+tabs[0]+"']").addClass("search_on")
      triggerTable(tab);
   }
 
-  function triggerTable(tab){
-      loadTable(tab);
-      $('.bootstrap-table').hide();
-      $("table[data-item='"+tab+"']").show();
-      $("table[data-item='"+tab+"']").parent().parent().parent().show();
-      var content =$('.info-nav-content').find("li[data-tab='"+tab+"']").children(":first").html();
-      var total =  $('.info-nav-content').find("li[data-tab='"+tab+"']").children().next().html();
-      var keyword = $("input[name='keyword']").val();
-      $("#tip").html("共搜索到<span class='highlight'>"+total+"</span>条内容中含有<span class='highlight'>"+keyword+"</span>的"+content)
+  function triggerTable(target){
+          var tabs=target.split(':');
+          ptab=tabs[0];
+          stab=tabs[1];
+          $('.search_list_bj').hide();
+          if(ptab!=stab){
+            $('#'+ptab).show();
+            $('#'+ptab).find('ul li').removeClass('search_list_on');
+            $('#'+ptab).find("ul li[data-li='"+stab+"']").addClass('search_list_on');
+           $('#'+ptab).find('ul li').each(function(){
+               var tab = $(this).attr('data-li');
+              $(this).children().next().html(globalSearchStatData.resultMap[tab])
+           })
+          }
+          loadTable(stab);
+          $('.bootstrap-table').hide();
+          $("table[data-item='"+stab+"']").show();
+          $("table[data-item='"+stab+"']").parent().parent().parent().show();
+          var content =$('.info-nav-content').find("li[data-tab='"+ptab+"']").children(":first").html();
+          var total =  $('.info-nav-content').find("li[data-tab='"+ptab+"']").children().next().html();
+          var keyword = $("input[name='keyword']").val();
+          $("#tip").html("共搜索到<span class='highlight'>"+total+"</span>条内容中含有<span class='highlight'>"+keyword+"</span>的"+content)
+
   }
+

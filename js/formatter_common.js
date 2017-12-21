@@ -652,7 +652,7 @@ function investorFormatter(value,row){
     return html;
 }
 
-//创业者
+//行业
 function reportFormatter(value,row){
     var html ='<li>'+
             '<div class="report_list_img"><img src="'+row.listPic+'"></div>'+
