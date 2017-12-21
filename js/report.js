@@ -25,7 +25,7 @@ sendGetRequest(detail.queryReports,function(data){
     if(data.page && data.page.records){
         var arr = [];
         for(i in data.page.records){
-            if(i < 10){
+            if(arr.length< 10){
                 if(data.page.records[i].id != id){
                     arr.push(data.page.records[i])
                 }
