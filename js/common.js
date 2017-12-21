@@ -367,6 +367,7 @@ function fmoney3(s){
     }
     return t.split('').reverse().join('') ;
   }
+var index_href = home.index + '/index_normal.html'
 $(function(){
 	function setName(data){
 	    if(!data&&data.length < 100){
@@ -375,18 +376,34 @@ $(function(){
 //	         location.href = platformUrl.toLogin
 	    }else{
 	    	var obj = JSON.parse(data)
-	        if(!obj.roleCode){
+	        if(!obj['roleCode']){
 	        	var mobile = obj['mobile']
 	        	$("#id_name").html(mobile.substring(0,5)+'******')
 	        }else{
 	        	var name = obj['realName']
-	        	$("#id_name").html(name + "欢迎来到创投大脑")
+	        	$("#id_name").html(name)
 	        }
+	    	setIndexHref(obj)
             $('#login_model').css('display','none')
 	    	$('#logined_model').css('display','block')
 	    }
 	}
-
+	function setIndexHref(obj){
+		var roleCode = obj['roleCode']
+		if(!roleCode){
+			index_href =  home.index + '/index_external.html'
+			return
+		}
+		if(roleCode == 10000 ){
+			index_href = home.index + '/index_manager.html'
+			return
+		}
+		if(roleCode == 20000){
+			index_href = home.index + '/index_senior.html'
+			return
+		}
+	}
+	
     function me(){
 //    	alert(GetUrlRelativePath())
     	$.ajax({
@@ -427,6 +444,10 @@ $(function(){
     }*/
 
 })
+//根据登录状态设置首页
+function index_page(){
+	location.href = index_href
+}
 function logout(){
 	location.href = platformUrl.logout
 }
