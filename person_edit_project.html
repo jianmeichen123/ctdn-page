@@ -56,7 +56,7 @@
 				<li class='personEditLinkName'>
 					<div class="seek_financing_l seek_finacing_left"><span class="seek_financing_two">联系人姓名</span><span class="seek_financing_one">*</span></div>
 					<div class="seek_financing_r person_finacing_right">
-						<input class="seek_financing_input editRequireInput" name="linkMan" required  maxlength="50"  placeholder="联系人姓名"  required data-rule-length50="true" data-msg-length50="<span class='dn_ico dn_ico_error'></span>不超过50个字">
+						<input class="seek_financing_input editRequireInput" name="linkName" required  maxlength="50"  placeholder="联系人姓名"  required data-rule-length50="true" data-msg-length50="<span class='dn_ico dn_ico_error'></span>不超过50个字">
 					</div>
 				</li>
 				<li class='personEditLinkName'>
@@ -297,6 +297,7 @@
 		$.each(array,function(){
 			data[this.name]=this.value.replace(/(^\s+)|(\s+$)/g,"");
 		})
+		data["id"] = 67
 		return data;
 	}
 
