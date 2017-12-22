@@ -297,9 +297,6 @@
 		$.each(array,function(){
 			data[this.name]=this.value.replace(/(^\s+)|(\s+$)/g,"");
 		})
-		data["userId"] = getCookie("_usercode_")
-		data["projectId"]  =60
-		data["id"]  =60
 		return data;
 	}
 
