@@ -27,22 +27,25 @@
 						<input class="seek_financing_input editRequireInput" name="projectName"  value required data-rule-length20="true"  maxlength="20"  data-msg-length20="<span class='dn_ico dn_ico_error'></span>不超过20个字"  placeholder="请输入公司核心产品名称，不超过20个字">
 					</div>
 				</li>
-				<input type="hidden" name="id">
+				<input type="hidden" name="projectId">
 				<input type="hidden" name="isClaim">
+				<input type="hidden" name="userId">
 				<li>
 					<div class="seek_financing_l seek_finacing_left"><span class="seek_financing_two">所在地区</span><span class="seek_financing_one">*</span></div>
 					<div class="seek_financing_r person_finacing_right">
 					   <div class='fl'>
-							<select class="seek_financing_select " name="area1Name" data-item="parent" data-field="district"  data-rule-select="true" data-msg-select="<font color=red>*</font>必选项" >
+							<select class="seek_financing_select " name="area1" data-item="parent" data-field="district"  data-rule-select="true" data-msg-select="<font color=red>*</font>必选项" >
 								<option  selected = "selected" disabled="true">选择所在省/市</option>
 							</select>
 						</div>
 						<div class='fr'>
-							<select class="seek_financing_select  seek_financing_select_lef" data-item="son" name="area2Name" data-rule-select="true" data-msg-select="<font color=red>*</font>必选项" >
+							<select class="seek_financing_select  seek_financing_select_lef" data-item="son" name="area2" data-rule-select="true" data-msg-select="<font color=red>*</font>必选项" >
 								<option selected= "selected" disabled="true">选择所在市/区</option>
 							</select>
 						</div>
 					</div>
+					<input type="hidden" name="area1Name">
+					<input type="hidden" name="area2Name">
 				</li>
 				<li>
 					<div class="seek_financing_l seek_finacing_left"><span class="seek_financing_two">项目介绍</span><span class="seek_financing_one">*</span></div>
@@ -88,18 +91,19 @@
 								<input type="hidden" name="projectLogo">
 							<span class="dn_ico dn_ico_seek_pur2"></span>上传logo
 						</div>
+						</div>
 						<span class="tit_span" id="projLogoName">请上传项目logo，建议图片尺寸300*300 文件大小请限制在500k内</span>
 					</div>
 				</li>
 				<li class="seek_show_on seek_show_block seeShowLeft">
 					<div class="seek_financing_l seek_finacing_left"><span class="seek_financing_two">所属领域</span></div>
-					<input type="hidden" name="projIndustry">
-					<input type="hidden" name="projSubIndustry">
+					<input type="hidden" name="industry1Name">
+					<input type="hidden" name="industry2Name">
 					<div class="seek_financing_r person_finacing_right">
-						<select class="seek_financing_select" name="industry1Name" data-item="parent" data-field="industry" >
+						<select class="seek_financing_select" name="industry1" data-item="parent" data-field="industry" >
 							<option  selected= "selected" disabled="true" >选择一级行业</option>
 						</select>
-						<select class="seek_financing_select seek_financing_select_lef" name="industry2Name" data-item="son" >
+						<select class="seek_financing_select seek_financing_select_lef" name="industry2" data-item="son" >
 							<option  selected= "selected" disabled="true" >选择二级行业</option>
 						</select>
 					</div>
@@ -124,8 +128,9 @@
 				</li>
 				<li class="seek_show_on seek_show_block editShowLeft">
 					<div class="seek_financing_l seek_finacing_left"><span class="seek_financing_two">融资轮次</span></div>
+					<input type="hidden" name="projectLunciTxt">
 					<div class="seek_financing_r person_finacing_right">
-						<select class="seek_financing_select" name="projectLunciTxt"  data-item="parent" data-field="round" >
+						<select class="seek_financing_select" name="projectLunci"  data-item="parent" data-field="round" >
 							<option  selected= "selected" disabled="true" >选择融资轮次</option>
 						</select>
 					</div>
@@ -293,11 +298,13 @@
 			data[this.name]=this.value.replace(/(^\s+)|(\s+$)/g,"");
 		})
 		data["userId"] = getCookie("_usercode_")
+		data["projectId"]  =60
+		data["id"]  =60
 		return data;
 	}
 
 	$("#projLogo").fileupload({
-		url:platformUrl.fileUpload,
+		url:publicsea.upload,
 		formData:{},
 		add: function (e, data) {
 			var acceptFileTypes = /\/(jpg|jpeg|png|gif)$/i;
@@ -316,7 +323,7 @@
 			maxFileSize: 'File exceeds maximum allowed size of 5b'
 		},
 		done: function (e, data) {
-			if(data.result.msg == 'OK')
+			if(data.result.msg)
 			{
 				$("input[name='projectLogo']").val(data.result.uploadFiles[0].url)
 			}
@@ -327,7 +334,7 @@
 		}
 	});
 	$("#projPb").fileupload({
-		url:platformUrl.fileUpload,
+		url:publicsea.upload,
 		formData:{},
 		add: function (e, data) {
 			if(data.files[0].size > 25*1024*1024){
@@ -342,7 +349,7 @@
             data.submit();
         },
 		done: function (e, data) {
-			if(data.result.msg == 'OK')
+			if(data.result.msg)
 			{
 				$("#projPbName").removeClass("red");
 				$('.person-upload-bp').removeClass('uploadBtnDanger');
@@ -361,7 +368,26 @@
 </script>
 <script>
 function save(){
-		var url =detail.insertProject
+		var area1Name =  $("select[name='area1']").find("option:selected").text();
+		var area2Name =  $("select[name='area2']").find("option:selected").text();
+		$("input[name='area1Name']").val(area1Name)
+		$("input[name='area2Name']").val(area2Name)
+
+		if($("select[name='industry1']").val()){
+			var industry1Name =  $("select[name='industry1']").find("option:selected").text();
+			$("input[name='industry1Name']").val(industry1Name)
+		}
+
+		if($("select[name='industry2']").val()){
+			var industry2Name =  $("select[name='industry2']").find("option:selected").text();
+			$("input[name='industry2Name']").val(industry2Name)
+		}
+
+		if($("select[name='projectLunci']").val()){
+			var projectLunciTxt =  $("select[name='projectLunci']").find("option:selected").text();
+			$("input[name='projectLunciTxt']").val(projectLunciTxt)
+		}
+		var url =publicsea.editProject
 			var data = JSON.stringify($("#form").serializeJson());
 			$.ajax({
 				type: "POST",
@@ -369,10 +395,10 @@ function save(){
 				contentType:'application/json;charset=UTF-8',
 				data:data,
 				success:function(data){
-					if(data.message == 'OK')
+					if(data.success)
 					{
 						layer.msg("项目提交成功,我们会尽快联系您~",0,function(){
-							location.href="index.html"
+							//location.href="index.html"
 						});
 					}
 					else
@@ -388,7 +414,7 @@ $('body').delegate('#save-btn','click', function(event){
 })
 	var list ={};
 	sendGetRequest(publicsea.comQuery,function(data){
-		list["district"] = data["district"];
+		list["district"] = data["area"];
 		list["industry"] = data["industry"];
 		list["round"] = data["round"];
 	});
@@ -399,20 +425,20 @@ $('body').delegate('#save-btn','click', function(event){
 		var data  = list[field];
 		var html = ""
 		$.each(data,function(i,e){
-			html += "<option value ="+e.id+" >"+e.name+"</option>"
+			html += "<option value ="+e.dictValue+" >"+e.dictName+"</option>"
 		})
 		parent.append(html);
 	})
 
-	$("select[name='projDistrictId']").change(function(){
+	$("select[name='area1']").change(function(){
 		var parent = $(this);
-		var son =$("select[name='projSubDistrictId']")
+		var son =$("select[name='area2']")
 		getOption(parent,son,null)
 	})
 
-	$("select[name='projIndustryId']").change(function(){
+	$("select[name='industry1']").change(function(){
 		var parent = $(this);
-		var son =$("select[name='projSubIndustryId']")
+		var son =$("select[name='industry2']")
 		getOption(parent,son,null)
 	})
 
@@ -421,7 +447,7 @@ $('body').delegate('#save-btn','click', function(event){
 		son.empty();
 		var field=parent.attr("data-field")
 		var index;
-		if(parent[0].selectedIndex ==0 ){
+		if(parent[0].selectedIndex ==0){
 			index = 0;
 		}else{
 			index= parent[0].selectedIndex-1
@@ -429,12 +455,12 @@ $('body').delegate('#save-btn','click', function(event){
 		var parentData = list[field][index];
 		var data =parentData.child;
 		var html = ""
-		son.val(data[0].id)
+		son.val(data[0].dictValue)
 		$.each(data,function(i,e){
-			if(id && id == e.id){
-				html += "<option value ="+e.dictName+" selected='selected' >"+e.dictName+"</option>"
+			if(id && id == e.dictValue){
+				html += "<option value ="+e.dictValue+" selected='selected' >"+e.dictName+"</option>"
 			}else{
-				html += "<option value ="+e.dictName+" >"+e.dictName+"</option>"
+				html += "<option value ="+e.dictValue+" >"+e.dictName+"</option>"
 			}
 		})
 		son.append(html);
@@ -443,29 +469,40 @@ $('body').delegate('#save-btn','click', function(event){
 </script>
 <script>
 	var projectId =getHrefParamter("projectId");
-	sendGetRequest(publicsea.queryProjectById,{"projectId":projectId}function(data){
+	sendPostRequestByJsonObj(publicsea.queryProjectById,{"projectId":projectId},function(data){
 		var ls = $("#form").find("*[name]");
+		var entity = data.data[0]
 		$(ls).each(function(i,e){
+			console.log($(this).attr("name"))
 			var tagName = e.tagName;
-			var value=data.data[$(this).attr("name")]
-			if(tagName == "INPUT" || tagName=="TEXTAREA"){
-				$(this).val(value)
-			}
-			if(tagName=="SELECT" && ($(this).attr("data-item")=="parent")){
-				$(this).find("option[value='"+value+"']").attr("selected",true);
-			}
-			if($(this).attr("name")=='projSubDistrictId'){
-				getOption($("select[name='projDistrictId']"),$("select[name='projSubDistrictId']"),value)
-			}
-			if($(this).attr("name")=='projSubIndustryId'){
-				getOption($("select[name='projIndustryId']"),$("select[name='projSubIndustryId']"),value)
-			}
+				var value = entity[$(this).attr("name")]
+				if(tagName == "INPUT" || tagName=="TEXTAREA"){
+					$(this).val(value)
+				}
+				if(tagName=="SELECT" && ($(this).attr("data-item")=="parent")){
+					$(this).find("option[value='"+value+"']").attr("selected",true);
+				}
+				if($(this).attr("name")=='area2'){
+					if(value){
+						getOption($("select[name='area1']"),$("select[name='area2']"),value)
+					}else{
+						getOption($("select[name='area1']"),$("select[name='area2']"),value)
+					}
+
+				}
+				if($(this).attr("name")=='industry2'){
+					if(value){
+						getOption($("select[name='industry1']"),$("select[name='industry2']"),value)
+					}else{
+						getOption($("select[name='industry1']"),$("select[name='industry2']"),value)
+					}
+				}
 		})
-		if(data.data["projPb"]){
-			$("#projPbName").html(data.data["projPb"])
+		if(entity["fileName"]){
+			$("#projPbName").html(entity["fileName"])
 		}
-		if(data.data["projLogo"]){
-			$("#projLogoName").html(data.data["projLogo"])
+		if(entity["projectLogo"]){
+			$("#projLogoName").html(entity["projectLogo"])
 		}
 	})
 </script>

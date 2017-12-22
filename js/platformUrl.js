@@ -1,21 +1,22 @@
 //本地
 //
-var Constants = {
-	platformContentURL: "http://ctdn.local.galaxyinternet.com/api/",
-	searchContentURL: "http://ctdn.local.galaxyinternet.com/search/",
-	dataContentURL: "http://ctdn.local.galaxyinternet.com/data/",
-	uploadURL: "http://ctdn.local.galaxyinternet.com/cloudstorage/",
-	logoPath: "http://static.galaxyinternet.com/img/",
-	userContentURL:"http://ctdn.local.galaxyinternet.com/user/"
-}
-
 //var Constants = {
-//		platformContentURL: "http://ctdndev.gi.com/api/",
-//		searchContentURL: "http://ctdndev.gi.com/search/",
-//		dataContentURL: "http://ctdndev.gi.com/data/",
-//	    logoPath: "http://static.galaxyinternet.com/img/",
-//	    userContentURL:"http://ctdndev.gi.com/user/"
-//	}
+//	platformContentURL: "http://ctdn.local.galaxyinternet.com/api/",
+//	searchContentURL: "http://ctdn.local.galaxyinternet.com/search/",
+//	dataContentURL: "http://ctdn.local.galaxyinternet.com/data/",
+//	uploadURL: "http://ctdn.local.galaxyinternet.com/cloudstorage/",
+//	logoPath: "http://static.galaxyinternet.com/img/",
+//	userContentURL: "http://ctdn.local.galaxyinternet.com/user/"
+//}
+
+var Constants = {
+		platformContentURL: "http://ctdndev.gi.com/api/",
+		searchContentURL: "http://ctdndev.gi.com/search/",
+		dataContentURL: "http://ctdndev.gi.com/data/",
+		uploadURL: "http://ctdndev.gi.com/cloudstorage/",
+	    logoPath: "http://static.galaxyinternet.com/img/",
+	    userContentURL:"http://ctdndev.gi.com/user/"
+	}
 
 //线上
 //var Constants = {
@@ -128,7 +129,6 @@ var detail = {
     getListByRegName:Constants.platformContentURL+"businessInfo/getListByRegName/",
     getAllCompMember:Constants.platformContentURL+"compMember/getAllCompMember/",
     getAllCompSubs:Constants.platformContentURL+"compSub/getAllCompSubs/",
-    insertProject:Constants.platformContentURL+"appProjectDemandInfo/insert",
     getListByProjCode:Constants.platformContentURL+"projectContact/getListByProjCode/",
     queryLastestLoadProject:Constants.platformContentURL+"index/queryLastestLoadProject/",
     queryLastestFinanceProject:Constants.platformContentURL+"index/queryLastestFinanceProject/",

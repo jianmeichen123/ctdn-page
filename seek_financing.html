@@ -30,13 +30,15 @@
 				<li>
 					<div class="seek_financing_l"><span class="seek_financing_two">所在地区</span><span class="seek_financing_one">*</span></div>
 					<div class="seek_financing_r">
-						<select class="seek_financing_select " name="area1Name" data-item="parent" data-field="district"  data-rule-select="true" data-msg-select="<font color=red>*</font>必选项" >
+						<select class="seek_financing_select " name="area1" data-item="parent" data-field="district"  data-rule-select="true" data-msg-select="<font color=red>*</font>必选项" >
 							<option  selected = "selected" disabled="true">选择所在省/市</option>
 						</select>
-						<select class="seek_financing_select  seek_financing_select_lef" data-item="son" name="area2Name" data-rule-select="true" data-msg-select="<font color=red>*</font>必选项" >
+						<select class="seek_financing_select  seek_financing_select_lef" data-item="son" name="area2" data-rule-select="true" data-msg-select="<font color=red>*</font>必选项" >
 							<option selected= "selected" disabled="true">选择所在市/区</option>
 						</select>
 					</div>
+					<input type="hidden" name="area1Name">
+					<input type="hidden" name="area2Name">
 				</li>
 				<li>
 					<div class="seek_financing_l"><span class="seek_financing_two">项目介绍</span><span class="seek_financing_one">*</span></div>
@@ -68,7 +70,6 @@
 								<input type="hidden" name="fileKey">
 							</div>
 							<span class="dn_ico dn_ico_seek_pur1"></span>上传文件
-
 						</div>
 						<span class="tit_span" id="projPbName">上传商业计划书，文件大小请限制在25M之内</span>
 					</div>
@@ -88,11 +89,13 @@
 				</li>
 				<li class="seek_show_on">
 					<div class="seek_financing_l"><span class="seek_financing_two">所属领域</span></div>
+					<input type="hidden" name="industry1Name">
+					<input type="hidden" name="industry2Name">
 					<div class="seek_financing_r">
-						<select class="seek_financing_select" name="industry1Name" data-item="parent" data-field="industry" >
+						<select class="seek_financing_select" name="industry1" data-item="parent" data-field="industry" >
 							<option  selected= "selected" disabled="true" >选择一级行业</option>
 						</select>
-						<select class="seek_financing_select seek_financing_select_lef" name="industry2Name" data-item="son" >
+						<select class="seek_financing_select seek_financing_select_lef" name="industry2" data-item="son" >
 							<option  selected= "selected" disabled="true" >选择二级行业</option>
 						</select>
 					</div>
@@ -117,8 +120,9 @@
 				</li>
 				<li class="seek_show_on">
 					<div class="seek_financing_l"><span class="seek_financing_two">融资轮次</span></div>
+					<input type="hidden" name="projectLunciTxt">
 					<div class="seek_financing_r">
-						<select class="seek_financing_select" name="projectLunciTxt"  data-item="parent" data-field="round" >
+						<select class="seek_financing_select" name="projectLunci"  data-item="parent" data-field="round" >
 							<option  selected= "selected" disabled="true" >选择融资轮次</option>
 						</select>
 					</div>
@@ -338,7 +342,26 @@
 </script>
 <script>
 function save(){
-			var url =publicsea.insertProject
+		var area1Name =  $("select[name='area1']").find("option:selected").text();
+		var area2Name =  $("select[name='area2']").find("option:selected").text();
+		$("input[name='area1Name']").val(area1Name)
+		$("input[name='area2Name']").val(area2Name)
+
+		if($("select[name='industry1']").val()){
+			var industry1Name =  $("select[name='industry1']").find("option:selected").text();
+			$("input[name='industry1Name']").val(industry1Name)
+		}
+
+		if($("select[name='industry2']").val()){
+			var industry2Name =  $("select[name='industry2']").find("option:selected").text();
+			$("input[name='industry2Name']").val(industry2Name)
+		}
+
+		if($("select[name='projectLunci']").val()){
+			var projectLunciTxt =  $("select[name='projectLunci']").find("option:selected").text();
+			$("input[name='projectLunciTxt']").val(projectLunciTxt)
+		}
+		var url =publicsea.insertProject
 			var data = JSON.stringify($("#form").serializeJson());
 			$.ajax({
 				type: "POST",
@@ -377,20 +400,20 @@ $('body').delegate('#save-btn','click', function(event){
 		var data  = list[field];
 		var html = ""
 		$.each(data,function(i,e){
-			html += "<option value ="+e.dictName+" >"+e.dictName+"</option>"
+			html +="<option value ="+e.dictValue+" >"+e.dictName+"</option>"
 		})
 		parent.append(html);
 	})
 
-	$("select[name='area1Name']").change(function(){
+	$("select[name='area1']").change(function(){
 		var parent = $(this);
-		var son =$("select[name='area2Name']")
+		var son =$("select[name='area2']")
 		getOption(parent,son)
 	})
 
-	$("select[name='industry1Name']").change(function(){
+	$("select[name='industry1']").change(function(){
 		var parent = $(this);
-		var son =$("select[name='industry2Name']")
+		var son =$("select[name='industry2']")
 		getOption(parent,son)
 	})
 
@@ -409,7 +432,7 @@ $('body').delegate('#save-btn','click', function(event){
 		var html = ""
 		son.val(data[0].dictValue)
 		$.each(data,function(i,e){
-			html += "<option value ="+e.dictName+" >"+e.dictName+"</option>"
+			html += "<option value ="+e.dictValue+" >"+e.dictName+"</option>"
 		})
 		son.append(html);
 		son.click();
