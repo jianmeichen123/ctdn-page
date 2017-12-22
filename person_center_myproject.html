@@ -19,44 +19,44 @@
 			<!--<li class='person-tab-underline'>审核中</li>-->
 			<!--<li>已审核</li>-->
 		<!--</ul>-->
-		<div class='person-project-list person_checking'>
+		<div class='person-project-list person_checking'  isClaim =0>
 				<table  data-toggle='table' data-url>
 					<thead>
 						<tr>
 							<th data-formatter="titleFormatter">项目名称</th>
 							<th data-formatter="districtFormatter">所属地区</th>
-							<th data-field="link">联系人</th>
-							<th data-field="phone">电话</th>
+							<th data-field="linkMan">联系人</th>
+							<th data-field="linkPhone1">电话</th>
 							<th data-formatter="option"></th>
 						</tr>
 					</thead>
-					<tbody>
-						<tr>
-							<td>大象协管的了健康蓝精灵</td>
-							<td>北京<span>></span>海淀</td>
-							<td>张三</td>
-							<td>1888888888</td>
-							<td><a href='javascript:;'>编辑</a></td>
-						</tr>
-						<tr>
-							<td>大象协管的了健康蓝精灵</td>
-							<td>北京<span>></span>海淀</td>
-							<td>张三</td>
-							<td>1888888888</td>
-							<td><a href='javascript:;'>编辑</a></td>
-						</tr>
-						<tr>
-							<td>大象协管的了健康蓝精灵</td>
-							<td>北京<span>></span>海淀</td>
-							<td>张三</td>
-							<td>1888888888</td>
-							<td><a href='javascript:;'>编辑</a></td>
-						</tr>
-					</tbody>
+					<!--<tbody>-->
+						<!--<tr>-->
+							<!--<td>大象协管的了健康蓝精灵</td>-->
+							<!--<td>北京<span>></span>海淀</td>-->
+							<!--<td>张三</td>-->
+							<!--<td>1888888888</td>-->
+							<!--<td><a href='javascript:;'>编辑</a></td>-->
+						<!--</tr>-->
+						<!--<tr>-->
+							<!--<td>大象协管的了健康蓝精灵</td>-->
+							<!--<td>北京<span>></span>海淀</td>-->
+							<!--<td>张三</td>-->
+							<!--<td>1888888888</td>-->
+							<!--<td><a href='javascript:;'>编辑</a></td>-->
+						<!--</tr>-->
+						<!--<tr>-->
+							<!--<td>大象协管的了健康蓝精灵</td>-->
+							<!--<td>北京<span>></span>海淀</td>-->
+							<!--<td>张三</td>-->
+							<!--<td>1888888888</td>-->
+							<!--<td><a href='javascript:;'>编辑</a></td>-->
+						<!--</tr>-->
+					<!--</tbody>-->
 				</table>
 		</div>
 		<!-- 审核完 -->
-		<div class='person-project-list person_checked-list'>
+		<div class='person-project-list person_checked-list' isClaim =1>
 			<table data-toggle='table'>
 					<thead>
 						<tr>
@@ -103,39 +103,39 @@
 </body>
 <script src="js/table-init.js"></script>
 <script>
-var userId=1;
-<!--$('.person_tab li').click(function(){-->
-	<!--$(this).addClass('person-tab-underline').siblings().removeClass('person-tab-underline');-->
-	<!--var index = $(this).index();-->
-	<!--if(index==0){-->
-		<!--$('.person_checking').show();-->
-		<!--$('.person_checked-list').hide();-->
-	<!--}else if(index==1){-->
-		<!--$('.person_checking').hide();-->
-		<!--$('.person_checked-list').show();-->
-	<!--}-->
-<!--});-->
+var userId= getCookie("_usercode_");
+$('.person_tab li').click(function(){
+	$(this).addClass('person-tab-underline').siblings().removeClass('person-tab-underline');
+	var index = $(this).index();
+	if(index==0){
+		$('.person_checking').show();
+		$('.person_checked-list').hide();
+	}else if(index==1){
+		$('.person_checking').hide();
+		$('.person_checked-list').show();
+	}
+});
 
 $("table[data-url]").bootstrapTable("refreshOptions",{
-        url: user.getColList,         //请求后台的URL（*）
+        url: publicsea.queryPubSeaList,         //请求后台的URL（*）
         queryParams: function queryParams(params) {   //设置查询参数
 			var param = {
 					"pageSize":params.pageSize,   //页面大小
 					"pageNo":params.pageNumber,  //页码
 					"userId":userId,
-					"source":0
+					"isClaim"$("#isClaim").val();
 			};
 			return param;//参数
         }
 });
 function titleFormatter(value,row){
-	return "<a href='person_edit_project.html?projectId=53'>"+value+"</a>"
+	return "<a href='person_edit_project.html?projectId="+row.projectId+"'>"+row.projectName+"</a>"
 }
 function districtFormatter(value,row){
-	return row.districtName+"<span>></span>"+row.districtSubName;
+	return row.area1Name+"<span>></span>"+row.area2Name;
 }
 function option(value){
-	return "<a href='person_edit_project.html?id=1' >编辑</a>"
+	return "<a href='person_edit_project.html?projectId="+row.projectId+"' >编辑</a>"
 }
 </script>
 </html>

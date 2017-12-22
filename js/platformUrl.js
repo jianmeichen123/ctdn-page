@@ -26,7 +26,7 @@ var Constants = {
 //    logoPath: "http://static.galaxyinternet.com/img/"
 //}
 var home = {
-	    index : "http://ctdndev.galaxyinternet.com"
+	    index : "http://ctdndev.gi.com"
 	}
 var docUrl = {
 
