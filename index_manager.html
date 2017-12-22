@@ -578,7 +578,8 @@ function loadUserIndustry(){
 	 				return
 	 			}
 				var roleCode = user_json['roleCode']
-	 			if(roleCode == 10000){
+// 				roleCode=10000
+	 			if(roleCode == 10000 || roleCode == 30000){
 	 				userCode = user_json['userCode']
 					sendPostRequestByJsonObj(detail.getUserIndustry,{"userCode":userCode},function(data){
 						if(data.success){
