@@ -658,7 +658,7 @@ function reportFormatter(value,row){
             '<div class="report_list_img"><img src="'+row.listPic+'"></div>'+
             '<div class="report_list_cen">'+
                 '<ul>'+
-                    '<li class="report_list_cen_tit"><a href="report_detailed_1.html?id='+row.id+'" target="_blank">'+row.title+'</a></li>'+
+                    '<li class="report_list_cen_tit"><a href="report_detailed.html?id='+row.id+'" target="_blank">'+row.title+'</a></li>'+
                     '<li class="report_list_cen_time"><span>'+row.publishDate+'</span><span></span><span>来源：'+row.source+'</span></li>'+
                     '<li class="report_list_cen_c">'+row.reportDesc+'</li>'+
                 '</ul>'+
