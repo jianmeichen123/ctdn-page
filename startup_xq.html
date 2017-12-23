@@ -26,7 +26,7 @@ comp {
 			<div class="startup_xq search_list_people" >
 				<div class="list-item-inner">
 					<div class="list-item-left">
-						<img src="${Constants.logoPath}person/${code}.png"/>
+						<img src="${Constants.logoPath}person/${url}.png"/>
 					</div>
 					<div class="list-item-right">
 						<div class="list-item-title">
@@ -39,7 +39,11 @@ comp {
 								{{if projTitle}}
 								<li>
 									<div >
-										<a target="_blank" href="/project_qy.html/?projCode=${projCode}">${projTitle}</a>
+										{{if projCode}}
+											<a target="_blank" href="/project_qy.html/?projCode=${projCode}">${projTitle}</a>
+										{{else}}
+											${projTitle}
+										{{/if}}
 									</div>
 								</li>
 								{{/if}}
@@ -117,7 +121,7 @@ comp {
 					<span class="brain_ico brain_ico_project_crumbs"></span>创业经历
 				</div>
 				<div class="particulars_black">
-					<input type="hidden" name = "type" value="S">
+					<input type="hidden" name = "type" value="">
 					<ul class="startup_come_ul">
 						{-raw-}
 						<script id="person_com_expr" type="text/x-jquery-tmpl">
@@ -177,14 +181,15 @@ comp {
 											{{/if}}
 										</span>
 										<span>融资情况：</span>
-											<span>最近融资轮次</span>
 											{{if v.latestFinanceRound }}
+												<span>最近融资轮次</span>
 												<em class="color_startup">${v.latestFinanceRound}</em>
 											{{else}}
 												--
 											{{/if}}
-												<span>,获投总额</span>
+
 											{{if v.latestFinanceAmountStr}}
+												<span>,获投总额</span>
 												<em class="color_startup">${latestFinanceAmountStr}</em>
 											{{else}}
 												--
@@ -208,7 +213,7 @@ comp {
 				</div>
 			</div>
 
-			<div class="background_boeder" data-id="person_work_expr" scroll_on="cz" data-url="queryPersonWorkExpr" >
+			<div class="background_boeder" data-id="person_work_expr" scroll_on="gz" data-url="queryPersonWorkExpr" >
 				<div class="project_t">
 					<span class="brain_ico brain_ico_project_crumbs"></span>工作经历
 				</div>
@@ -225,7 +230,7 @@ comp {
 									<span class="circle_b"></span>
 									<span class="startup_time">${period}</span>
 									<span>${projTitle}</span>
-									{{if job}}
+									{{if job && projTitle}}
 									<span>|</span>
 									{{/if}}
 									<span>${job}</span>
@@ -261,14 +266,14 @@ comp {
 									<span class="circle_b"></span>
 									<span class="startup_time">${v.period}</span>
 									<span>${v.colleage}</span>
-									{{if v.major}}
+									{{if v.major && v.colleage}}
 									<span>|</span>
 									{{/if}}
 									<span>${v.major}</span>
-									{{if v.degree}}
+									<!--{{if v.degree}}
 									<span>|</span>
 									{{/if}}
-									<span>${v.degree}</span>
+									<span>${v.degree}</span>-->
 								</div>
 							</li>
 							{{/each}}
