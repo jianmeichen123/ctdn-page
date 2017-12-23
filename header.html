@@ -152,6 +152,7 @@ sendPostRequest(platformUrl.queryIndexHeaderStat,function(data){
 
  })
  $("input[data-search='globalsearch_index']").bind('keypress',function(event){
+
           var value =  $("input[data-search='globalsearch_index']").val()
                if(value.trim() != "") {
                  if(event.keyCode == '13'){

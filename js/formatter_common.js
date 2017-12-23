@@ -21,7 +21,13 @@ var tableFormate ={
                 projectName='名称未知'
             }
             var img = Constants.logoPath+"project/"+row["projCode"]+".png"
-            return '<div class="list_table_td">  <span class="col_999"><a target="_blank" href="/project_qy.html?projCode='+row.projCode+'">'+projectName+'</a></span> </div>'
+            var proj_html=""
+            if(row.projCode){
+                proj_html='<a target="_blank" href="/project_qy.html?projCode='+row.projCode+'">'+projectName+'</a>'
+            }else{
+                proj_html=projectName
+            }
+            return '<div class="list_table_td">  <span class="col_999">'+proj_html+'</span> </div>'
     },
 
     investorName:function(value, row, index){
@@ -30,7 +36,7 @@ var tableFormate ={
            if(zhName==null){
                zhName='名称未知'
            }
-           var img = Constants.logoPath+"person/"+row["code"]+".png"
+           var img = Constants.logoPath+"person/"+row["url"]+".png"
           /* var isFav=0
            if(codeList && codeList.indexOf(row.code)>=0){
                isFav=1
@@ -43,7 +49,7 @@ var tableFormate ={
            if(zhName==null){
                zhName='名称未知'
            }
-           var img = Constants.logoPath+"person/"+row["code"]+".png"
+           var img = Constants.logoPath+"person/"+row["url"]+".png"
            /*var isFav=0
            if(codeList && codeList.indexOf(row.code)>=0){
                isFav=1
@@ -658,7 +664,7 @@ function reportFormatter(value,row){
             '<div class="report_list_img"><img src="'+row.listPic+'"></div>'+
             '<div class="report_list_cen">'+
                 '<ul>'+
-                    '<li class="report_list_cen_tit"><a href="report_detailed_1.html?id='+row.id+'" target="_blank">'+row.title+'</a></li>'+
+                    '<li class="report_list_cen_tit"><a href="report_detailed.html?id='+row.id+'" target="_blank">'+row.title+'</a></li>'+
                     '<li class="report_list_cen_time"><span>'+row.publishDate+'</span><span></span><span>来源：'+row.source+'</span></li>'+
                     '<li class="report_list_cen_c">'+row.reportDesc+'</li>'+
                 '</ul>'+

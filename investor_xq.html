@@ -39,7 +39,11 @@ comp {
 								{{if projTitle}}
 								<li>
 									<div >
-										<a target="_blank" href="/project_qy.html/?projCode=${projCode}">${projTitle}</a>
+										{{if projCode}}
+											<a target="_blank" href="/project_qy.html/?projCode=${projCode}">${projTitle}</a>
+										{{else}}
+											${projTitle}
+										{{/if}}
 									</div>
 								</li>
 								{{/if}}
