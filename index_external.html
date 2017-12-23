@@ -630,9 +630,14 @@ function loadUserIndustry(){
 			var status = user_json['status']
 			var password = user_json['password']
 			if(status=='true' && !password){
-				layer.msg('去设置密码')
-				location.href=  home.index + '/person_resetpassword.html';
-				return
+				layer.open({
+					  type: 2,
+					  title: '提示信息',
+					  shadeClose: true,
+					  shade: 0.6,
+					  area: ['400px', '280px'],
+					  content: 'html/tips_s.html'
+					});
 			}
 			userCode = user_json['userCode']
 			sendPostRequestByJsonObj(detail.getUserIndustry,{"userCode":userCode},function(data){
