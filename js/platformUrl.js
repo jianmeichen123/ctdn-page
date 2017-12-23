@@ -68,6 +68,7 @@ var platformUrl = {
 	toLogin: Constants.userContentURL + "userlogin/toLogin",
 	register:Constants.userContentURL + "userlogin/toRegister",
 	logout:Constants.userContentURL + "userlogin/logout",
+	modifyPass:Constants.userContentURL + "userlogin/modifyPass",
 	allQuery:Constants.platformContentURL+"common/allQuery",
 	comQuery:Constants.platformContentURL+"common/comQuery",
 	industry:Constants.platformContentURL+"common/industry",

@@ -424,7 +424,7 @@ $(function(){
         });
     }
 
-    if(getCookie("_id_")){
+    if(getCookie("_uid_")){
         me()
     }
 
