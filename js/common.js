@@ -386,6 +386,7 @@ $(function(){
 	    	setIndexHref(obj)
             $('#login_model').css('display','none')
 	    	$('#logined_model').css('display','block')
+	    	$("#seek").show()
 	    }
 	}
 	function setIndexHref(obj){

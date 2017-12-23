@@ -24,7 +24,7 @@
 			<!--<li page_tab="sydc">商业洞察</li>-->
 		</ul>
 		<div class="nav_all_seek">
-			<a href="seek_financing.html" target="_blank"><div class="seek_all"  id="seek"><span class="dn_ico dn_ico_seek"></span>寻求融资</div></a>
+			<a href="seek_financing.html" target="_blank"  ><div class="seek_all" id="seek" style="display:none" ><span class="dn_ico dn_ico_seek"></span>寻求融资</div></a>
 			<div  class="dn_ico dn_ico_search"></div>
 		</div>
 
@@ -176,7 +176,7 @@ sendPostRequest(platformUrl.queryIndexHeaderStat,function(data){
  function logout(){
 	 location.href= platformUrl.logout
  }
-<!--$("#seek").click(function(){-->
-		<!--location.href="seek_financing.html"-->
-<!--})-->
+$("#seek").click(function(){
+		location.href="seek_financing.html"
+})
 </script>
