@@ -70,10 +70,10 @@ $(".info-nav-content").delegate("li","click",function(){
     var tab = $(this).attr("data-tab");
     $('.info-nav-content li').removeClass('search_on');
     $(this).addClass('search_on');
-//    var subtab=$(this).attr('tab-default');
-    var subtab=$('#'+tab).find('ul li:first').attr('data-li')
+    var subtab=tab
     //sub tab
-        if(typeof($('#'+tab))!="undefined"){
+        if(typeof($('#'+tab).find('ul li:first').attr('data-li'))!="undefined"){
+            subtab=$('#'+tab).find('ul li:first').attr('data-li')
             $('#'+tab).find('ul li').removeClass('search_list_on');
             $('#'+tab).find("ul li[data-li='"+subtab+"']").addClass('search_list_on');
             //绑定前先取消绑定 否则会造成重复绑定

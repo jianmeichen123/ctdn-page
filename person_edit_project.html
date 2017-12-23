@@ -150,7 +150,7 @@
 					</div>
 				</li>
 			</ul>
-			<div class='person-edit-content'><a href="person_center_myproject.html"><span class='person_edit_return'>返回</span></a><span class='person-edit-save' id="save-btn">保存</span></div>
+			<div class='person-edit-content'><span class='person_edit_return' onclick="back()">返回</span><span class='person-edit-save' id="save-btn">保存</span></div>
 		</div>
 	</form>
 
@@ -364,6 +364,11 @@
 	});
 </script>
 <script>
+<!--function back(){-->
+	<!--layer.confirm("您的项目信息还没有保存，是否返回",function(){-->
+		<!--location.href = "person_center_myproject.html"-->
+	<!--})-->
+<!--}-->
 function save(){
 		var area1Name =  $("select[name='area1']").find("option:selected").text();
 		var area2Name =  $("select[name='area2']").find("option:selected").text();

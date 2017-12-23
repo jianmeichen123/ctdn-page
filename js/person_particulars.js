@@ -32,6 +32,7 @@
     	var html="";
     	sendPostRequestByJsonObj(url,json,function(data){
     		var records = data.page.records;
+
     		if(records.length>0 ){
     		    obj.show();
     		    var target = $("#"+dataId)
@@ -100,31 +101,4 @@
         return json;
    }
 
-
-   function formatMergeSideJson(v){
-     if(!v){
-        return table.empty;
-     }
-     var json = eval("(" + v.mergeSideJson + ")");
-     var ls = json["mergeSideJson"];
-     var mergeSideTitle = "";
-     $(ls).each(function(i){
-     var data =$(this)[0]
-        //待修改 没加领投
-        if(data.title &&i<3){
-              if(data.code){
-                  if(data.type=='invse'){
-                      mergeSideTitle+='<span class="list_table_td"><a href="/jg_particulars.html?orgCode='+data.code+'">'+data.title+'</a></span>';
-                  }
-                  if(data.type=='com'){
-                      mergeSideTitle+='<span class="list_table_td"><a href="/project_qy.html?projCode='+data.code+'">'+data.title+'</a></span>';
-                  }
-              }else{
-                  mergeSideTitle+='<span class="list_table_td">'+data.title+'</span>';
-              }
-          }
-     })
-     v = mergeSideTitle
-     return mergeSideTitle;
-   }
 

@@ -386,6 +386,7 @@ $(function(){
 	    	setIndexHref(obj)
             $('#login_model').css('display','none')
 	    	$('#logined_model').css('display','block')
+	    	$("#seek").show()
 	    }
 	}
 	function setIndexHref(obj){
@@ -423,7 +424,11 @@ $(function(){
             }
         });
     }
-    me()
+
+    if(getCookie("_uid_")){
+        me()
+    }
+
     /* $("ul[tab='header']").on("click","li",function(){
     	 
     	 var o = $(this)
@@ -866,10 +871,12 @@ function unselect_all(){
 
 function getCodeList (type){
     var codeList;
-    sendGetRequest(user.getCodeList+"/"+userCode+"/"+type,function(data){
-        codeList = data.data;
-    })
-    return codeList;
+    if(userCode){
+        sendGetRequest(user.getCodeList+"/"+userCode+"/"+type,function(data){
+            codeList = data.data;
+        })
+      return codeList;
+    }
 }
 
 //判断是否包含收藏

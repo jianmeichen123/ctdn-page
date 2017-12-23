@@ -1,5 +1,14 @@
 //本地
 //
+//var Constants = {
+//	platformContentURL: "http://ctdn.local.galaxyinternet.com/api/",
+//	searchContentURL: "http://ctdn.local.galaxyinternet.com/search/",
+//	dataContentURL: "http://ctdn.local.galaxyinternet.com/data/",
+//	uploadURL: "http://ctdn.local.galaxyinternet.com/cloudstorage/",
+//	logoPath: "http://static.galaxyinternet.com/img/",
+//	userContentURL: "http://ctdn.local.galaxyinternet.com/user/"
+//}
+
 var Constants = {
 	platformContentURL: "http://ctdnqa.gi.com/api/",
 	searchContentURL: "http://ctdnqa.gi.com/search/",
@@ -68,6 +77,7 @@ var platformUrl = {
 	toLogin: Constants.userContentURL + "userlogin/toLogin",
 	register:Constants.userContentURL + "userlogin/toRegister",
 	logout:Constants.userContentURL + "userlogin/logout",
+	modifyPass:Constants.userContentURL + "userlogin/modifyPass",
 	allQuery:Constants.platformContentURL+"common/allQuery",
 	comQuery:Constants.platformContentURL+"common/comQuery",
 	industry:Constants.platformContentURL+"common/industry",
