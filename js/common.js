@@ -694,6 +694,8 @@ $('body').delegate('.click_contrast','click', function(event){
 //绑定收藏
 $('body').delegate('.dn_ico_list_collect','click', function(event){
 	event.stopPropagation();
+	if(!getCookie("_uid"_)){
+	}
 	$(this).toggleClass('dn_ico_list_collect_on');
 	var type = $(this).attr("type");
 	var code = $(this).attr("code");
@@ -780,7 +782,7 @@ $(document).bind('click', function(e) {
  	$('.nav_all_seek').show();
  	$('.nav_all_input').hide();
 })*/
-
+alert(111)
 function formatNewsTime(time){
 //     var dateTimeStamp=Date.parse(time.replace(/-/gi,"/"));
      var result = '';
