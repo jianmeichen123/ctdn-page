@@ -10,12 +10,12 @@
 //}
 
 var Constants = {
-	platformContentURL: "http://ctdndev.gi.com/api/",
-	searchContentURL: "http://ctdndev.gi.com/search/",
-	dataContentURL: "http://ctdndev.gi.com/data/",
-	uploadURL: "http://ctdndev.gi.com/cloudstorage/",
+	platformContentURL: "http://ctdnqa.gi.com/api/",
+	searchContentURL: "http://ctdnqa.gi.com/search/",
+	dataContentURL: "http://ctdnqa.gi.com/data/",
+	uploadURL: "http://ctdnqa.gi.com/cloudstorage/",
 	logoPath: "http://static.galaxyinternet.com/img/",
-	userContentURL: "http://ctdndev.gi.com/user/"
+	userContentURL: "http://ctdnqa.gi.com/user/"
 }
 
 //var Constants = {
