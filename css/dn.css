@@ -367,9 +367,9 @@ td>.dn_ico_list_contrast_on,td>.dn_ico_list_collect_on{border:0;}
 .startup_list .startup_time{margin-right:20px;}
 .investor_ul>li{width:100%; overflow:hidden; margin-bottom:20px;} 
 .investor_ul_tit{color:#666666;float:left; font-size:14px;  height:30px; line-height:30px; }
-.investor_ul_1,.investor_ul_2{float:left;}
-.investor_ul_1>li{float:left; margin-left:20px; padding-left:10px; padding-right:10px; border:1px solid #b2dbff; height:30px; line-height:30px; font-size:12px; border-radius:15px;}
-.investor_ul_2>li{float:left; margin-left:20px; padding-left:10px; padding-right:10px; border:1px solid #666666; height:30px; line-height:30px; font-size:12px; border-radius:15px;}
+.investor_ul_1,.investor_ul_2{float:left; line-height: 30px;   width: 1100px;  margin-bottom: -10px;}
+.investor_ul_1>li{float:left; margin-left:20px; padding-left:10px;  margin-bottom: 10px; padding-right:10px; border:1px solid #b2dbff; height:30px; line-height:30px; font-size:12px; border-radius:15px;}
+.investor_ul_2>li{float:left; margin-left:20px; padding-left:10px; margin-bottom: 10px; padding-right:10px; border:1px solid #666666; height:30px; line-height:30px; font-size:12px; border-radius:15px;}
 .investor_ul_c{width:1118px; float:left;height:30px; line-height:30px;}
 .investor_case{ overflow:hidden;margin-left:-20px;margin-right:-20px;}
 .investor_case>li{float:left; margin-left:20px; width: 588px;; margin-bottom:20px; border:1px solid #e6e6e6; height:160px;}
