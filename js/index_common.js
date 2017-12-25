@@ -7,6 +7,7 @@ function getNews(){
     json["pageSize"]=6;
     json["pageNo"]=0;
     if(type == '2' || type == '6' || type == '7' || type==''){
+    	console.log(industryNames)
     	json["industryNames"] = industryNames
     }
     console.log(searchUrl["news"])
@@ -22,6 +23,7 @@ function getNews(){
                                    v[i][j].overview=v[i][j].overview.substring(0,150)+'...'
                                }
                                 v[i][j].orderTime= formatNewsTime(v[i][j].orderTime)
+                                
                            }
                         }
                     }
@@ -191,7 +193,7 @@ function reset_user_industry(){
 function isLogin(){
 	var cookie=document.cookie
 	if(cookie == null){
-		return
+		return false
 	}
 	var _uid_ = null
 	var s_ = null

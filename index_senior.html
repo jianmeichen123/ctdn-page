@@ -83,7 +83,7 @@
 		<!-- 高管图表 -->
 		<div class="background_boeder_indx">
 			<div class="particulars_black" >
-				<div style="height:600px;">
+				<div style="height:500px;">
 					<div class="eachrst_tit">
 						<div class="fl">
 							<span class="eachrst_tit_on" cmd="yl_tit" name="one">行业融资趋势</span>
@@ -97,8 +97,8 @@
 						
 						
 					</div>
-					<div id="main_yl" style="height: 520px;"></div>
-					<div id="main_yl_db" style="height: 520px;"></div>
+					<div id="main_yl" style="height: 440px;"></div>
+					<div id="main_yl_db" style="height: 440px;"></div>
 				</div>
 			</div>
 		</div>
@@ -116,7 +116,7 @@
 					<script id="business_line_script" type="text/x-jquery-tmpl">
 							{{if data.length >0}}
 								{{each(i,v) data}}
-									<li  onclick="getGG_news('${v.industryNames}')">${v.name}</li>
+									<li  onclick="getGG_news('${v.industryNames}',this)">${v.name}</li>
 								{{/each}}
 							{{else}}
 								<span>暂无数据</span>
@@ -208,7 +208,7 @@
 										<ul>
 
 											<li class="dn_info_list_cen">${w.overview}</li>
-											<li class="dn_info_list_ic"><span>{{html formatNewsTime(w.orderTime*1000,'yyyy-MM-dd')}}</span><span>来源:</span><span>${w.auther}</span></li>
+											<li class="dn_info_list_ic"><span>{{html formatNewsTime(w.orderTime,'yyyy-MM-dd')}}</span><span>来源:</span><span>${w.auther}</span></li>
 										</ul>
 									</div>
 									<div class="executive_b_line"></div>
@@ -576,7 +576,10 @@ function querycurmontheader(){
 	    $("#amount_curmonth").text(data.data.amount)
 	})
 }
-function getGG_news(params){
+function getGG_news(params,obj){
+	if(params){
+		$('#executive_click').text($(obj).text())
+	}
 	$("#executive_pop").hide();
     var json={};
     json["typeId"] =6;
