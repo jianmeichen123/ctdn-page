@@ -378,10 +378,12 @@ $(function(){
 	    	var obj = JSON.parse(data)
 	        if(!obj['roleCode']){
 	        	var mobile = obj['mobile']
-	        	$("#id_name").html(mobile.substring(0,5)+'******')
+	        	$("span[name='id_name']").html(mobile.substring(0,5)+'******')
+	        	 setCookie("realName",mobile)
 	        }else{
 	        	var name = obj['realName']
-	        	$("#id_name").html(name)
+	        	$("span[name='id_name']").html(name)
+	        	setCookie("realName",name)
 	        }
 	    	setIndexHref(obj)
             $('#login_model').css('display','none')
