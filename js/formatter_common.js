@@ -614,9 +614,9 @@ function option(value,row,index){
     }
     var html;
     if(codeList && codeList.indexOf(code)>=0){
-        html = "<span class='dn_ico dn_ico_list_collect dn_ico_list_collect_on' type="+type+" code='"+code+"'></span>"
+        html = "<span class='dn_ico dn_ico_list_collect click_collect dn_ico_list_collect_on' type="+type+" code='"+code+"'></span>"
     }else{
-        html ="<span class='dn_ico dn_ico_list_collect ' type="+type+" code='"+code+"'></span>"
+        html ="<span class='dn_ico dn_ico_list_collect click_collect' type="+type+" code='"+code+"'></span>"
     }
     return html;
 }
@@ -632,9 +632,9 @@ function option_project(value,row){
         html="<span  id="+code+" class='click_contrast dn_ico dn_ico_list_contrast'  code="+code+" title='"+title+"'></span> "
     }
     if(codeList && codeList.indexOf(code)>=0){
-        html += "<span class='dn_ico dn_ico_list_collect dn_ico_list_collect_on' type="+type+" code='"+code+"'></span>"
+        html += "<span class='dn_ico dn_ico_list_collect click_collect dn_ico_list_collect_on' type="+type+" code='"+code+"'></span>"
     }else{
-        html +="<span class='dn_ico dn_ico_list_collect ' type="+type+" code='"+code+"'></span>"
+        html +="<span class='dn_ico dn_ico_list_collect click_collect' type="+type+" code='"+code+"'></span>"
     }
     return html;
 }

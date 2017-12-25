@@ -692,7 +692,7 @@ $('body').delegate('.click_contrast','click', function(event){
 })
 
 //绑定收藏
-$('body').delegate('.dn_ico_list_collect','click', function(event){
+$('body').delegate('.click_collect','click', function(event){
 	event.stopPropagation();
 	$(this).toggleClass('dn_ico_list_collect_on');
 	var type = $(this).attr("type");
