@@ -425,7 +425,7 @@ function projectFormatter(value,row){
 					"<p class='list-item-title'><a target='_blank' href='/project_qy.html?projCode="+row.projCode+"'>"+projectName+"</a>"+tag+"</p>"+
 					"<p class='list-item-content'>简介:${introduce}</p>"+
 					"<p class='list-item-tips'><i class='list-item-address'></i>${districtSubName}"+industryName+"</p>"+
-					"<div class='search_collect'><span class='dn_ico dn_ico_list_collect_search'></span>收藏</div>"+
+					"<div class='search_collect click_collect'><span class='dn_ico dn_ico_list_collect_search'></span>收藏</div>"+
 					"<div class='search_contrast'><span class='dn_ico dn_ico_list_search_contrast'></span>对比</div>"+
 				"</div>"+
 			"</div>"+
@@ -487,7 +487,7 @@ function investfirmFormatter(value,row){
    					"<p class='list-item-title institute-title'><a target='_blank' href='/jg_particulars.html?orgCode="+row.orgCode+"'>"+investOrg+"</a><span>"+orgType+"</span></p>"+
    					"<p class='list-item-case'>投资事件:<span>${investTotal}</span></p>"+
    					"<p class='list-item-content list-institute-content'>简介:"+orgDesc+"</p>"+
-   					"<div class='search_collect'><span class='dn_ico dn_ico_list_collect_search'></span>收藏</div>"
+   					"<div class='search_collect click_collect'><span class='dn_ico dn_ico_list_collect_search'></span>收藏</div>"
    				"</div>"+
    			"</div>"+
    		"</div>"
@@ -536,7 +536,7 @@ function personFormatter(value,row){
         }
         person_html+="</ul>"+
                      "</div>"+
-                     "<div class='search_collect'><span class='dn_ico dn_ico_list_collect_search'></span>收藏</div>"+
+                     "<div class='search_collect click_collect'><span class='dn_ico dn_ico_list_collect_search'></span>收藏</div>"+
                      "</div>"+
                      "</div>"+
                      "</div>"+
@@ -651,7 +651,7 @@ function investorFormatter(value,row){
                      '<li class="report_list_cen_time"><span>'+row.publishDate+'</span><span></span><span>来源：'+row.source+'</span></li>'+
                      '<li class="report_list_cen_c">'+row.reportDesc+'</li>'+
                  '</ul>'+
-                 '<div class="search_collect"><span class="dn_ico dn_ico_list_collect_search dn_ico_list_collect" type=4 code='+row.id+'></span>收藏</div>'+
+                 '<div class="search_collect click_collect"><span class="dn_ico dn_ico_list_collect_search dn_ico_list_collect" type=4 code='+row.id+'></span>收藏</div>'+
              '</div>'+
              '<div class="dn_sy_line"></div>'+
          '</li>'
@@ -668,7 +668,7 @@ function reportFormatter(value,row){
                     '<li class="report_list_cen_time"><span>'+row.publishDate+'</span><span></span><span>来源：'+row.source+'</span></li>'+
                     '<li class="report_list_cen_c">'+row.reportDesc+'</li>'+
                 '</ul>'+
-                '<div class="search_collect"><span class="dn_ico dn_ico_list_collect_search dn_ico_list_collect" type=4 code='+row.id+'></span>收藏</div>'+
+                '<div class="search_collect click_collect"><span class="dn_ico dn_ico_list_collect_search dn_ico_list_collect" type=4 code='+row.id+'></span>收藏</div>'+
             '</div>'+
             '<div class="dn_sy_line"></div>'+
         '</li>'
