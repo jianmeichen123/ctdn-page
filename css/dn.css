@@ -311,7 +311,7 @@ ul,ol,dl,dt,dd,p,img{ display:block; border:0;list-style:none; }
 .dn_ico_list_contrast{background-position:0 -286px; width: 19px; height: 19px; display: inline-block; cursor:pointer;}
 .dn_ico_list_contrast_on{background-position: -20px -286px;}
 .dn_ico_list_collect,.dn_ico_list_collect_search{background-position:-40px -286px; width: 19px; height: 19px;  display: inline-block;  cursor:pointer;}
-.dn_ico_list_collect_on .dn_ico_list_collect_search{background-position: -59px -286px;}
+.dn_ico_list_collect_on ,.dn_ico_list_collect_on .dn_ico_list_collect_search{background-position: -59px -286px;}
 .contrast_two>ul{margin-top:20px; overflow:hidden; width:100%}
 .contrast_two>ul>li{text-align:center; overflow:hidden; margin-bottom:10px; color:#333;}
 .contrast_three>ul{margin-top:10px; overflow:hidden;}

@@ -70,9 +70,8 @@ comp {
 								{{/if}}
 							</ul>
 						</div>
-						<div class="search_collect">
-								{{html isFav}}
-						</div>
+						{{html isFav}}
+						
 					</div>
 				</div>
 
@@ -293,7 +292,6 @@ comp {
 	{(dn_foot.html)}
 
 <script src="js/jquery.tmpl.js"></script>
-<script src="js/common.js"></script>
 <script src="js/platformUrl.js"></script>
 <script src="js/person_particulars.js"></script>
 <script>
@@ -317,9 +315,9 @@ function isFav(){
 	var isFav=idCollection(2,getHrefParamter('code'))
 	var fav_html=''
 	if(isFav==true){
-		fav_html+="<span class='dn_ico dn_ico_list_collect_search dn_ico_list_collect_on'></span>收藏"
+		fav_html+="<div class='search_collect click_collect  dn_ico_list_collect_on'><span class='dn_ico dn_ico_list_collect_search '></span>收藏</div>"
 	}else{
-		fav_html+="<span class='dn_ico dn_ico_list_collect_search'></span>收藏"
+		fav_html+="<div class='search_collect click_collect '><span class='dn_ico dn_ico_list_collect_search'></span>收藏</div>"
 	}
 	return fav_html
 }
