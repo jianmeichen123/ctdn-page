@@ -931,3 +931,11 @@ function select_all(){
 function unselect_all(){
 	$("#concern_industry li").removeClass('trade_pop_c_ul_on')
 }
+//头部统计数字
+sendPostRequest(platformUrl.queryIndexHeaderStat,function(data){
+    $(".total-project").text(data.data.projectNum)
+    $(".total-org").text(data.data.orgNum)
+    $(".total-investevent").text(data.data.eventNum)
+    $(".total-startup").text(data.data.startUpNum)
+    $(".total-investor").text(data.data.investorNum)
+})
