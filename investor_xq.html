@@ -40,7 +40,7 @@ comp {
 								<li>
 									<div >
 										{{if projCode}}
-											<a target="_blank" href="/project_qy.html/?projCode=${projCode}">${projTitle}</a>
+											<a target="_blank" href="/project_qy.html?projCode=${projCode}">${projTitle}</a>
 										{{else}}
 											${projTitle}
 										{{/if}}
@@ -76,8 +76,6 @@ comp {
 			</div>
 			</script>
 			{-raw-}
-
-
 			<div class="project_nav">
 				<ul>
 					<li class="nav_on" scroll_on="jj"><span>投资人简介</span></li>
@@ -119,10 +117,10 @@ comp {
 					<span class="brain_ico brain_ico_project_crumbs"></span>投资策略
 				</div>
 				<div class="particulars_black">
-				<input type="hidden" name = "type" value="I">
+					<input type="hidden" name = "type" value="I">
 					<ul class="investor_ul">
-					{-raw-}
-					<script id="investor_policy" type="text/x-jquery-tmpl">
+						{-raw-}
+						<script id="investor_policy" type="text/x-jquery-tmpl">
 						<li>
 							<div class="investor_ul_tit">关注行业：</div>
 							<ul class="investor_ul_1">
@@ -157,7 +155,7 @@ comp {
 							</div>
 						</li>
 						</script>
-					{-raw-}
+						{-raw-}
 					</ul>
 				</div>
 			</div>
@@ -166,7 +164,8 @@ comp {
 					<span class="brain_ico brain_ico_project_crumbs"></span>投资案例
 				</div>
 				<div class="particulars_black">
-					<input type="hidden" name = "type" value="I">
+					<!--<input type="hidden" name = "type" value="I">-->
+					<input type="hidden" name = "type" value="">
 					<input type="hidden" name = "pageSize" value="4">
 					<input type="hidden" name = "pageNo" value="0">
 					<ul class="investor_case">
@@ -177,18 +176,64 @@ comp {
 							<ul class="investor_case_ul">
 								<li>
 									<div class="investor_case_ul_img">
+										{{if projCode}}
 										<a target="_blank"
-											href="/project_qy.html?projCode=${projCode}"><img
-											src="${Constants.logoPath}project/${projCode}.png""></a>
+											href="/project_qy.html?projCode=${projCode}">
+											<img src="${Constants.logoPath}project/${projCode}.png"">
+										</a>
+										{{else}}
+											<img src="${Constants.logoPath}project/${projCode}.png"">
+										{{/if}}
 									</div>
 									<div class="investor_case_ul_cen">
-										<div class="investor_case_ul_cen_1">${projTitle}</div>
-										<div class="investor_case_ul_cen_2">${latestFinanceRound}/${latestFinanceAmountStr}</div>
-										<div class="investor_case_ul_cen_3"><span>${industryName}</span></div>
-										<div class="investor_case_ul_cen_time">${projSetUpDT}</div>
+										<div class="investor_case_ul_cen_1">
+										{{if projCode}}
+											<a target="_blank" href="/project_qy.html?projCode=${projCode}">
+											${projTitle}
+											</a>
+										{{else}}
+											${projTitle}
+										{{/if}}
+										</div>
+										<div class="investor_case_ul_cen_2">
+										{{if latestFinanceRound}}
+											${latestFinanceRound}
+										{{else}}
+											轮次未知
+										{{/if}}
+										<span>/</span>
+										{{if latestFinanceAmountStr}}
+											${latestFinanceAmountStr}
+										{{else}}
+											金额未知
+										{{/if}}
+										</div>
+										<div class="investor_case_ul_cen_3">
+										<span>
+										{{if industryName}}
+											${industryName}
+										{{else}}
+											行业未知
+										{{/if}}
+										</span></div>
+										<div class="investor_case_ul_cen_time">
+											{{if projSetUpDT}}
+												${projSetUpDT}
+											{{else}}
+												时间未知
+											{{/if}}
+										</div>
 									</div>
 								</li>
-								<li><div class="investor_case_ul_div">${projIntroduce}</div></li>
+								<li>
+								<div class="investor_case_ul_div">
+								{{if projIntroduce}}
+									${projIntroduce}
+								{{else}}
+									描述未知
+								{{/if}}
+								</div>
+								</li>
 							</ul>
 						</li>
 						{{/each}}
@@ -225,9 +270,15 @@ comp {
 							<li>
 								<div class="relative m_t5">
 									<span class="circle_b"></span>
-									<span class="startup_time">${period}</span>
+									<span class="startup_time">
+										{{if period}}
+											${period}
+										{{else}}
+											时间未知
+										{{/if}}
+									</span>
 									<span>${projTitle}</span>
-									{{if job}}
+									{{if job && projTitle}}
 									<span>|</span>
 									{{/if}}
 									<span>${job}</span>
@@ -263,14 +314,9 @@ comp {
 									<span class="circle_b"></span>
 									<span class="startup_time">${v.period}</span>
 									<span>${v.colleage}</span>
-									{{if v.major}}
-									<span>|</span>
-									{{/if}}
-									<span>${v.major}</span>
-									{{if v.degree}}
-									<span>|</span>
-									{{/if}}
-									<span>${v.degree}</span>
+
+									{{html v.major }}
+
 								</div>
 							</li>
 							{{/each}}
@@ -278,11 +324,11 @@ comp {
 							{-raw-}
 						</ul>
 					</div>
-				<!--	<div class="dn_ico_more_all">
-						<div class="dn_ico_more_al_divl">
-							加载更多<span class="dn_ico dn_ico_more"></span>
-						</div>
-					</div>-->
+					<!--	<div class="dn_ico_more_all">
+                            <div class="dn_ico_more_al_divl">
+                                加载更多<span class="dn_ico dn_ico_more"></span>
+                            </div>
+                        </div>-->
 				</div>
 			</div>
 		</div>
