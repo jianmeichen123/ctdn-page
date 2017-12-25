@@ -297,7 +297,6 @@
 		$.each(array,function(){
 			data[this.name]=this.value.replace(/(^\s+)|(\s+$)/g,"");
 		})
-		data["id"] = 67
 		return data;
 	}
 
@@ -400,9 +399,7 @@ function save(){
 				success:function(data){
 					if(data.success)
 					{
-						layer.msg("项目提交成功,我们会尽快联系您~",0,function(){
-							//location.href="index.html"
-						});
+						location.href="person_center_myproject.html"
 					}
 					else
 					{
@@ -476,30 +473,26 @@ $('body').delegate('#save-btn','click', function(event){
 		var ls = $("#form").find("*[name]");
 		var entity = data.data[0]
 		$(ls).each(function(i,e){
-			console.log($(this).attr("name"))
 			var tagName = e.tagName;
-				var value = entity[$(this).attr("name")]
-				if(tagName == "INPUT" || tagName=="TEXTAREA"){
-					$(this).val(value)
+			var value = entity[$(this).attr("name")]
+			if(tagName == "INPUT" || tagName=="TEXTAREA"){
+				$(this).val(value)
+			}
+			if(tagName=="SELECT" && ($(this).attr("data-item")=="parent")){
+				$(this).find("option[value='"+value+"']").attr("selected",true);
+			}
+			if($(this).attr("name")=='area2'){
+				if(value){
+					getOption($("select[name='area1']"),$("select[name='area2']"),value)
+				}else{
+					getOption($("select[name='area1']"),$("select[name='area2']"),value)
 				}
-				if(tagName=="SELECT" && ($(this).attr("data-item")=="parent")){
-					$(this).find("option[value='"+value+"']").attr("selected",true);
+			}
+			if($(this).attr("name")=='industry2'){
+				if(value){
+					getOption($("select[name='industry1']"),$("select[name='industry2']"),value)
 				}
-				if($(this).attr("name")=='area2'){
-					if(value){
-						getOption($("select[name='area1']"),$("select[name='area2']"),value)
-					}else{
-						getOption($("select[name='area1']"),$("select[name='area2']"),value)
-					}
-
-				}
-				if($(this).attr("name")=='industry2'){
-					if(value){
-						getOption($("select[name='industry1']"),$("select[name='industry2']"),value)
-					}else{
-						getOption($("select[name='industry1']"),$("select[name='industry2']"),value)
-					}
-				}
+			}
 		})
 		if(entity["fileName"]){
 			$("#projPbName").html(entity["fileName"])

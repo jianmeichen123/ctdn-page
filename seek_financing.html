@@ -369,11 +369,9 @@ function save(){
 				contentType:'application/json;charset=UTF-8',
 				data:data,
 				success:function(data){
-					if(data.message == 'OK')
+					if(data.success)
 					{
-						layer.msg("项目提交成功,我们会尽快联系您~",0,function(){
-							location.href="index.html"
-						});
+						location.href="person_center_myproject.html"
 
 					}
 					else
