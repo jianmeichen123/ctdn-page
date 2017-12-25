@@ -15,30 +15,36 @@
 <div class='person-center-container clearfix'>
 	{(person_center_header.html)}
 	<div class='person-right fl'>
-		<ul class='clearfix person_tab'>
-			<li class='person-tab-underline' >审核中</li>
-			<li >已审核</li>
-		</ul>
-		<input type="hidden" id="isClaim" value="0">
-		<div class='person-project-list person_checking'>
-				<table  data-toggle='table' data-url>
-					<thead>
-						<tr>
-							<th data-field="projectName">项目名称</th>
-							<th data-formatter="districtFormatter">所属地区</th>
-							<th data-field="linkName">联系人</th>
-							<th data-field="linkPhone1">电话</th>
-							<th data-formatter="option"></th>
-						</tr>
-					</thead>
-				</table>
+		<div >
+			<ul class='clearfix person_tab'>
+				<li class='person-tab-underline' >审核中</li>
+				<li >已审核</li>
+			</ul>
+			<input type="hidden" id="isClaim" value="0">
+			<div class='person-project-list person_checking'>
+					<table  data-toggle='table' data-url>
+						<thead>
+							<tr>
+								<th data-field="projectName">项目名称</th>
+								<th data-formatter="districtFormatter">所属地区</th>
+								<th data-field="linkName">联系人</th>
+								<th data-field="linkPhone1">电话</th>
+								<th data-formatter="option"></th>
+							</tr>
+						</thead>
+					</table>
+				<tbody>
+				</tbody>
+			</div>
 		</div>
+		<a href='seek_financing.html'><div class='person-upload-project'>上传新的项目</div></a>
 	</div>
 </div>
  {(dn_foot.html)}
 </body>
 <script src="js/table-init.js"></script>
 <script>
+
 $('.person_tab li').click(function(){
 	$(this).addClass('person-tab-underline').siblings().removeClass('person-tab-underline');
 	$("#isClaim").val($(this).index())
@@ -50,7 +56,11 @@ function loadTable(){
 			url: publicsea.queryPubSeaList,         //请求后台的URL（*）
 			queryParams:queryParams,
 			formatNoMatches: function () {  //没有匹配的结果
-				var result =  "<a href='seek_financing.html'><div class='person-upload-project'>上传新的项目</div></a>"
+				if($("#isClaim").val()==0 ){
+					var result =  "对不起，您还没有审核中的项目"
+				}else{
+					var result =  "对不起，您还没有审核通过的项目"
+				}
 				return result;
             },
 	});
