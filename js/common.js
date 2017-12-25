@@ -692,7 +692,7 @@ $('body').delegate('.click_contrast','click', function(event){
 })
 
 //绑定收藏
-$('body').delegate('.dn_ico_list_collect','click', function(event){
+$('body').delegate('.click_collect','click', function(event){
 	event.stopPropagation();
 	if(!getCookie("_uid_")){
 	}
@@ -933,3 +933,11 @@ function select_all(){
 function unselect_all(){
 	$("#concern_industry li").removeClass('trade_pop_c_ul_on')
 }
+//头部统计数字
+sendPostRequest(platformUrl.queryIndexHeaderStat,function(data){
+    $(".total-project").text(data.data.projectNum)
+    $(".total-org").text(data.data.orgNum)
+    $(".total-investevent").text(data.data.eventNum)
+    $(".total-startup").text(data.data.startUpNum)
+    $(".total-investor").text(data.data.investorNum)
+})

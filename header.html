@@ -55,7 +55,7 @@
 					<li><a href="javascript:void(0)" onclick="register()"><span>注册</span></a></li>
 				</ul>
 			</div> 
-			<div class="nav_all_name" id="logined_model">
+			<div class="nav_all_name none" id="logined_model">
 				<span id="id_name"></span>
 				<span class="brain_ico brain_ico_name "></span>
 				<ul class="list_click_ul">
@@ -136,14 +136,7 @@
 </div>
 <script src="js/platformUrl.js?t=20170523"></script>
 <script>
-//头部统计数字
-sendPostRequest(platformUrl.queryIndexHeaderStat,function(data){
-    $(".total-project").text(data.data.projectNum)
-    $(".total-org").text(data.data.orgNum)
-    $(".total-investevent").text(data.data.eventNum)
-    $(".total-startup").text(data.data.startUpNum)
-    $(".total-investor").text(data.data.investorNum)
-})
+
  $("#globalsearch_index").on("click",function(){
            var value = $("input[data-search='globalsearch_index']").val()
            if(value.trim() != ""){

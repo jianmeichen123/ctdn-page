@@ -7,8 +7,8 @@ var myChart = echarts.init(document.getElementById('main_yl'));
 var industry_data = null
 var round_data = null
 var yAxis_name = '按融资笔数'
-var myChart_default_industry_num = 10
-var myChartDB_default_industry_num = 10
+var myChart_default_industry_num = 29
+var myChartDB_default_industry_num = 29
 var markLine ={}
 var avg_data = new Array()
 var data1 = {}
@@ -40,7 +40,12 @@ var option = {
     legend: {
     	 x : 'right',
          y : 'bottom',
-        data:['邮件营销','联盟广告']
+        data:['邮件营销','联盟广告'],
+        selected:{
+        	"邮件营销":true,
+        	"联盟广告":true
+        },
+        padding: -15         
     },
     grid: {
         left: '3%',
@@ -150,7 +155,7 @@ sendPostRequestByJsonStr(detail.queryIndustryMonthForEchart,null,function(data){
 sendPostRequestByJsonStr(detail.queryIndustryMonthMergerForEchart,null,function(data){
 	if(data.success){
 		round_data = data
-		showEcharts()
+//		showEcharts()
 	}
 });
 
@@ -301,6 +306,7 @@ function showEcharts(){
 		var legend = industry_data.data.legend.slice(0,myChart_default_industry_num)
 		legend.push('平均值')
 		option.legend.data=legend
+	
 		var series =  industry_data.data.series.slice(0,myChart_default_industry_num)
 		var num_array = [0,0,0,0,0,0,0,0,0,0,0,0]
 		for(var j=0;j<series.length;j++){
@@ -320,7 +326,6 @@ function showEcharts(){
 		for(var n =0;n<num_array.length;n++){
 			num_array[n] = (num_array[n]/myChart_default_industry_num).toFixed(2)
 		}
-		console.log(num_array)
 		var avg_json = {}
 		avg_json['industryName'] = '平均值'
 		if(query_flag == 1){
@@ -344,9 +349,20 @@ function showEcharts(){
 			}
 			json['type'] = 'line'
 			json['symbol'] = 'circle'
+			json['smooth'] = true
 			y_data.push(json)
 		}
 		option.series = y_data
+		
+		for(var s =0;s<legend.length;s++){
+			var data_legend = legend[s]
+			if(s <= 9){
+				option.legend.selected[data_legend] = true
+			}else{
+				option.legend.selected[data_legend] = false
+			}
+			console.log(data_legend)
+		}
 		myChart.setOption(option,true); //true  防止多次请求，数据重叠
 	}
 	if(echarts_flag == 2) { //图表2
@@ -371,29 +387,6 @@ function showEcharts(){
 			y_data.push(json)
 		}
 		option_db.series = y_data
-		console.log(option_db)
 		myChart_db.setOption(option_db,true);
 	}
 }
-var myChart_click_count = 1
-var myChartDB_click_count =1
-myChart.on('click',function(params){
-//	console.log(params.componentType)
-	if(myChart_click_count % 2 == 0){
-		myChart_default_industry_num = 10
-	}else{
-		myChart_default_industry_num = 29
-	}
-	showEcharts()
-	myChart_click_count ++;
-})
-myChart_db.on('click',function(){
-	if(myChartDB_click_count % 2 == 0){
-		myChartDB_default_industry_num = 10
-	}else{
-		myChartDB_default_industry_num = 29
-	}
-	showEcharts()
-	myChartDB_click_count ++;
-	showEcharts()
-})

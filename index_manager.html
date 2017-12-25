@@ -139,7 +139,7 @@
 
 <body>
 {(header.html)}
-<div style="overflow:hidden;">
+<div>
 <div class="pc-banner">
 	<div class="swiper-container swiper-container-horizontal">
         <div class="swiper-wrapper" >
@@ -164,7 +164,7 @@
 			<!--关注行业-->
 			<div class="index_trade" id="trade_click"><div class="index_trade_c">关注行业<span class="dn_ico dn_ico_tradex"></span></div></div>
 			<!--关注行业弹出-->
-			<div class="trade_pop" id="trade_pop">
+			<div class="trade_pop" id="trade_pop" style="display:none;">
 				<div class="dn_ico dn_ico_trade_triangle"></div>
 				<div class="trade_pop_c">
 					<div class="trade_pop_tit">关注行业
@@ -287,13 +287,12 @@
 										</div>
 									</li>
 									<li class="index_project_img_r_c">
-										<div class="index_project_img_r_c_l">获投时间：</div>
-										<div class="index_project_img_r_c_r">2017.11.15</div>
+										3333333333333333333333333333333333333333333333333333333333333333333333333333333
 									</li>
-									<li>
-										<div class="index_project_img_r_c_l">投资机构：</div>
-										<div class="index_project_img_r_c_r">IDE资本，九鼎投资，真格基金，基石资本，招商银行，招行银行</div>
-									</li>
+<!-- 									<li> -->
+<!-- 										<div class="index_project_img_r_c_l">投资机构：</div> -->
+<!-- 										<div class="index_project_img_r_c_r">IDE资本，九鼎投资，真格基金，基石资本，招商银行，招行银行</div> -->
+<!-- 									</li> -->
 								</ul>
 							</div>
 						</li>
@@ -587,6 +586,7 @@ function loadUserIndustry(){
 							industryIdList=data.data.industryIdList
 							getNews() //投融快讯
 							getActiveOrgs() //活跃机构
+							getPorjects(0)
 						}
 					});	
 	 			}else{
@@ -607,7 +607,6 @@ $("#lastestPro").delegate("li","click",function(){
 	$(this).addClass('financing_on')
 	getPorjects(tab);
 }); 
-getPorjects(0)
 
 function getPorjects(tab){
 	var url = ''
@@ -617,7 +616,7 @@ function getPorjects(tab){
 	if(tab == 1){
 		url = detail.queryLastestFinanceProject
 	}
-	sendPostRequestByJsonStr(url,null,function(data){
+	sendPostRequestByJsonObj(url+ "/"+userCode,null,function(data){
 		if(data.success){
 			var data_list = data.data
 			var html = ''
@@ -629,10 +628,22 @@ function getPorjects(tab){
 				var amount = '金额未知'
 				var round = '轮次未知'
 				var industryName = '行业未知'
+				var introduce = '描述未知'
+				var proTitle = '名称未知'
+				if(entity.projTitle){
+					if(entity.projTitle.length>8){
+						proTitle = entity.projTitle.substring(0,8) + '...'
+					}else{
+						proTitle = entity.projTitle
+					}
+				}
+				if(entity.introduce){
+					introduce = entity.introduce
+				}
 				if(entity.industryName){
 					industryName = entity.industryName
 				}
-				if(entity.latestFinanceAmountNum){
+				if(entity.latestFinanceAmountStr){
 					amount = entity.latestFinanceAmountStr
 				}
 				if(entity.latestFinanceRound){
@@ -663,24 +674,29 @@ function getPorjects(tab){
 					+'<li>'
 					+'<div class="index_project_img"><a href="/project_qy.html?projCode='+entity.projCode+'" target="_blank"><img src="'+logo+'"></a></div>'
 					+'<div class="index_project_img_r">'
-					+'<div class="index_project_img_r_1"><a href="/project_qy.html?projCode='+entity.projCode+'" target="_blank">'+entity.projTitle+'</a></div>'
+					+'<div class="index_project_img_r_1"><a href="/project_qy.html?projCode='+entity.projCode+'" target="_blank">'+proTitle +'</a></div>'
 					+'<div class="index_project_img_r_2">'+round+'/'+amount+'</div>'
 					+'<div class="index_project_img_r_3">'
 					+'<span>'+industryName+'</span>'
 					+'</div>'
 					+'</div>'
-					+'</li>'
-					+'<li class="index_project_img_r_c">'
+					+'</li>';
+					if(tab == 0){
+						html += '<li><div style="padding: 10px;">'+introduce+'</div></li>'
+					}else{
+					html += '<li class="index_project_img_r_c">'
 					+'	<div class="index_project_img_r_c_l">获投时间：</div>'
 					+'<div class="index_project_img_r_c_r">'+date+'</div>'
 					+'</li>'
 					+'<li>'
 					+'<div class="index_project_img_r_c_l">投资机构：</div>'
 					+'<div class="index_project_img_r_c_r">'+orgs+'</div>'
-					+'</li>'
-					+'</ul>'
+					+'</li>';
+					}
+					html +='</ul>'
 					+'</div>'
 					+'</li>'
+					
 			}
 			$('.index_project').html(html)
 		}
