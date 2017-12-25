@@ -59,7 +59,7 @@ function loadTable(tab){
 function queryTotal(){
     var trigger_tab = 0
     var userCode = getCookie("_usercode_")
-    sendPostRequest(user.countNum+userCode,function(data){
+    sendGetRequest(user.countNum+userCode,function(data){
         $('.info-nav-content li').each(function(){
             var tab = $(this).attr('data-type');
             $(this).children().next().html(data.data[tab])

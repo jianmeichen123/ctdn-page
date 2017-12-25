@@ -42,7 +42,7 @@
     		    var target = $("#"+dataId)
     		    target.tmpl(records).appendTo(target.parent())
 				if(pageNo && pageSize){
-				    if(data.page.total<=(pageNo*1)*pageSize){
+				    if(data.page.total<=(pageNo*1+1)*pageSize){
                         more.hide();
                         return;
                     }

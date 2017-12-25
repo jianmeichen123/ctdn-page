@@ -140,7 +140,7 @@
 
 <body>
 {(header.html)}
-<div>
+<div class="inex_banner">
 <div class="pc-banner">
 	<div class="swiper-container swiper-container-horizontal">
         <div class="swiper-wrapper" >
@@ -351,7 +351,7 @@
 										<ul>
 
 											<li class="dn_info_list_cen">${v.overview}</li>
-											<li class="dn_info_list_ic"><span>${v.orderTime}</span><span>来源:</span><span>${v.auther}</span></li>
+											<li class="dn_info_list_ic"><span>{{html formatNewsTime(v.orderTime,"yyyy-MM-dd") }}</span><span>来源:</span><span>${v.auther}</span></li>
 										</ul>
 									</div>
 									</div>
@@ -623,10 +623,10 @@ function loadUserIndustry(){
 				return
 			}
 			var roleCode = user_json['roleCode']
-<!--			if(roleCode){
+			if(roleCode){
 				location.href= home.index + '/index_normal.html'
 				return
-			}-->
+			}
 			var status = user_json['status']
 			var password = user_json['password']
 			if(status=='true' && !password){

@@ -378,10 +378,12 @@ $(function(){
 	    	var obj = JSON.parse(data)
 	        if(!obj['roleCode']){
 	        	var mobile = obj['mobile']
-	        	$("#id_name").html(mobile.substring(0,5)+'******')
+	        	$("span[name='id_name']").html(mobile.substring(0,5)+'******')
+	        	 setCookie("realName",mobile)
 	        }else{
 	        	var name = obj['realName']
-	        	$("#id_name").html(name)
+	        	$("span[name='id_name']").html(name)
+	        	setCookie("realName",name)
 	        }
 	    	setIndexHref(obj)
             $('#login_model').css('display','none')
@@ -669,10 +671,6 @@ $('body').delegate('.Floating_box_a','click', function(event){
  		$('.Floating_box  .Floating_box_b').hide()
  	}
 })
-//个人中心下拉菜单
-if(getCookie("s_") && getCookie("s_") =="external"){
-       $(".person-menu").append("<a href='person_resetpassword.html'><li class='person-change-password'><span></span>修改密码</li></a>")
-}
 //绑定对比
 $('body').delegate('.click_contrast','click', function(event){
 	event.stopPropagation();
