@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <title>创业者详情</title>
 <!--basis-->
-{(basis.html)}
+{(dn_basis.html)}
 </head>
 <style>
 .highlight {
@@ -40,7 +40,7 @@ comp {
 								<li>
 									<div >
 										{{if projCode}}
-											<a target="_blank" href="/project_qy.html/?projCode=${projCode}">${projTitle}</a>
+											<a target="_blank" href="/project_qy.html?projCode=${projCode}">${projTitle}</a>
 										{{else}}
 											${projTitle}
 										{{/if}}
@@ -120,6 +120,7 @@ comp {
 					<span class="brain_ico brain_ico_project_crumbs"></span>创业经历
 				</div>
 				<div class="particulars_black">
+					<!--<input type="hidden" name = "type" value="S">-->
 					<input type="hidden" name = "type" value="">
 					<ul class="startup_come_ul">
 						{-raw-}
@@ -128,7 +129,11 @@ comp {
 						<li>
 							<div class="startup_come_ul_tit">
 								{{if v.projTitle}}
-									<a target="_blank" href="/project_qy.html?projCode=${v.projCode}">${v.projTitle}</a>
+									{{if projCode}}
+										<a target="_blank" href="project_qy.html?projCode=${v.projCode}">${v.projTitle}</a>
+									{{else}}
+										${v.projTitle}
+									{{/if}}
 								{{else}}
 									名称未知
 								{{/if}}
@@ -230,9 +235,9 @@ comp {
 									<span class="startup_time">${period}</span>
 									<span>${projTitle}</span>
 									{{if job && projTitle}}
-									<span>|</span>
+										<span>|</span>
 									{{/if}}
-									<span>${job}</span>
+										<span>${job}</span>
 								</div>
 							</li>
 							{{/each}}
@@ -265,14 +270,7 @@ comp {
 									<span class="circle_b"></span>
 									<span class="startup_time">${v.period}</span>
 									<span>${v.colleage}</span>
-									{{if v.major && v.colleage}}
-									<span>|</span>
-									{{/if}}
-									<span>${v.major}</span>
-									<!--{{if v.degree}}
-									<span>|</span>
-									{{/if}}
-									<span>${v.degree}</span>-->
+									{{html v.major}}
 								</div>
 							</li>
 							{{/each}}
