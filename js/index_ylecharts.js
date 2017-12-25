@@ -45,7 +45,8 @@ var option = {
         	"邮件营销":true,
         	"联盟广告":true
         },
-        padding: -15         
+        type:'scroll',
+        bottom: 10,
     },
     grid: {
         left: '3%',
