@@ -9,4 +9,9 @@
         <a href="person_center_fonder.html"><li class='person-li-item'><span></span>收藏夹</li></a>
     </ul>
 </div>
-
+<script>
+    //个人中心下拉菜单
+    if(getCookie("s_") && getCookie("s_") =="external"){
+    $(".person-menu").append("<a href='person_resetpassword.html'><li class='person-change-password'><span></span>修改密码</li></a>")
+    }
+ </script>
