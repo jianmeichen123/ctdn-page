@@ -27,7 +27,7 @@
 								<li class="report_list_cen_time"><span>${publishDate}</span><span></span><span>来源：${source}</span></li>
 								<li class="report_list_cen_c">${reportDesc}</li>
 							</ul>
-							<div class="search_collect"><span class="dn_ico dn_ico_list_collect_search dn_ico_list_collect" type=4 code=${id}></span>收藏</div>
+							<div class="search_collect click_collect"><span class="dn_ico dn_ico_list_collect_search dn_ico_list_collect" type=4 code=${id}></span>收藏</div>
 						</div>
 						<div class="dn_sy_line"></div>
 					</li>
@@ -71,10 +71,6 @@
 <script src="js/jquery.tmpl.js"></script>
 <script>
 nav_locaton('hybg','44','','')
-$('body').delegate('.search_collect','click', function(event){
- 	event.stopPropagation();
- 	$(this).toggleClass('search_collect_on');
-})
 initTable();
 loadTable();
 function initTable() {
