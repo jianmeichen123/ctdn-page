@@ -83,7 +83,7 @@
 		<!-- 高管图表 -->
 		<div class="background_boeder_indx">
 			<div class="particulars_black" >
-				<div style="height:500px;">
+				<div style="height:600px;">
 					<div class="eachrst_tit">
 						<div class="fl">
 							<span class="eachrst_tit_on" cmd="yl_tit" name="one">行业融资趋势</span>
@@ -97,8 +97,8 @@
 						
 						
 					</div>
-					<div id="main_yl" style="height: 440px;"></div>
-					<div id="main_yl_db" style="height: 440px;"></div>
+					<div id="main_yl" style="height: 520px;"></div>
+					<div id="main_yl_db" style="height: 520px;"></div>
 				</div>
 			</div>
 		</div>
@@ -546,6 +546,7 @@ $(function(){
 					return
 				}
 				var roleCode = user_json['roleCode']
+				roleCode=20000
 				if(roleCode == 20000){
 					querytotalheader()
 					querycurmontheader()
