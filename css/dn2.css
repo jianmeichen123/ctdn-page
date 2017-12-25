@@ -144,7 +144,7 @@ select:focus { outline: none important; }
 .person-bookmark-content ul li.underline{border-bottom:3px solid #2393f7;color:#2393f7;}
 .person-project-items{width:775px;border:1px solid #f0f0f0;margin:20px auto;height:auto;}
 .person-project-left{width:80px;margin-left:10px;margin-top:10px;}
-.person-project-left img{vertical-align:middle;}
+.person-project-left img{vertical-align:middle;width:80px;height:80px;}
 .person-project-right{width:635px;margin-left:20px;margin-top:8px;color:#666666;font-size:14px;}
 .person-mark-item-title{width:auto;padding-left:12px;padding-right:12px;height:20px;line-height:20px;border:1px solid #999;border-radius:10px;display:inline-block;color:#333;font-size:12px;text-align:center;margin-left:10px;}
 .person-book-red em{color:#ff0f00;}

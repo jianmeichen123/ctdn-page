@@ -1,9 +1,15 @@
 <link rel="stylesheet" type="text/css" href="../css/basis.css">
 <div class="tips_cen">登录后才可收藏，请您点击这里登录</div>
-<a href="../list_page_com.html" target="_parent" ><div class="a_button">去登录</div></a>
+<div class="a_button" onclick="login()">去登录</div>
 <style>
 body {
 	background-color: #fff;
 	border-radius: 0 0 8px 8px;
 }
 </style>
+<script src="/js/platformUrl.js"></script>
+<script>
+    function login(){
+        location.href = platformUrl.toLogin
+    }
+</script>

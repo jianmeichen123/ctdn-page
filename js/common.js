@@ -695,14 +695,23 @@ $('body').delegate('.click_contrast','click', function(event){
 $('body').delegate('.click_collect','click', function(event){
 	event.stopPropagation();
 	if(!getCookie("_uid_")){
-	}
-	$(this).toggleClass('dn_ico_list_collect_on');
-	var type = $(this).attr("type");
-	var code = $(this).attr("code");
-	if($(this).hasClass("dn_ico_list_collect_on")){
-	   collectOne(type,code)
+        	layer.open({
+        		  type: 2,
+        		  title: '提示信息',
+        		  shadeClose: true,
+        		  shade: 0.6,
+        		  area: ['400px', '280px'],
+        		  content: 'html/tips_login.html'
+        	});
 	}else{
-	   cancelOneCol(type,code)
+	    	$(this).toggleClass('dn_ico_list_collect_on');
+        	var type = $(this).attr("type");
+        	var code = $(this).attr("code");
+        	if($(this).hasClass("dn_ico_list_collect_on")){
+        	   collectOne(type,code)
+        	}else{
+        	   cancelOneCol(type,code)
+        	}
 	}
 })
 function refreshCompare(){
@@ -782,7 +791,6 @@ $(document).bind('click', function(e) {
  	$('.nav_all_seek').show();
  	$('.nav_all_input').hide();
 })*/
-alert(111)
 function formatNewsTime(time){
 //     var dateTimeStamp=Date.parse(time.replace(/-/gi,"/"));
      var result = '';
@@ -870,7 +878,7 @@ function unselect_all(){
 	$("#concern_industry li").removeClass('trade_pop_c_ul_on')
 }
 //获得用户的收藏codeList
-
+var codeList;
 function getCodeList (type){
     var codeList;
     if(userCode){
