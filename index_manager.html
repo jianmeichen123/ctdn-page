@@ -164,7 +164,7 @@
 			<!--关注行业-->
 			<div class="index_trade" id="trade_click"><div class="index_trade_c">关注行业<span class="dn_ico dn_ico_tradex"></span></div></div>
 			<!--关注行业弹出-->
-			<div class="trade_pop" id="trade_pop">
+			<div class="trade_pop" id="trade_pop" style="display:none;">
 				<div class="dn_ico dn_ico_trade_triangle"></div>
 				<div class="trade_pop_c">
 					<div class="trade_pop_tit">关注行业
@@ -577,7 +577,7 @@ function loadUserIndustry(){
 	 				return
 	 			}
 				var roleCode = user_json['roleCode']
-				roleCode=10000
+// 				roleCode=10000
 	 			if(roleCode == 10000 || roleCode == 30000){
 	 				userCode = user_json['userCode']
 					sendPostRequestByJsonObj(detail.getUserIndustry,{"userCode":userCode},function(data){
