@@ -746,14 +746,12 @@ function cancelOneCol(type,code){
 
  //关注行业
 $('body').delegate('#trade_click','click', function(event){
-	alert('s')
  	event.stopPropagation();
  	$("#trade_pop").show();
     $('.nav_all_seek').show();
 	$('.nav_all_input').hide();
 })
 $('#trade_click').click(function(){
-	alert('s')
  	event.stopPropagation();
  	$("#trade_pop").show();
     $('.nav_all_seek').show();
