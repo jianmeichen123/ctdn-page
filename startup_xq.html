@@ -145,8 +145,6 @@ comp {
 									<div class="startup_come_w">
 											{{if v.projUrl}}
 												<a target="_blank" href="${v.projUrl}">${v.projUrl}</a>
-											{{else}}
-												--
 											{{/if}}
 									</div>
 									<div class="startup_come_left">
@@ -160,18 +158,18 @@ comp {
 										</span>
 										<span>参与情况：</span>
 										<span>
-											{{if v.jobPeriod}}
-												${v.jobPeriod}
-											{{else}}
-												--
-											{{/if}}
-											{{if v.job}}
-												<em>|</em>
-												${v.job}
+											{{if v.jobPeriod && v.job}}
+												${v.jobPeriod}<em>|</em>${v.job}
 											{{else}}
 												{{if v.jobPeriod}}
-												--
+												  ${v.jobPeriod}
 												{{/if}}
+											{{else}}
+												{{if v.job}}
+												   ${v.job}
+												{{/if}}
+											{{else}}
+												--
 											{{/if}}
 										</span>
 									</div>
@@ -185,18 +183,23 @@ comp {
 											{{/if}}
 										</span>
 										<span>融资情况：</span>
-											{{if v.latestFinanceRound }}
+											{{if v.latestFinanceRound && v.latestFinanceAmountStr}}
 												<span>最近融资轮次</span>
 												<em class="color_startup">${v.latestFinanceRound}</em>
-											{{else}}
-												--
-											{{/if}}
-
-											{{if v.latestFinanceAmountStr}}
 												<span>,获投总额</span>
 												<em class="color_startup">
 													${latestFinanceAmountStr}
 												</em>
+											{{else}}
+												{{if v.latestFinanceRound }}
+													<span>最近融资轮次</span>
+													<em class="color_startup">${v.latestFinanceRound}</em>
+												{{/if}}
+											{{else}}
+												{{if v.latestFinanceAmountStr }}
+													<span>获投总额</span>
+													<em class="color_startup">${v.latestFinanceAmountStr}</em>
+												{{/if}}
 											{{else}}
 												--
 											{{/if}}
@@ -272,7 +275,7 @@ comp {
 									<span class="circle_b"></span>
 									<span class="startup_time">${v.period}</span>
 									<span>${v.colleage}</span>
-									{{if v.major}}
+									{{if v.major && v.major!='<span></span>'}}
 										<span>|</span>
 										{{html v.major}}
 									{{/if}}

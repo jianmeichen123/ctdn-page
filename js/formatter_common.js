@@ -14,7 +14,10 @@ var tableFormate ={
         var img = Constants.logoPath+"project/"+row["projCode"]+".png"
         return '<div class="list_table_td"> <img width="37" src="'+img+'"> <span class="col_999"><a target="_blank" href="/project_qy.html?projCode='+row.projCode+'">'+projectName+'</a></span> </div>'
     },
-    personProjectName:function(value, row, index){
+    personProjOrgName:function(value, row, index){
+            var type = $("table[data-url]").attr("data-type");
+
+            var xq_http=((type==3)?"jg_particulars.html?orgCode=":"project_qy.html?projCode=")+row.projCode;
             var projectName = row.projTitle
             var img = ""
             if(projectName==null){
@@ -23,7 +26,7 @@ var tableFormate ={
             var img = Constants.logoPath+"project/"+row["projCode"]+".png"
             var proj_html=""
             if(row.projCode){
-                proj_html='<a target="_blank" href="/project_qy.html?projCode='+row.projCode+'">'+projectName+'</a>'
+                proj_html='<a target="_blank" href="'+xq_http+'">'+projectName+'</a>'
             }else{
                 proj_html=projectName
             }
