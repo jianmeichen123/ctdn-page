@@ -21,3 +21,44 @@ if(getCookie("ctdn-compare")){
  }
 }
 </script>
+<script>
+//个人中心下拉菜单
+if(getCookie("s_") && getCookie("s_") =="external"){
+   $(".mymenu").find("li:eq(3)").show()
+}
+ $("#globalsearch_index").on("click",function(){
+           var value = $("input[data-search='globalsearch_index']").val()
+           if(value.trim() != ""){
+              location.href = "search_index.html?keyword="+value
+           }
+
+ })
+ $("input[data-search='globalsearch_index']").bind('keypress',function(event){
+
+          var value =  $("input[data-search='globalsearch_index']").val()
+               if(value.trim() != "") {
+                 if(event.keyCode == '13'){
+                      location.href = "search_index.html?keyword="+value
+                 }
+               }
+ });
+
+ $(".hotKeyword").delegate("li","click",function(){
+  	var value = $(this).text();
+	   if(value.trim() != "") {
+			  location.href = "search_index.html?keyword="+value
+	   }
+});
+ function login(){
+	 location.href= platformUrl.toLogin
+ }
+ function register(){
+	 location.href= platformUrl.register
+ }
+ function logout(){
+	 location.href= platformUrl.logout
+ }
+$("#seek").click(function(){
+		location.href="seek_financing.html"
+})
+</script>

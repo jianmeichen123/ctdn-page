@@ -393,7 +393,7 @@ $(function(){
 	}
 	function setIndexHref(obj){
 		var roleCode = obj['roleCode']
-		if(!roleCode){
+		if(roleCode == 3000){
 			index_href =  home.index + '/index_external.html'
 			return
 		}
@@ -421,7 +421,6 @@ $(function(){
 //                location.href = platformUrl.toLogin
             },
             success : function(data) {
-               console.log(data +"common")
             	setName(decodeURIComponent(data))
             }
         });
@@ -889,7 +888,7 @@ function getCodeList (type){
 }
 
 //判断是否包含收藏
-function idCollection(type,code){
+function isCollection(type,code){
     var codeList = getCodeList(type);
     if(codeList && codeList.indexOf(code)>=0){
         return true;
@@ -907,7 +906,6 @@ function getParentIndustrys(){
 			var data_list = data.data
 			default_user_industry = data.data
 			show_user_industry(data_list)
-			console.log(default_user_industry + 'save')
 		}
 	})
 }

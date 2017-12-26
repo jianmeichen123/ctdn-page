@@ -57,13 +57,25 @@
 					{{else}}
 						<li>{{html table.empty}}</li>
 					{{/if}}
-					<li>{{html table.empty}}</li>
+					{{if compScale}}
+						<li>${compScale}</li>
+					{{else}}
+						<li>{{html table.empty}}</li>
+					{{/if}}
 				</ul>
 			</div>
 			<div class="contrast_three">
 				<ul>
-					<li>{{html table.empty}}</li>
-					<li>222</li>
+					{{if valuation}}
+						<li>${valuation}</li>
+					{{else}}
+						<li>{{html table.empty}}</li>
+					{{/if}}
+					{{if invstAmount}}
+						<li>${invstAmount}</li>
+					{{else}}
+						<li>{{html table.empty}}</li>
+					{{/if}}
 					<li>${latestFinanceRound}</li>
 				</ul>
 			</div>
@@ -85,9 +97,8 @@
 		{-raw-}
 	</ul>
 </div>	
-
-{(dn_foot.html)}
 </body>
+<script src="js/common.js"></script>
 <script src="js/jquery.tmpl.js"></script>
 <script>
     $(".Floating_box").hide();

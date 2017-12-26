@@ -583,8 +583,6 @@ $(function(){
 });
 </script>
 <script src="js/jquery.tmpl.js"></script>
-<!-- <script src="js/newIndex.js"></script> -->
-<script src="layer/layer.js"></script>
 <script src="js/index_common.js"></script>
 </body>
 <script>
@@ -623,7 +621,7 @@ function loadUserIndustry(){
 				return
 			}
 			var roleCode = user_json['roleCode']
-			if(roleCode){
+			if(roleCode && roleCode != 30000){ //不是外部用户到普通首页
 				location.href= home.index + '/index_normal.html'
 				return
 			}

@@ -73,6 +73,11 @@
  {(dn_foot.html)}
 </body>
 <script>
+//个人中心下拉菜单
+if(getCookie("s_") && getCookie("s_") =="external"){
+$(".person-menu").append("<a href='person_resetpassword.html'><li class='person-change-password'><span></span>修改密码</li></a>")
+}
+$("span[name='id_name']").html(getCookie("realName"))
 $('.person-bookmark-content ul li').click(function(){
 	$(this).addClass('underline').siblings().removeClass('underline');
 });
