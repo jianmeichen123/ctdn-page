@@ -170,7 +170,7 @@ var option_db = {
             type : 'none'        // 默认为直线，可选为：'line' | 'shadow'
         }
     },
-    color:['#ea4322','#ff722d','#ff975e','#ffc470','#e9e612'],
+    color:['#3396c9','#6bcff2','#2ea7ef','#6ee8de','#b4fdbc','#96cbe2'],
     legend: {
     	 x : '630',
          y : '400',

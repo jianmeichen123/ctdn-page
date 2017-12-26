@@ -43,6 +43,39 @@ var tableFormate ={
            }*/
            return '<div class="list_table_td"> <img width="37" src="'+img+'"> <span class="col_999"><a target="_blank" href="/investor_xq.html?code='+row.code+'">'+zhName+'</a></span> </div>'
     },
+
+    personIndustryName:function(value, row, index){
+        var field=row.fields;
+        var inds_html=""
+        if(field){
+            var inds=field.split(',');
+            var i=0
+            for(var ind in inds){
+                if(i==3){
+                    break
+                }
+                inds_html+='<center><span class="list_table_bbad">'+inds[ind]+'</span></center>'
+                i++
+            }
+        }
+        return inds_html
+    },
+
+    personRoundName:function(value, row, index){
+            var round_arr=row.rounds;
+            var rounds_html="";
+            if(round_arr){
+                var i=0
+                for(var item in round_arr){
+                    if(i==3){
+                        break
+                    }
+                    rounds_html+='<center><span class="list_table_bbad">'+round_arr[item]+'</span></center>'
+                    i++
+                }
+            }
+            return rounds_html;
+        },
     startUpName:function(value, row, index){
            var zhName = row.zhName
            var img = ""
@@ -657,6 +690,7 @@ function investorFormatter(value,row){
          '</li>'
     return html;
 }
+
 
 //行业
 function reportFormatter(value,row){
