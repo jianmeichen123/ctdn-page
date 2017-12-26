@@ -234,6 +234,7 @@ ul,ol,dl,dt,dd,p,img{ display:block; border:0;list-style:none; }
 .index_project_img_r_c_l{width:70px;}
 .index_institution{padding-left:20px; padding-right:20px; width:100%; margin-top:20px; overflow:hidden;}
 .index_institution>ul>li{width:50%; float:left; margin-bottom:30px;}
+.jg_particulars_collect{float: right;   position: relative;  margin-top: -35px;}
 .index_institution_img{width:80px; height:80px; display: table; margin-left:auto; margin-right:auto;}
 .index_institution_img a{display: table-cell; vertical-align: middle;}
 .index_institution_img img{width:80px; max-height:80px; margin-left:auto; margin-right:auto;}
