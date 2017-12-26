@@ -579,6 +579,8 @@ function querycurmontheader(){
 function getGG_news(params,obj){
 	if(params){
 		$('#executive_click').text($(obj).text())
+	}else{
+		$('#executive_click').text("全部行业")
 	}
 	$("#executive_pop").hide();
     var json={};
@@ -661,6 +663,7 @@ function getCompeteInfo(){
 sendPostRequestByJsonStr(detail.getBusinessLineMappingIndustry,null,function(data){
 	if(data.success){
 		$("#business_line ul").html("");
+		$("#business_line ul").append("<li  onclick=\"getGG_news('',this)\">全部行业</li>")
 		$("#business_line_script").tmpl(data).appendTo($("#business_line ul"))
 	}else{
 		
