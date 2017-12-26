@@ -1,6 +1,10 @@
 
 // 基本信息
 function fillBaseInfo(data,divList){
+    //判断是否收藏
+     if(isCollection(1,data["orgCode"])){
+         $(".click_collect").toggleClass('dn_ico_list_collect_on');
+     }
     $(divList).each(function(){
         var div = $(this);
         var ls = div.find("*[data-field]")
@@ -16,6 +20,7 @@ function fillBaseInfo(data,divList){
            }else{
                 if(k=='orgCode'){
                     o.attr('src',Constants.logoPath+'org/'+data["orgCode"]+".png")
+                    $(".click_collect").attr("code",data["orgCode"])
                 }
                 if(k=='webUrl'){
                     v='<span class="list_table_td"><a target="_blank" href="'+v+'">'+v+'</a></span>'

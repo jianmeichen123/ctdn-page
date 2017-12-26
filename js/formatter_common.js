@@ -647,7 +647,6 @@ function option(value,row,index){
     }
     return html;
 }
-
 function option_project(value,row){
     var type = $("table[data-url]").attr("data-type");
     var code = row.projCode; //项目

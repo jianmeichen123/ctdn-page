@@ -1,6 +1,6 @@
 //项目基本信息formatter
 function formatProjectInfo(data,divList){
-     $(".dn_ico_list_collect_search").attr("code",data["projCode"])
+     $(".click_collect").attr("code",data["projCode"])
      $(".click_contrast").attr("code",data["projCode"])
      $(".click_contrast").attr("id",data["projCode"])
      $(".click_contrast").attr("title",data["projTitle"])
@@ -9,8 +9,8 @@ function formatProjectInfo(data,divList){
          $(".click_contrast").toggleClass('dn_ico_list_contrast_on');
      }
      //判断是否收藏
-     if(idCollection(0)){
-         $(".dn_ico_list_collect_search").toggleClass('dn_ico_list_collect_search_on');
+     if(isCollection(0,data["projCode"])){
+         $(".click_collect").toggleClass('dn_ico_list_collect_on');
      }
      projCode = data["projCode"]
      compCode = data["compCode"]
