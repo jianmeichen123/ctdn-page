@@ -889,7 +889,7 @@ function getCodeList (type){
 }
 
 //判断是否包含收藏
-function idCollection(type,code){
+function isCollection(type,code){
     var codeList = getCodeList(type);
     if(codeList && codeList.indexOf(code)>=0){
         return true;
