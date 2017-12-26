@@ -234,7 +234,9 @@ ul,ol,dl,dt,dd,p,img{ display:block; border:0;list-style:none; }
 .index_project_img_r_c_l{width:70px;}
 .index_institution{padding-left:20px; padding-right:20px; width:100%; margin-top:20px; overflow:hidden;}
 .index_institution>ul>li{width:50%; float:left; margin-bottom:30px;}
-.index_institution_img img{width:80px; height:80px; margin-left:auto; margin-right:auto;}
+.index_institution_img{width:80px; height:80px; display: table; margin-left:auto; margin-right:auto;}
+.index_institution_img a{display: table-cell; vertical-align: middle;}
+.index_institution_img img{width:80px; max-height:80px; margin-left:auto; margin-right:auto;}
 .index_institution_name{margin-top:10px;text-align: center;}
 .index_institution_name a{color:#333;    text-align: center; display: inherit;}
 .index_institution_num{text-align: center;}
@@ -352,7 +354,7 @@ td>.dn_ico_list_contrast_on,td>.dn_ico_list_collect_on{border:0;}
 .search_list_bj_r span{color:#ff0700;}
 .search_list_people .list-item-left img {    width: 66px; height: 66px;  border-radius:33px;}
 .search_list_people_wn{font-size:12px; color:#666666;}
-.search_list_people_list{margin-top:10px;}
+.search_list_people_list{margin-top:10px;width: 1000px;}
 .search_list_people_list>ul>li{float:left; height:15px;  line-height: 21px; margin-right: 10px;}
 .search_list_people_list>ul>li a{color:#666666;}
 .search_list_people_list_r{border-left:1px solid #cccccc;float:left;padding-left:10px; }

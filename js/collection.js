@@ -165,11 +165,11 @@ function initTable() {
              industryName+="-" +row.industrySubName
          }
      }
-     var introduce = row.introduce;
-     if(introduce && introduce.length>200){
-          introduce = introduce.substring(0,200);
+     var firmDesc = row.firmDesc;
+     if(firmDesc && firmDesc.length>200){
+          firmDesc = firmDesc.substring(0,200);
      }else{
-          introduce ="暂无"
+          firmDesc ="暂无"
      }
       var html ="<div class='person-project-item clearfix'>"+
       "<span class='person-book-close' onclick=cancel(0,'"+row.projCode+"')></span>"+
@@ -177,7 +177,7 @@ function initTable() {
           "<img src='"+img+"'/></div>"+
           "<div class='person-project-right fr'>"+
               "<p><span class='person-book-red'>"+row.projTitle+"</span>"+tag+"</p>"+
-              "<p class='person-book-shortdescription'>简介:"+introduce+"</p>"+
+              "<p class='person-book-shortdescription'>简介:"+firmDesc+"</p>"+
               "<p>"+
                   "<span class='person-book-city'>"+districtSubName+"</span>"+industryName+
               "</p>"+

@@ -26,7 +26,7 @@ comp {
 			<div class="startup_xq search_list_people">
 				<div class="list-item-inner">
 					<div class="list-item-left">
-						<img src="${Constants.logoPath}person/${code}.png"/>
+						<img src="${Constants.logoPath}person/${url}.png"/>
 					</div>
 					<div class="list-item-right">
 						<div class="list-item-title">
@@ -314,9 +314,10 @@ comp {
 									<span class="circle_b"></span>
 									<span class="startup_time">${v.period}</span>
 									<span>${v.colleage}</span>
-
-									{{html v.major }}
-
+									{{if v.major}}
+										<span>|</span>
+										{{html v.major}}
+									{{/if}}
 								</div>
 							</li>
 							{{/each}}
@@ -359,12 +360,12 @@ function(data){
 nav_locaton('ctsj','tzr','','')
 
 function isFav(){
-	var isFav=idCollection(3,getHrefParamter('code'))
+	var isFav=isCollection(3,getHrefParamter('code'))
 	var fav_html=''
 	if(isFav==true){
-		fav_html+="<div class='search_collect click_collect dn_ico_list_collect_on'><span class='dn_ico dn_ico_list_collect_search '></span>收藏</div>"
+		fav_html+="<div class='search_collect click_collect dn_ico_list_collect_on' type=3 code='"+getHrefParamter('code')+"' ><span class='dn_ico dn_ico_list_collect_search '></span>收藏</div>"
 	}else{
-		fav_html+="<div class='search_collect click_collect'><span class='dn_ico dn_ico_list_collect_search'></span>收藏</div>"
+		fav_html+="<div class='search_collect click_collect' type=3 code='"+getHrefParamter('code')+"'><span class='dn_ico dn_ico_list_collect_search'></span>收藏</div>"
 	}
 	return fav_html
 }

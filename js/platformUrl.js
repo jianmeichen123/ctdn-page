@@ -61,7 +61,8 @@ var searchUrl = {
     startUp:Constants.searchContentURL+"startUp",
     investor:Constants.searchContentURL+"investor",
     getGGNews:Constants.searchContentURL+"getGGNews",
-    getGGCompeteInfo:Constants.searchContentURL+"getGGCompeteInfo",
+    report:Constants.searchContentURL+"report",
+    getGGCompeteInfo:Constants.searchContentURL+"getGGCompeteInfo"
 }
 var dataUrl = {
     products:Constants.dataContentURL+"op/is/",
