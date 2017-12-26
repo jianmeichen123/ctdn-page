@@ -159,13 +159,12 @@ var default_user_industry = ''
 function reset_user_industry(){
 	sendPostRequestByJsonStr(platformUrl.resetUserIndustry +"/" + userCode,null,function(data){
 		if(data.success){
-			var entity = data.data
-//			var a = [1,2,3,4]
+			var  defaultId = data.data
 			var html = ''
 		    for(var i=0;i<default_user_industry.length;i++){
 				var entity = default_user_industry[i]
 				var flag = 0;
-				if($.inArray(entity.id, entity)==-1){
+				if($.inArray(entity.id, defaultId)==-1){
 					flag = 0
 				}else{
 					flag = 1
