@@ -52,6 +52,8 @@ var tableFormate ={
             for(var ind in inds){
                 inds_html+='<center><span class="list_table_bbad">'+inds[ind]+'</span></center>'
             }
+        }else{
+            inds_html=table.empty
         }
         return inds_html
     },
@@ -67,6 +69,8 @@ var tableFormate ={
                     }
                     rounds_html+='<center><span class="list_table_bbad">'+round_arr[item]+'</span></center>'
                 }
+            }else{
+                 rounds_html=table.empty
             }
             return rounds_html;
         },

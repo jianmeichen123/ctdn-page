@@ -202,7 +202,7 @@ comp {
 											轮次未知
 										{{/if}}
 										<span>/</span>
-										{{if latestFinanceAmountStr}}
+										{{if latestFinanceAmountStr && latestFinanceAmountStr!='未透露'}}
 											${latestFinanceAmountStr}
 										{{else}}
 											金额未知
