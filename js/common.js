@@ -380,10 +380,12 @@ $(function(){
 	        	var mobile = obj['mobile']
 	        	$("span[name='id_name']").html(mobile.substring(0,5)+'******')
 	        	 setCookie("realName",mobile)
+	        	 $('.head_login_all .dn_ico_loginimg').addClass('dn_ico_loginimg_on');
 	        }else{
 	        	var name = obj['realName']
 	        	$("span[name='id_name']").html(name)
 	        	setCookie("realName",name)
+	        	$('.head_login_all .dn_ico_loginimg').addClass('dn_ico_loginimg_on');
 	        }
 	    	setIndexHref(obj)
             $('#login_model').css('display','none')
