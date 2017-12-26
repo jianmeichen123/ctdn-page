@@ -41,21 +41,16 @@ var tableFormate ={
            if(codeList && codeList.indexOf(row.code)>=0){
                isFav=1
            }*/
-           return '<div class="list_table_td"> <img width="37" src="'+img+'"> <span class="col_999"><a target="_blank" href="/investor_xq.html?code='+row.code+'">'+zhName+'</a></span> </div>'
+           return '<div class="list_table_td"><a target="_blank" href="/investor_xq.html?code='+row.code+'"><img width="37" src="'+img+'"></a><span class="col_999"><a target="_blank" href="/investor_xq.html?code='+row.code+'">'+zhName+'</a></span> </div>'
     },
 
     personIndustryName:function(value, row, index){
         var field=row.fields;
         var inds_html=""
         if(field){
-            var inds=field.split(',');
-            var i=0
+            var inds=field.split(',',3);
             for(var ind in inds){
-                if(i==3){
-                    break
-                }
                 inds_html+='<center><span class="list_table_bbad">'+inds[ind]+'</span></center>'
-                i++
             }
         }
         return inds_html
@@ -65,13 +60,12 @@ var tableFormate ={
             var round_arr=row.rounds;
             var rounds_html="";
             if(round_arr){
-                var i=0
                 for(var item in round_arr){
-                    if(i==3){
+
+                    if(item==3){
                         break
                     }
                     rounds_html+='<center><span class="list_table_bbad">'+round_arr[item]+'</span></center>'
-                    i++
                 }
             }
             return rounds_html;
@@ -87,7 +81,7 @@ var tableFormate ={
            if(codeList && codeList.indexOf(row.code)>=0){
                isFav=1
            }*/
-           return '<div class="list_table_td"> <img width="37" src="'+img+'"> <span class="col_999"><a target="_blank" href="/startup_xq.html?code='+row.code+'">'+zhName+'</a></span> </div>'
+           return '<div class="list_table_td"><a target="_blank" href="/startup_xq.html?code='+row.code+'"><img width="37" src="'+img+'"></a> <span class="col_999"><a target="_blank" href="/startup_xq.html?code='+row.code+'">'+zhName+'</a></span> </div>'
     },
     //上市列表
     listedProjectName:function(value, row, index){
