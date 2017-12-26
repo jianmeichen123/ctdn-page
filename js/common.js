@@ -393,7 +393,7 @@ $(function(){
 	}
 	function setIndexHref(obj){
 		var roleCode = obj['roleCode']
-		if(!roleCode){
+		if(roleCode == 3000){
 			index_href =  home.index + '/index_external.html'
 			return
 		}
