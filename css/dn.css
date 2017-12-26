@@ -310,10 +310,10 @@ ul,ol,dl,dt,dd,p,img{ display:block; border:0;list-style:none; }
 .contrast_ul_li_postion{position: absolute;     left: -22px;}
 .contrast_ul{margin-left:-20px; margin-bottom:110px; overflow:hidden; margin-left: 180px;}
 .contrast_ul>li{width:184px; min-height:395px; float:left; margin-left:20px; border:1px solid #f0f0f0; overflow:hidden;}
-.contrast_tit{font-size:30px; text-align:center; color:#333; margin-left:184px; margin-top:40px; margin-bottom:30px;  overflow:hidden;}
+.contrast_tit{font-size:30px; text-align:center; color:#333; margin-left:184px; margin-top:20px; margin-bottom:30px;  overflow:hidden;}
 .contrast_img{background-color:#f3f6ff; height:50px; line-height:50px; overflow: hidden;}
 .contrast_img img{float:left; width:28px; height:28px; border:1px solid #fcfbfc; margin-left:10px; margin-top:11px;}
-.contrast_name{font-size:14px; color:#666666; float:left; width:107px; margin-left:10px;}
+.contrast_name{font-size:14px; color:#666666; float:left; width:107px; margin-left:10px;overflow: hidden;text-overflow: ellipsis; white-space: nowrap;}
 .dn_ico_contrast{background-position: -136px -276px; width: 10px; height: 10px;display:block; margin-top:20px; float: left; margin-right: 13px; cursor:pointer;}
 .dn_ico_list_contrast{background-position:0 -286px; width: 19px; height: 19px; display: inline-block; cursor:pointer;}
 .dn_ico_list_contrast_on{background-position: -20px -286px;}
