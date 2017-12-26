@@ -48,7 +48,7 @@ function getCTDNEventInfo(){
 	                if(i=="investSideJson"){
 	                      var investSideJson = v[i]
 	                      if(!investSideJson){
-	                         return table.empty
+	                    	  v[i] = '<center><span>--</span></center>'
 	                      }else{
 	                      var jsonObjArr = eval('(' + investSideJson + ')');
 	                      for(k in jsonObjArr){
@@ -84,7 +84,7 @@ function getCTDNEventInfo(){
 	                         if(investTitle!=''&&investTitle){
 	                             v[i] = investTitle
 	                         }else{
-	                             v[i]='未透露'
+	                             v[i]='<center><span>--</span></center>'
 
 	                         }
 	                      }
