@@ -310,12 +310,12 @@ function(data){
     }
 })
 function isFav(){
-	var isFav=idCollection(2,getHrefParamter('code'))
+	var isFav=isCollection(2,getHrefParamter('code'))
 	var fav_html=''
 	if(isFav==true){
-		fav_html+="<div class='search_collect click_collect  dn_ico_list_collect_on'><span class='dn_ico dn_ico_list_collect_search '></span>收藏</div>"
+		fav_html+="<div class='search_collect click_collect  dn_ico_list_collect_on'  type=2 code='"+getHrefParamter('code')+"'><span class='dn_ico dn_ico_list_collect_search '></span>收藏</div>"
 	}else{
-		fav_html+="<div class='search_collect click_collect '><span class='dn_ico dn_ico_list_collect_search'></span>收藏</div>"
+		fav_html+="<div class='search_collect click_collect ' type=2 code='"+getHrefParamter('code')+"'><span class='dn_ico dn_ico_list_collect_search'></span>收藏</div>"
 	}
 	return fav_html
 }
