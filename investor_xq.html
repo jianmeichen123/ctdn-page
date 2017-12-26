@@ -202,7 +202,7 @@ comp {
 											轮次未知
 										{{/if}}
 										<span>/</span>
-										{{if latestFinanceAmountStr}}
+										{{if latestFinanceAmountStr && latestFinanceAmountStr!='未透露'}}
 											${latestFinanceAmountStr}
 										{{else}}
 											金额未知
@@ -314,7 +314,7 @@ comp {
 									<span class="circle_b"></span>
 									<span class="startup_time">${v.period}</span>
 									<span>${v.colleage}</span>
-									{{if v.major}}
+									{{if v.major && v.major!='<span></span>'}}
 										<span>|</span>
 										{{html v.major}}
 									{{/if}}

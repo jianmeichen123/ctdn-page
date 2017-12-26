@@ -7,11 +7,15 @@ $(function () {
 
    var url = detail['getCTDNEventInfo'];
      sendPostRequestByJsonObj(url,{"pageSize":7},function(data){
+
        $(data.data).each(function(k,v){
             if(!v){
                 v="-"
             }else{
                 for(i in v){
+                    if(i=="sourceCode"){
+                        v[i]=Constants.logoPath+"project/"+v.sourceCode+".png"
+                    }
                     if(i=='logo'){
                         v[i]=Constants.logoPath+"project/"+v.sourceCode+".png"
                     }
