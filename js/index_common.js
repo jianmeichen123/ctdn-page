@@ -4,13 +4,11 @@ function getNews(){
     var json={};
     var type = $("input[name='typeId']").val()
     json["typeId"] =type;
-    json["pageSize"]=6;
+    json["pageSize"]=10;
     json["pageNo"]=0;
     if(type == '2' || type == '6' || type == '7' || type==''){
-    	console.log(industryNames)
     	json["industryNames"] = industryNames
     }
-    console.log(searchUrl["news"])
     sendPostRequestByJsonObj(searchUrl["news"],json,function(data){
            $(data.data).each(function(k,v){
                 if(!v){
@@ -155,7 +153,6 @@ var default_user_industry = ''
 				var data_list = data.data
 				default_user_industry = data.data
 				show_user_industry(data_list)
-				console.log(default_user_industry + 'save')
 			}
 		})
 	}

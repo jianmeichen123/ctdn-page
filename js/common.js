@@ -421,7 +421,6 @@ $(function(){
 //                location.href = platformUrl.toLogin
             },
             success : function(data) {
-               console.log(data +"common")
             	setName(decodeURIComponent(data))
             }
         });
@@ -907,7 +906,6 @@ function getParentIndustrys(){
 			var data_list = data.data
 			default_user_industry = data.data
 			show_user_industry(data_list)
-			console.log(default_user_industry + 'save')
 		}
 	})
 }

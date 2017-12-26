@@ -623,7 +623,7 @@ function loadUserIndustry(){
 				return
 			}
 			var roleCode = user_json['roleCode']
-			if(roleCode){
+			if(roleCode && roleCode != 30000){ //不是外部用户到普通首页
 				location.href= home.index + '/index_normal.html'
 				return
 			}
