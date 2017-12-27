@@ -694,15 +694,19 @@ function investorFormatter(value,row){
 
 //行业
 function reportFormatter(value,row){
-    var source=""
-    if(row.source){
-        source=row.source
-    }
-    var reportDesc=""
+    var reportDesc=row.reportDesc==null?"":row.reportDesc
 
-    if(row.reportDesc){
-        reportDesc=row.reportDesc
-        alert(reportDesc)
+    var info_html=""
+
+    if(row.publishDate){
+        info_html+="<span>"+row.publishDate+"</span>"
+    }
+
+    if(row.source){
+        if(row.publishDate){
+            info_html+='<span></span>'
+        }
+        info_html+='<span>来源：'+row.source+'</span>'
     }
 
     var html ='<li>'+
@@ -710,8 +714,8 @@ function reportFormatter(value,row){
             '<div class="report_list_cen">'+
                 '<ul>'+
                     '<li class="report_list_cen_tit"><a href="report_detailed.html?id='+row.id+'" target="_blank">'+row.title+'</a></li>'+
-                    '<li class="report_list_cen_time"><span>'+row.publishDate+'</span><span></span><span>来源：'+row.source+'</span></li>'+
-                    '<li class="report_list_cen_c">'+row.reportDesc+'</li>'+
+                    '<li class="report_list_cen_time">'+info_html+'</li>'+
+                    '<li class="report_list_cen_c">'+reportDesc+'</li>'+
                 '</ul>'+
                 '<div class="search_collect click_collect"><span class="dn_ico dn_ico_list_collect_search dn_ico_list_collect" type=4 code='+row.id+'></span>收藏</div>'+
             '</div>'+
