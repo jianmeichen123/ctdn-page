@@ -236,31 +236,31 @@ function initTable() {
                               }
                               html+="</div><p>"
                                if(row.gender){
-                                   html+="<span><span class='search_list_people_list_r' id"+ ++id +">"+row.gender+"</span"+id+"></span>";
+                                   html+="<span class='company'><span class='search_list_people_list_r seach_float_none' id"+ ++id +">"+row.gender+"</span"+id+"></span>";
                                }
                                if(row.age){
-                                   html+="<span><span class='search_list_people_list_r' id"+ ++id +">"+row.age+"</span"+id+"></span>";
+                                   html+="<span class='company'><span class='search_list_people_list_r seach_float_none' id"+ ++id +">"+row.age+"</span"+id+"></span>";
                                }
                                if(row.colleage){
-                                   html+="<span><span class='search_list_people_list_r' id"+ ++id +">"+row.colleage+"</span"+id+"></span>";
+                                   html+="<span class='company'><span class='search_list_people_list_r seach_float_none'  id"+ ++id +">"+row.colleage+"</span"+id+"></span>";
                                }
                                if(row.degree){
-                                   html+="<span><span class='search_list_people_list_r' id"+ ++id +">"+row.degree+"</span"+id+"></span>";
+                                   html+="<span class='company'><span class='search_list_people_list_r seach_float_none' id"+ ++id +">"+row.degree+"</span"+id+"></span>";
                                }
                                if(row.workLife){
-                                   html+="<span><span class='search_list_people_list_r' id"+ ++id +">"+row.workLife+"</span"+id+"></span>"
+                                   html+="<span class='company'><span class='search_list_people_list_r seach_float_none'  id"+ ++id +">"+row.workLife+"</span"+id+"></span>"
                                }
                                if(row.projTitle){
-                                   html+="<span><span class='search_list_people_list_r' id"+ ++id +">"+row.projTitle+"</span"+id+"></span>"
+                                   html+="<span class='company'><span class='search_list_people_list_r seach_float_none' id"+ ++id +">"+row.projTitle+"</span"+id+"></span>"
                                }
                                if(row.job){
-                                   html+="<span><span class='search_list_people_list_r' id"+ ++id +">"+row.job+"</span"+id+"></span>"
+                                   html+="<span class='company'><span class='search_list_people_list_r seach_float_none' id"+ ++id +">"+row.job+"</span"+id+"></span>"
                                }
                                if(row.districtSubName){
-                                   html+="<span><span><li class='list-item-address'></li>"+row.districtSubName+"</span></span>"
+                                   html+="<span class='company'><span><li class='list-item-address'></li>"+row.districtSubName+"</span></span>"
                                }
                               html +="</p></div></div>";
-                              html=html.replace("<span class='search_list_people_list_r' id1>","")
+                              html=html.replace("<span class='search_list_people_list_r seach_float_none' id1>","")
                                 .replace("</span1>","")
                                 .replace("/id[0-9]/g","")
                                 .replace("</spanid[0-9]>","")

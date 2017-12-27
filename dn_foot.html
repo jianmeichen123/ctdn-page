@@ -33,7 +33,7 @@ if(getCookie("s_") && getCookie("s_") =="external"){
 	html+= '<li><a href="person_resetpassword.html">修改密码</a></li>';
 }
 html+='<li><a href="javascript:void(0);" onclick="logout()">退出系统</a></li>';
-$(".mymenu").html(html)
+$("#mymenu").html(html)
 
  $("#globalsearch_index").on("click",function(){
            var value = $("input[data-search='globalsearch_index']").val()
@@ -43,13 +43,12 @@ $(".mymenu").html(html)
 
  })
  $("input[data-search='globalsearch_index']").bind('keypress',function(event){
-
           var value =  $("input[data-search='globalsearch_index']").val()
                if(value.trim() != "") {
                  if(event.keyCode == '13'){
                       location.href = "search_index.html?keyword="+value
                  }
-               }
+          }
  });
 
  $(".hotKeyword").delegate("li","click",function(){
