@@ -531,7 +531,7 @@ function investfirmFormatter(value,row){
 
 
 function personFormatter(value,row){
-        var img = Constants.logoPath +"person/"+row.code+".png"
+        var img = Constants.logoPath +"person/"+row.url+".png"
         var id=0
         var person_html=
         "<div class='search_list_people_all'>"+
