@@ -315,6 +315,7 @@ ul,ol,dl,dt,dd,p,img{ display:block; border:0;list-style:none; }
 .contrast_img img{float:left; width:28px; height:28px; border:1px solid #fcfbfc; margin-left:10px; margin-top:11px;}
 .contrast_name{font-size:14px; color:#666666; float:left; width:107px; margin-left:10px;overflow: hidden;text-overflow: ellipsis; white-space: nowrap;}
 .dn_ico_contrast{background-position: -136px -276px; width: 10px; height: 10px;display:block; margin-top:20px; float: left; margin-right: 13px; cursor:pointer;}
+.dn_ico_contrast:hover{background-position: -150px -276px; }
 .dn_ico_list_contrast{background-position:0 -286px; width: 19px; height: 19px; display: inline-block; cursor:pointer;}
 .dn_ico_list_contrast_on{background-position: -20px -286px;}
 .dn_ico_list_collect,.dn_ico_list_collect_search{background-position:-40px -286px; width: 19px; height: 19px;  display: inline-block;  cursor:pointer;}
@@ -392,7 +393,7 @@ td>.dn_ico_list_contrast_on,td>.dn_ico_list_collect_on{border:0;}
 .investor_case_ul_cen_time{position:absolute; right:0;top:0; font-size:12px; color:#999999;}
 .startup_come_ul{margin-bottom:-50px;}
 .startup_come_ul>li{margin-bottom:50px;}
-.startup_come_ul_tit{font-size:16px; color:#333333;}
+.startup_come_ul_tit,.startup_come_ul_tit a{font-size:16px; color:#333333;  font-weight: bold;}
 .startup_come_ul_img{width:80px; float:left;}
 .startup_come_ul_img img{width:80px; height:80px; border:1px solid #f0f0f0;}
 .startup_come_ul_all{width:100%; overflow:hidden;margin-top:20px;}
