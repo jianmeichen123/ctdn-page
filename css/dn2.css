@@ -117,8 +117,12 @@ select:focus { outline: none important; }
 .person-head-pic p{margin-top:14px;color:#fff;}
 .person-menu{text-align:center;}
 .person-menu li{padding:20px 0px;cursor:pointer;color:#fff;font-size:14px;font-family:'Microsoft YaHei'}
-.person-menu li span{display:inline-block;width:16px;height:16px;vertical-align:text-bottom;margin-right:11px;}
+.person-menu li span.first{display:inline-block;width:16px;height:16px;vertical-align:text-bottom;margin-right:11px;background:url(../img/person_center/spirit_center.png) no-repeat -11px -10px;}
+.person-menu li span.second{background:url(../img/person_center/spirit_center.png) no-repeat -11px -10px;}
+.person-menu li span.third{background:url(../img/person_center/spirit_center.png) no-repeat -11px -10px;}
+.person-menu li span.fourth{background:url(../img/person_center/spirit_center.png) no-repeat -11px -10px;}
 .person-menu li:hover{background:#454d63;color:#2393f7;}
+.person-menu li a{color:#fff;}
 .person-li-item span{margin-left:-15px;}
 .person-item-project:hover span{background:url('../img/person_center/spirit_center.png') no-repeat -69px -12px;}
 .person-item-industry:hover span{background:url('../img/person_center/spirit_center.png') no-repeat -69px -54px;}
@@ -242,8 +246,8 @@ textarea.invalid::-webkit-input-placeholder {
 textarea.invalid::-ms-input-placeholder {
     color: red;
 }
-.person-reset-password ul li input.inputDanger{border:1px solid #ff4e49; box-shadow:1px 1px 5px #fff2f2;}
-
+.person-reset-password ul li .inputDanger{border:1px solid #ff4e49; box-shadow:1px 1px 5px #fff2f2;}
+.person-head-pic span{margin-top:17px;display:inline-block;color:#fff;text-align: center;}
 
 
 
