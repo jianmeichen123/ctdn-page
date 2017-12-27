@@ -120,7 +120,8 @@ ul,ol,dl,dt,dd,p,img{ display:block; border:0;list-style:none; }
 .report_detailed_head_name{font-size:14px; color:#333333; margin-top:9px; text-align:center;}
 .report_detailed_head_img img{width:66px; height:66px; border-radius:33px;}
 .report_detailed_head_img>ul>li{margit-top:}
-.report_detailed_head_cen{width:625px; float:left; font-size:12px; color:#666666; line-height:20px;}
+.report_detailed_head_cen{width:625px; float:left; font-size:12px; color:#666666; line-height:20px;     height: 75px;   display: table;}
+.report_detailed_head_cen p{    display: table-cell;  vertical-align: middle;}
 .report_list_img img{width:120px; height:76px; border:1px solid #f0f0f0; border-radius:5px; overflow: hidden;}
 .report_list_img{float:left; padding-top:30px; padding-bottom:30px;}
 .report_list_all{width:100%; overflow:hidden;     background-color: #fff;  border-radius: 10px;}
