@@ -128,8 +128,8 @@ select:focus { outline: none important; }
 .person-menu li:hover span.fourth{background:url(../img/person_center/spirit_center.png) no-repeat -68px -140px;}
 
 
-.person-menu li:hover{background:#454d63;}
-.person-menu li:hover a{color:#2393f7;}
+.person-menu a:hover li{background:#454d63;}
+.person-menu a:hover li{color:#2393f7;}
 .person-menu li a{color:#fff;}
 .person-li-item span{margin-left:-15px;}
 .person-item-project:hover span{background:url('../img/person_center/spirit_center.png') no-repeat -69px -12px;}
