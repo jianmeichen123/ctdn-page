@@ -94,8 +94,8 @@ input{outline: none;}
 .list_table_td_block a{color:#333;}
 center .list_table_td{text-align:center;   float: none;}
 .number_th .list_table_td {text-align:center;position:relative; float:none; }
-.list_table_td span{ line-height:35px; text-indent: 5px; display: inline-block;float:left;}
-.list_table_td>span{margin-left:37px;}
+.list_table_td span{ line-height:35px;color: #333;   padding-left: 5px; display: inline-block;float:left;}
+.list_table_td>span{margin-left:40px;}
 .list_table_td label.name{font-weight:normal;margin-bottom:0;margin-right:5px;}
 .list_table_td label.lticon{background:#fa7f1c;padding:0 5px;border-radius:2px;line-height:initial;color:#fff;text-indent:0;margin-left:10px;font-weight:normal;}
 .shgp .list_table_td span{line-height:initial;text-indent:0;}
@@ -104,7 +104,7 @@ center .list_table_td{text-align:center;   float: none;}
 .ling_t .list_table_td .lticon{float:left;}
 .list_table_td .districtSubName{margin-right:5px;}
 .list_table_td img,.list_table_td ul{ float:left; margin-left:8px;}
-.list_table_td img{position:absolute;top:50%;transform:translateY(-50%);margin-left:0px;left:0px;}
+.list_table_td img{position:absolute;top:50%;transform:translateY(-50%);margin-left:0px;left:0px;border-radius: 20px; max-height:40px; width:40px;}
 .list_table_td ul{ float:left; margin-left:47px;}
 .list_table_td a{ color: #333;  white-space: nowrap;  overflow: hidden;  display: block;  text-overflow: ellipsis;}
 .tzsj_list .list_table_td a{white-space:normal;}
@@ -273,6 +273,7 @@ com{color:#2393f7;}
 .particulars_table_list .tzsj_eventInfoExtList tr td:nth-child(1){width:182px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
 /*企业详情*/
 .project_tit{float:left; width:823px; position:relative; overflow:hidden;}
+.project_tit .projTitle{width:600px;}
 .project_tit span[data-field="logoSmall"]{overflow:hidden;position:relative;width:90px;height:90px;display:inline-block;border:1px solid #e6e6e6;border-radius:4px;float:left;}
 .project_tit img { float: left;   width: 90px;  overflow: hidden; position:absolute;top:50%;transform:translateY(-50%)}
 .project_tit ul{float:left; margin-left:20px; overflow:hidden; margin-bottom:0;}
@@ -359,6 +360,7 @@ com{color:#2393f7;}
 .product_list_company>li{widht:50%; float:left; margin-bottom:15px;}
 .product_list_company>li>img{width:33px; height:33px; float:left;}
 .product_list_team_ul li .zw{margin-left:5px; font-size:14px;}
+.product_list_team_ul li .z_on{margin-left:25px; }
 .z_on{padding:2px 5px; background-color:#6bd1a2; border-radius:4px; color:#fff; display:inline-block}
 .z_np{padding:2px 5px; background-color:#edf1ff; border-radius:4px; color:#fff; display:inline-block}
 .product_list_company div{float:left; overflow:hidden; margin-left:10px; width:395px; line-height:33px;}

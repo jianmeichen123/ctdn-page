@@ -21,7 +21,7 @@ ul,ol,dl,dt,dd,p,img{ display:block; border:0;list-style:none; }
 .dnsy_tit>ul{ position: absolute;     left: 150px;}
 .dnsy_tit>ul>li{ float:left; margin-right:36px; height:30px; font-size:14px; cursor:pointer;}
 .financing_on,.dnsy_tit>ul>li:hover{border-bottom:3px solid #2393f7; color:#2393f7;}
-.dnsy_list{float:right; margin-right:20px; font-size:12px;  margin-top:5px;}
+.dnsy_list{float:right; margin-right:20px; font-size:12px;  margin-top:2px;}
 .dnsy_list a{color:#999999;}
 .dnsy_list a:hover{color:#2393f7;}
 .dn_info_list_show{width:100%; overflow: hidden; padding-right:20px;     padding-left: 20px;}
@@ -352,11 +352,11 @@ ul,ol,dl,dt,dd,p,img{ display:block; border:0;list-style:none; }
 td>.dn_ico_list_contrast_on,td>.dn_ico_list_collect_on{border:0;}
 .porject_search_w .list-item-content{width:990px}
 .search_list_bj{width:100%; height:50px; background-color:#e2f1ff;}
-.search_list_bj>ul>li{float:left; padding-left:20px; padding-right:20px; line-height:50px; font-size:14px; color:#333;}
+.search_list_bj>ul>li{float:left; padding-left:20px; padding-right:20px;    cursor: pointer; line-height:50px; font-size:14px; color:#333;}
 .search_list_bj>ul>.search_list_on{color:#fff; background-color:#8ac2f3;}
 .search_list_bj_r{float:right; margin-right:20px; line-height:50px; font-size:12px;}
 .search_list_bj_r span{color:#ff0700;}
-.search_list_people .list-item-left img {    width: 66px; height: 66px;  border-radius:33px;}
+.search_list_people .list-item-left img {  border: 1px solid #f1f1f1;   width: 66px; height: 66px;  border-radius:33px;}
 .search_list_people_wn{font-size:12px; color:#666666;}
 .search_list_people_list{margin-top:10px;width: 1000px;}
 .search_list_people_list>ul>li{float:left; height:15px;  line-height: 21px; margin-right: 10px;}
@@ -386,7 +386,7 @@ td>.dn_ico_list_contrast_on,td>.dn_ico_list_collect_on{border:0;}
 .investor_case_ul_img img{width:70px; height:70px; border:1px solid #f0f0f0;}
 .investor_case_ul_cen{width:460px; float:right; position:relative;}
 .investor_case_ul_div{font-size:14px; color:#666; height:40px; overflow:hidden;}
-.investor_case_ul_cen_1{font-size:16px; color:#333333;}
+.investor_case_ul_cen_1,.investor_case_ul_cen_1 a{font-size:16px; color:#333333;}
 .investor_case_ul_cen_2{font-size:12px; color:#666; margin-top:5px;}
 .investor_case_ul_cen_3 span{flot:left; color:#666; margin-top:5px; display:inline-block; padding-left:10px; border-radius:10px; padding-right:10px; height:20px; line-height:20px; border:1px solid #b2dbff; margin-right:20px; font-size:12px;}
 .investor_case_ul_cen_time{position:absolute; right:0;top:0; font-size:12px; color:#999999;}
