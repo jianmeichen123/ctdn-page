@@ -620,14 +620,14 @@ function loadUserIndustry(){
 				location.href=  platformUrl.toLogin
 				return
 			}
-			var roleCode = user_json['roleCode']
+			var roleCode = user_json['rolecode']
 			if(roleCode && roleCode != 30000){ //不是外部用户到普通首页
 				location.href= home.index + '/index_normal.html'
 				return
 			}
 			var status = user_json['status']
-			var password = user_json['password']
-			if(status=='true' && !password){
+			var isEmptyPassword = user_json['isEmptyPassword']
+			if(status =='true' && isEmptyPassword == '1'){
 				layer.open({
 					  type: 2,
 					  title: '提示信息',

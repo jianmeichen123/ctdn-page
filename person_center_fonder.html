@@ -45,7 +45,7 @@
 			<table  class="table table_white_search" data-type=2  style="display:none" >
 				<thead>
 				<tr>
-					<th class="data-input" style="" data-item="0" data-formatter="startupFormatter"></th>
+					<th class="data-input" style="" data-item="0" data-formatter="invColFormatter"></th>
 				</tr>
 				</thead>
 			</table>
@@ -54,7 +54,7 @@
 			<table  class="table table_white_search" data-type=3  style="display:none" >
 				<thead>
 				<tr>
-					<th class="data-input" style="" data-item="0" data-formatter="invColFormatter"></th>
+					<th class="data-input" style="" data-item="0" data-formatter="staColFormatter"></th>
 				</tr>
 				</thead>
 			</table>
@@ -70,13 +70,10 @@
 		</div>
 	</div>
 </div>
+<script src="js/person_center_foot.js"></script>
  {(dn_foot.html)}
 </body>
 <script>
-//个人中心下拉菜单
-if(getCookie("s_") && getCookie("s_") =="external"){
-$(".person-menu").append("<a href='person_resetpassword.html'><li class='person-change-password'><span></span>修改密码</li></a>")
-}
 $("span[name='id_name']").html(getCookie("realName"))
 $('.person-bookmark-content ul li').click(function(){
 	$(this).addClass('underline').siblings().removeClass('underline');

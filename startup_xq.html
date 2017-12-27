@@ -88,7 +88,8 @@ comp {
 					<li scroll_on="jy"><span>教育经历</span></li>
 				</ul>
 			</div>
-
+			<div style="width:100%; height:70px" class="project_nav_none none">
+			</div>
 			<div class="background_boeder none" scroll_on="jj"  id="person_intro_div">
 				<div class="project_t">
 					<span class="brain_ico brain_ico_project_crumbs"></span>创业者简介
@@ -162,14 +163,14 @@ comp {
 												${v.jobPeriod}<em>|</em>${v.job}
 											{{else}}
 												{{if v.jobPeriod}}
-												  ${v.jobPeriod}
+												 		${v.jobPeriod}
+												{{else}}
+													{{if v.job}}
+														${v.job}
+													{{else}}
+														--
+													{{/if}}
 												{{/if}}
-											{{else}}
-												{{if v.job}}
-												   ${v.job}
-												{{/if}}
-											{{else}}
-												--
 											{{/if}}
 										</span>
 									</div>
@@ -184,6 +185,7 @@ comp {
 										</span>
 										<span>融资情况：</span>
 											{{if v.latestFinanceRound && v.latestFinanceAmountStr}}
+												latestFinanceAmountStr-latestFinanceRound
 												<span>最近融资轮次</span>
 												<em class="color_startup">${v.latestFinanceRound}</em>
 												<span>,获投总额</span>
@@ -194,14 +196,14 @@ comp {
 												{{if v.latestFinanceRound }}
 													<span>最近融资轮次</span>
 													<em class="color_startup">${v.latestFinanceRound}</em>
+												{{else}}
+													{{if v.latestFinanceAmountStr }}
+														<span>获投总额</span>
+														<em class="color_startup">${v.latestFinanceAmountStr}</em>
+													{{else}}
+														--
+													{{/if}}
 												{{/if}}
-											{{else}}
-												{{if v.latestFinanceAmountStr }}
-													<span>获投总额</span>
-													<em class="color_startup">${v.latestFinanceAmountStr}</em>
-												{{/if}}
-											{{else}}
-												--
 											{{/if}}
 									</div>
 									<div class="startup_come_m">
@@ -334,8 +336,11 @@ $(window).scroll(function(){
 	var scrollTop=$(window).scrollTop();
 	if(scrollTop>200){
 		$('.project_nav').addClass('project_nav_top');
+		$('.project_nav_none').show();
+
 	}else{
 		$(".project_nav").removeClass("project_nav_top");
+		$('.project_nav_none').hide();
 	}
 	 var location_array = new Array()
 	 for(var i=0; i<$('.storey_list').length; i++){
@@ -355,7 +360,7 @@ $(window).scroll(function(){
 		 location_on(myArray,scrollTop)
 	}else{
 		$('.project_nav').removeClass("project_all_r_top");
-	} 
+	}
 });
 function location_on(obj,scrollTop){
 	for(var i=0; i<obj.length; i++){

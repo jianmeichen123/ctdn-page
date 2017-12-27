@@ -28,8 +28,9 @@ function sendPostRequestByJsonObj(reqUrl, jsonObj, callbackFun) {
 		},
 		success : function(data) {
 			if(data){
-				if(!data.success && data.status == 0){
+				if(!data.success && data.status == 10003){
 					location.href =platformUrl.toLogin
+					return
 				}
 			}
 			if (callbackFun) {
@@ -79,6 +80,12 @@ function sendGetRequest (reqUrl, jsonObj, callbackFun) {
 		error : function(request) {
 		},
 		success : function(data) {
+			if(data){
+				if(!data.success && data.status == 10003){
+					location.href =platformUrl.toLogin
+					return
+				}
+			}
 			if (callbackFun) {
 				callbackFun(data);
 			}
@@ -106,8 +113,9 @@ function sendGetRequest(reqUrl, callbackFun) {
 		},
 		success : function(data) {
 			if(data){
-				if(!data.success && data.status == 0){
+				if(!data.success && data.status == 10003){
 					location.href =platformUrl.toLogin
+					return
 				}
 			}
 			if (callbackFun) {
@@ -144,8 +152,9 @@ function sendPostRequest(reqUrl, callbackFun) {
 		},
 		success : function(data) {
 			if(data){
-				if(!data.success && data.status == 0){
+				if(!data.success && data.status == 10003){
 					location.href =platformUrl.toLogin
+					return
 				}
 			}
 			if (callbackFun) {
@@ -380,11 +389,13 @@ $(function(){
 	        	var mobile = obj['mobile']
 	        	$("span[name='id_name']").html(mobile.substring(0,5)+'******')
 	        	 setCookie("realName",mobile)
+	        	 setCookie("roleCode", obj['roleCode'])
 	        	 $('.head_login_all .dn_ico_loginimg').addClass('dn_ico_loginimg_on');
 	        }else{
 	        	var name = obj['realName']
 	        	$("span[name='id_name']").html(name)
 	        	setCookie("realName",name)
+	        	setCookie("roleCode", obj['roleCode'])
 	        	$('.head_login_all .dn_ico_loginimg').addClass('dn_ico_loginimg_on');
 	        }
 	    	setIndexHref(obj)
@@ -395,7 +406,7 @@ $(function(){
 	}
 	function setIndexHref(obj){
 		var roleCode = obj['roleCode']
-		if(roleCode == 3000){
+		if(roleCode == 30000){
 			index_href =  home.index + '/index_external.html'
 			return
 		}

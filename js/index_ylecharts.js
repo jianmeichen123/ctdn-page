@@ -362,7 +362,6 @@ function showEcharts(){
 			}else{
 				option.legend.selected[data_legend] = false
 			}
-			console.log(data_legend)
 		}
 		myChart.setOption(option,true); //true  防止多次请求，数据重叠
 	}

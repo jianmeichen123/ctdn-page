@@ -154,12 +154,16 @@ function initTable() {
           $('.search_list_bj').hide();
           if(ptab!=stab){
             $('#'+ptab).show();
+        	$('.search_in_tit').hide();
             $('#'+ptab).find('ul li').removeClass('search_list_on');
             $('#'+ptab).find("ul li[data-li='"+stab+"']").addClass('search_list_on');
            $('#'+ptab).find('ul li').each(function(){
                var tab = $(this).attr('data-li');
               $(this).children().next().html(globalSearchStatData.resultMap[tab])
            })
+          }else{
+          	$('.search_in_tit').show();
+        	  
           }
           loadTable(stab);
           $('.bootstrap-table').hide();
@@ -169,6 +173,7 @@ function initTable() {
           var total =  $('.info-nav-content').find("li[data-tab='"+ptab+"']").children().next().html();
           var keyword = $("input[name='keyword']").val();
           $("#tip").html("共搜索到<span class='highlight'>"+total+"</span>条内容中含有<span class='highlight'>"+keyword+"</span>的"+content)
+          $(".tip_bjblue").html("共搜索到<span class='highlight'>"+total+"</span>条内容中含有<span class='highlight'>"+keyword+"</span>的"+content)
 
   }
 

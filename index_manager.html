@@ -359,38 +359,15 @@
 					<div class="dnsy_list"><a href="/report_list.html" target="_blank">更多</a></div>
 				</div>
 				<div class="report_all">
-					<ul>
-						<li>
-							<p><a href="report_detailed_1.html" target="_blank">独家丨还在玩命找风口？这份［创投指数］报告，泄露了投资背后的数据逻辑</a></p>
-						</li>
-						<li>
-							<p><a href="report_detailed_2.html" target="_blank">研究丨理财保险双「陨落」、区块链大热，你管好自己的钱袋子了吗？</a></p>
-						</li>
-						<li>
-							<p><a href="report_detailed_3.html" target="_blank">这个行业雇佣全球超40%人口，有7.8万亿美元市场，创新却最慢【星河研究院】</a></p>
-						</li>
-						<li>
-							<p><a href="report_detailed_4.html" target="_blank">基因测序成本从1000万美元降到1000美元，创业风口来了吗？【星河研究院】</a></p>
-						</li>
-						<li>
-							<p><a href="report_detailed_5.html" target="_blank">《王者荣耀》卖皮肤日流水1.5亿 中国玩家正把全球游戏产业带入转折点【星河研究院】</a></p>
-						</li>
-						<li>
-							<p><a href="report_detailed_6.html" target="_blank">研究丨癌症治愈不再遥不可及，这些医疗技术创新正在改变世界【星河研究院】</a></p>
-						</li>
-	                    <li>
-	                        <p><a href="report_detailed_7.html" target="_blank">互联网保险现实骨感未来丰满 ，保险巨头加入创投行列【星河研究院】</a></p>
-	                    </li>
-	                    <li>
-	                        <p><a href="report_detailed_8.html" target="_blank">用AI防御威胁全球的网络病毒，美国中央情报局成背后最大庄家【星河研究院】</a></p>
-	                    </li>
-	                    <li>
-	                        <p><a href="report_detailed_9.html" target="_blank">无人驾驶热度已超过了AR/VR，但这只是汽车科技变化的冰山一角【星河研究院】</a></p>
-	                    </li>
-	                    <li>
-	                        <p><a href="report_detailed_10.html" target="_blank">从风口到鸡肋，可穿戴设备亟待解决哪些问题？【星河研究院】</a></p>
-	                    </li>
+					<ul id="ul">
 					</ul>
+							{-raw-}
+				<script id="report_particulars" type="text/x-jquery-tmpl">
+						<li>
+							<span><a href="report_detailed.html?id=${id}">${title}</a></span>
+						</li>
+					</script>
+				{-raw-}
 				</div>
 			</div>
 		</div>
@@ -427,6 +404,7 @@ $(function(){
 </script>
 <script src="js/jquery.tmpl.js"></script>
 <script src="js/index_common.js"></script>
+<script src="js/report.js"></script>
 <script>
 $('#trade_click').click(function(){
  	event.stopPropagation();
@@ -456,13 +434,14 @@ function loadUserIndustry(){
 			},
 			success : function(data) {
 				user_json = JSON.parse(decodeURIComponent(data))
+				console.log(user_json)
 	 			if(!user_json){
 	 				location.href=  platformUrl.toLogin
 	 				return
 	 			}
 				var roleCode = user_json['roleCode']
 // 				roleCode=10000
-	 			if(roleCode == 10000 || roleCode == 30000){
+	 			if(roleCode == 10000){
 	 				userCode = user_json['userCode']
 					sendPostRequestByJsonObj(detail.getUserIndustry,{"userCode":userCode},function(data){
 						if(data.success){

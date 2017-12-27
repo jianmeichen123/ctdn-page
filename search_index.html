@@ -55,22 +55,7 @@
 		</ul>
 	</div>
 	<!-- 样式new -->
-	<div class="search_list_bj" id="person" style="display:none">
-		<ul>
-			<li class="search_list_on" data-li="startUp"><span>创业者</span>(<span></span>)</li>
-			<li data-li="investor"><span>投资人</span>(<span></span>)</li>
-		</ul>
-		<!--<div class="search_list_bj_r">共搜索到 <span>10</span>条内容中含有 "<span>滴滴</span>" 的创投人物</div>-->
-	</div>
 
-	<div class="search_list_bj" id="event" style="display:none">
-		<ul>
-			<li class="search_list_on" data-li="investEvent"><span>投资事件</span>(<span></span>)</li>
-			<li data-li="mergeEvent"><span>并购事件</span>(<span></span>)</li>
-			<li data-li="launchEvent"><span>上市事件</span>(<span></span>)</li>
-		</ul>
-		<!--<div class="search_list_bj_r">共搜索到 <span>10</span>条内容中含有 "<span>滴滴</span>" 的创投人物</div>-->
-	</div>
 	<!-- 行业报告 -->
 	<!--<div class="report_list_all" style="display:none">
 		<ul>
@@ -90,10 +75,25 @@
 	</div>-->
 	<!-- 样式new end-->
 	<div class='info-list info-list-container'>
-		<div class="info-list-title">
+		<div class="info-list-title search_in_tit">
 			<span id ="tip"></span>
 		</div>
+		<div class="search_list_bj" id="person" style="display:none">
+			<ul>
+				<li class="search_list_on" data-li="startUp"><span>创业者</span>(<span></span>)</li>
+				<li data-li="investor"><span>投资人</span>(<span></span>)</li>
+			</ul>
+			<div class="search_list_bj_r tip_bjblue">共搜索到 <span>10</span>条内容中含有 "<span>滴滴</span>" 的创投人物</div>
+		</div>
 
+		<div class="search_list_bj" id="event" style="display:none">
+			<ul>
+				<li class="search_list_on" data-li="investEvent"><span>投资事件</span>(<span></span>)</li>
+				<li data-li="mergeEvent"><span>并购事件</span>(<span></span>)</li>
+				<li data-li="launchEvent"><span>上市事件</span>(<span></span>)</li>
+			</ul>
+			<div class="search_list_bj_r tip_bjblue">共搜索到 <span>10</span>条内容中含有 "<span>滴滴</span>" 的创投人物</div>
+		</div>
 		<table  class="table table_white_search " data-item="news"  style="display">
 			<thead>
 			<tr>
@@ -109,7 +109,6 @@
 			</tr>
 			</thead>
 		</table>
-
 		<table  class="table table_white_search" data-item="investfirms" style="display:none" >
 			<thead>
 			<tr>

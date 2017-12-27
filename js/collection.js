@@ -215,60 +215,85 @@ function initTable() {
               "</div>"
       return html
   }
-
+  function invColFormatter(value,row){
+       return  personFormatter(value,row,3)
+  }
+   function staColFormatter(value,row){
+       return   personFormatter(value,row,2)
+    }
   //收藏夹-创业者
-  function startupFormatter(value,row){
-      var logo = Constants.logoPath+"person/"+row.code+".png"
+  function personFormatter(value,row,type){
+      var logo = Constants.logoPath +"person/"+row.code+".png"
+      var id=0
       var html =
           "<div class='person-project-item clearfix'>"+
-                  "<span class='person-book-close'  onclick=cancel(2,'"+row.code+"')></span>"+
-                      "<div class='person-project-left person-start-img fl'><img src='"+logo+"'/></div>"+
+                  "<span class='person-book-close'  onclick=cancel('"+type+"','"+row.code+"')></span>"+
+                      "<div class='person-project-left person-start-img fl'><a target='_blank' href='/startup_xq.html?code="+row.code+"'><img src='"+logo+"'/></a></div>"+
                       "<div class='person-project-right fr'>"+
                           "<div><p>"+row.zhName+"</p>";
                               if(row.enName){
                                 html+= "<p class='none'>"+row.enName+"</p>";
                               }
                               html+="</div><p>"
-                              if(row.workLife){
-                                html+="<span >"+row.workLife+"</span>";
-                              }
-                              if(row.job){
-                                html+="<span>"+row.job+"</span>";
-                              }
-                              if(row.colleage || row.degree){
-                                html+="<span >"+row.colleage+"<em>"+row.degree+"</em></span>";
-                              }
-                              if(row.districtSubName){
-                                html+="<span class='person-start-address'>"+row.districtSubName+"</span>";
-                              }
+                               if(row.gender){
+                                   html+="<span class='company'><span class='search_list_people_list_r seach_float_none' id"+ ++id +">"+row.gender+"</span"+id+"></span>";
+                               }
+                               if(row.age){
+                                   html+="<span class='company'><span class='search_list_people_list_r seach_float_none' id"+ ++id +">"+row.age+"</span"+id+"></span>";
+                               }
+                               if(row.colleage){
+                                   html+="<span class='company'><span class='search_list_people_list_r seach_float_none'  id"+ ++id +">"+row.colleage+"</span"+id+"></span>";
+                               }
+                               if(row.degree){
+                                   html+="<span class='company'><span class='search_list_people_list_r seach_float_none' id"+ ++id +">"+row.degree+"</span"+id+"></span>";
+                               }
+                               if(row.workLife){
+                                   html+="<span class='company'><span class='search_list_people_list_r seach_float_none'  id"+ ++id +">"+row.workLife+"</span"+id+"></span>"
+                               }
+                               if(row.projTitle){
+                                   html+="<span class='company'><span class='search_list_people_list_r seach_float_none' id"+ ++id +">"+row.projTitle+"</span"+id+"></span>"
+                               }
+                               if(row.job){
+                                   html+="<span class='company'><span class='search_list_people_list_r seach_float_none' id"+ ++id +">"+row.job+"</span"+id+"></span>"
+                               }
+                               if(row.districtSubName){
+                                   html+="<span class='company'><span><li class='list-item-address'></li>"+row.districtSubName+"</span></span>"
+                               }
                               html +="</p></div></div>";
+                              html=html.replace("<span class='search_list_people_list_r seach_float_none' id1>","")
+                                .replace("</span1>","")
+                                .replace("/id[0-9]/g","")
+                                .replace("</spanid[0-9]>","")
         return html;
   }
-  //收藏夹-投资人
-  function invColFormatter(value,row){
-      var html =
-          "<div class='person-project-item clearfix'>"+
-                  "<span class='person-book-close'  onclick=cancel(3,'"+row.code+"')></span>"+
-                      "<div class='person-project-left person-start-img fl'><img src='../img/person_center/person-start_03.jpg'/></div>"+
-                      "<div class='person-project-right fr'>"+
-                          "<div>"+
-                              "<p>"+row.zhName+"</p>"+
-                              "<p>"+row.enName+"</p>"+
-                          "</div>"+
-                          "<p>"+
-                              "<span class='person-start-line none'>"+row.workLife+"</span>"+
-                              "<span class='person-dutity none'>"+row.job+"</span>"+
-                              "<span class='person-start-univercity none'>"+row.colleage+"<em>"+row.degree+"</em></span>"+
-                              "<span class='person-start-address none'>"+row.districtSubName+"</span>"+
-                          "</p>"+
-                      "</div>"+
-                  "</div>"
-        return html;
-  }
+//  //收藏夹-投资人
+//  function invColFormatter(value,row){
+//      var html =
+//          "<div class='person-project-item clearfix'>"+
+//                  "<span class='person-book-close'  onclick=cancel(3,'"+row.code+"')></span>"+
+//                      "<div class='person-project-left person-start-img fl'><img src='../img/person_center/person-start_03.jpg'/></div>"+
+//                      "<div class='person-project-right fr'>"+
+//                          "<div>"+
+//                              "<p>"+row.zhName+"</p>"+
+//                              "<p>"+row.enName+"</p>"+
+//                          "</div>"+
+//                          "<p>"+
+//                              "<span class='person-start-line none'>"+row.workLife+"</span>"+
+//                              "<span class='person-dutity none'>"+row.job+"</span>"+
+//                              "<span class='person-start-univercity none'>"+row.colleage+"<em>"+row.degree+"</em></span>"+
+//                              "<span class='person-start-address none'>"+row.districtSubName+"</span>"+
+//                          "</p>"+
+//                      "</div>"+
+//                  "</div>"
+//        return html;
+//  }
 function reColFormatter(value,row){
-     var html= "<div class='person-project-item clearfix'>"+
-      						"<span class='person-book-close'></span>"+
-      						"<div class='person-project-left fl person-report-img'><img src='"+row.listPic+"'></div>"+
+    if(!row.reportDesc){
+        row.reportDesc = "暂无"
+    }
+    var html= "<div class='person-project-item clearfix'>"+
+      						"<span class='person-book-close'  onclick=cancel(4,'"+row.id+"')></span>"+
+      						"<div class='person-project-left fl person-report-img'><a href='report_detailed.html?id="+row.id+"'><img src='"+row.listPic+"'></a></div>"+
       						"<div class='person-project-right person-report-right fr'>"+
       							"<h3><a href='report_detailed_1.html?id="+row.id+" target='_blank'>"+row.title+"</a></h3>"+
       							"<p class='person-report-smalltitle'><span>"+row.publishDate+"</span><span class='person-report-author'>作者："+row.authorName+"</span><span class='person-report-origin'>来源："+row.source+"</span></p>"+

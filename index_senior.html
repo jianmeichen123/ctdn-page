@@ -588,7 +588,6 @@ function getGG_news(params,obj){
     json["pageSize"]=6;
     json["pageNo"]=0;
     json["industryNames"] = params
-    console.log(json)
     sendPostRequestByJsonObj(searchUrl.getGGNews,json,function(data){
    
            $(data.page).each(function(k,v){
@@ -645,9 +644,7 @@ function getCompeteInfo(){
 			    json["industryNames"] = data.data[i].investOrg 
 			    sendPostRequestByJsonObj(searchUrl.getGGCompeteInfo,json,function(res){
 					if(res.status == 10000){
-						console.log(res.page.records)
 						list['records'] = res.page.records
-						console.log(list)
 					}
 				});
 			}
