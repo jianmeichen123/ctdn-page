@@ -191,7 +191,8 @@ select:focus { outline: none important; }
 .person-reset-password ul li input{width:300px;height:50px;border:1px solid #cccccc;border-radius:5px;padding-left:20px;margin-left:20px;;}
 .person-reset-password ul li {margin-top:20px;position:relative;}
 .person-pass-confirm{margin-left:-13px;}
-.person-save-password{display:inline-block;width:300px;height:50px;line-height:50px;text-align:center;color:#fff;border-radius:5px;background:#2393f7;margin-left:65px;cursor:pointer;margin-top:30px !important;}
+.new-confirm{margin-left:0px !important;}
+.person-save-password{display:inline-block;width:300px;height:50px;line-height:50px;text-align:center;color:#fff;border-radius:5px;background:#2393f7;margin-left:80px;cursor:pointer;margin-top:30px !important;}
 .person-book-eye{display:inline-block;width:17px;height:16px;right:-30px;position:absolute;right: 36px;top: 19px;background:url('../img/login/login-icon_10.jpg') no-repeat;cursor:pointer;}
 .person-book-eye-blue{background:url('../img/login/eye-blue_03.jpg') no-repeat;}
 .concern-industry-content{width:779px;margin:30px auto;}
@@ -256,7 +257,7 @@ textarea.invalid::-ms-input-placeholder {
 }
 .person-reset-password ul li .inputDanger{border:1px solid #ff4e49; box-shadow:1px 1px 5px #fff2f2;}
 .person-head-pic span{margin-top:17px;display:inline-block;color:#fff;text-align: center;}
-
+.password-content{heigth:388px;}
 
 
 
