@@ -216,18 +216,18 @@
 
 	//验证长度
 	jQuery.validator.addMethod("length20", function (value, element) {
-		var verify_20 = /^(?!.{20}|^\s*$)/;
+		var verify_20 = /^(?!.{21}|^\s*$)/;
 		return this.optional(element) || (verify_20.test(value));
 	}, "");
 
 	//验证长度
 	jQuery.validator.addMethod("length50", function (value, element) {
-		var verify_50 = /^(?!.{50}|^\s*$)/;
+		var verify_50 = /^(?!.{51}|^\s*$)/;
 		return this.optional(element) || (verify_50.test(value));
 	}, "");
 	//验证长度
 	jQuery.validator.addMethod("length1000", function (value, element) {
-		var verify_1000 = /^(?!.{1000}|^\s*$)/;
+		var verify_1000 = /^(?!.{1001}|^\s*$)/;
 		return this.optional(element) || (verify_1000.test(value));
 	}, "");
 
