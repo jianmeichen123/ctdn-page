@@ -215,14 +215,19 @@ function initTable() {
               "</div>"
       return html
   }
-
+  function invColFormatter(value,row){
+       return  personFormatter(value,row,3)
+  }
+   function staColFormatter(value,row){
+       return   personFormatter(value,row,2)
+    }
   //收藏夹-创业者
-  function startupFormatter(value,row){
+  function personFormatter(value,row,type){
       var logo = Constants.logoPath +"person/"+row.code+".png"
       var id=0
       var html =
           "<div class='person-project-item clearfix'>"+
-                  "<span class='person-book-close'  onclick=cancel(2,'"+row.code+"')></span>"+
+                  "<span class='person-book-close'  onclick=cancel('"+type+"','"+row.code+"')></span>"+
                       "<div class='person-project-left person-start-img fl'><a target='_blank' href='/startup_xq.html?code="+row.code+"'><img src='"+logo+"'/></a></div>"+
                       "<div class='person-project-right fr'>"+
                           "<div><p>"+row.zhName+"</p>";
@@ -261,34 +266,34 @@ function initTable() {
                                 .replace("</spanid[0-9]>","")
         return html;
   }
-  //收藏夹-投资人
-  function invColFormatter(value,row){
-      var html =
-          "<div class='person-project-item clearfix'>"+
-                  "<span class='person-book-close'  onclick=cancel(3,'"+row.code+"')></span>"+
-                      "<div class='person-project-left person-start-img fl'><img src='../img/person_center/person-start_03.jpg'/></div>"+
-                      "<div class='person-project-right fr'>"+
-                          "<div>"+
-                              "<p>"+row.zhName+"</p>"+
-                              "<p>"+row.enName+"</p>"+
-                          "</div>"+
-                          "<p>"+
-                              "<span class='person-start-line none'>"+row.workLife+"</span>"+
-                              "<span class='person-dutity none'>"+row.job+"</span>"+
-                              "<span class='person-start-univercity none'>"+row.colleage+"<em>"+row.degree+"</em></span>"+
-                              "<span class='person-start-address none'>"+row.districtSubName+"</span>"+
-                          "</p>"+
-                      "</div>"+
-                  "</div>"
-        return html;
-  }
+//  //收藏夹-投资人
+//  function invColFormatter(value,row){
+//      var html =
+//          "<div class='person-project-item clearfix'>"+
+//                  "<span class='person-book-close'  onclick=cancel(3,'"+row.code+"')></span>"+
+//                      "<div class='person-project-left person-start-img fl'><img src='../img/person_center/person-start_03.jpg'/></div>"+
+//                      "<div class='person-project-right fr'>"+
+//                          "<div>"+
+//                              "<p>"+row.zhName+"</p>"+
+//                              "<p>"+row.enName+"</p>"+
+//                          "</div>"+
+//                          "<p>"+
+//                              "<span class='person-start-line none'>"+row.workLife+"</span>"+
+//                              "<span class='person-dutity none'>"+row.job+"</span>"+
+//                              "<span class='person-start-univercity none'>"+row.colleage+"<em>"+row.degree+"</em></span>"+
+//                              "<span class='person-start-address none'>"+row.districtSubName+"</span>"+
+//                          "</p>"+
+//                      "</div>"+
+//                  "</div>"
+//        return html;
+//  }
 function reColFormatter(value,row){
     if(!row.reportDesc){
         row.reportDesc = "暂无"
     }
     var html= "<div class='person-project-item clearfix'>"+
-      						"<span class='person-book-close'></span>"+
-      						"<div class='person-project-left fl person-report-img'><img src='"+row.listPic+"'></div>"+
+      						"<span class='person-book-close'  onclick=cancel(4,'"+row.id+"')></span>"+
+      						"<div class='person-project-left fl person-report-img'><a href='report_detailed.html?id="+row.id+"'><img src='"+row.listPic+"'></a></div>"+
       						"<div class='person-project-right person-report-right fr'>"+
       							"<h3><a href='report_detailed_1.html?id="+row.id+" target='_blank'>"+row.title+"</a></h3>"+
       							"<p class='person-report-smalltitle'><span>"+row.publishDate+"</span><span class='person-report-author'>作者："+row.authorName+"</span><span class='person-report-origin'>来源："+row.source+"</span></p>"+
