@@ -385,7 +385,7 @@ $(function(){
 //	         location.href = platformUrl.toLogin
 	    }else{
 	    	var obj = JSON.parse(data)
-	        if(!obj['roleCode']){
+	        if(obj['roleCode'] ==30000 && getCookie("s_")=="external"){
 	        	var mobile = obj['mobile']
 	        	$("span[name='id_name']").html(mobile.substring(0,5)+'******')
 	        	 setCookie("realName",mobile)
