@@ -306,10 +306,13 @@ ul,ol,dl,dt,dd,p,img{ display:block; border:0;list-style:none; }
 .background_boeder_indx{background-color: #fff;  border: 1px solid #f0f0f0;  overflow: hidden; margin-bottom:10px;  border-radius: 8px;   padding-top: 30px;}
 /*对比*/
 .contrast_all{width:1020px; position:relative; margin-left:auto; margin-right:auto; margin-top:20px;}
+.contrast_01{position:absolute; top:0;left:0; width:37px; height:104px; z-index: 99;}
+.contrast_02{position:absolute; top:74px;left:97px; width:79px; height:107px; z-index: 99;}
+.contrast_03{position:absolute; bottom:20px;left:0; width:37px; height:104px; z-index: 99;}
 .contrast_all_bj{background-color:#555f7b; height:100%; width:180px; top:0; left:0; position: absolute;}
 .contrast_ul_li_postion{position: absolute;     left: -22px;}
 .contrast_ul{margin-left:-20px; margin-bottom:110px; overflow:hidden; margin-left: 180px;}
-.contrast_ul>li{width:184px; min-height:395px; float:left; margin-left:20px; border:1px solid #f0f0f0; overflow:hidden;}
+.contrast_ul>li{width:184px; min-height:495px; float:left; margin-left:20px; border:1px solid #f0f0f0; overflow:hidden;}
 .contrast_tit{font-size:30px; text-align:center; color:#333; margin-left:184px; margin-top:20px; margin-bottom:30px;  overflow:hidden;}
 .contrast_img{background-color:#f3f6ff; height:50px; line-height:50px; overflow: hidden;}
 .contrast_img img{float:left; width:28px; height:28px; border:1px solid #fcfbfc; margin-left:10px; margin-top:11px;}
