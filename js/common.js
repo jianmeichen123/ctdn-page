@@ -28,8 +28,9 @@ function sendPostRequestByJsonObj(reqUrl, jsonObj, callbackFun) {
 		},
 		success : function(data) {
 			if(data){
-				if(!data.success && data.status == 0){
+				if(!data.success && data.status == 10003){
 					location.href =platformUrl.toLogin
+					return
 				}
 			}
 			if (callbackFun) {
@@ -79,6 +80,12 @@ function sendGetRequest (reqUrl, jsonObj, callbackFun) {
 		error : function(request) {
 		},
 		success : function(data) {
+			if(data){
+				if(!data.success && data.status == 10003){
+					location.href =platformUrl.toLogin
+					return
+				}
+			}
 			if (callbackFun) {
 				callbackFun(data);
 			}
@@ -106,8 +113,9 @@ function sendGetRequest(reqUrl, callbackFun) {
 		},
 		success : function(data) {
 			if(data){
-				if(!data.success && data.status == 0){
+				if(!data.success && data.status == 10003){
 					location.href =platformUrl.toLogin
+					return
 				}
 			}
 			if (callbackFun) {
@@ -144,8 +152,9 @@ function sendPostRequest(reqUrl, callbackFun) {
 		},
 		success : function(data) {
 			if(data){
-				if(!data.success && data.status == 0){
+				if(!data.success && data.status == 10003){
 					location.href =platformUrl.toLogin
+					return
 				}
 			}
 			if (callbackFun) {
@@ -397,7 +406,7 @@ $(function(){
 	}
 	function setIndexHref(obj){
 		var roleCode = obj['roleCode']
-		if(roleCode == 3000){
+		if(roleCode == 30000){
 			index_href =  home.index + '/index_external.html'
 			return
 		}
