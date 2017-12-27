@@ -109,7 +109,7 @@ select:focus { outline: none important; }
 .eye-box{position:relative;}
 /*person center*/
 .person-center-container{width:1024px;height:auto;margin:20px auto;}
-.person-left{width:184px;height:700px;background:#555f7b;border-radius:5px;}
+.person-left{width:184px;height:700px;border-radius:5px;background:#555f7b url('../img/person_center/person-left-bg_03.png')}
 .fl{float:left;}
 .fr{float:right;}
 .person-right{width:838px;height:auto;min-height:700px;background:#fff;}
