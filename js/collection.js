@@ -218,30 +218,47 @@ function initTable() {
 
   //收藏夹-创业者
   function startupFormatter(value,row){
-      var logo = Constants.logoPath+"person/"+row.code+".png"
+      var logo = Constants.logoPath +"person/"+row.code+".png"
+      var id=0
       var html =
           "<div class='person-project-item clearfix'>"+
                   "<span class='person-book-close'  onclick=cancel(2,'"+row.code+"')></span>"+
-                      "<div class='person-project-left person-start-img fl'><img src='"+logo+"'/></div>"+
+                      "<div class='person-project-left person-start-img fl'><a target='_blank' href='/startup_xq.html?code="+row.code+"'><img src='"+logo+"'/></a></div>"+
                       "<div class='person-project-right fr'>"+
                           "<div><p>"+row.zhName+"</p>";
                               if(row.enName){
                                 html+= "<p class='none'>"+row.enName+"</p>";
                               }
                               html+="</div><p>"
-                              if(row.workLife){
-                                html+="<span >"+row.workLife+"</span>";
-                              }
-                              if(row.job){
-                                html+="<span>"+row.job+"</span>";
-                              }
-                              if(row.colleage || row.degree){
-                                html+="<span >"+row.colleage+"<em>"+row.degree+"</em></span>";
-                              }
-                              if(row.districtSubName){
-                                html+="<span class='person-start-address'>"+row.districtSubName+"</span>";
-                              }
+                               if(row.gender){
+                                   html+="<span><span class='search_list_people_list_r' id"+ ++id +">"+row.gender+"</span"+id+"></span>";
+                               }
+                               if(row.age){
+                                   html+="<span><span class='search_list_people_list_r' id"+ ++id +">"+row.age+"</span"+id+"></span>";
+                               }
+                               if(row.colleage){
+                                   html+="<span><span class='search_list_people_list_r' id"+ ++id +">"+row.colleage+"</span"+id+"></span>";
+                               }
+                               if(row.degree){
+                                   html+="<span><span class='search_list_people_list_r' id"+ ++id +">"+row.degree+"</span"+id+"></span>";
+                               }
+                               if(row.workLife){
+                                   html+="<span><span class='search_list_people_list_r' id"+ ++id +">"+row.workLife+"</span"+id+"></span>"
+                               }
+                               if(row.projTitle){
+                                   html+="<span><span class='search_list_people_list_r' id"+ ++id +">"+row.projTitle+"</span"+id+"></span>"
+                               }
+                               if(row.job){
+                                   html+="<span><span class='search_list_people_list_r' id"+ ++id +">"+row.job+"</span"+id+"></span>"
+                               }
+                               if(row.districtSubName){
+                                   html+="<span><span><li class='list-item-address'></li>"+row.districtSubName+"</span></span>"
+                               }
                               html +="</p></div></div>";
+                              html=html.replace("<span class='search_list_people_list_r' id1>","")
+                                .replace("</span1>","")
+                                .replace("/id[0-9]/g","")
+                                .replace("</spanid[0-9]>","")
         return html;
   }
   //收藏夹-投资人
