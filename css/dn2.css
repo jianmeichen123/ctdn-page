@@ -93,7 +93,7 @@ select:focus { outline: none important; }
 .to-register{margin-top:20px;margin-left:70px;font-size:14px;}
 .to-register span img{display:inline-block;margin-left:11px;margin-top:-3px;}
 .to-register a{color:#2393f7;}
-.login-tips{font-weight:normal;color:#ff5853;font-size:12px;margin-left: 67px;margin-top: 5px;display:block;}
+.login-tips{font-weight:normal;color:#ff5853;font-size:12px;margin-left: 80px;margin-top: 5px;display:block;}
 .vertifiaction-code{display:none;}
 .telphone{background:url(../img/login/tel_03.jpg) no-repeat 15px center;background-color: #fff;}
 .input-code{width:178px;margin-top:20px;padding-left:19px;}
