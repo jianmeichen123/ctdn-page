@@ -266,7 +266,10 @@ function initTable() {
         return html;
   }
 function reColFormatter(value,row){
-     var html= "<div class='person-project-item clearfix'>"+
+    if(!row.reportDesc){
+        row.reportDesc = "暂无"
+    }
+    var html= "<div class='person-project-item clearfix'>"+
       						"<span class='person-book-close'></span>"+
       						"<div class='person-project-left fl person-report-img'><img src='"+row.listPic+"'></div>"+
       						"<div class='person-project-right person-report-right fr'>"+

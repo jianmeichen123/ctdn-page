@@ -180,7 +180,7 @@
 
 	//验证长度
 	jQuery.validator.addMethod("length20", function (value, element) {
-		var verify_20 = /^(?!.{20}|^\s*$)/;
+		var verify_20 = /^(?!.{21}|^\s*$)/;
 		return this.optional(element) || (verify_20.test(value));
 	}, "");
 	
