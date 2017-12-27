@@ -694,6 +694,17 @@ function investorFormatter(value,row){
 
 //行业
 function reportFormatter(value,row){
+    var source=""
+    if(row.source){
+        source=row.source
+    }
+    var reportDesc=""
+
+    if(row.reportDesc){
+        reportDesc=row.reportDesc
+        alert(reportDesc)
+    }
+
     var html ='<li>'+
             '<div class="report_list_img"><img src="'+row.listPic+'"></div>'+
             '<div class="report_list_cen">'+
