@@ -291,12 +291,18 @@ function reColFormatter(value,row){
     if(!row.reportDesc){
         row.reportDesc = "暂无"
     }
+    if(row.authorName){
+        row.authorName = "<span class='person-report-author'>作者："+row.authorName+"</span>"
+    }
+    if(row.source){
+        row.source = "<span class='person-report-origin'>来源："+row.source+"</span>"
+    }
     var html= "<div class='person-project-item clearfix'>"+
       						"<span class='person-book-close'  onclick=cancel(4,'"+row.id+"')></span>"+
       						"<div class='person-project-left fl person-report-img'><a href='report_detailed.html?id="+row.id+"'><img src='"+row.listPic+"'></a></div>"+
       						"<div class='person-project-right person-report-right fr'>"+
       							"<h3><a href='report_detailed_1.html?id="+row.id+" target='_blank'>"+row.title+"</a></h3>"+
-      							"<p class='person-report-smalltitle'><span>"+row.publishDate+"</span><span class='person-report-author'>作者："+row.authorName+"</span><span class='person-report-origin'>来源："+row.source+"</span></p>"+
+      							"<p class='person-report-smalltitle'><span>"+row.publishDate+"</span>"+row.authorName+row.source+"</p>"+
       							"<p class='person-book-shortdescription person-report-description'>简介:"+row.reportDesc+"</p>"+
       						"</div>"
      return html;
