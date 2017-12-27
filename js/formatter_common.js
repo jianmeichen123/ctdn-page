@@ -61,6 +61,8 @@ var tableFormate ={
         return inds_html
     },
 
+
+
     personRoundName:function(value, row, index){
             var round_arr=row.rounds;
             var rounds_html="";
