@@ -145,7 +145,7 @@ select:focus { outline: none important; }
 .person-bookmark-content{border:1px solid #f0f0f0;border-radius:5px;}
 .person-bookmark-content ul{width:100%;height:auto;border-bottom:1px solid #d9d9d9;margin-top:30px;}
 .person-bookmark-content ul li{float:left;margin-left:42px;cursor:pointer;font-size:14px;color:#323232;padding-bottom:10px;}
-.person-bookmark-content ul li.underline{border-bottom:3px solid #2393f7;color:#2393f7;}
+/* .person-bookmark-content ul li.underline{border-bottom:3px solid #2393f7;color:#2393f7;} */
 .person-project-items{width:775px;border:1px solid #f0f0f0;margin:20px auto;height:auto;}
 .person-project-left{width:80px;margin-left:10px;margin-top:10px;}
 .person-project-left img{vertical-align:middle;width:80px;height:80px;}
@@ -193,7 +193,7 @@ select:focus { outline: none important; }
 .industry-concern ul li:nth-child(2){padding-left:21px;border-left:1px solid #cccccc;}
 .industry-concern ul li:nth-child(1){padding-right:21px;}
 .industry-span-content{width:100%;margin-top:31px;}
-.industry-span-content ul li{float:left;border:1px solid #b2dbff;padding:9px 12px;border-radius:18px;cursor:pointer;font-size:12px;margin-top:10px;margin-left:20px;}
+.industry-span-content ul li{float:left;border:1px solid #b2dbff;padding:7px 14px;border-radius:18px;cursor:pointer;font-size:12px;margin-top:20px;margin-left:20px;}
 .industry-span-content ul li.concern-clicked{background:#2393f7;color:#fff;}
 .concern-industry-save span{cursor:pointer;display:inline-block;width:110px;height:40px;line-height:40px;text-align:center;color:#fff;font-size:14px;background:#2393f7;border-radius:5px;}
 .concern-industry-save{margin:82px auto;text-align:center;}
