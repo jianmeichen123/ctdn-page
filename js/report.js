@@ -3,6 +3,9 @@ var id = getHrefParamter("id");
 sendGetRequest(detail.getReport+id,function(data){fillReportInfo(data.data,$("div[data-query='getReport']"))})
 
 function fillReportInfo(data,divList){
+    if(isCollection(4,data["id"])){
+         $(".click_collect").toggleClass('dn_ico_list_collect_on');
+     }
     $(divList).each(function(){
         var div = $(this)
         var ls = div.find("*[data-field]")
@@ -47,3 +50,4 @@ function formatTitle(title){
     }
     return title;
 }
+
