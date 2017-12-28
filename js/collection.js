@@ -188,9 +188,9 @@ function initTable() {
       var html ="<div class='person-project-item clearfix'>"+
       "<span class='person-book-close' onclick=cancel(0,'"+row.projCode+"')></span>"+
           "<div class='person-project-left fl'>"+
-          "<img src='"+img+"'/></div>"+
+          "<a target='_blank' href='/project_qy.html?projCode="+row.projCode+"'><img src='"+img+"'/></a></div>"+
           "<div class='person-project-right fr'>"+
-              "<p><span class='person-book-red'>"+row.projTitle+"</span>"+tag+"</p>"+
+              "<p><a target='_blank' href='/project_qy.html?projCode="+row.projCode+"'><span class='person-book-red'>"+row.projTitle+"</span></a>"+tag+"</p>"+
               "<p class='person-book-shortdescription'>简介:"+firmDesc+"</p>"+
               "<p>"+
                   "<span class='person-book-city'>"+districtSubName+"</span>"+industryName+
@@ -222,7 +222,7 @@ function initTable() {
               "<span class='person-book-close' onclick=cancel(1,'"+row.orgCode+"') ></span>"+
                   "<div class='person-project-left fl'><a target='_blank' href='/jg_particulars.html?orgCode="+row.orgCode+"'><img src='"+img+"'/></a></div>"+
                   "<div class='person-project-right fr'>"+
-                      "<p><span class='person-book-red'>"+row.investOrg+"</span><span class='person-mark-item-title'>"+orgType+"</span></p>"+
+                      "<p><span class='person-book-red'><a target='_blank' href='/jg_particulars.html?orgCode="+row.orgCode+"'>"+row.investOrg+"</a></span><span class='person-mark-item-title'>"+orgType+"</span></p>"+
                       "<p class='person-institute-incident'>投资事件:<span class='person-incident-num'>"+row.investTotal+"</span></p>"+
                       "<p class='person-book-shortdescription'>简介:"+orgDesc+"</p>"+
                   "</div>"+
@@ -232,19 +232,23 @@ function initTable() {
   function invColFormatter(value,row){
        return  personFormatter(value,row,3)
   }
-   function staColFormatter(value,row){
-       return   personFormatter(value,row,2)
-    }
+  function staColFormatter(value,row){
+       return  personFormatter(value,row,2)
+  }
   //收藏夹-创业者
   function personFormatter(value,row,type){
       var logo = Constants.logoPath +"person/"+row.url+".png"
       var id=0
       var html =
           "<div class='person-project-item clearfix'>"+
-                  "<span class='person-book-close'  onclick=cancel('"+type+"','"+row.code+"')></span>"+
-                      "<div class='person-project-left person-start-img fl'><a target='_blank' href='/startup_xq.html?code="+row.code+"'><img src='"+logo+"'/></a></div>"+
-                      "<div class='person-project-right fr'>"+
-                          "<div><p>"+row.zhName+"</p>";
+                  "<span class='person-book-close'  onclick=cancel('"+type+"','"+row.code+"')></span>"
+                    if(type == 2){
+                         html += "<div class='person-project-left person-start-img fl'><a target='_blank' href='/startup_xq.html?code="+row.code+"'><img src='"+logo+"'/></a></div><div class='person-project-right fr'><div><a target='_blank' href='/startup_xq.html?code="+row.code+"'><p>"+row.zhName+"</p></a>"
+                    }else{
+                         html += "<div class='person-project-left person-start-img fl'><a target='_blank' href='/investor_xq.html?code="+row.code+"'><img src='"+logo+"'/></a></div><div class='person-project-right fr'><div><a target='_blank' href='/investor_xq.html?code="+row.code+"'><p>"+row.zhName+"</p></a>"
+                    }
+//                    html+="<div class='person-project-right fr'>"+
+//                          "<div><p>"+row.zhName+"</p>";
                               if(row.enName){
                                 html+= "<p class='none'>"+row.enName+"</p>";
                               }
