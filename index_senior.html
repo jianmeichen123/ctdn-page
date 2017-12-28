@@ -504,7 +504,7 @@ $('body').delegate('#executive_click','click', function(event){
     $('.nav_all_seek').show();
 	$('.nav_all_input').hide();
 })
-/* $(function(){
+$(function(){
 	if(!isLogin()){ //未登录
 		location.href = platformUrl.toLogin
 	}else{
@@ -537,7 +537,7 @@ $('body').delegate('#executive_click','click', function(event){
 			}
 		});
 	}
-}) */
+})
 function querytotalheader(){
 	sendPostRequest(detail.queryGGTotalHeaderStat,function(data){
 	    $("#projectNum_total").text(data.data.projectNum)
