@@ -154,13 +154,13 @@ select:focus { outline: none important; }
 .person-project-list table tbody tr td:nth-child(4){max-width:154px;width:154px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
 .person-project-list table{border-radius:0px !important;}
 .person-bookmark-content{border:1px solid #f0f0f0;border-radius:5px;}
-.person-bookmark-content ul{width:100%;height:auto;border-bottom:1px solid #d9d9d9;margin-top:30px;}
+.person-bookmark-content ul{width:100%;height:auto;/* border-bottom:1px solid #d9d9d9; */margin-top:30px;}
 .person-bookmark-content ul li{float:left;margin-left:42px;cursor:pointer;font-size:14px;color:#323232;padding-bottom:10px;}
 /* .person-bookmark-content ul li.underline{border-bottom:3px solid #2393f7;color:#2393f7;} */
 .person-project-items{width:775px;border:1px solid #f0f0f0;margin:20px auto;height:auto;}
 .person-project-left{width:80px;margin-left:10px;margin-top:10px;}
 .person-project-left img{vertical-align:middle;width:80px;height:80px;}
-.person-project-right{width:635px;margin-left:20px;margin-top:8px;color:#666666;font-size:14px;}
+.person-project-right{width:635px;margin-right:60px;margin-top:8px;color:#666666;font-size:14px;}
 .person-mark-item-title{width:auto;padding-left:12px;padding-right:12px;height:20px;line-height:20px;border:1px solid #999;border-radius:10px;display:inline-block;color:#333;font-size:12px;text-align:center;margin-left:10px;}
 .person-book-red em{color:#ff0f00;}
 .person-book-red {color:#323333;    overflow: hidden;
@@ -188,12 +188,20 @@ select:focus { outline: none important; }
 .person-report-img{width:121px;height:75px;border-radius:3px;margin-top:13px;    overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;}
+.person-report-img  a img{width:100%;height:100%;}
 .person-report-right{width:600px;}
 .person-report-right h3{margin-top:0px;color:#333333;font-size:16px;}
 .person-report-smalltitle{color:#999;font-size:12px;}
 .person-report-author{margin-left:22px;}
-.person-report-origin{margin-left:10px;}
-.person-report-description{width:600px;}
+.person-report-origin{margin-left:10px;display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;}
+    .person-report-right  h3 a{width:590px;display: inline-block;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+.person-report-description{width:600px;display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;}
 .person-reset-password{width:388px;height:auto;margin:80px auto;}
 .person-reset-password ul li input{width:300px;height:50px;border:1px solid #cccccc;border-radius:5px;padding-left:20px;margin-left:20px;;}
 .person-reset-password ul li {margin-top:20px;position:relative;}
@@ -271,5 +279,5 @@ textarea.invalid::-ms-input-placeholder {
 .picture-content img{ width:70px;height:50px}
 .person_checking bootstrap-table{width:798px;}
 .fixed-table-body .table > tbody > tr > td {word-break:break-all;}
-
- 
+.fixed-table-pagination{margin-left:10px;}
+.new_info-nav{padding:0px !important;margin-left:20px !important;}

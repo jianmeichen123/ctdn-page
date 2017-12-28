@@ -181,19 +181,37 @@
 
 	//验证长度
 	jQuery.validator.addMethod("length20", function (value, element) {
-		var verify_20 = /^(?!.{21}|^\s*$)/;
-		return this.optional(element) || (verify_20.test(value));
+		if(value.length>0 && value.trim().length<=20){
+			return true;
+		}else{
+			return false;
+		}
+	}, "");
+
+	//验证长度
+	jQuery.validator.addMethod("length200", function (value, element) {
+		if(value.length>0 && value.trim().length<=20){
+			return true;
+		}else{
+			return false;
+		}
 	}, "");
 
 	//验证长度
 	jQuery.validator.addMethod("length50", function (value, element) {
-		var verify_50 = /^(?!.{51}|^\s*$)/;
-		return this.optional(element) || (verify_50.test(value));
+		if(value.length>0 && value.trim().length<=50){
+			return true;
+		}else{
+			return false;
+		}
 	}, "");
 	//验证长度
 	jQuery.validator.addMethod("length1000", function (value, element) {
-		var verify_1000 = /^(?!.{10001}|^\s*$)/;
-		return this.optional(element) || (verify_1000.test(value));
+		if(value.length>0 && value.trim().length<=1000){
+			return true;
+		}else{
+			return false;
+		}
 	}, "");
 
 	//验证select
@@ -257,10 +275,12 @@
 	});
 
 	$.fn.serializeJson = function(){
-		var data = {};
+		var data = {};s
 		var array = this.serializeArray();
 		$.each(array,function(){
-			data[this.name]=this.value.replace(/(^\s+)|(\s+$)/g,"");
+			if(data[this.name]){
+				data[this.name]= this.value.trim();
+			}
 		})
 		data["userId"] = getCookie("_usercode_")
  		return data;
@@ -288,6 +308,10 @@
 			}
 			if(data.files[0].size > 500*1024*1024){
 				$("#projLogoName").html("<font color='red'>*您的文件大小超过限制，请控制在500KB之内</font>")
+				return;
+			}
+			if(data.file[0].name.length>200){
+				$("#projLogoName").text("文件名过长不能超过200个字...")
 				return;
 			}
 			$("#projLogoName").text("")
@@ -322,6 +346,10 @@
 				$("#projPbName").addClass("red")
 				return;
 			}
+			if(data.files[0].name.length>200){
+				$("#projPbName").text("文件名过长不能超过200个字...")
+				return;
+			}
 			$("#projPbName").text("正在上传文件...")
 			$("#projPbName").removeClass("red")
             data.submit();
@@ -330,7 +358,11 @@
 			if(data.result.success)
 			{
 				$("#projPbName").removeClass("red")
-				$("#projPbName").text(data.result.uploadFiles[0].fileName);
+				if(data.result.uploadFiles[0].fileName.length<50){
+					$("#projPbName").text(data.result.uploadFiles[0].fileName);
+				}else{
+					$("#projPbName").text(data.result.uploadFiles[0].fileName.substring(0,50)+"...");
+				}
 				$("input[name='fileName']").val(data.result.uploadFiles[0].fileName)
 				$("input[name='fileKey']").val(data.result.uploadFiles[0].fileUploadName)
 				$("input[name='fileUrl']").val(data.result.uploadFiles[0].url)

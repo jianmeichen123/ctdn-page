@@ -47,5 +47,8 @@ $('#allClick').click(function(){
 $('#clear').click(function(){
 	$(".industry-span-content ul li").removeClass('concern-clicked')
 })
+if(getCookie("s_") && getCookie("s_") =="external"){
+  $(".concern-industry-reset").hide()
+}
 </script>
 </html>
