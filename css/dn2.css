@@ -169,7 +169,7 @@ select:focus { outline: none important; }
 .person-institute-incident{color:#333;}
 .person-incident-num{margin-right:30px;}
 .person-start-person{display:none;}
-.person-start-img{margin-top:27px;}
+.person-start-img{}
 .person-start-address{background:url('../img/person_center/person-book_03.jpg') no-repeat;padding-left:20px;margin-left:38px;}
 .person-start-line{padding-right:14px;border-right:1px solid #cccccc;}
 .person-dutity{padding:0px 15px;border-right:1px solid #cccccc;}
