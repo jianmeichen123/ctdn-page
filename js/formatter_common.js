@@ -419,6 +419,7 @@ function newsFormatter(value,row){
 
 //项目formatter <span>F轮-上市前/55亿美元</span>
 function projectFormatter(value,row){
+
     var projectName = row.projTitle
     if(projectName==null){
         projectName='名称未知'
@@ -462,7 +463,7 @@ function projectFormatter(value,row){
 					"<p class='list-item-content'>简介:${introduce}</p>"+
 					"<p class='list-item-tips'><i class='list-item-address'></i>${districtSubName}"+industryName+"</p>"+
 					"<div class='search_collect click_collect'><span class='dn_ico dn_ico_list_collect_search'></span>收藏</div>"+
-					"<div class='search_contrast'><span class='dn_ico dn_ico_list_search_contrast'></span>对比</div>"+
+					"<div class='search_contrast click_contrast'><span class='dn_ico dn_ico_list_search_contrast'></span>对比</div>"+
 				"</div>"+
 			"</div>"+
 		"</div>"
