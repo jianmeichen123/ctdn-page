@@ -272,4 +272,4 @@ textarea.invalid::-ms-input-placeholder {
 .person_checking bootstrap-table{width:798px;}
 .fixed-table-body .table > tbody > tr > td {word-break:break-all;}
 .fixed-table-pagination{margin-left:10px;}
- 
+.new_info-nav{padding:0px !important;margin-left:20px !important;}
