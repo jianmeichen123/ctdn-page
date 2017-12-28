@@ -62,7 +62,7 @@
 				<li class='personEditLinkName'>
 					<div class="seek_financing_l seek_finacing_left"><span class="seek_financing_two">联系人电话</span><span class="seek_financing_one">*</span></div>
 					<div class="seek_financing_r person_finacing_right">
-						<input class="seek_financing_input editRequireInput" name="linkPhone1" required  data-rule-phone="true"   maxlength="40" placeholder="联系人电话"  data-msg-phone="<span class='dn_ico dn_ico_error'></span>联系电话格式不正确">
+						<input class="seek_financing_input editRequireInput" name="linkPhone1" required  data-rule-phone="truxe"   maxlength="40" placeholder="联系人电话"  data-msg-phone="<span class='dn_ico dn_ico_error'></span>联系电话格式不正确">
 					</div>
 				</li>
 				<li class='personEditLinkName'>
@@ -111,19 +111,19 @@
 				<li class="seek_show_on seek_show_block seeShowLeft">
 					<div class="seek_financing_l seek_finacing_left"><span class="seek_financing_two">产品网址</span></div>
 					<div class="seek_financing_r person_finacing_right">
-						<input class="seek_financing_input" name="productUrl" placeholder="产品网址" data-rule-url="true" data-msg-url="<font color=red>*</font>网址格式不正确">
+						<input class="seek_financing_input" name="productUrl" maxlength="100" placeholder="产品网址" data-rule-url="true" data-msg-url="<font color=red>*</font>网址格式不正确">
 					</div>
 				</li>
 				<li class="seek_show_on seek_show_block seeShowLeft">
 					<div class="seek_financing_l seek_finacing_left"><span class="seek_financing_two">公司全称</span></div>
 					<div class="seek_financing_r person_finacing_right">
-						<input class="seek_financing_input" name="companyName" maxlength="40" placeholder="请输入工商注册公司全称，不超过40个字">
+						<input class="seek_financing_input" name="companyName" maxlength="50" placeholder="请输入工商注册公司全称，不超过50个字">
 					</div>
 				</li>
 				<li class="seek_show_on seek_show_block editShowLeft">
 					<div class="seek_financing_l seek_finacing_left"><span class="seek_financing_two">公司地址</span></div>
 					<div class="seek_financing_r person_finacing_right">
-						<input class="seek_financing_input" name="companyAdd"  maxlength="500"   placeholder="公司地址">
+						<input class="seek_financing_input" name="companyAdd"  maxlength="200"   placeholder="公司地址">
 					</div>
 				</li>
 				<li class="seek_show_on seek_show_block editShowLeft">
@@ -366,11 +366,9 @@
 	});
 </script>
 <script>
-<!--function back(){-->
-	<!--layer.confirm("您的项目信息还没有保存，是否返回",function(){-->
-		<!--location.href = "person_center_myproject.html"-->
-	<!--})-->
-<!--}-->
+function back(){
+
+}
 function save(){
 		var area1Name =  $("select[name='area1']").find("option:selected").text();
 		var area2Name =  $("select[name='area2']").find("option:selected").text();
