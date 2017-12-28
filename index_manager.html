@@ -501,7 +501,11 @@ function getPorjects(tab){
 					}
 				}
 				if(entity.introduce){
-					introduce = entity.introduce
+					if(entity.introduce.length > 32){
+						introduce = entity.introduce.substring(0,32) + '...'
+					}else{
+						introduce = entity.introduce
+					}
 				}
 				if(entity.industryName){
 					industryName = entity.industryName
@@ -517,10 +521,10 @@ function getPorjects(tab){
 				var orgs = ''
 				if(invst){
 					invst = JSON.parse(entity.investSideJson)
-					console.log(invst)
 					var org_jarr = invst.investSideJson
 					for(var j=0;j<org_jarr.length;j++){
 						var org_json = org_jarr[j]
+						console.log(org_json['invstor'])
 						orgs +=org_json['invstor']
 						if(j!=org_jarr.length-1){
 							orgs+=','
@@ -528,6 +532,11 @@ function getPorjects(tab){
 					}
 				}else{
 					orgs = '名称未知'
+				}
+				if(orgs){
+					if(orgs.length>24){
+						orgs = orgs.substring(0,24) + '...'
+					}
 				}
 			    var date =formatDate(entity.latestFinanceDT,'yyyy-MM-dd')
 			    var logo = Constants.logoPath+'project/'+entity.projCode+".png"
