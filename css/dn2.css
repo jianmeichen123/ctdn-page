@@ -154,7 +154,7 @@ select:focus { outline: none important; }
 .person-project-list table tbody tr td:nth-child(4){max-width:154px;width:154px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
 .person-project-list table{border-radius:0px !important;}
 .person-bookmark-content{border:1px solid #f0f0f0;border-radius:5px;}
-.person-bookmark-content ul{width:100%;height:auto;border-bottom:1px solid #d9d9d9;margin-top:30px;}
+.person-bookmark-content ul{width:100%;height:auto;/* border-bottom:1px solid #d9d9d9; */margin-top:30px;}
 .person-bookmark-content ul li{float:left;margin-left:42px;cursor:pointer;font-size:14px;color:#323232;padding-bottom:10px;}
 /* .person-bookmark-content ul li.underline{border-bottom:3px solid #2393f7;color:#2393f7;} */
 .person-project-items{width:775px;border:1px solid #f0f0f0;margin:20px auto;height:auto;}
@@ -271,5 +271,5 @@ textarea.invalid::-ms-input-placeholder {
 .picture-content img{ width:70px;height:50px}
 .person_checking bootstrap-table{width:798px;}
 .fixed-table-body .table > tbody > tr > td {word-break:break-all;}
-
+.fixed-table-pagination{margin-left:10px;}
  
