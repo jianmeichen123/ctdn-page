@@ -69,7 +69,7 @@ ul,ol,dl,dt,dd,p,img{ display:block; border:0;list-style:none; }
 .event_tit_c{font-size:12px;color:#666666;margin-top:5px;height: 40px;line-height: 20px;overflow: hidden;}
 .event_turn{font-size:14px;margin-left:68px; width:58px; margin-top:30px;}
 .event_money{font-size:14px;margin-left:49px; width:98px; margin-top:30px;}
-.event_financing{font-size:14px;margin-left:50px; width:128px; height:80px;display: table; }
+.event_financing{font-size:14px;margin-left:49px; width:128px; height:80px;display: table; }
 .event_financing>ul{display: table-cell; vertical-align:middle; }
 .event_time{margin-left:8px; margin-top:30px;}
 .dn_sy_line_event{border-bottom:1px solid #f0f0f0; width:100%;  height:1px; margin-left:105px;}
@@ -81,7 +81,7 @@ ul,ol,dl,dt,dd,p,img{ display:block; border:0;list-style:none; }
 .subject_tit a{color:#333333;}
 .subject_img_b{ text-align: right;     padding-right: 20px;  position: absolute; bottom:0;height:30px; background:#3e4865; width:100%; opacity:0.8; color:#fff; font-size:12px; line-height:30px; border-bottom-left-radius:4px;border-bottom-right-radius:4px;}
 .report_all>ul{margin-top:20px; padding-bottom:6px;}
-.report_all>ul>li{padding-left:20px; padding-right:20px; margin-bottom:24px; font-size:12px;}
+.report_all>ul>li{padding-left:20px; padding-right:20px; margin-bottom:24px; font-size:14px;    word-wrap: break-word;}
 .report_all>ul>li:before{ content: "　";float:left; background-image: url(../img/dn/dn_ico.png); background-repeat: no-repeat; background-position: -145px -2px; width: 9px; height: 11px;}
 .report_all>ul>li>p{display:block;  margin-left: 20px; line-height:15px; max-height:30px; overflow:hidden;}
 .report_all>ul>li a{color:#333;}
@@ -118,7 +118,7 @@ ul,ol,dl,dt,dd,p,img{ display:block; border:0;list-style:none; }
 .report_detailed_head{background-color:#f1f1f1; border-left:3px solid #3582fa; overflow:hidden; width:100%; padding-top:20px; padding-bottom:20px; margin-top:28px;}
 .report_detailed_head_img{ width:66px; margin-left:30px; margin-right:30px; float:left;}
 .report_detailed_head_name{font-size:14px; color:#333333; margin-top:9px; text-align:center;width: 66px;overflow: hidden;  text-overflow: ellipsis; word-spacing: normal;}
-.report_detailed_head_img img{width:66px; height:66px; border-radius:33px;}
+.report_detailed_head_img img{width:66px; height:66px; border-radius:33px;    overflow: hidden;}
 .report_detailed_head_img>ul>li{margit-top:}
 .report_detailed_head_cen{width:625px; float:left; font-size:12px; color:#666666; line-height:20px;     height: 75px;   display: table;}
 .report_detailed_head_cen p{    display: table-cell;  vertical-align: middle;}
