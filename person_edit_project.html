@@ -77,7 +77,6 @@
 								<input type="hidden" name="fileKey">
 							</div>
 							<span class="dn_ico dn_ico_seek_pur1 personUploadPic"></span>上传文件
-
 						</div>
 						<span class="tit_span" id="projPbName">上传商业计划书，文件大小请限制在25M之内</span>
 					</div>
@@ -94,7 +93,7 @@
 							</div>
 						</div>
 						<span class="tit_span" id="projLogoName">请上传项目logo，建议图片尺寸300*300 文件大小请限制在500k内</span>
-						<span class='picture-content'></span>
+						<span class='picture-content none'><img src="" ></span>
 					</div>
 				</li>
 				<li class="seek_show_on seek_show_block seeShowLeft">
@@ -317,7 +316,7 @@
 				$("#projLogoName").html("<font color='red'>*您的文件大小超过限制，请控制在500KB之内</font>")
 				return;
 			}
-			$("#projLogoName").html(data.files[0].name);
+			$("#projLogoName").text("")
             data.submit();
         },
         messages: {
@@ -326,6 +325,8 @@
 		done: function (e, data) {
 			if(data.result.msg)
 			{
+				$(".picture-content img").attr("src",data.result.uploadFiles[0].url);
+				$(".picture-content").show();
 				$("input[name='projectLogo']").val(data.result.uploadFiles[0].url)
 			}
 			else
@@ -346,7 +347,6 @@
 			$("#projPbName").text("正在上传文件...")
 			$("#projPbName").removeClass("red");
 			$('.person-upload-bp').removeClass('uploadBtnDanger');
-
             data.submit();
         },
 		done: function (e, data) {
@@ -507,7 +507,9 @@ $('body').delegate('#save-btn','click', function(event){
 			$("#projPbName").html(entity["fileName"])
 		}
 		if(entity["projectLogo"]){
-			$("#projLogoName").html(entity["projectLogo"])
+			$("#projLogoName").hide();
+			$(".picture-content img").attr("src",entity["projectLogo"]);
+			$(".picture-content").show()
 		}
 	})
 </script>
