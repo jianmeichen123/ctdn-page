@@ -1,6 +1,10 @@
 $(function () {
-   initTable();
-   firstShow()
+    if(getCookie("_uid_")){
+       initTable();
+       firstShow()
+    }else{
+        location.href=platformUrl.toLogin
+    }
 })
 
 function loadTable(tab){
@@ -223,7 +227,7 @@ function initTable() {
     }
   //收藏夹-创业者
   function personFormatter(value,row,type){
-      var logo = Constants.logoPath +"person/"+row.code+".png"
+      var logo = Constants.logoPath +"person/"+row.url+".png"
       var id=0
       var html =
           "<div class='person-project-item clearfix'>"+
@@ -266,37 +270,22 @@ function initTable() {
                                 .replace("</spanid[0-9]>","")
         return html;
   }
-//  //收藏夹-投资人
-//  function invColFormatter(value,row){
-//      var html =
-//          "<div class='person-project-item clearfix'>"+
-//                  "<span class='person-book-close'  onclick=cancel(3,'"+row.code+"')></span>"+
-//                      "<div class='person-project-left person-start-img fl'><img src='../img/person_center/person-start_03.jpg'/></div>"+
-//                      "<div class='person-project-right fr'>"+
-//                          "<div>"+
-//                              "<p>"+row.zhName+"</p>"+
-//                              "<p>"+row.enName+"</p>"+
-//                          "</div>"+
-//                          "<p>"+
-//                              "<span class='person-start-line none'>"+row.workLife+"</span>"+
-//                              "<span class='person-dutity none'>"+row.job+"</span>"+
-//                              "<span class='person-start-univercity none'>"+row.colleage+"<em>"+row.degree+"</em></span>"+
-//                              "<span class='person-start-address none'>"+row.districtSubName+"</span>"+
-//                          "</p>"+
-//                      "</div>"+
-//                  "</div>"
-//        return html;
-//  }
 function reColFormatter(value,row){
     if(!row.reportDesc){
         row.reportDesc = "暂无"
+    }
+    if(row.authorName){
+        row.authorName = "<span class='person-report-author'>作者："+row.authorName+"</span>"
+    }
+    if(row.source){
+        row.source = "<span class='person-report-origin'>来源："+row.source+"</span>"
     }
     var html= "<div class='person-project-item clearfix'>"+
       						"<span class='person-book-close'  onclick=cancel(4,'"+row.id+"')></span>"+
       						"<div class='person-project-left fl person-report-img'><a href='report_detailed.html?id="+row.id+"'><img src='"+row.listPic+"'></a></div>"+
       						"<div class='person-project-right person-report-right fr'>"+
       							"<h3><a href='report_detailed_1.html?id="+row.id+" target='_blank'>"+row.title+"</a></h3>"+
-      							"<p class='person-report-smalltitle'><span>"+row.publishDate+"</span><span class='person-report-author'>作者："+row.authorName+"</span><span class='person-report-origin'>来源："+row.source+"</span></p>"+
+      							"<p class='person-report-smalltitle'><span>"+row.publishDate+"</span>"+row.authorName+row.source+"</p>"+
       							"<p class='person-book-shortdescription person-report-description'>简介:"+row.reportDesc+"</p>"+
       						"</div>"
      return html;

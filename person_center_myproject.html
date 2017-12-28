@@ -49,13 +49,16 @@
 <script src="js/person_center_foot.js"></script>
 <script src="js/table-init.js"></script>
 <script>
-
+if(!getCookie("_uid_")){
+	location.href=platformUrl.toLogin
+}else{
+	loadTable()
+}
 $('.person_tab li').click(function(){
 	$(this).addClass('person-tab-underline').siblings().removeClass('person-tab-underline');
 	$("#isClaim").val($(this).index())
 	loadTable();
 });
-loadTable()
 function loadTable(){
 	$("table[data-url]").bootstrapTable("refreshOptions",{
 			url: publicsea.queryPubSeaList,         //请求后台的URL（*）

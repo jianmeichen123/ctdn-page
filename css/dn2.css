@@ -148,7 +148,10 @@ select:focus { outline: none important; }
 .person-project-list table tbody tr td:nth-child(5) a{color:#2393f7;cursor:pointer;}
 .person-upload-project{width:244px;height:54px;border-radius:5px;color:#fff;line-height:54px;padding-left:110px;margin:80px auto;cursor:pointer;font-size:14px;background:url('../img/person_center/person-upload_03.png') no-repeat  62px 14px;background-color:#2393f7;}
 .person-project-list table thead tr th:nth-child(1){text-align:left;padding-left:50px;width:214px;}
-.person-project-list table tbody tr td:nth-child(1){text-align:left;padding-left:30px !important;width: 214px;overflow: hidden;text-overflow: ellipsis;white-space: nowrap;}
+.person-project-list table tbody tr td:nth-child(1){text-align:left;padding-left:30px !important;max-width: 214px;width: 214px;overflow: hidden;text-overflow: ellipsis;white-space: nowrap;}
+.person-project-list table tbody tr td:nth-child(2){max-width:225px;width:225px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+.person-project-list table tbody tr td:nth-child(3){max-width:110px !important;width:110px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+.person-project-list table tbody tr td:nth-child(4){max-width:154px;width:154px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
 .person-project-list table{border-radius:0px !important;}
 .person-bookmark-content{border:1px solid #f0f0f0;border-radius:5px;}
 .person-bookmark-content ul{width:100%;height:auto;border-bottom:1px solid #d9d9d9;margin-top:30px;}
@@ -169,7 +172,7 @@ select:focus { outline: none important; }
 .person-institute-incident{color:#333;}
 .person-incident-num{margin-right:30px;}
 .person-start-person{display:none;}
-.person-start-img{margin-top:27px;}
+.person-start-img{}
 .person-start-address{background:url('../img/person_center/person-book_03.jpg') no-repeat;padding-left:20px;margin-left:38px;}
 .person-start-line{padding-right:14px;border-right:1px solid #cccccc;}
 .person-dutity{padding:0px 15px;border-right:1px solid #cccccc;}
@@ -193,8 +196,8 @@ select:focus { outline: none important; }
 .person-pass-confirm{margin-left:-13px;}
 .new-confirm{margin-left:0px !important;}
 .person-save-password{display:inline-block;width:300px;height:50px;line-height:50px;text-align:center;color:#fff;border-radius:5px;background:#2393f7;margin-left:80px;cursor:pointer;margin-top:30px !important;}
-.person-book-eye{display:inline-block;width:17px;height:16px;right:-30px;position:absolute;right: 36px;top: 19px;background:url('../img/login/login-icon_10.jpg') no-repeat;cursor:pointer;}
-.person-book-eye-blue{background:url('../img/login/eye-blue_03.jpg') no-repeat;}
+.person-book-eye{display:inline-block;width:22px;height:16px;position:absolute;right:27px;top: 19px;background:url('../img/login/login-icon_10.jpg') no-repeat 2px 2px;cursor:pointer;}
+.person-book-eye-blue{background:url('../img/login/eye-blue_03.jpg') no-repeat 2px 2px;}
 .concern-industry-content{width:779px;margin:30px auto;}
 .industry-title{background:#f3f6ff;text-align:center;padding:9px 0px;border-radius:5px;color:#666666;font-size:12px;}
 .industry-concern{text-align:center;padding-top:33px;padding-bottom:20px;border-bottom:1px solid #ccc;font-size:16px;color:#333;}
@@ -258,9 +261,11 @@ textarea.invalid::-ms-input-placeholder {
 .person-reset-password ul li .inputDanger{border:1px solid #ff4e49; box-shadow:1px 1px 5px #fff2f2;}
 .person-head-pic span{margin-top:17px;display:inline-block;color:#fff;text-align: center;}
 .password-content{heigth:388px;}
+.pagination li{margin-left:inherit !important;}
+.pagination{border-bottom:none !important;}
+.picture-content{}
 
+.person_checking bootstrap-table{width:798px;}
+.fixed-table-body .table > tbody > tr > td {word-break:break-all;}
 
-
-
-
-
+ 
