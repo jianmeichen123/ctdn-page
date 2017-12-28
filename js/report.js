@@ -6,6 +6,7 @@ function fillReportInfo(data,divList){
     $(divList).each(function(){
         var div = $(this)
         var ls = div.find("*[data-field]")
+        $("#reportId").attr("code",id)
         $(ls).each(function(){
             var o = $(this);
             var k = o.attr("data-field");
