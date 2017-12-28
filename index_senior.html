@@ -296,7 +296,7 @@
 	{{each(i,v) data}}
 	<li>
 							<div class="rivalry_div_l">
-								<a href="{{html "/jg_particulars.html?orgCode="+v.orgCode}}"><img src={{html Constants.logoPath +"news/"+v.orgCode+".PNG"}}></a>
+								<a href="{{html "/jg_particulars.html?orgCode="+v.orgCode}}"><img src={{html Constants.logoPath +"org/"+v.orgCode+".png"}}></a>
 								<div class="rivalry_div_tit"><a href="{{html "/jg_particulars.html?orgCode="+v.orgCode}}">${v.investOrg}</a></div>
 								<div class="rivalry_div_num">上个月<span class="rivalry_div_num_span">${v.lastMonthInvestNum}</span>笔</div>
 							</div>
