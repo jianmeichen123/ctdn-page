@@ -60,7 +60,7 @@ function loadTable(tab){
 /*
 *tab页上的数字
 */
-function queryTotal(tab){
+function queryTotal(){
     var trigger_tab = 0
     var userCode = getCookie("_usercode_")
     sendGetRequest(user.countNum+userCode,function(data){
