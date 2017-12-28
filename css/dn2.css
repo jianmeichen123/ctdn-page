@@ -149,6 +149,9 @@ select:focus { outline: none important; }
 .person-upload-project{width:244px;height:54px;border-radius:5px;color:#fff;line-height:54px;padding-left:110px;margin:80px auto;cursor:pointer;font-size:14px;background:url('../img/person_center/person-upload_03.png') no-repeat  62px 14px;background-color:#2393f7;}
 .person-project-list table thead tr th:nth-child(1){text-align:left;padding-left:50px;width:214px;}
 .person-project-list table tbody tr td:nth-child(1){text-align:left;padding-left:30px !important;width: 214px;overflow: hidden;text-overflow: ellipsis;white-space: nowrap;}
+.person-project-list table tbody tr td:nth-child(2){width:225px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+.person-project-list table tbody tr td:nth-child(3){width:110px !important;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+.person-project-list table tbody tr td:nth-child(4){width:168px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
 .person-project-list table{border-radius:0px !important;}
 .person-bookmark-content{border:1px solid #f0f0f0;border-radius:5px;}
 .person-bookmark-content ul{width:100%;height:auto;border-bottom:1px solid #d9d9d9;margin-top:30px;}
@@ -258,8 +261,8 @@ textarea.invalid::-ms-input-placeholder {
 .person-reset-password ul li .inputDanger{border:1px solid #ff4e49; box-shadow:1px 1px 5px #fff2f2;}
 .person-head-pic span{margin-top:17px;display:inline-block;color:#fff;text-align: center;}
 .password-content{heigth:388px;}
-
-
+.pagination li{margin-left:inherit !important;}
+.pagination{border-bottom:none !important;}
 
 
 
