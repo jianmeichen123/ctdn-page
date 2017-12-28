@@ -27,7 +27,9 @@
 								<li class="report_list_cen_time"><span>${publishDate}</span><span></span><span>来源：${source}</span></li>
 								<li class="report_list_cen_c">${reportDesc}</li>
 							</ul>
-							<div class="search_collect click_collect" type=4 code=${id}><span class="dn_ico dn_ico_list_collect_search dn_ico_list_collect" ></span>收藏</div>
+
+								{{html isCollect(id+'') }}
+
 						</div>
 						<div class="dn_sy_line"></div>
 					</li>
@@ -70,6 +72,18 @@
 <script src="js/table-init.js"></script>
 <script src="js/jquery.tmpl.js"></script>
 <script>
+//common.js 获取当前用户收藏codeList
+var codeList = getCodeList(4);
+function isCollect(id){
+	var html = "";
+	if(codeList && codeList.indexOf(id)>=0){
+		html+='<div class="search_collect click_collect dn_ico_list_collect_on" type=4 code="'+id+'">'
+	}else{
+		html+='<div class="search_collect click_collect " type=4 code="'+id+'">'
+	}
+	html+='<span class="dn_ico dn_ico_list_collect_search dn_ico_list_collect " ></span>收藏</div>'
+	return html
+}
 nav_locaton('hybg','44','','')
 initTable();
 loadTable();

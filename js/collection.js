@@ -60,7 +60,7 @@ function loadTable(tab){
 /*
 *tab页上的数字
 */
-function queryTotal(){
+function queryTotal(tab){
     var trigger_tab = 0
     var userCode = getCookie("_usercode_")
     sendGetRequest(user.countNum+userCode,function(data){
@@ -77,6 +77,16 @@ function queryTotal(){
         }
     })
     return trigger_tab;
+}
+
+function refreshTotal(tab){
+     var userCode = getCookie("_usercode_")
+     sendGetRequest(user.countNum+userCode,function(data){
+        $('.info-nav-content li').each(function(){
+            var tab = $(this).attr('data-type');
+            $(this).children().next().html(data.data[tab])
+        })
+    })
 }
 
 $(".info-nav-content").delegate("li","click",function(){
@@ -293,5 +303,6 @@ function reColFormatter(value,row){
 
 function cancel(type,code){
     cancelOneCol(type,code);
-    location.reload()
+    refreshTotal(type)
+    triggerTable(type)
 }
