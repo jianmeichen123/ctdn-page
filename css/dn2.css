@@ -263,7 +263,7 @@ textarea.invalid::-ms-input-placeholder {
 .password-content{heigth:388px;}
 .pagination li{margin-left:inherit !important;}
 .pagination{border-bottom:none !important;}
-.picture-content{}
+.picture-content{display:inline-block;width:70px;height:50px;border:1px solid;margin-left:20px;}
 
 .person_checking bootstrap-table{width:798px;}
 .fixed-table-body .table > tbody > tr > td {word-break:break-all;}
