@@ -272,13 +272,11 @@ comp {
 							<li>
 								<div class="relative m_t5">
 									<span class="circle_b"></span>
+									{{if period}}
 									<span class="startup_time">
-										{{if period}}
-											${period}
-										{{else}}
-											时间未知
-										{{/if}}
+										${period}
 									</span>
+									{{/if}}
 									<span>${projTitle}</span>
 									{{if job && projTitle}}
 									<span>|</span>
