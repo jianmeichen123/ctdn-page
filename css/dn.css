@@ -413,4 +413,6 @@ td>.dn_ico_list_contrast_on,td>.dn_ico_list_collect_on{border:0;}
 .company{margin-right:10px;}
 .new_ico{position:absolute;top:18px;left:33px;}
 .message-tips{margin-left:23px;}
-
+input::-ms-clear, input::-ms-reveal {
+　　display: none;
+}
