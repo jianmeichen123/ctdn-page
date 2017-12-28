@@ -85,6 +85,7 @@
 							<span class="dn_ico dn_ico_seek_pur2"></span>上传logo
 						</div>
 						<span class="tit_span" id="projLogoName">请上传项目logo，建议图片尺寸300*300 文件大小请限制在500k内</span>
+						<span class='picture-content none'><img src="" ></span>
 					</div>
 				</li>
 				<li class="seek_show_on">
@@ -183,7 +184,7 @@
 		var verify_20 = /^(?!.{21}|^\s*$)/;
 		return this.optional(element) || (verify_20.test(value));
 	}, "");
-	
+
 	//验证长度
 	jQuery.validator.addMethod("length50", function (value, element) {
 		var verify_50 = /^(?!.{51}|^\s*$)/;
@@ -289,7 +290,7 @@
 				$("#projLogoName").html("<font color='red'>*您的文件大小超过限制，请控制在500KB之内</font>")
 				return;
 			}
-			$("#projLogoName").html(data.files[0].name);
+			$("#projLogoName").text("")
             data.submit();
         },
         messages: {
@@ -298,6 +299,8 @@
 		done: function (e, data) {
 			if(data.result.success)
 			{
+				$(".picture-content img").attr("src",data.result.uploadFiles[0].url);
+				$(".picture-content").show()
 				$("input[name='projectLogo']").val(data.result.uploadFiles[0].url)
 			}
 			else
