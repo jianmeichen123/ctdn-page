@@ -369,7 +369,14 @@
 </script>
 <script>
 function back(){
-
+	layer.open({
+		  type: 2,
+		  title: '提示信息',
+		  shadeClose: true,
+		  shade: 0.6,
+		  area: ['400px', '280px'],
+		  content: 'html/tips_back.html'
+	});
 }
 function save(){
 		var area1Name =  $("select[name='area1']").find("option:selected").text();
