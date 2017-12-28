@@ -848,7 +848,7 @@ function show_user_industry(data_list){
 		if(flag == '1'){ //选中
 			css = 'trade_pop_c_ul_on'
 		}
-		html +='<li class="'+ css +'" lang="'+entity.id+'">' +entity.name+'</li>'
+		html +='<li class="'+ css +'" lang="'+entity.id+'" style="cursor: pointer;">' +entity.name+'</li>'
    }
 	$('#concern_industry').html(html)
 	$("#concern_industry li").click(function(){
@@ -931,7 +931,7 @@ function show_user_industry(data_list){
 		if(flag == '1'){ //选中
 			css = 'trade_pop_c_ul_on'
 		}
-		html +='<li class="'+ css +'" lang="'+entity.id+'">' +entity.name+'</li>'
+		html +='<li class="'+ css +'" lang="'+entity.id+'" style="cursor: pointer;">' +entity.name+'</li>'
    }
 	$('#concern_industry').html(html)
 	$("#concern_industry li").click(function(){
