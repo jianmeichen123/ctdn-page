@@ -123,10 +123,12 @@ function loadTable(){
         onLoadSuccess: function (data) {
 			$("#ul").html("")
             var target =$("#report_ls")
-            if(isCollection("4",data["id"]+'')){
-				 $(".click_collect").toggleClass('dn_ico_list_collect_on');
-			 }
             if(data.page && data.page.records){
+            	for(i in data.page.records){
+					if(isCollection("4",data.page.records[i]["id"]+'')){
+					 $(".click_collect").toggleClass('dn_ico_list_collect_on');
+					}
+            	}
              	target.tmpl(data.page.records).appendTo($("#ul"))
             }
         }
