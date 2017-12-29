@@ -83,8 +83,11 @@ function refreshTotal(tab){
      var userCode = getCookie("_usercode_")
      sendGetRequest(user.countNum+userCode,function(data){
         $('.info-nav-content li').each(function(){
-            var tab = $(this).attr('data-type');
-            $(this).children().next().html(data.data[tab])
+           var total=0;
+           if(data.data[tab]){
+               total=data.data[tab]
+           }
+           $(this).children().next().html(total)
         })
     })
 }
