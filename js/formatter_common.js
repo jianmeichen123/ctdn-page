@@ -535,13 +535,19 @@ function investfirmFormatter(value,row){
 function personFormatter(value,row){
         var img = Constants.logoPath +"person/"+row.url+".png"
         var id=0
+        var xq_type=""
+        if(typeof(row.rounds)=='undefined'){
+            xq_type="startup_xq.html"
+        }else{
+            xq_type="investor_xq.html"
+        }
         var person_html=
         "<div class='search_list_people_all'>"+
         "<div class='list-item search_list_people'>"+
         "<div class='list-item-inner'>"+
-        "<div class='list-item-left'><a target='_blank' href='/startup_xq.html?code="+row.code+"'><img src='"+img+"'></a></div>"+
+        "<div class='list-item-left'><a target='_blank' href="+xq_type+"?code="+row.code+"'><img src='"+img+"'></a></div>"+
         "<div class='list-item-right'>"+
-        "<div class='list-item-title'><a target='_blank' href='/startup_xq.html?code="+row.code+"'>"+row.zhName+"</a></div>";
+        "<div class='list-item-title'><a target='_blank' href="+xq_type+"?code="+row.code+"'>"+row.zhName+"</a></div>";
         if(row.enName){
             person_html+="<div class='search_list_people_wn'>"+row.enName+"</div>"
         }
@@ -697,11 +703,17 @@ function investorFormatter(value,row){
 //行业
 function reportFormatter(value,row){
     var reportDesc=row.reportDesc==null?"":row.reportDesc
-
+    var reportBody = row.reportBody
     var info_html=""
 
     if(row.publishDate){
         info_html+="<span>"+row.publishDate+"</span>"
+    }
+
+    if(reportBody){
+        if(reportBody.length>100){
+            reportBody = reportBody.substring(0.100)
+        }
     }
 
     if(row.source){
@@ -717,7 +729,7 @@ function reportFormatter(value,row){
                 '<ul>'+
                     '<li class="report_list_cen_tit"><a href="report_detailed.html?id='+row.id+'" target="_blank">'+row.title+'</a></li>'+
                     '<li class="report_list_cen_time">'+info_html+'</li>'+
-                    '<li class="report_list_cen_c">'+reportDesc+'</li>'+
+                    '<li class="report_list_cen_c">'+reportBody+'</li>'+
                 '</ul>'+
                 '<div class="search_collect click_collect"><span class="dn_ico dn_ico_list_collect_search dn_ico_list_collect" type=4 code='+row.id+'></span>收藏</div>'+
             '</div>'+
