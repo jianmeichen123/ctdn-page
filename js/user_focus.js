@@ -13,7 +13,7 @@ function initVar(){
      focusIndustryIds = [];
 }
 function initIndex(){
-    initFocusIndustry();
+   // initFocusIndustry();
     initAllIndustry();
 }
 //所有行业初始化
