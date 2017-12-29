@@ -25,7 +25,7 @@
 							<ul>
 								<li class="report_list_cen_tit"><a href="report_detailed.html?id=${id}" target="_blank">${title}</a></li>
 								<li class="report_list_cen_time"><span>${publishDate}</span><span></span><span>来源：${source}</span></li>
-								<li class="report_list_cen_c">${reportDesc}</li>
+								<li class="report_list_cen_c">{{html reportBody}}</li>
 							</ul>
 							<div class="search_collect click_collect" type=4 code=${id}><span class="dn_ico dn_ico_list_collect_search dn_ico_list_collect" ></span>收藏</div>
 						</div>
@@ -125,6 +125,11 @@ function loadTable(){
             var target =$("#report_ls")
             if(data.page && data.page.records){
             	for(i in data.page.records){
+            		if(data.page.records[i]["reportBody"]){
+            			if(data.page.records[i]["reportBody"].length>250){
+            				data.page.records[i]["reportBody"] = data.page.records[i]["reportBody"].substring(0,250)+"...";
+            			}
+            		}
 					if(isCollection("4",data.page.records[i]["id"]+'')){
 					 $(".click_collect").toggleClass('dn_ico_list_collect_on');
 					}
