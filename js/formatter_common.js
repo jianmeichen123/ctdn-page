@@ -535,13 +535,19 @@ function investfirmFormatter(value,row){
 function personFormatter(value,row){
         var img = Constants.logoPath +"person/"+row.url+".png"
         var id=0
+        var xq_type=""
+        if(typeof(row.rounds)=='undefined'){
+            xq_type="startup_xq.html"
+        }else{
+            xq_type="investor_xq.html"
+        }
         var person_html=
         "<div class='search_list_people_all'>"+
         "<div class='list-item search_list_people'>"+
         "<div class='list-item-inner'>"+
-        "<div class='list-item-left'><a target='_blank' href='/startup_xq.html?code="+row.code+"'><img src='"+img+"'></a></div>"+
+        "<div class='list-item-left'><a target='_blank' href="+xq_type+"?code="+row.code+"'><img src='"+img+"'></a></div>"+
         "<div class='list-item-right'>"+
-        "<div class='list-item-title'><a target='_blank' href='/startup_xq.html?code="+row.code+"'>"+row.zhName+"</a></div>";
+        "<div class='list-item-title'><a target='_blank' href="+xq_type+"?code="+row.code+"'>"+row.zhName+"</a></div>";
         if(row.enName){
             person_html+="<div class='search_list_people_wn'>"+row.enName+"</div>"
         }
