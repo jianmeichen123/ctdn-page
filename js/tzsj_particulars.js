@@ -3,7 +3,6 @@ function fillBaseEventInfo(data,divList){
     $(divList).each(function(){
         var div = $(this);
         var ls = div.find("*[data-field]")
-
         $(ls).each(function(){
             var o = $(this);
             var k = o.attr("data-field")
@@ -12,7 +11,11 @@ function fillBaseEventInfo(data,divList){
                 v=v+'%'
             }
             if(k=='company'){
-                v="<span class='list_table_td'><a href='project_qy.html?projCode="+data.sourceCode+"'>"+v+"</a></span>"
+                if(v){
+                    v="<span class='list_table_td'><a href='project_qy.html?projCode="+data.sourceCode+"'>"+v+"</a></span>"
+                }else{
+                    v="--"
+                }
             }
             if(k=='investDate'){
                 v = formatDate(v, "yyyy-MM-dd")
