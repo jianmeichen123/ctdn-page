@@ -778,7 +778,7 @@ function reportFormatter(value,row){
          collect_style="dn_ico_list_collect_on"
          $(".click_collect").toggleClass('dn_ico_list_collect_on');
     }
-//    alert(collect_style)
+
     var html ='<li>'+
             '<div class="report_list_img"><img src="'+row.listPic+'"></div>'+
             '<div class="report_list_cen">'+
@@ -791,7 +791,6 @@ function reportFormatter(value,row){
             '</div>'+
             '<div class="dn_sy_line"></div>'+
         '</li>';
-//              alert(html)
    return html;
 }
 
