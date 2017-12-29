@@ -286,7 +286,7 @@ function initTable() {
   }
 function reColFormatter(value,row){
     if(!row.reportDesc){
-        row.reportDesc = "暂无"
+        row.reportDesc=''
     }
     if(row.authorName){
         row.authorName = "<span class='person-report-author'>作者："+row.authorName+"</span>"
@@ -300,7 +300,7 @@ function reColFormatter(value,row){
       						"<div class='person-project-right person-report-right fr'>"+
       							"<h3><a href='report_detailed.html?id="+row.id+"' target='_blank'>"+row.title+"</a></h3>"+
       							"<p class='person-report-smalltitle'><span>"+row.publishDate+"</span>"+row.authorName+row.source+"</p>"+
-      							"<p class='person-book-shortdescription person-report-description'>简介:"+row.reportDesc+"</p>"+
+      							"<p class='person-book-shortdescription person-report-description'>"+row.reportDesc+"</p>"+
       						"</div>"
      return html;
 }

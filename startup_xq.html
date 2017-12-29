@@ -247,7 +247,11 @@ comp {
 									{{if job && projTitle}}
 										<span>|</span>
 									{{/if}}
-										<span>${job}</span>
+									<span>${job}</span>
+									{{if projTitle && desc}}
+									    <span>|</span>
+									{{/if}}
+                    				<span>${desc}</span>
 								</div>
 							</li>
 							{{/each}}

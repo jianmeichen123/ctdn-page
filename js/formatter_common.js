@@ -1,3 +1,8 @@
+//var projCodeList = getCodeList(0);
+//var orgCodeList = getCodeList(1);
+//var startUpCodeList = getCodeList(2);
+//var investorCodeList = getCodeList(3);
+
 var tableFormate ={
     industryStr:function(value, row, index){
         if (!row.industryName)return "行业未知"
@@ -161,7 +166,7 @@ var tableFormate ={
         var img = Constants.logoPath+"project/"+row["sourceCode"]+".png"
         if(!company){
             company='名称未知'
-            industrict='地区未知'+ ' '+'行业未知'
+//            industrict='地区未知'+ ' '+'行业未知'
         }
         if (row.districtSubName){
             if(row.districtSubName!='国外'){
@@ -182,7 +187,7 @@ var tableFormate ={
             industrict+=' '+row.industryName +">" +row.industrySubName
         }
 
-        if(row.sourceCode){
+        if(row.sourceCode&&row.company){
             return '<div class="list_table_td"> <a target="_blank" href="/project_qy.html?projCode='+row.sourceCode+'"><img  width="37" src="'+img+'"> </a><ul class="col_999"> <li><a target="_blank" href="/project_qy.html?projCode='+row.sourceCode+'">'+company+'</a></li> <li>'+industrict+'</li> </ul> </div>'
         }else{
             return '<div class="list_table_td"> <img  width="37" src="'+img+'"> <ul class="col_999"> <li><a class="defalut">'+company+'</a></li> <li>'+industrict+'</li> </ul> </div>'
@@ -418,6 +423,20 @@ function newsFormatter(value,row){
 
 //项目formatter <span>F轮-上市前/55亿美元</span>
 function projectFormatter(value,row){
+    var compare_style=""
+    var collect_style=""
+
+     //判断是否对比
+     if(isCompare(row.projCode)){
+         compare_style="dn_ico_list_contrast_on"
+         $(".click_contrast").toggleClass('dn_ico_list_contrast_on');
+     }
+     //判断是否收藏
+     if(isCollection(0,row.projCode)){
+         collect_style="dn_ico_list_collect_on"
+         $(".click_collect").toggleClass('dn_ico_list_collect_on');
+     }
+
 
     var projectName = row.projTitle
     if(projectName==null){
@@ -451,7 +470,6 @@ function projectFormatter(value,row){
            industryName+="-" +row.industrySubName
        }
    }
-
 	var html = "<div class='list-item porject_search_w'>"+
 			"<div class='list-item-inner'>"+
 				"<div class='list-item-left'>"+
@@ -461,8 +479,8 @@ function projectFormatter(value,row){
 					"<p class='list-item-title'><a target='_blank' href='/project_qy.html?projCode="+row.projCode+"'>"+projectName+"</a>"+tag+"</p>"+
 					"<p class='list-item-content'>简介:${introduce}</p>"+
 					"<p class='list-item-tips'><i class='list-item-address'></i>${districtSubName}"+industryName+"</p>"+
-					"<div class='search_collect click_collect'><span class='dn_ico dn_ico_list_collect_search'></span>收藏</div>"+
-					"<div class='search_contrast click_contrast'><span class='dn_ico dn_ico_list_search_contrast'></span>对比</div>"+
+					"<div title='"+projectName+"' code='"+row.projCode+"' type='0' class='search_collect click_collect "+collect_style+"'><span class='dn_ico dn_ico_list_collect_search'></span>收藏</div>"+
+					"<div title='"+projectName+"' code='"+row.projCode+"' type='0' id="+row.projCode+" class='search_contrast click_contrast "+compare_style+"'><span class='dn_ico dn_ico_list_search_contrast'></span>对比</div>"+
 				"</div>"+
 			"</div>"+
 		"</div>"
@@ -514,6 +532,20 @@ function investfirmFormatter(value,row){
         if(!row.investTotal){
             row.investTotal = 0
         }
+
+
+         var collect_style=""
+         //判断是否对比
+//           var compare_style=""
+//         if(isCompare(row.orgCode)){
+//             compare_style="dn_ico_list_contrast_on"
+//             $(".click_contrast").toggleClass('dn_ico_list_contrast_on');
+//         }
+         //判断是否收藏
+         if(isCollection(1,row.orgCode)){
+             collect_style="dn_ico_list_collect_on"
+             $(".click_collect").toggleClass('dn_ico_list_collect_on');
+         }
     	var html = "<div class='list-item'>"+
    			"<div class='list-item-inner'>"+
    				"<div class='list-item-left'>"+
@@ -523,7 +555,7 @@ function investfirmFormatter(value,row){
    					"<p class='list-item-title institute-title'><a target='_blank' href='/jg_particulars.html?orgCode="+row.orgCode+"'>"+investOrg+"</a><span>"+orgType+"</span></p>"+
    					"<p class='list-item-case'>投资事件:<span>${investTotal}</span></p>"+
    					"<p class='list-item-content list-institute-content'>简介:"+orgDesc+"</p>"+
-   					"<div class='search_collect click_collect'><span class='dn_ico dn_ico_list_collect_search'></span>收藏</div>"
+   					"<div title='"+investOrg+"' code='"+row.orgCode+"' type='1' class='search_collect click_collect "+collect_style+"'><span class='dn_ico dn_ico_list_collect_search'></span>收藏</div>"
    				"</div>"+
    			"</div>"+
    		"</div>"
@@ -535,13 +567,34 @@ function investfirmFormatter(value,row){
 function personFormatter(value,row){
         var img = Constants.logoPath +"person/"+row.url+".png"
         var id=0
+        var xq_type=""
+        var type=2
+        var collect_style=""
+        if(typeof(row.rounds)=='undefined'){
+            type=2
+            xq_type="startup_xq.html"
+            //判断是否收藏
+            if(isCollection(2,row.code)){
+                 collect_style="dn_ico_list_collect_on"
+                 $(".click_collect").toggleClass('dn_ico_list_collect_on');
+            }
+        }else{
+            type=3
+            xq_type="investor_xq.html"
+            //判断是否收藏
+            if(isCollection(3,row.code)){
+                 collect_style="dn_ico_list_collect_on"
+                 $(".click_collect").toggleClass('dn_ico_list_collect_on');
+            }
+        }
+
         var person_html=
         "<div class='search_list_people_all'>"+
         "<div class='list-item search_list_people'>"+
         "<div class='list-item-inner'>"+
-        "<div class='list-item-left'><a target='_blank' href='/startup_xq.html?code="+row.code+"'><img src='"+img+"'></a></div>"+
+        "<div class='list-item-left'><a target='_blank' href="+xq_type+"?code="+row.code+"'><img src='"+img+"'></a></div>"+
         "<div class='list-item-right'>"+
-        "<div class='list-item-title'><a target='_blank' href='/startup_xq.html?code="+row.code+"'>"+row.zhName+"</a></div>";
+        "<div class='list-item-title'><a target='_blank' href="+xq_type+"?code="+row.code+"'>"+row.zhName+"</a></div>";
         if(row.enName){
             person_html+="<div class='search_list_people_wn'>"+row.enName+"</div>"
         }
@@ -570,9 +623,11 @@ function personFormatter(value,row){
         if(row.districtSubName){
             person_html+="<li><span><li class='list-item-address'></li>"+row.districtSubName+"</span></li>"
         }
+
+
         person_html+="</ul>"+
                      "</div>"+
-                     "<div class='search_collect click_collect'><span class='dn_ico dn_ico_list_collect_search'></span>收藏</div>"+
+                     "<div title='"+row.zhName+"' code='"+row.code+"' type='"+type+"' class='search_collect click_collect "+collect_style+"'><span class='dn_ico dn_ico_list_collect_search'></span>收藏</div>"+
                      "</div>"+
                      "</div>"+
                      "</div>"+
@@ -697,11 +752,17 @@ function investorFormatter(value,row){
 //行业
 function reportFormatter(value,row){
     var reportDesc=row.reportDesc==null?"":row.reportDesc
-
+    var reportBody = row.reportBody
     var info_html=""
 
     if(row.publishDate){
         info_html+="<span>"+row.publishDate+"</span>"
+    }
+
+    if(reportBody){
+        if(reportBody.length>100){
+            reportBody = reportBody.substring(0.100)
+        }
     }
 
     if(row.source){
@@ -710,19 +771,27 @@ function reportFormatter(value,row){
         }
         info_html+='<span>来源：'+row.source+'</span>'
     }
+    var collect_style="";
 
+    if(isCollection(4,row.id)){
+
+         collect_style="dn_ico_list_collect_on"
+         $(".click_collect").toggleClass('dn_ico_list_collect_on');
+    }
+//    alert(collect_style)
     var html ='<li>'+
             '<div class="report_list_img"><img src="'+row.listPic+'"></div>'+
             '<div class="report_list_cen">'+
                 '<ul>'+
                     '<li class="report_list_cen_tit"><a href="report_detailed.html?id='+row.id+'" target="_blank">'+row.title+'</a></li>'+
                     '<li class="report_list_cen_time">'+info_html+'</li>'+
-                    '<li class="report_list_cen_c">'+reportDesc+'</li>'+
+                    '<li class="report_list_cen_c">'+reportBody+'</li>'+
                 '</ul>'+
-                '<div class="search_collect click_collect"><span class="dn_ico dn_ico_list_collect_search dn_ico_list_collect" type=4 code='+row.id+'></span>收藏</div>'+
+                '<div type=4 code="'+row.id+'" title="'+row.title+'" class="search_collect click_collect '+collect_style+'"><span class="dn_ico dn_ico_list_collect_search dn_ico_list_collect" ></span>收藏</div>'+
             '</div>'+
             '<div class="dn_sy_line"></div>'+
-        '</li>'
+        '</li>';
+//              alert(html)
    return html;
 }
 
