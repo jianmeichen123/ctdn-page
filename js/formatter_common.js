@@ -161,7 +161,7 @@ var tableFormate ={
         var img = Constants.logoPath+"project/"+row["sourceCode"]+".png"
         if(!company){
             company='名称未知'
-            industrict='地区未知'+ ' '+'行业未知'
+//            industrict='地区未知'+ ' '+'行业未知'
         }
         if (row.districtSubName){
             if(row.districtSubName!='国外'){
@@ -182,7 +182,7 @@ var tableFormate ={
             industrict+=' '+row.industryName +">" +row.industrySubName
         }
 
-        if(row.sourceCode){
+        if(row.sourceCode&&row.company){
             return '<div class="list_table_td"> <a target="_blank" href="/project_qy.html?projCode='+row.sourceCode+'"><img  width="37" src="'+img+'"> </a><ul class="col_999"> <li><a target="_blank" href="/project_qy.html?projCode='+row.sourceCode+'">'+company+'</a></li> <li>'+industrict+'</li> </ul> </div>'
         }else{
             return '<div class="list_table_td"> <img  width="37" src="'+img+'"> <ul class="col_999"> <li><a class="defalut">'+company+'</a></li> <li>'+industrict+'</li> </ul> </div>'
