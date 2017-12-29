@@ -273,17 +273,14 @@
 			$(this).val($(this).val().substr(0,14));
 		}
 	});
-
 	$.fn.serializeJson = function(){
 		var data = {};
 		var array = this.serializeArray();
 		$.each(array,function(){
-			if(data[this.name]){
-				data[this.name]= this.value.trim();
-			}
+			data[this.name]=this.value.replace(/(^\s+)|(\s+$)/g,"");
 		})
 		data["userId"] = getCookie("_usercode_")
- 		return data;
+		return data;
 	}
 
 	$('.seek_show_open').click(function(event){

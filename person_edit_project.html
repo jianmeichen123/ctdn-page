@@ -318,6 +318,7 @@
 		$.each(array,function(){
 			data[this.name]=this.value.replace(/(^\s+)|(\s+$)/g,"");
 		})
+		data["userId"] = getCookie("_usercode_")
 		return data;
 	}
 
