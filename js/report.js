@@ -1,11 +1,16 @@
 //报告正文
 var id = getHrefParamter("id");
+if(!id){
+    id=-1;
+}
 sendGetRequest(detail.getReport+id,function(data){fillReportInfo(data.data,$("div[data-query='getReport']"))})
 
 function fillReportInfo(data,divList){
-    if(isCollection("4",data["id"]+'')){
-         $(".click_collect").toggleClass('dn_ico_list_collect_on');
-     }
+    if(data){
+        if(isCollection("4",data["id"]+'')){
+             $(".click_collect").toggleClass('dn_ico_list_collect_on');
+         }
+    }
     $(divList).each(function(){
         var div = $(this)
         var ls = div.find("*[data-field]")
