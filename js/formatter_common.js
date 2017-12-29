@@ -703,11 +703,17 @@ function investorFormatter(value,row){
 //行业
 function reportFormatter(value,row){
     var reportDesc=row.reportDesc==null?"":row.reportDesc
-
+    var reportBody = row.reportBody
     var info_html=""
 
     if(row.publishDate){
         info_html+="<span>"+row.publishDate+"</span>"
+    }
+
+    if(reportBody){
+        if(reportBody.length>100){
+            reportBody = reportBody.substring(0.100)
+        }
     }
 
     if(row.source){
@@ -723,7 +729,7 @@ function reportFormatter(value,row){
                 '<ul>'+
                     '<li class="report_list_cen_tit"><a href="report_detailed.html?id='+row.id+'" target="_blank">'+row.title+'</a></li>'+
                     '<li class="report_list_cen_time">'+info_html+'</li>'+
-                    '<li class="report_list_cen_c">'+reportDesc+'</li>'+
+                    '<li class="report_list_cen_c">'+reportBody+'</li>'+
                 '</ul>'+
                 '<div class="search_collect click_collect"><span class="dn_ico dn_ico_list_collect_search dn_ico_list_collect" type=4 code='+row.id+'></span>收藏</div>'+
             '</div>'+
