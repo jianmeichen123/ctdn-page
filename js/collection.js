@@ -292,8 +292,8 @@ function reColFormatter(value,row){
         row.reportBody=''
     }else{
         var temp = row.reportBody.replace(/<[^>]+>/g,"")
-        if(row.reportBody.length>200){
-             row.reportBody =temp.substring(0,200)+"..."
+        if(row.reportBody.length>80){
+             row.reportBody =temp.substring(0,80)+"..."
         }else{
             row.reportBody = temp
         }
