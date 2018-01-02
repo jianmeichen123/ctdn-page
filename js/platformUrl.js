@@ -1,41 +1,16 @@
-//本地
-//
-//var Constants = {
-//	platformContentURL: "http://ctdn.local.galaxyinternet.com/api/",
-//	searchContentURL: "http://ctdn.local.galaxyinternet.com/search/",
-//	dataContentURL: "http://ctdn.local.galaxyinternet.com/data/",
-//	uploadURL: "http://ctdn.local.galaxyinternet.com/cloudstorage/",
-//	logoPath: "http://static.galaxyinternet.com/img/",
-//	userContentURL: "http://ctdn.local.galaxyinternet.com/user/"
-//}
+
 
 var Constants = {
-	platformContentURL: "http://ctdnqa.gi.com/api/",
-	searchContentURL: "http://ctdnqa.gi.com/search/",
-	dataContentURL: "http://ctdnqa.gi.com/data/",
-	uploadURL: "http://ctdnqa.gi.com/cloudstorage/",
+	platformContentURL: "http://ctdnrc.galaxyinternet.com/api/",
+	searchContentURL: "http://ctdnrc.galaxyinternet.com/search/",
+	dataContentURL: "http://ctdnrc.galaxyinternet.com/data/",
+	uploadURL: "http://ctdnrc.galaxyinternet.com/cloudstorage/",
 	logoPath: "http://static.galaxyinternet.com/img/",
-	userContentURL: "http://ctdnqa.gi.com/user/"
+	userContentURL: "http://ctdnrc.galaxyinternet.com/user/"
 }
 
-//var Constants = {
-//		platformContentURL: "http://ctdndev.gi.com/api/",
-//		searchContentURL: "http://ctdndev.gi.com/search/",
-//		dataContentURL: "http://ctdndev.gi.com/data/",
-//		uploadURL: "http://ctdndev.gi.com/cloudstorage/",
-//	    logoPath: "http://static.galaxyinternet.com/img/",
-//	    userContentURL:"http://ctdndev.gi.com/user/"
-//	}
-
-//线上
-//var Constants = {
-//	platformContentURL: "http://ctdnrc.galaxyinternet.com/api/",
-//	searchContentURL: "http://ctdnrc.galaxyinternet.com/search/",
-//	dataContentURL: "http://ctdnrc.galaxyinternet.com/data/",
-//    logoPath: "http://static.galaxyinternet.com/img/"
-//}
 var home = {
-	    index : "http://ctdnqa.gi.com"
+	    index : "http://ctdnrc.galaxyinternet.com"
 	}
 var docUrl = {
 
