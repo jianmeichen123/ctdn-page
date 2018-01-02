@@ -307,7 +307,7 @@
 				$("#projLogoName").html("<font color='red'>*您的文件大小超过限制，请控制在500KB之内</font>")
 				return;
 			}
-			if(data.file[0].name.length>200){
+			if(data.files[0].name.length>200){
 				$("#projLogoName").text("文件名过长不能超过200个字...")
 				return;
 			}
