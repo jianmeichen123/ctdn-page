@@ -67,6 +67,9 @@ var tableFormate ={
     },
 
     setupDTformatter:function(value,row){
+        if(!value){
+            return table.empty
+        }
         return row.setupDT
     },
 
