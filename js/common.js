@@ -382,7 +382,7 @@ $(function(){
 	    if(!data&&data.length < 100){
 	        $('#login_model').css('display','block')
 	    	$('#logined_model').css('display','none')
-//	         location.href = platformUrl.toLogin
+	         location.href = platformUrl.toLogin
 	    }else{
 	    	var obj = JSON.parse(data)
 	        if(obj['roleCode'] ==30000 && getCookie("s_")=="external"){
@@ -401,7 +401,6 @@ $(function(){
 	    	setIndexHref(obj)
             $('#login_model').css('display','none')
 	    	$('#logined_model').css('display','block')
-	    	$("#seek").show()
 	    }
 	}
 	function setIndexHref(obj){
