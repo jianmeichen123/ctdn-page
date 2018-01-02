@@ -275,7 +275,7 @@ textarea.invalid::-ms-input-placeholder {
 .password-content{heigth:388px;}
 .pagination li{margin-left:inherit !important;}
 .pagination{border-bottom:none !important;}
-.picture-content{display:inline-block;width:70px;height:50px;border:1px solid;margin-left:20px;}
+.picture-content{display:inline-block;width:70px;height:50px;margin-left:20px;}
 .picture-content img{ width:70px;height:50px}
 .person_checking bootstrap-table{width:798px;}
 .fixed-table-body .table > tbody > tr > td {word-break:break-all;}

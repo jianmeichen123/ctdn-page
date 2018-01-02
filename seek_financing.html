@@ -321,7 +321,7 @@
 			if(data.result.success)
 			{
 				$(".picture-content img").attr("src",data.result.uploadFiles[0].url);
-				$(".picture-content").show()
+				$(".picture-content").css("display","inline-block");
 				$("input[name='projectLogo']").val(data.result.uploadFiles[0].url)
 			}
 			else

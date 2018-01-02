@@ -349,7 +349,7 @@
 			if(data.result.msg)
 			{
 				$(".picture-content img").attr("src",data.result.uploadFiles[0].url);
-				$(".picture-content").show();
+				$(".picture-content").css("display","inline-block");;
 				$("input[name='projectLogo']").val(data.result.uploadFiles[0].url)
 			}
 			else
@@ -540,7 +540,7 @@ $('body').delegate('#save-btn','click', function(event){
 		if(entity["projectLogo"]){
 			$("#projLogoName").hide();
 			$(".picture-content img").attr("src",entity["projectLogo"]);
-			$(".picture-content").show()
+			$(".picture-content").css("display","inline-block");
 		}
 	})
 </script>
