@@ -183,8 +183,10 @@ function initTable() {
          }
      }
      var firmDesc = row.firmDesc;
-     if(firmDesc && firmDesc.length>200){
-          firmDesc = firmDesc.substring(0,200);
+     if(firmDesc){
+          if(firmDesc.length>80){
+            firmDesc = firmDesc.substring(0,80)+"...";
+          }
      }else{
           firmDesc ="暂无"
      }
