@@ -6,7 +6,7 @@ function getNews(){
     json["typeId"] =type;
     json["pageSize"]=10;
     json["pageNo"]=0;
-    if(type == '2' || type == '6' || type == '7' || type==''){
+    if(type == '2' || type == '6' || type == '7'){
     	json["industryNames"] = industryNames
     }
     $("input[name='typeId']").val('')
