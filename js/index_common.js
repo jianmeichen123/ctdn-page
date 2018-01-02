@@ -9,6 +9,7 @@ function getNews(){
     if(type == '2' || type == '6' || type == '7' || type==''){
     	json["industryNames"] = industryNames
     }
+    $("input[name='typeId']").val('')
     sendPostRequestByJsonObj(searchUrl["news"],json,function(data){
            $(data.data).each(function(k,v){
                 if(!v){
@@ -39,6 +40,9 @@ function getCTDNEventInfo(){
 	            v="-"
 	        }else{
 	            for(i in v){
+	            	if(i == 'company' && !v[i]){
+	            		v[i] = '名称未知'
+	            	}
 	                if(i=='invstorgnames'&&!v[i]){
 	                    v[i]='--'
 	                }

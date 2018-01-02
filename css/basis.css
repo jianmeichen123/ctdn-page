@@ -143,7 +143,7 @@ center .list_table_td{text-align:center;   float: none;}
 .no_two_industry .industry_list{width:131px;}
 /*导航*/
 .nav_bj{ background-color:#2d3245; height:68px;    position: relative; width:100%;}
-.logo{display:block; float:left; width:122px; height:36px; margin-top:18px;}
+.logo{display:block; float:left; width:122px; height:36px; margin-top:12px;}
 .nav_all_bj{width:329px; height:60px;background-image:url(../img/nav_d.jpg);  background-repeat:no-repeat;   position: absolute;}
 .nav_all{ height:68px; position:relative;  }
 .nav_all>ul{ margin-left:36px; float:left; overflow:hidden; }

@@ -113,7 +113,7 @@ select:focus { outline: none important; }
 .fl{float:left;}
 .fr{float:right;}
 .person-right{width:838px;height:auto;min-height:700px;background:#fff;}
-.person-head-pic{width:68px;height:99px;margin: 40px auto;text-align: center;}
+.person-head-pic{width:160px;height:99px;margin: 40px auto;text-align: center;}
 .person-head-pic p{margin-top:14px;color:#fff;}
 .person-menu{text-align:center;}
 .person-menu li{padding:20px 0px;cursor:pointer;color:#fff;font-size:14px;font-family:'Microsoft YaHei'}
@@ -159,7 +159,7 @@ select:focus { outline: none important; }
 /* .person-bookmark-content ul li.underline{border-bottom:3px solid #2393f7;color:#2393f7;} */
 .person-project-items{width:775px;border:1px solid #f0f0f0;margin:20px auto;height:auto;}
 .person-project-left{width:80px;margin-left:10px;margin-top:10px;}
-.person-project-left img{vertical-align:middle;width:80px;height:80px;}
+.person-project-left img{vertical-align:middle;width:80px;max-height:80px;}
 .person-project-right{width:635px;margin-right:60px;margin-top:8px;color:#666666;font-size:14px;}
 .person-mark-item-title{width:auto;padding-left:12px;padding-right:12px;height:20px;line-height:20px;border:1px solid #999;border-radius:10px;display:inline-block;color:#333;font-size:12px;text-align:center;margin-left:10px;}
 .person-book-red em{color:#ff0f00;}
@@ -182,7 +182,7 @@ select:focus { outline: none important; }
 .person-start-univercity em{padding-left:11px;}
 .person-book-invest{display:none;}
 .preson-book-no-border{border-right:none;}
-.person-book-close{display:inline-block;width:13px;height:13px;cursor:pointer;position:absolute;top:10px;right:10px;background:url('../img/person_center/person-close_06.jpg') no-repeat;}
+.person-book-close{display:inline-block;width:13px;height:13px;cursor:pointer;position:absolute;top:34px;right:10px;background:url('../img/person_center/person-close_06.jpg') no-repeat;}
 .person-book-close:hover{background:url('../img/person_center/person-close_03.jpg') no-repeat;}
 .person-book-report{display:block;}
 .person-report-img{width:121px;height:75px;border-radius:3px;margin-top:13px;    overflow: hidden;
@@ -271,7 +271,7 @@ textarea.invalid::-ms-input-placeholder {
     color: red;
 }
 .person-reset-password ul li .inputDanger{border:1px solid #ff4e49; box-shadow:1px 1px 5px #fff2f2;}
-.person-head-pic span{margin-top:17px;display:inline-block;color:#fff;text-align: center;}
+.person-head-pic span{display:inline-block;color:#fff;text-align: center;}
 .password-content{heigth:388px;}
 .pagination li{margin-left:inherit !important;}
 .pagination{border-bottom:none !important;}
