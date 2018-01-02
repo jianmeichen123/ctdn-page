@@ -63,17 +63,17 @@
 						</tr>
 						<tr>
 							<td>历史累计</td>
-							<td class="col_pink"><span class="size22" id="projectNum_total">48353</span>家</td>
-							<td class="col_pink"><span class="size22" id="investedProjNum_total">48353</span>家</td>
-							<td class="col_pink"><span class="size22" id="eventNum_total">48353</span>笔</td>
-							<td class="col_pink"><span class="size22" id="amount_total">48353</span><span>亿元</span></td>
+							<td class="col_pink"><span class="size22" id="projectNum_total">0</span>家</td>
+							<td class="col_pink"><span class="size22" id="investedProjNum_total">0</span>家</td>
+							<td class="col_pink"><span class="size22" id="eventNum_total">0</span>笔</td>
+							<td class="col_pink"><span class="size22" id="amount_total">0</span><span>亿元</span></td>
 						</tr>
 						<tr>
 							<td>本月新增</td>
-							<td class="col_pink"><span class="size22" id="projectNum_curmonth">48353</span>家</td>
-							<td class="col_pink"><span class="size22" id="investedProjNum_curmonth">48353</span>家</td>
-							<td class="col_pink"><span class="size22" id="eventNum_curmonth" >48353</span>笔</td>
-							<td class="col_pink"><span class="size22" id="amount_curmonth" >48353</span><span>亿元</span></td>
+							<td class="col_pink"><span class="size22" id="projectNum_curmonth">0</span>家</td>
+							<td class="col_pink"><span class="size22" id="investedProjNum_curmonth">0</span>家</td>
+							<td class="col_pink"><span class="size22" id="eventNum_curmonth" >0</span>笔</td>
+							<td class="col_pink"><span class="size22" id="amount_curmonth" >0</span><span>亿元</span></td>
 						</tr>
 					</tbody>
 				</table>
@@ -540,18 +540,22 @@ $(function(){
 })
 function querytotalheader(){
 	sendPostRequest(detail.queryGGTotalHeaderStat,function(data){
+		if(data.data){
 	    $("#projectNum_total").text(data.data.projectNum)
 	    $("#investedProjNum_total").text(data.data.investedProjNum)
 	    $("#eventNum_total").text(data.data.eventNum)
 	    $("#amount_total").text(data.data.amount)
+		}
 	})
 }
 function querycurmontheader(){
 	sendPostRequest(detail.queryGGCurMonthHeaderStat,function(data){
-	    $("#projectNum_curmonth").text(data.data.projectNum)
-	    $("#investedProjNum_curmonth").text(data.data.investedProjNum)
-	    $("#eventNum_curmonth").text(data.data.eventNum)
-	    $("#amount_curmonth").text(data.data.amount)
+		if(data.data){
+		    $("#projectNum_curmonth").text(data.data.projectNum)
+		    $("#investedProjNum_curmonth").text(data.data.investedProjNum)
+		    $("#eventNum_curmonth").text(data.data.eventNum)
+		    $("#amount_curmonth").text(data.data.amount)
+		}
 	})
 }
 function getGG_news(params,obj){
