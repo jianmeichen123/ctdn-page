@@ -79,15 +79,12 @@ function queryTotal(){
     return trigger_tab;
 }
 
-function refreshTotal(tab){
+function refreshTotal(){
      var userCode = getCookie("_usercode_")
      sendGetRequest(user.countNum+userCode,function(data){
         $('.info-nav-content li').each(function(){
-           var total=0;
-           if(data.data[tab]){
-               total=data.data[tab]
-           }
-           $(this).children().next().html(total)
+             var tab = $(this).attr('data-type');
+             $(this).children().next().html(data.data[tab])
         })
     })
 }
@@ -319,6 +316,6 @@ function reColFormatter(value,row){
 
 function cancel(type,code){
     cancelOneCol(type,code);
-    refreshTotal(type)
+    refreshTotal()
     triggerTable(type)
 }
