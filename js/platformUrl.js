@@ -1,16 +1,16 @@
 
 
 var Constants = {
-	platformContentURL: "http://ctdnrc.galaxyinternet.com/api/",
-	searchContentURL: "http://ctdnrc.galaxyinternet.com/search/",
-	dataContentURL: "http://ctdnrc.galaxyinternet.com/data/",
-	uploadURL: "http://ctdnrc.galaxyinternet.com/cloudstorage/",
+	platformContentURL: "http://ctdnqa.gi.com/api/",
+	searchContentURL: "http://ctdnqa.gi.com/search/",
+	dataContentURL: "http://ctdnqa.gi.com/data/",
+	uploadURL: "http://ctdnqa.gi.com/cloudstorage/",
 	logoPath: "http://static.galaxyinternet.com/img/",
-	userContentURL: "http://ctdnrc.galaxyinternet.com/user/"
+	userContentURL: "http://ctdnqa.gi.com/user/"
 }
 
 var home = {
-	    index : "http://ctdnrc.galaxyinternet.com"
+	    index : "http://ctdnqa.gi.com"
 	}
 var docUrl = {
 
