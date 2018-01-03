@@ -33,12 +33,12 @@
     	sendPostRequestByJsonObj(url,json,function(data){
 
     		if(data.page&&data.page.records.length>0 ){
-    		    obj.show();
-                                obj.addClass('storey_list');
-                                var scroll_on = obj.attr('scroll_on');
-                                $('.project_nav [scroll_on="'+scroll_on+'"]').addClass('scroll_on');
-                                $('.project_nav [scroll_on="'+scroll_on+'"]').show();
-                                $('.project_nav').show();
+//    		    obj.show();
+//                obj.addClass('storey_list');
+//                var scroll_on = obj.attr('scroll_on');
+//                $('.project_nav [scroll_on="'+scroll_on+'"]').addClass('scroll_on');
+//                $('.project_nav [scroll_on="'+scroll_on+'"]').show();
+//                $('.project_nav').show();
     		    var target = $("#"+dataId)
     		    target.tmpl(data.page).appendTo(target.parent())
 				if(pageNo && pageSize){
