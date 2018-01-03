@@ -24,6 +24,9 @@ function fillReportInfo(data,divList){
                     $(".report_detailed_head").hide();
                 }
             }
+            if(k=='authorAvatar'){
+                $(".pic_one img").attr('src',v);
+            }
             if(v){
                 o.html(v)
             }

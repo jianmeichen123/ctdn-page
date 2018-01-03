@@ -418,7 +418,14 @@ $(function(){
 			return
 		}
 	}
-	
+	$("#seek").click(function(){
+	    if(getCookie("_uid_")){
+           location.href = "seek_financing.html";
+        }else{
+           location.href = platformUrl.toLogin;
+        }
+	})
+
     function me(){
 //    	alert(GetUrlRelativePath())
     	$.ajax({
