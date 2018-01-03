@@ -7,6 +7,7 @@ var Constants = {
 	uploadURL: "http://ctdnrc.gi.com/cloudstorage/",
 	logoPath: "http://static.galaxyinternet.com/img/",
 	userContentURL: "http://ctdnrc.gi.com/user/"
+
 }
 
 var home = {
