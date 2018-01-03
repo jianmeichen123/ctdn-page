@@ -153,10 +153,10 @@
 								<div class="product_list_team_img_bj">
 								{{if v.personCode}}
 									<a target="_blank" href="/startup_xq.html?code=${v.personCode}">
-										<img src="${Constants.logoPath}person/${v.personCode}.png"/>
+										<img src="${Constants.logoPath}person/${v.personImage}.png"/>
 									</a>
 								{{else}}
-										<img src="${Constants.logoPath}person/${v.personCode}.png"/>
+										<img src="${Constants.logoPath}person/${v.personImage}.png"/>
 								{{/if}}
 								</div>
 								<ul class="product_list_team_ul">
@@ -454,35 +454,35 @@ $(function(){
 })
 /* 菜单悬浮 */
 
- <!--$(window).scroll(function(){-->
-	 <!--var scrollTop=$(window).scrollTop();-->
-		<!--if(scrollTop>305){-->
-			<!--$('.project_nav').addClass('project_nav_top');-->
-			<!--$('.project_nav_top_none').show();-->
-		<!--}else{-->
-			<!--$(".project_nav").removeClass("project_nav_top");-->
-			<!--$('.project_nav_top_none').hide();-->
-		<!--}-->
-	 <!--var location_array = new Array()-->
-	 <!--for(var i=0; i<$('.project_all_l .storey_list').length; i++){-->
-	 	<!--var list_all = $('.project_all_l .storey_list').eq(i).attr('location_l');-->
-	 	<!--location_array.push(list_all);-->
-	 <!--}-->
-	<!--var  myArray=new Array();-->
-	<!--for(var i=0; i<location_array.length; i++){-->
-		<!--var obj = {};-->
-		<!--var name = location_array[i];-->
-		<!--obj.name = name;-->
-		<!--obj.value= parseInt($('[location_l="'+location_array[i]+'"]').offset().top -70);-->
-		<!--myArray.push(obj);-->
-	<!--}-->
-	<!--if(scrollTop>=myArray[0].value){-->
-		<!--$('.project_all_r').addClass('project_all_r_top');-->
-		 <!--location_on(myArray,scrollTop)-->
-	<!--}else{-->
-		<!--$(".project_all_r").removeClass("project_all_r_top");-->
-	<!--}-->
-<!--});-->
+ $(window).scroll(function(){
+	 var scrollTop=$(window).scrollTop();
+		if(scrollTop>305){
+			$('.project_nav').addClass('project_nav_top');
+			$('.project_nav_top_none').show();
+		}else{
+			$(".project_nav").removeClass("project_nav_top");
+			$('.project_nav_top_none').hide();
+		}
+	 var location_array = new Array()
+	 for(var i=0; i<$('.project_all_l .storey_list').length; i++){
+	 	var list_all = $('.project_all_l .storey_list').eq(i).attr('location_l');
+	 	location_array.push(list_all);
+	 }
+	var  myArray=new Array();
+	for(var i=0; i<location_array.length; i++){
+		var obj = {};
+		var name = location_array[i];
+		obj.name = name;
+		obj.value= parseInt($('[location_l="'+location_array[i]+'"]').offset().top -70);
+		myArray.push(obj);
+	}
+	if(scrollTop>=myArray[0].value){
+		$('.project_all_r').addClass('project_all_r_top');
+		 location_on(myArray,scrollTop)
+	}else{
+		$(".project_all_r").removeClass("project_all_r_top");
+	}
+});
 function location_on(obj,scrollTop){
 	for(var i=0; i<obj.length; i++){
 		var j =i+1;

@@ -104,7 +104,8 @@ center .list_table_td{text-align:center;   float: none;}
 .ling_t .list_table_td .lticon{float:left;}
 .list_table_td .districtSubName{margin-right:5px;}
 .list_table_td img,.list_table_td ul{ float:left; margin-left:8px;}
-.list_table_td img{position:absolute;top:50%;transform:translateY(-50%);margin-left:0px;left:0px;border-radius: 20px; max-height:40px; width:40px;}
+.list_table_td img{position:absolute;top:50%;transform:translateY(-50%);margin-left:0px;left:0px; max-height:40px; width:40px;}
+.startup_img .list_table_td img{    border-radius: 20px;}
 .list_table_td ul{ float:left; margin-left:47px;}
 .list_table_td a{ color: #333;  white-space: nowrap;  overflow: hidden;  display: block;  text-overflow: ellipsis;}
 .tzsj_list .list_table_td a{white-space:normal;}
@@ -274,7 +275,7 @@ com{color:#2393f7;}
 .particulars_table_list .tzsj_eventInfoExtList tr td:nth-child(1){width:182px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
 /*企业详情*/
 .project_tit{float:left; width:823px; position:relative; overflow:hidden;}
-.project_tit .projTitle{width:600px;}
+.project_tit .projTitle{width:570px;}
 .project_tit span[data-field="logoSmall"]{overflow:hidden;position:relative;width:90px;height:90px;display:inline-block;border:1px solid #e6e6e6;border-radius:4px;float:left;}
 .project_tit img { float: left;   width: 90px;  overflow: hidden; position:absolute;top:50%;transform:translateY(-50%)}
 .project_tit ul{float:left; margin-left:20px; overflow:hidden; margin-bottom:0;}
@@ -651,7 +652,7 @@ white-space: nowrap; text-align:center; height:25px; line-height:25px; margin-t
 .eachrst_tit .fl .eachrst_tit_b{color:#e6e6e6;}
 .eachrst_tit .fr span{border:1px solid #e6e6e6; line-height:30px; border-radius:4px; display:block; float:right; margin-left:40px; padding:0 15px; background-color:#f5f5f5}
 .eachrst_tit .fr .eachrst_tit_on{ border:1px solid #2393f7; background-color:#2393f7; color:#fff;}
-.eachrst_tit .fl .eachrst_tit_on{color:#1ed2ff; border-bottom:1px solid #1ed2ff;}
+.eachrst_tit .fl .eachrst_tit_on{color:#2393f7; border-bottom:1px solid #2393f7;}
 /*弹窗提示*/
 .a_button{ margin-left:auto; margin-right:auto;height:40px;  margin-top:45px; width:150px; background-color:#2d95f4; text-align:center; line-height:40px; border-radius:5px; color:#fff;}
 .tips_cen{margin-left:auto; margin-right:auto; margin-top:70px; text-align:center}
