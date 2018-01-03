@@ -129,7 +129,7 @@ ul,ol,dl,dt,dd,p,img{ display:block; border:0;list-style:none; }
 .report_list_all>ul>li{padding-left:20px; padding-right:20px; overflow:hidden;}
 .report_list_cen{width:1020px; float:right;  padding-top:30px; padding-bottom:30px; position: relative;}
 .report_list_cen .search_collect{top:30px;}
-.report_list_cen_tit{width:950px;word-wrap: break-word;overflow: hidden;  text-overflow: ellipsis;text-overflow: ellipsis; word-spacing: normal;}
+.report_list_cen_tit{width:910px;word-wrap: break-word;overflow: hidden;  text-overflow: ellipsis;text-overflow: ellipsis; word-spacing: normal;}
 .report_list_cen_tit a{font-size:16px; color:#333;white-space:nowrap;}
 .report_list_cen_time{font-size:12px; color:#999; margin-top:10px;}
 .report_list_cen_time span{margin-right:20px;}
