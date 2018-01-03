@@ -158,6 +158,9 @@
 <script type="text/javascript" src="js/jquery.fileupload-validate.js"></script>
 <script>
 	$(function(){
+		if(!getCookie("_uid_")){
+			location.href =platformUrl.toLogin
+		}
 		//表单清空
 	 	$("#form")[0].reset();
 	 	//表单验证
@@ -229,7 +232,6 @@
 		var regex = /^(https?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \.-]*)*\/?$/;
 		return this.optional(element) || (regex.test(value));
 	}, "");
-
 
 	//验证长度
 	jQuery.validator.addMethod("money", function (value, element) {

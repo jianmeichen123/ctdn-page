@@ -168,8 +168,9 @@
 
 <script>
 	$(function(){
-		//表单清空
-	 	//$("#form")[0].reset();
+		if(!getCookie("_uid_")){
+			location.href =platformUrl.toLogin
+		}
 	 	//表单验证
 	 	//debugger
 		$("#form").validate({
