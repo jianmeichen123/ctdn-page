@@ -331,7 +331,7 @@
 				$("#projLogoName").html("<font color='red'>*您的文件格式不正确</font>")
 				return;
 			}
-			if(data.files[0].size > 500*1024*1024){
+			if(data.files[0].size > 500*1024){
 				$("#projLogoName").html("<font color='red'>*您的文件大小超过限制，请控制在500KB之内</font>")
 				return;
 			}
