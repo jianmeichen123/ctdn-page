@@ -123,11 +123,11 @@ ul,ol,dl,dt,dd,p,img{ display:block; border:0;list-style:none; }
 .report_detailed_head_img>ul>li{margit-top:}
 .report_detailed_head_cen{width:625px; float:left; font-size:12px; color:#666666; line-height:20px;     height: 75px;   display: table;}
 .report_detailed_head_cen p{    display: table-cell;  vertical-align: middle;}
-.report_list_img img{width:120px; height:76px; border:1px solid #f0f0f0; border-radius:5px; overflow: hidden;}
+.report_list_img img{width:160px; height:90px; border:1px solid #f0f0f0; border-radius:5px; overflow: hidden;}
 .report_list_img{float:left; padding-top:30px; padding-bottom:30px;}
 .report_list_all{width:100%; overflow:hidden;     background-color: #fff;  border-radius: 10px;}
 .report_list_all>ul>li{padding-left:20px; padding-right:20px; overflow:hidden;}
-.report_list_cen{width:1056px; float:right;  padding-top:30px; padding-bottom:30px; position: relative;}
+.report_list_cen{width:1020px; float:right;  padding-top:30px; padding-bottom:30px; position: relative;}
 .report_list_cen .search_collect{top:30px;}
 .report_list_cen_tit{width:950px;word-wrap: break-word;overflow: hidden;  text-overflow: ellipsis;text-overflow: ellipsis; word-spacing: normal;}
 .report_list_cen_tit a{font-size:16px; color:#333;white-space:nowrap;}
