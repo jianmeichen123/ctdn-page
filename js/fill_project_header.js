@@ -14,6 +14,10 @@ function formatProjectInfo(data,divList){
      }
      projCode = data["projCode"]
      compCode = data["compCode"]
+     regName = data["regName"]
+     if(regName==''){
+        $("#qyxx").hide()
+     }
      if(!compCode){
         $("#qyxx").hide()
      }
