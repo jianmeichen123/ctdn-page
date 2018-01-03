@@ -333,15 +333,21 @@
 			$("#projLogoName").hide();
 			var acceptFileTypes = /\/(jpg|jpeg|png|gif)$/i;
 			if(data.originalFiles[0]['type'].length && !acceptFileTypes.test(data.originalFiles[0]['type'])) {
+				$(".picture-content").hide();
 				$("#projLogoName").html("<font color='red'>*您的文件格式不正确</font>")
+				$("#projLogoName").show()
 				return;
 			}
 			if(data.files[0].size > 500*1024){
+				$(".picture-content").hide();
 				$("#projLogoName").html("<font color='red'>*您的文件大小超过限制，请控制在500KB之内</font>")
+				$("#projLogoName").show()
 				return;
 			}
 			if(data.files[0].name.length>200){
+				$(".picture-content").hide();
 				$("#projLogoName").text("文件名过长不能超过200个字...")
+				$("#projLogoName").show()
 				return;
 			}
 			$("#projLogoName").text("")
