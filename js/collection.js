@@ -212,7 +212,7 @@ function initTable() {
     var orgDesc = "暂无";
     if(row.orgDesc){
        if(row.orgDesc.length>80){
-           orgDesc = row.orgDesc.substring(0,240)+"...";
+           orgDesc = row.orgDesc.substring(0,80)+"...";
        }else{
            orgDesc=  row.orgDesc
        }
