@@ -177,12 +177,13 @@ function orgNewsListFormatter(data,div){
 
 //机构成员
 function orgMemberListFormatter(data,div){
-   var staticTemplate = '<tr> <td>${name}</td> <td>${positions}</td> <td>${status}</td><td>${phoneNum}</td> <td style="width:30%">${email}</td></tr>'
+   var staticTemplate = '<tr> <td><a target="_blank" href="${personCode}">${name}</a></td> <td>${positions}</td> <td>${status}</td><td>${phoneNum}</td> <td style="width:30%">${email}</td></tr>'
    var temp = staticTemplate;
     var html =""
     if(data.length>0){
         $(data).each(function(i,row){
              $.each(row,function(k,v){
+
                  while(temp.indexOf("${"+k+"}") > 1){
                     if(k=='status'){
                         if(v==0){
@@ -196,6 +197,12 @@ function orgMemberListFormatter(data,div){
 //                    	}else{
 //                    		v=v
 //                    	}
+                    }else if(k=='personCode'){
+                        if(v){
+                            v='/investor_xq.html?code='+v
+                        }else{
+                            v="javascript:void(0)"
+                        }
                     }
                     if(!v){ v = table.empty}
                     temp = temp.replace("${"+k+"}",v)

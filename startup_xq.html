@@ -116,13 +116,16 @@ comp {
 				</div>
 			</div>
 
-			<div class="background_boeder" data-id="person_com_expr" scroll_on="cy" data-url="queryPersonComExpr">
+			<div class="background_boeder" data-id="person_com_expr" scroll_on="cy" data-url="queryPersonComExpr" >
 				<div class="project_t">
 					<span class="brain_ico brain_ico_project_crumbs"></span>创业经历
 				</div>
 				<div class="particulars_black">
-					<!--<input type="hidden" name = "type" value="S">-->
-					<input type="hidden" name = "type" value="">
+					<!--投资人与创业者分开查询，若不分开则为空-->
+					<!--<input type="hidden" name = "type" value="">-->
+					<!-- personType 使用该属性来判断是否分页，配合type 为空时做的判断-->
+					<input type="hidden" name = "type" value="S">
+					<input type="hidden" name = "personType" value="S">
 					<ul class="startup_come_ul">
 						{-raw-}
 						<script id="person_com_expr" type="text/x-jquery-tmpl">
