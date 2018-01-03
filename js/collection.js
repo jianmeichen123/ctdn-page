@@ -261,12 +261,6 @@ function initTable() {
                                if(row.age){
                                    html+="<span class='company'><span class='search_list_people_list_r seach_float_none' id"+ ++id +">"+row.age+"</span"+id+"></span>";
                                }
-                               if(row.colleage){
-                                   html+="<span class='company'><span class='search_list_people_list_r seach_float_none' id"+ ++id +">"+row.colleage+"</span"+id+"></span>";
-                               }
-                               if(row.degree){
-                                   html+="<span class='company'><span class='search_list_people_list_r seach_float_none' id"+ ++id +">"+row.degree+"</span"+id+"></span>";
-                               }
                                if(row.workLife){
                                    html+="<span class='company'><span class='search_list_people_list_r seach_float_none' id"+ ++id +">"+row.workLife+"</span"+id+"></span>"
                                }
@@ -276,6 +270,12 @@ function initTable() {
                                if(row.job){
                                    html+="<span class='company'><span class='search_list_people_list_r seach_float_none' id"+ ++id +">"+row.job+"</span"+id+"></span>"
                                }
+                               if(row.colleage){
+                                  html+="<span class='company'><span class='search_list_people_list_r seach_float_none' id"+ ++id +">"+row.colleage+"</span"+id+"></span>";
+                              }
+                              if(row.degree){
+                                  html+="<span class='company'><span class='search_list_people_list_r seach_float_none' id"+ ++id +">"+row.degree+"</span"+id+"></span>";
+                              }
                                if(row.districtSubName){
                                    html+="<span class='company'><span><li class='list-item-address'></li>"+row.districtSubName+"</span></span>"
                                }
