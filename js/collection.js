@@ -83,7 +83,7 @@ function refreshTotal(){
      sendGetRequest(user.countNum+userCode,function(data){
         $('.info-nav-content li').each(function(){
              var tab = $(this).attr('data-type');
-             if(data.data[tab]){
+             if(!data.data[tab]){
                 $(this).children().next().html(0)
              }else{
                 $(this).children().next().html(data.data[tab])
