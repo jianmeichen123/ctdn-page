@@ -418,3 +418,5 @@ td>.dn_ico_list_contrast_on,td>.dn_ico_list_collect_on{border:0;}
 input::-ms-clear, input::-ms-reveal {
 　　display: none;
 }
+/*专辑list*/
+.no_bor_report_list .fixed-table-container{border:0; padding-left:10px; padding-right:20px;}
