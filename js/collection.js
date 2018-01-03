@@ -88,7 +88,6 @@ function refreshTotal(){
              }else{
                 $(this).children().next().html(data.data[tab])
              }
-
         })
     })
 }
