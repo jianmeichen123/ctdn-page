@@ -11,7 +11,8 @@ function getNews(){
     }
     $("input[name='typeId']").val('')
     sendPostRequestByJsonObj(searchUrl["news"],json,function(data){
-           $(data.data).each(function(k,v){
+           $(data.page).each(function(k,v){
+        	   console.log(k+":" + v)
                 if(!v){
                     v="-"
                 }else{
