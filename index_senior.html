@@ -119,7 +119,7 @@
 									<li  onclick="getGG_news('${v.industryNames}',this)">${v.name}</li>
 								{{/each}}
 							{{else}}
-								<span>暂无数据</span>
+								<span class="cen_span">暂无数据</span>
 							{{/if}}
 							</script>
 					{-raw-}
@@ -217,7 +217,7 @@
 										{{/each}}
 								{{/each}}
 							{{else}}
-								<span>暂无数据</span>
+								<span class="cen_span">暂无数据</span>
 							{{/if}}
 							</script>
 					{-raw-}
@@ -305,7 +305,7 @@
 								{{if v.records.length >0}}
 									{{each(j,w) v.records}}
 									<li>
-										<span class="rivalry_div_r_cen"><a href="${w.href}">${w.title}</a></span>
+										<span class="rivalry_div_r_cen"><a href="${w.href}" target="_blank">${w.title}</a></span>
 										<span class="rivalry_div_r_time">{{html formatDate(w.orderTime*1000,'yyyy-MM-dd')}}</span>
 									</li>
 									{{/each}}	
@@ -317,7 +317,7 @@
 						</li>
 		{{/each}}
 		{{else}}
-		<span>暂无数据</span>
+		<span class="cen_span">暂无数据</span>
 		{{/if}}
 	
 	</script>{-raw-}
