@@ -330,6 +330,7 @@
 			if(!getCookie("_uid_")){
 				location.href =platformUrl.toLogin
 			}
+			$("#projLogoName").hide();
 			var acceptFileTypes = /\/(jpg|jpeg|png|gif)$/i;
 			if(data.originalFiles[0]['type'].length && !acceptFileTypes.test(data.originalFiles[0]['type'])) {
 				$("#projLogoName").html("<font color='red'>*您的文件格式不正确</font>")
