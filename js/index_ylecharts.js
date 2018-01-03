@@ -301,6 +301,9 @@ $('#num_or_money span').click(function(){
 })
 function showEcharts(){
 	if(echarts_flag == 1 ){ //图表1
+		if(industry_data==null){
+			return
+		}
 		option.xAxis[0].data = industry_data.data.xAxis
 		option.yAxis[0].name = yAxis_name
 		var legend = industry_data.data.legend.slice(0,myChart_default_industry_num)
@@ -365,6 +368,9 @@ function showEcharts(){
 		myChart.setOption(option,true); //true  防止多次请求，数据重叠
 	}
 	if(echarts_flag == 2) { //图表2
+		if(round_data==null){
+			return
+		}
 		option_db.xAxis[0].data = round_data.data.xAxis.slice(0,myChartDB_default_industry_num)
 		option_db.legend.data=round_data.data.legend
 		option_db.yAxis[0].name = yAxis_name
