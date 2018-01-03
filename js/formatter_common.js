@@ -65,14 +65,6 @@ var tableFormate ={
         }
         return inds_html
     },
-
-    setupDTformatter:function(value,row){
-        if(!value){
-            return table.empty
-        }
-        return row.setupDT
-    },
-
     personRoundName:function(value, row, index){
             var round_arr=row.rounds;
             var rounds_html="";
