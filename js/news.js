@@ -13,9 +13,9 @@ $(function () {
                 v="-"
             }else{
                 for(i in v){
-                    if(i=="sourceCode"){
-                        v[i]=Constants.logoPath+"project/"+v.sourceCode+".png"
-                    }
+//                    if(i=="sourceCode"){
+//                        v[i]=Constants.logoPath+"project/"+v.sourceCode+".png"
+//                    }
                     if(i=='logo'){
                         v[i]=Constants.logoPath+"project/"+v.sourceCode+".png"
                     }
