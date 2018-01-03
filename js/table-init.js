@@ -16,7 +16,7 @@ var TableInit = function () {
                   tableDataTotalName:'total',
                   sidePagination: "server",           //分页方式：client客户端分页，server服务端分页（*）
                   pageNumber: 1,                       //初始化加载第一页，默认第一页
-                  pageSize: 8                       //每页的记录行数（*）
+                  pageSize: 8 ,                     //每页的记录行数（*）
                   formatLoadingMessage: function () {
                       return "请稍等，正在加载中...";
                   },
