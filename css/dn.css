@@ -83,7 +83,7 @@ ul,ol,dl,dt,dd,p,img{ display:block; border:0;list-style:none; }
 .subject_img_b{ text-align: right;     padding-right: 20px;  position: absolute; bottom:0;height:30px; background:#3e4865; width:100%; opacity:0.8; color:#fff; font-size:12px; line-height:30px; }
 .report_all>ul{margin-top:20px; padding-bottom:6px;}
 .report_all>ul>li{padding-left:20px; padding-right:20px; margin-bottom:24px; font-size:14px;    word-wrap: break-word;}
-.report_all>ul>li:before{ content: "　";float:left; background-image: url(../img/dn/dn_ico.png); background-repeat: no-repeat; background-position: -145px -2px; width: 9px; height: 11px;}
+.report_all>ul>li:before{ content: "　";float:left; background-image: url(../img/dn/dn_ico.png); margin-top: 3px; background-repeat: no-repeat; background-position: -145px -2px; width: 9px; height: 11px;}
 .report_all>ul>li>p{display:block;  margin-left: 20px; line-height:15px; max-height:30px; overflow:hidden;}
 .report_all>ul>li a{color:#333;}
 .report_all>ul>li a:hover{color:#2393f7;}
