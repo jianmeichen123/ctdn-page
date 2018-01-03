@@ -32,8 +32,7 @@ function loadTable(tab){
         tableDataTotalName:'total',
         sidePagination: "server",           //分页方式：client客户端分页，server服务端分页（*）
         pageNumber: 1,                       //初始化加载第一页，默认第一页
-        pageSize: 10,                       //每页的记录行数（*）
-        pageList: [15,20,30],        //可供选择的每页的行数（*）
+        pageSize: 8,                       //每页的记录行数（*）
         formatLoadingMessage: function () {
             return "请稍等，正在加载中...";
         },
@@ -84,7 +83,11 @@ function refreshTotal(){
      sendGetRequest(user.countNum+userCode,function(data){
         $('.info-nav-content li').each(function(){
              var tab = $(this).attr('data-type');
-             $(this).children().next().html(data.data[tab])
+             if(!data.data[tab]){
+                $(this).children().next().html(0)
+             }else{
+                $(this).children().next().html(data.data[tab])
+             }
         })
     })
 }
@@ -110,7 +113,7 @@ function initTable() {
   	//初始化Table
   	oTableInit.Init = function () {
   	        $('table[data-type]').bootstrapTable({
-               		pageSize:15,
+               		pageSize:8,
                		showRefresh : false ,
                		sidePagination: 'server',
                		method : 'post',

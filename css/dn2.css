@@ -159,7 +159,7 @@ select:focus { outline: none important; }
 /* .person-bookmark-content ul li.underline{border-bottom:3px solid #2393f7;color:#2393f7;} */
 .person-project-items{width:775px;border:1px solid #f0f0f0;margin:20px auto;height:auto;}
 .person-project-left{width:80px;margin-left:10px;margin-top:10px;}
-.person-project-left img{vertical-align:middle;width:80px;max-height:80px;}
+.person-project-left img{vertical-align:middle;width:80px;max-height:80px;border: 1px solid #f0f0f0;}
 .person-project-right{width:605px;margin-right:60px;margin-top:8px;color:#666666;font-size:14px;}
 .person-mark-item-title{width:auto;padding-left:12px;padding-right:12px;height:20px;line-height:20px;border:1px solid #999;border-radius:10px;display:inline-block;color:#333;font-size:12px;text-align:center;margin-left:10px;}
 .person-book-red em{color:#ff0f00;}
@@ -169,12 +169,12 @@ select:focus { outline: none important; }
 .person-book-city{width:auto;height:16px;padding-left: 26px;display:inline-block;line-height:16px;text-align:right;background:url('../img/person_center/person-book_03.jpg') no-repeat ;}
 .person-book-industry{width:auto;padding-left:27px;height:16px;margin-left:20px;display:inline-block;line-height:16px;text-align:right;background:url('../img/person_center/person-book_05.jpg') no-repeat ;}
 .person-book-shortdescription{width:635px;display: -webkit-box;-webkit-box-orient: vertical;-webkit-line-clamp:2;overflow: hidden;padding-right:10px;}
-.person-project-item {position:relative;margin-left:20px;border-bottom:1px solid #f0f0f0;padding-top:20px;padding-bottom:20px;}
+.person-project-item {position:relative;margin-left:20px;border-bottom:1px solid #f0f0f0;padding-top:10px;padding-bottom:10px;}
 .person-project-institute{display:none;}
 .person-institute-incident{color:#333;}
 .person-incident-num{margin-right:30px;}
 .person-start-person{display:none;}
-.person-start-img{}
+.person-start-img a img{border-radius:50%;}
 .person-start-address{background:url('../img/person_center/person-book_03.jpg') no-repeat;padding-left:20px;margin-left:38px;}
 .person-start-line{padding-right:14px;border-right:1px solid #cccccc;}
 .person-dutity{padding:0px 15px;border-right:1px solid #cccccc;}
