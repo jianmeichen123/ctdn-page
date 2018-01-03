@@ -60,6 +60,7 @@ ul,ol,dl,dt,dd,p,img{ display:block; border:0;list-style:none; }
 .dnsy_tit_size{font-size:18px; display: inline-block; line-height:20px;float:left; margin-left:10px;}
 .dn_info_list_show>ul>li{ float:left;}
 #newsList>li{border-bottom:1px solid #f0f0f0}
+.cen_span{text-align:center; line-height:70px; height:70px;    display: block;}
 .padding_tb20{padding-top:20px; padding-bottom:20px;}
 .event_img{width:80px; height:80px; border:1px solid #f0f0f0; margin-right:10px;}
 .event_img img{width:78px; height:78px;}
@@ -75,11 +76,11 @@ ul,ol,dl,dt,dd,p,img{ display:block; border:0;list-style:none; }
 .dn_sy_line_event{border-bottom:1px solid #f0f0f0; width:100%;  height:1px; margin-left:105px;}
 .subject_all>ul{margin-top:20px}
 .subject_all>ul>li{ padding-left:20px; padding-right:20px; padding-bottom:30px;}
-.subject_img{width:308px; height:179px; border-bottom:1px solid #f0f0f0; border-radius:10px;  position: relative;     overflow: hidden;}
-.subject_img img{width:307px; height:178px;     border-radius: 8px;}
+.subject_img{width:308px; height:179px; border-radius:10px;  position: relative;     overflow: hidden;}
+.subject_img img{width:307px; height:178px; }
 .subject_tit{font-size:14px; text-align:center;overflow:hidden; height:20px; margin-top:10px; line-height:20px;}
 .subject_tit a{color:#333333;}
-.subject_img_b{ text-align: right;     padding-right: 20px;  position: absolute; bottom:0;height:30px; background:#3e4865; width:100%; opacity:0.8; color:#fff; font-size:12px; line-height:30px; border-bottom-left-radius:4px;border-bottom-right-radius:4px;}
+.subject_img_b{ text-align: right;     padding-right: 20px;  position: absolute; bottom:0;height:30px; background:#3e4865; width:100%; opacity:0.8; color:#fff; font-size:12px; line-height:30px; }
 .report_all>ul{margin-top:20px; padding-bottom:6px;}
 .report_all>ul>li{padding-left:20px; padding-right:20px; margin-bottom:24px; font-size:14px;    word-wrap: break-word;}
 .report_all>ul>li:before{ content: "　";float:left; background-image: url(../img/dn/dn_ico.png); background-repeat: no-repeat; background-position: -145px -2px; width: 9px; height: 11px;}
@@ -102,8 +103,8 @@ ul,ol,dl,dt,dd,p,img{ display:block; border:0;list-style:none; }
 .equity_trading_r_tit{font-size:14px; margin-top:5px; }
 .equity_trading_r_tit a{color:#333;}
 .equity_trading_r_cen{font-size:12px; color:#666666}
-.news_click{font-size:12px; color:#999999; padding-left:20px;}
-.news_click a{font-size:12px; color:#999999; }
+.news_click{font-size:14px; color:#999999; padding-left:20px;}
+.news_click a{font-size:14px; color:#999999; }
 .news_click_on{color:#2393f7;}
 .new_table th{display:none;}
 .new_table td{border:0 !important;     padding: 0px !important;}
@@ -245,7 +246,7 @@ ul,ol,dl,dt,dd,p,img{ display:block; border:0;list-style:none; }
 .index_institution_name a{color:#333;    text-align: center; display: inherit;}
 .index_institution_num{text-align: center;}
 .index_institution_num span{font-size:18px;}
-.index_trade{height:38px; width:155px; background-color:#fff; z-index:9988; position:absolute;  top:18px;  right: 0px;}
+.index_trade{height:38px; width:155px; background-color:#fff; z-index:9988; position:absolute;  top:18px;  right: 1px;}
 .index_trade_c{height:36px; width:114px; text-align:center; cursor:pointer;   margin-left: 22px; border-radius:4px; line-height:36px;background-color:#2393f7; color:#fff;}
 .dn_ico_tradex{background-position: -136px -154px; width: 9px;  height: 6px; margin-left:10px;  display: inline-block; }
 /*行业弹出*/
