@@ -262,13 +262,13 @@ function initTable() {
                                    html+="<span class='company'><span class='search_list_people_list_r seach_float_none' id"+ ++id +">"+row.age+"</span"+id+"></span>";
                                }
                                if(row.colleage){
-                                   html+="<span class='company'><span class='search_list_people_list_r seach_float_none'  id"+ ++id +">"+row.colleage+"</span"+id+"></span>";
+                                   html+="<span class='company'><span class='search_list_people_list_r seach_float_none' id"+ ++id +">"+row.colleage+"</span"+id+"></span>";
                                }
                                if(row.degree){
                                    html+="<span class='company'><span class='search_list_people_list_r seach_float_none' id"+ ++id +">"+row.degree+"</span"+id+"></span>";
                                }
                                if(row.workLife){
-                                   html+="<span class='company'><span class='search_list_people_list_r seach_float_none'  id"+ ++id +">"+row.workLife+"</span"+id+"></span>"
+                                   html+="<span class='company'><span class='search_list_people_list_r seach_float_none' id"+ ++id +">"+row.workLife+"</span"+id+"></span>"
                                }
                                if(row.projTitle){
                                    html+="<span class='company'><span class='search_list_people_list_r seach_float_none' id"+ ++id +">"+row.projTitle+"</span"+id+"></span>"
