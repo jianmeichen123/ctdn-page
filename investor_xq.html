@@ -40,7 +40,7 @@ comp {
 								<li>
 									<div >
 										{{if projCode}}
-											<a target="_blank" href="/project_qy.html?projCode=${projCode}">${projTitle}</a>
+											<a target="_blank" href="/jg_particulars.html?orgCode=${projCode}">${projTitle}</a>
 										{{else}}
 											${projTitle}
 										{{/if}}
@@ -161,19 +161,20 @@ comp {
 					</ul>
 				</div>
 			</div>
-			<div class="background_boeder" scroll_on="al" data-id="person_com_expr" data-url="queryPersonComExpr" >
-				<div class="project_t">
-					<span class="brain_ico brain_ico_project_crumbs"></span>投资案例
-				</div>
+			<div class="background_boeder" scroll_on="al" data-id="person_com_expr" data-url="queryPersonComExpr">
 				<div class="particulars_black">
-					<!--<input type="hidden" name = "type" value="I">-->
-					<input type="hidden" name = "type" value="">
+					<!--投资人与创业者分开查询，若不分开则为空-->
+					<input type="hidden" name = "type" value="I">
+
+					<!--<input type="hidden" name = "type" value="">-->
+					<!-- personType 使用该属性来判断是否分页，配合type 为空时做的判断-->
+					<input type="hidden" name = "personType" value="I">
 					<input type="hidden" name = "pageSize" value="4">
 					<input type="hidden" name = "pageNo" value="0">
 					<ul class="investor_case">
 						{-raw-}
 						<script id="person_com_expr" type="text/x-jquery-tmpl">
-						{{each(i,v) data}}
+						{{each(i,v) records}}
 						<li>
 							<ul class="investor_case_ul">
 								<li>
@@ -242,18 +243,15 @@ comp {
 						</script>
 						{-raw-}
 					</ul>
-					<div class="project_more">
-						<div class="dn_ico_more_all_click" style="display:none">
-							<div class="dn_ico_more_al_divl" >
-								加载更多<span class="dn_ico dn_ico_more"></span>
-							</div>
-						</div>
-						<div class="dn_ico_more_all_click_show" style="display:none">
-							<div class="dn_ico_more_al_divl">
-								点击收起<span class="dn_ico dn_ico_more_show"></span>
-							</div>
-						</div>
-					</div>
+					<div class="dn_ico_more_all" ><div class="dn_ico_more_al_divl">加载更多<span class="dn_ico dn_ico_more"></span></div></div>
+					<!--<div class="dn_ico_more_all_click_show" style="display:none">-->
+					<!--<div class="dn_ico_more_al_divl">-->
+					<!--点击收起<span class="dn_ico dn_ico_more_show"></span>-->
+					<!--</div>-->
+					<!--</div>-->
+				</div>
+				<div class="project_t">
+					<span class="brain_ico brain_ico_project_crumbs"></span>投资案例
 				</div>
 			</div>
 
