@@ -5,20 +5,24 @@
 	<title>上市事件详情</title>
 	<!--basis-->
 	{(dn_basis.html)}
+		<style>
+	
+.nav_nav{display:block;}
+	</style>
 </head>
 
 <body>
 {(header.html)}
 <div class="container">
 	<div class="particulars_all">
-		<div class="particulars_black" data-query="eventListedInfo">
+		<div class="background_boeder" data-query="eventListedInfo">
 			<div class="particulars_k font_20"><li data-field="listedEvent"><span class="color_set"></span>暂未披露</li></div>
 			<div class="particulars_k m_t5 particulars_ul particulars_bottom_b">
 				<ul>
-					<li class="font_14">基本信息</li>
+					<li><div class="project_t"><span class="brain_ico brain_ico_project_crumbs"></span>基本信息</li>
 				</ul>
 			</div>
-			<div class="particulars_k m_t5 particulars_ul particulars_ul_one">
+			<div class="particulars_black m_t5 particulars_ul particulars_ul_one">
 				<div class="w_50 fl">
 					<ul>
 						<li><span class="fl color_666 width_97">企业：&nbsp;</span><span data-field="projTitle">-</span></li>
@@ -45,9 +49,12 @@
 			</div>
 		</div>	
 		<!-- 描述 -->
+		<div class="background_boeder" >
+		<div class="project_t"><span class="brain_ico brain_ico_project_crumbs"></span>描述</div>	
 		<div class="particulars_black m_t20" data-query="eventListedInfo">
-			<div class="font_14">描述</div>
+			<div class="font_14"></div>
 			<p  class="color_666" data-field="desc">暂无描述</p>
+		</div>
 		</div>
 	</div>
 </div>

@@ -197,7 +197,7 @@ select:focus { outline: none important; }
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 2;
     overflow: hidden; */}
-.person-report-right  h3 a{width:590px;display: inline-block;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+.person-report-right  h3 a{width:590px;display: inline-block; colorl:#333; overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
 .person-report-right  h3 a:hover{colorl:#2393f7;}
 .person-report-description{width:600px;display: -webkit-box;
     -webkit-box-orient: vertical;
