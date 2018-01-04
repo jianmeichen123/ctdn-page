@@ -420,7 +420,7 @@ $(function(){
 	}
 	$("#seek").click(function(){
 	    if(getCookie("_uid_")){
-           location.href = "seek_financing.html";
+	        window.open("../seek_financing.html","_blank")
         }else{
            location.href = platformUrl.toLogin;
         }
