@@ -192,7 +192,7 @@ function initTable() {
      }
       var html ="<div class='person-project-item clearfix'>"+
       "<span class='person-book-close' onclick=cancel(0,'"+row.projCode+"')></span>"+
-          "<div class='person-project-left fl'>"+
+          "<div class='person-project-left picSquare fl'>"+
           "<a target='_blank' href='/project_qy.html?projCode="+row.projCode+"'><img src='"+img+"'/></a></div>"+
           "<div class='person-project-right fr'>"+
               "<p><a target='_blank' href='/project_qy.html?projCode="+row.projCode+"'><span class='person-book-red'>"+row.projTitle+"</span></a>"+tag+"</p>"+
@@ -225,7 +225,7 @@ function initTable() {
     }
     var html ="<div class='person-project-item clearfix'>"+
               "<span class='person-book-close' onclick=cancel(1,'"+row.orgCode+"') ></span>"+
-                  "<div class='person-project-left fl'><a target='_blank' href='/jg_particulars.html?orgCode="+row.orgCode+"'><img src='"+img+"'/></a></div>"+
+                  "<div class='person-project-left picSquare fl'><a target='_blank' href='/jg_particulars.html?orgCode="+row.orgCode+"'><img src='"+img+"'/></a></div>"+
                   "<div class='person-project-right fr'>"+
                       "<p><span class='person-book-red'><a target='_blank' href='/jg_particulars.html?orgCode="+row.orgCode+"'>"+row.investOrg+"</a></span><span class='person-mark-item-title'>"+orgType+"</span></p>"+
                       "<p class='person-institute-incident'>投资事件:<span class='person-incident-num'>"+row.investTotal+"</span></p>"+

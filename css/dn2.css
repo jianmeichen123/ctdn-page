@@ -159,7 +159,7 @@ select:focus { outline: none important; }
 /* .person-bookmark-content ul li.underline{border-bottom:3px solid #2393f7;color:#2393f7;} */
 .person-project-items{width:775px;border:1px solid #f0f0f0;margin:20px auto;height:auto;}
 .person-project-left{width:80px;margin-left:10px;margin-top:10px;}
-.person-project-left img{vertical-align:middle;width:80px;max-height:80px;border: 1px solid #f0f0f0;}
+.person-project-left img{vertical-align:middle;width:100%;max-height:80px;border: 1px solid #f0f0f0;}
 .person-project-right{width:605px;margin-right:60px;margin-top:8px;color:#666666;font-size:14px;}
 .person-mark-item-title{width:auto;padding-left:12px;padding-right:12px;height:20px;line-height:20px;border:1px solid #999;border-radius:10px;display:inline-block;color:#333;font-size:12px;text-align:center;margin-left:10px;}
 .person-book-red em{color:#ff0f00;}
@@ -182,7 +182,7 @@ select:focus { outline: none important; }
 .person-start-univercity em{padding-left:11px;}
 .person-book-invest{display:none;}
 .preson-book-no-border{border-right:none;}
-.person-book-close{display:inline-block;width:13px;height:13px;cursor:pointer;position:absolute;top:34px;right:10px;background:url('../img/person_center/person-close_06.jpg') no-repeat;}
+.person-book-close{display:inline-block;width:13px;height:13px;cursor:pointer;position:absolute;top:20px;right:10px;background:url('../img/person_center/person-close_06.jpg') no-repeat;}
 .person-book-close:hover{background:url('../img/person_center/person-close_03.jpg') no-repeat;}
 .person-book-report{display:block;}
 .person-report-img{width:160px;height:90px;border-radius:3px;margin-top:13px;    overflow: hidden;
@@ -199,7 +199,7 @@ select:focus { outline: none important; }
     overflow: hidden; */}
 .person-report-right  h3 a{width:590px;display: inline-block; colorl:#333; overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
 .person-report-right  h3 a:hover{colorl:#2393f7;}
-.person-report-description{width:600px;display: -webkit-box;
+.person-report-description{width:561px;display: -webkit-box;
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 2;
     overflow: hidden;}
@@ -288,10 +288,10 @@ textarea.invalid::-ms-input-placeholder {
 .person-project-right div a{color:#000;}
 .person-project-right div a:hover{color:#2393f7;}
 .person-report-right h3 a:hover{color:#2393f7;}
-
-
-
-
+.picSquare a img{border:none;}
+.picSquare{height:80px;vertical-align:middle;border:1px solid #d8d8d8;border-radius:5px;}
+.picSquare a{height:80px;display:table-cell;vertical-align:middle;}
+.picSquare a img{border-radius:5px;display:block;margin:0 auto;}
 
 
 
