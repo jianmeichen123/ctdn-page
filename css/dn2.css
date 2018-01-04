@@ -208,7 +208,7 @@ select:focus { outline: none important; }
 .person-reset-password ul li {margin-top:20px;position:relative;}
 .person-pass-confirm{margin-left:-13px;}
 .new-confirm{margin-left:0px !important;}
-.person-save-password{display:inline-block;width:300px;height:50px;line-height:50px;text-align:center;color:#fff;border-radius:5px;background:#2393f7;margin-left:80px;cursor:pointer;margin-top:30px !important;}
+.person-save-password{display:inline-block;width:300px;height:50px;line-height:50px;text-align:center;color:#fff;border-radius:5px;background:#2393f7;margin-left:65px;cursor:pointer;margin-top:30px !important;}
 .person-book-eye{display:inline-block;width:22px;height:16px;position:absolute;right:27px;top: 19px;background:url('../img/login/login-icon_10.jpg') no-repeat 2px 2px;cursor:pointer;}
 .person-book-eye-blue{background:url('../img/login/eye-blue_03.jpg') no-repeat 2px 2px;}
 .concern-industry-content{width:779px;margin:30px auto;}
@@ -285,6 +285,10 @@ textarea.invalid::-ms-input-placeholder {
 .person-project-container{width:95%;margin:20px auto;}
 .new_info-nav{border-bottom: 1px solid #d9d9d9;width:auto !important;}
 .person-report-right h3 a{color:#333333;font-size:16px;}
+overflow: hidden;
+text-overflow: ellipsis;
+white-space: nowrap;
+width: 100%;
 .person-project-right div a{color:#000;}
 .person-project-right div a:hover{color:#2393f7;}
 .person-report-right h3 a:hover{color:#2393f7;}
