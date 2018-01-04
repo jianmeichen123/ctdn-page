@@ -431,7 +431,7 @@ $(function(){
 	}
 	$("#seek").click(function(){
 	    if(getCookie("_uid_")){
-	        window.open("../seek_financing.html","_blank")
+	        window.open("./seek_financing.html","_blank")
         }else{
            location.href = platformUrl.toLogin;
         }
