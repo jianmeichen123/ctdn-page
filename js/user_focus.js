@@ -76,7 +76,15 @@ function saveIndustry(){
 		userIndustry.userCode =userCode;
 		userIndustry.industryIdList = focusIndustryIds;
 		sendPostRequestByJsonObj(platformUrl.updateUserIndustry,userIndustry,function(data){
-		    alert("设置成功!")
+		    layer.open({
+                  type: 2,
+                  title: '提示信息',
+                  shadeClose: true,
+                  btn:["确定"],
+                  shade: 0.6,
+                  area: ['400px', '280px'],
+                  content: 'html/tips_success.html'
+            });
 		})
 }
 
