@@ -31,8 +31,8 @@ em,i{font-style:normal;}
 .list-item{width:100%; background:#fff;     padding-left: 20px;  padding-right: 20px; }
 /* .info-list-container{border:1px solid #f0f0f0} */
 .list-item-inner{width:100%;height:100%;border-bottom:1px solid #f0f0f0;margin:0 auto;}
-.list-item-left{width:80px;float:left;margin-top:20px;     padding-bottom: 20px;}
-.list-item-left img{ width:80px; height:80px; border:1px solid #f0f0f0;}
+.list-item-left{width:80px;float:left;margin-top:20px; height:80px;  border:1px solid #f0f0f0; position: relative;   padding-bottom: 20px;}
+.list-item-left img{ width:78px;     max-height: 78px; overflow: hidden;  position: absolute;  top: 50%; transform: translateY(-50%);}
 .list-item-right{float:right;width:1120px; padding-left:20px;     padding-bottom: 20px; position:relative;}
 .list-item-right p{margin-bottom:0;     margin-top: 20px;}
 .list-item-tips{color:#999;}
