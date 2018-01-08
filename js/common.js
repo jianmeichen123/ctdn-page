@@ -572,9 +572,9 @@ $.extend($,{
  $('body').delegate('.nav_list_data_all','mouseenter mouseleave', function(event){
  	event.stopPropagation();
  	if(event.type == "mouseenter"){
- 		$('.nav_list_data_all .nav_list_data').addClass("nav_list_data_on");
+ 		$(this).children('.nav_list_data').addClass("nav_list_data_on");
  	}else if(event.type == "mouseleave" ){
- 		$('.nav_list_data_all .nav_list_data').removeClass("nav_list_data_on");
+ 		$(this).children('.nav_list_data').removeClass("nav_list_data_on");
  	}
  })
 //名字事件

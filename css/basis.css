@@ -147,27 +147,31 @@ center .list_table_td{text-align:center;   float: none;}
 .logo{display:block; float:left; width:122px; height:36px; margin-top:12px;}
 .nav_all_bj{width:329px; height:60px;background-image:url(../img/nav_d.jpg);  background-repeat:no-repeat;   position: absolute;}
 .nav_all{ height:68px; position:relative;  }
-.nav_all>ul{ margin-left:36px; float:left; overflow:hidden; }
-.nav_all>ul li{ float:left;  font-size:16px; color:#fff;  margin-left:12px;}
-.nav_all>ul .nav_on a{ color:#fff; background-color:#2393f7; }
-.nav_all ul a{color:#fff; padding-left:24px; padding-right:24px; padding-top: 24px; display: block;  height:68px;}
+.nav_all>ul{ margin-left:36px; float:left;  }
+.nav_all>ul>li{ float:left;  font-size:16px; color:#fff;     position: relative;}
+.nav_all>ul>li>a{color:#fff;  padding-top: 24px; display: block;  height:68px;padding-left:20px; padding-right:20px;}
+.nav_all>ul .nav_on>a{ color:#fff; background-color:#2393f7; padding-left:24px; padding-right:24px;}
 .nav_all ul a:hover{ text-decoration:none}
 .nav_nav ul li{ float:left; height:65px; text-align:center; width:75px; margin-left:60px;}
+.nav_nav_commerce ul{margin-left:320px;}
+.nav_nav_commerce ul li{ float:left; height:55px; text-align:center; width:75px; margin-left:60px;}
 .list_click_ul>li a{padding-left: 0px;
     padding-right: 0px;
     padding-top: 0px;
     display: block;line-height: 36px;
     height: 36px;}
 .nav_nav{border-bottom:1px solid #d9d9d9; height:66px; background-color:#ffffff; display:none;}
+.nav_nav_commerce{border-bottom:1px solid #d9d9d9; height:56px; background-color:#ffffff; display:none;}
 .nav_nav_name{ font-size:16px; color:#333333; margin-top:15px;}
 .nav_nav_name_x{ font-size:12px; color:#999;}
 .nav_two .nav_on{ border-bottom:4px solid #2393f7;}
-.nav_all_seek{float:left;     margin-left: 76px;}
-.nav_list_data{position:absolute; left:262px; display:none; background-color:#313749; width:128px; top:68px; z-index: 999;}
+.nav_all_seek{float:left;     margin-left: 83px;}
+.nav_on .nav_list_data{width:100%;left:0px;}
+.nav_list_data{position:absolute; left:0px; display:none; background-color:#313749; width:100%; top:68px; z-index: 999;}
 .nav_list_data_on{display:block;}
 .nav_list_data>ul{padding-bottom:20px;}
 .nav_list_data>ul>a{margin-top:20px; text-align:center; color:#fff; background-color:#313749 !important;   padding-left:0px; padding-right:0px; padding-top: 0px; display: block;  height:auto;   }
-.nav_list_data>ul>a>li{float:none; width:128px;  margin-left: 0;}
+.nav_list_data>ul>a>li{float:none;   margin-left: 0;}
 .nav_list_data>ul>a .nav_on{color:#2393f7;}
 .nav_all_input{ width:255px; height:32px; background-color:#071026; display:none; border-radius:15px; float:left; position: relative; margin-top:20px; margin-left:40px;}
 .nav_all_input input{ width:218px; margin-left:8px; text-indent:5px; float:left; height:30px;    color: #fff; font-size: 12px; background-color:#071026; border:0;border-radius:5px;}
@@ -177,6 +181,8 @@ center .list_table_td{text-align:center;   float: none;}
 .brain_ico_name{background-position:-28px -14px; width:16px; height:16px; display:inline-block;     margin-top: -3px;}
 .nav_nav ul{ margin-left:140px;}
 .nav_nav ul li a{color:#333;     text-decoration: none;}
+/*商业洞察*/
+.nav_nav_commerce{display:none;}
 .gz_ul{widht:100%; overflow:hidden; height:50px; background-color:#4872c1;}
 .gz_ul li{width:50%; height:50px; float:left; line-height:50px; color:#fff; font-size:16px; text-align:center;}
 .gz_ul .gz_ul_on{color:#1ed2ff; background-color:#1a3a76;}
