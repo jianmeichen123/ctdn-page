@@ -9,7 +9,6 @@ var Constants = {
 	userContentURL: "http://ctdndev.gi.com/user/"
 
 }
-
 var home = {
 	    index : "http://ctdndev.gi.com"
 	}
