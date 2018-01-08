@@ -14,16 +14,12 @@ var home = {
 	    index : "http://ctdndev.gi.com"
 	}
 var docUrl = {
+  /**
+    * 文档
+  */
+   shareDocList:Constants.docContentURL+"share/query",
 
-      /**
-        * 文档
-      */
-
-       shareDocList:Constants.docContentURL+"share/query",
-
-       getShareDoc:Constants.docContentURL+"share/get/"
-
-
+   getShareDoc:Constants.docContentURL+"share/get/"
 }
 var searchUrl = {
     project:Constants.searchContentURL+"project",
