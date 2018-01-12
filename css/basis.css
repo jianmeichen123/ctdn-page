@@ -630,8 +630,9 @@ white-space: nowrap; text-align:center; height:25px; line-height:25px; margin-t
 .index_l_center{ padding-right: 15px;  padding-left: 15px;   margin-right: auto; margin-left: auto;}
 .yl_ul li{width:90px; border:1px solid #e6e6e6;  margin-bottom:20px; text-align:center; border-radius:4px; line-height:28px; background-color:#fff; float:left; margin-left:20px;}
 .yl_ul .yl_ul_on{border:1px solid #1ed2ff; color:#fff; background-color:#1ed2ff;}
-.table_yl{width:100%; overflow:hidden;font-size: 14px; color: #666666;}
+.table_yl{width:auto; overflow:hidden;font-size: 14px; color: #666666;    margin-left: auto;   margin-right: auto;}
 .table_yl td{ padding-top:10px; padding-bottom:10px; text-align: center;}
+.table_yl th{padding-left:80px; padding-right:80px;padding-top:10px; padding-bottom:10px; text-align: center;    font-weight: inherit;}
 .index_r_title{font-size:16px; color:#333333; padding-left:15px; line-height:35px;      padding-top: 5px;}
 .index_r_title .fr a{font-size:12px; color:#f76900; padding-right:10px;}
 .yl_tit{font-size:16px; color:#3e4d69; line-height:50px;}
