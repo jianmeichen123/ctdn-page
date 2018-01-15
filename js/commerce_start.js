@@ -1,47 +1,14 @@
 //资本地图
+`commerce_one()
+function commerce_one(){
+
 var myChart = echarts.init(document.getElementById('commerce_one'));
 
-var data = [
-    { name: "上海", value: 290},
-    { name: "珠海", value: 2186},
-    { name: "三亚", value: 1135},
-    { name: "惠州", value: 1973},
-    { name: "海口", value: 2568},
-    { name: "合肥", value: 4039},
-    { name: "南京", value: 6959},
-    { name: "杭州", value: 5632},
-    { name: "苏州", value: 6707},
-    { name: "无锡", value: 3393},
-    { name: "昆山", value: 1894},
-    { name: "广州", value: 15769},
-    { name: "深圳", value: 8259},
-    { name: "佛山", value: 5741},
-    { name: "东莞", value: 3030},
-    { name: "福州", value: 4542},
-    { name: "厦门", value: 3329},
-    { name: "南宁", value: 3157},
-    { name: "郑州", value: 6690},
-    { name: "武汉", value: 8678},
-    { name: "长沙", value: 5303},
-    { name: "南昌", value: 3025},
-    { name: "北京", value: 20259},
-    { name: "长春", value: 3016},
-    { name: "大连", value: 3202},
-    { name: "沈阳", value: 4540},
-    { name: "哈尔滨", value: 3141},
-    { name: "天津", value: 8626},
-    { name: "济南", value: 4361},
-    { name: "青岛", value: 6667},
-    { name: "太原", value: 4080},
-    { name: "石家庄", value: 6137},
-    { name: "西安", value: 6991},
-    { name: "成都", value: 13873},
-    { name: "重庆", value: 13283},
-    { name: "昆明", value: 4633},
+var data = []
 
-
-];
-
+sendPostRequestByJsonObj("http://127.0.0.1:8081/api/comOverview/area",json,function(data){
+    data = data;
+})
 var geoCoordMap = {
     "上海": [121.48, 31.22],
     "珠海": [113.52, 22.3],
@@ -343,7 +310,7 @@ function renderBrushed(params) {
 }
 	                    
 myChart.setOption(option,true);
-
+}
 
 //投资机构轮次分布
 var myChart_two = echarts.init(document.getElementById('commerce_two'));
