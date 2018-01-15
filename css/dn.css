@@ -426,7 +426,7 @@ input::-ms-clear, input::-ms-reveal {
 .trade_list_r{width:1133px; float:left; overflow:hidden;margin-top:30px;}
 .trade_list_r>ul{margin-left:30px; margin-bottom:10px;  overflow: hidden;}
 .trade_list_r>ul>li{float:left; padding-left:14px; padding-right:14px; border:1px solid #b2dbff; border-radius:15px; margin-bottom:20px; color:#333;font-size:14px; line-height:30px; height:30px; margin-right:30px;}
-.trade_list_r>ul>li:hover,.trade_list_r>ul>.trade_list_on{border:1px solid #2393f7; background-color:#2393f7; cursor:pointer; color:#fff;}
+.trade_list_r>ul>.trade_list_on{border:1px solid #2393f7; background-color:#2393f7; cursor:pointer; color:#fff;}
 .trade_tit_bg{background-color:#e2f1ff; border-radius:5px;margin-top:20px; width:100%; overflow:hidden; height:50px; line-height:50px; font-size:16px;}
 .trade_tit_bg>ul>li{float:left; margin-right:80px; cursor:pointer;}
 .trade_tit_bg>ul>li:hover,.trade_title_on{color:#2393f7;}
