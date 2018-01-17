@@ -5,7 +5,6 @@
 	<title>行业分析</title>
 	<!--basis-->
 	{(dn_basis.html)}
-
 </head>
 <style>
 .nav_nav_commerce{display:block;}
@@ -16,53 +15,7 @@
 	<div class="trade_list">
 		<div class="trade_list_l">所属行业</div>
 		<div class="trade_list_r">
-			<ul>
-				<li class="trade_list_on">全部</li>
-				<li>金融基础设施</li>
-				<li>全部</li>
-				<li>金融基础设施</li>
-				<li>全部</li>
-				<li>金融基础设施</li>
-				<li>全部</li>
-				<li>金融基础设施</li>
-				<li>全部</li>
-				<li>金融基础设施</li>
-				<li>全部</li>
-				<li>金融基础设施</li>
-				<li>全部</li>
-				<li>金融基础设施</li>
-				<li>全部</li>
-				<li>金融基础设施</li>
-				<li>全部</li>
-				<li>金融基础设施</li>
-				<li>全部</li>
-				<li>金融基础设施</li>
-				<li>全部</li>
-				<li>金融基础设施</li>
-				<li>全部</li>
-				<li>金融基础设施</li>
-				<li>全部</li>
-				<li>金融基础设施</li>
-				<li>全部</li>
-				<li>金融基础设施</li>
-				<li>全部</li>
-				<li>金融基础设施</li>
-				<li>全部</li>
-				<li>金融基础设施</li>
-				<li>全部</li>
-				<li>金融基础设施</li>
-				<li>全部</li>
-				<li>金融基础设施</li>
-				<li>全部</li>
-				<li>金融基础设施</li>
-				<li>全部</li>
-				<li>金融基础设施</li>
-				<li>全部</li>
-				<li>金融基础设施</li>
-				<li>全部</li>
-				<li>金融基础设施</li>
-				<li>全部</li>
-				<li>金融基础设施</li>
+			<ul id ="industryList">
 			</ul>
 		</div>
 	</div>
@@ -70,27 +23,27 @@
 		<div class="particulars_black" >
 			<table class="table_yl">
 				<tbody>
-					<tr>
-						<th>&nbsp;</th>
-						<th>收录公司总数</th>
-						<th>获投公司总数</th>
-						<th>融资总笔数</th>
-						<th>融资总额</th>
-					</tr>
-					<tr>
-						<td>历史累计</td>
-						<td class="col_pink"><span class="size22" id="projectNum_total">0</span>家</td>
-						<td class="col_pink"><span class="size22" id="investedProjNum_total">0</span>家</td>
-						<td class="col_pink"><span class="size22" id="eventNum_total">0</span>笔</td>
-						<td class="col_pink"><span class="size22" id="amount_total">0</span><span>亿元</span></td>
-					</tr>
-					<tr>
-						<td>本月新增</td>
-						<td class="col_pink"><span class="size22" id="projectNum_curmonth">0</span>家</td>
-						<td class="col_pink"><span class="size22" id="investedProjNum_curmonth">0</span>家</td>
-						<td class="col_pink"><span class="size22" id="eventNum_curmonth" >0</span>笔</td>
-						<td class="col_pink"><span class="size22" id="amount_curmonth" >0</span><span>亿元</span></td>
-					</tr>
+				<tr>
+					<th>&nbsp;</th>
+					<th>收录公司总数</th>
+					<th>获投公司总数</th>
+					<th>融资总笔数</th>
+					<th>融资总额</th>
+				</tr>
+				<tr>
+					<td>历史累计</td>
+					<td class="col_pink"><span class="size22" id="projectNum_total">0</span>家</td>
+					<td class="col_pink"><span class="size22" id="investedProjNum_total">0</span>家</td>
+					<td class="col_pink"><span class="size22" id="eventNum_total">0</span>笔</td>
+					<td class="col_pink"><span class="size22" id="amount_total">0</span><span>亿元</span></td>
+				</tr>
+				<tr>
+					<td>本月新增</td>
+					<td class="col_pink"><span class="size22" id="projectNum_curmonth">0</span>家</td>
+					<td class="col_pink"><span class="size22" id="investedProjNum_curmonth">0</span>家</td>
+					<td class="col_pink"><span class="size22" id="eventNum_curmonth" >0</span>笔</td>
+					<td class="col_pink"><span class="size22" id="amount_curmonth" >0</span><span>亿元</span></td>
+				</tr>
 				</tbody>
 			</table>
 		</div>
@@ -105,131 +58,120 @@
 			<li>各轮次融资规模分布</li>
 		</ul>
 	</div>
-	
-	<div class="background_boeder_commerce m_t10">
+
+	<div class="background_boeder_commerce m_t10" echarts_flag="1">
 		<div class="commerce_tit_all">
 			<div class="commerce_tit"><span class="dn_ico dn_ico_commerce"></span>项目描述<span class="commerce_tit_span">　　(点击图例可展示或隐藏行业曲线)</span></div>
 			<div class="commerce_tit_r">
 				<ul>
 					<li>
-						<select>
-							<option>最近一年</option>
-							<option>最近一年</option>
-							<option>最近一年</option>
+						<select name = "time">
+							<option value=12 name="M">最近1年</option>
+							<option value=3 name="Q">最近3年</option>
+							<option value=6 name="Y">最近6年</option>
 						</select>
 					</li>
 					<li>
-						<select>
-							<option>所有地区</option>
-							<option>所有地区</option>
-							<option>所有地区</option>
+						<select name="districtSubId">
 						</select>
 					</li>
 					<li>
-						<select>
-							<option>所有轮次</option>
-							<option>所有轮次</option>
-							<option>所有轮次</option>
+						<select name ="industryRoundId">
+							<option value="">所有轮次</option>
+							<option value=1>种子轮/天使轮/Pre-A轮</option>
+							<option value=2>A轮/A+轮</option>
+							<option value=3>Pre-B轮/B轮/B+轮</option>
+							<option value=4>C轮</option>
+							<option value=5>D轮及以上</option>
 						</select>
 					</li>
 				</ul>
 			</div>
 		</div>
 		<div class="eachrst_tit">
-			<div class="fl">
-				<span lang="1" class="commerce_name_on">融资笔数</span>
-				<span lang="2">融资金额</span>
-			</div>
-			<div class="fr">
+			<div class="fr num_or_money" >
 				<span class="eachrst_tit_on" lang="1">按融资笔数</span>
 				<span lang="2">按融资金额</span>
 			</div>
 		</div>
 		<div style="width:100%; height:470px;" id="commerce_one"></div>
 	</div>
-	
-	
-	<div class="background_boeder_commerce m_t10">
+
+
+	<div class="background_boeder_commerce m_t10" echarts_flag="2">
 		<div class="commerce_tit_all">
 			<div class="commerce_tit"><span class="dn_ico dn_ico_commerce"></span>行业融资对比</div>
 			<div class="commerce_tit_r">
 				<ul>
 					<li>
-						<select>
-							<option>最近30天</option>
-							<option>最近50天</option>
-							<option>最近一年</option>
+						<select name = "time">
+							<option value=30 name="D" >最近30天</option>
+							<option value=3 name="M">最近3个月</option>
+							<option value=6 name="M">最近半年</option>
+							<option value=12 name="M">最近1年</option>
+							<option value=3 name="Y">最近3年</option>
 						</select>
 					</li>
 					<li>
-						<select>
-							<option>所有地区</option>
-							<option>所有地2区</option>
-							<option>所有地4区</option>
+						<select name="districtSubId">
 						</select>
 					</li>
 				</ul>
 			</div>
 		</div>
 		<div class="eachrst_tit">
-			<div class="fl">
-				<span lang="1" class="commerce_name_on">融资笔数</span>
-				<span lang="2">融资金额</span>
-			</div>
-			<div class="fr">
+			<div class="fr num_or_money" >
 				<span class="eachrst_tit_on" lang="1">按融资笔数</span>
 				<span lang="2">按融资金额</span>
 			</div>
 		</div>
 		<div style="width:100%; height:470px;" id="commerce_two"></div>
 	</div>
-	
-	<div class="background_boeder_commerce m_t10">
+
+	<div class="background_boeder_commerce m_t10" echarts_flag="3">
 		<div class="commerce_tit_all">
 			<div class="commerce_tit"><span class="dn_ico dn_ico_commerce"></span>融资版块</div>
 			<div class="commerce_tit_r">
 				<ul>
 					<li>
-						<select>
-							<option>最近30天</option>
-							<option>最近50天</option>
-							<option>最近一年</option>
+						<select name ="timeType">
+							<option value="D" selected="selected">最近30天</option>
+							<option value="M">最近3个月</option>
+							<option value="M">最近半年</option>
+							<option value="M">最近1年</option>
+							<option value="Y">最近3年</option>
 						</select>
 					</li>
 					<li>
-						<select>
-							<option>所有地区</option>
-							<option>所有地2区</option>
-							<option>所有地4区</option>
+						<select name="districtSubId">
 						</select>
 					</li>
 				</ul>
 			</div>
 		</div>
 		<div class="commerce_click">
-			<span>全部行业</span> > 
+			<span>全部行业</span>
 			<span>人工智能</span>
 		</div>
 		<div style="width:100%; height:470px;" id="commerce_three"></div>
 	</div>
-	
-	<div class="background_boeder_commerce m_t10">
+
+	<div class="background_boeder_commerce m_t10" echarts_flag="4">
 		<div class="commerce_tit_all">
 			<div class="commerce_tit"><span class="dn_ico dn_ico_commerce"></span>持续获投分析</div>
 			<div class="commerce_tit_r">
 				<ul>
 					<li>
-						<select>
-							<option>最近30天</option>
-							<option>最近50天</option>
-							<option>最近一年</option>
+						<select name ="timeType">
+							<option value="D" selected="selected">最近30天</option>
+							<option value="M">最近3个月</option>
+							<option value="M">最近半年</option>
+							<option value="M">最近1年</option>
+							<option value="Y">最近3年</option>
 						</select>
 					</li>
 					<li>
-						<select>
-							<option>所有地区</option>
-							<option>所有地2区</option>
-							<option>所有地4区</option>
+						<select name="districtSubId">
 						</select>
 					</li>
 				</ul>
@@ -242,17 +184,19 @@
 		</div>
 		<div style="width:100%; height:470px;" id="commerce_four"></div>
 	</div>
-	
-	<div class="background_boeder_commerce m_t10">
+
+	<div class="background_boeder_commerce m_t10" echarts_flag="5">
 		<div class="commerce_tit_all">
 			<div class="commerce_tit"><span class="dn_ico dn_ico_commerce"></span>各轮次融资规模分布</div>
 			<div class="commerce_tit_r">
 				<ul>
 					<li>
-						<select>
-							<option>最近30天</option>
-							<option>最近50天</option>
-							<option>最近一年</option>
+						<select name = "time">
+							<option value=30 name="D">最近30天</option>
+							<option value=3 name="M">最近3个月</option>
+							<option value=6 name="M">最近半年</option>
+							<option value=12 name="M">最近1年</option>
+							<option value=3 name="Y">最近3年</option>
 						</select>
 					</li>
 				</ul>
@@ -265,11 +209,11 @@
 		</div>
 		<div style="width:100%; height:570px;" id="commerce_five"></div>
 	</div>
-	
 
 
-	
-	
+
+
+
 
 </div>
 
