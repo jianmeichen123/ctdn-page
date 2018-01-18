@@ -3,6 +3,7 @@ var myChartDB_default_industry_num = 29
 var industry_data = null
 var round_data = null
 var rzbk_data =null
+var cxhtfx_data =null
 var yAxis_name = '按融资笔数'
 var myChart = echarts.init(document.getElementById('commerce_one'));
 //加载行业
@@ -15,11 +16,10 @@ sendGetRequest(platformUrl.industry,function(data){
         $("#industryList").html(html);
     }
 })
-
 //加载热门地区
 sendGetRequest(echars.hotDistrict,function(data){
     if(data.status ==10000){
-    var html = "<option value=''>所有地区</option>"
+    var html = "<option value=-1>所有地区</option>"
         $(data.data).each(function(){
             html += "<option value="+$(this)[0].id+">"+$(this)[0].name+"</option>"
         })
@@ -314,67 +314,6 @@ var option_three = {
 	        }
 	    ]
 	};
-
-myChart_three.setOption(option_three,true);
-$(".background_boeder_commerce select[name]" ).change(function(){
-   var div = $(this).closest(".background_boeder_commerce");
-   var tab = $(this).closest('.commerce_tit_all').parent().find(".num_or_money");
-   var flag = 1;
-   if(tab){
-      flag = tab.find("span.eachrst_tit_on").attr("lang")
-   }
-   var json =  getJson(div);
-   var echarts_flag = div.attr("echarts_flag");
-   switch(echarts_flag){
-    case "1" : freshEchars1(json,flag); break;
-    case "2" : freshEchars2(json,flag); break;
-   }
-})
-
-function getJson(div){
-    var ls =  div.find("select[name]");
-    var json = {};
-    $(ls).each(function(){
-        if($(this).attr("name")=="time"){
-            json["timeType"] =  $(this).find("option:selected").attr("name");
-            json["time"] =  $(this).find("option:selected").val();
-        }else{
-            json[$(this).attr("name")] =  $(this).find("option:selected").val();
-        }
-    })
-    json["industryId"] =$("#industryList li.trade_list_on").attr("value")
-    return json;
-}
-// 请求行业融资对比数据
-function freshEchars1(json,flag){
-    sendPostRequestByJsonObj(echars.industryInvestTrend,json,function(data){
-        if(data.success){
-            industry_data = data
-            showEcharts(1,flag)
-        }
-    });
-}
-
-// 请求行业融资对比数据
-function freshEchars2(json,flag){
-    sendPostRequestByJsonObj(echars.industryInvestContrast,json,function(data){
-        if(data.success){
-            round_data = data
-            showEcharts(2,flag)
-        }
-    });
-}
-
-// 请求行业融资对比数据
-function freshEchars3(json){
-    sendPostRequestByJsonObj(echars.getIndustryGroupDistrictRZBK,json,function(data){
-        if(data.success){
-            rzbk_data = data
-            showEcharts(3,null)
-        }
-    });
-}
-
 //持续获投分析
 var myChart_four = echarts.init(document.getElementById('commerce_four'));
 var option_four = {
@@ -401,7 +340,7 @@ var option_four = {
   			 },
             axisLabel: {
 			    //formatter: '{value}',
-			    interval:0,  
+			    interval:0,
 			    rotate:40 ,
 			    textStyle: {
 			    	color: '#333333',
@@ -424,11 +363,11 @@ var option_four = {
                  splitLine :{
      	           	 show:true,
      	           	 lineStyle: {
-     	
+
      	           		 color: ['#e6e6e6'],
-     	
+
      	           		 width: 1,
-     	
+
      	           		 type: 'solid',
                 		 },
                 },
@@ -437,7 +376,7 @@ var option_four = {
                      fontSize: '12'
                  },
                  axisLabel: {
-     			    interval:0,  
+     			    interval:0,
      			    textStyle: {
      			    	color: '#333333',
      			        fontSize:'12'
@@ -454,7 +393,7 @@ var option_four = {
 
              }
          ],
-    
+
     series : [
               {
                   name:'直接访问',
@@ -465,8 +404,76 @@ var option_four = {
               }
     ]
 };
-myChart_four.setOption(option_four,true);
 
+$(".background_boeder_commerce select[name]" ).change(function(){
+   var div = $(this).closest(".background_boeder_commerce");
+   var tab = $(this).closest('.commerce_tit_all').parent().find(".num_or_money");
+   var flag = 1;
+   if(tab){
+      flag = tab.find("span.eachrst_tit_on").attr("lang")
+   }
+   var json =  getJson(div);
+   var echarts_flag = div.attr("echarts_flag");
+   switch(echarts_flag){
+    case "1" : freshEchars1(json,flag); break;
+    case "2" : freshEchars2(json,flag); break;
+    case "3" : freshEchars3(json,flag); break;
+    case "4" : freshEchars4(json,flag); break;
+   }
+})
+function getJson(div){
+    var ls =  div.find("select[name]");
+    var json = {};
+    $(ls).each(function(){
+        if($(this).attr("name")=="time"){
+            json["timeType"] =  $(this).find("option:selected").attr("name");
+            json["time"] =  $(this).find("option:selected").val();
+        }else{
+            json[$(this).attr("name")] =  $(this).find("option:selected").val();
+        }
+    })
+    json["industryId"] =$("#industryList li.trade_list_on").attr("value")
+    return json;
+}
+// 请求行业融资对比数据
+function freshEchars1(json,flag){
+    sendPostRequestByJsonObj(echars.getRZQS,json,function(data){
+        if(data.success){
+            industry_data = data
+            showEcharts(1,flag)
+        }
+    });
+}
+
+// 请求行业融资对比数据
+function freshEchars2(json,flag){
+    sendPostRequestByJsonObj(echars.getRZDB,json,function(data){
+        if(data.success){
+            round_data = data
+            showEcharts(2,flag)
+        }
+    });
+}
+
+// 请求行业融资对比数据
+function freshEchars3(json){
+    sendPostRequestByJsonObj(echars.getRZBK,json,function(data){
+        if(data.success){
+            rzbk_data = data
+            showEcharts(3,null)
+        }
+    });
+}
+
+// 请求行业融资对比数据
+function freshEchars4(json){
+    sendPostRequestByJsonObj(echars.getCXHTFX,json,function(data){
+        if(data.success){
+            cxhtfx_data = data
+            showEcharts(4,null)
+        }
+    });
+}
 
 
 //各轮次融资规模分布
@@ -542,7 +549,8 @@ function reloadEchars(){
      var industryId = $("#industryList li.trade_list_on").attr("value")
      freshEchars1({"time":12,"timeType":"M","industryId":industryId},1)
      freshEchars2({"time":30,"timeType":"D","industryId":industryId},1)
-     freshEchars3({"time":30,"timeType":"D","industryId":industryId},1)
+    // freshEchars3({"time":30,"timeType":"D","industryId":industryId},1)
+     freshEchars4({"time":30,"timeType":"D","industryId":industryId},1)
 }
 
 //按融资笔数(1) 按融资金额(2) 切换
@@ -629,7 +637,7 @@ function showEcharts(echarts_flag,lang){
     		}
     		myChart.setOption(option,true); //true  防止多次请求，数据重叠
     	}
-    if(echarts_flag == 2) { //图表2
+    else if(echarts_flag == 2) { //图表2
     		if(round_data==null){
     			return
     		}
@@ -656,11 +664,19 @@ function showEcharts(echarts_flag,lang){
     		option_db.series = y_data
     		myChart_db.setOption(option_db,true);
     }
-    if(echarts_flag ==3){
+    else if(echarts_flag ==3){
         if(rzbk_data==null){
             return
         }
         option_three.series[0].data= rzbk_data.data.series;
         myChart_three = (option_three,true);
+    }
+    else if(echarts_flag ==4){
+        if(cxhtfx_data==null){
+            return
+        }
+        option_four.xAxis[0].data= cxhtfx_data.data.xAxis;
+        option_four.series[0].data= cxhtfx_data.data.series;
+        myChart_four.setOption(option_four,true);
     }
 }
