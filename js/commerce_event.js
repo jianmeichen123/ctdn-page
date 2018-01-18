@@ -1,6 +1,61 @@
-//资本地图
-var myChart = echarts.init(document.getElementById('commerce_one'));
 
+//sendGetRequest(detail.getEventCount,function(data){
+//    $("#tzzs").html(data.data);
+//})
+//sendGetRequest(detail.getMergerCount,function(data){
+//    $("#bgzs").html(data.data);
+//})
+
+var capDist = [];
+var capAmount = [];
+var capDatas = [];
+var capTime = $("#zbdt").val();
+$("#zbdt").change(function(){
+    capTime = $("#zbdt").val();
+    capData();
+})
+
+function capData(){
+    if(capTime.length){
+        if(capTime.indexOf("一")>-1){
+            capTime = 4;
+        }else if(capTime.indexOf("三")>-1){
+            capTime = 5;
+        }else if(capTime.indexOf("六")>-1){
+            capTime = 6;
+        }
+    }
+    sendGetRequest(detail.getEventDistricts+"/"+capTime,function(data){
+       if(capDatas){
+            capDatas = [];
+        }
+        for(i in data.data){
+            var capJson = {};
+            capJson["name"] = data.data[i].districtSubName;
+            capJson["value"] = data.data[i].invstAmount
+            capDatas.push(capJson);
+        }
+        commerce_one();
+    })
+}
+sendGetRequest(detail.getEventDistricts+"/"+4,function(data){
+    for(i in data.data){
+        var capJson = {};
+        capJson["name"] = data.data[i].districtSubName;
+        capJson["value"] = data.data[i].invstAmount
+        capDatas.push(capJson);
+        capDist.push(data.data[i].districtSubName);
+        capAmount.push(data.data[i].invstAmount);
+    }
+    commerce_one();
+})
+//资本地图
+
+function commerce_one(){
+var myChart = echarts.init(document.getElementById('commerce_one'));
+var data = capDatas;
+var geoCoordMap = { '北京':[116.46,39.92 ], '河北':[114.48,38.03], '辽宁':[123.38,41.8], '四川':[104.06,30.67], '安徽':[117.27,31.86], '河南':[113.65,34.76], '呼和浩特':[111.65,40.82], '福建':[119.3,26.08], '黑龙江':[126.63,45.75], '宁夏':[106.27,38.47], '西藏':[91.11,29.97], '甘肃':[103.73,36.03], '湖北':[114.31,30.52], '青海':[101.74,36.56], '新疆':[87.68,43.77], '广东':[113.23,23.16], '湖南':[113,28.21], '山东':[117,36.65], '云南':[102.73,25.04], '广西':[102.73,25.04], '云南':[102.73,25.04], '广西':[108.33,22.84], '吉林':[125.35,43.88], '山西':[112.53,37.87], '浙江':[120.19,30.26], '贵州':[106.71,26.57], '江苏':[118.78,32.04], '陕西':[108.95,34.27], '重庆':[106.54,29.59], '海南':[110.35,20.02], '江西':[115.89,28.68], '上海':[121.48,31.22]};
+/*
 var data = [
     { name: "上海", value: 290},
     { name: "珠海", value: 2186},
@@ -41,7 +96,9 @@ var data = [
 
 
 ];
+*/
 
+/*
 var geoCoordMap = {
     "上海": [121.48, 31.22],
     "珠海": [113.52, 22.3],
@@ -80,7 +137,7 @@ var geoCoordMap = {
     "重庆": [106.54, 29.59],
     "昆明": [102.73, 25.04],
 };
-
+*/
 var convertData = function(data) {
     var res = [];
     for (var i = 0; i < data.length; i++) {
@@ -116,8 +173,8 @@ for (var i = 0; i < data.length; i++) {
     barData.push(data[i].value);
     sum += data[i].value;
 }
-console.log(categoryData);
-console.log(sum + "   " + count)
+//console.log(categoryData);
+//console.log(sum + "   " + count)
 var option = {
     backgroundColor: '#fff',
     animation: true,
@@ -327,7 +384,6 @@ function renderBrushed(params) {
         categoryData.push(selectedItems[i].name);
         barData.push(selectedItems[i].value[2]);
     }
-
     this.setOption({
         yAxis: {
             data: categoryData
@@ -346,9 +402,40 @@ function renderBrushed(params) {
 }
 	                    
 myChart.setOption(option,true);
+}
+    var eventTime = $("#eventTime").val();
+    var eventDist = $("#eventDist").val();
 
+    $("#eventDist").change(function(){
+        eventDist = $(this).val();
+        getEventAmount();
+    })
 
-//投资机构轮次分布
+ $("#eventTime").change(function(){
+        eventTime = $(this).val();
+        getEventAmount();
+    })
+
+function getEventAmount(){
+    if(eventTime.length){
+         if(eventTime.indexOf("一")>-1){
+                eventTime = 4;
+            }else if(eventTime.indexOf("三")>-1){
+                eventTime = 5;
+            }else if(eventTime.indexOf("六")>-1){
+                eventTime = 6;
+            }
+    }
+    sendGetRequest(detail.getEventDistrictList+"/"+eventTime+"/"+eventDist,function(data){
+//        console.log(data)
+    })
+}
+
+$(function(){
+    getEventAmount();
+})
+
+//投资事件分析
 var myChart_two = echarts.init(document.getElementById('commerce_two'));
 var option_two = {
 	    tooltip: {
@@ -676,7 +763,79 @@ var option_three = {
 myChart_three.setOption(option_three,true); 
 
 //并购股权和币种分析
+var merName =[];
+var merData = [];
+var curData = [];
+var curName = [];
 
+var merTime = $("#merTime").val();
+$("#merTime").change(function(){
+    merTime = $(this).val();
+    merTimeChange();
+    commerce_four_l();
+    commerce_four_r();
+})
+
+function merTimeChange(){
+    if(merTime.length){
+        if(merTime.indexOf("一")>-1){
+            merTime = 1;
+        }else  if(merTime.indexOf("三")>-1){
+            merTime = 2;
+        }else  if(merTime.indexOf("六")>-1){
+            merTime = 3;
+        }
+    }
+    sendGetRequest(detail.getMergerEquitys+"/"+merTime,function(data){
+        if(merData){
+            merData = [];
+        }
+        for(i in data.data){
+            var merJson = {}
+            merJson["name"] = data.data[i].equityRateTypeName;
+            merJson["value"] = data.data[i].mergerNum;
+            merData.push(merJson);
+            merName.push(data.data[i].equityRateTypeName);
+        }
+    })
+    sendGetRequest(detail.getMergerCurrencys+"/"+merTime,function(data){
+        if(curData){
+            curData = [];
+        }
+        for(i in data.data){
+            var merJson = {}
+            merJson["name"] = data.data[i].currencyName;
+            merJson["value"] = data.data[i].mergerNum;
+            curData.push(merJson);
+            curName.push(data.data[i].currencyName)
+        }
+        commerce_four_r();
+    })
+}
+//股权
+sendGetRequest(detail.getMergerEquitys+"/"+1,function(data){
+    for(i in data.data){
+        var merJson = {}
+        merJson["name"] = data.data[i].equityRateTypeName;
+        merJson["value"] = data.data[i].mergerNum;
+        merData.push(merJson);
+        merName.push(data.data[i].equityRateTypeName);
+    }
+    commerce_four_l();
+})
+//币种
+sendGetRequest(detail.getMergerCurrencys+"/"+1,function(data){
+    for(i in data.data){
+        var merJson = {}
+        merJson["name"] = data.data[i].currencyName;
+        merJson["value"] = data.data[i].mergerNum;
+        curData.push(merJson);
+        curName.push(data.data[i].currencyName)
+    }
+    commerce_four_r();
+})
+
+function commerce_four_l(){
 var myChart_four_l = echarts.init(document.getElementById('commerce_four_l')); 
 var option_four_l = {
 	    title : {
@@ -699,7 +858,7 @@ var option_four_l = {
 	        //orient: 'vertical',
 	        bottom: '0',
 	        x:'center',
-	        data: ['0-10%','10%-30%','30%-50%','50%以上']
+	        data: merName,
 	    },
 	    series : [
 	        {
@@ -707,12 +866,7 @@ var option_four_l = {
 	            type: 'pie',
 	            radius : '75%',
 	            center: ['50%', '50%'],
-	            data:[
-	                {value:335, name:'0-10%'},
-	                {value:310, name:'10%-30%'},
-	                {value:234, name:'30%-50%'},
-	                {value:135, name:'50%以上'}
-	            ],
+	            data:merData,
 	            itemStyle: {
 	                emphasis: {
 	                    shadowBlur: 10,
@@ -724,8 +878,9 @@ var option_four_l = {
 	    ]
 	};
 myChart_four_l.setOption(option_four_l ,true); 
+}
 
-
+function commerce_four_r(){
 var myChart_four_r = echarts.init(document.getElementById('commerce_four_r'));
 var option_four_r = {
 	    title : {
@@ -748,7 +903,7 @@ var option_four_r = {
 	        //orient: 'vertical',
 	        bottom: '0',
 	        x:'center',
-	        data: ['人民币','美元','欧元','新台币','港元','日元','英镑','卢比','其他']
+	        data: curName
 	    },
 	    series : [
 	        {
@@ -756,17 +911,7 @@ var option_four_r = {
 	            type: 'pie',
 	            radius : '75%',
 	            center: ['50%', '50%'],
-	            data:[
-	                {value:335, name:'人民币'},
-	                {value:310, name:'美元'},
-	                {value:234, name:'欧元'},
-	                {value:135, name:'新台币'},
-	                {value:234, name:'港元'},
-	                {value:135, name:'日元'},
-	                {value:234, name:'英镑'},
-	                {value:234, name:'卢比'},
-	                {value:135, name:'其他'}
-	            ],
+	            data:curData,
 	            itemStyle: {
 	                emphasis: {
 	                    shadowBlur: 10,
@@ -778,6 +923,16 @@ var option_four_r = {
 	    ]
 	};
 myChart_four_r.setOption(option_four_r ,true); 
+}
+
+var listedEx = []
+var listedAmount = []
+sendGetRequest(detail.getListedExchanges,function(data){
+    for(i in data.data){
+        listedEx.push(data.data[i].exchangeName)
+        listedAmount.push(data.data[i].eventNum)
+    }
+})
 
 //IPO上市地点分布
 var myChart_five = echarts.init(document.getElementById('commerce_five'));
@@ -821,7 +976,7 @@ var option_five = {
 	    xAxis: [
 	        {
 	            type: 'category',
-	            data: ['1月','2月','3月','4月','5月','6月','7月','8月','9月','10月','11月','12月'],
+	            data: listedEx,
 	            axisPointer: {
 	                type: 'shadow'
 	            },
@@ -907,9 +1062,9 @@ var option_five = {
 	        {
 	            name:'上市数量',
 	            type:'bar',
-	            data:[2.0, 4.9, 7.0, 23.2, 25.6, 76.7, 135.6, 162.2, 32.6, 20.0, 6.4, 3.3]
+	            data:listedAmount
 	        }
 	    ]
 	};
 
-myChart_five.setOption(option_five,true); 
+myChart_five.setOption(option_five,true);
