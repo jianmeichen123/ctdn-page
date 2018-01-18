@@ -142,7 +142,7 @@ function loadTable(){
             		if(data.page.records[i]["reportBody"]){
             			if(data.page.records[i]["reportBody"].indexOf('微软雅黑;')>-1){
             				var num = data.page.records[i]["reportBody"].indexOf('微软雅黑;');
-            				data.page.records[i]["reportBody"] = data.page.records[i]["reportBody"].substring(num+145,num+250)+"...";
+            				data.page.records[i]["reportBody"] = data.page.records[i]["reportBody"].substring(num+75,num+250)+"...";
             			}
             			if(data.page.records[i]["reportBody"].length>250){
             				data.page.records[i]["reportBody"] = data.page.records[i]["reportBody"].substring(0,250)+"...";

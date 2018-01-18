@@ -46,6 +46,7 @@ var dataUrl = {
 
 var echars = {
     hotDistrict :Constants.platformContentURL+"common/hotDistrict",
+    getIndustryGroupDistrictRZBK:Constants.platformContentURL+"echarsIndustryAnalyze/getIndustryGroupDistrictRZBK",
     industryInvestTrend :Constants.platformContentURL+"echarsIndustryAnalyze/getIndustryByTimeRoundDistrict",
     industryInvestContrast :Constants.platformContentURL+"echarsIndustryAnalyze/getIndustryMonthMergerForEchart"
 }
