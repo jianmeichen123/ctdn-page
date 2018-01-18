@@ -133,6 +133,13 @@ var detail = {
     queryReportByPage:Constants.platformContentURL+"report/queryReportByPage/",
     queryReports:Constants.platformContentURL+"report/queryReports/",
     getReport:Constants.platformContentURL+"report/getReport/",
+    getEventCount:Constants.platformContentURL+"eventInfo/getEventCount/",
+    getMergerCount:Constants.platformContentURL+"eventMergerInfo/getMergerCount/",
+    getEventDistrictList:Constants.platformContentURL+"eventDistrict/getEventDistrictList/",
+    getEventDistricts:Constants.platformContentURL+"eventDistrict/getEventDistricts/",
+    getListedExchanges:Constants.platformContentURL+"listedExchange/getListedExchanges/",
+    getMergerEquitys:Constants.platformContentURL+"mergerEquity/getMergerEquitys/",
+    getMergerCurrencys:Constants.platformContentURL+"mergerCurrency/getMergerCurrencys/",
 
 //  创业者/投资人
     queryPersonComExpr:Constants.platformContentURL+"person/queryPersonComExpr/",
