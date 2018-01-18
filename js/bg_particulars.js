@@ -62,7 +62,7 @@ function mergeSideListFormatter(data,div){
                                     if(mergeSideJson.type=='null'){
                                         v=mergeSideJson.title
                                     }else{
-                                        if(mergeSideJson.type=='invse'){
+                                        if(mergeSideJson.type=='invst'){
                                             if(mergeSideJson.id&&mergeSideJson.id!=0){
                                                 v= "<span class='list_table_td'><a target='_blank' href = 'jg_particulars.html?orgCode="+mergeSideJson.code+"'>"+mergeSideJson.title+"</a></span>";
                                             }else{

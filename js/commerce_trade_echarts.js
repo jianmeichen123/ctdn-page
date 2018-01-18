@@ -1,4 +1,33 @@
+var myChart_default_industry_num = 29
+var myChartDB_default_industry_num = 29
+var industry_data = null
+var round_data = null
+var rzbk_data =null
+var yAxis_name = '按融资笔数'
 var myChart = echarts.init(document.getElementById('commerce_one'));
+//加载行业
+sendGetRequest(platformUrl.industry,function(data){
+    if(data.status ==10000){
+    var html = "<li class='trade_list_on' value=0>全部</li>"
+        $(data.data).each(function(){
+            html += "<li value="+$(this)[0].id+">"+$(this)[0].name+"</li>"
+        })
+        $("#industryList").html(html);
+    }
+})
+
+//加载热门地区
+sendGetRequest(echars.hotDistrict,function(data){
+    if(data.status ==10000){
+    var html = "<option value=''>所有地区</option>"
+        $(data.data).each(function(){
+            html += "<option value="+$(this)[0].id+">"+$(this)[0].name+"</option>"
+        })
+        $("select[name='districtSubId']").html(html);
+    }
+})
+//图表按投资笔数或融资金额显示 按融资笔数(1) 按融资金额(2) 默认融资笔数
+var query_flag = 1
 // 指定图表的配置项和数据
 var option = {
     title: {
@@ -19,7 +48,7 @@ var option = {
     legend: {
     	 x : 'right',
          y : 'bottom',
-        data:['邮件营销','邮件营销1','邮件营销2','邮件营销3','邮件营销4','邮件营销5','联盟广告','联盟广告1','联盟广告2','联盟广告3','联盟广告4','联盟广告5','联盟广告6','联盟广告7','联盟广告8','联盟广告9','联盟广告10'],
+        data:[],
         selected:{
         	"邮件营销":true,
         	"联盟广告":false
@@ -44,7 +73,7 @@ var option = {
 		type : 'category',
 		splitLine :{show:false},
 		boundaryGap: false,
-		data: ['2017/01','2017/02','2017/03','2017/04','2017/05','2017/06','2017/07'],
+		data: [],
 		scale:true,
 		top:0,			
 		
@@ -120,116 +149,12 @@ var option = {
                  
              }
 	    ],
-    series: [
-        {
-            name:'邮件营销',
-            type:'line',
-            symbol:'circle',
-            data:[120, 132, 101, 134, 90, 230, 210]
-        },
-        {
-            name:'邮件营销1',
-            type:'line',
-            symbol:'circle',
-            data:[120, 132, 101, 134, 90, 230, 210]
-        },
-        {
-            name:'邮件营销2',
-            type:'line',
-            symbol:'circle',
-            data:[120, 132, 101, 134, 90, 230, 210]
-        },
-        {
-            name:'邮件营销3',
-            type:'line',
-            symbol:'circle',
-            data:[120, 132, 101, 134, 90, 230, 210]
-        },
-        {
-            name:'邮件营销4',
-            type:'line',
-            symbol:'circle',
-            data:[120, 132, 101, 134, 90, 230, 210]
-        },
-        {
-            name:'邮件营销5',
-            type:'line',
-            symbol:'circle',
-            data:[120, 132, 101, 134, 90, 230, 210]
-        },
-        {
-            name:'联盟广告',
-            type:'line',
-            symbol:'circle',
-            data:[220, 182, 191, 234, 290, 330, 310]
-        },
-        {
-            name:'联盟广告1',
-            type:'line',
-            symbol:'circle',
-            data:[220, 182, 191, 234, 290, 330, 310]
-        },
-        {
-            name:'联盟广告2',
-            type:'line',
-            symbol:'circle',
-            data:[220, 182, 191, 234, 290, 330, 310]
-        },
-        {
-            name:'联盟广告3',
-            type:'line',
-            symbol:'circle',
-            data:[220, 182, 191, 234, 290, 330, 310]
-        },
-        {
-            name:'联盟广告4',
-            type:'line',
-            symbol:'circle',
-            data:[220, 182, 191, 234, 290, 330, 310]
-        },
-        {
-            name:'联盟广告5',
-            type:'line',
-            symbol:'circle',
-            data:[220, 182, 191, 234, 290, 330, 310]
-        },
-        {
-            name:'联盟广告6',
-            type:'line',
-            symbol:'circle',
-            data:[220, 182, 191, 234, 290, 330, 310]
-        },
-        {
-            name:'联盟广告7',
-            type:'line',
-            symbol:'circle',
-            data:[220, 182, 191, 234, 290, 330, 310]
-        },
-        {
-            name:'联盟广告8',
-            type:'line',
-            symbol:'circle',
-            data:[220, 182, 191, 234, 290, 330, 310]
-        },
-        {
-            name:'联盟广告9',
-            type:'line',
-            symbol:'circle',
-            data:[220, 182, 191, 234, 290, 330, 310]
-        },
-        {
-            name:'联盟广告10',
-            type:'line',
-            symbol:'circle',
-            data:[220, 182, 191, 234, 290, 330, 310]
-        }
-    ]
+    series: []
 };
 myChart.setOption(option,true);
 
 
 //行业融资对比
-
 var myChart_db = echarts.init(document.getElementById('commerce_two'));
 var option_db = {
     tooltip : {
@@ -242,7 +167,7 @@ var option_db = {
     legend: {
     	 x : '630',
          y : '450',
-        data:[ '种子/天使/PreA轮','A轮/A+轮','PreB轮/B轮/B+轮','C轮','D轮以上']
+        data:[]
     },
     grid: {
     	 left: '3%',
@@ -254,7 +179,7 @@ var option_db = {
     xAxis : [
         {
             type : 'category',
-            data : ['金融科技','互联网银行','电子商务','O2O','人工智能'],
+            data : [],
             axisTick:{
   			  show:false
   			 },
@@ -313,47 +238,8 @@ var option_db = {
 
         }
     ],
-    series : [
-              
-        {
-            name:'种子/天使/PreA轮',
-            type:'bar',
-            stack: '总量',
-            barWidth : 15,//柱图宽度 
-            data:[320, 302, 301, 334, 390, 330, 320]
-        },
-        {
-            name:'A轮/A+轮',
-            type:'bar',
-            stack: '总量',
-            barWidth : 15,//柱图宽度
-            data:[120, 132, 101, 134, 90, 230, 210]
-        },
-        {
-            name:'PreB轮/B轮/B+轮',
-            type:'bar',
-            stack: '总量',
-            barWidth : 15,//柱图宽度
-            data:[220, 182, 191, 234, 290, 330, 310]
-        },
-        {
-            name:'C轮',
-            type:'bar',
-            stack: '总量',
-            barWidth : 15,//柱图宽度
-            data:[150, 212, 201, 154, 190, 330, 410]
-        },
-        {
-            name:'D轮以上',
-            type:'bar',
-            stack: '总量',
-            barWidth : 15,//柱图宽度
-            data:[820, 832, 901, 934, 1290, 1330, 1320]
-        }
-    ]
+    series : []
 };
-myChart_db.setOption(option_db,true);
-
 //融资版块
 var myChart_three = echarts.init(document.getElementById('commerce_three'));
 var option_three = {
@@ -429,7 +315,65 @@ var option_three = {
 	    ]
 	};
 
-myChart_three.setOption(option_three,true); 
+myChart_three.setOption(option_three,true);
+$(".background_boeder_commerce select[name]" ).change(function(){
+   var div = $(this).closest(".background_boeder_commerce");
+   var tab = $(this).closest('.commerce_tit_all').parent().find(".num_or_money");
+   var flag = 1;
+   if(tab){
+      flag = tab.find("span.eachrst_tit_on").attr("lang")
+   }
+   var json =  getJson(div);
+   var echarts_flag = div.attr("echarts_flag");
+   switch(echarts_flag){
+    case "1" : freshEchars1(json,flag); break;
+    case "2" : freshEchars2(json,flag); break;
+   }
+})
+
+function getJson(div){
+    var ls =  div.find("select[name]");
+    var json = {};
+    $(ls).each(function(){
+        if($(this).attr("name")=="time"){
+            json["timeType"] =  $(this).find("option:selected").attr("name");
+            json["time"] =  $(this).find("option:selected").val();
+        }else{
+            json[$(this).attr("name")] =  $(this).find("option:selected").val();
+        }
+    })
+    json["industryId"] =$("#industryList li.trade_list_on").attr("value")
+    return json;
+}
+// 请求行业融资对比数据
+function freshEchars1(json,flag){
+    sendPostRequestByJsonObj(echars.industryInvestTrend,json,function(data){
+        if(data.success){
+            industry_data = data
+            showEcharts(1,flag)
+        }
+    });
+}
+
+// 请求行业融资对比数据
+function freshEchars2(json,flag){
+    sendPostRequestByJsonObj(echars.industryInvestContrast,json,function(data){
+        if(data.success){
+            round_data = data
+            showEcharts(2,flag)
+        }
+    });
+}
+
+// 请求行业融资对比数据
+function freshEchars3(json){
+    sendPostRequestByJsonObj(echars.getIndustryGroupDistrictRZBK,json,function(data){
+        if(data.success){
+            rzbk_data = data
+            showEcharts(3,null)
+        }
+    });
+}
 
 //持续获投分析
 var myChart_four = echarts.init(document.getElementById('commerce_four'));
@@ -591,3 +535,132 @@ var option_five = {
     }]
 };
 myChart_five.setOption(option_five,true);
+
+//页面初始化加载数据
+reloadEchars()
+function reloadEchars(){
+     var industryId = $("#industryList li.trade_list_on").attr("value")
+     freshEchars1({"time":12,"timeType":"M","industryId":industryId},1)
+     freshEchars2({"time":30,"timeType":"D","industryId":industryId},1)
+     freshEchars3({"time":30,"timeType":"D","industryId":industryId},1)
+}
+
+//按融资笔数(1) 按融资金额(2) 切换
+$('.num_or_money span').click(function(){
+    var echarts_flag = $(this).closest(".background_boeder_commerce").attr("echarts_flag");
+	yAxis_name = $(this).text()
+	$('.num_or_money span').removeClass('eachrst_tit_on')
+	$(this).addClass('eachrst_tit_on')
+	var lang = $(this).attr('lang')
+	showEcharts(echarts_flag,lang)
+})
+//行业点击事件
+$("#industryList li").click(function(){
+   $(this).toggleClass('trade_list_on')
+   $(this).siblings().removeClass('trade_list_on')
+   //加载图表
+   reloadEchars();
+   //todo select reset
+})
+function showEcharts(echarts_flag,lang){
+    if(echarts_flag == 1 ){ //图表1
+    		if(industry_data==null){
+    			return
+    		}
+    		option.xAxis[0].data = industry_data.data.xAxis
+    		option.yAxis[0].name = yAxis_name
+    		var legend = industry_data.data.legend.slice(0,myChart_default_industry_num)
+    		legend.push('平均值')
+    		option.legend.data=legend
+    		var series =  industry_data.data.series.slice(0,myChart_default_industry_num)
+    		var num_array = [0,0,0,0,0,0,0,0,0,0,0,0]
+    		for(var j=0;j<series.length;j++){
+    			var entity = series[j]
+    			var json = {}
+    			if(lang == 1){
+    				for(var m = 0;m<num_array.length;m++){
+    					num_array[m] = parseInt(entity.investedNumStrList[m]) + num_array[m]
+    				}
+    			}
+    			if(lang == 2){
+    				for(var m = 0;m<num_array.length;m++){
+    					num_array[m] = parseInt(entity.investedAmountStrList[m]) + num_array[m]
+    				}
+    			}
+    		}
+    		for(var n =0;n<num_array.length;n++){
+    			num_array[n] = (num_array[n]/myChart_default_industry_num).toFixed(2)
+    		}
+    		var avg_json = {}
+    		avg_json['industryName'] = '平均值'
+    		if(lang == 1){
+    			avg_json['investedNumStrList'] = num_array
+    		}
+    		if(lang == 2){
+    			avg_json['investedAmountStrList'] = num_array
+    		}
+
+    		series.push(avg_json)
+    		var y_data =  new Array()
+    		for(var i=0;i<series.length;i++){
+    			var entity = series[i]
+    			var json = {}
+    			json['name'] = entity.industryName
+    			if(lang == 1){
+    				json['data'] = entity.investedNumStrList
+    			}
+    			if(lang == 2){
+    				json['data'] = entity.investedAmountStrList
+    			}
+    			json['type'] = 'line'
+    			json['symbol'] = 'circle'
+    			json['smooth'] = true
+    			y_data.push(json)
+    		}
+    		option.series = y_data
+
+    		for(var s =0;s<legend.length;s++){
+    			var data_legend = legend[s]
+    			if(s <= 9){
+    				option.legend.selected[data_legend] = true
+    			}else{
+    				option.legend.selected[data_legend] = false
+    			}
+    		}
+    		myChart.setOption(option,true); //true  防止多次请求，数据重叠
+    	}
+    if(echarts_flag == 2) { //图表2
+    		if(round_data==null){
+    			return
+    		}
+    		option_db.xAxis[0].data = round_data.data.xAxis.slice(0,myChartDB_default_industry_num)
+    		option_db.legend.data=round_data.data.legend
+    		option_db.yAxis[0].name = yAxis_name
+    		var series =  round_data.data.series.slice(0,myChartDB_default_industry_num)
+    		var y_data =  new Array()
+    		for(var i=0;i<series.length;i++){
+    			var entity = series[i]
+    			var json = {}
+    			json['name'] = entity.roundName
+    			if(lang == 1){
+    				json['data'] = entity.investedNumList
+    			}
+    			if(lang == 2){
+    				json['data'] = entity.investedAmountList
+    			}
+    			json['type'] = 'bar'
+    			json['barWidth']=15
+    			json[ 'stack' ] = '总量'
+    			y_data.push(json)
+    		}
+    		option_db.series = y_data
+    		myChart_db.setOption(option_db,true);
+    }
+    if(echarts_flag ==3){
+        if(rzbk_data==null){
+            return
+        }
+        option_three.series[0].data= rzbk_data.data.series;
+        myChart_three = (option_three,true);
+    }
+}

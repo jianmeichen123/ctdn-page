@@ -1,406 +1,344 @@
 //资本地图
-var myChart = echarts.init(document.getElementById('commerce_one'));
+function com_area(){
+    var myChart = echarts.init(document.getElementById('commerce_one'));
 
-var data = [
-    { name: "上海", value: 290},
-    { name: "珠海", value: 2186},
-    { name: "三亚", value: 1135},
-    { name: "惠州", value: 1973},
-    { name: "海口", value: 2568},
-    { name: "合肥", value: 4039},
-    { name: "南京", value: 6959},
-    { name: "杭州", value: 5632},
-    { name: "苏州", value: 6707},
-    { name: "无锡", value: 3393},
-    { name: "昆山", value: 1894},
-    { name: "广州", value: 15769},
-    { name: "深圳", value: 8259},
-    { name: "佛山", value: 5741},
-    { name: "东莞", value: 3030},
-    { name: "福州", value: 4542},
-    { name: "厦门", value: 3329},
-    { name: "南宁", value: 3157},
-    { name: "郑州", value: 6690},
-    { name: "武汉", value: 8678},
-    { name: "长沙", value: 5303},
-    { name: "南昌", value: 3025},
-    { name: "北京", value: 20259},
-    { name: "长春", value: 3016},
-    { name: "大连", value: 3202},
-    { name: "沈阳", value: 4540},
-    { name: "哈尔滨", value: 3141},
-    { name: "天津", value: 8626},
-    { name: "济南", value: 4361},
-    { name: "青岛", value: 6667},
-    { name: "太原", value: 4080},
-    { name: "石家庄", value: 6137},
-    { name: "西安", value: 6991},
-    { name: "成都", value: 13873},
-    { name: "重庆", value: 13283},
-    { name: "昆明", value: 4633},
+    var data = [];
 
+    sendGetRequest("http://127.0.0.1:8081/api/comOverview/area/1",function(t){
+        data = t;
+        console.log(data)
+    })
+    var geoCoordMap = { '海门':[121.15,31.89], '鄂尔多斯':[109.781327,39.608266], '招远':[120.38,37.35], '舟山':[122.207216,29.985295], '齐齐哈尔':[123.97,47.33], '盐城':[120.13,33.38], '赤峰':[118.87,42.28], '青岛':[120.33,36.07], '乳山':[121.52,36.89], '金昌':[102.188043,38.520089], '泉州':[118.58,24.93], '莱西':[120.53,36.86], '日照':[119.46,35.42], '胶南':[119.97,35.88], '南通':[121.05,32.08], '拉萨':[91.11,29.97], '云浮':[112.02,22.93], '梅州':[116.1,24.55], '文登':[122.05,37.2], '上海':[121.48,31.22], '攀枝花':[101.718637,26.582347], '威海':[122.1,37.5], '承德':[117.93,40.97], '厦门':[118.1,24.46], '汕尾':[115.375279,22.786211], '潮州':[116.63,23.68], '丹东':[124.37,40.13], '太仓':[121.1,31.45], '曲靖':[103.79,25.51], '烟台':[121.39,37.52], '福州':[119.3,26.08], '瓦房店':[121.979603,39.627114], '即墨':[120.45,36.38], '抚顺':[123.97,41.97], '玉溪':[102.52,24.35], '张家口':[114.87,40.82], '阳泉':[113.57,37.85], '莱州':[119.942327,37.177017], '湖州':[120.1,30.86], '汕头':[116.69,23.39], '昆山':[120.95,31.39], '宁波':[121.56,29.86], '湛江':[110.359377,21.270708], '揭阳':[116.35,23.55], '荣成':[122.41,37.16], '连云港':[119.16,34.59], '葫芦岛':[120.836932,40.711052], '常熟':[120.74,31.64], '东莞':[113.75,23.04], '河源':[114.68,23.73], '淮安':[119.15,33.5], '泰州':[119.9,32.49], '南宁':[108.33,22.84], '营口':[122.18,40.65], '惠州':[114.4,23.09], '江阴':[120.26,31.91], '蓬莱':[120.75,37.8], '韶关':[113.62,24.84], '嘉峪关':[98.289152,39.77313], '广州':[113.23,23.16], '延安':[109.47,36.6], '太原':[112.53,37.87], '清远':[113.01,23.7], '中山':[113.38,22.52], '昆明':[102.73,25.04], '寿光':[118.73,36.86], '盘锦':[122.070714,41.119997], '长治':[113.08,36.18], '深圳':[114.07,22.62], '珠海':[113.52,22.3], '宿迁':[118.3,33.96], '咸阳':[108.72,34.36], '铜川':[109.11,35.09], '平度':[119.97,36.77], '佛山':[113.11,23.05], '海口':[110.35,20.02], '江门':[113.06,22.61], '章丘':[117.53,36.72], '肇庆':[112.44,23.05], '大连':[121.62,38.92], '临汾':[111.5,36.08], '吴江':[120.63,31.16], '石嘴山':[106.39,39.04], '沈阳':[123.38,41.8], '苏州':[120.62,31.32], '茂名':[110.88,21.68], '嘉兴':[120.76,30.77], '长春':[125.35,43.88], '胶州':[120.03336,36.264622], '银川':[106.27,38.47], '张家港':[120.555821,31.875428], '三门峡':[111.19,34.76], '锦州':[121.15,41.13], '南昌':[115.89,28.68], '柳州':[109.4,24.33], '三亚':[109.511909,18.252847], '自贡':[104.778442,29.33903], '吉林':[126.57,43.87], '阳江':[111.95,21.85], '泸州':[105.39,28.91], '西宁':[101.74,36.56], '宜宾':[104.56,29.77], '呼和浩特':[111.65,40.82], '成都':[104.06,30.67], '大同':[113.3,40.12], '镇江':[119.44,32.2], '桂林':[110.28,25.29], '张家界':[110.479191,29.117096], '宜兴':[119.82,31.36], '北海':[109.12,21.49], '西安':[108.95,34.27], '金坛':[119.56,31.74], '东营':[118.49,37.46], '牡丹江':[129.58,44.6], '遵义':[106.9,27.7], '绍兴':[120.58,30.01], '扬州':[119.42,32.39], '常州':[119.95,31.79], '潍坊':[119.1,36.62], '重庆':[106.54,29.59], '台州':[121.420757,28.656386], '南京':[118.78,32.04], '滨州':[118.03,37.36], '贵阳':[106.71,26.57], '无锡':[120.29,31.59], '本溪':[123.73,41.3], '克拉玛依':[84.77,45.59], '渭南':[109.5,34.52], '马鞍山':[118.48,31.56], '宝鸡':[107.15,34.38], '焦作':[113.21,35.24], '句容':[119.16,31.95], '北京':[116.46,39.92], '徐州':[117.2,34.26], '衡水':[115.72,37.72], '包头':[110,40.58], '绵阳':[104.73,31.48], '乌鲁木齐':[87.68,43.77], '枣庄':[117.57,34.86], '杭州':[120.19,30.26], '淄博':[118.05,36.78], '鞍山':[122.85,41.12], '溧阳':[119.48,31.43], '库尔勒':[86.06,41.68], '安阳':[114.35,36.1], '开封':[114.35,34.79], '济南':[117,36.65], '德阳':[104.37,31.13], '温州':[120.65,28.01], '九江':[115.97,29.71], '邯郸':[114.47,36.6], '临安':[119.72,30.23], '兰州':[103.73,36.03], '沧州':[116.83,38.33], '临沂':[118.35,35.05], '南充':[106.110698,30.837793], '天津':[117.2,39.13], '富阳':[119.95,30.07], '泰安':[117.13,36.18], '诸暨':[120.23,29.71], '郑州':[113.65,34.76], '哈尔滨':[126.63,45.75], '聊城':[115.97,36.45], '芜湖':[118.38,31.33], '唐山':[118.02,39.63], '平顶山':[113.29,33.75], '邢台':[114.48,37.05], '德州':[116.29,37.45], '济宁':[116.59,35.38], '荆州':[112.239741,30.335165], '宜昌':[111.3,30.7], '义乌':[120.06,29.32], '丽水':[119.92,28.45], '洛阳':[112.44,34.7], '秦皇岛':[119.57,39.95], '株洲':[113.16,27.83], '石家庄':[114.48,38.03], '莱芜':[117.67,36.19], '常德':[111.69,29.05], '保定':[115.48,38.85], '湘潭':[112.91,27.87], '金华':[119.64,29.12], '岳阳':[113.09,29.37], '长沙':[113,28.21], '衢州':[118.88,28.97], '廊坊':[116.7,39.53], '菏泽':[115.480656,35.23375], '合肥':[117.27,31.86], '武汉':[114.31,30.52], '大庆':[125.03,46.58] };
 
-];
-
-var geoCoordMap = {
-    "上海": [121.48, 31.22],
-    "珠海": [113.52, 22.3],
-    "三亚": [109.31, 18.14],
-    "惠州": [114.4, 23.09],
-    "海口": [110.35, 20.02],
-    "合肥": [117.27, 31.86],
-    "南京": [118.78, 32.04],
-    "杭州": [120.19, 30.26],
-    "苏州": [120.62, 31.32],
-    "无锡": [120.29, 31.59],
-    "昆山": [120.95, 31.39],
-    "广州": [113.23, 23.16],
-    "深圳": [114.07, 22.62],
-    "佛山": [113.11, 23.05],
-    "东莞": [113.75, 23.04],
-    "福州": [119.3, 26.08],
-    "厦门": [118.1, 24.46],
-    "南宁": [108.33, 22.84],
-    "郑州": [113.65, 34.76],
-    "武汉": [114.31, 30.52],
-    "长沙": [113, 28.21],
-    "南昌": [115.89, 28.68],
-    "北京": [116.46, 39.92],
-    "长春": [125.35, 43.88],
-    "大连": [121.62, 38.92],
-    "沈阳": [123.38, 41.8],
-    "哈尔滨": [126.63, 45.75],
-    "天津": [117.2, 39.13],
-    "济南": [117, 36.65],
-    "青岛": [120.33, 36.07],
-    "太原": [112.53, 37.87],
-    "石家庄": [114.48, 38.03],
-    "西安": [108.95, 34.27],
-    "成都": [104.06, 30.67],
-    "重庆": [106.54, 29.59],
-    "昆明": [102.73, 25.04],
-};
-
-var convertData = function(data) {
-    var res = [];
-    for (var i = 0; i < data.length; i++) {
-        var geoCoord = geoCoordMap[data[i].name];
-        if (geoCoord) {
-            res.push({
-                name: data[i].name,
-                value: geoCoord.concat(data[i].value)
-            });
-        }
-    }
-    return res;
-};
-
-var convertedData = [
-    convertData(data),
-    convertData(data.sort(function(a, b) {
-        return b.value - a.value;
-    }).slice(0, 6))
-];
-data.sort(function(a, b) {
-    return a.value - b.value;
-})
-
-var selectedItems = [];
-var categoryData = [];
-var barData = [];
-//   var maxBar = 30;
-var sum = 0;
-var count = data.length;
-for (var i = 0; i < data.length; i++) {
-    categoryData.push(data[i].name);
-    barData.push(data[i].value);
-    sum += data[i].value;
-}
-console.log(categoryData);
-console.log(sum + "   " + count)
-var option = {
-    backgroundColor: '#fff',
-    animation: true,
-    animationDuration: 1000,
-    animationEasing: 'cubicInOut',
-    animationDurationUpdate: 1000,
-    animationEasingUpdate: 'cubicInOut',
-    title: [{
-        text: '',
-       /* link: 'http://pages.anjuke.com/expert/newexpert.html',
-        subtext: 'data from Anjuke',
-        sublink: 'http://pages.anjuke.com/expert/newexpert.html',*/
-        left: 'center',
-        textStyle: {
-            color: '#fff'
-        }
-    }],
-    toolbox: {
-    	show :false,
-    },
-    brush: {
-        outOfBrush: {
-            color: '#abc'
-        },
-        brushStyle: {
-            borderWidth: 2,
-            color: 'rgba(0,0,0,0.2)',
-            borderColor: 'rgba(0,0,0,0.5)',
-        },
-        seriesIndex: [0, 1],
-        throttleType: 'debounce',
-        throttleDelay: 300,
-        geoIndex: 0
-    },
-    geo: {
-        map: 'china',
-        left: '1',
-        center: [75, 36],
-        zoom: 1.1,
-        label: {
-            emphasis: {
-                show: false
-            }
-        },
-        roam: true,
-        itemStyle: {
-            normal: {
-                areaColor: '#9bb9d3',
-                borderColor: '#4479a2'
-            },
-            emphasis: {
-                areaColor: '#7aa5c7'
+    var convertData = function(data) {
+        var res = [];
+        for (var i = 0; i < data.length; i++) {
+            var geoCoord = geoCoordMap[data[i].name];
+            if (geoCoord) {
+                res.push({
+                    name: data[i].name,
+                    value: geoCoord.concat(data[i].value)
+                });
             }
         }
-    },
-    tooltip: {
-        trigger: 'item'
-    },
-    grid: {
-        right: 40,
-        top: 100,
-        bottom: 40,
-        width: '30%'
-    },
-    xAxis: {
-        type: 'value',
-        scale: true,
-        position: 'top',
-        boundaryGap: false,
-        splitLine: {
-            show: false
-        },
-        axisLine: {
-            show: false
-        },
-        axisTick: {
-            show: false
-        },
-        axisLabel: {
-            margin: 2,
-            textStyle: {
-                color: '#333333'
-            }
-        },
-    },
-    yAxis: {
-        type: 'category',
-        //  name: 'TOP 20',
-        nameGap: 16,
-        axisLabel: {
-            interval: 0,
-            textStyle: {
-                color: '#333333'
-            }
-        },
-        splitLine: {
-            show: false
-        },
-        axisLine: {
-            show: false
-        },
-        axisTick: {
-            show: false
-        },
-        //data: categoryData
-    },
-    series: [{
-        // name: 'pm2.5',
-        type: 'scatter',
-        coordinateSystem: 'geo',
-        data: convertedData[0],
-        symbolSize: function(val) {
-            return Math.max(val[2] / 300, 8);
-        },
-        label: {
-            normal: {
-                formatter: '{b}',
-                position: 'right',
-                show: false
-            },
-            emphasis: {
-                show: true
-            }
-        },
-        itemStyle: {
-            normal: {
-                color: '#FF8C00',
-                position: 'right',
-                show: true
-            }
-        }
-    }, {
-        //  name: 'Top 5',
-        type: 'effectScatter',
-        coordinateSystem: 'geo',
-        data: convertedData[0],
-        symbolSize: function(val) {
-            return Math.max(val[2] / 500, 8);
-        },
-        showEffectOn: 'render',
-        rippleEffect: {
-            brushType: 'stroke'
-        },
-        hoverAnimation: true,
-        label: {
-            normal: {
-                formatter: '{b}',
-                position: 'right',
-                show: true
-            }
-        },
-        itemStyle: {
-            normal: {
-                color: '#f4e925',
-                shadowBlur: 50,
-                shadowColor: '#EE0000'
-            }
-        },
-        zlevel: 1
-    }/*, {
-        id: 'bar',
-        zlevel: 2,
-        type: 'bar',
-        symbol: 'none',
-        itemStyle: {
-            normal: {
-                color: '#83bcef'
-            }
-        },
+        return res;
+    };
 
-        data: data
-    }*/]
-};
-
-
-
-function renderBrushed(params) {
-    var mainSeries = params.batch[0].selected[0];
+    var convertedData = [
+        convertData(data),
+        convertData(data.sort(function(a, b) {
+            return b.value - a.value;
+        }).slice(0, 6))
+    ];
+    data.sort(function(a, b) {
+        return a.value - b.value;
+    })
 
     var selectedItems = [];
     var categoryData = [];
     var barData = [];
-    var maxBar = 30;
+    //   var maxBar = 30;
     var sum = 0;
-    var count = 0;
-
-    for (var i = 0; i < mainSeries.dataIndex.length; i++) {
-        var rawIndex = mainSeries.dataIndex[i];
-        var dataItem = convertedData[0][rawIndex];
-        var pmValue = dataItem.value[2];
-
-        sum += pmValue;
-        count++;
-
-        selectedItems.push(dataItem);
+    var count = data.length;
+    for (var i = 0; i < data.length; i++) {
+        categoryData.push(data[i].name);
+        barData.push(data[i].value);
+        sum += data[i].value;
     }
-
-    selectedItems.sort(function(a, b) {
-        //   return b.value[2] - a.value[2];
-        return a.value - b.value;
-    });
-
-    for (var i = 0; i < Math.min(selectedItems.length, maxBar); i++) {
-        categoryData.push(selectedItems[i].name);
-        barData.push(selectedItems[i].value[2]);
-    }
-
-    this.setOption({
-        yAxis: {
-            data: categoryData
+    var option = {
+        backgroundColor: '#fff',
+        animation: true,
+        animationDuration: 1000,
+        animationEasing: 'cubicInOut',
+        animationDurationUpdate: 1000,
+        animationEasingUpdate: 'cubicInOut',
+        title: [{
+            text: '',
+           /* link: 'http://pages.anjuke.com/expert/newexpert.html',
+            subtext: 'data from Anjuke',
+            sublink: 'http://pages.anjuke.com/expert/newexpert.html',*/
+            left: 'center',
+            textStyle: {
+                color: '#fff'
+            }
+        }],
+        toolbox: {
+            show :false,
         },
-        xAxis: {
-            axisLabel: {
-                show: !!count
+        brush: {
+            outOfBrush: {
+                color: '#abc'
+            },
+            brushStyle: {
+                borderWidth: 2,
+                color: 'rgba(0,0,0,0.2)',
+                borderColor: 'rgba(0,0,0,0.5)',
+            },
+            seriesIndex: [0, 1],
+            throttleType: 'debounce',
+            throttleDelay: 300,
+            geoIndex: 0
+        },
+        geo: {
+            map: 'china',
+            left: '1',
+            center: [75, 36],
+            zoom: 1.1,
+            label: {
+                emphasis: {
+                    show: false
+                }
+            },
+            roam: true,
+            itemStyle: {
+                normal: {
+                    areaColor: '#9bb9d3',
+                    borderColor: '#4479a2'
+                },
+                emphasis: {
+                    areaColor: '#7aa5c7'
+                }
             }
         },
-        series: {
+        tooltip: {
+            trigger: 'item'
+        },
+        grid: {
+            right: 40,
+            top: 100,
+            bottom: 40,
+            width: '30%'
+        },
+        xAxis: {
+            type: 'value',
+            scale: true,
+            position: 'top',
+            boundaryGap: false,
+            splitLine: {
+                show: false
+            },
+            axisLine: {
+                show: false
+            },
+            axisTick: {
+                show: false
+            },
+            axisLabel: {
+                margin: 2,
+                textStyle: {
+                    color: '#333333'
+                }
+            },
+        },
+        yAxis: {
+            type: 'category',
+            //  name: 'TOP 20',
+            nameGap: 16,
+            axisLabel: {
+                interval: 0,
+                textStyle: {
+                    color: '#333333'
+                }
+            },
+            splitLine: {
+                show: false
+            },
+            axisLine: {
+                show: false
+            },
+            axisTick: {
+                show: false
+            },
+            //data: categoryData
+        },
+        series: [{
+            // name: 'pm2.5',
+            type: 'scatter',
+            coordinateSystem: 'geo',
+            data: convertedData[0]*100,
+            symbolSize: function(val) {
+                return Math.max(val[2] / 300, 8);
+            },
+            label: {
+                normal: {
+                    formatter: '{b}',
+                    position: 'right',
+                    show: false
+                },
+                emphasis: {
+                    show: true
+                }
+            },
+            itemStyle: {
+                normal: {
+                    color: '#FF8C00',
+                    position: 'right',
+                    show: true
+                }
+            }
+        }, {
+            //  name: 'Top 5',
+            type: 'effectScatter',
+            coordinateSystem: 'geo',
+            data: convertedData[0],
+            symbolSize: function(val) {
+                return Math.max(val[2] / 500, 8);
+            },
+            showEffectOn: 'render',
+            rippleEffect: {
+                brushType: 'stroke'
+            },
+            hoverAnimation: true,
+            label: {
+                normal: {
+                    formatter: '{b}',
+                    position: 'right',
+                    show: true
+                }
+            },
+            itemStyle: {
+                normal: {
+                    color: '#f4e925',
+                    shadowBlur: 50,
+                    shadowColor: '#EE0000'
+                }
+            },
+            zlevel: 1
+        }/*, {
             id: 'bar',
-            //        sort:'descending',
-            data: barData
-        }
-    });
-}
-	                    
-myChart.setOption(option,true);
+            zlevel: 2,
+            type: 'bar',
+            symbol: 'none',
+            itemStyle: {
+                normal: {
+                    color: '#83bcef'
+                }
+            },
 
+            data: data
+        }*/]
+    };
+
+
+
+    function renderBrushed(params) {
+        var mainSeries = params.batch[0].selected[0];
+
+        var selectedItems = [];
+        var categoryData = [];
+        var barData = [];
+        var maxBar = 30;
+        var sum = 0;
+        var count = 0;
+
+        for (var i = 0; i < mainSeries.dataIndex.length; i++) {
+            var rawIndex = mainSeries.dataIndex[i];
+            var dataItem = convertedData[0][rawIndex];
+            var pmValue = dataItem.value[2];
+
+            sum += pmValue;
+            count++;
+
+            selectedItems.push(dataItem);
+        }
+
+        selectedItems.sort(function(a, b) {
+            //   return b.value[2] - a.value[2];
+            return a.value - b.value;
+        });
+
+        for (var i = 0; i < Math.min(selectedItems.length, maxBar); i++) {
+            categoryData.push(selectedItems[i].name);
+            barData.push(selectedItems[i].value[2]);
+        }
+
+        this.setOption({
+            yAxis: {
+                data: categoryData
+            },
+            xAxis: {
+                axisLabel: {
+                    show: !!count
+                }
+            },
+            series: {
+                id: 'bar',
+                //        sort:'descending',
+                data: barData
+            }
+        });
+    }
+
+    myChart.setOption(option,true);
+}
+com_area()
 
 //投资机构轮次分布
-var myChart_two = echarts.init(document.getElementById('commerce_two'));
-var option_two = {
-	    title : {
-	        text: '',
-	        x:'center',
-	        textStyle: {
-  		      	color: '#333333',
-  		          fontSize:'18',
-  		        fontStyle: 'normal',
+function com_industry(year){
+    if (year == undefined){
+        year = "1"
+    }
+    var myChart_two = echarts.init(document.getElementById('commerce_two'));
+    var data = []
+    var names = []
+    sendGetRequest("http://127.0.0.1:8081/api/comOverview/industry/"+year,function(t){
+        names.push('其他')
+        $(t).each(function(i,e){
+            console.log(e.name)
+            names.push(e.name)
+            if (e.name == undefined||e.name == "undefined"||e["name"] == "其他"){
+                e["name"] = e["name"] + e["value"]
+            }else{
+                data.push(e)
+            }
 
-  		      fontWeight: 'normal',
-  		      }
-	    },
-	    color:['#5ab1f0','#2ec8c9','#ffba80','#d87b80','#8d98b3','#e5ce0c','#98b652','#95706e','#b6a2de'],
-	    tooltip : {
-	        trigger: 'item',
-	        formatter: "{a} <br/>{b} : {c} ({d}%)"
-	    },
-	    legend: {
-	        //orient: 'vertical',
-	        bottom: '0',
-	        x:'center',
-	        data: ['人民币','美元','欧元','新台币','港元','日元','英镑','卢比','其他']
-	    },
-	    series : [
-	        {
-	            name: '并购币种',
-	            type: 'pie',
-	            radius : '75%',
-	            center: ['50%', '50%'],
-	            data:[
-	                {value:335, name:'人民币'},
-	                {value:310, name:'美元'},
-	                {value:234, name:'欧元'},
-	                {value:135, name:'新台币'},
-	                {value:234, name:'港元'},
-	                {value:135, name:'日元'},
-	                {value:234, name:'英镑'},
-	                {value:234, name:'卢比'},
-	                {value:135, name:'其他'}
-	            ],
-	            itemStyle: {
-	                emphasis: {
-	                    shadowBlur: 10,
-	                    shadowOffsetX: 0,
-	                    shadowColor: 'rgba(0, 0, 0, 0.5)'
-	                }
-	            }
-	        }
-	    ]
-	};
-	    
-	                   
-myChart_two.setOption(option_two,true);
+        })
+    })
+    var option_two = {
+    	    title : {
+    	        text: '',
+    	        x:'center',
+    	        textStyle: {
+      		      	color: '#333333',
+      		          fontSize:'18',
+      		        fontStyle: 'normal',
 
+      		      fontWeight: 'normal',
+      		      }
+    	    },
+    	    color:['#5ab1f0','#2ec8c9','#ffba80','#d87b80','#8d98b3','#e5ce0c','#98b652','#95706e','#b6a2de'],
+    	    tooltip : {
+    	        trigger: 'item',
+    	        formatter: "{a} <br/>{b} : {c} ({d}%)"
+    	    },
+    	    legend: {
+    	        //orient: 'vertical',
+    	        bottom: '0',
+    	        x:'center',
+    	        data: names
+    	    },
+    	    series : [
+    	        {
+    	            name: '并购币种',
+    	            type: 'pie',
+    	            radius : '75%',
+    	            center: ['50%', '50%'],
+    	            data:data,
+    	            itemStyle: {
+    	                emphasis: {
+    	                    shadowBlur: 10,
+    	                    shadowOffsetX: 0,
+    	                    shadowColor: 'rgba(0, 0, 0, 0.5)'
+    	                }
+    	            }
+    	        }
+    	    ]
+    	};
+
+
+    myChart_two.setOption(option_two,true);
+}
+com_industry()
 //投资事件轮次分析
 
 var myChart_three = echarts.init(document.getElementById('commerce_three'));
@@ -600,7 +538,7 @@ var option_three = {
                 ],
                 axisLabel: {
     			    //formatter: '{value}',
-    			    interval:0,  
+    			    interval:0,
     			    rotate:40 ,
     			    textStyle: {
     			    	color: '#333333',
@@ -624,7 +562,7 @@ var option_three = {
                 name: '',
                 axisLabel: {
     			    //formatter: '{value}',
-    			    interval:0,  
+    			    interval:0,
     			    textStyle: {
     			    	color: '#333333',
     			        fontSize:'12'
@@ -755,11 +693,17 @@ var option_three = {
     ]
 };
 
-myChart_three.setOption(option_three,true); 
+myChart_three.setOption(option_three,true);
 
 //并购股权和币种分析
 
-var myChart_four = echarts.init(document.getElementById('commerce_four')); 
+var myChart_four = echarts.init(document.getElementById('commerce_four'));
+
+var myChart_four_data
+sendGetRequest("http://127.0.0.1:8081/api/comOverview/investedRate",function(t){
+    myChart_four_data = t
+})
+
 var option_four = {
 	    tooltip: {
 	        trigger: 'axis',
@@ -770,6 +714,14 @@ var option_four = {
 	            }
 	        }
 	    },
+    dataZoom: [
+        {
+            type: 'slider',
+            xAxisIndex: 0,
+                        start: 30,
+                        end: 70,
+            filterMode: 'empty'
+        }],
 	    color:['#63e4ec','#12c1cc','#ee9898','#ffe0aa'],
 	    toolbox: {
 	    },
@@ -788,7 +740,7 @@ var option_four = {
 	    xAxis: [
 	        {
 	            type: 'category',
-	            data: ['1月','2月','3月','4月','5月','6月','7月','8月','9月','10月','11月','12月'],
+	            data: myChart_four_data["industryName"],
 	            axisPointer: {
 	                type: 'shadow'
 	            },
@@ -822,8 +774,6 @@ var option_four = {
 			        	type: 'solid'
 			        }
 			      },
-	            max: 250,
-	            interval: 50,
 	            splitLine :{
                	 show:true,
                	 lineStyle: {
@@ -881,8 +831,6 @@ var option_four = {
 			        	type: 'solid'
 			        }
 			      },
-	            max: 25,
-	            interval: 5,
 	            splitLine :{
                	 show:true,
                	 lineStyle: {
@@ -933,13 +881,13 @@ var option_four = {
 	        {
 	            name:'未获投公司数',
 	            type:'bar',
-	            data:[2.0, 4.9, 7.0, 23.2, 25.6, 76.7, 135.6, 162.2, 32.6, 20.0, 6.4, 3.3]
+	            data:myChart_four_data["unInvestedNum"]
 	        },
 	        {
 	            name:'获投公司数',
 	            type:'bar',
 	            barCategoryGap: '30',
-	            data:[2.0, 4.9, 7.0, 23.2, 25.6, 76.7, 135.6, 162.2, 32.6, 20.0, 6.4, 3.3]
+	            data:myChart_four_data["investedNum"]
 	        },
 	        {
 	            name:'本年度获投率',
@@ -947,7 +895,7 @@ var option_four = {
 
 	            symbol:'circle',
 	            yAxisIndex: 1,
-	            data:[2.0, 2.2, 3.3, 4.5, 6.3, 10.2, 20.3, 23.4, 23.0, 16.5, 12.0, 6.2]
+	            data:myChart_four_data["investedRate"]
 	        },
 	        {
 	            name:'上一年度获投率',
@@ -955,9 +903,9 @@ var option_four = {
 
 	            symbol:'circle',
 	            yAxisIndex: 1,
-	            data:[4.0, 2.32, 3.23, 14.5, 6.3, 12.2, 10.3, 23.4, 23.4, 14.5, 15.0, 6.6]
+	            data:myChart_four_data["investedRateLastYear"]
 	        }
 	    ]
 	};
-myChart_four.setOption(option_four ,true); 
+myChart_four.setOption(option_four ,true);
 

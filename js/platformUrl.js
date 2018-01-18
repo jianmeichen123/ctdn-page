@@ -1,12 +1,12 @@
 
 
 var Constants = {
-	platformContentURL: "http://ctdnqa.gi.com/api/",
-	searchContentURL: "http://ctdnqa.gi.com/search/",
-	dataContentURL: "http://ctdnqa.gi.com/data/",
-	uploadURL: "http://ctdnqa.gi.com/cloudstorage/",
+	platformContentURL: "http://ctdndev.gi.com/api/",
+	searchContentURL: "http://ctdndev.gi.com/search/",
+	dataContentURL: "http://ctdndev.gi.com/data/",
+	uploadURL: "http://ctdndev.gi.com/cloudstorage/",
 	logoPath: "http://static.galaxyinternet.com/img/",
-	userContentURL: "http://ctdnqa.gi.com/user/"
+	userContentURL: "http://ctdndev.gi.com/user/"
 
 }
 var home = {
@@ -44,6 +44,12 @@ var dataUrl = {
     ios:Constants.dataContentURL+"op/ios/",
 }
 
+var echars = {
+    hotDistrict :Constants.platformContentURL+"common/hotDistrict",
+    getIndustryGroupDistrictRZBK:Constants.platformContentURL+"echarsIndustryAnalyze/getIndustryGroupDistrictRZBK",
+    industryInvestTrend :Constants.platformContentURL+"echarsIndustryAnalyze/getIndustryByTimeRoundDistrict",
+    industryInvestContrast :Constants.platformContentURL+"echarsIndustryAnalyze/getIndustryMonthMergerForEchart"
+}
 var platformUrl = {
 	me:Constants.userContentURL + "userlogin/me",
 	toLogin: Constants.userContentURL + "userlogin/toLogin",
