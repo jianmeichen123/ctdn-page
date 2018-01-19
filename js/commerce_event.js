@@ -403,39 +403,78 @@ function renderBrushed(params) {
 	                    
 myChart.setOption(option,true);
 }
-    var eventTime = $("#eventTime").val();
+
+
+
+//投资事件分析
+var dateData = [];
+var numData = [];
+var amountData = [];
+
+ var eventTime = $("#eventTime").val();
     var eventDist = $("#eventDist").val();
 
     $("#eventDist").change(function(){
         eventDist = $(this).val();
-        getEventAmount();
+        eventAmount();
     })
 
  $("#eventTime").change(function(){
         eventTime = $(this).val();
-        getEventAmount();
+        eventAmount();
     })
 
-function getEventAmount(){
-    if(eventTime.length){
-         if(eventTime.indexOf("一")>-1){
-                eventTime = 4;
-            }else if(eventTime.indexOf("三")>-1){
-                eventTime = 5;
-            }else if(eventTime.indexOf("六")>-1){
-                eventTime = 6;
+function eventAmount(){
+    if(eventTime.indexOf("一")>-1){
+        eventTime = "M";
+    }else  if(eventTime.indexOf("三")>-1){
+        eventTime = "Q";
+    }else  if(eventTime.indexOf("六")>-1){
+         eventTime = "Y";
+     }
+     sendGetRequest(detail.getStagesDistics+"/"+eventTime+"/"+eventDist,function(data){
+            if(dateData){
+                dateData = [];
             }
-    }
-    sendGetRequest(detail.getEventDistrictList+"/"+eventTime+"/"+eventDist,function(data){
-//        console.log(data)
-    })
+            if(numData){
+                numData = [];
+            }
+            if(amountData){
+                amountData = [];
+            }
+            if(eventTime.indexOf("Y")>-1){
+                for(i in data.data){
+                    if(i<6){
+                        var num =  data.data.length-i-7;
+                        dateData.push(data.data[num].timDim);
+                        numData.push(data.data[num].eventNum);
+                        amountData.push(data.data[num].invstAmount);
+                    }
+                 }
+            }else{
+                 for(i in data.data){
+                    var num = data.data.length-i-1;
+                    dateData.push(data.data[num].timDim);
+                    numData.push(data.data[num].eventNum);
+                    amountData.push(data.data[num].invstAmount);
+                 }
+            }
+
+     })
+     commerce_two();
 }
 
-$(function(){
-    getEventAmount();
+sendGetRequest(detail.getStagesDistics+"/"+"M"+"/"+"所有地区",function(data){
+    for(i in data.data){
+        var num = data.data.length-i-1;
+        dateData.push(data.data[num].timDim);
+        numData.push(data.data[num].eventNum);
+        amountData.push(data.data[num].invstAmount);
+     }
+     commerce_two();
 })
 
-//投资事件分析
+function commerce_two(){
 var myChart_two = echarts.init(document.getElementById('commerce_two'));
 var option_two = {
 	    tooltip: {
@@ -465,7 +504,7 @@ var option_two = {
 	    xAxis: [
 	        {
 	            type: 'category',
-	            data: ['1月','2月','3月','4月','5月','6月','7月','8月','9月','10月','11月','12月'],
+	            data: dateData,
 	            axisPointer: {
 	                type: 'shadow'
 	            },
@@ -499,8 +538,8 @@ var option_two = {
 			        	type: 'solid'
 			        }
 			      },
-	            max: 250,
-	            interval: 50,
+//	            max: 250,
+//	            interval: 50,
 	            splitLine :{
                	 show:true,
                	 lineStyle: {
@@ -558,8 +597,8 @@ var option_two = {
 			        	type: 'solid'
 			        }
 			      },
-	            max: 25,
-	            interval: 5,
+//	            max: 25,
+//	            interval: 5,
 	            splitLine :{
                	 show:true,
                	 lineStyle: {
@@ -610,7 +649,7 @@ var option_two = {
 	        {
 	            name:'获投金额',
 	            type:'bar',
-	            data:[2.0, 4.9, 7.0, 23.2, 25.6, 76.7, 135.6, 162.2, 32.6, 20.0, 6.4, 3.3]
+	            data:amountData
 	        },
 	        {
 	            name:'获投笔数',
@@ -618,16 +657,114 @@ var option_two = {
 
 	            symbol:'circle',
 	            yAxisIndex: 1,
-	            data:[2.0, 2.2, 3.3, 4.5, 6.3, 10.2, 20.3, 23.4, 23.0, 16.5, 12.0, 6.2]
+	            data:numData
 	        }
 	    ]
 	};
-	    
-	                   
+
 myChart_two.setOption(option_two,true);
-
+}
 //投资事件轮次分析
+var roundName = ['初创期','发展期','成熟期'];
+var stageOne = [];
+var stageTwo = [];
+var stageThree = [];
+var stageDate = [];
+var stageTime = $("#roundDate").val();
+var stageDist =$("#roundDist").val();
 
+$("#roundDate").change(function(data){
+    stageTime = $(this).val();
+    stageTimeChange();
+    commerce_three();
+})
+
+$("#roundDist").change(function(data){
+    stageDist = $(this).val();
+    stageTimeChange();
+    commerce_three();
+})
+
+function stageTimeChange(){
+    if(stageTime.length>2){
+        if(stageTime.indexOf("一")>-1){
+            stageTime = "M"
+        }else if(stageTime.indexOf("三")>-1){
+            stageTime = "Q"
+        }else if(stageTime.indexOf("六")>-1){
+            stageTime = "Y"
+        }
+    }
+    sendGetRequest(detail.getStages+stageTime+"/"+stageDist,function(data){
+        if(stageOne){
+            stageOne = [];
+        }
+         if(stageTwo){
+            stageTwo = [];
+        }
+        if(stageThree){
+            stageThree = [];
+        }
+        if(stageDate){
+            stageDate = [];
+        }
+        if(stageTime.indexOf("Y")>-1){
+            for(i in data.data[0]){
+                if(i<6){
+                    var num = data.data[0].length-i-7;
+                    stageOne.push(data.data[0][num].eventNum);
+                    stageDate.push(data.data[0][num].timDim);
+                }
+            }
+            for(i in data.data[1]){
+                if(i<6){
+                    var num = data.data[1].length-i-7;
+                    stageTwo.push(data.data[1][num].eventNum);
+                }
+            }
+            for(i in data.data[2]){
+                if(i<6){
+                    var num = data.data[2].length-i-7;
+                    stageThree.push(data.data[2][num].eventNum);
+                }
+            }
+        }else{
+            for(i in data.data[0]){
+                var num = data.data[0].length-i-1;
+                stageOne.push(data.data[0][num].eventNum);
+                stageDate.push(data.data[0][num].timDim);
+            }
+            for(i in data.data[1]){
+                var num = data.data[1].length-i-1;
+                stageTwo.push(data.data[1][num].eventNum);
+            }
+            for(i in data.data[2]){
+                 var num = data.data[2].length-i-1;
+                 stageThree.push(data.data[2][num].eventNum);
+            }
+        }
+
+    })
+    commerce_three();
+}
+sendGetRequest(detail.getStages+"M"+"/"+"所有地区",function(data){
+    for(i in data.data[0]){
+        var num = data.data[0].length-i-1;
+        stageOne.push(data.data[0][num].eventNum);
+        stageDate.push(data.data[0][num].timDim);
+    }
+    for(i in data.data[1]){
+        var num = data.data[1].length-i-1;
+        stageTwo.push(data.data[1][num].eventNum);
+    }
+    for(i in data.data[2]){
+         var num = data.data[2].length-i-1;
+         stageThree.push(data.data[2][num].eventNum);
+    }
+    commerce_three();
+})
+
+function commerce_three(){
 var myChart_three = echarts.init(document.getElementById('commerce_three'));
 var option_three = {
 	    title: {
@@ -640,7 +777,7 @@ var option_three = {
 	        trigger: 'axis'
 	    },
 	    legend: {
-	        data:['初创期','发展期','成熟期'],
+	        data:roundName,
 	        right:30,
 	        bottom: 10,
 	    },
@@ -661,7 +798,7 @@ var option_three = {
 			type : 'category',
 			splitLine :{show:false},
 			boundaryGap: false,
-			data: ['2017/01','2017/02','2017/03','2017/04','2017/05','2017/06','2017/07'],
+			data: stageDate,
 			scale:true,
 			top:0,			
 			
@@ -740,27 +877,29 @@ var option_three = {
 		    ],
 	    series: [
 	        {
-	            name:'初创期',
+	            name:roundName[0],
 	            type:'line',
 	            symbol:'circle',
-	            data:[120, 13, 121, 134, 90, 230, 210]
+	            data:stageOne
 	        },
 	        {
-	            name:'发展期',
+	            name:roundName[1],
 	            type:'line',
 	            symbol:'circle',
-	            data:[120, 132, 101, 134, 90, 230, 110]
+	            data:stageTwo
 	        },
 	        {
-	            name:'成熟期',
+	            name:roundName[2],
 	            type:'line',
 	            symbol:'circle',
-	            data:[120, 142, 101, 134, 90, 23, 240]
+	            data:stageThree
 	        }
 	    ]
 	}
 
 myChart_three.setOption(option_three,true); 
+}
+
 
 //并购股权和币种分析
 var merName =[];
@@ -1010,8 +1149,8 @@ var option_five = {
 			        	type: 'solid'
 			        }
 			      },
-	            max: 250,
-	            interval: 50,
+//	            max: 250,
+//	            interval: 50,
 	            splitLine :{
                	 show:true,
                	 lineStyle: {
@@ -1068,3 +1207,186 @@ var option_five = {
 	};
 
 myChart_five.setOption(option_five,true);
+
+
+//并购事件领域分布
+var merDate ='';
+var merIndName = [];
+var merIndNum = [];
+$("#merIndustry").change(function(data){
+    merDate = $(this).val();
+    merDateChange();
+})
+
+function merDateChange(){
+    if(merDate.length){
+        if(merDate.indexOf("一")>-1){
+            merDate = 1;
+        }else if(merDate.indexOf("三")>-1){
+            merDate = 2;
+        }else if(merDate.indexOf("六")>-1){
+             merDate = 3;
+         }
+    }
+    sendGetRequest(detail.getMergerIndustrys+merDate,function(data){
+        if(merIndName){
+            merIndName = [];
+        }
+        if(merIndNum){
+            merIndNum = [];
+        }
+        for(i in data.data){
+            merIndName.push(data.data[i].industryName);
+            merIndNum.push(data.data[i].mergerNum);
+        }
+    })
+    commerce_six();
+}
+
+sendGetRequest(detail.getMergerIndustrys+"1",function(data){
+    for(i in data.data){
+        merIndName.push(data.data[i].industryName);
+        merIndNum.push(data.data[i].mergerNum);
+    }
+    commerce_six();
+})
+
+function commerce_six(){
+var myChart_six = echarts.init(document.getElementById('commerce_six'));
+var option_six = {
+		 title: {
+		        text: '',
+		        bottom:0,
+		        x:'center',
+		        textStyle: {
+	  		      	color: '#333333',
+	  		          fontSize:'12',
+	  		        fontStyle: 'normal',
+
+	  		      fontWeight: 'normal',
+	  		      }
+		    },
+	    tooltip: {
+	        trigger: 'axis',
+	        axisPointer: {
+	            type: 'cross',
+	            crossStyle: {
+	                color: '#999'
+	            }
+	        }
+	    },
+	    color:['#75e5cc'],
+	    toolbox: {
+	    },
+	    grid: {
+	        left: '3%',
+	        top:'30',
+	        right: '3%',
+	        bottom: '10%',
+	        containLabel: true
+	    },
+	    legend: {
+	        data:[],
+	        right:30,
+	        bottom: 10
+	    },
+	    xAxis: [
+	        {
+	            type: 'category',
+	            data: merIndName,
+	            axisPointer: {
+	                type: 'shadow'
+	            },
+
+		        axisLine:{
+	      		  show:true,
+	    		  lineStyle:{
+	    		  	color: '#e6e6e6',
+	    		  	width: 1,
+	    		  	type: 'solid'
+	    		  }
+	    		},
+
+            axisLabel: {
+			    //formatter: '{value}',
+			    interval:0,
+			    rotate:40 ,
+			    textStyle: {
+			    	color: '#333333',
+			        fontSize:'12'
+			    }
+			}
+	        }
+	    ],
+	    yAxis: [
+	        {
+	            type: 'value',
+//	            name: '上市公司数',
+	            min: 0,
+	            axisLine:{
+			        show:false,
+			        lineStyle:{
+			        	color: '#e6e6e6',
+			        	width: 1,
+			        	type: 'solid'
+			        }
+			      },
+//	            max: 250,
+//	            interval: 50,
+	            splitLine :{
+               	 show:true,
+               	 lineStyle: {
+
+               		 color: ['#e6e6e6'],
+
+               		 width: 1,
+
+               		 type: 'solid',
+               		 },
+               },
+                scale:true,
+                top:'0%',
+
+                nameTextStyle :{
+                    color:'#333333',
+                    //nameLocation:'top',
+                    right:'20',
+                },
+                scale: true,
+                /* nameLocation:'middle',
+                nameGap:25, */
+                nameTextStyle: {
+                    color: '#333',
+                    fontSize: '12'
+                },
+			      axisLine:{
+			        show:false,
+			        lineStyle:{
+			        	color: '#e6e6e6',
+			        	width: 1,
+			        	type: 'solid'
+			        }
+			      },
+			      axisTick:{
+			        show:false
+			       },
+			        axisLabel: {
+			            //formatter: '{value}',
+			            textStyle: {
+			            	color: '#333333',
+			                fontSize:'12'
+			            }
+			        }
+	        }
+	    ],
+	    series: [
+	        {
+	            name:'并购数量',
+	            type:'bar',
+	            data:merIndNum
+	        }
+	    ]
+	};
+
+myChart_six.setOption(option_six,true);
+}
