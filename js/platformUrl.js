@@ -141,6 +141,9 @@ var detail = {
     getListedExchanges:Constants.platformContentURL+"listedExchange/getListedExchanges/",
     getMergerEquitys:Constants.platformContentURL+"mergerEquity/getMergerEquitys/",
     getMergerCurrencys:Constants.platformContentURL+"mergerCurrency/getMergerCurrencys/",
+    getStagesDistics:Constants.platformContentURL+"stagesDistrict/getStagesDistics/",
+    getMergerIndustrys:Constants.platformContentURL+"mergerIndustry/getMergerIndustrys/",
+    getStages:Constants.platformContentURL+"stagesDistrict/getStages/",
 
 //  创业者/投资人
     queryPersonComExpr:Constants.platformContentURL+"person/queryPersonComExpr/",
