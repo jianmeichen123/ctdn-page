@@ -46,9 +46,10 @@ var dataUrl = {
 
 var echars = {
     hotDistrict :Constants.platformContentURL+"common/hotDistrict",
-    getIndustryGroupDistrictRZBK:Constants.platformContentURL+"echarsIndustryAnalyze/getIndustryGroupDistrictRZBK",
-    industryInvestTrend :Constants.platformContentURL+"echarsIndustryAnalyze/getIndustryByTimeRoundDistrict",
-    industryInvestContrast :Constants.platformContentURL+"echarsIndustryAnalyze/getIndustryMonthMergerForEchart"
+    getRZBK:Constants.platformContentURL+"echarsIndustryAnalyze/getRZBK",
+    getRZQS :Constants.platformContentURL+"echarsIndustryAnalyze/getRZQS",
+    getRZDB :Constants.platformContentURL+"echarsIndustryAnalyze/getRZDB",
+    getCXHTFX:Constants.platformContentURL+"echarsIndustryAnalyze/getCXHTFX",
 }
 var platformUrl = {
 	me:Constants.userContentURL + "userlogin/me",
