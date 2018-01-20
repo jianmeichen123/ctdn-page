@@ -9,6 +9,8 @@
 var capDist = [];
 var capAmount = [];
 var capDatas = [];
+var map = { '北京':[116.46,39.92 ], '河北':[114.48,38.03], '辽宁':[123.38,41.8], '四川':[104.06,30.67], '安徽':[117.27,31.86], '河南':[113.65,34.76], '呼和浩特':[111.65,40.82], '福建':[119.3,26.08], '黑龙江':[126.63,45.75], '宁夏':[106.27,38.47], '西藏':[91.11,29.97], '甘肃':[103.73,36.03], '湖北':[114.31,30.52], '青海':[101.74,36.56], '新疆':[87.68,43.77], '广东':[113.23,23.16], '湖南':[113,28.21], '山东':[117,36.65], '云南':[102.73,25.04], '广西':[102.73,25.04], '云南':[102.73,25.04], '广西':[108.33,22.84], '吉林':[125.35,43.88], '山西':[112.53,37.87], '浙江':[120.19,30.26], '贵州':[106.71,26.57], '江苏':[118.78,32.04], '陕西':[108.95,34.27], '重庆':[106.54,29.59], '海南':[110.35,20.02], '江西':[115.89,28.68], '上海':[121.48,31.22], '天津':[117.10,39.10], '内蒙古':[111.65,40.82]};
+ var geoMap = {};
 var capTime = $("#zbdt").val();
 $("#zbdt").change(function(){
     capTime = $("#zbdt").val();
@@ -33,6 +35,7 @@ function capData(){
             var capJson = {};
             capJson["name"] = data.data[i].districtSubName;
             capJson["value"] = data.data[i].invstAmount
+            geoMap[data.data[i].districtSubName] = map[data.data[i].districtSubName]
             capDatas.push(capJson);
         }
         commerce_one();
@@ -43,6 +46,7 @@ sendGetRequest(detail.getEventDistricts+"/"+4,function(data){
         var capJson = {};
         capJson["name"] = data.data[i].districtSubName;
         capJson["value"] = data.data[i].invstAmount
+        geoMap[data.data[i].districtSubName] = map[data.data[i].districtSubName]
         capDatas.push(capJson);
         capDist.push(data.data[i].districtSubName);
         capAmount.push(data.data[i].invstAmount);
@@ -54,7 +58,7 @@ sendGetRequest(detail.getEventDistricts+"/"+4,function(data){
 function commerce_one(){
 var myChart = echarts.init(document.getElementById('commerce_one'));
 var data = capDatas;
-var geoCoordMap = { '北京':[116.46,39.92 ], '河北':[114.48,38.03], '辽宁':[123.38,41.8], '四川':[104.06,30.67], '安徽':[117.27,31.86], '河南':[113.65,34.76], '呼和浩特':[111.65,40.82], '福建':[119.3,26.08], '黑龙江':[126.63,45.75], '宁夏':[106.27,38.47], '西藏':[91.11,29.97], '甘肃':[103.73,36.03], '湖北':[114.31,30.52], '青海':[101.74,36.56], '新疆':[87.68,43.77], '广东':[113.23,23.16], '湖南':[113,28.21], '山东':[117,36.65], '云南':[102.73,25.04], '广西':[102.73,25.04], '云南':[102.73,25.04], '广西':[108.33,22.84], '吉林':[125.35,43.88], '山西':[112.53,37.87], '浙江':[120.19,30.26], '贵州':[106.71,26.57], '江苏':[118.78,32.04], '陕西':[108.95,34.27], '重庆':[106.54,29.59], '海南':[110.35,20.02], '江西':[115.89,28.68], '上海':[121.48,31.22]};
+var geoCoordMap = geoMap;
 /*
 var data = [
     { name: "上海", value: 290},
@@ -145,7 +149,7 @@ var convertData = function(data) {
         if (geoCoord) {
             res.push({
                 name: data[i].name,
-                value: geoCoord.concat(data[i].value)
+                value: geoCoord.concat((data[i].value)/1000)
             });
         }
     }
@@ -443,13 +447,20 @@ function eventAmount(){
                 amountData = [];
             }
             if(eventTime.indexOf("Y")>-1){
+                var timeOne = [];
+                var numOne = [];
+                var amountOne = [];
                 for(i in data.data){
                     if(i<6){
-                        var num =  data.data.length-i-7;
-                        dateData.push(data.data[num].timDim);
-                        numData.push(data.data[num].eventNum);
-                        amountData.push(data.data[num].invstAmount);
+                        timeOne.push(data.data[i].timDim);
+                        numOne.push(data.data[i].eventNum);
+                        amountOne.push(data.data[i].invstAmount);
                     }
+                 }
+                 for(var i=0;i<6;i++){
+                    dateData.push(timeOne[6-i-1]);
+                    numData.push(numOne[6-i-1]);
+                    amountData.push(amountOne[6-i-1])
                  }
             }else{
                  for(i in data.data){
@@ -709,25 +720,32 @@ function stageTimeChange(){
             stageDate = [];
         }
         if(stageTime.indexOf("Y")>-1){
+            var one = [];
+            var two = [];
+            var three= [];
+            var fourDate = [];
             for(i in data.data[0]){
                 if(i<6){
-                    var num = data.data[0].length-i-7;
-                    stageOne.push(data.data[0][num].eventNum);
-                    stageDate.push(data.data[0][num].timDim);
+                    one.push(data.data[0][i].eventNum);
+                    fourDate.push(data.data[0][i].timDim);
                 }
             }
             for(i in data.data[1]){
                 if(i<6){
-                    var num = data.data[1].length-i-7;
-                    stageTwo.push(data.data[1][num].eventNum);
+                    two.push(data.data[1][i].eventNum);
                 }
             }
             for(i in data.data[2]){
                 if(i<6){
-                    var num = data.data[2].length-i-7;
-                    stageThree.push(data.data[2][num].eventNum);
+                    three.push(data.data[2][i].eventNum);
                 }
             }
+             for(var i=0;i<6;i++){
+                stageOne.push(one[6-1-i]);
+                stageDate.push(fourDate[6-i-1]);
+                stageTwo.push(two[6-i-1]);
+                stageThree.push(three[6-i-1]);
+             }
         }else{
             for(i in data.data[0]){
                 var num = data.data[0].length-i-1;
