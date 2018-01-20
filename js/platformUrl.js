@@ -152,6 +152,13 @@ var detail = {
     queryStartUpBaseInfo:Constants.platformContentURL+"person/queryStartUpBaseInfo/",
     queryInvestorBaseInfo:Constants.platformContentURL+"person/queryInvestorBaseInfo/",
     queryInvestPolicyInfo:Constants.platformContentURL+"person/queryInvestPolicyInfo/",
+    //机构分析
+    orgIndustry:Constants.platformContentURL+"orgChart/orgIndustry",
+    childIndustries:Constants.platformContentURL+"orgChart/childIndustries",
+    orgRound:Constants.platformContentURL+"orgChart/orgRound",
+    orgProject:Constants.platformContentURL+"orgChart/orgProject",
+    getOrgPartnerAndCompeteCount:Constants.platformContentURL+"orgChart/getOrgPartnerAndCompeteCount",
+    orgPartner:Constants.platformContentURL+"orgChart/orgPartner",
 }
 var user = {
     collectOne:Constants.platformContentURL+"userCollection/collectOne",
