@@ -34,11 +34,13 @@ var org_chart= {
 		}else{
 			id = null
 		}
-		var timeType = 1
+		var industry_timeType = $('#orgIndustry option:selected').val()
+		var round_timeType = $('#orgRound option:selected').val()
+		var project_timeType = $('#orgProject option:selected').val()
 		this.loadHeaderInfo(id) //历史累计、新增
-		this.loadOrgIndustry(id,timeType,industryType) //行业分布
-		this.loadOrgRound(id,timeType,industryType) //轮次分布
-		this.loadOrgProject(id,timeType,industryType) //关系图谱
+		this.loadOrgIndustry(id,industry_timeType,industryType) //行业分布
+		this.loadOrgRound(id,round_timeType,industryType) //轮次分布
+		this.loadOrgProject(id,project_timeType,industryType) //关系图谱
 	},
 	loadHeaderInfo:function(id){
 		
@@ -302,6 +304,9 @@ var  option = {
 	}; 
 	//关系图谱点击机构事件
 	myChart.on('click', function (params) {
+		if(!params.data.code){
+			return
+		}
 		org_chart.graphClick('4',params.data.name);
 	});
 $(function(){

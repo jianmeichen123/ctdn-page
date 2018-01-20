@@ -107,7 +107,9 @@
 							{{if data.length >0}}
 								{{each(i,v) data}}
 									<tr>
-										<td><div class="commerce_table_on table_color1">${v.rank}</div><div class="commerce_table_name">${v.industryName}</div></td>
+										<td><div class="commerce_table_on table_color1">${v.rank}</div>
+										
+						<div class="commerce_table_name">{{if v.industryType == 1}}${v.industryName}{{else}}${v.industrySubName}{{/if}}</div></td>
 										<td><div class="commerce_table_width table_color1" style="width:412px"></div></td>
 									<td>
 									<ul class="commerce_table_ul">
@@ -233,14 +235,14 @@
 							<tr>
 								<td>经纬中国</td>
 								<td>300</td>
-								<td><div class="commerce_inst_b_y" style="width:50px;height:50px;" ></div></td>
-								<td><div class="commerce_inst_b_y" style="width:40px;height:40px;"></div></td>
 								<td><div class="commerce_inst_b_y" style="width:50px;height:50px;"></div></td>
 								<td><div class="commerce_inst_b_y" style="width:40px;height:40px;"></div></td>
 								<td><div class="commerce_inst_b_y" style="width:50px;height:50px;"></div></td>
 								<td><div class="commerce_inst_b_y" style="width:40px;height:40px;"></div></td>
 								<td><div class="commerce_inst_b_y" style="width:50px;height:50px;"></div></td>
-								<td><div class="commerce_inst_b_y" style="width:40px;height:40px;;"></div></td>
+								<td><div class="commerce_inst_b_y" style="width:40px;height:40px;"></div></td>
+								<td><div class="commerce_inst_b_y" style="width:50px;height:50px;"></div></td>
+								<td><div class="commerce_inst_b_y" style="width:40px;height:40px;" ></div></td>
 							</tr>
 						</tbody>
 						 {-raw-}
@@ -264,7 +266,7 @@
 										<td>${v.partnerOrgName}</td>
 										<td>${v.eventNumAll}</td>
 										{{each(j,w) v.orgList}}
-											{{if j<10}}<td><div class="commerce_inst_b_y" style="width:50px;height:50px;">${w.name}-${w.num}</div></td>{{/if}}
+											{{if j<10}}<td><div id= "${i}_${j}_partener" class="commerce_inst_b_y" style="width:${w.num}px;height:${w.num}px;cursor:pointer;"  onmouseover="over_partner(this,'${w.num}','${v.partnerOrgName}','${w.name}')" onmouseout="out_partner()" lang=""></div></td>{{/if}}
 										{{/each}}
 									</tr>
 								{{/if}}{{/each}}
@@ -307,8 +309,8 @@
 							<tr>
 								<td>经纬中国</td>
 								<td>300</td>
-								<td><div class="pie number-pie" data-value="0.25" title="在  金融基础设施  行业&#13;弘毅投资  投资  120笔" altbg="red" altcolor="yellow" altborder="yellow"></div></td>
-								
+								<td><div class="pie number-pie" data-value="1" title="在  金融基础设施  行业&#13;弘毅投资  投资  120笔" altbg="red" altcolor="yellow" altborder="yellow" onmouseover="over(this)" onmouseout="out(2)"></div></td>
+								<td><div class="pie number-pie" data-value="1" title="在  金融基础设施  行业&#13;弘毅投资  投资  120笔" altbg="red" altcolor="yellow" altborder="yellow" onmouseover="over(1)" onmouseout="out(2)"></div></td>
 							</tr>
 						</tbody>
 					</table>
@@ -328,6 +330,7 @@
 <script src="js/jquery.tmpl.js"></script>
 <script src="js/echarts.min.js"></script>
 <script src="js/pie/pie-1.0.1.js"></script>
+<script src="layer/layer.js"></script>
 <link rel="stylesheet" type="text/css" href="js/pie/pie.css"/>
 <script>
 nav_locaton('sydc','jgfx','jgfx','')
@@ -335,6 +338,14 @@ var pie1 = new Pie({
 		el : '.number-pie'
 	});
 pie1.init();	
+var pie_tips_index = null
+function over_partner(obj,num,orgName,industryName){
+	var follow = $(obj).attr('id')
+	pie_tips_index = layer.tips('在 '+industryName+' 行业<br/> '+orgName+' 投资 '+num+' 笔 ', '#'+follow,{time:111111111});
+}
+function out_partner(params){
+// 	layer.close(pie_tips_index)
+}
 </script>
 <script src="js/org_chart.js"></script>
 </body>
