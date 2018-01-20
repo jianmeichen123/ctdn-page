@@ -50,6 +50,7 @@ var echars = {
     getRZQS :Constants.platformContentURL+"echarsIndustryAnalyze/getRZQS",
     getRZDB :Constants.platformContentURL+"echarsIndustryAnalyze/getRZDB",
     getCXHTFX:Constants.platformContentURL+"echarsIndustryAnalyze/getCXHTFX",
+    getRXGMFB:Constants.platformContentURL+"echarsIndustryAnalyze/getRXGMFB"
 }
 var platformUrl = {
 	me:Constants.userContentURL + "userlogin/me",

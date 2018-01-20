@@ -4,6 +4,9 @@ var industry_data = null
 var round_data = null
 var rzbk_data =null
 var cxhtfx_data =null
+var rxgmfb_data = null
+var moneyRange =[];
+var roundName=[]
 var yAxis_name = '按融资笔数'
 var myChart = echarts.init(document.getElementById('commerce_one'));
 //加载行业
@@ -26,6 +29,26 @@ sendGetRequest(echars.hotDistrict,function(data){
         $("select[name='districtSubId']").html(html);
     }
 })
+function querytotalheader(){
+	sendPostRequest(detail.queryGGTotalHeaderStat,function(data){
+		if(data.data){
+	    $("#projectNum_total").text(data.data.projectNum)
+	    $("#investedProjNum_total").text(data.data.investedProjNum)
+	    $("#eventNum_total").text(data.data.eventNum)
+	    $("#amount_total").text(data.data.amount)
+		}
+	})
+}
+function querycurmontheader(){
+	sendPostRequest(detail.queryGGCurMonthHeaderStat,function(data){
+		if(data.data){
+		    $("#projectNum_curmonth").text(data.data.projectNum)
+		    $("#investedProjNum_curmonth").text(data.data.investedProjNum)
+		    $("#eventNum_curmonth").text(data.data.eventNum)
+		    $("#amount_curmonth").text(data.data.amount)
+		}
+	})
+}
 //图表按投资笔数或融资金额显示 按融资笔数(1) 按融资金额(2) 默认融资笔数
 var query_flag = 1
 // 指定图表的配置项和数据
@@ -243,77 +266,50 @@ var option_db = {
 //融资版块
 var myChart_three = echarts.init(document.getElementById('commerce_three'));
 var option_three = {
-	    title : {
-	    },
-	    color:['#c5d9f1','#95b3d7','#fee2e1','#b6ebd5','#f1ffd2','#fff1c3','#f8c4c4'],
-	    tooltip : {
-	        trigger: 'item',
-	        formatter: "{b}: {c}"
-	    },
-	    toolbox: {
-	        show : false,
-	        feature : {
-	            mark : {show: true},
-	            dataView : {show: true, readOnly: false},
-	            restore : {show: true},
-	            saveAsImage : {show: true}
-	        }
-	    },
-	    calculable : false,
-	    series : [
-	        {
-	            name:'融资版块',
-	            type:'treemap',
-	            top: 30,
-	            left: 30,
-	            right: 30,
-	            itemStyle: {
-	                normal: {
-	                    label: {
-	                        show: true,
-	                        formatter: "{b}"
-	                    },
-	                    borderWidth: 1
-	                },
-	                emphasis: {
-	                    label: {
-	                        show: true
-	                    }
-	                }
-	            },
-	            data:[
-	                {
-	                    name: '三星',
-	                    value: 6
-	                },
-	                {
-	                    name: '小米',
-	                    value: 4
-	                },
-	                {
-	                    name: '苹果',
-	                    value: 4
-	                },
-	                {
-	                    name: '华为',
-	                    value: 2
-	                },
-	                {
-	                    name: '联想',
-	                    value: 2
-	                },
-	                {
-	                    name: '魅族',
-	                    value: 1
-	                },
-	                {
-	                    name: '中兴',
-	                    value: 1
-	                }
-	            ]
-	        }
-	    ]
-	};
+                           title: {
+                           },
+                           tooltip: {},
+                           series: [{
+                               name: '',
+                               type: 'treemap',
+                               visibleMin: 300,
+                               data:[],
+                               leafDepth: 2,
+                               levels: [
+                                   {
+                                       itemStyle: {
+                                           normal: {
+                                               borderColor: '#555',
+                                               borderWidth: 4,
+                                               gapWidth: 4
+                                           }
+                                       }
+                                   },
+                                   {
+                                       colorSaturation: [0.3, 0.6],
+                                       itemStyle: {
+                                           normal: {
+                                               borderColorSaturation: 0.7,
+                                               gapWidth: 2,
+                                               borderWidth: 2
+                                           }
+                                       }
+                                   },
+                                   {
+                                       colorSaturation: [0.3, 0.5],
+                                       itemStyle: {
+                                           normal: {
+                                               borderColorSaturation: 0.6,
+                                               gapWidth: 1
+                                           }
+                                       }
+                                   },
+                                   {
+                                       colorSaturation: [0.3, 0.5]
+                                   }
+                               ]
+                           }]
+                       }
 //持续获投分析
 var myChart_four = echarts.init(document.getElementById('commerce_four'));
 var option_four = {
@@ -334,7 +330,7 @@ var option_four = {
     xAxis : [
         {
             type : 'category',
-            data : ['金融科技','互联网银行','电子商务','O2O','人工智能'],
+            data : [],
             axisTick:{
   			  show:false
   			 },
@@ -404,6 +400,67 @@ var option_four = {
               }
     ]
 };
+var myChart_five = echarts.init(document.getElementById('commerce_five'));
+var option_five = {
+    title: {
+    },
+    legend: {
+    },
+    color:['#67ddd9'],
+    grid: {
+   	 	left: '30',
+        top:'20',
+        right: '35',
+        bottom: '10',
+       containLabel: true
+   },
+    tooltip: {
+        position: 'top',
+        formatter: function (params) {
+            var time = $("select[name='timeType']").find("option:selected").text()
+            var result =time+roundName[params.value[0]]+"</br>规模在"+moneyRange[params.value[1]]+"区间的有"+params.value[2]+"笔融资"
+            return result
+        }
+    },
+    xAxis: {
+        type: 'category',
+        data: roundName,
+        boundaryGap: false,
+        splitLine: {
+            show: true,
+            lineStyle: {
+                color: '#999',
+                type: 'dashed'
+            }
+        },
+        axisLine: {
+            show: false
+        }
+    },
+    yAxis: {
+        type: 'category',
+        data: moneyRange,
+        axisLine: {
+            show: false
+        }
+    },
+    series: [{
+        name: 'Punch Card',
+        type: 'scatter',
+        symbolSize: function (val) {
+            if(val[2]>50){
+                var times = val[2]/5
+                return val[2]/times * 2
+            }else{
+                return val[2] * 2;
+            }
+        },
+        data: [],
+        animationDelay: function (idx) {
+            return idx * 5;
+        }
+    }]
+};
 
 $(".background_boeder_commerce select[name]" ).change(function(){
    var div = $(this).closest(".background_boeder_commerce");
@@ -419,6 +476,7 @@ $(".background_boeder_commerce select[name]" ).change(function(){
     case "2" : freshEchars2(json,flag); break;
     case "3" : freshEchars3(json,flag); break;
     case "4" : freshEchars4(json,flag); break;
+    case "5" : freshEchars5(json,flag); break;
    }
 })
 function getJson(div){
@@ -474,83 +532,26 @@ function freshEchars4(json){
         }
     });
 }
-
-
-//各轮次融资规模分布
-var myChart_five = echarts.init(document.getElementById('commerce_five'));
-var hours = ['种子轮', '天使轮', '2a', '3a', '4a', '5a', '6a',
-        '7a', '8a', '9a','10a','11a'];
-var days = ['100（含）及以下', '100-1000万（含）', '1000-5000万（含）',
-        '5000万-1亿（含）', '1亿-10亿（含）', '10亿以上'];
-
-var data = [[0,0,5],[0,1,1],[0,2,0],[0,3,0],[0,4,0],[0,5,0],[0,6,0],[0,7,0],[0,8,0],[0,9,0],[0,10,0],[0,11,2],[0,12,4],[0,13,1],[0,14,1],[0,15,3],[0,16,4],[0,17,6],[0,18,4],[0,19,4],[0,20,3],[0,21,3],[0,22,2],[0,23,5],[1,0,7],[1,1,0],[1,2,0],[1,3,0],[1,4,0],[1,5,0],[1,6,0],[1,7,0],[1,8,0],[1,9,0],[1,10,5],[1,11,2],[1,12,2],[1,13,6],[1,14,9],[1,15,11],[1,16,6],[1,17,7],[1,18,8],[1,19,12],[1,20,5],[1,21,5],[1,22,7],[1,23,2],[2,0,1],[2,1,1],[2,2,0],[2,3,0],[2,4,0],[2,5,0],[2,6,0],[2,7,0],[2,8,0],[2,9,0],[2,10,3],[2,11,2],[2,12,1],[2,13,9],[2,14,8],[2,15,10],[2,16,6],[2,17,5],[2,18,5],[2,19,5],[2,20,7],[2,21,4],[2,22,2],[2,23,4],[3,0,7],[3,1,3],[3,2,0],[3,3,0],[3,4,0],[3,5,0],[3,6,0],[3,7,0],[3,8,1],[3,9,0],[3,10,5],[3,11,4],[3,12,7],[3,13,14],[3,14,13],[3,15,12],[3,16,9],[3,17,5],[3,18,5],[3,19,10],[3,20,6],[3,21,4],[3,22,4],[3,23,1],[4,0,1],[4,1,3],[4,2,0],[4,3,0],[4,4,0],[4,5,1],[4,6,0],[4,7,0],[4,8,0],[4,9,2],[4,10,4],[4,11,4],[4,12,2],[4,13,4],[4,14,4],[4,15,14],[4,16,12],[4,17,1],[4,18,8],[4,19,5],[4,20,3],[4,21,7],[4,22,3],[4,23,0],[5,0,2],[5,1,1],[5,2,0],[5,3,3],[5,4,0],[5,5,0],[5,6,0],[5,7,0],[5,8,2],[5,9,0],[5,10,4],[5,11,1],[5,12,5],[5,13,10],[5,14,5],[5,15,7],[5,16,11],[5,17,6],[5,18,0],[5,19,5],[5,20,3],[5,21,4],[5,22,2],[5,23,0],[6,0,1],[6,1,0],[6,2,0],[6,3,0],[6,4,0],[6,5,0],[6,6,0],[6,7,0],[6,8,0],[6,9,0],[6,10,1],[6,11,0],[6,12,2],[6,13,1],[6,14,3],[6,15,4],[6,16,0],[6,17,0],[6,18,0],[6,19,0],[6,20,1],[6,21,2],[6,22,2],[6,23,6]];
-data = data.map(function (item) {
-    return [item[1], item[0], item[2]];
-});
-
-var option_five = {
-    title: {
-    },
-    legend: {
-    },  
-    color:['#67ddd9'],
-    grid: {
-   	 	left: '30',
-        top:'20',
-        right: '35',
-        bottom: '10',
-       containLabel: true
-   },
-    tooltip: {
-        position: 'top',
-        formatter: function (params) {
-            return params.value[2] + ' commits in ' + hours[params.value[0]] + ' of ' + days[params.value[1]];
+// 请求行业融资对比数据
+function freshEchars5(json){
+    sendPostRequestByJsonObj(echars.getRXGMFB,json,function(data){
+        if(data.success){
+            rxgmfb_data = data
+            showEcharts(5,null)
         }
-    },
-    xAxis: {
-        type: 'category',
-        data: hours,
-        boundaryGap: false,
-        splitLine: {
-            show: true,
-            lineStyle: {
-                color: '#999',
-                type: 'dashed'
-            }
-        },
-        axisLine: {
-            show: false
-        }
-    },
-    yAxis: {
-        type: 'category',
-        data: days,
-        axisLine: {
-            show: false
-        }
-    },
-    series: [{
-        name: 'Punch Card',
-        type: 'scatter',
-        symbolSize: function (val) {
-            return val[2] * 2;
-        },
-        data: data,
-        animationDelay: function (idx) {
-            return idx * 5;
-        }
-    }]
-};
-myChart_five.setOption(option_five,true);
-
+    });
+}
 //页面初始化加载数据
 reloadEchars()
+querytotalheader()
+querycurmontheader
 function reloadEchars(){
      var industryId = $("#industryList li.trade_list_on").attr("value")
      freshEchars1({"time":12,"timeType":"M","industryId":industryId},1)
      freshEchars2({"time":30,"timeType":"D","industryId":industryId},1)
-    // freshEchars3({"time":30,"timeType":"D","industryId":industryId},1)
+     freshEchars3({"time":30,"timeType":"D","industryId":industryId},1)
      freshEchars4({"time":30,"timeType":"D","industryId":industryId},1)
+     freshEchars5({"timeType":1,"industryId":industryId},1)
 }
 
 //按融资笔数(1) 按融资金额(2) 切换
@@ -566,6 +567,7 @@ $('.num_or_money span').click(function(){
 $("#industryList li").click(function(){
    $(this).toggleClass('trade_list_on')
    $(this).siblings().removeClass('trade_list_on')
+   $("#curmonth").hide()
    //加载图表
    reloadEchars();
    //todo select reset
@@ -668,8 +670,13 @@ function showEcharts(echarts_flag,lang){
         if(rzbk_data==null){
             return
         }
-        option_three.series[0].data= rzbk_data.data.series;
-        myChart_three = (option_three,true);
+       var industryId = $("#industryList li.trade_list_on").attr("value")
+       if(industryId==0){
+          option_three.series[0].data=[{"children": rzbk_data.data.series}];
+       }else{
+          option_three.series[0].data=[{"children": rzbk_data.data.series[0].children}];
+       }
+       myChart_three.setOption(option_three,true);
     }
     else if(echarts_flag ==4){
         if(cxhtfx_data==null){
@@ -678,5 +685,19 @@ function showEcharts(echarts_flag,lang){
         option_four.xAxis[0].data= cxhtfx_data.data.xAxis;
         option_four.series[0].data= cxhtfx_data.data.series;
         myChart_four.setOption(option_four,true);
+    }
+    else if(echarts_flag ==5){
+        if(rxgmfb_data==null){
+            return
+        }
+        option_five.xAxis.data= rxgmfb_data.data.xAxis;
+        option_five.yAxis.data= rxgmfb_data.data.legend;
+        roundName= rxgmfb_data.data.xAxis;
+        moneyRange= rxgmfb_data.data.legend;
+        var data = rxgmfb_data.data.series.map(function (item) {
+            return [item[1], item[0], item[2]];
+        });
+        option_five.series[0].data= data;
+        myChart_five.setOption(option_five,true);
     }
 }
