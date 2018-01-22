@@ -976,3 +976,30 @@ sendPostRequest(platformUrl.queryIndexHeaderStat,function(data){
     $(".total-startup").text(data.data.startUpNum)
     $(".total-investor").text(data.data.investorNum)
 })
+
+function login_page(){
+	location.href = platformUrl.toLogin
+}
+function register_page(){
+	location.href= platformUrl.toRegister
+}
+function find_password_page(){
+	location.href=platformUrl.forgetPassword
+}
+//密码遮罩
+$('#password_eye').click(function(){
+	 $(this).toggleClass('login-eye-abled')
+	 if($(this).hasClass('login-eye-abled')){
+		 $('#password').attr('type','text')
+	 }else{
+		 $('#password').attr('type','password')
+	 }
+})
+$('#confirmpassword_eye').click(function(){
+	 $(this).toggleClass('login-eye-abled')
+	 if($(this).hasClass('login-eye-abled')){
+		 $('#confirmPassword').attr('type','text')
+	 }else{
+		 $('#confirmPassword').attr('type','password')
+	 }
+})

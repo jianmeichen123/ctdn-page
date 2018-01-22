@@ -6,8 +6,8 @@ var Constants = {
 	dataContentURL: "http://ctdndev.gi.com/data/",
 	uploadURL: "http://ctdndev.gi.com/cloudstorage/",
 	logoPath: "http://static.galaxyinternet.com/img/",
-	userContentURL: "http://ctdndev.gi.com/user/"
-
+	userContentURL: "http://ctdndev.gi.com/user/",
+	htmlContentUrl : "http://ctdndev.gi.com/"
 }
 var home = {
 	    index : "http://ctdndev.gi.com"
@@ -50,12 +50,12 @@ var echars = {
     getRZQS :Constants.platformContentURL+"echarsIndustryAnalyze/getRZQS",
     getRZDB :Constants.platformContentURL+"echarsIndustryAnalyze/getRZDB",
     getCXHTFX:Constants.platformContentURL+"echarsIndustryAnalyze/getCXHTFX",
-    getRXGMFB:Constants.platformContentURL+"echarsIndustryAnalyze/getRXGMFB",
+    getRXGMFB:Constants.platformContentURL+"echarsIndustryAnalyze/getRXGMFB"
 }
 var platformUrl = {
 	me:Constants.userContentURL + "userlogin/me",
 	toLogin: Constants.userContentURL + "userlogin/toLogin",
-	register:Constants.userContentURL + "userlogin/toRegister",
+	login: Constants.userContentURL + "userlogin/login",
 	logout:Constants.userContentURL + "userlogin/logout",
 	modifyPass:Constants.userContentURL + "userlogin/modifyPass",
 	allQuery:Constants.platformContentURL+"common/allQuery",
@@ -66,7 +66,23 @@ var platformUrl = {
 	resetUserIndustry:Constants.platformContentURL+"index/resetUserIndustry/",
 	eventIndustryMonth:Constants.platformContentURL+"eventIndustryMonth/query",
 	queryIndexHeaderStat:Constants.platformContentURL+"index/queryIndexHeaderStat",
-	fileUpload:Constants.platformContentURL+"upload"
+	fileUpload:Constants.platformContentURL+"upload",
+	//登录相关
+    toIndex :Constants.userContentURL+  "user/index",
+    checkPwd : Constants.userContentURL + "user/user/checkPwd",
+    updatePwd : Constants.userContentURL + "user/user/updatePwd",
+    ctdncx : Constants.userContentURL + "list_page_com.html",
+    index : Constants.userContentURL + "/index_normal.html",
+    loginByCode:Constants.userContentURL + "userlogin/loginByCode",
+    toRegister:"register.html",
+    register:Constants.userContentURL + "userlogin/register",
+    forgetPassword:"forget_password.html",
+    updatePassword:Constants.userContentURL + "userlogin/updatePassword",
+    sendCode:Constants.userContentURL + "userlogin/sendCode",
+    loginByPassword:Constants.userContentURL + "userlogin/loginByPassword",
+    checkUserExists:Constants.userContentURL + "userlogin/checkUserExists",
+    checkCode:Constants.userContentURL + "userlogin/checkCode",
+    checkInternalUserExists:Constants.userContentURL + "userlogin/checkInternalUserExists",
 }
 var table ={
    empty: "--"
@@ -176,6 +192,27 @@ var user = {
     getCodeList:Constants.platformContentURL+"userCollection/getCodeList/",
     getColList:Constants.platformContentURL+"userCollection/getColList/",
     queryProPageByCodeList:Constants.platformContentURL+"projectList/queryByCodeList/"
+}
+var htmlPlatformUrl = {
+    search:Constants.htmlContentUrl + "/search_index.html",
+    search_finance:Constants.htmlContentUrl + "/seek_financing.html",
+    index_head:Constants.htmlContentUrl + "/index_normal.html",
+    evaluating:Constants.htmlContentUrl+"/project_evaluating.html",
+    report:Constants.htmlContentUrl+"/report_list.html",
+    news_head:Constants.htmlContentUrl+"/news.html",
+    investor:Constants.htmlContentUrl+"/list_page_investor.html",
+    startup:Constants.htmlContentUrl+"/list_page_startup.html",
+    org:Constants.htmlContentUrl+"/list_page_org.html",
+    tz:Constants.htmlContentUrl+"/list_page_rz.html",
+    com:Constants.htmlContentUrl+"/list_page_com.html",
+    index_manager:Constants.htmlContentUrl+"/index_manager.html",
+    index_senior:Constants.htmlContentUrl+"/index_senior.html",
+    index_external:Constants.htmlContentUrl+"/index_external.html",
+    index_normal:Constants.htmlContentUrl+"/index_normal.html",
+    person_center_myproject:Constants.htmlContentUrl+"/person_center_myproject.html",
+    concern_industry:Constants.htmlContentUrl+"/concern_industry.html",
+    person_center_fonder:Constants.htmlContentUrl+"/person_center_fonder.html",
+    person_resetpassword:Constants.htmlContentUrl+"/person_resetpassword.html",
 }
 /**
  * how to use? location.href = platformUrl.login

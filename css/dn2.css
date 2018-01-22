@@ -97,7 +97,7 @@ select:focus { outline: none important; }
 .vertifiaction-code{display:none;}
 .telphone{background:url(../img/login/tel_03.jpg) no-repeat 15px center;background-color: #fff;}
 .input-code{width:178px;margin-top:20px;padding-left:19px;}
-.login-send-code{display:inline-block;width:115px;height:45px;cursor:pointer;background:#2393f7;line-height:45px;text-align:center;border-radius:5px;color:#fff;font-size:14px;margin-left:10px;}
+.login-send-code{display:inline-block;width:115px;height:45px;cursor:pointer;background:#2393f7;text-align:center;border-radius:5px;color:#fff;font-size:14px;margin-left:10px;}
 .login-send-code-gray{background:#e6e6e6;}
 .find-back-pass ul.find-pass-title span{color:#333333;font-size:14px;}
 .find-pass-bottom{margin-top:20px !important;border-bottom:0px solid !important;padding:0px !important;margin:0 auto;}
@@ -296,6 +296,80 @@ width: 100%;
 .picSquare{height:80px;vertical-align:middle;border:1px solid #d8d8d8;border-radius:5px;}
 .picSquare a{height:80px;display:table-cell;vertical-align:middle;}
 .picSquare a img{border-radius:5px;display:block;margin:0 auto;}
+
+/* login */
+.login{width:1054px;height:100%;margin:0 auto;position:relative;margin-top:80px;}
+.login:after{content:'';display:block;clear:both;}
+.login-left{width:655px;height:367px;float:left;}
+.login-right{width:450px;height:100%;position:absolute;right:0px;font-family:'Microsoft YaHei';z-index:10;}
+.login-right ul{width:299px;border-bottom:1px solid #e6e6e6;padding:0px 28px;height:26px;}
+.login-right ul:after{content:'';display:block;clear:both;}
+.login-right ul li{float:left;font-size:14px;font-family:'Microsoft YaHei';height:26px;cursor:pointer;}
+.li-last{margin-left:110px;}
+.login-right ul li.clicked{border-bottom:3px solid #2393f7;color:#2393f7;}
+.login-input{width:302px;height:48px;border-radius:5px;border:1px solid #e6e6e6;padding-left:44px;}
+.input-first{margin-top:30px;}
+.input-last{margin-top:20px;}
+.input-first{background:url('../img/login/login-icon_03.jpg') no-repeat 15px center ;background-color:#fff;}
+.login-right-content input::-webkit-input-placeholder { /* WebKit browsers */  color:#999999;font-size:14px;}
+.login-right-content input::-moz-input-placeholder { /* WebKit browsers */  color:#999999;font-size:14px;  }
+.login-right-content input::-ms-input-placeholder { /* WebKit browsers */  color:#999999;font-size:14px;  }
+.input-last{background-image:url('../img/login/login-icon_07.jpg');background-repeat:no-repeat;background-position:15px center;}
+.login-eye{display:inline-block;width:16px;cursor:pointer;height:13px;position:absolute;top: 37px;right:10px;background:url('../img/login/login-icon_10.jpg')}
+.login-right-content{position:relative;}
+.login-eye-abled{background:url('../img/login/eye-blue_03.jpg')}
+.forget-password{float:right;color:#2393f7;margin-right:152px;}
+.login-right-content .find-pass-bottom{width:148px !important;}
+.serven-day{vertical-align:text-top;color:#666666;font-size:12px;margin-left:11px;}
+.forgot{margin-top:10px;}
+.to-login{width:298px;height:49px;margin-top:20px;text-align:center;cursor:pointer;border-radius:5px;line-height:49px;color:#fff;display:inline-block;background-color:#2393f7;font-family:'Microsoft YaHei';}
+.to-register{margin-top:20px;margin-left:70px;font-size:14px;}
+.to-register span img{display:inline-block;margin-left:11px;margin-top:-3px;}
+.to-register a{color:#2393f7;}
+.login-tips{font-weight:normal;color:#ff5853;font-size:12px;margin-left:11px;display:none;}
+.vertifiaction-code{display:none;}
+.telphone{background:url(../img/login/tel_03.jpg) no-repeat 15px center;background-color: #fff;}
+.input-code{width:178px;margin-top:20px;padding-left:19px;}
+.login-send-code{display:inline-block;cursor:pointer;background:#2393f7;padding:14px 20px;text-align:center;border-radius:5px;color:#fff;font-size:13px;margin-left:10px;}
+.login-send-code-gray{background:#e6e6e6;}
+.find-back-pass ul.find-pass-title span{color:#333333;font-size:14px;}
+.find-pass-bottom{margin-top:20px !important;border-bottom:0px solid !important;padding:0px !important;margin-left:57px;}
+.find-pass-bottom li{height:auto !important;color:#2393f7;padding-bottom:6px;border-bottom:1px solid #2393f7;margin-left:30px;}
+.find-pass-middle{border-bottom:0px solid !important;margin-top:5px;}
+.find-back-pass{display:none;}
+.find-pass-title{text-align:center;}
+.register-content{display:none;}
+.eye-box{position:relative;display: inline-block;}
+
+/* 琛ㄥ崟楠岃瘉涓嶉�氳繃placeholder棰滆壊 */
+.invalid:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+	 color: red;
+	 opacity: 1;
+ }
+.invalid::-moz-placeholder { /* Mozilla Firefox 19+ */
+    color: red;
+    opacity: 1;
+}
+
+input.invalid:-ms-input-placeholder{
+    color: red;
+}
+input.invalid::-webkit-input-placeholder {
+    color: red;
+}
+textarea.invalid::-webkit-input-placeholder {
+    color: red;
+}
+textarea.invalid::-ms-input-placeholder {
+    color: red;
+}
+.inputDanger{border:1px solid #ff4e49; box-shadow:1px 1px 5px #fff2f2;color:red;}
+.disabled_btn{background-color:#e6e6e6;}
+.send-code-content .hihglight{background:#2393f7;}
+.send-code{padding:3px 15px;position:relative;top:9px;background:#e6e6e6;}
+.send-code p{margin:0px !important;}
+::-ms-clear, ::-ms-reveal{display: none;}
+
 
 
 
