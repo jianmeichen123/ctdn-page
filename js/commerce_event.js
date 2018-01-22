@@ -1,10 +1,10 @@
 
-//sendGetRequest(detail.getEventCount,function(data){
-//    $("#tzzs").html(data.data);
-//})
-//sendGetRequest(detail.getMergerCount,function(data){
-//    $("#bgzs").html(data.data);
-//})
+sendGetRequest(platformUrl.queryIndexHeaderStat,function(data){
+//    console.log(data)
+    $("#tzzs").html(data.data.invstedNum);
+    $("#bgzs").html(data.data.mergerNum);
+    $("#shzs").html(data.data.listedNum);
+})
 
 var capDist = [];
 var capAmount = [];
