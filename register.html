@@ -1,0 +1,79 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8"></meta>
+	<title>注册</title>
+	{(dn_basis.html)}
+	<link rel='style/sheet'></link>
+</head>
+<style>
+
+</style>
+<body>
+{(header.html)}
+<div class='login'>
+<div class='login-left'><img src='../img/login/login_03.jpg'/></div>
+	<!-- 密码登录 -->
+	<div class='login-right'>
+		<!--找回密码  -->
+		
+		<!--注册  -->
+		<div class='login-right-content register-content'>
+		<ul class='find-pass-title register-title'>
+			<span>账号注册</span>
+		</ul>
+			<input class='login-input input-first telphone' type='text' placeholder='请输入登录手机号' name="mobile" maxlength="11" id="mobile"  onfocus="func_focus(this)"/><label class='login-tips' id="mobile_tip" style="display: none;">*请输入登录手机号</label>
+			<input class='login-input input-code' type='text' placeholder='请输入验证码' name="code" id="code"  onfocus="func_focus(this)" maxlength="6"/>
+				<span class='login-send-code' id="send-code-btn" onclick="send_code(this,'3')">发送验证码</span>
+				<label class='login-tips' id="code_tip" >*请输入验证码</label>
+			<span class='eye-box'><input class='login-input input-last' type='password' placeholder='请输入登录密码' id="password" maxlength="14"  onfocus="func_focus(this)"/><label class='login-tips' id="password_tip">*请输入登录密码</label><span class='login-eye' id="password_eye"></span></span>
+			<span class='eye-box'><input class='login-input input-last' type='password' placeholder='请再次输入登录密码' id="confirmPassword" maxlength="14"  onfocus="func_focus(this)"/><label class='login-tips' id="confirmPassword_tip">*请再次输入登录密码</label><span class='login-eye' id="confirmpassword_eye"></span></span>
+			<span class='to-login' onclick="register()">注册</span>
+			<p class='to-register'>已有账号？<a class='register-to-login' href='javascript:void(0);' onclick="login_page()">登录<span><img src='../img/login/to-register_03.jpg'/></span></a></p>
+		</div>	
+	</div>
+</div>
+</body>
+<script>
+$('.password').hide();
+$('.register-content').show();
+$('.login-click').hide();
+// function register(){
+// 	var mobile = $('#mobile').val()
+// 	if(!mobile){
+// 		return
+// 	}
+// 	var validateCode = $('#code').val()
+// 	if(!validateCode){
+// 		return
+// 	}
+// 	var password= $('#password').val()
+// 	var confirmPassword= $('#confirmPassword').val()
+// 	if(!password){
+// 		return
+// 	}
+// 	if(!confirmPassword){
+// 	 	return
+// 	}
+// 	if(password != confirmPassword ){
+// 		return
+// 	}
+// 	// /^1[0-9]{10}$/.test(val);
+// 	var json = {
+// 			"mobile":mobile,
+// 			"validateCode" : validateCode,
+// 			"password" : password,
+// 			"confirmPassword":confirmPassword
+			
+// 	}
+// 	sendPostRequestByJsonObj(detail.saveOrUpdateUerIndustry,json,function(data){
+// 		if(data.success){
+// 			window.location.href = '/login.html'
+// 		}
+// 	 });
+// }
+</script>
+<script src="/js/common.js"></script>
+<script src="/js/base64.js"></script>
+<script src="/js/register.js"></script>
+</html>
