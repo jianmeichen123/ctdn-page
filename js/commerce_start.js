@@ -3,7 +3,7 @@ function com_area(year){
     var myChart = echarts.init(document.getElementById('commerce_one'));
 
     var data = [];
-    sendGetRequest("http://127.0.0.1:8081/api/comOverview/area/"+year,function(t){
+    sendGetRequest(comOverview.area+year,function(t){
         data = t;
         console.log(data)
     })
@@ -316,7 +316,7 @@ function com_industry(year){
     var myChart_two = echarts.init(document.getElementById('commerce_two'));
     var data = []
     var names = []
-    sendGetRequest("http://127.0.0.1:8081/api/comOverview/industry/"+year,function(t){
+    sendGetRequest(comOverview.industry+year,function(t){
         names.push('其他')
         $(t).each(function(i,e){
             console.log(e.name)
@@ -382,7 +382,7 @@ var myChart_three_j = {}
 var myChart_three_series =[]
 var quartersCoumt = {}
 var quarters = []
-sendGetRequest("http://127.0.0.1:8081/api/comOverview/projectSetup",function(t){
+sendGetRequest(comOverview.projectSetup,function(t){
     myChart_three_j["name"] = t["names"];
     var quartersCoumt = []
     quarters = t["quarters"]
@@ -543,7 +543,7 @@ myChart_three.setOption(option_three,true);
 var myChart_four = echarts.init(document.getElementById('commerce_four'));
 
 var myChart_four_data
-sendGetRequest("http://127.0.0.1:8081/api/comOverview/investedRate",function(t){
+sendGetRequest(comOverview.investedRate,function(t){
     myChart_four_data = t
 })
 

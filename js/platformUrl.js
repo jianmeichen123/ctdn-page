@@ -1,7 +1,7 @@
 
 
 var Constants = {
-	platformContentURL: "http://ctdndev.gi.com/api/",
+	platformContentURL: "http://127.0.0.1:8081/api/",
 	searchContentURL: "http://ctdndev.gi.com/search/",
 	dataContentURL: "http://ctdndev.gi.com/data/",
 	uploadURL: "http://ctdndev.gi.com/cloudstorage/",
@@ -50,7 +50,7 @@ var echars = {
     getRZQS :Constants.platformContentURL+"echarsIndustryAnalyze/getRZQS",
     getRZDB :Constants.platformContentURL+"echarsIndustryAnalyze/getRZDB",
     getCXHTFX:Constants.platformContentURL+"echarsIndustryAnalyze/getCXHTFX",
-    getRXGMFB:Constants.platformContentURL+"echarsIndustryAnalyze/getRXGMFB"
+    getRXGMFB:Constants.platformContentURL+"echarsIndustryAnalyze/getRXGMFB",
 }
 var platformUrl = {
 	me:Constants.userContentURL + "userlogin/me",
@@ -79,6 +79,14 @@ var publicsea = {
 	editProject:Constants.platformContentURL+"/publicsea/editProject",
 	queryProjectById:Constants.platformContentURL+"/publicsea/queryPubSeaById",
 	queryPubSeaList:Constants.platformContentURL+"/publicsea/queryPubSeaList"
+}
+
+var comOverview = {
+
+    area:Constants.platformContentURL+"comOverview/area/",
+    industry:Constants.platformContentURL+"comOverview/industry/",
+    projectSetup:Constants.platformContentURL+"comOverview/projectSetup/",
+    investedRate:Constants.platformContentURL+"comOverview/investedRate/",
 }
 
 var detail = {
