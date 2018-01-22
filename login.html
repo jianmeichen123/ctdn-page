@@ -1,15 +1,10 @@
 <!doctype html>
 <html>
 <head>
-	<meta charset="utf-8">
-	<title>全局搜索</title>
-	<!--basis-->
+	<meta charset="utf-8"></meta>
+	<title>登录</title>
 	{(dn_basis.html)}
-	<link rel='style/sheet'/>
 </head>
-<style>
-
-</style>
 <body>
 {(header.html)}
 <div class='login'>
@@ -21,67 +16,38 @@
 			<li class='li-last' data-num='2'>验证码登录</li>
 		</ul>
 		<div class='login-right-content password'>
-			<input class='login-input input-first' type='text' placeholder='请输入登录用户名/手机号' id="nickName"/><label class='login-tips' id="nickname_tip">*你输入的账号不存在</label>
-			<span class='eye-box'><input class='login-input input-last' type='text' placeholder='请输入登录密码' id="password"/><label class='login-tips' id="password_tip">*你输入的账号不存在</label><span class='login-eye'></span></span>
+			<input class='login-input input-first editRequireInput' type='text' placeholder='请输入登录用户名/手机号' id="nickName" maxlength="50" onfocus="func_focus(this)"></input><label class='login-tips' id="nickName_tip">*你输入的账号不存在</label>
+			<span class='eye-box'><input class='login-input input-last' type='password' placeholder='请输入登录密码' id="password" maxlength="14" onfocus="func_focus(this)"/><label class='login-tips' id="password_tip">*你输入的账号不存在</label><span class='login-eye' id="login_eye"></span></span>
 			<p class='forgot'>
-				<input id="autoLogin" type="checkbox" value="checkbox" ><span class='serven-day'>七天自动登录</span>
-				<a href='javascript:;' class='forget-password'>忘记密码</a>
+				<input id="autoLogin" type="checkbox" value="checkbox" /><span class='serven-day'>七天自动登录</span>
+				<a href='javascript:void(0);' class='forget-password' onclick="find_password_page()">忘记密码</a>
 			</p>
 			<span class='to-login' onclick="login()">登录</span>
-			<p class='to-register'>还没有账号？<a class='to-new-register' href='/register.html'>注册新用户<span cass=''><img src='../img/login/to-register_03.jpg'/></span></a></p>
+			<p class='to-register'>还没有账号？<a href='javascript:void(0);' class='to-new-register' onclick="register_page()">注册新用户<span cass=''><img src='../img/login/to-register_03.jpg'/></span></a></p>
 		</div>
 		<!--验证码登录  -->
 		<div class='login-right-content vertifiaction-code'>
-			<input class='login-input input-first telphone' type='text' placeholder='请输入登录用户名/手机号'/><label class='login-tips'>*你输入的手机号格式不正确</label>
-			<input class='login-input input-code' type='text' placeholder='请输入验证码'/><span class='login-send-code'>发送验证码</span>
+			<input class='login-input input-first telphone' type='text' placeholder='请输入登录手机号' id="mobile" maxlength="11"  onfocus="func_focus(this)"/><label class='login-tips' id="mobile_tip">*你输入的手机号格式不正确</label>
+			<div class="send-code-content">
+				<input class='login-input input-code' type='text' placeholder='请输入验证码' id="code" maxlength="6"  onfocus="func_focus(this)"/><span class='login-send-code' id="login_code" onclick="send_code(this,'1')">发送验证码</span>
+			</div>
+			<label class='login-tips' id="code_tip">*你输入的手机号格式不正确</label>
 			<p class='forgot'>
-				<input type='checkbox' ><span class='serven-day'>七天自动登录</span>
-				<a href='javascript:;' class='forget-password'>忘记密码</a>
+				<input type='checkbox' /><span class='serven-day'>七天自动登录</span>
+				<a href='javascript:void(0);' class='forget-password' onclick="find_password_page()">忘记密码</a>
 			</p>
-			<span class='to-login' >登录</span>
-			<p class='to-register'>还没有账号？<a class='code-to-register' href='javascript:;'>注册新用户<span cass=''><img src='../img/login/to-register_03.jpg'/></span></a></p>
+			<span class='to-login' onclick="login_bycode()">登录</span>
+			<p class='to-register'>还没有账号？<a href='javascript:void(0);' class='code-to-register' onclick="register_page()">注册新用户<span cass=''><img src='../img/login/to-register_03.jpg'/></span></a></p>
 		</div>
-		<!--找回密码  -->
-		<div class='login-right-content find-back-pass'>
-		<ul class='find-pass-title'>
-			<span>找回密码</span>
-		</ul>
-			<input class='login-input input-first telphone' type='text' placeholder='请输入登录用户名/手机号'/><label class='login-tips'>*你输入的手机号格式不正确</label>
-			<input class='login-input input-code' type='text' placeholder='请输入验证码'/><span class='login-send-code'>发送验证码</span>
-			<span class='eye-box'><input class='login-input input-last' type='text' placeholder='请重新设置登录密码'/><span class='login-eye'></span></span>
-			<span class='eye-box'><input class='login-input input-last' type='text' placeholder='请再次输入登录密码'/><span class='login-eye'></span></span>
-			<span class='to-login'>重置密码</span>
-			<ul class='find-pass-bottom'>
-				<li class='to-login-page'>登录</li>
-				<li class='find-pass-middle'><img src='../img/login/line_03.jpg'/></li>
-				<li class='to-register-page'>注册</li>
-			</ul>
-		</div>
-		
-		<!--注册  -->
-		<div class='login-right-content register-content'>
-		<ul class='find-pass-title register-title'>
-			<span>账号注册</span>
-		</ul>
-			<input class='login-input input-first telphone' type='text' placeholder='请输入登录手机号'/><label class='login-tips'>*你输入的手机号格式不正确</label>
-			<input class='login-input input-code' type='text' placeholder='请输入验证码'/><span class='login-send-code'>发送验证码</span>
-			<span class='eye-box'><input class='login-input input-last' type='text' placeholder='请输入登录密码'/><span class='login-eye'></span></span>
-			<span class='eye-box'><input class='login-input input-last' type='text' placeholder='请输入登录密码'/><span class='login-eye'></span></span>
-			<span class='to-login'>重置密码</span>
-			<p class='to-register'>已有账号？<a class='register-to-login' href='javascript:;'>登录<span><img src='../img/login/to-register_03.jpg'/></span></a></p>
-		</div>	
 	</div>
 </div>
-
-
-
-
-
-
-<!-- {(dn_foot.html)} -->
 </body>
+<script src="/js/common.js"></script>
+<script src="/js/base64.js"></script>
+<script src="/js/login.js"></script>
 <script>
 $('.login-click li').click(function(){
+	$('.login-tips').css('display','none')
 	$(this).addClass('clicked').siblings().removeClass('clicked');
 	var num = $(this).attr('data-num');
 	console.log(num)
@@ -90,51 +56,6 @@ $('.login-click li').click(function(){
 	}else if(num == 2){
 		$(this).closest('.login-right').find('.vertifiaction-code').show().siblings('.password').hide();
 	}
-	
 })
-//忘记密码点击
-$('.forget-password').click(function(){
-	$('.password').hide();
-	$('.vertifiaction-code').hide();
-	$('.find-back-pass').show();
-	$('.login-click').hide();
-});
-//登录点击
-$('.to-login-page').click(function(){
-	$('.find-back-pass').hide();
-	$('.password').show();
-	$('.login-click').show();
-})
-//注册点击
-$('.to-register-page').click(function(){
-	$('.find-back-pass').hide();
-	$('.register-content').show();
-});
-//直接登录
-$('.register-to-login').click(function(){
-	$('.register-content').hide();
-	$('.password').show();
-	$('.login-click').show();
-})
-//
-// $('.to-new-register').click(function(){
-// 	$('.password').hide();
-// 	$('.register-content').show();
-// 	$('.login-click').hide();
-// })
-
-//验证码登录，点击注册
-$('.code-to-register').click(function(){
-	$('.vertifiaction-code').hide();
-	$('.register-content').show();
-	$('.login-click').hide();
-})
-
 </script>
-<script src="js/platformUrl.js?t=20170523"></script>
-<script src="js/common.js"></script>
-<script src="js/formatter_common.js"></script>
-<script src="js/search_index.js"></script>
-<script src="js/login.js"></script>
-<script src="js/base64.js"></script>
 </html>
