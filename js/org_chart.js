@@ -233,7 +233,19 @@ var org_chart= {
 				$.each(data.data.partnerList,function(key,value){
 					for(i in value){
 						if(i=='orgJson'){
-							value.orgList = eval(value[i])
+							var arr  = new Array()
+							var org_list = value[i].split(',')
+							for(var j=0;j<org_list.length;j++){
+								var json = {}
+								var org = org_list[j]
+								var org_arr = org.split(':')
+								var name = org_arr[0]
+								var orgEventNum = org_arr[1]
+								json['name'] = name
+								json['num'] = orgEventNum
+								arr.push(json)
+							}
+							value.orgList = arr
 						}
 					}
 				})
