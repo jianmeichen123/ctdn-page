@@ -544,7 +544,7 @@ function freshEchars5(json){
 //页面初始化加载数据
 reloadEchars()
 querytotalheader()
-querycurmontheader
+querycurmontheader()
 function reloadEchars(){
      var industryId = $("#industryList li.trade_list_on").attr("value")
      freshEchars1({"time":12,"timeType":"M","industryId":industryId},1)
