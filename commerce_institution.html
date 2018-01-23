@@ -66,13 +66,14 @@
 		<div class="trade_tit_bg">
 			<ul>
 				<li class="trade_tit_on" id="selected_title">生命科技</li>
-				<li>投资机构行业分布</li>
-				<li>投资机构轮次分布</li>
-				<li>热门机构投资关系图谱</li>
+				<li class="trade_tit_click" location_t="hyfb">投资机构行业分布</li>
+				<li class="trade_tit_click" location_t="lcfb">投资机构轮次分布</li>
+				<li class="trade_tit_click" location_t="gxtp">热门机构投资关系图谱</li>
 			</ul>
 		</div>
+		<div class="trade_tit_bg_show" ></div>
 
-		<div class="background_boeder_commerce m_t10">
+		<div class="background_boeder_commerce m_t10" location_o="hyfb">
 			<div class="commerce_tit_all">
 				<div class="commerce_tit">
 					<span class="dn_ico dn_ico_commerce"></span>投资机构行业分布
@@ -130,7 +131,7 @@
 		</div>
 
 
-		<div class="background_boeder_commerce m_t10">
+		<div class="background_boeder_commerce m_t10" location_o="lcfb">
 			<div class="commerce_tit_all">
 				<div class="commerce_tit">
 					<span class="dn_ico dn_ico_commerce"></span>投资机构轮次分布
@@ -198,7 +199,7 @@
 			</div>
 		</div>
 
-		<div class="background_boeder_commerce m_t10">
+		<div class="background_boeder_commerce m_t10" location_o="gxtp">
 			<div class="commerce_tit_all">
 				<div class="commerce_tit">
 					<span class="dn_ico dn_ico_commerce"></span>热门机构投资关系图谱<span
@@ -331,6 +332,7 @@
 <script src="js/echarts.min.js"></script>
 <script src="js/pie/pie-1.0.1.js"></script>
 <script src="layer/layer.js"></script>
+<script src="js/commerce_location.js"></script>
 <link rel="stylesheet" type="text/css" href="js/pie/pie.css"/>
 <script>
 nav_locaton('sydc','jgfx','jgfx','')
