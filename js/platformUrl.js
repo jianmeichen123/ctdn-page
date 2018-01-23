@@ -187,6 +187,7 @@ var detail = {
     orgProject:Constants.platformContentURL+"orgChart/orgProject",
     getOrgPartnerAndCompeteCount:Constants.platformContentURL+"orgChart/getOrgPartnerAndCompeteCount",
     orgPartner:Constants.platformContentURL+"orgChart/orgPartner",
+    orgCompete:Constants.platformContentURL+"orgChart/orgCompete",
 }
 var user = {
     collectOne:Constants.platformContentURL+"userCollection/collectOne",

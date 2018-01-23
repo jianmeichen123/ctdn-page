@@ -257,20 +257,43 @@ var org_chart= {
 				$.each(data.data.competeList,function(key,value){
 					for(i in value){
 						if(i=='orgJson'){
-							value.orgList = eval(value[i])
-							var json_arr = eval(value[i])
-							for(var j=0;j<json_arr.length;j++){
-								var json = json_arr[j]
-								var orgEventNum = json.orgEventNum
-								var competeOrgEventNum = json.competeOrgEventNum
+//							value.orgList = eval(value[i])
+//							var json_arr = eval(value[i])
+//							for(var j=0;j<json_arr.length;j++){
+//								var json = json_arr[j]
+//								var orgEventNum = json.orgEventNum
+//								var competeOrgEventNum = json.competeOrgEventNum
+//								var sum = parseInt(orgEventNum) + parseInt(competeOrgEventNum)
+//								if(sum ==0){
+//									json['rate'] = 0
+//								}else{
+//									json['rate'] = competeOrgEventNum/ sum
+//								}
+//							}
+//							value.orgList = json_arr
+							
+							var arr  = new Array()
+							var org_list = value[i].split(',')
+							for(var i=0;i<org_list.length;i++){
+								var json = {}
+								var org = org_list[i]
+								var org_arr = org.split(':')
+								var name = org_arr[0]
+								var orgEventNum = org_arr[1]
+								var competeOrgEventNum = org_arr[2]
 								var sum = parseInt(orgEventNum) + parseInt(competeOrgEventNum)
 								if(sum ==0){
 									json['rate'] = 0
 								}else{
 									json['rate'] = competeOrgEventNum/ sum
 								}
+								json['name'] = name
+								json['orgEventNum'] = orgEventNum
+								json['competeOrgEventNum'] = competeOrgEventNum
+								arr.push(json)
 							}
-							value.orgList = json_arr
+							value.orgList = arr
+							
 						}
 					}
 				})
