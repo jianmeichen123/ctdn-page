@@ -44,16 +44,17 @@
 		</div>
 		<div class="trade_tit_bg">
 			<ul>
-				<li style="margin-left: 80px;">资本地图</li>
-				<li>投资事件分析</li>
-				<li>投资事件轮次分析</li>
-				<li>并购事件领域分布</li>
-				<li>并购股权和币种分析</li>
-				<li>IPO上市地点分布</li>
+				<li class="trade_tit_click" style="margin-left: 20px;" location_t="zbdt">资本地图</li>
+				<li class="trade_tit_click" location_t="tzsjfx">投资事件分析</li>
+				<li class="trade_tit_click" location_t="tzsjlcfx">投资事件轮次分析</li>
+				<li class="trade_tit_click" location_t="bgsjlyfx">并购事件领域分布</li>
+				<li class="trade_tit_click" location_t="bggq">并购股权和币种分析</li>
+				<li class="trade_tit_click" location_t="ipo">IPO上市地点分布</li>
 			</ul>
 		</div>
+		<div class="trade_tit_bg_show" ></div>
 
-		<div class="background_boeder_commerce m_t10">
+		<div class="background_boeder_commerce m_t10"  location_o="zbdt">
 			<div class="commerce_tit_all">
 				<div class="commerce_tit">
 					<span class="dn_ico dn_ico_commerce"></span>资本地图
@@ -74,7 +75,7 @@
 		</div>
 
 
-		<div class="background_boeder_commerce m_t10">
+		<div class="background_boeder_commerce m_t10" location_o="tzsjfx">
 			<div class="commerce_tit_all">
 				<div class="commerce_tit">
 					<span class="dn_ico dn_ico_commerce"></span>投资事件分析
@@ -113,7 +114,7 @@
 
 		</div>
 
-		<div class="background_boeder_commerce m_t10">
+		<div class="background_boeder_commerce m_t10" location_o="tzsjlcfx">
 			<div class="commerce_tit_all">
 				<div class="commerce_tit">
 					<span class="dn_ico dn_ico_commerce"></span>投资事件轮次分析
@@ -153,7 +154,7 @@
 
 
 		</div>
-		<div class="background_boeder_commerce m_t10">
+		<div class="background_boeder_commerce m_t10" location_o="bgsjlyfx">
 			<div class="commerce_tit_all">
 				<div class="commerce_tit">
 					<span class="dn_ico dn_ico_commerce"></span>并购事件领域分布
@@ -174,7 +175,7 @@
 
 
 		</div>
-		<div class="background_boeder_commerce m_t10">
+		<div class="background_boeder_commerce m_t10" location_o="bggq">
 			<div class="commerce_tit_all">
 				<div class="commerce_tit">
 					<span class="dn_ico dn_ico_commerce"></span>并购股权和币种分析
@@ -197,7 +198,7 @@
 
 		</div>
 		
-		<div class="background_boeder_commerce m_t10">
+		<div class="background_boeder_commerce m_t10" location_o="ipo">
 			<div class="commerce_tit_all">
 				<div class="commerce_tit">
 					<span class="dn_ico dn_ico_commerce"></span>IPO上市地点分布
@@ -226,8 +227,11 @@
 <script src="js/echarts.min.js"></script>
 <script src="js/map/js/china.js"></script>
 <script src="js/commerce_event.js"></script>
+<script src="js/commerce_location.js"></script>
 <script>
 nav_locaton('sydc','sjfx','sjfx','')
+
+
 
 </script>
 

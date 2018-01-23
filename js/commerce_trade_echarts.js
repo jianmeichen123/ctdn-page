@@ -564,7 +564,14 @@ $('.num_or_money span').click(function(){
 	showEcharts(echarts_flag,lang)
 })
 //行业点击事件
-$("#industryList li").click(function(){
+$('body').delegate('#industryList li','click', function(event){
+	event.stopPropagation();
+
+	$('select').each(function(i,j){
+        var options = $(j).find("option");
+        options.attr("selected", false);
+        options.first().attr("selected", true);
+	});
    $(this).toggleClass('trade_list_on')
    $(this).siblings().removeClass('trade_list_on')
    $("#curmonth").hide()
