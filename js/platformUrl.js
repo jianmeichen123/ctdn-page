@@ -161,14 +161,17 @@ var detail = {
     getReport:Constants.platformContentURL+"report/getReport/",
     getEventCount:Constants.platformContentURL+"eventInfo/getEventCount/",
     getMergerCount:Constants.platformContentURL+"eventMergerInfo/getMergerCount/",
-    getEventDistrictList:Constants.platformContentURL+"eventDistrict/getEventDistrictList/",
-    getEventDistricts:Constants.platformContentURL+"eventDistrict/getEventDistricts/",
-    getListedExchanges:Constants.platformContentURL+"listedExchange/getListedExchanges/",
-    getMergerEquitys:Constants.platformContentURL+"mergerEquity/getMergerEquitys/",
-    getMergerCurrencys:Constants.platformContentURL+"mergerCurrency/getMergerCurrencys/",
-    getStagesDistics:Constants.platformContentURL+"stagesDistrict/getStagesDistics/",
-    getMergerIndustrys:Constants.platformContentURL+"mergerIndustry/getMergerIndustrys/",
-    getStages:Constants.platformContentURL+"stagesDistrict/getStages/",
+
+     //事件分析
+        getEventDistrictList:Constants.platformContentURL+"eventDistrict/getEventDistrictList/",
+        getEventDistricts:Constants.platformContentURL+"eventDistrict/getEventDistricts/",
+        getListedExchanges:Constants.platformContentURL+"listedExchange/getListedExchanges/",
+        getMergerEquitys:Constants.platformContentURL+"mergerEquity/getMergerEquitys/",
+        getMergerCurrencys:Constants.platformContentURL+"mergerCurrency/getMergerCurrencys/",
+        getStagesDistics:Constants.platformContentURL+"stagesDistrict/getStagesDistics/",
+        getMergerIndustrys:Constants.platformContentURL+"mergerIndustry/getMergerIndustrys/",
+        getStages:Constants.platformContentURL+"stagesDistrict/getStages/",
+         queryHeaderStatAdd:Constants.platformContentURL+"index/queryHeaderStatAdd/",
 
 //  创业者/投资人
     queryPersonComExpr:Constants.platformContentURL+"person/queryPersonComExpr/",
