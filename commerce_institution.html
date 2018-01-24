@@ -349,16 +349,28 @@ pie1.init();
 var pie_tips_index = null
 var pie_tips_compete_index = null
 function over_partner(obj,num,orgName,industryName){
+	var industryId = $('#industry ul').find('.trade_list_on').first().attr('lang');
 	var follow = $(obj).attr('id')
-	pie_tips_index = layer.tips('在 '+industryName+' 行业<br/> '+orgName+' 投资 '+num+' 笔 ', '#'+follow);
+	if(industryId == 0){
+		pie_tips_index = layer.tips(' '+industryName+' <br/> '+orgName+'  '+num+' 笔 ', '#'+follow);
+	}else{
+		var industryParentName = $('#selected_title').text()
+		pie_tips_index = layer.tips(' '+industryParentName+'/'+industryName+' <br/> '+orgName+'  '+num+' 笔 ', '#'+follow);
+	}
 }
 function out_partner(params){
 	layer.close(pie_tips_index)
 }
 function over_compete(obj,orgEventNum,competeOrgName,name,competeOrgEventNum){
+	var industryId = $('#industry ul').find('.trade_list_on').first().attr('lang');
 	var orgName = $('.clicked_org').first().text()
 	var follow_compete = $(obj).attr('id')
-	pie_tips_compete_index = layer.tips('在 '+name+' 行业<br/> '+orgName+' 投资 '+competeOrgEventNum+' 笔 <br/>' +competeOrgName+' 投资 '+orgEventNum+' 笔 ','#'+follow_compete );
+	if(industryId == 0){
+		pie_tips_compete_index = layer.tips(' '+name+' <br/> '+orgName+'  '+competeOrgEventNum+' 笔 <br/>' +competeOrgName+'  '+orgEventNum+' 笔 ','#'+follow_compete );
+	}else{
+		var industryParentName = $('#selected_title').text()
+		pie_tips_compete_index = layer.tips(''+industryParentName + ' / '+name+' <br/> '+orgName+'  '+competeOrgEventNum+' 笔 <br/>' +competeOrgName+' '+orgEventNum+' 笔 ','#'+follow_compete );
+	}
 }
 function out_compete(){
 	layer.close(pie_tips_compete_index)
