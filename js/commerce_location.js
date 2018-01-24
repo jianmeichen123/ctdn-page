@@ -18,7 +18,7 @@ $(window).scroll(function(){
 		var obj = {};
 		var name = location_array[i];
 		obj.name = name;
-		obj.value= parseInt($('[location_o="'+location_array[i]+'"]').offset().top -70);
+		obj.value= parseInt($('[location_o="'+location_array[i]+'"]').offset().top -130);
 		myArray.push(obj);
 	}
 	if(scrollTop>=myArray[0].value){
@@ -49,9 +49,9 @@ $('body').delegate('.trade_tit_bg .trade_tit_click','click',function(event){
 	var _this=$(this);
 	event.stopPropagation();
 	var location_r = $(this).attr('location_t');
-	var location_value = $('[location_o="'+location_r+'"]').offset().top-50;
+	var location_value = parseInt($('[location_o="'+location_r+'"]').offset().top-50);
 	$("html,body").animate({scrollTop:location_value},300);
-	setTimeout(function(){
+	/*setTimeout(function(){
 		_this.addClass("trade_title_on").siblings().removeClass("trade_title_on")
-	},300)
+	},300)*/
 })

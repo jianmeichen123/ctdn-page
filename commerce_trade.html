@@ -50,7 +50,7 @@
 	</div>
 	<div class="trade_tit_bg">
 		<ul>
-			<li class="trade_tit_on">全部</li>
+			<li class="trade_tit_on industryTab">全部</li>
 			<li class="trade_tit_click" location_t="hyrzqs">行业融资趋势</li>
 			<li class="trade_tit_click" location_t="hyrzdb">行业融资对比</li>
 			<li class="trade_tit_click" location_t="rzbt">融资版图</li>
@@ -62,7 +62,7 @@
 
 	<div class="background_boeder_commerce m_t10" echarts_flag="1" location_o="hyrzqs">
 		<div class="commerce_tit_all">
-			<div class="commerce_tit"><span class="dn_ico dn_ico_commerce"></span>项目描述<span class="commerce_tit_span">　　(点击图例可展示或隐藏行业曲线)</span></div>
+			<div class="commerce_tit"><span class="dn_ico dn_ico_commerce"></span>行业融资趋势<span class="commerce_tit_span">　　(点击图例可展示或隐藏行业曲线)</span></div>
 			<div class="commerce_tit_r">
 				<ul>
 					<li>
@@ -91,8 +91,8 @@
 		</div>
 		<div class="eachrst_tit">
 			<div class="fr num_or_money" >
-				<span class="eachrst_tit_on" lang="1">按融资笔数</span>
-				<span lang="2">按融资金额</span>
+				<span class="eachrst_tit_on" lang="1">融资笔数</span>
+				<span lang="2">融资金额</span>
 			</div>
 		</div>
 		<div style="width:100%; height:470px;" id="commerce_one"></div>
@@ -152,7 +152,7 @@
 		</div>
 		<div class="commerce_click">
 			<span>全部行业</span>
-			<span>人工智能</span>
+			<span class="industryTab">人工智能</span>
 		</div>
 		<div style="width:100%; height:470px;" id="commerce_three"></div>
 	</div>
@@ -163,12 +163,14 @@
 			<div class="commerce_tit_r">
 				<ul>
 					<li>
-						<select name = "time">
-							<option value=30 name="D" >最近30天</option>
-							<option value=3 name="M">最近3个月</option>
-							<option value=6 name="M">最近半年</option>
-							<option value=12 name="M">最近1年</option>
-							<option value=3 name="Y">最近3年</option>
+						<select name="investQuarter" >
+							<option value="2017Q3" >2017Q3</option>
+							<option value="2017Q2" >2017Q2</option>
+							<option value="2017Q1" >2017Q1</option>
+							<option value="2016Q4" >2016Q4</option>
+							<option value="2016Q3" >2016Q3</option>
+							<option value="2016Q2" >2016Q2</option>
+							<option value="2016Q1" >2016Q1</option>
 						</select>
 					</li>
 					<li>
@@ -204,9 +206,9 @@
 			</div>
 		</div>
 		<div class="eachrst_tit">
-			<div class="fl">
-				<span lang="1" class="commerce_name_on">单位：人民币</span>
-			</div>
+			<!--<div class="fl">-->
+				<!--<span lang="1" class="commerce_name_on">单位：人民币</span>-->
+			<!--</div>-->
 		</div>
 		<div style="width:100%; height:570px;" id="commerce_five"></div>
 	</div>

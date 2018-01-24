@@ -8,7 +8,6 @@ sendGetRequest(platformUrl.queryIndexHeaderStat,function(data){
 
 //事件新增数
 sendGetRequest(detail.queryHeaderStatAdd,function(data){
-    console.log(data)
      $("#tzadd").html(data.data.invstedNum);
      $("#bgadd").html(data.data.mergerNum);
      $("#shadd").html(data.data.listedNum);
@@ -43,7 +42,7 @@ function capData(){
         for(i in data.data){
             var capJson = {};
             capJson["name"] = data.data[i].districtSubName;
-            capJson["value"] = data.data[i].invstAmount
+            capJson["value"] = data.data[i].eventNum;
             geoMap[data.data[i].districtSubName] = map[data.data[i].districtSubName]
             capDatas.push(capJson);
         }
@@ -54,11 +53,11 @@ sendGetRequest(detail.getEventDistricts+"/"+4,function(data){
     for(i in data.data){
         var capJson = {};
         capJson["name"] = data.data[i].districtSubName;
-        capJson["value"] = data.data[i].invstAmount
+        capJson["value"] = data.data[i].eventNum;
         geoMap[data.data[i].districtSubName] = map[data.data[i].districtSubName]
         capDatas.push(capJson);
         capDist.push(data.data[i].districtSubName);
-        capAmount.push(data.data[i].invstAmount);
+        capAmount.push(data.data[i].eventNum);
     }
     commerce_one();
 })
@@ -76,7 +75,7 @@ var convertData = function(data) {
         if (geoCoord) {
             res.push({
                 name: data[i].name,
-                value: geoCoord.concat((data[i].value)/1000)
+                value: geoCoord.concat((data[i].value))
             });
         }
     }
@@ -455,7 +454,7 @@ var option_two = {
 	    		  }
 	    		},
 	    		axisLabel: {
-	  		      //formatter: '{value}',
+//	  		      formatter: '{value}',
 	  		      textStyle: {
 	  		      	color: '#333333',
 	  		          fontSize:'12'
@@ -516,7 +515,7 @@ var option_two = {
 			        show:false
 			       },
 			        axisLabel: {
-			            //formatter: '{value}',
+			            formatter: '{value}'+"万元",
 			            textStyle: {
 			            	color: '#333333',
 			                fontSize:'12'
@@ -888,10 +887,12 @@ function merTimeChange(){
         }
         for(i in data.data){
             var merJson = {}
-            merJson["name"] = data.data[i].currencyName;
-            merJson["value"] = data.data[i].mergerNum;
-            curData.push(merJson);
-            curName.push(data.data[i].currencyName)
+            if(data.data[i].currencyName){
+                merJson["name"] = data.data[i].currencyName;
+                merJson["value"] = data.data[i].mergerNum;
+                curData.push(merJson);
+                curName.push(data.data[i].currencyName)
+           }
         }
         commerce_four_r();
     })
@@ -913,10 +914,12 @@ sendGetRequest(detail.getMergerEquitys+"/"+1,function(data){
 sendGetRequest(detail.getMergerCurrencys+"/"+1,function(data){
     for(i in data.data){
         var merJson = {}
-        merJson["name"] = data.data[i].currencyName;
-        merJson["value"] = data.data[i].mergerNum;
-        curData.push(merJson);
-        curName.push(data.data[i].currencyName)
+        if(data.data[i].currencyName){
+             merJson["name"] = data.data[i].currencyName;
+             merJson["value"] = data.data[i].mergerNum;
+             curData.push(merJson);
+             curName.push(data.data[i].currencyName)
+        }
     }
     commerce_four_r();
 })

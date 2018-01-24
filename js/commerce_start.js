@@ -333,7 +333,7 @@ function com_industry(year){
     	        {
     	            name: '并购币种',
     	            type: 'pie',
-    	            radius : '75%',
+    	            radius : '65%',
     	            center: ['50%', '50%'],
     	            data:data,
     	            itemStyle: {
@@ -546,13 +546,13 @@ var option_four = {
 	        left: '3%',
 	        top:'30',
 	        right: '3%',
-	        bottom: '10%',
+	        bottom: '80',
 	        containLabel: true
 	    },
 	    legend: {
 	        data:['未获投公司数','获投公司数','本年度获投率','上一年度获投率'],
 	        right:30,
-	        bottom: 10,
+	        bottom: 43,
 	    },
 	    xAxis: [
 	        {
