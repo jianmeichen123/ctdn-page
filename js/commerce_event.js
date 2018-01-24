@@ -76,7 +76,7 @@ var convertData = function(data) {
         if (geoCoord) {
             res.push({
                 name: data[i].name,
-                value: geoCoord.concat((data[i].value)/1000)
+                value: geoCoord.concat((data[i].value)/10000)
             });
         }
     }
