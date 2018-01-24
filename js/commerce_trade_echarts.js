@@ -7,7 +7,7 @@ var cxhtfx_data =null
 var rxgmfb_data = null
 var moneyRange =[];
 var roundName=[]
-var yAxis_name = '按融资笔数'
+var yAxis_name = '融资笔数'
 var myChart = echarts.init(document.getElementById('commerce_one'));
 //加载行业
 sendGetRequest(platformUrl.industry,function(data){
