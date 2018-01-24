@@ -97,6 +97,8 @@ function reset(){
                $(focusIndustryIds).each(function(i,e){
                     $("ul li[value='"+e+"']").addClass('concern-clicked')
                })
+           }else{
+               $("ul li").removeClass("concern-clicked")
            }
        })
 }

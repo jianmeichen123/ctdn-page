@@ -1,7 +1,7 @@
 
 
 var Constants = {
-	platformContentURL: "http://127.0.0.1:8081/api/",
+	platformContentURL: "http://ctdndev.gi.com/api/",
 	searchContentURL: "http://ctdndev.gi.com/search/",
 	dataContentURL: "http://ctdndev.gi.com/data/",
 	uploadURL: "http://ctdndev.gi.com/cloudstorage/",
@@ -187,6 +187,7 @@ var detail = {
     orgProject:Constants.platformContentURL+"orgChart/orgProject",
     getOrgPartnerAndCompeteCount:Constants.platformContentURL+"orgChart/getOrgPartnerAndCompeteCount",
     orgPartner:Constants.platformContentURL+"orgChart/orgPartner",
+    orgCompete:Constants.platformContentURL+"orgChart/orgCompete",
 }
 var user = {
     collectOne:Constants.platformContentURL+"userCollection/collectOne",

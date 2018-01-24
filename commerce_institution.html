@@ -12,13 +12,14 @@
 	display: block;
 }
 </style>
-<body>
+<body onload="org_chart.initParentIndustries(0)">
 	{(header.html)}
 	<div class="container">
 		<div class="trade_list">
 			<div class="trade_list_l">所属行业</div>
 			<div class="trade_list_r" id="industry">
 				<ul>
+				<li  onclick="org_chart.load(this)" class="trade_list_on" lang="0" style="cursor:pointer;">全部</li>
 				</ul>
 				{-raw-}
 				<script id="industry_script" type="text/x-jquery-tmpl">
@@ -49,16 +50,18 @@
 						</tr>
 						<tr>
 							<td>历史累计</td>
-							<td class="col_pink"><span class="size22">0</span></td>
-							<td class="col_pink"><span class="size22">0</span></td>
-							<td class="col_pink"><span class="size22">0</span>亿元</td>
+							<td class="col_pink"><span class="size22" id="investedProjNum_total">0</span>家</td>
+							<td class="col_pink"><span class="size22" id="eventNum_total">0</span>笔</td>
+							<td class="col_pink"><span class="size22" id="amount_total">0</span><span>亿元</span></td>
 						</tr>
-						<tr>
+						<tr id="current_month" style="display:none;">
 							<td>本月新增活跃</td>
-							<td class="col_pink"><span class="size22">0</span></td>
-							<td class="col_pink"><span class="size22">0</span></td>
-							<td class="col_pink"><span class="size22">0</span>亿元</td>
+							<td class="col_pink"><span class="size22" id="investedProjNum_curmonth">0</span>家</td>
+							<td class="col_pink"><span class="size22" id="eventNum_curmonth" >0</span>笔</td>
+							<td class="col_pink"><span class="size22" id="amount_curmonth" >0</span><span>亿元</span></td>
 						</tr>
+						
+						
 					</tbody>
 				</table>
 			</div>
@@ -66,13 +69,13 @@
 		<div class="trade_tit_bg">
 			<ul>
 				<li class="trade_tit_on" id="selected_title">生命科技</li>
-				<li>投资机构行业分布</li>
-				<li>投资机构轮次分布</li>
-				<li>热门机构投资关系图谱</li>
+				<li class="trade_tit_click" location_t="hyfb">投资机构行业分布</li>
+				<li class="trade_tit_click" location_t="lcfb">投资机构轮次分布</li>
+				<li class="trade_tit_click" location_t="gxtp">热门机构投资关系图谱</li>
 			</ul>
 		</div>
-
-		<div class="background_boeder_commerce m_t10">
+<div class="trade_tit_bg_show" ></div>
+		<div class="background_boeder_commerce m_t10 " location_o="hyfb">
 			<div class="commerce_tit_all">
 				<div class="commerce_tit">
 					<span class="dn_ico dn_ico_commerce"></span>投资机构行业分布
@@ -107,10 +110,10 @@
 							{{if data.length >0}}
 								{{each(i,v) data}}
 									<tr>
-										<td><div class="commerce_table_on table_color1">${v.rank}</div>
+										<td><div class="commerce_table_on table_color${v.rank}">${v.rank}</div>
 										
 						<div class="commerce_table_name">{{if v.industryType == 1}}${v.industryName}{{else}}${v.industrySubName}{{/if}}</div></td>
-										<td><div class="commerce_table_width table_color1" style="width:412px"></div></td>
+										<td><div class="commerce_table_width table_color${v.rank}" style="width:${v.rate}px"></div></td>
 									<td>
 									<ul class="commerce_table_ul">
 										{{each(j,w) v.arr}}
@@ -130,7 +133,7 @@
 		</div>
 
 
-		<div class="background_boeder_commerce m_t10">
+		<div class="background_boeder_commerce m_t10 " location_o="lcfb">
 			<div class="commerce_tit_all">
 				<div class="commerce_tit">
 					<span class="dn_ico dn_ico_commerce"></span>投资机构轮次分布
@@ -159,27 +162,14 @@
 						</tr>
 					</thead>
 					<tbody id="orgRound_tbody">
-						<tr>
-							<td><div class="commerce_table_on table_2color1">1</div><div class="commerce_table_name">种子轮</div></td>
-							<td><div class="commerce_table_width table_2color1" style="width:412px"></div></td>
-							<td>
-								<ul class="commerce_table_ul">
-									<li><a href="" target="_blank">红山之本中国中国中国</a></li>
-									<li><a href="" target="_blank">红山之本中国</a></li>
-									<li><a href="" target="_blank">红山之本中国</a></li>
-									<li><a href="" target="_blank">红山之本中国</a></li>
-									<li><a href="" target="_blank">红山之本中国</a></li>
-								</ul>
-							</td>
-						</tr>
 					</tbody>
 						{-raw-}
 					<script id="orgRound_script" type="text/x-jquery-tmpl">
 							{{if data.length >0}}
 								{{each(i,v) data}}
 									<tr>
-										<td><div class="commerce_table_on table_2color1">${v.rank}</div><div class="commerce_table_name">${v.roundName}</div></td>
-										<td><div class="commerce_table_width table_2color1" style="width:412px"></div></td>
+										<td><div class="commerce_table_on table_2color${v.rank}">${v.rank}</div><div class="commerce_table_name">${v.roundName}</div></td>
+										<td><div class="commerce_table_width table_2color${v.rank}" style="width:${v.rate}px"></div></td>
 									<td>
 									<ul class="commerce_table_ul">
 										{{each(j,w) v.arr}}
@@ -198,7 +188,7 @@
 			</div>
 		</div>
 
-		<div class="background_boeder_commerce m_t10">
+		<div class="background_boeder_commerce m_t10 " location_o="gxtp">
 			<div class="commerce_tit_all">
 				<div class="commerce_tit">
 					<span class="dn_ico dn_ico_commerce"></span>热门机构投资关系图谱<span
@@ -251,9 +241,8 @@
 												<th class="commerce_inst_b_table_one">合作机构\行业名称</th>
 								<th class="commerce_inst_b_table_two">合投总数</th>
 											{{each(i,v) data.industryList}}
-{{if i<10}}
-												<th>${v.name}</th>{{/if}}
-				{{/each}}{{else}}dd
+												<th>${v.name}</th>
+				{{/each}}
 			{{/if}}
 								</script>	
 						 {-raw-}		
@@ -261,15 +250,14 @@
 						<script id="partner_tbody_script" type="text/x-jquery-tmpl">
 							{{if data.partnerList.length >0}}
 								{{each(i,v) data.partnerList}}
-{{if i<5}}
 									<tr>
 										<td>${v.partnerOrgName}</td>
 										<td>${v.eventNumAll}</td>
 										{{each(j,w) v.orgList}}
-											{{if j<10}}<td><div id= "${i}_${j}_partener" class="commerce_inst_b_y" style="width:${w.num}px;height:${w.num}px;cursor:pointer;"  onmouseover="over_partner(this,'${w.num}','${v.partnerOrgName}','${w.name}')" onmouseout="out_partner()" lang=""></div></td>{{/if}}
+											<td><div id= "${i}_${j}_partener" class="commerce_inst_b_y" style="width:${w.num*10}px;height:${w.num*10}px;cursor:pointer;"  onmouseover="over_partner(this,'${w.num}','${v.partnerOrgName}','${w.name}')" onmouseout="out_partner()" lang=""></div></td>
 										{{/each}}
 									</tr>
-								{{/if}}{{/each}}
+								{{/each}}
 							{{else}}
 								<tr ><td style="text-align:center;"  colspan="3" >暂无数据</td></tr>
 							{{/if}}
@@ -292,27 +280,46 @@
 				<div class="commerce_inst_b_table">
 					<table>
 						<thead>
-							<tr>
-								<th class="commerce_inst_b_table_one">合作机构\行业名称</th>
-								<th class="commerce_inst_b_table_two">合投总数</th>
-								<th>金融基础设施</th>
-								<th>教育</th>
-								<th>金融基础设施</th>
-								<th>教育</th>
-								<th>金融基础设施</th>
-								<th>金融基础设施</th>
-								<th>金融基础设施</th>
-								<th>金融基础设施</th>
+							<tr id="compete_tr">
 							</tr>
 						</thead>
-						<tbody>
-							<tr>
-								<td>经纬中国</td>
-								<td>300</td>
-								<td><div class="pie number-pie" data-value="1" title="在  金融基础设施  行业&#13;弘毅投资  投资  120笔" altbg="red" altcolor="yellow" altborder="yellow" onmouseover="over(this)" onmouseout="out(2)"></div></td>
-								<td><div class="pie number-pie" data-value="1" title="在  金融基础设施  行业&#13;弘毅投资  投资  120笔" altbg="red" altcolor="yellow" altborder="yellow" onmouseover="over(1)" onmouseout="out(2)"></div></td>
-							</tr>
+						<tbody id="compete_tbody">
+						<tr ><td style="text-align:center;"  colspan="3" >暂无数据</td></tr>
+<!-- 							<tr> -->
+<!-- 								<td>经纬中国</td> -->
+<!-- 								<td>300</td> -->
+<!-- 								<td><div class="pie number-pie" data-value="1" title="在  金融基础设施  行业&#13;弘毅投资  投资  120笔" altbg="red" altcolor="yellow" altborder="yellow" onmouseover="over(this)" onmouseout="out(2)"></div></td> -->
+<!-- 								<td><div class="pie number-pie" data-value="1" title="在  金融基础设施  行业&#13;弘毅投资  投资  120笔" altbg="red" altcolor="yellow" altborder="yellow" onmouseover="over(1)" onmouseout="out(2)"></div></td> -->
+<!-- 							</tr> -->
 						</tbody>
+						 {-raw-}
+								 <script id="compete_tr_script" type="text/x-jquery-tmpl">
+								 		 {{if data.industryList.length>0}}
+												<th class="commerce_inst_b_table_one">竞争机构\行业名称</th>
+								<th class="commerce_inst_b_table_two">竞争总数</th>
+											{{each(i,v) data.industryList}}
+												<th>${v.name}</th>
+				{{/each}}
+			{{/if}}
+								</script>	
+						 {-raw-}		
+					 	 {-raw-}
+						<script id="compete_tbody_script" type="text/x-jquery-tmpl">
+							{{if data.competeList.length >0}}
+								{{each(i,v) data.competeList}}
+									<tr>
+										<td>${v.competeOrgName}</td>
+										<td>${v.eventNumAll}</td>
+										{{each(j,w) v.orgList}}
+											<td><div id= "${i}_${j}_compete" {{if w.rate==0}}{{else}}class="pie number-pie"{{/if}} data-value="${w.rate}" title="" altbg="red" altcolor="yellow" altborder="yellow" onmouseover="over_compete(this,'${w.orgEventNum}','${v.competeOrgName}','${w.name}','${w.competeOrgEventNum}')" onmouseout="out_compete()"></div></td>
+										{{/each}}
+									</tr>
+								{{/each}}
+							{{else}}
+								<tr ><td style="text-align:center;"  colspan="3" >暂无数据</td></tr>
+							{{/if}}
+						</script>
+					{-raw-}	
 					</table>
 				</div>
 			</div>
@@ -331,6 +338,7 @@
 <script src="js/echarts.min.js"></script>
 <script src="js/pie/pie-1.0.1.js"></script>
 <script src="layer/layer.js"></script>
+<script src="js/commerce_location.js"></script>
 <link rel="stylesheet" type="text/css" href="js/pie/pie.css"/>
 <script>
 nav_locaton('sydc','jgfx','jgfx','')
@@ -339,12 +347,46 @@ var pie1 = new Pie({
 	});
 pie1.init();	
 var pie_tips_index = null
+var pie_tips_compete_index = null
 function over_partner(obj,num,orgName,industryName){
 	var follow = $(obj).attr('id')
-	pie_tips_index = layer.tips('在 '+industryName+' 行业<br/> '+orgName+' 投资 '+num+' 笔 ', '#'+follow,{time:111111111});
+	pie_tips_index = layer.tips('在 '+industryName+' 行业<br/> '+orgName+' 投资 '+num+' 笔 ', '#'+follow);
 }
 function out_partner(params){
-// 	layer.close(pie_tips_index)
+	layer.close(pie_tips_index)
+}
+function over_compete(obj,orgEventNum,competeOrgName,name,competeOrgEventNum){
+	var orgName = $('.clicked_org').first().text()
+	var follow_compete = $(obj).attr('id')
+	pie_tips_compete_index = layer.tips('在 '+name+' 行业<br/> '+orgName+' 投资 '+competeOrgEventNum+' 笔 <br/>' +competeOrgName+' 投资 '+orgEventNum+' 笔 ','#'+follow_compete );
+}
+function out_compete(){
+	layer.close(pie_tips_compete_index)
+}
+
+function sendPostRequestByJsonObjInOrgChart(reqUrl, jsonObj, callbackFun) {
+	$.ajax({
+		url : reqUrl,
+		type : "POST",
+	    data : JSON.stringify(jsonObj),
+		dataType : "json",
+		cache : false,
+		contentType : "application/json; charset=UTF-8",
+		async : true,
+		error : function(request) {
+		},
+		success : function(data) {
+			if(data){
+				if(!data.success && data.status == 10003){
+					location.href =platformUrl.toLogin
+					return
+				}
+			}
+			if (callbackFun) {
+				callbackFun(data);
+			}
+		}
+	});
 }
 </script>
 <script src="js/org_chart.js"></script>

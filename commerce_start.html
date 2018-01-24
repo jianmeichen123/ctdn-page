@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <title>创业概览</title>
 <!--basis-->
-	{(dn_foot.html)}
+	{(dn_basis.html)}
 
 </head>
 <style>
@@ -47,14 +47,15 @@
 		</div>
 		<div class="trade_tit_bg">
 			<ul>
-				<li style="margin-left: 20px;">初创公司地域分布</li>
-				<li>初创公司行业分布</li>
-				<li>热门创业方向分析</li>
-				<li>初创公司获投情况</li>
+				<li class="trade_tit_click" location_t="dyfb" style="margin-left: 20px;">初创公司地域分布</li>
+				<li class="trade_tit_click" location_t="hyfb">初创公司行业分布</li>
+				<li class="trade_tit_click" location_t="fxfx">热门创业方向分析</li>
+				<li class="trade_tit_click" location_t="htqk">初创公司获投情况</li>
 			</ul>
 		</div>
+		<div class="trade_tit_bg_show" ></div>
 
-		<div class="background_boeder_commerce m_t10">
+		<div class="background_boeder_commerce m_t10" location_o="dyfb">
 			<div class="commerce_tit_all">
 				<div class="commerce_tit">
 					<span class="dn_ico dn_ico_commerce"></span>初创公司地域分布
@@ -75,7 +76,7 @@
 		</div>
 
 
-		<div class="background_boeder_commerce m_t10">
+		<div class="background_boeder_commerce m_t10" location_o="hyfb">
 			<div class="commerce_tit_all">
 				<div class="commerce_tit">
 					<span class="dn_ico dn_ico_commerce"></span>初创公司行业分布
@@ -96,7 +97,7 @@
 
 		</div>
 
-		<div class="background_boeder_commerce m_t10">
+		<div class="background_boeder_commerce m_t10" location_o="fxfx">
 			<div class="commerce_tit_all">
 				<div class="commerce_tit">
 					<span class="dn_ico dn_ico_commerce"></span>热门创业方向分析
@@ -118,7 +119,7 @@
 
 		</div>
 		
-		<div class="background_boeder_commerce m_t10">
+		<div class="background_boeder_commerce m_t10" location_o="htqk">
 			<div class="commerce_tit_all">
 				<div class="commerce_tit">
 					<span class="dn_ico dn_ico_commerce"></span>初创公司获投情况
@@ -142,6 +143,7 @@
 <script src="js/echarts.min.js"></script>
 <script src="js/map/js/china.js"></script>
 <script src="js/commerce_start.js"></script>
+<script src="js/commerce_location.js"></script>
 <script>
 nav_locaton('sydc','cygl','cygl','')
 

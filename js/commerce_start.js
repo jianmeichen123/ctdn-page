@@ -333,7 +333,7 @@ function com_industry(year){
     	        {
     	            name: '并购币种',
     	            type: 'pie',
-    	            radius : '75%',
+    	            radius : '65%',
     	            center: ['50%', '50%'],
     	            data:data,
     	            itemStyle: {
