@@ -67,12 +67,26 @@ var org_chart= {
 		}
 		sendPostRequestByJsonObjInOrgChart(detail.orgIndustry,json,function(data){
 			if(data.success){
+				//计算总量
+				var orgNum_sum = 0
+				$.each(data.data,function(key,value){
+					for(i in value){
+						if(i == 'orgNum'){
+							var orgNum = value[i]
+							orgNum_sum +=parseInt(orgNum) 
+						}
+					}
+				})
 				$.each(data.data,function(key,value){
 					for(i in value){
 						if(i == 'orgJson'){
 							var orgJson = value[i]
 	                        var orgArr = eval(orgJson );
 							value.arr = orgArr
+						}
+						if(i == 'orgNum'){
+							var rate = (parseInt(value[i])/orgNum_sum )*412
+							value.rate=parseInt(rate)
 						}
 					}
 				})
@@ -91,12 +105,27 @@ var org_chart= {
 			}
 		sendPostRequestByJsonObjInOrgChart(detail.orgRound,json,function(data){
 			if(data.success){
+				//计算总量
+				var orgNum_sum = 0
+				$.each(data.data,function(key,value){
+					for(i in value){
+						if(i == 'orgNum'){
+							var orgNum = value[i]
+							orgNum_sum +=parseInt(orgNum) 
+						}
+					}
+				})
+				
 				$.each(data.data,function(key,value){
 					for(i in value){
 						if(i == 'orgJson'){
 							var orgJson = value[i]
 	                        var orgArr = eval(orgJson );
 							value.arr = orgArr
+						}
+						if(i == 'orgNum'){
+							var rate = (parseInt(value[i])/orgNum_sum )*412
+							value.rate=parseInt(rate)
 						}
 					}
 				})
