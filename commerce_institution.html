@@ -12,7 +12,7 @@
 	display: block;
 }
 </style>
-<body>
+<body onload="org_chart.initParentIndustries(0)">
 	{(header.html)}
 	<div class="container">
 		<div class="trade_list">
@@ -54,7 +54,7 @@
 							<td class="col_pink"><span class="size22" id="eventNum_total">0</span></td>
 							<td class="col_pink"><span class="size22" id="amount_total">0</span><span></span></td>
 						</tr>
-						<tr>
+						<tr id="current_month" style="display:none;">
 							<td>本月新增活跃</td>
 							<td class="col_pink"><span class="size22" id="investedProjNum_curmonth">0</span></td>
 							<td class="col_pink"><span class="size22" id="eventNum_curmonth" >0</span></td>
