@@ -317,6 +317,11 @@ var option_four = {
         trigger: 'axis',
         axisPointer : {            // 坐标轴指示器，坐标轴触发有效
             type : 'none'        // 默认为直线，可选为：'line' | 'shadow'
+        },formatter:function(params){
+            var time = $("select[name='investQuarter']").find("option:selected").text();
+            var district = $("div[echarts_flag=4]").find("select[name='districtSubId']").find("option:selected").text();
+            var result =params[0].axisValue+"<br/>"+district+ "&nbsp;&nbsp;"+time+"进入下一轮比率"+ "&nbsp;&nbsp;"+params[0].value+"%"
+            return result
         }
     },
     color:['#72bdff'],
@@ -392,7 +397,7 @@ var option_four = {
 
     series : [
               {
-                  name:'直接访问',
+                  name:'进入下一轮的比率:',
                   type:'bar',
                   barWidth: '30',
                   itemStyle : { normal: {label : {show: true, position: 'top',color:'#333333'}}},
