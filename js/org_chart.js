@@ -332,12 +332,17 @@ var org_chart= {
 								if(sum ==0){
 									json['rate'] = 0
 								}else{
-									json['rate'] = competeOrgEventNum/ sum
+									var rate = (competeOrgEventNum/ sum).toFixed(2)
+									if(rate==0.00){
+										rate = -(orgEventNum/ sum).toFixed(2)
+									}
+									json['rate'] = rate
 								}
 								json['name'] = name
 								json['orgEventNum'] = orgEventNum
 								json['competeOrgEventNum'] = competeOrgEventNum
 								arr.push(json)
+								console.log(json)
 							}
 							value.orgList = arr
 							
