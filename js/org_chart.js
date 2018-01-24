@@ -167,8 +167,8 @@ var org_chart= {
 					json['name'] = projNameArr[i]
 					json['category'] = '投资项目'
 					json['symbolSize'] = 60
-					json['symbol']='circle'
-					json['draggable'] = "true"
+//					json['symbol']='circle'
+					json['draggable'] = true
 					dataArr.push(json)
 				}
 				var orgNameArr = data.data.orgNames
@@ -178,13 +178,14 @@ var org_chart= {
 					json['name'] = orgNamesAndCodes[0]
 					json['category'] = '投资机构'
 					json['symbolSize'] = 60
-					json['draggable'] = "true"
-					json['symbol']='circle'
+					json['draggable'] = false
+//					json['symbol']='circle'
 //					json['value'] = 1
 					json['code'] = orgNamesAndCodes[1]
 					dataArr.push(json)
 				}
 				option.series[0].data = dataArr
+				console.log(option)
 				myChart.setOption(option,true);
 			}else{
 				
@@ -404,6 +405,7 @@ var  option = {
 	        force: {
 	            repulsion: 300
 	        },
+	        cursor:'pointer',
 	        data: null,
 	        links:null,
 	        categories: [{
