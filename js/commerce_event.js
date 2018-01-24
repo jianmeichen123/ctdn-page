@@ -455,7 +455,7 @@ var option_two = {
 	    		  }
 	    		},
 	    		axisLabel: {
-	  		      //formatter: '{value}',
+//	  		      formatter: '{value}',
 	  		      textStyle: {
 	  		      	color: '#333333',
 	  		          fontSize:'12'
@@ -516,7 +516,7 @@ var option_two = {
 			        show:false
 			       },
 			        axisLabel: {
-			            //formatter: '{value}',
+			            formatter: '{value}'+"万元",
 			            textStyle: {
 			            	color: '#333333',
 			                fontSize:'12'
@@ -888,10 +888,12 @@ function merTimeChange(){
         }
         for(i in data.data){
             var merJson = {}
-            merJson["name"] = data.data[i].currencyName;
-            merJson["value"] = data.data[i].mergerNum;
-            curData.push(merJson);
-            curName.push(data.data[i].currencyName)
+            if(data.data[i].currencyName){
+                merJson["name"] = data.data[i].currencyName;
+                merJson["value"] = data.data[i].mergerNum;
+                curData.push(merJson);
+                curName.push(data.data[i].currencyName)
+           }
         }
         commerce_four_r();
     })
@@ -913,10 +915,12 @@ sendGetRequest(detail.getMergerEquitys+"/"+1,function(data){
 sendGetRequest(detail.getMergerCurrencys+"/"+1,function(data){
     for(i in data.data){
         var merJson = {}
-        merJson["name"] = data.data[i].currencyName;
-        merJson["value"] = data.data[i].mergerNum;
-        curData.push(merJson);
-        curName.push(data.data[i].currencyName)
+        if(data.data[i].currencyName){
+             merJson["name"] = data.data[i].currencyName;
+             merJson["value"] = data.data[i].mergerNum;
+             curData.push(merJson);
+             curName.push(data.data[i].currencyName)
+        }
     }
     commerce_four_r();
 })
