@@ -12,7 +12,7 @@
 	display: block;
 }
 </style>
-<body>
+<body onload="org_chart.initParentIndustries(0)">
 	{(header.html)}
 	<div class="container">
 		<div class="trade_list">
@@ -54,7 +54,7 @@
 							<td class="col_pink"><span class="size22" id="eventNum_total">0</span></td>
 							<td class="col_pink"><span class="size22" id="amount_total">0</span><span></span></td>
 						</tr>
-						<tr>
+						<tr id="current_month" style="display:none;">
 							<td>本月新增活跃</td>
 							<td class="col_pink"><span class="size22" id="investedProjNum_curmonth">0</span></td>
 							<td class="col_pink"><span class="size22" id="eventNum_curmonth" >0</span></td>
@@ -75,7 +75,7 @@
 			</ul>
 		</div>
 <div class="trade_tit_bg_show" ></div>
-		<div class="background_boeder_commerce m_t10 location_o="hyfb"">
+		<div class="background_boeder_commerce m_t10 " location_o="hyfb">
 			<div class="commerce_tit_all">
 				<div class="commerce_tit">
 					<span class="dn_ico dn_ico_commerce"></span>投资机构行业分布
@@ -110,10 +110,10 @@
 							{{if data.length >0}}
 								{{each(i,v) data}}
 									<tr>
-										<td><div class="commerce_table_on table_color1">${v.rank}</div>
+										<td><div class="commerce_table_on table_color${v.rank}">${v.rank}</div>
 										
 						<div class="commerce_table_name">{{if v.industryType == 1}}${v.industryName}{{else}}${v.industrySubName}{{/if}}</div></td>
-										<td><div class="commerce_table_width table_color1" style="width:412px"></div></td>
+										<td><div class="commerce_table_width table_color${v.rank}" style="width:${v.rate}px"></div></td>
 									<td>
 									<ul class="commerce_table_ul">
 										{{each(j,w) v.arr}}
@@ -133,7 +133,7 @@
 		</div>
 
 
-		<div class="background_boeder_commerce m_t10 location_o="lcfb"">
+		<div class="background_boeder_commerce m_t10 " location_o="lcfb">
 			<div class="commerce_tit_all">
 				<div class="commerce_tit">
 					<span class="dn_ico dn_ico_commerce"></span>投资机构轮次分布
@@ -181,8 +181,8 @@
 							{{if data.length >0}}
 								{{each(i,v) data}}
 									<tr>
-										<td><div class="commerce_table_on table_2color1">${v.rank}</div><div class="commerce_table_name">${v.roundName}</div></td>
-										<td><div class="commerce_table_width table_2color1" style="width:412px"></div></td>
+										<td><div class="commerce_table_on table_2color${v.rank}">${v.rank}</div><div class="commerce_table_name">${v.roundName}</div></td>
+										<td><div class="commerce_table_width table_2color2" style="width:${v.rate}px"></div></td>
 									<td>
 									<ul class="commerce_table_ul">
 										{{each(j,w) v.arr}}
@@ -201,7 +201,7 @@
 			</div>
 		</div>
 
-		<div class="background_boeder_commerce m_t10 location_o="gxtp"">
+		<div class="background_boeder_commerce m_t10 " location_o="gxtp">
 			<div class="commerce_tit_all">
 				<div class="commerce_tit">
 					<span class="dn_ico dn_ico_commerce"></span>热门机构投资关系图谱<span

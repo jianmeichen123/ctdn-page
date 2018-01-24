@@ -47,8 +47,10 @@ var org_chart= {
 		$('#selected_title').text(value)	
 		var industryType = 1 //一级行业
 		if(id !=0){
+			$('#current_month').hide()
 			industryType = 2 //二级行业
 		}else{
+			$('#current_month').show()
 			id = null
 		}
 		var industry_timeType = $('#orgIndustry option:selected').val()
@@ -67,12 +69,28 @@ var org_chart= {
 		}
 		sendPostRequestByJsonObjInOrgChart(detail.orgIndustry,json,function(data){
 			if(data.success){
+				//计算总量
+				var orgNum_max = 0
+				$.each(data.data,function(key,value){
+					if(key ==0){
+						for(i in value){
+							if(i =='orgNum'){
+								orgNum_max = parseInt(value[i])
+							}
+						}
+					}
+				})
+				
 				$.each(data.data,function(key,value){
 					for(i in value){
 						if(i == 'orgJson'){
 							var orgJson = value[i]
 	                        var orgArr = eval(orgJson );
 							value.arr = orgArr
+						}
+						if(i == 'orgNum'){
+							var rate = (parseInt(value[i])/orgNum_max)*412*0.8*(timeType/5)
+							value.rate=parseInt(rate)
 						}
 					}
 				})
@@ -91,6 +109,18 @@ var org_chart= {
 			}
 		sendPostRequestByJsonObjInOrgChart(detail.orgRound,json,function(data){
 			if(data.success){
+				//计算总量
+				var orgNum_sum = 0
+				$.each(data.data,function(key,value){
+					if(key ==0){
+						for(i in value){
+							if(i =='orgNum'){
+								orgNum_max = parseInt(value[i])
+							}
+						}
+					}
+				})
+				
 				$.each(data.data,function(key,value){
 					for(i in value){
 						if(i == 'orgJson'){
@@ -98,7 +128,12 @@ var org_chart= {
 	                        var orgArr = eval(orgJson );
 							value.arr = orgArr
 						}
+						if(i == 'orgNum'){
+							var rate = (parseInt(value[i])/orgNum_max)*412*0.8*(timeType/5)
+							value.rate=parseInt(rate)
+						}
 					}
+					
 				})
 				$("#orgRound_tbody").html("");
 				$("#orgRound_script").tmpl(data).appendTo($("#orgRound_tbody"))
@@ -233,7 +268,19 @@ var org_chart= {
 				$.each(data.data.partnerList,function(key,value){
 					for(i in value){
 						if(i=='orgJson'){
-							value.orgList = eval(value[i])
+							var arr  = new Array()
+							var org_list = value[i].split(',')
+							for(var j=0;j<org_list.length;j++){
+								var json = {}
+								var org = org_list[j]
+								var org_arr = org.split(':')
+								var name = org_arr[0]
+								var orgEventNum = org_arr[1]
+								json['name'] = name
+								json['num'] = orgEventNum
+								arr.push(json)
+							}
+							value.orgList = arr
 						}
 					}
 				})
@@ -257,20 +304,48 @@ var org_chart= {
 				$.each(data.data.competeList,function(key,value){
 					for(i in value){
 						if(i=='orgJson'){
-							value.orgList = eval(value[i])
-							var json_arr = eval(value[i])
-							for(var j=0;j<json_arr.length;j++){
-								var json = json_arr[j]
-								var orgEventNum = json.orgEventNum
-								var competeOrgEventNum = json.competeOrgEventNum
+//							value.orgList = eval(value[i])
+//							var json_arr = eval(value[i])
+//							for(var j=0;j<json_arr.length;j++){
+//								var json = json_arr[j]
+//								var orgEventNum = json.orgEventNum
+//								var competeOrgEventNum = json.competeOrgEventNum
+//								var sum = parseInt(orgEventNum) + parseInt(competeOrgEventNum)
+//								if(sum ==0){
+//									json['rate'] = 0
+//								}else{
+//									json['rate'] = competeOrgEventNum/ sum
+//								}
+//							}
+//							value.orgList = json_arr
+							
+							var arr  = new Array()
+							var org_list = value[i].split(',')
+							for(var i=0;i<org_list.length;i++){
+								var json = {}
+								var org = org_list[i]
+								var org_arr = org.split(':')
+								var name = org_arr[0]
+								var orgEventNum = org_arr[1]
+								var competeOrgEventNum = org_arr[2]
 								var sum = parseInt(orgEventNum) + parseInt(competeOrgEventNum)
 								if(sum ==0){
 									json['rate'] = 0
 								}else{
-									json['rate'] = competeOrgEventNum/ sum
+									var rate = (competeOrgEventNum/ sum).toFixed(2)
+									if(rate==0.00){
+										rate = -(orgEventNum/ sum).toFixed(2)
+									}
+									json['rate'] = rate
 								}
+								json['name'] = name
+								json['orgEventNum'] = orgEventNum
+								json['competeOrgEventNum'] = competeOrgEventNum
+								arr.push(json)
+								console.log(json)
 							}
-							value.orgList = json_arr
+							value.orgList = arr
+							
 						}
 					}
 				})
@@ -361,7 +436,7 @@ var  option = {
 		org_chart.graphClick(params.data.code,params.data.name);
 	});
 $(function(){
-	org_chart.initParentIndustries(0)
+//	org_chart.initParentIndustries(0)
 	org_chart.loadTotalHeader()
 	org_chart.loadMonthAddHeader()
 	org_chart.load()
