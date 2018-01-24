@@ -550,7 +550,7 @@ function reloadEchars(){
      freshEchars1({"time":12,"timeType":"M","industryId":industryId},1)
      freshEchars2({"time":30,"timeType":"D","industryId":industryId},1)
      freshEchars3({"time":30,"timeType":"D","industryId":industryId},1)
-     freshEchars4({"time":30,"timeType":"D","industryId":industryId},1)
+     freshEchars4({"investQuarter":"2017Q3","industryId":industryId},1)
      freshEchars5({"timeType":1,"industryId":industryId},1)
 }
 
@@ -566,18 +566,20 @@ $('.num_or_money span').click(function(){
 //行业点击事件
 $('body').delegate('#industryList li','click', function(event){
 	event.stopPropagation();
-
-	$('select').each(function(i,j){
-        var options = $(j).find("option");
-        options.attr("selected", false);
-        options.first().attr("selected", true);
-	});
-   $(this).toggleClass('trade_list_on')
-   $(this).siblings().removeClass('trade_list_on')
-   $("#curmonth").hide()
-   //加载图表
-   reloadEchars();
-   //todo select reset
+	if(!$(this).hasClass("trade_list_on")){
+        $(this).toggleClass('trade_list_on')
+        $(this).siblings().removeClass('trade_list_on')
+        event.stopPropagation();
+        $('select').each(function(i,j){
+            var options = $(j).find("option");
+            options.attr("selected", false);
+            options.first().attr("selected", true);
+        });
+        $(".industryTab").html($(this).html())
+       $("#curmonth").hide()
+       //加载图表
+       reloadEchars();
+    }
 })
 function showEcharts(echarts_flag,lang){
     if(echarts_flag == 1 ){ //图表1
@@ -681,7 +683,7 @@ function showEcharts(echarts_flag,lang){
        if(industryId==0){
           option_three.series[0].data=[{"children": rzbk_data.data.series}];
        }else{
-          option_three.series[0].data=[{"children": rzbk_data.data.series[0].children}];
+         // option_three.series[0].data=[{"children": rzbk_data.data.series[0].children}];
        }
        myChart_three.setOption(option_three,true);
     }
