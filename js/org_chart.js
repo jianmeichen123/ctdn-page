@@ -155,32 +155,33 @@ var org_chart= {
 				var projOrgArr = data.data.chartProjectOrgList
 				for(var m=0;m<projOrgArr.length;m++){
 					var json = {}
-					json['source'] = projOrgArr[m].source
-					json['target'] = projOrgArr[m].target
+					json['source'] = projOrgArr[m].orgName
+					json['target'] = projOrgArr[m].projName
 					linksArr.push(json)
 				}
 				option.series[0].links = linksArr
 				var dataArr = new Array()
-				var projNameArr = data.data.projectNameList
+				var projNameArr = data.data.projNames
 				for(var i=0;i<projNameArr.length;i++){
 					var json = {}
-					json['name'] = projNameArr[i].projName
+					json['name'] = projNameArr[i]
 					json['category'] = '投资项目'
 					json['symbolSize'] = 60
 					json['symbol']='circle'
 					json['draggable'] = "true"
 					dataArr.push(json)
 				}
-				var orgNameArr = data.data.orgNameList
+				var orgNameArr = data.data.orgNames
 				for(var j=0;j<orgNameArr.length;j++){
 					var json = {}
-					json['name'] = orgNameArr[j].orgName
+					var orgNamesAndCodes  = orgNameArr[j].split(':')
+					json['name'] = orgNamesAndCodes[0]
 					json['category'] = '投资机构'
 					json['symbolSize'] = 60
 					json['draggable'] = "true"
 					json['symbol']='circle'
 //					json['value'] = 1
-					json['code'] = orgNameArr[j].orgCode
+					json['code'] = orgNamesAndCodes[1]
 					dataArr.push(json)
 				}
 				option.series[0].data = dataArr
