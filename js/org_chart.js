@@ -374,7 +374,8 @@ var  option = {
 	        },
 	        selectedMode: 'false',
 	        left: 20,
-	        data: ['投资项目', '投资机构']
+	        data: ['投资项目', '投资机构'],
+	        icon: 'circle'
 	    }],
 	    toolbox: {
 	        show: false,
