@@ -268,20 +268,28 @@ var myChart_three = echarts.init(document.getElementById('commerce_three'));
 var option_three = {
                            title: {
                            },
-                           tooltip: {},
+                           tooltip: {
+                            formatter:function(params){
+                                var time = $("div[echarts_flag=3]").find("select[name='time']").find("option:selected").text();
+                                var district = $("div[echarts_flag=3]").find("select[name='districtSubId']").find("option:selected").text();
+                                var result =params.name+"<br/>"+district+ "&nbsp;&nbsp;"+time+ "&nbsp;&nbsp;共获投"+params.value+"笔"
+                                return result
+                            }
+                           },
                            series: [{
-                               name: '',
+                               name: '全部行业',
                                type: 'treemap',
                                visibleMin: 300,
+                   	        roam: 'move',
                                data:[],
-                               leafDepth: 2,
+                               leafDepth: 1,
                                levels: [
                                    {
                                        itemStyle: {
                                            normal: {
                                                borderColor: '#555',
-                                               borderWidth: 4,
-                                               gapWidth: 4
+                                               borderWidth: 0,
+                                               gapWidth: 0
                                            }
                                        }
                                    },
@@ -686,7 +694,7 @@ function showEcharts(echarts_flag,lang){
         }
        var industryId = $("#industryList li.trade_list_on").attr("value")
        if(industryId==0){
-          option_three.series[0].data=[{"children": rzbk_data.data.series}];
+          option_three.series[0].data=rzbk_data.data.series;
        }else{
          // option_three.series[0].data=[{"children": rzbk_data.data.series[0].children}];
        }

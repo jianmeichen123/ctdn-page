@@ -149,7 +149,7 @@ var option = {
                 show: false
             }
         },
-        roam: true,
+        roam: false,
         itemStyle: {
             normal: {
                 areaColor: '#9bb9d3',
@@ -161,7 +161,10 @@ var option = {
         }
     },
     tooltip: {
-        trigger: 'item'
+        trigger: 'item',
+        formatter:function(params){
+                return params.name+"   "+params.data.value+"笔";
+        }
     },
     grid: {
         right: 40,
@@ -244,8 +247,14 @@ var option = {
         type: 'effectScatter',
         coordinateSystem: 'geo',
         data: convertedData[0],
+         tooltip: {
+                trigger: 'item',
+                formatter:function(params){
+                        return params.name+"   "+params.data.value[2]+"笔";
+                }
+          },
         symbolSize: function(val) {
-            return Math.max(val[2] / 500, 8);
+            return Math.max(val[2] / 50, 8);
         },
         showEffectOn: 'render',
         rippleEffect: {
