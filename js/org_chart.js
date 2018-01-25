@@ -209,6 +209,8 @@ var org_chart= {
 		}else{ //关系图谱
 			var timeType = $('#orgProject option:selected').val()
 			this.loadOrgProject(id,timeType,industryType) //关系图谱
+			$('.partner_div').hide()
+			$('.compete_div').hide()
 		}
 	},
 	graphClick:function(orgCode,name){
@@ -263,18 +265,52 @@ var org_chart= {
 			}
 		sendPostRequestByJsonObjInOrgChart(detail.orgPartner,json,function(data){
 			if(data.success){
-				$("#partner_tr").html("");
-				$("#partner_tr_script").tmpl(data).appendTo($("#partner_tr"))
 				if(data.data.partnerList==null || data.data.partnerList.length==0){
+					$("#partner_tr").html("");
+					$("#partner_tr_script").tmpl(data).appendTo($("#partner_tr"))
 					$("#partner_tbody").html('<tr ><td style="text-align:center;"  colspan="'+(data.data.industryList.length+2)+'" >暂无数据</td></tr>')
 					return
 				}
+				var orgNumArr = new Array()
+				var orgNumArrLenght = data.data.industryList.length
+				for(var n=0;n<orgNumArrLenght;n++){
+					orgNumArr[n] = 0
+				}
+				var max_num = 0
+				$.each(data.data.partnerList,function(key,value){
+					for(i in value){
+						if(i=='orgJson'){
+							var org_list = value[i].split(',')
+							for(var j=0;j<org_list.length;j++){
+								var org = org_list[j]
+								var org_arr = org.split(':')
+								var name = org_arr[0]
+								var orgEventNum = org_arr[1]
+								if(max_num < parseInt(orgEventNum)){
+									max_num = parseInt(orgEventNum)
+								}
+								orgNumArr[j] +=parseInt(orgEventNum)
+							}
+						}
+					}
+				})
+				var industryListArr = new Array()
+				$.each(data.data.industryList,function(key,value){
+					if(orgNumArr[key] !=0){
+						industryListArr.push(value)
+					}
+				})
+				console.log(industryListArr)
+				data.data.industryList = industryListArr
 				$.each(data.data.partnerList,function(key,value){
 					for(i in value){
 						if(i=='orgJson'){
 							var arr  = new Array()
 							var org_list = value[i].split(',')
 							for(var j=0;j<org_list.length;j++){
+								if(orgNumArr[j]==0){
+									continue
+								}
 								var json = {}
 								var org = org_list[j]
 								var org_arr = org.split(':')
@@ -282,9 +318,13 @@ var org_chart= {
 								var orgEventNum = org_arr[1]
 								json['name'] = name
 								json['num'] = orgEventNum
+								
+								var rate = (parseInt(orgEventNum)/max_num)*50
+								json['rate']=parseInt(rate)
 								arr.push(json)
 							}
 							value.orgList = arr
+							console.log(arr)
 						}
 					}
 				})
@@ -299,33 +339,48 @@ var org_chart= {
 		//jingzheng
 		sendPostRequestByJsonObjInOrgChart(detail.orgCompete,json,function(data){
 			if(data.success){
-				$("#compete_tr").html("");
-				$("#compete_tr_script").tmpl(data).appendTo($("#compete_tr"))
 				if(data.data.competeList== null || data.data.competeList.length==0){
+					$("#compete_tr").html("");
+					$("#compete_tr_script").tmpl(data).appendTo($("#compete_tr"))
 					$("#compete_tbody").html('<tr ><td style="text-align:center;"  colspan="'+(data.data.industryList.length+2)+'" >暂无数据</td></tr>')
 					return
+				}
+				var orgNumArr = new Array()
+				var orgNumArrLenght = data.data.industryList.length
+				for(var n=0;n<orgNumArrLenght;n++){
+					orgNumArr[n] = 0
 				}
 				$.each(data.data.competeList,function(key,value){
 					for(i in value){
 						if(i=='orgJson'){
-//							value.orgList = eval(value[i])
-//							var json_arr = eval(value[i])
-//							for(var j=0;j<json_arr.length;j++){
-//								var json = json_arr[j]
-//								var orgEventNum = json.orgEventNum
-//								var competeOrgEventNum = json.competeOrgEventNum
-//								var sum = parseInt(orgEventNum) + parseInt(competeOrgEventNum)
-//								if(sum ==0){
-//									json['rate'] = 0
-//								}else{
-//									json['rate'] = competeOrgEventNum/ sum
-//								}
-//							}
-//							value.orgList = json_arr
-							
+							var org_list = value[i].split(',')
+							for(var j=0;j<org_list.length;j++){
+								var org = org_list[j]
+								var org_arr = org.split(':')
+								var orgEventNum = org_arr[1]
+								var competeOrgEventNum = org_arr[2]
+								orgNumArr[j] +=(parseInt(orgEventNum)+parseInt(competeOrgEventNum))
+							}
+						}
+					}
+				})
+				var industryListArr = new Array()
+				$.each(data.data.industryList,function(key,value){
+					if(orgNumArr[key] !=0){
+						industryListArr.push(value)
+					}
+				})
+				console.log(industryListArr)
+				data.data.industryList = industryListArr
+				$.each(data.data.competeList,function(key,value){
+					for(i in value){
+						if(i=='orgJson'){
 							var arr  = new Array()
 							var org_list = value[i].split(',')
 							for(var i=0;i<org_list.length;i++){
+								if(orgNumArr[i]==0){
+									continue
+								}
 								var json = {}
 								var org = org_list[i]
 								var org_arr = org.split(':')
@@ -401,7 +456,7 @@ var  option = {
 	    series: [{
 	        type: 'graph',
 	        layout: 'force',
-	        roam: 'move',
+
 	        force: {
 	            repulsion: 300
 	        },
@@ -414,6 +469,7 @@ var  option = {
 	            'name': '投资机构'
 	        }],
 	        focusNodeAdjacency: true,
+	        roam: 'move',
 	        label: {
 	            normal: {
 

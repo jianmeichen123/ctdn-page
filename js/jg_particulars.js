@@ -1,6 +1,9 @@
 
+var orgName = '';
+
 // 基本信息
 function fillBaseInfo(data,divList){
+    orgName = data.investOrg;
     //判断是否收藏
      if(isCollection(1,data["orgCode"])){
          $(".click_collect").toggleClass('dn_ico_list_collect_on');
@@ -138,26 +141,37 @@ function eventInfoExtListFormatter(data,div){
      }
      div.append(html)
 }
+
+var json = {}
+json["pageSize"] = 20;
+json["pageNo"] = 0;
+json["typeId"] = 1;
+json["keyword"] = orgName;
+
+sendPostRequestByJsonObj(searchUrl.news,json,function(data){
+    orgNewsList(data);
+})
 //相关新闻
-function orgNewsListFormatter(data,div){
-   var staticTemplate = '<tr> <td class="one">${newsTitle}</td> <td class="two">${newsSource}</td> <td class="three">${newsReportDate}</td></tr>'
+function orgNewsList(data){
+   var div = $("tbody[data-query='lists']");
+   var staticTemplate = '<tr> <td class="one">${title}</td> <td class="two">${auther}</td> <td class="three">${ctime}</td></tr>'
    var temp = staticTemplate;
     var html =""
-
+    var data = data.page.records;
     if(data.length>0){
         $(data).each(function(i,row){
              $.each(row,function(k,v){
                  while(temp.indexOf("${"+k+"}") > 1){
-                    if(k =="newsReportDate"){
+                    if(k =="ctime"){
                         v = v*1000
                         v = formatDate(v, "yyyy-MM-dd")
                     }
 
-                    if(k=='newsTitle'){
-                        if(row.newsAddress){
-                            if(row.newsOverview.length>28){
+                    if(k=='title'){
+                        if(row.href){
+                            if(row.overview.length>28){
                                 v=v.substring(0,28)+"..."
-                                v='<span class="list_table_td"><a target="_blank" href="'+row.newsAddress+'">'+v+'</a></span>'
+                                v='<span class="list_table_td"><a target="_blank" href="'+row.href+'">'+v+'</a></span>'
                             }
                         }
                     }

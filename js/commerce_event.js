@@ -171,7 +171,7 @@ var option = {
     },
     grid: {
         right: 40,
-        top: 100,
+        top: 50,
         bottom: 40,
         width: '30%'
     },

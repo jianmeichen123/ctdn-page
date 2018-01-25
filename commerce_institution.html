@@ -50,15 +50,15 @@
 						</tr>
 						<tr>
 							<td>历史累计</td>
-							<td class="col_pink"><span class="size22" id="investedProjNum_total">0</span>家</td>
-							<td class="col_pink"><span class="size22" id="eventNum_total">0</span>笔</td>
-							<td class="col_pink"><span class="size22" id="amount_total">0</span><span>亿元</span></td>
+							<td class="col_pink"><span class="size22" id="investedProjNum_total">0</span> 家</td>
+							<td class="col_pink"><span class="size22" id="eventNum_total">0</span> 笔</td>
+							<td class="col_pink"><span class="size22" id="amount_total">0</span><span> 亿元</span></td>
 						</tr>
 						<tr id="current_month" style="display:none;">
 							<td>本月新增活跃</td>
-							<td class="col_pink"><span class="size22" id="investedProjNum_curmonth">0</span>家</td>
-							<td class="col_pink"><span class="size22" id="eventNum_curmonth" >0</span>笔</td>
-							<td class="col_pink"><span class="size22" id="amount_curmonth" >0</span><span>亿元</span></td>
+							<td class="col_pink"><span class="size22" id="investedProjNum_curmonth">0</span> 家</td>
+							<td class="col_pink"><span class="size22" id="eventNum_curmonth" >0</span> 笔</td>
+							<td class="col_pink"><span class="size22" id="amount_curmonth" >0</span><span> 亿元</span></td>
 						</tr>
 						
 						
@@ -254,7 +254,7 @@
 										<td>${v.partnerOrgName}</td>
 										<td>${v.eventNumAll}</td>
 										{{each(j,w) v.orgList}}
-											<td><div id= "${i}_${j}_partener" class="commerce_inst_b_y" style="width:${w.num*10}px;height:${w.num*10}px;cursor:pointer;"  onmouseover="over_partner(this,'${w.num}','${v.partnerOrgName}','${w.name}')" onmouseout="out_partner()" lang=""></div></td>
+											<td><div id= "${i}_${j}_partener" class="commerce_inst_b_y" style="width:${w.rate}px;height:${w.rate}px;cursor:pointer;"  onmouseover="over_partner(this,'${w.num}','${v.partnerOrgName}','${w.name}')" onmouseout="out_partner()" lang=""></div></td>
 										{{/each}}
 									</tr>
 								{{/each}}
@@ -366,10 +366,10 @@ function over_compete(obj,orgEventNum,competeOrgName,name,competeOrgEventNum){
 	var orgName = $('.clicked_org').first().text()
 	var follow_compete = $(obj).attr('id')
 	if(industryId == 0){
-		pie_tips_compete_index = layer.tips(' '+name+' <br/> '+orgName+'  '+competeOrgEventNum+' 笔 <br/>' +competeOrgName+'  '+orgEventNum+' 笔 ','#'+follow_compete );
+		pie_tips_compete_index = layer.tips(' '+name+' <br/> '+orgName+'  '+orgEventNum +' 笔 <br/>' +competeOrgName+'  '+competeOrgEventNum+' 笔 ','#'+follow_compete );
 	}else{
 		var industryParentName = $('#selected_title').text()
-		pie_tips_compete_index = layer.tips(''+industryParentName + ' / '+name+' <br/> '+orgName+'  '+competeOrgEventNum+' 笔 <br/>' +competeOrgName+' '+orgEventNum+' 笔 ','#'+follow_compete );
+		pie_tips_compete_index = layer.tips(''+industryParentName + ' / '+name+' <br/> '+orgName+'  '+orgEventNum+' 笔 <br/>' +competeOrgName+' '+competeOrgEventNum+' 笔 ','#'+follow_compete );
 	}
 }
 function out_compete(){
