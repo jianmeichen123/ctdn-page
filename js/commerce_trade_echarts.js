@@ -589,6 +589,7 @@ $('body').delegate('#industryList li','click', function(event){
             $("#curmonth").hide()
         }
        //加载图表
+       querytotalheader()
        reloadEchars();
     }
 })
