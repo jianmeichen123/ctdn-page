@@ -600,7 +600,11 @@ function showEcharts(echarts_flag,lang){
     			return
     		}
     		option.xAxis[0].data = industry_data.data.xAxis
-    		option.yAxis[0].name = yAxis_name
+    		if(lang==2){
+    		    option.yAxis[0].name = yAxis_name+"/万元"
+    		}else{
+    		    option.yAxis[0].name = yAxis_name
+    		}
     		var legend = industry_data.data.legend.slice(0,myChart_default_industry_num)
     		legend.push('平均值')
     		option.legend.data=legend
@@ -667,7 +671,11 @@ function showEcharts(echarts_flag,lang){
     		}
     		option_db.xAxis[0].data = round_data.data.xAxis.slice(0,myChartDB_default_industry_num)
     		option_db.legend.data=round_data.data.legend
-    		option_db.yAxis[0].name = yAxis_name
+    		if(lang==2){
+                option.yAxis[0].name = yAxis_name+"/万元"
+            }else{
+                option.yAxis[0].name = yAxis_name
+            }
     		var series =  round_data.data.series.slice(0,myChartDB_default_industry_num)
     		var y_data =  new Array()
     		for(var i=0;i<series.length;i++){
