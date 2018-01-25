@@ -31,9 +31,13 @@ function capData(){
             capTime = 4;
         }else if(capTime.indexOf("三")>-1){
             capTime = 5;
-        }else if(capTime.indexOf("六")>-1){
-            capTime = 6;
-        }
+        }else if(capTime.indexOf("30")>-1){
+            capTime = 1;
+        }else if(capTime.indexOf("3个")>-1){
+             capTime = 2;
+         }else if(capTime.indexOf("半")>-1){
+              capTime = 3;
+          }
     }
     sendGetRequest(detail.getEventDistricts+"/"+capTime,function(data){
        if(capDatas){
@@ -257,7 +261,7 @@ var option = {
                 }
           },
         symbolSize: function(val) {
-            return Math.max(val[2] / 50, 8);
+            return Math.max(val[2] / 20, 8);
         },
         showEffectOn: 'render',
         rippleEffect: {
