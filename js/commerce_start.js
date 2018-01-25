@@ -102,7 +102,7 @@ function com_area(year){
             roam: false,
             itemStyle: {
                 normal: {
-                    areaColor: '#9bb9d3',
+                    areaColor: '#9dc6ea',
                     borderColor: '#4479a2'
                 },
                 emphasis: {

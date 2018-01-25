@@ -152,7 +152,7 @@ var option = {
         roam: false,
         itemStyle: {
             normal: {
-                areaColor: '#9bb9d3',
+                areaColor: '#9dc6ea',
                 borderColor: '#4479a2'
             },
             emphasis: {
@@ -171,7 +171,7 @@ var option = {
     },
     grid: {
         right: 40,
-        top: 100,
+        top: 50,
         bottom: 40,
         width: '30%'
     },
