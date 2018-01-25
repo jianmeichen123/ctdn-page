@@ -30,7 +30,9 @@ sendGetRequest(echars.hotDistrict,function(data){
     }
 })
 function querytotalheader(){
-	sendPostRequest(detail.queryGGTotalHeaderStat,function(data){
+    var industryId =$("#industryList li.trade_list_on").attr("value")
+    var json ={"industryId":industryId,"type":3}
+	sendPostRequestByJsonObj(detail.queryHeaderStatCommon,json,function(data){
 		if(data.data){
 	    $("#projectNum_total").text(data.data.projectNum)
 	    $("#investedProjNum_total").text(data.data.investedProjNum)
@@ -550,7 +552,7 @@ function freshEchars5(json){
 //页面初始化加载数据
 reloadEchars()
 querytotalheader()
-querycurmontheader
+querycurmontheader()
 function reloadEchars(){
      var industryId = $("#industryList li.trade_list_on").attr("value")
      freshEchars1({"time":12,"timeType":"M","industryId":industryId},1)
