@@ -582,14 +582,17 @@ $('body').delegate('#industryList li','click', function(event){
 	if(!$(this).hasClass("trade_list_on")){
         $(this).toggleClass('trade_list_on')
         $(this).siblings().removeClass('trade_list_on')
-        event.stopPropagation();
         $('select').each(function(i,j){
             var options = $(j).find("option");
             options.attr("selected", false);
             options.first().attr("selected", true);
         });
         $(".industryTab").html($(this).html())
-       $("#curmonth").hide()
+        if($(this).val()==0){
+            $("#curmonth").show()
+        }else{
+            $("#curmonth").hide()
+        }
        //加载图表
        reloadEchars();
     }
