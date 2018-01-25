@@ -149,7 +149,6 @@ var detail = {
     queryLastestOrg:Constants.platformContentURL+"index/queryLastestOrg/",
     getParentIndustrys:Constants.platformContentURL+"index/getParentIndustrys/",
     getCompeteInfo:Constants.platformContentURL+"index/getCompeteInfo/",
-    queryGGTotalHeaderStat:Constants.platformContentURL+"index/queryGGTotalHeaderStat",
     queryGGCurMonthHeaderStat:Constants.platformContentURL+"index/queryGGCurMonthHeaderStat",
     queryIndustryMonthForEchart:Constants.platformContentURL+"index/queryIndustryMonthForEchart",
     queryIndustryMonthMergerForEchart:Constants.platformContentURL+"index/queryIndustryMonthMergerForEchart",
