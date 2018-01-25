@@ -277,10 +277,10 @@ var option_three = {
                             }
                            },
                            series: [{
-                               name: '全部行业',
+                               name: '',
                                type: 'treemap',
                                visibleMin: 300,
-                   	        roam: 'move',
+                   	           roam: 'move',
                                data:[],
                                leafDepth: 1,
                                levels: [
@@ -460,14 +460,7 @@ var option_five = {
     series: [{
         name: 'Punch Card',
         type: 'scatter',
-        symbolSize: function (val) {
-            if(val[2]>50){
-                var times = val[2]/5
-                return val[2]/times * 2
-            }else{
-                return val[2] * 2;
-            }
-        },
+        symbolSize: '',
         data: [],
         animationDelay: function (idx) {
             return idx * 5;
@@ -582,14 +575,17 @@ $('body').delegate('#industryList li','click', function(event){
 	if(!$(this).hasClass("trade_list_on")){
         $(this).toggleClass('trade_list_on')
         $(this).siblings().removeClass('trade_list_on')
-        event.stopPropagation();
         $('select').each(function(i,j){
             var options = $(j).find("option");
             options.attr("selected", false);
             options.first().attr("selected", true);
         });
         $(".industryTab").html($(this).html())
-       $("#curmonth").hide()
+        if($(this).val()==0){
+            $("#curmonth").show()
+        }else{
+            $("#curmonth").hide()
+        }
        //加载图表
        reloadEchars();
     }
@@ -600,7 +596,11 @@ function showEcharts(echarts_flag,lang){
     			return
     		}
     		option.xAxis[0].data = industry_data.data.xAxis
-    		option.yAxis[0].name = yAxis_name
+    		if(lang==2){
+    		    option.yAxis[0].name = yAxis_name+"/万元"
+    		}else{
+    		    option.yAxis[0].name = yAxis_name
+    		}
     		var legend = industry_data.data.legend.slice(0,myChart_default_industry_num)
     		legend.push('平均值')
     		option.legend.data=legend
@@ -667,7 +667,11 @@ function showEcharts(echarts_flag,lang){
     		}
     		option_db.xAxis[0].data = round_data.data.xAxis.slice(0,myChartDB_default_industry_num)
     		option_db.legend.data=round_data.data.legend
-    		option_db.yAxis[0].name = yAxis_name
+    		if(lang==2){
+                option.yAxis[0].name = yAxis_name+"/万元"
+            }else{
+                option.yAxis[0].name = yAxis_name
+            }
     		var series =  round_data.data.series.slice(0,myChartDB_default_industry_num)
     		var y_data =  new Array()
     		for(var i=0;i<series.length;i++){
@@ -693,10 +697,11 @@ function showEcharts(echarts_flag,lang){
             return
         }
        var industryId = $("#industryList li.trade_list_on").attr("value")
+       option_three.series[0].name =  $("#industryList li.trade_list_on").html()
        if(industryId==0){
           option_three.series[0].data=rzbk_data.data.series;
        }else{
-         // option_three.series[0].data=[{"children": rzbk_data.data.series[0].children}];
+          option_three.series[0].data=rzbk_data.data.series[0].children;
        }
        myChart_three.setOption(option_three,true);
     }
@@ -716,10 +721,19 @@ function showEcharts(echarts_flag,lang){
         option_five.yAxis.data= rxgmfb_data.data.legend;
         roundName= rxgmfb_data.data.xAxis;
         moneyRange= rxgmfb_data.data.legend;
+        // 获取到最大的交易量值 来控制气泡半径
+        var maxTotalCount = 1;
         var data = rxgmfb_data.data.series.map(function (item) {
-            return [item[1], item[0], item[2]];
+           if (parseInt(item[2]) >= maxTotalCount) {
+               maxTotalCount = parseInt(item[2]);
+           }
+           return [item[1], item[0], item[2]];
         });
         option_five.series[0].data= data;
-        myChart_five.setOption(option_five,true);
+        option_five.series[0].symbolSize=function (val) {
+            // 根据最大的交易量值 来控制气泡半径  （最小 3  最大 40）
+          return Math.round(3 + val[2] * 40 / maxTotalCount);
+        }
+        myChart_five.setOption(option_five,false);
     }
 }
