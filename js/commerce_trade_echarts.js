@@ -273,6 +273,7 @@ var option_three = {
                                name: '',
                                type: 'treemap',
                                visibleMin: 300,
+                   	        roam: 'move',
                                data:[],
                                leafDepth: 2,
                                levels: [
@@ -280,8 +281,8 @@ var option_three = {
                                        itemStyle: {
                                            normal: {
                                                borderColor: '#555',
-                                               borderWidth: 4,
-                                               gapWidth: 4
+                                               borderWidth: 0,
+                                               gapWidth: 0
                                            }
                                        }
                                    },

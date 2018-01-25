@@ -377,7 +377,7 @@ var  option = {
 	            show: true
 	        },
 	        selectedMode: 'false',
-	        left: 20,
+	        left: 0,
 	        data: ['投资项目', '投资机构'],
 	        icon: 'circle'
 	    }],
@@ -401,7 +401,7 @@ var  option = {
 	    series: [{
 	        type: 'graph',
 	        layout: 'force',
-
+	        roam: 'move',
 	        force: {
 	            repulsion: 300
 	        },
@@ -414,7 +414,6 @@ var  option = {
 	            'name': '投资机构'
 	        }],
 	        focusNodeAdjacency: true,
-	        roam: true,
 	        label: {
 	            normal: {
 
