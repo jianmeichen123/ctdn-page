@@ -278,6 +278,14 @@ var option_three = {
                                 return result
                             }
                            },
+                           color: [
+                                   '#58082e', '#d40054', '#a95c76', '#f192b2', '#ff783d',
+                                   '#ff1000', '#ba51cd','#663ab6', '#1a2a80', '#798eff', 
+                                   '#00afff', '#92f2ff', '#46cbbe', '#0b8f82', '#2d771f', 
+                                   '#65ff6b', '#95cc55', '#d0ff99', '#8b9b1b', '#e2d249',
+                                   '#fff25e', '#be930e','#896e58', '#950951', '#ac5a40', 
+                                   '#ff635b', '#cfbf97','#9d9d9d', '#b0ffd7', '#000000'
+                               ],
                            series: [{
                                name: '',
                                type: 'treemap',
@@ -285,6 +293,10 @@ var option_three = {
                    	           roam: 'move',
                                data:[],
                                leafDepth: 1,
+                               top:30,
+                               left:0,
+                               right:0,
+                               bottom:40,
                                levels: [
                                    {
                                        itemStyle: {
@@ -300,8 +312,8 @@ var option_three = {
                                        itemStyle: {
                                            normal: {
                                                borderColorSaturation: 0.7,
-                                               gapWidth: 2,
-                                               borderWidth: 2
+                                               gapWidth: 0,
+                                               borderWidth: 0
                                            }
                                        }
                                    },
