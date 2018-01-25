@@ -166,7 +166,7 @@ var org_chart= {
 					var json = {}
 					json['name'] = projNameArr[i]
 					json['category'] = '投资项目'
-					json['symbolSize'] = 60
+					json['symbolSize'] = 25
 //					json['symbol']='circle'
 					json['draggable'] = true
 					dataArr.push(json)
@@ -177,7 +177,7 @@ var org_chart= {
 					var orgNamesAndCodes  = orgNameArr[j].split(':')
 					json['name'] = orgNamesAndCodes[0]
 					json['category'] = '投资机构'
-					json['symbolSize'] = 60
+					json['symbolSize'] = 40
 					json['draggable'] = false
 //					json['symbol']='circle'
 //					json['value'] = 1
