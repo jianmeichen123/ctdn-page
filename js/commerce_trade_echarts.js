@@ -277,10 +277,10 @@ var option_three = {
                             }
                            },
                            series: [{
-                               name: '全部行业',
+                               name: '',
                                type: 'treemap',
                                visibleMin: 300,
-                   	        roam: 'move',
+                   	           roam: 'move',
                                data:[],
                                leafDepth: 1,
                                levels: [
@@ -693,10 +693,11 @@ function showEcharts(echarts_flag,lang){
             return
         }
        var industryId = $("#industryList li.trade_list_on").attr("value")
+       option_three.series[0].name =  $("#industryList li.trade_list_on").html()
        if(industryId==0){
           option_three.series[0].data=rzbk_data.data.series;
        }else{
-         // option_three.series[0].data=[{"children": rzbk_data.data.series[0].children}];
+          option_three.series[0].data=rzbk_data.data.series[0].children;
        }
        myChart_three.setOption(option_three,true);
     }
