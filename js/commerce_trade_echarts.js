@@ -30,7 +30,9 @@ sendGetRequest(echars.hotDistrict,function(data){
     }
 })
 function querytotalheader(){
-	sendPostRequest(detail.queryGGTotalHeaderStat,function(data){
+    var industryId =$("#industryList li.trade_list_on").attr("value")
+    var json ={"industryId":industryId,"type":3}
+	sendPostRequestByJsonObj(detail.queryHeaderStatCommon,json,function(data){
 		if(data.data){
 	    $("#projectNum_total").text(data.data.projectNum)
 	    $("#investedProjNum_total").text(data.data.investedProjNum)

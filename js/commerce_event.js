@@ -7,7 +7,7 @@ sendGetRequest(platformUrl.queryIndexHeaderStat,function(data){
 })
 
 //事件新增数
-sendGetRequest(detail.queryHeaderStatAdd,function(data){
+sendPostRequestByJsonObj(detail.queryHeaderStatCommon,{"type":2},function(data){
      $("#tzadd").html(data.data.invstedNum);
      $("#bgadd").html(data.data.mergerNum);
      $("#shadd").html(data.data.listedNum);
