@@ -149,7 +149,7 @@ var option = {
                 show: false
             }
         },
-        roam: true,
+        roam: false,
         itemStyle: {
             normal: {
                 areaColor: '#9bb9d3',
