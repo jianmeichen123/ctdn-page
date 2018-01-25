@@ -460,14 +460,7 @@ var option_five = {
     series: [{
         name: 'Punch Card',
         type: 'scatter',
-        symbolSize: function (val) {
-            if(val[2]>50){
-                var times = val[2]/5
-                return val[2]/times * 2
-            }else{
-                return val[2] * 2;
-            }
-        },
+        symbolSize: '',
         data: [],
         animationDelay: function (idx) {
             return idx * 5;
@@ -728,10 +721,19 @@ function showEcharts(echarts_flag,lang){
         option_five.yAxis.data= rxgmfb_data.data.legend;
         roundName= rxgmfb_data.data.xAxis;
         moneyRange= rxgmfb_data.data.legend;
+        // 获取到最大的交易量值 来控制气泡半径
+        var maxTotalCount = 1;
         var data = rxgmfb_data.data.series.map(function (item) {
-            return [item[1], item[0], item[2]];
+           if (parseInt(item[2]) >= maxTotalCount) {
+               maxTotalCount = parseInt(item[2]);
+           }
+           return [item[1], item[0], item[2]];
         });
         option_five.series[0].data= data;
-        myChart_five.setOption(option_five,true);
+        option_five.series[0].symbolSize=function (val) {
+            // 根据最大的交易量值 来控制气泡半径  （最小 3  最大 40）
+          return Math.round(3 + val[2] * 40 / maxTotalCount);
+        }
+        myChart_five.setOption(option_five,false);
     }
 }
