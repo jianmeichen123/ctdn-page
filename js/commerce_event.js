@@ -166,7 +166,7 @@ var option = {
               type : 'shadow'        // 默认为直线，可选为：'line' | 'shadow'
           },
         formatter:function(params){
-                return params.name+"   "+params.data.value+"笔";
+                return params[0].data.name+"   "+params[0].data.value+"笔";
         }
     },
     grid: {
