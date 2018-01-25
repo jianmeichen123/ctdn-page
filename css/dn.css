@@ -446,7 +446,7 @@ input::-ms-clear, input::-ms-reveal {
 .commerce_tit_r>ul>li select{height:36px ; border:1px solid #e6e6e6; background-color:#f5f5f5; color:#333333; line-height:36px; padding-left:20px; padding-right:20px; border-radius:5px; }
 .commerce_tit_r>ul>li select:focus{outline-color:#e6e6e6}
 .commerce_tit_r>ul>li select  option{ padding:5px; height: 26px;} 
-.background_boeder_commerce{background-color: #fff;    position: relative; border: 1px solid #f0f0f0; overflow: hidden; border-radius: 5px; padding-bottom:30px;   padding-top: 24px;}
+.background_boeder_commerce{background-color: #fff;    position: relative; border: 1px solid #f0f0f0;  border-radius: 5px; padding-bottom:30px;   padding-top: 24px;}
 .background_boeder_commerce .eachrst_tit .fl{display: block; float: left; margin-right: 15px; font-size:12px;color: #666666;}
 .background_boeder_commerce .eachrst_tit .fl span{display:none;}
 .background_boeder_commerce .eachrst_tit .fl .commerce_name_on{display:block;}
