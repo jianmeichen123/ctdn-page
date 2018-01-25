@@ -44,24 +44,28 @@ function capData(){
             capDatas = [];
         }
         for(i in data.data){
-            var capJson = {};
-            capJson["name"] = data.data[i].districtSubName;
-            capJson["value"] = data.data[i].eventNum;
-            geoMap[data.data[i].districtSubName] = map[data.data[i].districtSubName]
-            capDatas.push(capJson);
+            if(i<20){
+                var capJson = {};
+                capJson["name"] = data.data[i].districtSubName;
+                capJson["value"] = data.data[i].eventNum;
+                geoMap[data.data[i].districtSubName] = map[data.data[i].districtSubName]
+                capDatas.push(capJson);
+            }
         }
         commerce_one();
     })
 }
 sendGetRequest(detail.getEventDistricts+"/"+4,function(data){
     for(i in data.data){
-        var capJson = {};
-        capJson["name"] = data.data[i].districtSubName;
-        capJson["value"] = data.data[i].eventNum;
-        geoMap[data.data[i].districtSubName] = map[data.data[i].districtSubName]
-        capDatas.push(capJson);
-        capDist.push(data.data[i].districtSubName);
-        capAmount.push(data.data[i].eventNum);
+        if(i<20){
+            var capJson = {};
+            capJson["name"] = data.data[i].districtSubName;
+            capJson["value"] = data.data[i].eventNum;
+            geoMap[data.data[i].districtSubName] = map[data.data[i].districtSubName]
+            capDatas.push(capJson);
+            capDist.push(data.data[i].districtSubName);
+            capAmount.push(data.data[i].eventNum);
+        }
     }
     commerce_one();
 })
