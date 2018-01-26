@@ -56,8 +56,8 @@
 					<tbody>
 						<tr>
 							<th>&nbsp;</th>
-							<th>收录公司总数</th>
-							<th>获投公司总数</th>
+							<th>收录项目总数</th>
+							<th>获投项目总数</th>
 							<th>融资总笔数</th>
 							<th>融资总额</th>
 						</tr>
@@ -544,7 +544,7 @@ function querytotalheader(){
 	    $("#projectNum_total").text(data.data.projectNum)
 	    $("#investedProjNum_total").text(data.data.investedProjNum)
 	    $("#eventNum_total").text(data.data.eventNum)
-	    $("#amount_total").text(data.data.amount)
+	    $("#amount_total").text(Math.round(data.data.amount/10000))
 		}
 	})
 }
@@ -554,7 +554,7 @@ function querycurmontheader(){
 		    $("#projectNum_curmonth").text(data.data.projectNum)
 		    $("#investedProjNum_curmonth").text(data.data.investedProjNum)
 		    $("#eventNum_curmonth").text(data.data.eventNum)
-		    $("#amount_curmonth").text(data.data.amount)
+		    $("#amount_curmonth").text(Math.round(data.data.amount/10000))
 		}
 	})
 }

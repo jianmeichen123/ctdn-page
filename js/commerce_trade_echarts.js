@@ -37,7 +37,7 @@ function querytotalheader(){
 	    $("#projectNum_total").text(data.data.projectNum)
 	    $("#investedProjNum_total").text(data.data.investedProjNum)
 	    $("#eventNum_total").text(data.data.eventNum)
-	    $("#amount_total").text(data.data.amount)
+	    $("#amount_total").text(Math.round(data.data.amount/10000))
 		}
 	})
 }
@@ -47,7 +47,7 @@ function querycurmontheader(){
 		    $("#projectNum_curmonth").text(data.data.projectNum)
 		    $("#investedProjNum_curmonth").text(data.data.investedProjNum)
 		    $("#eventNum_curmonth").text(data.data.eventNum)
-		    $("#amount_curmonth").text(data.data.amount)
+		    $("#amount_curmonth").text(Math.round(data.data.amount/10000))
 		}
 	})
 }
