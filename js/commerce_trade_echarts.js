@@ -67,12 +67,12 @@ var option = {
         '#ff635b', '#cfbf97','#9d9d9d', '#b0ffd7', '#000000'
     ],
     tooltip: {
-        trigger: 'axis',
+        trigger: 'item',
         type:'solid'
     },
     legend: {
-    	 x : 'right',
-         y : 'bottom',
+         right:20,
+         left:30,
         data:[],
         selected:{
         	"邮件营销":true,
@@ -190,8 +190,11 @@ var option_db = {
     },
     color:['#3396c9','#6bcff2','#2ea7ef','#6ee8de','#b4fdbc','#96cbe2'],
     legend: {
-    	 x : '630',
-         y : '450',
+    	 bottom : '0',
+        right:40,
+        itemGap: 30,
+        itemHeight: 14,
+        itemWidth: 14,
         data:[]
     },
     grid: {
@@ -435,9 +438,9 @@ var option_five = {
     },
     color:['#67ddd9'],
     grid: {
-   	 	left: '30',
+   	 	left: '20',
         top:'20',
-        right: '35',
+        right: '80',
         bottom: '10',
        containLabel: true
    },
