@@ -200,11 +200,11 @@ function register(){
 		$('#password_tip').css('display','block').html('请输入登录密码');
 		return
 	}
-	if(!/^[0-9a-zA-Z]{6,14}$/.test(password)){
+	if(!/^[0-9a-zA-Z]{6,30}$/.test(password)){
 		$("#password").addClass('inputDanger');
 		$("#password").addClass('invalid');
-		$('#password_tip').css('display','block').html('请输入6-14位的数字或字母作为密码~');
-		layer.msg('请输入6-14位的数字或字母作为密码~')
+		$('#password_tip').css('display','block').html('请输入6-30位的数字或字母作为密码~');
+		layer.msg('请输入6-30位的数字或字母作为密码~')
 		return 
 	}
 	if(confirmPassword==null || confirmPassword.trim().length==0){
