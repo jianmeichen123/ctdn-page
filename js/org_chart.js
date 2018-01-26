@@ -507,11 +507,11 @@ var  option = {
 	}; 
 	//关系图谱点击机构事件
 	myChart.on('click', function (params) {
-		$('.partner_div').hide()
-		$('.compete_div').hide()
 		if(!params.data.code){
 			return
 		}
+		$('.partner_div').hide()
+		$('.compete_div').hide()
 		org_chart.graphClick(params.data.code,params.data.name);
 	});
 $(function(){
