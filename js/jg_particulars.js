@@ -45,6 +45,14 @@ function fillBaseInfo(data,divList){
            }
         })
     })
+    var json = {}
+    json["pageSize"] = 20;
+    json["pageNo"] = 0;
+    json["typeId"] = 1;
+    json["keyword"] = orgName;
+    sendPostRequestByJsonObj(searchUrl.news,json,function(data){
+        orgNewsList(data);
+    })
 }
 //发展历史
 function orgHistoryInfoListFormatter(data,div){
@@ -142,15 +150,7 @@ function eventInfoExtListFormatter(data,div){
      div.append(html)
 }
 
-var json = {}
-json["pageSize"] = 20;
-json["pageNo"] = 0;
-json["typeId"] = 1;
-json["keyword"] = orgName;
 
-sendPostRequestByJsonObj(searchUrl.news,json,function(data){
-    orgNewsList(data);
-})
 //相关新闻
 function orgNewsList(data){
    var div = $("tbody[data-query='lists']");
