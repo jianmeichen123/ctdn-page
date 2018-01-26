@@ -495,3 +495,5 @@ input::-ms-clear, input::-ms-reveal {
 .commerce_inst_b_table .commerce_inst_b_table_one{min-width:260px}
 .commerce_inst_b_table .commerce_inst_b_table_two{min-width:117px}
 .commerce_inst_b_y{background-color:#9bde73;    border-radius: 50%; line-height: 60px; margin-left:auto; margin-right:auto;}
+.no_data img{margin-left:auto; margin-right:auto; margin-top:30px;}
+.no_data div{text-align:center;}

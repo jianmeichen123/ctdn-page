@@ -167,8 +167,20 @@ var org_chart= {
 			}
 		sendPostRequestByJsonObjInOrgChart(detail.orgProject,json,function(data){
 			if(data.success){
+				console.log("点点滴滴")
+				console.log( data.data.chartProjectOrgList)
+				console.log("点点滴滴")
 				var linksArr =  new Array()
 				var projOrgArr = data.data.chartProjectOrgList
+				if(projOrgArr ==''){
+					$("#commerce_in").hide();
+					$(".no_data").show();
+					return '';
+				}else{
+
+					$("#commerce_in").show();
+					$(".no_data").hide();
+				}
 				for(var m=0;m<projOrgArr.length;m++){
 					var json = {}
 					json['source'] = projOrgArr[m].orgName
