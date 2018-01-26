@@ -598,8 +598,8 @@ $('body').delegate('#industryList li','click', function(event){
             options.attr("selected", false);
             options.first().attr("selected", true);
         });
-        $(".num_or_money span").removeClass("$(".num_or_money span")
-        $(".num_or_money span[lang=1]").attr("eachrst_tit_on");
+        $(".num_or_money span").removeClass("eachrst_tit_on")
+        $(".num_or_money span[lang='1']").addClass("eachrst_tit_on");
         $(".industryTab").html($(this).html())
         if($(this).val()==0){
             $("#curmonth").show()
