@@ -966,15 +966,19 @@ var option_four_l = {
 	    },
 	    legend: {
 	        //orient: 'vertical',
-	        bottom: '0',
+	        bottom: '2',
 	        x:'center',
 	        data: merName,
+	        padding: [15, 20],
+	        borderWidth:1,
+	        borderRadius:40,
+	        borderColor: '#ccc',
 	    },
 	    series : [
 	        {
 	            name: '并购股权',
 	            type: 'pie',
-	            radius : '75%',
+	            radius : '70%',
 	            center: ['50%', '50%'],
 	            data:merData,
 	            itemStyle: {
@@ -1012,15 +1016,19 @@ var option_four_r = {
 	    },
 	    legend: {
 	        //orient: 'vertical',
-	        bottom: '0',
+	        bottom: '2',
 	        x:'center',
+	        padding: [15, 20],
+	        borderWidth:1,
+	        borderRadius:40,
+	        borderColor: '#ccc',
 	        data: curName
 	    },
 	    series : [
 	        {
 	            name: '并购币种',
 	            type: 'pie',
-	            radius : '75%',
+	            radius : '70%',
 	            center: ['50%', '50%'],
 	            data:curData,
 	            itemStyle: {

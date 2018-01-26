@@ -451,6 +451,7 @@ var  option = {
 	        },
 	        selectedMode: 'false',
 	        left: 0,
+	        top:20,
 	        data: ['投资项目', '投资机构'],
 	        icon: 'circle'
 	    }],

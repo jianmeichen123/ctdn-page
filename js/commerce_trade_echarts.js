@@ -67,12 +67,12 @@ var option = {
         '#ff635b', '#cfbf97','#9d9d9d', '#b0ffd7', '#000000'
     ],
     tooltip: {
-        trigger: 'axis',
+        trigger: 'item',
         type:'solid'
     },
     legend: {
-    	 x : 'right',
-         y : 'bottom',
+         right:20,
+         left:30,
         data:[],
         selected:{
         	"邮件营销":true,
