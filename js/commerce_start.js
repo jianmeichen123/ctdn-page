@@ -1,15 +1,19 @@
 //事件总数
 sendGetRequest(platformUrl.queryIndexHeaderStat,function(data){
-    $("[common_data]").each(function(i,e){
-        $(e).html(data.data[$(e).attr('common_data')]);
-    })
+    if(data['success']){
+        $("[common_data]").each(function(i,e){
+            $(e).html(data.data[$(e).attr('common_data')]);
+        })
+    }
 })
-sendGetRequest(detail.queryHeaderStatAdd,function(data){
-    $("[common_data]").each(function(i,e){
-        if($(e).html() =="0"){
-            $(e).html(data.data[$(e).attr('common_data').split(":")[0]]);
-        }
-    })
+sendGetRequest(detail.queryHeaderStatCommon,function(data){
+    if(data['success']){
+        $("[common_data]").each(function(i,e){
+            if($(e).html() =="0"){
+                $(e).html(data.data[$(e).attr('common_data').split(":")[0]]);
+            }
+        })
+    }
 })
 function com_area(year){
     var myChart = echarts.init(document.getElementById('commerce_one'));
@@ -328,7 +332,7 @@ function com_industry(year){
     	        bottom: '2',
     	        x:'center',
     	        borderWidth:1,
-    	        itemGap: 20,    	        
+    	        itemGap: 20,
     	        borderRadius:40,
     	        borderColor: '#ccc',
     	        itemHeight: 14,
@@ -384,7 +388,7 @@ var option_three = {
             // y: 0,
             axisType: 'category',
             // realtime: false,
-            // loop: false,
+            loop: true,
             autoPlay: true,
             // currentIndex: 2,
             playInterval: 1000,
@@ -431,9 +435,12 @@ var option_three = {
         tooltip: {
             trigger: 'item',
             formatter:function(params){
-               console.log(params)
-
-               return params[0].name+"  新成立公司 "+param[0].value +"家";
+               if(params instanceof Array){
+                 param = params[0]
+               }else{
+                 param = params
+               }
+               return param.name+"  新成立公司 "+param.value +"家";
             }
         },
         calculable : true,
@@ -529,15 +536,12 @@ sendGetRequest(comOverview.investedRate,function(t){
 })
 
 var option_four = {
-	    tooltip: {
-	        trigger: 'axis',
-	        axisPointer: {
-	            type: 'cross',
-	            crossStyle: {
-	                color: '#999'
-	            }
-	        }
-	    },
+    tooltip: {
+        trigger: 'axis',
+        axisPointer: {
+            type: 'cross'
+        }
+    },
     dataZoom: [
         {
             type: 'slider',
