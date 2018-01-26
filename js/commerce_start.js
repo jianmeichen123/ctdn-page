@@ -327,6 +327,11 @@ function com_industry(year){
     	        trigger: 'item',
     	        formatter: "{a} <br/>{b} : {c} ({d}%)"
     	    },*/
+           label: {
+                normal: {
+                    formatter: '{b} {d}%',
+                }
+           },
     	    legend: {
     	        //orient: 'vertical',
     	        bottom: '2',
@@ -342,7 +347,6 @@ function com_industry(year){
     	    },
     	    series : [
     	        {
-    	            name: '并购币种',
     	            type: 'pie',
     	            radius : '65%',
     	            center: ['50%', '40%'],
@@ -432,8 +436,11 @@ var option_three = {
         title: {
             subtext: ''
         },
-        tooltip: {
+        tooltip : {
             trigger: 'item',
+            axisPointer : {            // 坐标轴指示器，坐标轴触发有效
+                type : 'none'        // 默认为直线，可选为：'line' | 'shadow'
+            },
             formatter:function(params){
                if(params instanceof Array){
                  param = params[0]
@@ -454,7 +461,7 @@ var option_three = {
             tooltip: {
                 trigger: 'axis',
                 axisPointer: {
-                    type: 'shadow',
+                   // type: 'shadow',
                     label: {
                         show: true,
                         formatter: function (params) {
@@ -537,17 +544,20 @@ sendGetRequest(comOverview.investedRate,function(t){
 
 var option_four = {
     tooltip: {
-        trigger: 'axis',
-        axisPointer: {
-            type: 'cross'
+        trigger: 'item',
+        formatter:function(params){
+           if (params.seriesType == "bar"){
+              return null
+           }
+           return params.name+" "+params.seriesName+params.value +"%";
         }
     },
     dataZoom: [
         {
             type: 'slider',
             xAxisIndex: 0,
-                        start: 30,
-                        end: 70,
+            start: 30,
+            end: 70,
             filterMode: 'empty'
         }],
 	    color:['#63e4ec','#12c1cc','#ee9898','#ffe0aa'],
@@ -712,12 +722,12 @@ var option_four = {
 	        {
 	            name:'未获投公司数',
 	            type:'bar',
+	            barGap: 0,
 	            data:myChart_four_data["unInvestedNum"]
 	        },
 	        {
 	            name:'获投公司数',
 	            type:'bar',
-	            barCategoryGap: '30',
 	            data:myChart_four_data["investedNum"]
 	        },
 	        {
