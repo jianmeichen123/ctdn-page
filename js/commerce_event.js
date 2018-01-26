@@ -55,7 +55,7 @@ function capData(){
         commerce_one();
     })
 }
-sendGetRequest(detail.getEventDistricts+"/"+4,function(data){
+sendGetRequest(detail.getEventDistricts+"/"+1,function(data){
     for(i in data.data){
         if(i<20){
             var capJson = {};
