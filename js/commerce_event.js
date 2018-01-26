@@ -44,24 +44,28 @@ function capData(){
             capDatas = [];
         }
         for(i in data.data){
+            if(i<20){
+                var capJson = {};
+                capJson["name"] = data.data[i].districtSubName;
+                capJson["value"] = data.data[i].eventNum;
+                geoMap[data.data[i].districtSubName] = map[data.data[i].districtSubName]
+                capDatas.push(capJson);
+            }
+        }
+        commerce_one();
+    })
+}
+sendGetRequest(detail.getEventDistricts+"/"+1,function(data){
+    for(i in data.data){
+        if(i<20){
             var capJson = {};
             capJson["name"] = data.data[i].districtSubName;
             capJson["value"] = data.data[i].eventNum;
             geoMap[data.data[i].districtSubName] = map[data.data[i].districtSubName]
             capDatas.push(capJson);
+            capDist.push(data.data[i].districtSubName);
+            capAmount.push(data.data[i].eventNum);
         }
-        commerce_one();
-    })
-}
-sendGetRequest(detail.getEventDistricts+"/"+4,function(data){
-    for(i in data.data){
-        var capJson = {};
-        capJson["name"] = data.data[i].districtSubName;
-        capJson["value"] = data.data[i].eventNum;
-        geoMap[data.data[i].districtSubName] = map[data.data[i].districtSubName]
-        capDatas.push(capJson);
-        capDist.push(data.data[i].districtSubName);
-        capAmount.push(data.data[i].eventNum);
     }
     commerce_one();
 })
@@ -962,15 +966,19 @@ var option_four_l = {
 	    },
 	    legend: {
 	        //orient: 'vertical',
-	        bottom: '0',
+	        bottom: '2',
 	        x:'center',
 	        data: merName,
+	        padding: [15, 20],
+	        borderWidth:1,
+	        borderRadius:40,
+	        borderColor: '#ccc',
 	    },
 	    series : [
 	        {
 	            name: '并购股权',
 	            type: 'pie',
-	            radius : '75%',
+	            radius : '70%',
 	            center: ['50%', '50%'],
 	            data:merData,
 	            itemStyle: {
@@ -1008,15 +1016,19 @@ var option_four_r = {
 	    },
 	    legend: {
 	        //orient: 'vertical',
-	        bottom: '0',
+	        bottom: '2',
 	        x:'center',
+	        padding: [15, 20],
+	        borderWidth:1,
+	        borderRadius:40,
+	        borderColor: '#ccc',
 	        data: curName
 	    },
 	    series : [
 	        {
 	            name: '并购币种',
 	            type: 'pie',
-	            radius : '75%',
+	            radius : '70%',
 	            center: ['50%', '50%'],
 	            data:curData,
 	            itemStyle: {

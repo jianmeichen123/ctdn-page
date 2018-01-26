@@ -325,8 +325,12 @@ function com_industry(year){
     	    },*/
     	    legend: {
     	        //orient: 'vertical',
-    	        bottom: '0',
+    	        bottom: '2',
     	        x:'center',
+    	        borderWidth:1,
+    	        borderRadius:40,
+    	        borderColor: '#ccc',
+    	        padding: [15, 20],
     	        data: names
     	    },
     	    series : [
@@ -334,7 +338,7 @@ function com_industry(year){
     	            name: '并购币种',
     	            type: 'pie',
     	            radius : '65%',
-    	            center: ['50%', '50%'],
+    	            center: ['50%', '40%'],
     	            data:data,
     	            itemStyle: {
     	                emphasis: {
@@ -430,7 +434,7 @@ var option_three = {
             }
         },
         calculable : true,
-        color:['#5ab3f0','#7db1ff','#58c9f2'],
+        color:['#498be9','#59b2f1','#58caf4','#48f1f9','#29d4a7','#7cd84d','#a9eb63','#d5f566'],
         grid: {
         	 left: '3%',
              top:'30',
@@ -546,13 +550,13 @@ var option_four = {
 	        left: '3%',
 	        top:'30',
 	        right: '3%',
-	        bottom: '80',
+	        bottom: '100',
 	        containLabel: true
 	    },
 	    legend: {
 	        data:['未获投公司数','获投公司数','本年度获投率','上一年度获投率'],
 	        right:30,
-	        bottom: 43,
+	        bottom: 60,
 	    },
 	    xAxis: [
 	        {

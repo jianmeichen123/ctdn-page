@@ -3,13 +3,29 @@
  */
 var myChart = echarts.init(document.getElementById('commerce_in'));
 var org_chart= {
+	loadHeader:function(id){
+		if(id == null){ // 全部
+			this.loadTotalHeader()
+			this.loadMonthAddHeader()
+		}else{
+			this.localChildHeader(id)
+		}
+	},
+	localChildHeader:function(id){
+		  var json ={"industryId":id,"type":3}
+			sendPostRequestByJsonObj(detail.queryHeaderStatCommon,json,function(data){
+				if(data.data){
+					$("#investedProjNum_total").text(data.data.orgNum)
+				    $("#eventNum_total").text(data.data.invstEventNum)
+				    $("#amount_total").text(data.data.invstAmount)
+				}
+			})
+	},
 	loadTotalHeader:function(){
-		sendPostRequestByJsonObjInOrgChart(detail.queryGGTotalHeaderStat,null,function(data){
-			if(data.data){
-		    $("#investedProjNum_total").text(data.data.orgNum)
+		sendGetRequest(platformUrl.queryIndexHeaderStat,function(data){
+			$("#investedProjNum_total").text(data.data.orgNum)
 		    $("#eventNum_total").text(data.data.invstEventNum)
 		    $("#amount_total").text(data.data.invstAmount)
-			}
 		})
 	},
 	loadMonthAddHeader:function(){
@@ -56,7 +72,7 @@ var org_chart= {
 		var industry_timeType = $('#orgIndustry option:selected').val()
 		var round_timeType = $('#orgRound option:selected').val()
 		var project_timeType = $('#orgProject option:selected').val()
-	
+		this.loadHeader(id)
 		this.loadOrgIndustry(id,industry_timeType,industryType) //行业分布
 		this.loadOrgRound(id,round_timeType,industryType) //轮次分布
 		this.loadOrgProject(id,project_timeType,industryType) //关系图谱
@@ -347,8 +363,10 @@ var org_chart= {
 				}
 				var orgNumArr = new Array()
 				var orgNumArrLenght = data.data.industryList.length
+				var competeOrgEventNumArr = new Array()
 				for(var n=0;n<orgNumArrLenght;n++){
 					orgNumArr[n] = 0
+					competeOrgEventNumArr[n] = 0
 				}
 				$.each(data.data.competeList,function(key,value){
 					for(i in value){
@@ -360,17 +378,17 @@ var org_chart= {
 								var orgEventNum = org_arr[1]
 								var competeOrgEventNum = org_arr[2]
 								orgNumArr[j] +=(parseInt(orgEventNum)+parseInt(competeOrgEventNum))
+								competeOrgEventNumArr[j] += parseInt(competeOrgEventNum)
 							}
 						}
 					}
 				})
 				var industryListArr = new Array()
 				$.each(data.data.industryList,function(key,value){
-					if(orgNumArr[key] !=0){
+					if(orgNumArr[key] !=0 && competeOrgEventNumArr[key] !=0){
 						industryListArr.push(value)
 					}
 				})
-				console.log(industryListArr)
 				data.data.industryList = industryListArr
 				$.each(data.data.competeList,function(key,value){
 					for(i in value){
@@ -378,7 +396,7 @@ var org_chart= {
 							var arr  = new Array()
 							var org_list = value[i].split(',')
 							for(var i=0;i<org_list.length;i++){
-								if(orgNumArr[i]==0){
+								if(orgNumArr[i]==0 || competeOrgEventNumArr[i] ==0){
 									continue
 								}
 								var json = {}
@@ -392,9 +410,9 @@ var org_chart= {
 									json['rate'] = 0
 								}else{
 									var rate = (competeOrgEventNum/ sum).toFixed(2)
-									if(rate==0.00){
-										rate = -(orgEventNum/ sum).toFixed(2)
-									}
+//									if(rate==0.00){
+//										rate = -(orgEventNum/ sum).toFixed(2)
+//									}
 									json['rate'] = rate
 								}
 								json['name'] = name
@@ -433,6 +451,7 @@ var  option = {
 	        },
 	        selectedMode: 'false',
 	        left: 0,
+	        top:20,
 	        data: ['投资项目', '投资机构'],
 	        icon: 'circle'
 	    }],
@@ -489,16 +508,15 @@ var  option = {
 	}; 
 	//关系图谱点击机构事件
 	myChart.on('click', function (params) {
-		$('.partner_div').hide()
-		$('.compete_div').hide()
 		if(!params.data.code){
 			return
 		}
+		$('.partner_div').hide()
+		$('.compete_div').hide()
 		org_chart.graphClick(params.data.code,params.data.name);
 	});
 $(function(){
 //	org_chart.initParentIndustries(0)
-	org_chart.loadTotalHeader()
-	org_chart.loadMonthAddHeader()
 	org_chart.load()
+	org_chart.localChildHeader()
 })
