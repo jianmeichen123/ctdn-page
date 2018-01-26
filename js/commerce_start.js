@@ -328,9 +328,12 @@ function com_industry(year){
     	        bottom: '2',
     	        x:'center',
     	        borderWidth:1,
+    	        itemGap: 20,    	        
     	        borderRadius:40,
     	        borderColor: '#ccc',
-    	        padding: [15, 20],
+    	        itemHeight: 14,
+    	        itemWidth: 14,
+    	        padding: [15, 30],
     	        data: names
     	    },
     	    series : [
@@ -555,8 +558,11 @@ var option_four = {
 	    },
 	    legend: {
 	        data:['未获投公司数','获投公司数','本年度获投率','上一年度获投率'],
-	        right:30,
+	        right:40,
+	        itemGap: 30,
 	        bottom: 60,
+	        itemHeight: 14,
+	        itemWidth: 14,
 	    },
 	    xAxis: [
 	        {

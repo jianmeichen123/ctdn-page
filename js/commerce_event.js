@@ -435,13 +435,10 @@ function commerce_two(){
 var myChart_two = echarts.init(document.getElementById('commerce_two'));
 var option_two = {
 	    tooltip: {
-	        trigger: 'axis',
-	        axisPointer: {
-	            type: 'cross',
-	            crossStyle: {
-	                color: '#999'
-	            }
-	        }
+	    	 trigger: 'item',
+	         axisPointer : {            // 坐标轴指示器，坐标轴触发有效
+	             type : 'none'        // 默认为直线，可选为：'line' | 'shadow'
+	         }
 	    },
 	    color:['#ffc560','#4595a1'],
 	    toolbox: {
@@ -455,7 +452,8 @@ var option_two = {
 	    },
 	    legend: {
 	        data:['获投金额','获投笔数'],
-	        right:30,
+	        right:40,
+	        itemGap: 30,
 	        bottom: 10,
 	    },
 	    xAxis: [
@@ -742,7 +740,8 @@ var option_three = {
 	    },
 	    legend: {
 	        data:roundName,
-	        right:30,
+	        right:40,
+	        itemGap: 30,
 	        bottom: 10,
 	    },
 	    grid: {
@@ -1009,7 +1008,7 @@ var option_four_r = {
   		      fontWeight: 'normal',
   		      }
 	    },
-	    color:['#5ab1f0','#2ec8c9','#ffba80','#d87b80','#8d98b3','#e5ce0c','#98b652','#95706e','#b6a2de'],
+	    color:['#5ab1f0','#2ec8c9','#ffba80','#d87b80','#8d98b3','#e5ce0c','#c2e571','#95706e','#b6a2de'],
 	    tooltip : {
 	        trigger: 'item',
 	        formatter: "{a} <br/>{b} : {c} ({d}%)"
@@ -1069,15 +1068,12 @@ var option_five = {
 	  		      fontWeight: 'normal',
 	  		      }
 		    },
-	    tooltip: {
-	        trigger: 'axis',
-	        axisPointer: {
-	            type: 'cross',
-	            crossStyle: {
-	                color: '#999'
-	            }
-	        }
-	    },
+		    tooltip : {
+		        trigger: 'axis',
+		        axisPointer : {            // 坐标轴指示器，坐标轴触发有效
+		            type : 'none'        // 默认为直线，可选为：'line' | 'shadow'
+		        }
+		    },
 	    color:['#75e5cc'],
 	    toolbox: {
 	    },
@@ -1097,9 +1093,9 @@ var option_five = {
 	        {
 	            type: 'category',
 	            data: listedEx,
-	            axisPointer: {
+	           /* axisPointer: {
 	                type: 'shadow'
-	            },
+	            },*/
 		        axisLine:{
 	      		  show:true,
 	    		  lineStyle:{
@@ -1249,6 +1245,12 @@ var option_six = {
 	  		      fontWeight: 'normal',
 	  		      }
 		    },
+		    tooltip : {
+		        trigger: 'axis',
+		        axisPointer : {            // 坐标轴指示器，坐标轴触发有效
+		            type : 'none'        // 默认为直线，可选为：'line' | 'shadow'
+		        }
+		    },/*
 	    tooltip: {
 	        trigger: 'axis',
 	        axisPointer: {
@@ -1257,7 +1259,7 @@ var option_six = {
 	                color: '#999'
 	            }
 	        }
-	    },
+	    },*/
 	    color:['#75e5cc'],
 	    toolbox: {
 	    },
@@ -1277,9 +1279,9 @@ var option_six = {
 	        {
 	            type: 'category',
 	            data: merIndName,
-	            axisPointer: {
+	           /* axisPointer: {
 	                type: 'shadow'
-	            },
+	            },*/
 
 		        axisLine:{
 	      		  show:true,
