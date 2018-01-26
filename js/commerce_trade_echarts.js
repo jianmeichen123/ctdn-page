@@ -60,10 +60,10 @@ var option = {
     },
     color: [
         '#58082e', '#d40054', '#a95c76', '#f192b2', '#ff783d',
-        '#ff1000', '#ba51cd','#663ab6', '#1a2a80', '#798eff', 
-        '#00afff', '#92f2ff', '#46cbbe', '#0b8f82', '#2d771f', 
+        '#ff1000', '#ba51cd','#663ab6', '#1a2a80', '#798eff',
+        '#00afff', '#92f2ff', '#46cbbe', '#0b8f82', '#2d771f',
         '#65ff6b', '#95cc55', '#d0ff99', '#8b9b1b', '#e2d249',
-        '#fff25e', '#be930e','#896e58', '#950951', '#ac5a40', 
+        '#fff25e', '#be930e','#896e58', '#950951', '#ac5a40',
         '#ff635b', '#cfbf97','#9d9d9d', '#b0ffd7', '#000000'
     ],
     tooltip: {
@@ -100,8 +100,8 @@ var option = {
 		boundaryGap: false,
 		data: [],
 		scale:true,
-		top:0,			
-		
+		top:0,
+
 		scale: true,
 		axisLine:{
 		  show:true,
@@ -121,7 +121,7 @@ var option = {
 		          fontSize:'12'
 		      }
 		  }
-		     
+
 		 }
 	],
     yAxis:[
@@ -171,7 +171,7 @@ var option = {
 			                fontSize:'12'
 			            }
 			        }
-                 
+
              }
 	    ],
     series: []
@@ -213,7 +213,7 @@ var option_db = {
   			 },
             axisLabel: {
 			    //formatter: '{value}',
-			    interval:0,  
+			    interval:0,
 			    rotate:40 ,
 			    textStyle: {
 			    	color: '#333333',
@@ -236,11 +236,11 @@ var option_db = {
             splitLine :{
 	           	 show:true,
 	           	 lineStyle: {
-	
+
 	           		 color: ['#e6e6e6'],
-	
+
 	           		 width: 1,
-	
+
 	           		 type: 'solid',
            		 },
            },
@@ -249,7 +249,7 @@ var option_db = {
                 fontSize: '12'
             },
             axisLabel: {
-			    interval:0,  
+			    interval:0,
 			    textStyle: {
 			    	color: '#333333',
 			        fontSize:'12'
@@ -283,10 +283,10 @@ var option_three = {
                            },
                            color: [
                                    '#58082e', '#d40054', '#a95c76', '#f192b2', '#ff783d',
-                                   '#ff1000', '#ba51cd','#663ab6', '#1a2a80', '#798eff', 
-                                   '#00afff', '#92f2ff', '#46cbbe', '#0b8f82', '#2d771f', 
+                                   '#ff1000', '#ba51cd','#663ab6', '#1a2a80', '#798eff',
+                                   '#00afff', '#92f2ff', '#46cbbe', '#0b8f82', '#2d771f',
                                    '#65ff6b', '#95cc55', '#d0ff99', '#8b9b1b', '#e2d249',
-                                   '#fff25e', '#be930e','#896e58', '#950951', '#ac5a40', 
+                                   '#fff25e', '#be930e','#896e58', '#950951', '#ac5a40',
                                    '#ff635b', '#cfbf97','#9d9d9d', '#b0ffd7', '#000000'
                                ],
                            series: [{
@@ -579,9 +579,10 @@ function reloadEchars(){
 
 //按融资笔数(1) 按融资金额(2) 切换
 $('.num_or_money span').click(function(){
-    var echarts_flag = $(this).closest(".background_boeder_commerce").attr("echarts_flag");
+    var div = $(this).closest(".background_boeder_commerce")
+    var echarts_flag = div.attr("echarts_flag");
 	yAxis_name = $(this).text()
-	$('.num_or_money span').removeClass('eachrst_tit_on')
+	div.find("span").removeClass('eachrst_tit_on')
 	$(this).addClass('eachrst_tit_on')
 	var lang = $(this).attr('lang')
 	showEcharts(echarts_flag,lang)
@@ -597,6 +598,8 @@ $('body').delegate('#industryList li','click', function(event){
             options.attr("selected", false);
             options.first().attr("selected", true);
         });
+        $(".num_or_money span").removeClass("$(".num_or_money span")
+        $(".num_or_money span[lang=1]").attr("eachrst_tit_on");
         $(".industryTab").html($(this).html())
         if($(this).val()==0){
             $("#curmonth").show()
@@ -608,6 +611,7 @@ $('body').delegate('#industryList li','click', function(event){
        reloadEchars();
     }
 })
+
 function showEcharts(echarts_flag,lang){
     if(echarts_flag == 1 ){ //图表1
     		if(industry_data==null){
@@ -686,9 +690,9 @@ function showEcharts(echarts_flag,lang){
     		option_db.xAxis[0].data = round_data.data.xAxis.slice(0,myChartDB_default_industry_num)
     		option_db.legend.data=round_data.data.legend
     		if(lang==2){
-                option.yAxis[0].name = yAxis_name+"/万元"
+                option_db.yAxis[0].name = yAxis_name+"/万元"
             }else{
-                option.yAxis[0].name = yAxis_name
+                option_db.yAxis[0].name = yAxis_name
             }
     		var series =  round_data.data.series.slice(0,myChartDB_default_industry_num)
     		var y_data =  new Array()
