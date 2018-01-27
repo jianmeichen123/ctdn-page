@@ -294,6 +294,7 @@ var org_chart= {
 		sendPostRequestByJsonObjInOrgChart(detail.orgPartner,json,function(data){
 			if(data.success){
 				if(data.data.partnerList==null || data.data.partnerList.length==0){
+					$('.partner_div').hide()
 					$("#partner_tr").html("");
 					$("#partner_tr_script").tmpl(data).appendTo($("#partner_tr"))
 					$("#partner_tbody").html('<tr ><td style="text-align:center;"  colspan="'+(data.data.industryList.length+2)+'" >暂无数据</td></tr>')
@@ -368,6 +369,7 @@ var org_chart= {
 		sendPostRequestByJsonObjInOrgChart(detail.orgCompete,json,function(data){
 			if(data.success){
 				if(data.data.competeList== null || data.data.competeList.length==0){
+					$('.compete_div').hide()
 					$("#compete_tr").html("");
 					$("#compete_tr_script").tmpl(data).appendTo($("#compete_tr"))
 					$("#compete_tbody").html('<tr ><td style="text-align:center;"  colspan="'+(data.data.industryList.length+2)+'" >暂无数据</td></tr>')
