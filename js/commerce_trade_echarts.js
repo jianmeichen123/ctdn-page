@@ -1,5 +1,5 @@
 var myChart_default_industry_num = 29
-var myChartDB_default_industry_num = 29
+var myChartDB_default_industry_num = 35
 var industry_data = null
 var round_data = null
 var rzbk_data =null
