@@ -405,7 +405,7 @@ var option_three = {
                 color : '#4dcbff'
             },
             controlStyle: {
-            	show: true,
+               show: true,
         	   emphasis: {
 
         	   color: '#a9a9a9',
@@ -476,7 +476,7 @@ var option_three = {
                 'type':'category',
                 'axisLabel':{'interval':0},
                 'data':myChart_three_j["name"],
-                axisLabel: {
+                 axisLabel: {
     			    formatter: '{value}',
     			    interval:0,
     			    rotate:40 ,
@@ -519,7 +519,17 @@ var option_three = {
             }
         ],
         series: [
-            {name: '初创公司', type: 'bar'},
+            {name: '初创公司', type: 'bar',
+                 itemStyle: {
+                             //通常情况下：
+                             normal:{
+                 　　　　　　　　　　　　//每个柱子的颜色即为colorList数组里的每一项，如果柱子数目多于colorList的长度，则柱子颜色循环使用该数组
+                                 color: function (params){
+                                     var colorList = ['#000'];
+                                     return colorList[params.dataIndex];
+                                 }
+                             },
+                 },},
             {
                 type: 'pie',
                 center: ['85%', '20%'],
