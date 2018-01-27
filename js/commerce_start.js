@@ -367,7 +367,7 @@ function com_industry(year){
 }
 com_industry()
 //投资事件轮次分析
-var vvad='eeeeee'
+var vvad=''
 var myChart_three = echarts.init(document.getElementById('commerce_three'));
 var dataMap = {};
 var myChart_three_j = {}
@@ -378,11 +378,14 @@ sendGetRequest(comOverview.projectSetup,function(t){
     myChart_three_j["name"] = t["names"];
     var quartersCoumt = []
     quarters = t["quarters"]
-    $.each(t['quartersCoumt'],function(k,v){
-        quartersCoumt.push({"name":k,"value":v})
+    $(quarters).each(function(i,e){
+         quartersCoumt.push({"name":e,"value":t['quartersCoumt'][e]})
+         var v = t["data:bar"][e]
+         myChart_three_series.push({ series: [ {data: v}, {data: quartersCoumt} ] })
     })
-    $.each(t["data:bar"],function(k,v){
-        myChart_three_series.push({ series: [ {data: v}, {data: quartersCoumt} ] })
+    $(quarters).each(function(i,e){
+         var v = t["data:bar"][e]
+         myChart_three_series.push({ series: [ {data: v}, {data: quartersCoumt} ] })
     })
 })
 
@@ -523,14 +526,13 @@ var option_three = {
                  itemStyle: {
                              normal:{
                                  color: function (params){
-                                     var colorList = ['#000'];
-                                     console.log(vvad)
-                                     return  vvad //colorList[vvad];
+                                     return  vvad ==""?"#498be9":vvad;
                                  }
                              },
                  },},
             {
                 type: 'pie',
+                color : ['#498be9','#59b2f1','#58caf4','#48f1f9','#29d4a7','#7cd84d','#a9eb63','#d5f566'],
                 center: ['85%', '20%'],
                 radius: '28%',
                 z: 100
