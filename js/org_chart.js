@@ -17,7 +17,7 @@ var org_chart= {
 				if(data.data){
 					$("#investedProjNum_total").text(data.data.orgNum)
 				    $("#eventNum_total").text(data.data.invstEventNum)
-				    $("#amount_total").text(data.data.invstAmount)
+				    $("#amount_total").text(parseInt(data.data.invstAmount/10000))
 				}
 			})
 	},
@@ -25,7 +25,7 @@ var org_chart= {
 		sendGetRequest(platformUrl.queryIndexHeaderStat,function(data){
 			$("#investedProjNum_total").text(data.data.orgNum)
 		    $("#eventNum_total").text(data.data.invstEventNum)
-		    $("#amount_total").text(data.data.invstAmount)
+		    $("#amount_total").text(parseInt(data.data.invstAmount/10000))
 		})
 	},
 	loadMonthAddHeader:function(){
@@ -33,7 +33,7 @@ var org_chart= {
 			if(data.data){
 			    $("#investedProjNum_curmonth").text(data.data.orgNum)
 			    $("#eventNum_curmonth").text(data.data.invstEventNum)
-			    $("#amount_curmonth").text(data.data.invstAmount)
+			    $("#amount_curmonth").text(parseInt(data.data.invstAmount/10000))
 			}
 		})
 	},

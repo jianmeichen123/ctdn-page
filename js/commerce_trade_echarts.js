@@ -7,7 +7,6 @@ var cxhtfx_data =null
 var rxgmfb_data = null
 var moneyRange =[];
 var roundName=[]
-var yAxis_name = '融资笔数'
 var myChart = echarts.init(document.getElementById('commerce_one'));
 //加载行业
 sendGetRequest(platformUrl.industry,function(data){
@@ -581,7 +580,6 @@ function reloadEchars(){
 $('.num_or_money span').click(function(){
     var div = $(this).closest(".background_boeder_commerce")
     var echarts_flag = div.attr("echarts_flag");
-	yAxis_name = $(this).text()
 	div.find("span").removeClass('eachrst_tit_on')
 	$(this).addClass('eachrst_tit_on')
 	var lang = $(this).attr('lang')
@@ -619,9 +617,9 @@ function showEcharts(echarts_flag,lang){
     		}
     		option.xAxis[0].data = industry_data.data.xAxis
     		if(lang==2){
-    		    option.yAxis[0].name = yAxis_name+"/万元"
+    		    option.yAxis[0].name ="融资金额/万元"
     		}else{
-    		    option.yAxis[0].name = yAxis_name
+    		    option.yAxis[0].name = "融资笔数"
     		}
     		var legend = industry_data.data.legend.slice(0,myChart_default_industry_num)
     		legend.push('平均值')
@@ -690,9 +688,9 @@ function showEcharts(echarts_flag,lang){
     		option_db.xAxis[0].data = round_data.data.xAxis.slice(0,myChartDB_default_industry_num)
     		option_db.legend.data=round_data.data.legend
     		if(lang==2){
-                option_db.yAxis[0].name = yAxis_name+"/万元"
+                option_db.yAxis[0].name = "融资金额/万元"
             }else{
-                option_db.yAxis[0].name = yAxis_name
+                option_db.yAxis[0].name = "融资笔数"
             }
     		var series =  round_data.data.series.slice(0,myChartDB_default_industry_num)
     		var y_data =  new Array()
