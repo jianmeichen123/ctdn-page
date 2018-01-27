@@ -1,5 +1,5 @@
 var myChart_default_industry_num = 29
-var myChartDB_default_industry_num = 29
+var myChartDB_default_industry_num = 35
 var industry_data = null
 var round_data = null
 var rzbk_data =null
@@ -581,6 +581,9 @@ $('.num_or_money span').click(function(){
     var div = $(this).closest(".background_boeder_commerce")
     var echarts_flag = div.attr("echarts_flag");
 	div.find("span").removeClass('eachrst_tit_on')
+	var rzdb_span = $(this).attr('lang');
+	div.find("span").removeClass('commerce_name_on')
+	div.find('span[lang='+rzdb_span+']').addClass('commerce_name_on')
 	$(this).addClass('eachrst_tit_on')
 	var lang = $(this).attr('lang')
 	showEcharts(echarts_flag,lang)
@@ -617,9 +620,9 @@ function showEcharts(echarts_flag,lang){
     		}
     		option.xAxis[0].data = industry_data.data.xAxis
     		if(lang==2){
-    		    option.yAxis[0].name ="融资金额/万元"
+    		    option.yAxis[0].name =""
     		}else{
-    		    option.yAxis[0].name = "融资笔数"
+    		    option.yAxis[0].name = ""
     		}
     		var legend = industry_data.data.legend.slice(0,myChart_default_industry_num)
     		legend.push('平均值')
@@ -688,9 +691,9 @@ function showEcharts(echarts_flag,lang){
     		option_db.xAxis[0].data = round_data.data.xAxis.slice(0,myChartDB_default_industry_num)
     		option_db.legend.data=round_data.data.legend
     		if(lang==2){
-                option_db.yAxis[0].name = "融资金额/万元"
+                option_db.yAxis[0].name = ""
             }else{
-                option_db.yAxis[0].name = "融资笔数"
+                option_db.yAxis[0].name = ""
             }
     		var series =  round_data.data.series.slice(0,myChartDB_default_industry_num)
     		var y_data =  new Array()

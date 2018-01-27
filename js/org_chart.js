@@ -532,5 +532,4 @@ var  option = {
 $(function(){
 //	org_chart.initParentIndustries(0)
 	org_chart.load()
-	org_chart.localChildHeader()
 })
