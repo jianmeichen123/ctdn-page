@@ -2,16 +2,24 @@
 sendGetRequest(platformUrl.queryIndexHeaderStat,function(data){
     if(data['success']){
         $("[common_data]").each(function(i,e){
-            $(e).html(data.data[$(e).attr('common_data')]);
+            if($(e).attr("data-type") =='int'){
+                $(e).html(parseInt(data.data[$(e).attr('common_data')]/10000));
+            }else{
+                $(e).html(data.data[$(e).attr('common_data')]);
+            }
+
         })
     }
 })
-sendGetRequest(detail.queryHeaderStatCommon,function(data){
+sendPostRequestByJsonObj(detail.queryHeaderStatCommon,{"type":2},function(data){
     if(data['success']){
-        $("[common_data]").each(function(i,e){
-            if($(e).html() =="0"){
-                $(e).html(data.data[$(e).attr('common_data').split(":")[0]]);
+        $("[common_data_add]").each(function(i,e){
+            if($(e).attr("data-type") =='int'){
+                $(e).html(parseInt(data.data[$(e).attr('common_data_add')]/10000));
+            }else{
+                $(e).html(data.data[$(e).attr('common_data_add')]);
             }
+
         })
     }
 })
@@ -19,9 +27,16 @@ function com_area(year){
     var myChart = echarts.init(document.getElementById('commerce_one'));
 
     var data = [];
+    var kd = 0;
     sendGetRequest(comOverview.area+year,function(t){
         data = t;
+        var map_val = []
+        $(data).each(function(i,e){
+            map_val.push(e.value)
+        })
+        kd = (Math.max.apply(null,map_val)-Math.min.apply(null,map_val))/10
     })
+
     var geoCoordMap = { '北京':[116.46,39.92 ], '河北':[114.48,38.03], '辽宁':[123.38,41.8], '四川':[104.06,30.67], '安徽':[117.27,31.86], '河南':[113.65,34.76], '呼和浩特':[111.65,40.82], '福建':[119.3,26.08], '黑龙江':[126.63,45.75], '宁夏':[106.27,38.47], '西藏':[91.11,29.97], '甘肃':[103.73,36.03], '湖北':[114.31,30.52], '青海':[101.74,36.56], '新疆':[87.68,43.77], '广东':[113.23,23.16], '湖南':[113,28.21], '山东':[117,36.65], '云南':[102.73,25.04], '广西':[102.73,25.04], '云南':[102.73,25.04], '广西':[108.33,22.84], '吉林':[125.35,43.88], '山西':[112.53,37.87], '浙江':[120.19,30.26], '贵州':[106.71,26.57], '江苏':[118.78,32.04], '陕西':[108.95,34.27], '重庆':[106.54,29.59], '海南':[110.35,20.02], '江西':[115.89,28.68], '上海':[121.48,31.22], '香港':[114.15,22.15], '台湾':[120.19,22.37], '澳门':[113.54,22.18] };
 
     var convertData = function(data) {
@@ -199,7 +214,7 @@ function com_area(year){
             coordinateSystem: 'geo',
             data: convertedData[0],
             symbolSize: function(val) {
-                return Math.max(val[2] / 500, 8);
+                return Math.max(val[2]/kd*2.18,8);
             },
             showEffectOn: 'render',
             rippleEffect: {
@@ -351,13 +366,6 @@ function com_industry(year){
     	            radius : '65%',
     	            center: ['50%', '40%'],
     	            data:data,
-    	            itemStyle: {
-    	                emphasis: {
-    	                    shadowBlur: 10,
-    	                    shadowOffsetX: 0,
-    	                    shadowColor: 'rgba(0, 0, 0, 0.5)'
-    	                }
-    	            }
     	        }
     	    ]
     	};
@@ -454,7 +462,7 @@ var option_three = {
             }
         },
         calculable : true,
-        color:['#498be9','#59b2f1','#58caf4','#48f1f9','#29d4a7','#7cd84d','#a9eb63','#d5f566'],
+        //color:['#498be9','#59b2f1','#58caf4','#48f1f9','#29d4a7','#7cd84d','#a9eb63','#d5f566'],
         grid: {
         	 left: '3%',
              top:'30',
@@ -544,10 +552,10 @@ var option_three = {
 
 myChart_three.setOption(option_three,true);
 myChart_three.on('timelinechanged', function (timeLineIndex) {
-    console.log(timeLineIndex)
     var color_ = ['#498be9','#59b2f1','#58caf4','#48f1f9','#29d4a7','#7cd84d','#a9eb63','#d5f566'];
     var color_on =color_[timeLineIndex.currentIndex]
-    return vvad=color_on
+    vvad=color_on
+    myChart_three.setOption(option_three)
 
 });
 //并购股权和币种分析
@@ -564,7 +572,7 @@ var option_four = {
         trigger: 'item',
         formatter:function(params){
            if (params.seriesType == "bar"){
-              return null
+              return params.name+" "+params.seriesName+params.value +"家";
            }
            return params.name+" "+params.seriesName+params.value +"%";
         }
@@ -750,7 +758,7 @@ var option_four = {
 	        {
 	            name:'本年度获投率',
 	            type:'line',
-
+                symbolSize:10,
 	            symbol:'circle',
 	            yAxisIndex: 1,
 	            data:myChart_four_data["investedRate"]
@@ -758,7 +766,7 @@ var option_four = {
 	        {
 	            name:'上一年度获投率',
 	            type:'line',
-
+                symbolSize:10,
 	            symbol:'circle',
 	            yAxisIndex: 1,
 	            data:myChart_four_data["investedRateLastYear"]

@@ -497,3 +497,9 @@ input::-ms-clear, input::-ms-reveal {
 .commerce_inst_b_y{background-color:#9bde73;    border-radius: 50%; line-height: 60px; margin-left:auto; margin-right:auto;}
 .no_data img{margin-left:auto; margin-right:auto; margin-top:30px;}
 .no_data div{text-align:center;}
+/*new_year*/
+.new_year{z-index:998; top:0;   position: fixed; width:100%; height:100%;}
+.new_year_bj{background-color:#000;width:100%; height:100%;opacity:0.5; position: absolute; z-index: 999;}
+.new_year_img{float:left; width:591px}
+.new_year_click{width:40px; height:40px;float:right; cursor:pointer;}
+.new_year_cen{width:635px; position: absolute; z-index: 1009; left:50%; margin-left:-315px; top:20px;}

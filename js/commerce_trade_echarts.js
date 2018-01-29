@@ -1,5 +1,3 @@
-var myChart_default_industry_num = 29
-var myChartDB_default_industry_num = 35
 var industry_data = null
 var round_data = null
 var rzbk_data =null
@@ -33,10 +31,15 @@ function querytotalheader(){
     var json ={"industryId":industryId,"type":3}
 	sendPostRequestByJsonObj(detail.queryHeaderStatCommon,json,function(data){
 		if(data.data){
-	    $("#projectNum_total").text(data.data.projectNum)
-	    $("#investedProjNum_total").text(data.data.investedProjNum)
-	    $("#eventNum_total").text(data.data.eventNum)
-	    $("#amount_total").text(Math.round(data.data.amount/10000))
+            $("#projectNum_total").text(data.data.projectNum)
+            $("#investedProjNum_total").text(data.data.investedProjNum)
+            $("#eventNum_total").text(data.data.eventNum)
+            $("#amount_total").text(Math.round(data.data.amount/10000))
+		}else{
+		    $("#projectNum_total").text(0)
+            $("#investedProjNum_total").text(0)
+            $("#eventNum_total").text(0)
+            $("#amount_total").text(0)
 		}
 	})
 }
@@ -69,7 +72,8 @@ var option = {
         trigger: 'item',
         type:'solid',
         formatter:function(params){
-            if(params.seriesIndex==1){
+            var echarts_flag= $(".background_boeder_commerce[echarts_flag='1']").find(".num_or_money span.eachrst_tit_on").attr("lang");
+            if(echarts_flag==1){
              return params.name+"<br/>"+params.seriesName+":"+params.value+"笔"
             }else{
              return params.name+"<br/>"+params.seriesName+":"+params.value+"万元"
@@ -77,15 +81,14 @@ var option = {
         }
     },
     legend: {
-         right:20,
-         left:30,
+        right:20,
+        left:30,
+        width:1148,
         data:[],
         selected:{
-        	"邮件营销":true,
-        	"联盟广告":false
         },
         type:'scroll',
-        bottom: 10,
+        bottom: 10
     },
     grid: {
         left: '3%',
@@ -182,8 +185,6 @@ var option = {
 	    ],
     series: []
 };
-myChart.setOption(option,true);
-
 
 //行业融资对比
 var myChart_db = echarts.init(document.getElementById('commerce_two'));
@@ -626,43 +627,30 @@ function showEcharts(echarts_flag,lang){
     			return
     		}
     		option.xAxis[0].data = industry_data.data.xAxis
-    		if(lang==2){
-    		    option.yAxis[0].name =""
-    		}else{
-    		    option.yAxis[0].name = ""
+    		var series = industry_data.data.series
+    		var legend = industry_data.data.legend
+    		if(legend.indexOf("平均值")<0){
+    		    var num_avg_array = [0,0,0,0,0,0,0,0,0,0,0,0]
+    		    var money_avg_array = [0,0,0,0,0,0,0,0,0,0,0,0]
+                for(var j=0;j<series.length;j++){
+                    var entity = series[j]
+                    var json = {}
+                    for(var m = 0;m<num_avg_array.length;m++){
+                        num_avg_array[m] = parseInt(entity.investedNumStrList[m]) + num_avg_array[m]
+                        money_avg_array[m] = parseInt(entity.investedAmountStrList[m]) + money_avg_array[m]
+                    }
+                }
+                for(var n =0;n<num_avg_array.length;n++){
+                    num_avg_array[n] = (num_avg_array[n]/(industry_data.data.legend.length)).toFixed(2)
+                    money_avg_array[n] = (money_avg_array[n]/(industry_data.data.legend.length)).toFixed(2)
+                }
+                var avg_json = {}
+                avg_json['industryName'] = '平均值'
+                avg_json['investedNumStrList'] = num_avg_array
+                avg_json['investedAmountStrList'] = money_avg_array
+                legend.push('平均值')
+                series.push(avg_json)
     		}
-    		var legend = industry_data.data.legend.slice(0,myChart_default_industry_num)
-    		legend.push('平均值')
-    		option.legend.data=legend
-    		var series =  industry_data.data.series.slice(0,myChart_default_industry_num)
-    		var num_array = [0,0,0,0,0,0,0,0,0,0,0,0]
-    		for(var j=0;j<series.length;j++){
-    			var entity = series[j]
-    			var json = {}
-    			if(lang == 1){
-    				for(var m = 0;m<num_array.length;m++){
-    					num_array[m] = parseInt(entity.investedNumStrList[m]) + num_array[m]
-    				}
-    			}
-    			if(lang == 2){
-    				for(var m = 0;m<num_array.length;m++){
-    					num_array[m] = parseInt(entity.investedAmountStrList[m]) + num_array[m]
-    				}
-    			}
-    		}
-    		for(var n =0;n<num_array.length;n++){
-    			num_array[n] = (num_array[n]/myChart_default_industry_num).toFixed(2)
-    		}
-    		var avg_json = {}
-    		avg_json['industryName'] = '平均值'
-    		if(lang == 1){
-    			avg_json['investedNumStrList'] = num_array
-    		}
-    		if(lang == 2){
-    			avg_json['investedAmountStrList'] = num_array
-    		}
-
-    		series.push(avg_json)
     		var y_data =  new Array()
     		for(var i=0;i<series.length;i++){
     			var entity = series[i]
@@ -680,7 +668,7 @@ function showEcharts(echarts_flag,lang){
     			y_data.push(json)
     		}
     		option.series = y_data
-
+    		option.legend.data=legend
     		for(var s =0;s<legend.length;s++){
     			var data_legend = legend[s]
     			if(s <= 9){
@@ -695,14 +683,9 @@ function showEcharts(echarts_flag,lang){
     		if(round_data==null){
     			return
     		}
-    		option_db.xAxis[0].data = round_data.data.xAxis.slice(0,myChartDB_default_industry_num)
+    		option_db.xAxis[0].data = round_data.data.xAxis;
     		option_db.legend.data=round_data.data.legend
-    		if(lang==2){
-                option_db.yAxis[0].name = ""
-            }else{
-                option_db.yAxis[0].name = ""
-            }
-    		var series =  round_data.data.series.slice(0,myChartDB_default_industry_num)
+    		var series =  round_data.data.series;
     		var y_data =  new Array()
     		for(var i=0;i<series.length;i++){
     			var entity = series[i]
@@ -731,7 +714,11 @@ function showEcharts(echarts_flag,lang){
        if(industryId==0){
           option_three.series[0].data=rzbk_data.data.series;
        }else{
-          option_three.series[0].data=rzbk_data.data.series[0].children;
+          if(rzbk_data.data.series.length>0){
+            option_three.series[0].data=rzbk_data.data.series[0].children;
+          }else{
+             option_three.series[0].data=[]
+          }
        }
        myChart_three.setOption(option_three,true);
     }
