@@ -2,16 +2,26 @@
 sendGetRequest(platformUrl.queryIndexHeaderStat,function(data){
     if(data['success']){
         $("[common_data]").each(function(i,e){
-            $(e).html(data.data[$(e).attr('common_data')]);
+            if($(e).attr("data-type") =='int'){
+                $(e).html(parseInt(data.data[$(e).attr('common_data')]/10000));
+            }else{
+                $(e).html(data.data[$(e).attr('common_data')]);
+            }
+
         })
     }
 })
-sendGetRequest(detail.queryHeaderStatCommon,function(data){
+sendPostRequestByJsonObj(detail.queryHeaderStatCommon,{"type":2},function(data){
     if(data['success']){
-        $("[common_data]").each(function(i,e){
-            if($(e).html() =="0"){
-                $(e).html(data.data[$(e).attr('common_data').split(":")[0]]);
+        $("[common_data_add]").each(function(i,e){
+            if($(e).attr("data-type") =='int'){
+                console.log(e)
+                console.log(data.data[$(e).attr('common_data_add')])
+                $(e).html(parseInt(data.data[$(e).attr('common_data_add')]/10000));
+            }else{
+                $(e).html(data.data[$(e).attr('common_data_add')]);
             }
+
         })
     }
 })
@@ -454,7 +464,7 @@ var option_three = {
             }
         },
         calculable : true,
-        color:['#498be9','#59b2f1','#58caf4','#48f1f9','#29d4a7','#7cd84d','#a9eb63','#d5f566'],
+        //color:['#498be9','#59b2f1','#58caf4','#48f1f9','#29d4a7','#7cd84d','#a9eb63','#d5f566'],
         grid: {
         	 left: '3%',
              top:'30',
@@ -544,10 +554,10 @@ var option_three = {
 
 myChart_three.setOption(option_three,true);
 myChart_three.on('timelinechanged', function (timeLineIndex) {
-    console.log(timeLineIndex)
     var color_ = ['#498be9','#59b2f1','#58caf4','#48f1f9','#29d4a7','#7cd84d','#a9eb63','#d5f566'];
     var color_on =color_[timeLineIndex.currentIndex]
-    return vvad=color_on
+    vvad=color_on
+    myChart_three.setOption(option_three)
 
 });
 //并购股权和币种分析
@@ -750,7 +760,7 @@ var option_four = {
 	        {
 	            name:'本年度获投率',
 	            type:'line',
-
+                symbolSize:10,
 	            symbol:'circle',
 	            yAxisIndex: 1,
 	            data:myChart_four_data["investedRate"]
@@ -758,7 +768,7 @@ var option_four = {
 	        {
 	            name:'上一年度获投率',
 	            type:'line',
-
+                symbolSize:10,
 	            symbol:'circle',
 	            yAxisIndex: 1,
 	            data:myChart_four_data["investedRateLastYear"]
