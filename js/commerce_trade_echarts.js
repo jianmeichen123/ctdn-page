@@ -1,5 +1,3 @@
-var myChart_default_industry_num = 29
-var myChartDB_default_industry_num = 35
 var industry_data = null
 var round_data = null
 var rzbk_data =null
@@ -78,15 +76,14 @@ var option = {
         }
     },
     legend: {
-         right:20,
-         left:30,
+        right:20,
+        left:30,
+        width:1148,
         data:[],
         selected:{
-        	"邮件营销":true,
-        	"联盟广告":false
         },
         type:'scroll',
-        bottom: 10,
+        bottom: 10
     },
     grid: {
         left: '3%',
@@ -627,7 +624,7 @@ function showEcharts(echarts_flag,lang){
     		option.xAxis[0].data = industry_data.data.xAxis
     		var series = industry_data.data.series
     		var legend = industry_data.data.legend
-    		if(legend.indexOf("平均值")<0 && series){
+    		if(legend.indexOf("平均值")<0){
     		    var num_avg_array = [0,0,0,0,0,0,0,0,0,0,0,0]
     		    var money_avg_array = [0,0,0,0,0,0,0,0,0,0,0,0]
                 for(var j=0;j<series.length;j++){
@@ -649,7 +646,6 @@ function showEcharts(echarts_flag,lang){
                 legend.push('平均值')
                 series.push(avg_json)
     		}
-    		option.legend.data=legend
     		var y_data =  new Array()
     		for(var i=0;i<series.length;i++){
     			var entity = series[i]
@@ -667,7 +663,7 @@ function showEcharts(echarts_flag,lang){
     			y_data.push(json)
     		}
     		option.series = y_data
-
+    		option.legend.data=legend
     		for(var s =0;s<legend.length;s++){
     			var data_legend = legend[s]
     			if(s <= 9){
@@ -682,14 +678,9 @@ function showEcharts(echarts_flag,lang){
     		if(round_data==null){
     			return
     		}
-    		option_db.xAxis[0].data = round_data.data.xAxis.slice(0,myChartDB_default_industry_num)
+    		option_db.xAxis[0].data = round_data.data.xAxis;
     		option_db.legend.data=round_data.data.legend
-    		if(lang==2){
-                option_db.yAxis[0].name = ""
-            }else{
-                option_db.yAxis[0].name = ""
-            }
-    		var series =  round_data.data.series.slice(0,myChartDB_default_industry_num)
+    		var series =  round_data.data.series;
     		var y_data =  new Array()
     		for(var i=0;i<series.length;i++){
     			var entity = series[i]
@@ -718,7 +709,11 @@ function showEcharts(echarts_flag,lang){
        if(industryId==0){
           option_three.series[0].data=rzbk_data.data.series;
        }else{
-          option_three.series[0].data=rzbk_data.data.series[0].children;
+          if(rzbk_data.data.series.length>0){
+            option_three.series[0].data=rzbk_data.data.series[0].children;
+          }else{
+             option_three.series[0].data=[]
+          }
        }
        myChart_three.setOption(option_three,true);
     }
