@@ -31,10 +31,15 @@ function querytotalheader(){
     var json ={"industryId":industryId,"type":3}
 	sendPostRequestByJsonObj(detail.queryHeaderStatCommon,json,function(data){
 		if(data.data){
-	    $("#projectNum_total").text(data.data.projectNum)
-	    $("#investedProjNum_total").text(data.data.investedProjNum)
-	    $("#eventNum_total").text(data.data.eventNum)
-	    $("#amount_total").text(Math.round(data.data.amount/10000))
+            $("#projectNum_total").text(data.data.projectNum)
+            $("#investedProjNum_total").text(data.data.investedProjNum)
+            $("#eventNum_total").text(data.data.eventNum)
+            $("#amount_total").text(Math.round(data.data.amount/10000))
+		}else{
+		    $("#projectNum_total").text(0)
+            $("#investedProjNum_total").text(0)
+            $("#eventNum_total").text(0)
+            $("#amount_total").text(0)
 		}
 	})
 }
