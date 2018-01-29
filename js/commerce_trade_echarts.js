@@ -69,7 +69,8 @@ var option = {
         trigger: 'item',
         type:'solid',
         formatter:function(params){
-            if(params.seriesIndex==1){
+            var echarts_flag= $(".background_boeder_commerce[echarts_flag='1']").find(".num_or_money span.eachrst_tit_on").attr("lang");
+            if(echarts_flag==1){
              return params.name+"<br/>"+params.seriesName+":"+params.value+"笔"
             }else{
              return params.name+"<br/>"+params.seriesName+":"+params.value+"万元"
@@ -182,8 +183,6 @@ var option = {
 	    ],
     series: []
 };
-myChart.setOption(option,true);
-
 
 //行业融资对比
 var myChart_db = echarts.init(document.getElementById('commerce_two'));
@@ -626,43 +625,31 @@ function showEcharts(echarts_flag,lang){
     			return
     		}
     		option.xAxis[0].data = industry_data.data.xAxis
-    		if(lang==2){
-    		    option.yAxis[0].name =""
-    		}else{
-    		    option.yAxis[0].name = ""
+    		var series = industry_data.data.series
+    		var legend = industry_data.data.legend
+    		if(legend.indexOf("平均值")<0 && series){
+    		    var num_avg_array = [0,0,0,0,0,0,0,0,0,0,0,0]
+    		    var money_avg_array = [0,0,0,0,0,0,0,0,0,0,0,0]
+                for(var j=0;j<series.length;j++){
+                    var entity = series[j]
+                    var json = {}
+                    for(var m = 0;m<num_avg_array.length;m++){
+                        num_avg_array[m] = parseInt(entity.investedNumStrList[m]) + num_avg_array[m]
+                        money_avg_array[m] = parseInt(entity.investedAmountStrList[m]) + money_avg_array[m]
+                    }
+                }
+                for(var n =0;n<num_avg_array.length;n++){
+                    num_avg_array[n] = (num_avg_array[n]/(industry_data.data.legend.length)).toFixed(2)
+                    money_avg_array[n] = (money_avg_array[n]/(industry_data.data.legend.length)).toFixed(2)
+                }
+                var avg_json = {}
+                avg_json['industryName'] = '平均值'
+                avg_json['investedNumStrList'] = num_avg_array
+                avg_json['investedAmountStrList'] = money_avg_array
+                legend.push('平均值')
+                series.push(avg_json)
     		}
-    		var legend = industry_data.data.legend.slice(0,myChart_default_industry_num)
-    		legend.push('平均值')
     		option.legend.data=legend
-    		var series =  industry_data.data.series.slice(0,myChart_default_industry_num)
-    		var num_array = [0,0,0,0,0,0,0,0,0,0,0,0]
-    		for(var j=0;j<series.length;j++){
-    			var entity = series[j]
-    			var json = {}
-    			if(lang == 1){
-    				for(var m = 0;m<num_array.length;m++){
-    					num_array[m] = parseInt(entity.investedNumStrList[m]) + num_array[m]
-    				}
-    			}
-    			if(lang == 2){
-    				for(var m = 0;m<num_array.length;m++){
-    					num_array[m] = parseInt(entity.investedAmountStrList[m]) + num_array[m]
-    				}
-    			}
-    		}
-    		for(var n =0;n<num_array.length;n++){
-    			num_array[n] = (num_array[n]/myChart_default_industry_num).toFixed(2)
-    		}
-    		var avg_json = {}
-    		avg_json['industryName'] = '平均值'
-    		if(lang == 1){
-    			avg_json['investedNumStrList'] = num_array
-    		}
-    		if(lang == 2){
-    			avg_json['investedAmountStrList'] = num_array
-    		}
-
-    		series.push(avg_json)
     		var y_data =  new Array()
     		for(var i=0;i<series.length;i++){
     			var entity = series[i]
