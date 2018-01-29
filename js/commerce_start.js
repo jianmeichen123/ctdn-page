@@ -574,7 +574,7 @@ var option_four = {
         trigger: 'item',
         formatter:function(params){
            if (params.seriesType == "bar"){
-              return null
+              return params.name+" "+params.seriesName+params.value +"家";
            }
            return params.name+" "+params.seriesName+params.value +"%";
         }
