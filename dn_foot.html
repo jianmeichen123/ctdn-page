@@ -10,7 +10,7 @@
 		<a href="contrast.html"><div class="Floating_box_href">去比较</div></a>
 	</div>
 </div>
-<div class="new_year">
+<div class="new_year none">
 <div class="new_year_bj"></div>
 <div class="new_year_cen">
 	<div class="new_year_img"><img src="img/dn/year_1.png"></div>
@@ -22,6 +22,8 @@
 $(function(){
 	if(getCookie("new_year_click")){
 		$('.new_year').hide();	 
+	}else{
+		$('.new_year').show();	
 	}
 	$('.new_year_click').click(function(){
 		setCookie("new_year_click",'newyear');
