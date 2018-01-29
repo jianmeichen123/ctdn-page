@@ -19,7 +19,8 @@ var capAmount = [];
 var capDatas = [];
 var map = { '北京':[116.46,39.92 ], '河北':[114.48,38.03], '辽宁':[123.38,41.8], '四川':[104.06,30.67], '安徽':[117.27,31.86], '河南':[113.65,34.76], '呼和浩特':[111.65,40.82], '福建':[119.3,26.08], '黑龙江':[126.63,45.75], '宁夏':[106.27,38.47], '西藏':[91.11,29.97], '甘肃':[103.73,36.03], '湖北':[114.31,30.52], '青海':[101.74,36.56], '新疆':[87.68,43.77], '广东':[113.23,23.16], '湖南':[113,28.21], '山东':[117,36.65], '云南':[102.73,25.04], '广西':[102.73,25.04], '云南':[102.73,25.04], '广西':[108.33,22.84], '吉林':[125.35,43.88], '山西':[112.53,37.87], '浙江':[120.19,30.26], '贵州':[106.71,26.57], '江苏':[118.78,32.04], '陕西':[108.95,34.27], '重庆':[106.54,29.59], '海南':[110.35,20.02], '江西':[115.89,28.68], '上海':[121.48,31.22], '天津':[117.10,39.10], '内蒙古':[111.65,40.82]};
  var geoMap = {};
-var capTime = $("#zbdt").val();
+//var capTime = $("#zbdt").val();
+var  capTime = 1;
 $("#zbdt").change(function(){
     capTime = $("#zbdt").val();
     capData();
@@ -174,7 +175,7 @@ var option = {
               type : 'shadow'        // 默认为直线，可选为：'line' | 'shadow'
           },
         formatter:function(params){
-                return params[0].data.name+"   "+params[0].data.value+"笔";
+                return params[0].data.name+"   "+(params[0].data.value)+"笔";
         }
     },
     grid: {
@@ -185,6 +186,14 @@ var option = {
     },
     xAxis: {
         type: 'value',
+
+          axisLabel: {
+        			            formatter: '{value} wwww%',
+        			            textStyle: {
+        			            	color: '#333333',
+        			                fontSize:'12'
+        			            }
+        			        },
         scale: true,
         position: 'top',
         boundaryGap: false,
@@ -261,11 +270,25 @@ var option = {
          tooltip: {
                 trigger: 'item',
                 formatter:function(params){
-                        return params.name+"   "+params.data.value[2]+"笔";
+                      return params.data.name+"   "+(params.data.value[2])+"笔";
                 }
           },
         symbolSize: function(val) {
-            return Math.max(val[2] / 20, 8);
+            if(capTime==1){
+                return Math.max(val[2] / 2, 8);
+            }
+             if(capTime==2){
+                return Math.max(val[2] / 5, 8);
+            }
+             if(capTime==3){
+                return Math.max(val[2] / 10, 8);
+            }
+             if(capTime==5){
+                return Math.max(val[2] / 50, 8);
+            }
+             if(capTime==4){
+                return Math.max(val[2] / 20, 8);
+            }
         },
         showEffectOn: 'render',
         rippleEffect: {
@@ -332,7 +355,24 @@ function renderBrushed(params) {
 
     for (var i = 0; i < Math.min(selectedItems.length, maxBar); i++) {
         categoryData.push(selectedItems[i].name);
-        barData.push(selectedItems[i].value[2]);
+
+         var barVal = selectedItems[i].value[2]
+            if(capTime==1){
+                barVal = barVal/10
+            }
+            if(capTime==2){
+                barVal = barVal/4
+            }
+            if(capTime==3){
+                barVal = barVal/2
+            }
+            if(capTime==5){
+                barVal = barVal*2.5
+            }
+            if(capTime==4){
+                barVal = barVal
+            }
+        barData.push(barVal);
     }
     this.setOption({
         yAxis: {
