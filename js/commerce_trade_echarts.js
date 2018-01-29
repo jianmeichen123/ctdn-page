@@ -67,7 +67,14 @@ var option = {
     ],
     tooltip: {
         trigger: 'item',
-        type:'solid'
+        type:'solid',
+        formatter:function(params){
+            if(params.seriesIndex==1){
+             return params.name+"<br/>"+params.seriesName+":"+params.value+"笔"
+            }else{
+             return params.name+"<br/>"+params.seriesName+":"+params.value+"万元"
+            }
+        }
     },
     legend: {
          right:20,
@@ -755,7 +762,11 @@ function showEcharts(echarts_flag,lang){
         option_five.series[0].data= data;
         option_five.series[0].symbolSize=function (val) {
             // 根据最大的交易量值 来控制气泡半径  （最小 3  最大 40）
-          return Math.round(3 + val[2] * 40 / maxTotalCount);
+           if(val[2]==0){
+                return 0
+           }else{
+                return Math.round(3 + val[2] * 40 / maxTotalCount);
+           }
         }
         myChart_five.setOption(option_five,false);
     }
