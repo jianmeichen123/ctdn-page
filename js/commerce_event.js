@@ -658,7 +658,7 @@ var option_two = {
 	        {
 	            name:'获投笔数',
 	            type:'line',
-
+                symbolSize:10,
 	            symbol:'circle',
 	            yAxisIndex: 1,
 	            data:numData
