@@ -752,7 +752,7 @@ function showEcharts(echarts_flag,lang){
            if(val[2]==0){
                 return 0
            }else{
-                return Math.round(3 + val[2] * 40 / maxTotalCount);
+                return Math.round(8 + val[2] * 50 / maxTotalCount);
            }
         }
         myChart_five.setOption(option_five,false);
