@@ -447,7 +447,7 @@ var option_five = {
     grid: {
    	 	left: '20',
         top:'20',
-        right: '80',
+        right: '110',
         bottom: '10',
        containLabel: true
    },
@@ -455,7 +455,7 @@ var option_five = {
         position: 'top',
         formatter: function (params) {
             var time = $("select[name='timeType']").find("option:selected").text()
-            var result =time+roundName[params.value[0]]+"</br>规模在"+moneyRange[params.value[1]]+"区间的有"+params.value[2]+"笔融资"
+            var result =time+roundName[params.value[0]]+"</br>规模在"+moneyRange[params.value[1]]+"</br>区间的有"+params.value[2]+"笔融资"
             return result
         }
     },
