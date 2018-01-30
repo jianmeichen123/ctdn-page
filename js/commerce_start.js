@@ -3,7 +3,7 @@ sendGetRequest(platformUrl.queryIndexHeaderStat,function(data){
     if(data['success']){
         $("[common_data]").each(function(i,e){
             if($(e).attr("data-type") =='int'){
-                $(e).html(parseInt(data.data[$(e).attr('common_data')]/10000));
+                $(e).html(Math.round(data.data[$(e).attr('common_data')]/10000));
             }else{
                 $(e).html(data.data[$(e).attr('common_data')]);
             }
@@ -15,7 +15,7 @@ sendPostRequestByJsonObj(detail.queryHeaderStatCommon,{"type":2},function(data){
     if(data['success']){
         $("[common_data_add]").each(function(i,e){
             if($(e).attr("data-type") =='int'){
-                $(e).html(parseInt(data.data[$(e).attr('common_data_add')]/10000));
+                $(e).html(Math.round(data.data[$(e).attr('common_data_add')]/10000));
             }else{
                 $(e).html(data.data[$(e).attr('common_data_add')]);
             }
