@@ -214,7 +214,7 @@ function com_area(year){
             coordinateSystem: 'geo',
             data: convertedData[0],
             symbolSize: function(val) {
-                return Math.max(val[2]/kd*2.18,8);
+                return Math.max(val[2]/kd*4,8);
             },
             showEffectOn: 'render',
             rippleEffect: {
