@@ -664,6 +664,8 @@ function showEcharts(echarts_flag,lang){
     			}
     			json['type'] = 'line'
     			json['symbol'] = 'circle'
+
+    				json['symbolSize']=8,
     			json['smooth'] = true
     			y_data.push(json)
     		}
