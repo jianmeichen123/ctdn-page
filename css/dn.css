@@ -443,7 +443,7 @@ input::-ms-clear, input::-ms-reveal {
 .commerce_click>span:hover{color:#2393f7; cursor:pointer;}
 .commerce_tit_r{float:right; margin-bottom:17px;}
 .commerce_tit_r>ul>li{float:left; margin-right:30px;}
-.commerce_tit_r>ul>li select{height:36px ; border:1px solid #e6e6e6; outline: none; background-color:#f5f5f5; color:#333333; line-height:36px; padding-left:20px; padding-right:20px; border-radius:5px; }
+.commerce_tit_r>ul>li select{height:36px ; border:1px solid #e6e6e6; outline: none; background-color:#f5f5f5; color:#333333; line-height:36px;   min-width: 110px; border-radius:5px; }
 .commerce_tit_r>ul>li select:focus{outline-color:#e6e6e6}
 .commerce_tit_r>ul>li select  option{ padding:5px; height: 26px;} 
 .background_boeder_commerce{background-color: #fff;     overflow: hidden;   position: relative; border: 1px solid #f0f0f0;  border-radius: 5px; padding-bottom:30px;   padding-top: 24px;}
