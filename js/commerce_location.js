@@ -1,4 +1,8 @@
+commerce_location()
 $(window).scroll(function(){
+	commerce_location()
+});
+function commerce_location(){
 	var trade_top = $('.trade_tit_bg').offset().top;
 	var scrollTop=$(window).scrollTop();
 	if(scrollTop>trade_top){
@@ -27,7 +31,7 @@ $(window).scroll(function(){
 	}else{
 		$('.trade_tit_bg').removeClass('trade_tit_bg_fixed');
 	}
-});
+}
 function location_on(obj,scrollTop){
 	for(var i=0; i<obj.length; i++){
 		var j =i+1;
