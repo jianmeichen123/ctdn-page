@@ -105,7 +105,7 @@ var org_chart= {
 							value.arr = orgArr
 						}
 						if(i == 'orgNum'){
-							var rate = (parseInt(value[i])/orgNum_max)*412
+							var rate = (parseInt(value[i])/orgNum_max)*400
 							value.rate=parseInt(rate)
 						}
 					}
@@ -145,7 +145,7 @@ var org_chart= {
 							value.arr = orgArr
 						}
 						if(i == 'orgNum'){
-							var rate = (parseInt(value[i])/orgNum_max)*412
+							var rate = (parseInt(value[i])/orgNum_max)*400
 							value.rate=parseInt(rate)
 						}
 					}
