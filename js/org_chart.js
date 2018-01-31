@@ -486,6 +486,9 @@ var  option = {
 	    },
 	    animationDuration: 3000,
 	    animationEasingUpdate: 'quinticInOut',
+	    formatter:function(params){//悬浮提示框显示的内容
+            	return params.data.name;
+         },
 	    series: [{
 	        type: 'graph',
 	        layout: 'force',
