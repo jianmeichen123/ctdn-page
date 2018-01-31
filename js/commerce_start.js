@@ -756,7 +756,7 @@ var option_four = {
 	            data:myChart_four_data["investedNum"]
 	        },
 	        {
-	            name:'本年度获投率',
+	            name:'2017年获投率',
 	            type:'line',
                 symbolSize:10,
 	            symbol:'circle',
@@ -764,7 +764,7 @@ var option_four = {
 	            data:myChart_four_data["investedRate"]
 	        },
 	        {
-	            name:'上一年度获投率',
+	            name:'2016年获投率',
 	            type:'line',
                 symbolSize:10,
 	            symbol:'circle',
