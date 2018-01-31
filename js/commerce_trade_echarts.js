@@ -754,7 +754,11 @@ function showEcharts(echarts_flag,lang){
            if(val[2]==0){
                 return 0
            }else{
-                return Math.round(8 + val[2] * 50 / maxTotalCount);
+                if(maxTotalCount>50){
+                    return Math.round(8 + val[2] * 50 / maxTotalCount);
+                }else{
+                    return val[2]
+                }
            }
         }
         myChart_five.setOption(option_five,false);

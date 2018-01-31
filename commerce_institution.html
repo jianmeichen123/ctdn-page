@@ -113,7 +113,12 @@
 										<td><div class="commerce_table_on table_color${v.rank}">${v.rank}</div>
 										
 						<div class="commerce_table_name">{{if v.industryType == 1}}${v.industryName}{{else}}${v.industrySubName}{{/if}}</div></td>
-										<td><div class="commerce_table_width table_color${v.rank}" style="width:${v.rate}px"></div></td>
+										<td>
+											<div>
+												<div class="commerce_table_width table_color${v.rank}" style="width:${v.rate}px;float:left;" ></div>
+												<div style="float:left;margin-left:12px;">${v.orgNum}</div>											
+</div>										 </div>
+										</td>
 									<td>
 									<ul class="commerce_table_ul">
 										{{each(j,w) v.arr}}
@@ -169,7 +174,7 @@
 								{{each(i,v) data}}
 									<tr>
 										<td><div class="commerce_table_on table_2color${v.rank}">${v.rank}</div><div class="commerce_table_name">${v.roundName}</div></td>
-										<td><div class="commerce_table_width table_2color${v.rank}" style="width:${v.rate}px"></div></td>
+										<td><div><div class="commerce_table_width table_2color${v.rank}" style="width:${v.rate}px;float:left;"></div><div style="float:left;margin-left:12px;">${v.orgNum}</div></div></td>
 									<td>
 									<ul class="commerce_table_ul">
 										{{each(j,w) v.arr}}

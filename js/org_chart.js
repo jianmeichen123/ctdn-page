@@ -105,7 +105,7 @@ var org_chart= {
 							value.arr = orgArr
 						}
 						if(i == 'orgNum'){
-							var rate = (parseInt(value[i])/orgNum_max)*412
+							var rate = (parseInt(value[i])/orgNum_max)*400
 							value.rate=parseInt(rate)
 						}
 					}
@@ -145,7 +145,7 @@ var org_chart= {
 							value.arr = orgArr
 						}
 						if(i == 'orgNum'){
-							var rate = (parseInt(value[i])/orgNum_max)*412
+							var rate = (parseInt(value[i])/orgNum_max)*400
 							value.rate=parseInt(rate)
 						}
 					}
@@ -486,6 +486,9 @@ var  option = {
 	    },
 	    animationDuration: 3000,
 	    animationEasingUpdate: 'quinticInOut',
+	    formatter:function(params){//悬浮提示框显示的内容
+            	return params.data.name;
+         },
 	    series: [{
 	        type: 'graph',
 	        layout: 'force',
