@@ -892,18 +892,21 @@ var option_three = {
 	            name:roundName[0],
 	            type:'line',
 	            symbol:'circle',
+				symbolSize:10,
 	            data:stageOne
 	        },
 	        {
 	            name:roundName[1],
 	            type:'line',
 	            symbol:'circle',
+				symbolSize:10,
 	            data:stageTwo
 	        },
 	        {
 	            name:roundName[2],
 	            type:'line',
 	            symbol:'circle',
+				symbolSize:10,
 	            data:stageThree
 	        }
 	    ]
