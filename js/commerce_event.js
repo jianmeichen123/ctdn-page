@@ -476,6 +476,15 @@ var myChart_two = echarts.init(document.getElementById('commerce_two'));
 var option_two = {
 	    tooltip: {
 	    	 trigger: 'item',
+            formatter:function(params){
+                    if(params.seriesName.indexOf("笔数")>-1){
+                        return params.name+"<br/>"+ params.seriesName+"："+params.value+"笔";
+                    }
+                     if(params.seriesName.indexOf("金额")>-1){
+                       return params.name+"<br/>"+ params.seriesName+"："+params.value+"万元";
+                    }
+
+            },
 	         axisPointer : {            // 坐标轴指示器，坐标轴触发有效
 	             type : 'none'        // 默认为直线，可选为：'line' | 'shadow'
 	         }
@@ -649,7 +658,7 @@ var option_two = {
 	        {
 	            name:'获投笔数',
 	            type:'line',
-
+                symbolSize:10,
 	            symbol:'circle',
 	            yAxisIndex: 1,
 	            data:numData
@@ -883,18 +892,21 @@ var option_three = {
 	            name:roundName[0],
 	            type:'line',
 	            symbol:'circle',
+				symbolSize:10,
 	            data:stageOne
 	        },
 	        {
 	            name:roundName[1],
 	            type:'line',
 	            symbol:'circle',
+				symbolSize:10,
 	            data:stageTwo
 	        },
 	        {
 	            name:roundName[2],
 	            type:'line',
 	            symbol:'circle',
+				symbolSize:10,
 	            data:stageThree
 	        }
 	    ]
