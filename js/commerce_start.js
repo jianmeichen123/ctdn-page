@@ -214,7 +214,7 @@ function com_area(year){
             coordinateSystem: 'geo',
             data: convertedData[0],
             symbolSize: function(val) {
-                return Math.max(val[2]/kd*2.18,8);
+                return Math.max(val[2]/kd*4,8);
             },
             showEffectOn: 'render',
             rippleEffect: {
@@ -596,7 +596,7 @@ var option_four = {
 	        containLabel: true
 	    },
 	    legend: {
-	        data:['未获投公司数','获投公司数','本年度获投率','上一年度获投率'],
+	        data:['未获投公司数','获投公司数','2017年获投率','2016年获投率'],
 	        right:40,
 	        itemGap: 30,
 	        bottom: 60,
@@ -756,7 +756,7 @@ var option_four = {
 	            data:myChart_four_data["investedNum"]
 	        },
 	        {
-	            name:'本年度获投率',
+	            name:'2017年获投率',
 	            type:'line',
                 symbolSize:10,
 	            symbol:'circle',
@@ -764,7 +764,7 @@ var option_four = {
 	            data:myChart_four_data["investedRate"]
 	        },
 	        {
-	            name:'上一年度获投率',
+	            name:'2016年获投率',
 	            type:'line',
                 symbolSize:10,
 	            symbol:'circle',
