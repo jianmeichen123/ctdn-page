@@ -33,7 +33,7 @@ function querytotalheader(){
 		if(data.data){
             $("#projectNum_total").text(data.data.projectNum)
             $("#investedProjNum_total").text(data.data.investedProjNum)
-            $("#eventNum_total").text(data.data.eventNum)
+            $("#eventNum_total").text(data.data.invstedNum)
             $("#amount_total").text(Math.round(data.data.amount/10000))
 		}else{
 		    $("#projectNum_total").text(0)
@@ -48,7 +48,7 @@ function querycurmontheader(){
 		if(data.data){
 		    $("#projectNum_curmonth").text(data.data.projectNum)
 		    $("#investedProjNum_curmonth").text(data.data.investedProjNum)
-		    $("#eventNum_curmonth").text(data.data.eventNum)
+		    $("#eventNum_curmonth").text(data.data.invstedNum)
 		    $("#amount_curmonth").text(Math.round(data.data.amount/10000))
 		}
 	})
@@ -754,11 +754,7 @@ function showEcharts(echarts_flag,lang){
            if(val[2]==0){
                 return 0
            }else{
-                if(maxTotalCount>50){
-                    return Math.round(8 + val[2] * 50 / maxTotalCount);
-                }else{
-                    return val[2]
-                }
+               return Math.round(8 + val[2] * 50 / maxTotalCount);
            }
         }
         myChart_five.setOption(option_five,false);
