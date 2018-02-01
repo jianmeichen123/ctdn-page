@@ -750,7 +750,7 @@ function showEcharts(echarts_flag,lang){
         });
         option_five.series[0].data= data;
         option_five.series[0].symbolSize=function (val) {
-            // 根据最大的交易量值 来控制气泡半径  （最小 3  最大 40）
+           //根据最大的交易量值 来控制气泡半径  （最小 3  最大 40）
            if(val[2]==0){
                 return 0
            }else{
