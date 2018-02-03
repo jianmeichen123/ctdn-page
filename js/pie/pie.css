@@ -16,7 +16,6 @@
 	margin-left:auto;
 	margin-right:auto;
 }
-
 .pie strong{
 	position: absolute;
 	width: 100%;
@@ -45,10 +44,11 @@
 }
 .pie>.div_1{
 	background-color: inherit;
-	z-index: -2;transform: rotate(0.5turn)
+	z-index: -2;
 }
 .pie>.div_2{
 	height:110%;
 	opacity: 0;
 	z-index: -1;
+	background-color: #d790f8;
 }
