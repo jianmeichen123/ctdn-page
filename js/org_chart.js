@@ -269,7 +269,6 @@ var org_chart= {
 				}else{
 					org_chart.loadProjOrgPartner(data.data.orgCode)
 					$('.partner_div').show()
-					$('.compete_div').show()
 				}
 			}else{
 				
@@ -452,6 +451,7 @@ var org_chart= {
 				$("#compete_tbody").html("");
 				$("#compete_tbody_script").tmpl(data).appendTo($("#compete_tbody"))
 				pie1.init();
+				$('.compete_div').show()
 			}else{
 				
 			}
