@@ -258,7 +258,8 @@ var org_chart= {
 				"timeType":timeType,
 				"industryType":industryType,
 				"industryId":id,
-				"orgCode":orgCode
+				"orgCode":orgCode,
+				"industryName":$('#industry ul').find('.trade_list_on').first().text()
 			}
 		sendPostRequestByJsonObjInOrgChart(detail.getOrgPartnerAndCompeteCount,json,function(data){
 			if(data.success){
@@ -353,7 +354,6 @@ var org_chart= {
 								arr.push(json)
 							}
 							value.orgList = arr
-							console.log(arr)
 						}
 					}
 				})
@@ -365,6 +365,13 @@ var org_chart= {
 				
 			}
 		})
+		
+		json = {
+				"timeType":timeType,
+				"industryId":id,
+				"orgCode":orgCode,
+				"industryName":$('#industry ul').find('.trade_list_on').first().text()
+			}
 		//jingzheng
 		sendPostRequestByJsonObjInOrgChart(detail.orgCompete,json,function(data){
 			if(data.success){
@@ -433,9 +440,9 @@ var org_chart= {
 								json['orgEventNum'] = orgEventNum
 								json['competeOrgEventNum'] = competeOrgEventNum
 								arr.push(json)
-								console.log(json)
 							}
 							value.orgList = arr
+							console.log(arr)
 							
 						}
 					}
