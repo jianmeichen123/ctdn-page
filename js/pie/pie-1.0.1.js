@@ -14,7 +14,7 @@ var Pie = function(args){
 
 	function _append(me,percent){
 		var divs = '<div class="div_1"></div><div class="div_2"></div>';
-		//var num = '<strong>'+(percent * 100).toFixed() + '%</strong>';
+		var num = '<strong></strong>';
 		var content = '';
 		var ringStyle = '';
 		if (isRing) {
@@ -30,7 +30,7 @@ var Pie = function(args){
 			num = '';
 		}
 
-		content =   divs + '<span '+ringStyle+'></span>';
+		content =  num + divs + '<span '+ringStyle+'></span>';
 		$(me).html(content);
 
 		if(color){
