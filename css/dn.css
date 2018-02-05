@@ -177,12 +177,12 @@ ul,ol,dl,dt,dd,p,img{ display:block; border:0;list-style:none; }
 .pc-banner .prev_L{    right: 50%;
     width: 700px;
     background-color: #000;
-    margin-left: -390px; z-index:9999;
+    margin-left: -390px; z-index:99;
     height: 360px;}
 .pc-banner .next_R{    left: 50%;
     width: 700px;
     background-color: #000;
-    margin-left: 390px;
+    margin-left: 390px;z-index:99;
     height: 360px;}
 
 
@@ -246,7 +246,7 @@ ul,ol,dl,dt,dd,p,img{ display:block; border:0;list-style:none; }
 .index_institution_name a{color:#333;    text-align: center; display: inherit;}
 .index_institution_num{text-align: center;}
 .index_institution_num span{font-size:18px;}
-.index_trade{height:38px; width:155px; background-color:#fff; z-index:9988; position:absolute;  top:18px;  right: 1px;}
+.index_trade{height:38px; width:155px; background-color:#fff; z-index:888; position:absolute;  top:18px;  right: 1px;}
 .index_trade_c{height:36px; width:114px; text-align:center; cursor:pointer;   margin-left: 22px; border-radius:4px; line-height:36px;background-color:#2393f7; color:#fff;}
 .dn_ico_tradex{background-position: -136px -154px; width: 9px;  height: 6px; margin-left:10px;  display: inline-block; }
 /*行业弹出*/
